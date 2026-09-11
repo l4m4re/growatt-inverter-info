@@ -299,7 +299,7 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | H | 3167 | Us Tou Slot Table | register value | — | R/W | source_only |
 | H | 3168 | Us Tou Slot Table | register value | — | R/W | source_only |
 | H | 3169 | Us Tou Slot Table | register value | — | R/W | source_only |
-| H | 3170 | Us Tou Slot Table | register value | — | R/W | resolved_with_notes |
+| H | 3170 | Us Tou Slot Table | register value | — | R/W | resolved |
 | H | 3171 | Us Tou Slot Table | register value | — | R/W | source_only |
 | H | 3172 | Us Tou Slot Table | register value | — | R/W | source_only |
 | H | 3173 | Us Tou Slot Table | register value | — | R/W | source_only |
@@ -625,7 +625,7 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | I | 3098 | P-bus voltage | register value | V | R | resolved_with_notes |
 | I | 3099 | N-bus voltage | register value | V | R | resolved_with_notes |
 | I | 3100 | Inverter output power factor | register value | — | R | resolved_with_notes |
-| I | 3101 | Output power percentage | register value | % | R | resolved_with_notes |
+| I | 3101 | Output power percentage | register value | % | R | resolved |
 | I | 3102 | Output max power limit (high word) | register value | W | R | resolved_with_notes |
 | I | 3103 | Output max power limit (low word) | register value | W | R | resolved_with_notes |
 | I | 3104 | Standby flags | u16 vendor-defined bitfield | — | R | source_only |
@@ -694,7 +694,7 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | I | 3167 | BDC fault code | u16 vendor-defined fault code | — | R | resolved_with_notes |
 | I | 3168 | BDC warning code | u16 vendor-defined warning code | — | R | resolved_with_notes |
 | I | 3169 | Battery voltage | u16 / 100 | V | R | resolved_with_notes |
-| I | 3170 | Battery current | s16 / 10 | A | R | resolved_with_notes |
+| I | 3170 | Battery current | u16 / 10 | A | R | resolved |
 | I | 3171 | Battery state of charge | u16 percentage | % | R | resolved_with_notes |
 | I | 3172 | VBUS1 voltage | u16 / 10 | V | R | resolved_with_notes |
 | I | 3173 | VBUS2 voltage | u16 / 10 | V | R | resolved_with_notes |
@@ -4248,7 +4248,7 @@ Logical field: `none`; component role: `complete_value`.
 Vendor names: Time21（us）; vendor description: SameasTime1 （us）; vendor unit/type: — / register value.
 Normalized type/signedness/scale: `register value` / `None` / `—`.
 Applicability: family-level; relationships: alternate:min_tl_xh:holding:3137, alternate:min_tl_xh:holding:3138, alternate:min_tl_xh:holding:3139, alternate:min_tl_xh:holding:3140, alternate:min_tl_xh:holding:3141, alternate:min_tl_xh:holding:3142, alternate:min_tl_xh:holding:3143, alternate:min_tl_xh:holding:3144, alternate:min_tl_xh:holding:3145, alternate:min_tl_xh:holding:3146, alternate:min_tl_xh:holding:3147, alternate:min_tl_xh:holding:3148, alternate:min_tl_xh:holding:3149, alternate:min_tl_xh:holding:3150, alternate:min_tl_xh:holding:3151, alternate:min_tl_xh:holding:3152, alternate:min_tl_xh:holding:3153, alternate:min_tl_xh:holding:3154, alternate:min_tl_xh:holding:3155, alternate:min_tl_xh:holding:3156, alternate:min_tl_xh:holding:3157, alternate:min_tl_xh:holding:3158, alternate:min_tl_xh:holding:3159, alternate:min_tl_xh:holding:3160, alternate:min_tl_xh:holding:3161, alternate:min_tl_xh:holding:3162, alternate:min_tl_xh:holding:3163, alternate:min_tl_xh:holding:3164, alternate:min_tl_xh:holding:3165, alternate:min_tl_xh:holding:3166, alternate:min_tl_xh:holding:3167, alternate:min_tl_xh:holding:3168, alternate:min_tl_xh:holding:3169, alternate:min_tl_xh:holding:3171, alternate:min_tl_xh:holding:3172, alternate:min_tl_xh:holding:3173, alternate:min_tl_xh:holding:3174, alternate:min_tl_xh:holding:3175, alternate:min_tl_xh:holding:3176, alternate:min_tl_xh:holding:3177, alternate:min_tl_xh:holding:3178, alternate:min_tl_xh:holding:3179, alternate:min_tl_xh:holding:3180, alternate:min_tl_xh:holding:3181, alternate:min_tl_xh:holding:3182, alternate:min_tl_xh:holding:3183, alternate:min_tl_xh:holding:3184, alternate:min_tl_xh:holding:3185, alternate:min_tl_xh:holding:3186, alternate:min_tl_xh:holding:3187, alternate:min_tl_xh:holding:3188, alternate:min_tl_xh:holding:3189, alternate:min_tl_xh:holding:3190, alternate:min_tl_xh:holding:3191, alternate:min_tl_xh:holding:3192, alternate:min_tl_xh:holding:3193, alternate:min_tl_xh:holding:3194, alternate:min_tl_xh:holding:3195, alternate:min_tl_xh:holding:3196, alternate:min_tl_xh:holding:3197, alternate:min_tl_xh:holding:3198, alternate:min_tl_xh:holding:3199, alternate:min_tl_xh:holding:3200.
-Evidence: source_documented; resolution: `resolved_with_notes`; write policy: `unknown_write_risk`; native blocks: none.
+Evidence: source_documented; resolution: `resolved`; write policy: `unknown_write_risk`; native blocks: none.
 
 
 ### holding 3171 — Us Tou Slot Table
@@ -7836,9 +7836,9 @@ Physical identity: `min_tl_xh:input:3101`.
 Semantic: `telemetry.output_power_percentage`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
 Vendor names: RealOPPercent; vendor description: RealOutputpowerPercent; vendor unit/type: % / register value.
-Normalized type/signedness/scale: `register value` / `True` / `1`.
+Normalized type/signedness/scale: `register value` / `False` / `1`.
 Applicability: family-level; relationships: alternate:min_tl_xh:input:101.
-Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
+Evidence: source_documented, implementation_correlated; resolution: `resolved`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
 
 ### input 3102 — Output max power limit (high word)

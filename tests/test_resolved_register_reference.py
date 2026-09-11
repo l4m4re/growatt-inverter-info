@@ -19,17 +19,21 @@ def test_resolved_reference_is_valid_and_reproducible() -> None:
     validate_generated_files()
 
 
-def test_min_table_identity_and_signed_bms_current() -> None:
-    """MIN table identity and HA-5 signed BMS current remain explicit."""
+def test_min_table_identity_and_current_signedness() -> None:
+    """MIN table identity distinguishes BDC magnitude from signed BMS current."""
     reference = json.loads((REPO / "knowledge/compatibility/growatt-register-reference.json").read_text())
     records = {record["id"]: record for record in reference["records"]}
 
     holding_3081 = records["register:min_tl_xh:holding:3081"]
     input_3081 = records["register:min_tl_xh:input:3081"]
+    output_percent = records["register:min_tl_xh:input:3101"]
+    bdc_current = records["register:min_tl_xh:input:3170"]
     bms_current = records["register:min_tl_xh:input:3217"]
 
     assert holding_3081["canonical_name"] == "UPS/EPS frequency selection"
     assert input_3081["canonical_name"] == "PV4 energy total"
+    assert output_percent["signed"] is False
+    assert bdc_current["signed"] is False
     assert bms_current["signed"] is True
     assert bms_current["divisor"] == 100
     assert bms_current["unit"] == "A"
@@ -91,10 +95,17 @@ def test_runtime_audit_preserves_findings_without_hiding_fixed_defects() -> None
 
     assert audit["status"] == "issues_found"
     assert audit["finding_count"] == len(audit["findings"])
+    assert not any(
+        finding["family"] == "min_tl_xh"
+        and finding["table"] == "input"
+        and finding["address"] in {3101, 3170}
+        and finding["mismatch_classification"] == "SIGNEDNESS_MISMATCH"
+        for finding in audit["findings"]
+    )
     assert any(
         finding["family"] == "min_tl_xh"
         and finding["table"] == "input"
-        and finding["address"] == 3170
+        and finding["address"] == 3001
         and any(issue["kind"] == "signedness_mismatch" for issue in finding["issues"])
         for finding in audit["findings"]
     )

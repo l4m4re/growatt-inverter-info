@@ -5117,8 +5117,8 @@ This index preserves subsystem and instance distinctions; entries are not automa
 
 ## `telemetry.output_power_percentage`
 
-- `min_tl_xh` input 101 — unknown / unknown — `preferred`
-- `min_tl_xh` input 3101 — unknown / unknown — `alternate`
+- `min_tl_xh` input 101 — unknown / unknown — `alternate`
+- `min_tl_xh` input 3101 — unknown / unknown — `preferred`
 - `mod_tl3_xh` input 3101 — unknown / unknown — `supported`
 - `storage_mix` input 101 — unknown / unknown — `supported`
 - `storage_sph` input 101 — unknown / unknown — `supported`

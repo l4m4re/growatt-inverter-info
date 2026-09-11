@@ -142,9 +142,9 @@ def test_bms_and_storage_current_are_distinct_measurement_points() -> None:
     )
     assert storage["semantic_identity"]["subsystem"] == "storage_device"
     assert bms["semantic_identity"]["subsystem"] == "bms"
-    assert (
-        storage["normalized"]["signedness_status"]
-        == "implementation_correlated_not_live_sign_validated"
+    assert storage["normalized"]["signed"] is False
+    assert storage["normalized"]["signedness_status"] == (
+        "v4_history_validated_non_negative_magnitude"
     )
     assert (
         bms["normalized"]["signedness_status"] == "regression_and_live_value_validated"
@@ -196,9 +196,9 @@ def test_runtime_audit_reports_occurrences_and_unique_findings() -> None:
 
     assert audit["mapping_occurrences_checked"] == 274
     assert audit["unique_family_table_address_mappings"] == 206
-    assert audit["unique_family_table_address_issue_findings"] == 24
-    assert audit["finding_occurrences"] == 27
-    assert audit["unique_findings"] == 24
+    assert audit["unique_family_table_address_issue_findings"] == 22
+    assert audit["finding_occurrences"] == 24
+    assert audit["unique_findings"] == 22
     assert set(audit["finding_kinds"]) == {
         "length_mismatch",
         "signedness_mismatch",

@@ -803,10 +803,19 @@ def build() -> dict[str, Any]:
             and old["address"] == 3170
         ):
             normalized["signedness_status"] = (
-                "implementation_correlated_not_live_sign_validated"
+                "v4_history_validated_non_negative_magnitude"
             )
             normalized["signedness_note"] = (
-                "Retained live samples show plausible positive Ibat values but no negative raw I3170 sample; vendor/implementation evidence supports signed int16 without making the HA consumer authoritative."
+                "Growatt V4 bdc1_ibat is non-negative in 66 charge and 77 discharge records; I3170 is distinct from directional BMS current I3217."
+            )
+        elif (
+            old["family"] == "min_tl_xh"
+            and old["table"] == "input"
+            and old["address"] == 3101
+        ):
+            normalized["signedness_status"] = "v4_history_validated_non_negative"
+            normalized["signedness_note"] = (
+                "Growatt V4 real_op_percent was non-negative in all 145 retained history records, with an observed range of 0..43%."
             )
         elif (
             old["family"] == "min_tl_xh"
@@ -944,15 +953,10 @@ def build() -> dict[str, Any]:
         ]
         if record["family"] == "min_tl_xh" and record["address"] == 3170:
             record["resolution"] = {
-                "status": "resolved_with_notes",
-                "confidence": "medium",
-                "note": "Signed int16 is implementation-correlated and physically read, but the retained live samples do not contain a negative I3170 raw value; do not treat HA signed=True as proof.",
+                "status": "resolved",
+                "confidence": "high",
+                "note": "Growatt V4 bdc1_ibat is non-negative in 66 charge and 77 discharge records; I3170 is distinct from directional BMS current I3217.",
             }
-            record["evidence"] = [
-                item
-                for item in record["evidence"]
-                if item["level"] != "semantic_verified"
-            ]
         if (
             record["family"] == "min_tl_xh"
             and record["table"] == "input"

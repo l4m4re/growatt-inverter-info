@@ -533,13 +533,26 @@
     },
     {
       "table": "input",
+      "address": 3101,
+      "signed": false,
+      "disposition": "PROVEN",
+      "rationale": "I3101 is Growatt RealOPPercent, a non-negative output-power percentage. The reactivated V4 energy history returned real_op_percent in all 145 records within the 0..43% range and never returned a negative value.",
+      "live_observation": "Growatt V4 real_op_percent: 145 records, range 0..43%, negative records 0",
+      "source_basis": ["vendor_v124", "grott", "openinverter_gateway", "ha_runtime", "min_live_validation"],
+      "resolution_status": "resolved",
+      "confidence": "high"
+    },
+    {
+      "table": "input",
       "address": 3170,
-      "disposition": "UNCERTAIN",
-      "rationale": "I3170 is a storage-device battery-current field with implementation-correlated s16 /10 semantics, but retained live evidence contains no negative sample for this physical source. Do not collapse it with the independently validated BMS current at I3217.",
-      "live_observation": "retained live samples positive; signedness not live-validated",
+      "signed": false,
+      "encoding": "u16 / 10",
+      "disposition": "PROVEN",
+      "rationale": "I3170 is Growatt bdc1_ibat, the storage-device/BDC battery-current magnitude. HA-GII-4B found 66 charging and 77 discharging V4 records: BDC current was 0 negative / 3 zero / 63 positive during charge and 0 negative / 2 zero / 75 positive during discharge. I3217 remains the distinct directional BMS current.",
+      "live_observation": "Growatt V4 bdc1_ibat: 143 classified records, no negative values in charge or discharge",
       "source_basis": ["vendor_v124", "openinverter_gateway", "ha_runtime", "min_live_validation"],
-      "resolution_status": "resolved_with_notes",
-      "confidence": "medium"
+      "resolution_status": "resolved",
+      "confidence": "high"
     },
     {
       "table": "input",

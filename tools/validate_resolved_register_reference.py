@@ -186,17 +186,17 @@ def validate_contract(reference: dict) -> None:  # noqa: C901
     expected_audit_status = "consistent" if not findings else "issues_found"
     if runtime_audit.get("status") != expected_audit_status:
         fail("runtime consistency audit status is stale")
-    if not any(
+    if any(
         finding.get("family") == "min_tl_xh"
         and finding.get("table") == "input"
-        and finding.get("address") == 3170
+        and finding.get("address") in {3101, 3170}
         and any(
             issue.get("kind") == "signedness_mismatch"
             for issue in finding.get("issues", [])
         )
         for finding in findings
     ):
-        fail("MIN input 3170 runtime mismatch was not preserved as a derived audit finding")
+        fail("MIN input 3101/3170 signedness mismatch remains after canonical correction")
     if any(
         finding.get("family") == "min_tl_xh"
         and finding.get("table") == "input"
