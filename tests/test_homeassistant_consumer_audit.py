@@ -18,10 +18,6 @@ def test_effective_decoder_matches_runtime_float32_behavior() -> None:
     assert effective_decoder(
         {"value_type": "float", "length": 2, "signed": False, "scale": 10}
     ) == {"datatype": "s32", "signed": True, "scale": 10}
-    assert effective_decoder(
-        {"value_type": "float", "length": 2, "signed": False, "scale": 10},
-        "mapping_declared",
-    ) == {"datatype": "u32", "signed": False, "scale": 10}
 
 
 def test_warning_bitfield_flags_unsupported_two_word_mapping() -> None:

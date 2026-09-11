@@ -139,15 +139,12 @@ def sensor_descriptors(snapshot: dict[str, Any], device: str) -> dict[str, dict[
     return result
 
 
-def effective_decoder(
-    entry: dict[str, Any], decoder_behavior: str = "legacy"
-) -> dict[str, Any]:
+def effective_decoder(entry: dict[str, Any]) -> dict[str, Any]:
     value_type = entry["value_type"]
     length = entry["length"]
     signed = bool(entry.get("signed", False))
     if value_type == "float" and length == 2:
-        datatype = "s32" if decoder_behavior == "legacy" or signed else "u32"
-        return {"datatype": datatype, "signed": datatype == "s32", "scale": entry["scale"]}
+        return {"datatype": "s32", "signed": True, "scale": entry["scale"]}
     if value_type == "float":
         return {"datatype": "s16" if signed else "u16", "signed": signed, "scale": entry["scale"]}
     if value_type == "int":
@@ -218,9 +215,8 @@ def compare(
     canonical: dict[str, Any] | None,
     descriptor: dict[str, Any] | None,
     logical_fields: list[dict[str, Any]],
-    decoder_behavior: str = "legacy",
 ) -> dict[str, Any]:
-    ha_decoder = effective_decoder(mapping, decoder_behavior)
+    ha_decoder = effective_decoder(mapping)
     result: dict[str, Any] = {
         "canonical_physical_id": canonical["physical_id"] if canonical else f"{mapping['family']}:{mapping['table']}:{mapping['register']}",
         "table": mapping["table"],
@@ -318,12 +314,7 @@ def compare(
     return result
 
 
-def build_audit(
-    spec: dict[str, Any],
-    snapshot: dict[str, Any],
-    consumer_commit: str,
-    decoder_behavior: str = "legacy",
-) -> dict[str, Any]:
+def build_audit(spec: dict[str, Any], snapshot: dict[str, Any], consumer_commit: str) -> dict[str, Any]:
     records = {
         (record["family"], record["table"], record["address"]): record
         for record in spec["registers"]
@@ -333,15 +324,7 @@ def build_audit(
     for mapping in mappings:
         descriptor = sensor_descriptors(snapshot, mapping["device"]).get(mapping["name"])
         canonical = records.get((mapping["family"], mapping["table"], mapping["register"]))
-        comparisons.append(
-            compare(
-                mapping,
-                canonical,
-                descriptor,
-                spec["logical_fields"],
-                decoder_behavior,
-            )
-        )
+        comparisons.append(compare(mapping, canonical, descriptor, spec["logical_fields"]))
 
     by_physical: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for item in comparisons:
@@ -402,7 +385,6 @@ def build_audit(
         "audit": "HA-GII-1 read-side reconciliation",
         "canonical": {"spec": "spec/growatt-register-spec.json", "commit": spec["specification"].get("source_commit", "4296c596091bc118c953c69c39b8d625107fb083")},
         "consumer": {"source": snapshot.get("source"), "commit": consumer_commit},
-        "decoder_behavior": decoder_behavior,
         "scope": {
             "families": ["min_tl_xh", "storage_mix"],
             "tables": ["holding", "input"],
@@ -436,19 +418,11 @@ def main() -> None:
     parser.add_argument("--spec", type=Path, default=DEFAULT_SPEC)
     parser.add_argument("--ha-snapshot", type=Path, required=True)
     parser.add_argument("--consumer-commit", required=True)
-    parser.add_argument(
-        "--decoder-behavior",
-        choices=("legacy", "mapping_declared"),
-        default="legacy",
-        help="Model the historical or mapping-declared two-word decoder.",
-    )
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     spec = json.loads(args.spec.read_text(encoding="utf-8"))
     snapshot = json.loads(args.ha_snapshot.read_text(encoding="utf-8"))
-    result = build_audit(
-        spec, snapshot, args.consumer_commit, args.decoder_behavior
-    )
+    result = build_audit(spec, snapshot, args.consumer_commit)
     args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(json.dumps(result["summary"], indent=2, sort_keys=True))
 
