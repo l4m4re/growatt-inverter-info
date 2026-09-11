@@ -14,8 +14,8 @@ mapping.
 | Item | Value |
 | --- | --- |
 | Starting SHA | `dd0e3f9` (`Merge Shine-assisted MIN register completion evidence`) |
-| Implementation SHA | recorded by the implementation commit containing this report |
-| Final/remote SHA | recorded after the report commit is pushed |
+| Implementation SHA | `9823800` |
+| Final/remote SHA | `9823800` (canonical implementation commit; branch publication tip is reported in the handoff) |
 | Branch | `fix/gii-min-signedness-20260911` |
 
 ## Exact canonical changes
