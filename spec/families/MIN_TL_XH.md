@@ -166,29 +166,29 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | H | 3034 | Charge high temperature limit | register value | 0.1℃ | R/W | source_only |
 | H | 3035 | Under-frequency discharge delay | register value | 50ms | R/W | source_only |
 | H | 3036 | Grid-first discharge power rate | u16 percentage; 255 disables limit | % | R/W | resolved |
-| H | 3037 | Grid-first stop SOC | u16 | % | R/W | resolved |
-| H | 3038 | Grid-first schedule 1 start/control | packed minute/hour/priority/enable | — | R/W | source_only |
-| H | 3039 | Grid-first schedule 1 end | packed minute/hour | — | R/W | source_only |
-| H | 3040 | Grid-first schedule 2 start/control | packed minute/hour/priority/enable | — | R/W | source_only |
-| H | 3041 | Grid-first schedule 2 end | packed minute/hour | W | R/W | source_only |
-| H | 3042 | Grid-first schedule 3 start/control | packed minute/hour/priority/enable | W | R/W | source_only |
-| H | 3043 | Grid-first schedule 3 end | packed minute/hour | W | R/W | source_only |
-| H | 3044 | Grid-first schedule 4 start/control | packed minute/hour/priority/enable | W | R/W | source_only |
-| H | 3045 | Grid-first schedule 4 end | packed minute/hour | W | R/W | source_only |
+| H | 3037 | Grid-first stop SOC | u16 percentage | % | R/W | resolved |
+| H | 3038 | Grid-first schedule 1 start/control | packed u16: minute/hour/priority/enable | — | R/W | resolved |
+| H | 3039 | Grid-first schedule 1 end | packed u16: minute/hour | — | R/W | resolved |
+| H | 3040 | Grid-first schedule 2 start/control | packed u16: minute/hour/priority/enable | — | R/W | resolved |
+| H | 3041 | Grid-first schedule 2 end | packed u16: minute/hour | — | R/W | resolved |
+| H | 3042 | Grid-first schedule 3 start/control | packed u16: minute/hour/priority/enable | — | R/W | resolved |
+| H | 3043 | Grid-first schedule 3 end | packed u16: minute/hour | — | R/W | resolved |
+| H | 3044 | Grid-first schedule 4 start/control | packed u16: minute/hour/priority/enable | — | R/W | resolved |
+| H | 3045 | Grid-first schedule 4 end | packed u16: minute/hour | — | R/W | resolved |
 | H | 3046 | Reserved | u16 raw | W | R | unknown_reserved |
-| H | 3047 | Battery-first charge power rate | u16 percentage | % | R/W | resolved_with_notes |
-| H | 3048 | Battery-first stop SOC | u16 | % | R/W | resolved_with_notes |
-| H | 3049 | AC charging enabled | u16 enum 0=disabled, 1=enabled | — | R/W | resolved_with_notes |
-| H | 3050 | Battery-first schedule 1 start/control | packed minute/hour/priority/enable | — | R/W | source_only |
-| H | 3051 | Battery-first schedule 1 end | packed minute/hour | kWh | R/W | source_only |
-| H | 3052 | Battery-first schedule 2 start/control | packed minute/hour/priority/enable | kWh | R/W | source_only |
-| H | 3053 | Battery-first schedule 2 end | packed minute/hour | kWh | R/W | source_only |
-| H | 3054 | Battery-first schedule 3 start/control | packed minute/hour/priority/enable | kWh | R/W | source_only |
-| H | 3055 | Battery-first schedule 3 end | packed minute/hour | kWh | R/W | source_only |
-| H | 3056 | Battery-first schedule 4 start/control | packed minute/hour/priority/enable | kWh | R/W | source_only |
-| H | 3057 | Battery-first schedule 4 end | packed minute/hour | kWh | R/W | source_only |
-| H | 3058 | Battery-first schedule 5 start/control | packed minute/hour/priority/enable | kWh | R/W | source_only |
-| H | 3059 | Battery-first schedule 5 end | packed minute/hour | kWh | R/W | source_only |
+| H | 3047 | Battery-first charge power rate | u16 percentage | % | R/W | resolved |
+| H | 3048 | Battery-first stop SOC | u16 percentage | % | R/W | resolved |
+| H | 3049 | AC charging enabled | u16 enum 0=disabled, 1=enabled | — | R/W | resolved |
+| H | 3050 | Battery-first schedule 1 start/control | packed u16: minute/hour/priority/enable | — | R/W | resolved |
+| H | 3051 | Battery-first schedule 1 end | packed u16: minute/hour | — | R/W | resolved |
+| H | 3052 | Battery-first schedule 2 start/control | packed u16: minute/hour/priority/enable | — | R/W | resolved |
+| H | 3053 | Battery-first schedule 2 end | packed u16: minute/hour | — | R/W | resolved |
+| H | 3054 | Battery-first schedule 3 start/control | packed u16: minute/hour/priority/enable | — | R/W | resolved |
+| H | 3055 | Battery-first schedule 3 end | packed u16: minute/hour | — | R/W | resolved |
+| H | 3056 | Battery-first schedule 4 start/control | packed u16: minute/hour/priority/enable | — | R/W | resolved |
+| H | 3057 | Battery-first schedule 4 end | packed u16: minute/hour | — | R/W | resolved |
+| H | 3058 | Battery-first schedule 5 start/control | packed u16: minute/hour/priority/enable | — | R/W | resolved |
+| H | 3059 | Battery-first schedule 5 end | packed u16: minute/hour | — | R/W | resolved |
 | H | 3060 | Reserved | register value | kWh | R | unknown_reserved |
 | H | 3061 | Reserved | register value | kWh | R | unknown_reserved |
 | H | 3062 | Reserved | register value | kWh | R | unknown_reserved |
@@ -208,10 +208,10 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | H | 3076 | Reserved | register value | kWh | R | unknown_reserved |
 | H | 3077 | Reserved | register value | kWh | R | unknown_reserved |
 | H | 3078 | Reserved | register value | kWh | R | unknown_reserved |
-| H | 3079 | UPS/EPS function enable | u16 enum 0=disabled, 1=enabled | bool | R/W | source_only |
-| H | 3080 | UPS/EPS voltage selection | u16 enum 0=230 V, 1=208 V, 2=240 V | V | R/W | source_only |
-| H | 3081 | UPS/EPS frequency selection | u16 enum 0=50 Hz, 1=60 Hz | Hz | R/W | source_only |
-| H | 3082 | Load-first stop SOC | u16 percentage | % | R/W | source_only |
+| H | 3079 | UPS/EPS function enable | u16 enum 0=disabled, 1=enabled | — | R/W | resolved |
+| H | 3080 | UPS/EPS voltage selection | u16 enum 0=230 V, 1=208 V, 2=240 V | V | R/W | resolved |
+| H | 3081 | UPS/EPS frequency selection | u16 enum 0=50 Hz, 1=60 Hz | Hz | R/W | resolved |
+| H | 3082 | Load-first stop SOC | u16 percentage | % | R/W | resolved |
 | H | 3083 | Reserved | register value | kWh | R | unknown_reserved |
 | H | 3084 | Reserved | register value | kWh | R | unknown_reserved |
 | H | 3085 | Modbus slave address | register value | — | R/W | source_only |
@@ -517,8 +517,8 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | I | 101 | Output power percentage | register value | % | R | resolved_with_notes |
 | I | 104 | Derating mode | register value | — | R | resolved_with_notes |
 | I | 105 | Fault code | register value | — | R | resolved_with_notes |
-| I | 110 | Warning code | register value | — | R | source_only |
-| I | 111 | Warning code | register value | — | R | source_only |
+| I | 110 | Inverter warning bitfield high word | u16 vendor-defined warning bitfield | — | R | source_only |
+| I | 111 | Inverter warning subcode | u16 vendor-defined warning subcode | — | R | source_only |
 | I | 234 | Output reactive power (high word) | register value | var | R | source_only |
 | I | 235 | Output reactive power (low word) | register value | var | R | source_only |
 | I | 236 | Reactive energy total (high word) | register value | kvarh | R | source_only |
@@ -545,7 +545,7 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | I | 3018 | PV4 DC power (low word) | register value | W | R | resolved_with_notes |
 | I | 3019 | System output power (high word) | register value | W | R | resolved |
 | I | 3020 | System output power (low word) | register value | W | R | resolved |
-| I | 3021 | Output reactive power (high word) | register value | POWER_REACTIVE | R | resolved_with_notes |
+| I | 3021 | Output reactive power (high word) | s32 / 10 | var | R | resolved_with_notes |
 | I | 3022 | Output reactive power (low word) | register value | var | R | resolved_with_notes |
 | I | 3023 | AC output power | u32 / 10 | W | R | resolved_with_notes |
 | I | 3024 | AC output power | register value | W | R | resolved_with_notes |
@@ -595,10 +595,10 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | I | 3068 | Load energy today (low word) | register value | kWh | R | resolved_with_notes |
 | I | 3069 | Load energy total (high word) | register value | kWh | R | resolved_with_notes |
 | I | 3070 | Load energy total (low word) | register value | kWh | R | resolved_with_notes |
-| I | 3071 | Grid export power (high word) | register value | kWh | R | resolved_with_notes |
-| I | 3072 | Grid export power (low word) | register value | kWh | R | resolved_with_notes |
-| I | 3073 | Grid export power (high word) | register value | kWh | R | resolved_with_notes |
-| I | 3074 | Grid export power (low word) | register value | kWh | R | resolved_with_notes |
+| I | 3071 | Grid export energy today (high word) | u32 / 10 | kWh | R | resolved_with_notes |
+| I | 3072 | Grid export energy today (low word) | u32 / 10 | kWh | R | resolved_with_notes |
+| I | 3073 | Grid export energy total (high word) | u32 / 10 | kWh | R | resolved_with_notes |
+| I | 3074 | Grid export energy total (low word) | u32 / 10 | kWh | R | resolved_with_notes |
 | I | 3075 | User load energy today (high word) | register value | kWh | R | resolved_with_notes |
 | I | 3076 | User load energy today (low word) | register value | kWh | R | resolved_with_notes |
 | I | 3077 | User load energy total (high word) | register value | kWh | R | resolved_with_notes |
@@ -628,14 +628,14 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | I | 3101 | Output power percentage | register value | % | R | resolved_with_notes |
 | I | 3102 | Output max power limit (high word) | register value | W | R | resolved_with_notes |
 | I | 3103 | Output max power limit (low word) | register value | W | R | resolved_with_notes |
-| I | 3104 | Standby flags | register value | bit0:turn off Order； bit1:PVLow； bit2:AC Volt/Freq outofscope； bit3~bit7 ： Reserved | R | resolved |
+| I | 3104 | Standby flags | u16 vendor-defined bitfield | — | R | source_only |
 | I | 3105 | Fault code | register value | — | R | resolved_with_notes |
 | I | 3106 | Warning main code | register value | — | R | resolved_with_notes |
 | I | 3107 | Fault subcode | register value | — | R | resolved |
 | I | 3108 | Warning subcode | register value | — | R | resolved |
 | I | 3109 | Register 3109 | register value | — | R | unknown_reserved |
-| I | 3110 | Warning code | register value | — | R | resolved_with_notes |
-| I | 3111 | Warning code | register value | — | R | resolved_with_notes |
+| I | 3110 | Inverter warning bitfield | u16 vendor-defined warning bitfield | — | R | source_only |
+| I | 3111 | Present FFT value (vendor channel A) | u16 vendor-defined diagnostic value | — | R | source_only |
 | I | 3112 | AFCI status | register value | — | R | resolved_with_notes |
 | I | 3113 | AFCI strength (channel A) | register value | — | R | resolved |
 | I | 3114 | AFCI self-check (channel A) | register value | — | R | resolved |
@@ -688,16 +688,16 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | I | 3161 | BDC power factor | register value | pf | R | resolved |
 | I | 3162 | BDC DC voltage | register value | V | R | resolved |
 | I | 3163 | Reserved | register value | — | R | unknown_reserved |
-| I | 3164 | BDC presence flag | u16 flag | 0:Don'tneed 1：need | R | resolved_with_notes |
-| I | 3165 | BDC derating mode | register value | — | R | resolved_with_notes |
-| I | 3166 | BDC system mode | register value | — | R | resolved_with_notes |
-| I | 3167 | BDC fault code | register value | — | R | resolved_with_notes |
-| I | 3168 | BDC warning code | register value | — | R | resolved_with_notes |
+| I | 3164 | BDC data-separation flag | u16 enum 0=no separate BDC data, 1=separate BDC data | — | R | resolved_with_notes |
+| I | 3165 | BDC derating mode | u16 enum 0=normal, 1=standby/fault, 2=maximum discharge-current limit, 3=discharge enabled, 4=high-bus discharge derating | — | R | resolved_with_notes |
+| I | 3166 | BDC system mode and status | u16 packed: upper byte mode, lower byte status | — | R | resolved_with_notes |
+| I | 3167 | BDC fault code | u16 vendor-defined fault code | — | R | resolved_with_notes |
+| I | 3168 | BDC warning code | u16 vendor-defined warning code | — | R | resolved_with_notes |
 | I | 3169 | Battery voltage | u16 / 100 | V | R | resolved_with_notes |
 | I | 3170 | Battery current | s16 / 10 | A | R | resolved_with_notes |
 | I | 3171 | Battery state of charge | u16 percentage | % | R | resolved_with_notes |
-| I | 3172 | VBUS1 voltage | register value | A | R | resolved_with_notes |
-| I | 3173 | VBUS2 voltage | register value | A | R | resolved_with_notes |
+| I | 3172 | VBUS1 voltage | u16 / 10 | V | R | resolved_with_notes |
+| I | 3173 | VBUS2 voltage | u16 / 10 | V | R | resolved_with_notes |
 | I | 3174 | Buck/boost current | register value | A | R | resolved_with_notes |
 | I | 3175 | LLC stage current | register value | A | R | resolved_with_notes |
 | I | 3176 | Battery temperature A | register value | °C | R | resolved_with_notes |
@@ -715,17 +715,17 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | I | 3188 | VBUS2 low voltage | register value | V | R | resolved |
 | I | 3189 | BMS max cell index | register value | — | R | resolved_with_notes |
 | I | 3190 | BMS min cell index | register value | — | R | resolved_with_notes |
-| I | 3191 | BMS average temperature A | register value | °C | R | resolved_with_notes |
+| I | 3191 | BMS average temperature (vendor channel A) | u16 temperature; scale not specified by vendor | °C | R | source_only |
 | I | 3192 | BMS max cell temperature A | register value | °C | R | resolved_with_notes |
 | I | 3193 | BMS average temperature B | register value | °C | R | resolved_with_notes |
-| I | 3194 | BMS max cell temperature B | register value | °C | R | resolved_with_notes |
-| I | 3195 | BMS average temperature C | register value | °C | R | resolved_with_notes |
-| I | 3196 | Battery state of charge | register value | % | R | resolved_with_notes |
-| I | 3197 | Battery state of charge | register value | % | R | resolved_with_notes |
+| I | 3194 | BMS maximum cell temperature (vendor channel B) | u16 temperature; scale not specified by vendor | °C | R | source_only |
+| I | 3195 | BMS average temperature (vendor channel C) | u16 temperature; scale not specified by vendor | °C | R | source_only |
+| I | 3196 | BMS maximum SOC | u16 percentage | % | R | resolved_with_notes |
+| I | 3197 | BMS minimum SOC | u16 percentage | % | R | resolved_with_notes |
 | I | 3198 | Parallel battery count | register value | — | R | resolved_with_notes |
 | I | 3199 | BMS derate reason | register value | — | R | resolved_with_notes |
-| I | 3200 | BMS full charge capacity | register value | Ah | R | resolved_with_notes |
-| I | 3201 | BMS remaining capacity | register value | Ah | R | resolved_with_notes |
+| I | 3200 | BMS gauge full-charge capacity | u16 Ah; scale not specified by vendor | Ah | R | resolved_with_notes |
+| I | 3201 | BMS gauge remaining capacity | u16 Ah; scale not specified by vendor | Ah | R | resolved_with_notes |
 | I | 3202 | BMS protect flags 1 | register value | — | R | resolved_with_notes |
 | I | 3203 | BMS warning flags 1 | register value | — | R | resolved_with_notes |
 | I | 3204 | BMS fault flags 1 | register value | — | R | resolved_with_notes |
@@ -734,29 +734,29 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | I | 3207 | Reserved | register value | — | R | unknown_reserved |
 | I | 3208 | Reserved | register value | — | R | unknown_reserved |
 | I | 3209 | Reserved | register value | — | R | unknown_reserved |
-| I | 3210 | Battery insulation status | register value | 0：Not detected 1：Detection completed | R | resolved_with_notes |
+| I | 3210 | Battery insulation status | u16 enum 0=not detected, 1=detection completed | — | R | resolved_with_notes |
 | I | 3211 | Battery request flags | register value | — | R | resolved_with_notes |
-| I | 3212 | BMS status | u16 enum | 0:dormancy 1:Charge 2:Discharge 3:free 4:standby 5:Softstart 6:fault 7:update | R | resolved_with_notes |
+| I | 3212 | BMS status | u16 enum | — | R | resolved_with_notes |
 | I | 3213 | BMS protect flags 2 | register value | — | R | resolved_with_notes |
 | I | 3214 | BMS warning flags 2 | register value | — | R | resolved_with_notes |
 | I | 3215 | Battery state of charge | u16 percentage | % | R | resolved_with_notes |
 | I | 3216 | Battery voltage | u16 / 100 | V | R | resolved_with_notes |
-| I | 3217 | Battery current | s16 / 100 | A | R | resolved_with_notes |
+| I | 3217 | Battery current | s16 / 100 | A | R | resolved |
 | I | 3218 | BMS max cell temperature | register value | °C | R | resolved_with_notes |
 | I | 3219 | BMS max charge current | register value | A | R | resolved_with_notes |
 | I | 3220 | BMS max discharge current | register value | A | R | resolved_with_notes |
-| I | 3221 | BMS cycle count | register value | — | R | resolved_with_notes |
-| I | 3222 | BMS SOH | u16 percentage | % | R | resolved_with_notes |
+| I | 3221 | BMS cycle count | u16 cycle count | cycles | R | resolved_with_notes |
+| I | 3222 | BMS state of health | u16 percentage | % | R | resolved_with_notes |
 | I | 3223 | BMS charge voltage limit | register value | V | R | resolved_with_notes |
-| I | 3224 | BMS discharge voltage limit | register value | V | R | resolved_with_notes |
+| I | 3224 | BMS discharge voltage limit | u16 / 100 | V | R | resolved_with_notes |
 | I | 3225 | BMS warning flags 3 | register value | — | R | resolved_with_notes |
 | I | 3226 | BMS protect flags 3 | register value | — | R | resolved_with_notes |
 | I | 3227 | Reserved | register value | — | R | unknown_reserved |
 | I | 3228 | Reserved | register value | — | R | unknown_reserved |
 | I | 3229 | Reserved | register value | — | R | unknown_reserved |
-| I | 3230 | BMS max cell voltage | register value | V | R | resolved_with_notes |
-| I | 3231 | BMS min cell voltage | register value | V | R | resolved_with_notes |
-| I | 3232 | Battery load voltage | register value | [0，650.00] | R | resolved |
+| I | 3230 | BMS maximum cell voltage | u16 / 1000 | V | R | resolved |
+| I | 3231 | BMS minimum cell voltage | u16 / 1000 | V | R | resolved |
+| I | 3232 | Battery load voltage | u16 / 100 | V | R | resolved_with_notes |
 | I | 3233 | Register 3233 | register value | — | R | unknown_reserved |
 | I | 3234 | Debug data 1 | register value | — | R | resolved |
 | I | 3235 | Debug data 2 | register value | — | R | resolved |
@@ -804,7 +804,7 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | I | 3277 | Reserve | register value | — | R | source_only |
 | I | 3278 | Reserve | register value | — | R | source_only |
 | I | 3279 | Reserve | register value | — | R | source_only |
-| I | 3280 | bClrTodayDataFl ag | register value | Data of the current day that the server | R | source_only |
+| I | 3280 | Clear current-day data flag | u16 vendor-defined flag | — | R | source_only |
 | I | 3281 | Register 3281 | register value | — | R | unknown_reserved |
 | I | 3282 | Register 3282 | register value | — | R | unknown_reserved |
 | I | 3283 | Register 3283 | register value | — | R | unknown_reserved |
@@ -2794,7 +2794,7 @@ Evidence: source_documented; resolution: `source_only`; write policy: `condition
 
 Canonical description: Grid-first discharge power rate
 Physical identity: `min_tl_xh:holding:3036`.
-Semantic: `grid.first.discharge.rate`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
+Semantic: `grid.first.discharge.rate`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
 Vendor names: GridFirstDisch argePowerRat e; vendor description: Grid-first discharge power rate; vendor unit/type: % / u16 percentage; 255 disables limit.
 Normalized type/signedness/scale: `u16 percentage; 255 disables limit` / `False` / `1`.
@@ -2806,10 +2806,10 @@ Evidence: source_documented, implementation_correlated, read_observed; resolutio
 
 Canonical description: Grid-first stop SOC
 Physical identity: `min_tl_xh:holding:3037`.
-Semantic: `grid.first.stop.soc`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
+Semantic: `grid.first.stop.soc`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: GridFirstStopS OC; vendor description: Grid-first stop SOC; vendor unit/type: % / u16.
-Normalized type/signedness/scale: `u16` / `False` / `1`.
+Vendor names: GridFirstStopS OC; vendor description: Grid-first stop SOC; vendor unit/type: % / u16 percentage.
+Normalized type/signedness/scale: `u16 percentage` / `False` / `1`.
 Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved`; write policy: `unknown_write_risk`; native blocks: min_fc03_holding_3000_3124.
 
@@ -2818,124 +2818,128 @@ Evidence: source_documented, implementation_correlated, read_observed; resolutio
 
 Canonical description: Grid-first schedule 1 start/control
 Physical identity: `min_tl_xh:holding:3038`.
-Semantic: `control.grid_first_schedule_1_start_control`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
+Semantic: `grid.first.schedule.1.start.control`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: Time1(xh); vendor description: Grid-first schedule 1 start/control; vendor unit/type: — / packed minute/hour/priority/enable.
-Normalized type/signedness/scale: `packed minute/hour/priority/enable` / `None` / `—`.
+Vendor names: Time1(xh); vendor description: Grid-first schedule 1 start/control; vendor unit/type: — / packed u16: minute/hour/priority/enable.
+Normalized type/signedness/scale: `packed u16: minute/hour/priority/enable` / `None` / `—`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, read_observed; resolution: `source_only`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
-Enums: 0=loadpriority_prohibited (loadpriority / prohibited); 1=batterypriority_enabled (batterypriority / enabled); 2=gridpriority (Gridpriority); 7=minutes (minutes); 12=hour (hour)
+Enums: 0=loadpriority_prohibited (loadpriority / prohibited); 1=batterypriority_enabled (batterypriority / enabled); 2=gridpriority (Gridpriority); 6=minute_hour_priority_enable_none (minute/hour/priority/enable None); 7=minutes (minutes); 12=hour (hour)
 
 ### holding 3039 — Grid-first schedule 1 end
 
 Canonical description: Grid-first schedule 1 end
 Physical identity: `min_tl_xh:holding:3039`.
-Semantic: `control.grid_first_schedule_1_end`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
+Semantic: `grid.first.schedule.1.end`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: —; vendor description: Grid-first schedule 1 end; vendor unit/type: — / packed minute/hour.
-Normalized type/signedness/scale: `packed minute/hour` / `None` / `—`.
+Vendor names: —; vendor description: Grid-first schedule 1 end; vendor unit/type: — / packed u16: minute/hour.
+Normalized type/signedness/scale: `packed u16: minute/hour` / `None` / `—`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, read_observed; resolution: `source_only`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
-Enums: 7=minutes (minutes); 12=hour (hour); 15=reserved (reserved)
+Enums: 6=minute_hour_none (minute/hour None); 7=minutes (minutes); 12=hour (hour); 15=reserved (reserved)
 
 ### holding 3040 — Grid-first schedule 2 start/control
 
 Canonical description: Grid-first schedule 2 start/control
 Physical identity: `min_tl_xh:holding:3040`.
-Semantic: `control.grid_first_schedule_2_start_control`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
+Semantic: `grid.first.schedule.2.start.control`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: Time2(xh); vendor description: Grid-first schedule 2 start/control; vendor unit/type: — / packed minute/hour/priority/enable.
-Normalized type/signedness/scale: `packed minute/hour/priority/enable` / `None` / `—`.
+Vendor names: Time2(xh); vendor description: Grid-first schedule 2 start/control; vendor unit/type: — / packed u16: minute/hour/priority/enable.
+Normalized type/signedness/scale: `packed u16: minute/hour/priority/enable` / `None` / `—`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, read_observed; resolution: `source_only`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
-Enums: 0=loadpriority_prohibited (loadpriority / prohibited); 1=batterypriority (batterypriority); 2=gridpriority (Gridpriority); 7=minutes (minutes); 12=hour (hour)
+Enums: 0=loadpriority_prohibited (loadpriority / prohibited); 1=batterypriority (batterypriority); 2=gridpriority (Gridpriority); 6=minute_hour_priority_enable_none (minute/hour/priority/enable None); 7=minutes (minutes); 12=hour (hour)
 
 ### holding 3041 — Grid-first schedule 2 end
 
 Canonical description: Grid-first schedule 2 end
 Physical identity: `min_tl_xh:holding:3041`.
-Semantic: `control.grid_first_schedule_2_end`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
+Semantic: `grid.first.schedule.2.end`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: —; vendor description: Grid-first schedule 2 end; vendor unit/type: W / packed minute/hour.
-Normalized type/signedness/scale: `packed minute/hour` / `None` / `—`.
+Vendor names: —; vendor description: Grid-first schedule 2 end; vendor unit/type: — / packed u16: minute/hour.
+Normalized type/signedness/scale: `packed u16: minute/hour` / `None` / `—`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, read_observed; resolution: `source_only`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
-Enums: 7=minutes (minutes); 12=hour (hour); 15=reserved (reserved)
+Enums: 6=minute_hour_none (minute/hour None); 7=minutes (minutes); 12=hour (hour); 15=reserved (reserved)
 
 ### holding 3042 — Grid-first schedule 3 start/control
 
 Canonical description: Grid-first schedule 3 start/control
 Physical identity: `min_tl_xh:holding:3042`.
-Semantic: `control.grid_first_schedule_3_start_control`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
+Semantic: `grid.first.schedule.3.start.control`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: Time3(xh); vendor description: Grid-first schedule 3 start/control; vendor unit/type: W / packed minute/hour/priority/enable.
-Normalized type/signedness/scale: `packed minute/hour/priority/enable` / `None` / `—`.
+Vendor names: Time3(xh); vendor description: Grid-first schedule 3 start/control; vendor unit/type: — / packed u16: minute/hour/priority/enable.
+Normalized type/signedness/scale: `packed u16: minute/hour/priority/enable` / `None` / `—`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, read_observed; resolution: `source_only`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
+Enums: 6=minute_hour_priority_enable_none (minute/hour/priority/enable None)
 
 ### holding 3043 — Grid-first schedule 3 end
 
 Canonical description: Grid-first schedule 3 end
 Physical identity: `min_tl_xh:holding:3043`.
-Semantic: `control.grid_first_schedule_3_end`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
+Semantic: `grid.first.schedule.3.end`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: —; vendor description: Grid-first schedule 3 end; vendor unit/type: W / packed minute/hour.
-Normalized type/signedness/scale: `packed minute/hour` / `None` / `—`.
+Vendor names: —; vendor description: Grid-first schedule 3 end; vendor unit/type: — / packed u16: minute/hour.
+Normalized type/signedness/scale: `packed u16: minute/hour` / `None` / `—`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, read_observed; resolution: `source_only`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
+Enums: 6=minute_hour_none (minute/hour None)
 
 ### holding 3044 — Grid-first schedule 4 start/control
 
 Canonical description: Grid-first schedule 4 start/control
 Physical identity: `min_tl_xh:holding:3044`.
-Semantic: `control.grid_first_schedule_4_start_control`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
+Semantic: `grid.first.schedule.4.start.control`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: Time4(xh); vendor description: Grid-first schedule 4 start/control; vendor unit/type: W / packed minute/hour/priority/enable.
-Normalized type/signedness/scale: `packed minute/hour/priority/enable` / `None` / `—`.
+Vendor names: Time4(xh); vendor description: Grid-first schedule 4 start/control; vendor unit/type: — / packed u16: minute/hour/priority/enable.
+Normalized type/signedness/scale: `packed u16: minute/hour/priority/enable` / `None` / `—`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, read_observed; resolution: `source_only`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
+Enums: 6=minute_hour_priority_enable_none (minute/hour/priority/enable None)
 
 ### holding 3045 — Grid-first schedule 4 end
 
 Canonical description: Grid-first schedule 4 end
 Physical identity: `min_tl_xh:holding:3045`.
-Semantic: `control.grid_first_schedule_4_end`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
+Semantic: `grid.first.schedule.4.end`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: —; vendor description: Grid-first schedule 4 end; vendor unit/type: W / packed minute/hour.
-Normalized type/signedness/scale: `packed minute/hour` / `None` / `—`.
+Vendor names: —; vendor description: Grid-first schedule 4 end; vendor unit/type: — / packed u16: minute/hour.
+Normalized type/signedness/scale: `packed u16: minute/hour` / `None` / `—`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, read_observed; resolution: `source_only`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
+Enums: 6=minute_hour_none (minute/hour None)
 
 ### holding 3047 — Battery-first charge power rate
 
 Canonical description: Battery-first charge power rate
 Physical identity: `min_tl_xh:holding:3047`.
-Semantic: `battery.first.charge.rate`; subsystem: `storage_device`; measurement point: `bdc_or_storage_device`; instance/index: `not_applicable/None`.
+Semantic: `battery.first.charge.rate`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
 Vendor names: BatFirstPower Rate; vendor description: Battery-first charge power rate; vendor unit/type: % / u16 percentage.
 Normalized type/signedness/scale: `u16 percentage` / `False` / `1`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `unknown_write_risk`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved`; write policy: `unknown_write_risk`; native blocks: min_fc03_holding_3000_3124.
 
 
 ### holding 3048 — Battery-first stop SOC
 
 Canonical description: Battery-first stop SOC
 Physical identity: `min_tl_xh:holding:3048`.
-Semantic: `battery.first.stop.soc`; subsystem: `storage_device`; measurement point: `bdc_or_storage_device`; instance/index: `not_applicable/None`.
+Semantic: `battery.first.stop.soc`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: wBatFirststop SOC; vendor description: Battery-first stop SOC; vendor unit/type: % / u16.
-Normalized type/signedness/scale: `u16` / `False` / `1`.
+Vendor names: wBatFirststop SOC; vendor description: Battery-first stop SOC; vendor unit/type: % / u16 percentage.
+Normalized type/signedness/scale: `u16 percentage` / `False` / `1`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `unknown_write_risk`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved`; write policy: `unknown_write_risk`; native blocks: min_fc03_holding_3000_3124.
 
 
 ### holding 3049 — AC charging enabled
@@ -2947,7 +2951,7 @@ Logical field: `none`; component role: `complete_value`.
 Vendor names: AcChargeEna ble; vendor description: AC charge enabled; vendor unit/type: — / u16 enum 0=disabled, 1=enabled.
 Normalized type/signedness/scale: `u16 enum 0=disabled, 1=enabled` / `False` / `1`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 0=disabled (disabled); 1=enabled_none (enabled None)
 
@@ -2955,127 +2959,137 @@ Enums: 0=disabled (disabled); 1=enabled_none (enabled None)
 
 Canonical description: Battery-first schedule 1 start/control
 Physical identity: `min_tl_xh:holding:3050`.
-Semantic: `control.battery_first_schedule_1_start_control`; subsystem: `storage_device`; measurement point: `bdc_or_storage_device`; instance/index: `not_applicable/None`.
+Semantic: `battery.first.schedule.1.start.control`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: Time5(xh); vendor description: Battery-first schedule 1 start/control; vendor unit/type: — / packed minute/hour/priority/enable.
-Normalized type/signedness/scale: `packed minute/hour/priority/enable` / `None` / `—`.
+Vendor names: Time5(xh); vendor description: Battery-first schedule 1 start/control; vendor unit/type: — / packed u16: minute/hour/priority/enable.
+Normalized type/signedness/scale: `packed u16: minute/hour/priority/enable` / `None` / `—`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, read_observed; resolution: `source_only`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
+Enums: 6=minute_hour_priority_enable_none (minute/hour/priority/enable None)
 
 ### holding 3051 — Battery-first schedule 1 end
 
 Canonical description: Battery-first schedule 1 end
 Physical identity: `min_tl_xh:holding:3051`.
-Semantic: `control.battery_first_schedule_1_end`; subsystem: `storage_device`; measurement point: `bdc_or_storage_device`; instance/index: `not_applicable/None`.
+Semantic: `battery.first.schedule.1.end`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: —; vendor description: Battery-first schedule 1 end; vendor unit/type: kWh / packed minute/hour.
-Normalized type/signedness/scale: `packed minute/hour` / `None` / `—`.
+Vendor names: —; vendor description: Battery-first schedule 1 end; vendor unit/type: — / packed u16: minute/hour.
+Normalized type/signedness/scale: `packed u16: minute/hour` / `None` / `—`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, read_observed; resolution: `source_only`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
+Enums: 6=minute_hour_none (minute/hour None)
 
 ### holding 3052 — Battery-first schedule 2 start/control
 
 Canonical description: Battery-first schedule 2 start/control
 Physical identity: `min_tl_xh:holding:3052`.
-Semantic: `control.battery_first_schedule_2_start_control`; subsystem: `storage_device`; measurement point: `bdc_or_storage_device`; instance/index: `not_applicable/None`.
+Semantic: `battery.first.schedule.2.start.control`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: Time6(xh); vendor description: Battery-first schedule 2 start/control; vendor unit/type: kWh / packed minute/hour/priority/enable.
-Normalized type/signedness/scale: `packed minute/hour/priority/enable` / `None` / `—`.
+Vendor names: Time6(xh); vendor description: Battery-first schedule 2 start/control; vendor unit/type: — / packed u16: minute/hour/priority/enable.
+Normalized type/signedness/scale: `packed u16: minute/hour/priority/enable` / `None` / `—`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, read_observed; resolution: `source_only`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
+Enums: 6=minute_hour_priority_enable_none (minute/hour/priority/enable None)
 
 ### holding 3053 — Battery-first schedule 2 end
 
 Canonical description: Battery-first schedule 2 end
 Physical identity: `min_tl_xh:holding:3053`.
-Semantic: `control.battery_first_schedule_2_end`; subsystem: `storage_device`; measurement point: `bdc_or_storage_device`; instance/index: `not_applicable/None`.
+Semantic: `battery.first.schedule.2.end`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: —; vendor description: Battery-first schedule 2 end; vendor unit/type: kWh / packed minute/hour.
-Normalized type/signedness/scale: `packed minute/hour` / `None` / `—`.
+Vendor names: —; vendor description: Battery-first schedule 2 end; vendor unit/type: — / packed u16: minute/hour.
+Normalized type/signedness/scale: `packed u16: minute/hour` / `None` / `—`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, read_observed; resolution: `source_only`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
+Enums: 6=minute_hour_none (minute/hour None)
 
 ### holding 3054 — Battery-first schedule 3 start/control
 
 Canonical description: Battery-first schedule 3 start/control
 Physical identity: `min_tl_xh:holding:3054`.
-Semantic: `control.battery_first_schedule_3_start_control`; subsystem: `storage_device`; measurement point: `bdc_or_storage_device`; instance/index: `not_applicable/None`.
+Semantic: `battery.first.schedule.3.start.control`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: Time7(xh); vendor description: Battery-first schedule 3 start/control; vendor unit/type: kWh / packed minute/hour/priority/enable.
-Normalized type/signedness/scale: `packed minute/hour/priority/enable` / `None` / `—`.
+Vendor names: Time7(xh); vendor description: Battery-first schedule 3 start/control; vendor unit/type: — / packed u16: minute/hour/priority/enable.
+Normalized type/signedness/scale: `packed u16: minute/hour/priority/enable` / `None` / `—`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, read_observed; resolution: `source_only`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
+Enums: 6=minute_hour_priority_enable_none (minute/hour/priority/enable None)
 
 ### holding 3055 — Battery-first schedule 3 end
 
 Canonical description: Battery-first schedule 3 end
 Physical identity: `min_tl_xh:holding:3055`.
-Semantic: `control.battery_first_schedule_3_end`; subsystem: `storage_device`; measurement point: `bdc_or_storage_device`; instance/index: `not_applicable/None`.
+Semantic: `battery.first.schedule.3.end`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: —; vendor description: Battery-first schedule 3 end; vendor unit/type: kWh / packed minute/hour.
-Normalized type/signedness/scale: `packed minute/hour` / `None` / `—`.
+Vendor names: —; vendor description: Battery-first schedule 3 end; vendor unit/type: — / packed u16: minute/hour.
+Normalized type/signedness/scale: `packed u16: minute/hour` / `None` / `—`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, read_observed; resolution: `source_only`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
+Enums: 6=minute_hour_none (minute/hour None)
 
 ### holding 3056 — Battery-first schedule 4 start/control
 
 Canonical description: Battery-first schedule 4 start/control
 Physical identity: `min_tl_xh:holding:3056`.
-Semantic: `control.battery_first_schedule_4_start_control`; subsystem: `storage_device`; measurement point: `bdc_or_storage_device`; instance/index: `not_applicable/None`.
+Semantic: `battery.first.schedule.4.start.control`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: Time8(xh); vendor description: Battery-first schedule 4 start/control; vendor unit/type: kWh / packed minute/hour/priority/enable.
-Normalized type/signedness/scale: `packed minute/hour/priority/enable` / `None` / `—`.
+Vendor names: Time8(xh); vendor description: Battery-first schedule 4 start/control; vendor unit/type: — / packed u16: minute/hour/priority/enable.
+Normalized type/signedness/scale: `packed u16: minute/hour/priority/enable` / `None` / `—`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, read_observed; resolution: `source_only`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
+Enums: 6=minute_hour_priority_enable_none (minute/hour/priority/enable None)
 
 ### holding 3057 — Battery-first schedule 4 end
 
 Canonical description: Battery-first schedule 4 end
 Physical identity: `min_tl_xh:holding:3057`.
-Semantic: `control.battery_first_schedule_4_end`; subsystem: `storage_device`; measurement point: `bdc_or_storage_device`; instance/index: `not_applicable/None`.
+Semantic: `battery.first.schedule.4.end`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: —; vendor description: Battery-first schedule 4 end; vendor unit/type: kWh / packed minute/hour.
-Normalized type/signedness/scale: `packed minute/hour` / `None` / `—`.
+Vendor names: —; vendor description: Battery-first schedule 4 end; vendor unit/type: — / packed u16: minute/hour.
+Normalized type/signedness/scale: `packed u16: minute/hour` / `None` / `—`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, read_observed; resolution: `source_only`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
+Enums: 6=minute_hour_none (minute/hour None)
 
 ### holding 3058 — Battery-first schedule 5 start/control
 
 Canonical description: Battery-first schedule 5 start/control
 Physical identity: `min_tl_xh:holding:3058`.
-Semantic: `control.battery_first_schedule_5_start_control`; subsystem: `storage_device`; measurement point: `bdc_or_storage_device`; instance/index: `not_applicable/None`.
+Semantic: `battery.first.schedule.5.start.control`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: Time9(xh); vendor description: Battery-first schedule 5 start/control; vendor unit/type: kWh / packed minute/hour/priority/enable.
-Normalized type/signedness/scale: `packed minute/hour/priority/enable` / `None` / `—`.
+Vendor names: Time9(xh); vendor description: Battery-first schedule 5 start/control; vendor unit/type: — / packed u16: minute/hour/priority/enable.
+Normalized type/signedness/scale: `packed u16: minute/hour/priority/enable` / `None` / `—`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, read_observed; resolution: `source_only`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
+Enums: 6=minute_hour_priority_enable_none (minute/hour/priority/enable None)
 
 ### holding 3059 — Battery-first schedule 5 end
 
 Canonical description: Battery-first schedule 5 end
 Physical identity: `min_tl_xh:holding:3059`.
-Semantic: `control.battery_first_schedule_5_end`; subsystem: `storage_device`; measurement point: `bdc_or_storage_device`; instance/index: `not_applicable/None`.
+Semantic: `battery.first.schedule.5.end`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: —; vendor description: Battery-first schedule 5 end; vendor unit/type: kWh / packed minute/hour.
-Normalized type/signedness/scale: `packed minute/hour` / `None` / `—`.
+Vendor names: —; vendor description: Battery-first schedule 5 end; vendor unit/type: — / packed u16: minute/hour.
+Normalized type/signedness/scale: `packed u16: minute/hour` / `None` / `—`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, read_observed; resolution: `source_only`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
+Enums: 6=minute_hour_none (minute/hour None)
 
 ### holding 3060 — Reserved
 
 Canonical description: Reserved
 Physical identity: `min_tl_xh:holding:3060`.
-Semantic: `unknown`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
+Semantic: `unknown`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `logical:min_tl_xh:holding:3060`; component role: `word_1`.
 Vendor names: Reserved; vendor description: Reserved; vendor unit/type: kWh / register value.
 Normalized type/signedness/scale: `register value` / `False` / `10`.
@@ -3087,7 +3101,7 @@ Evidence: source_documented; resolution: `unknown_reserved`; write policy: `read
 
 Canonical description: Reserved
 Physical identity: `min_tl_xh:holding:3061`.
-Semantic: `unknown`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
+Semantic: `unknown`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `logical:min_tl_xh:holding:3060`; component role: `word_2`.
 Vendor names: Reserved; vendor description: Reserved; vendor unit/type: kWh / register value.
 Normalized type/signedness/scale: `register value` / `False` / `10`.
@@ -3099,7 +3113,7 @@ Evidence: source_documented; resolution: `unknown_reserved`; write policy: `read
 
 Canonical description: Reserved
 Physical identity: `min_tl_xh:holding:3062`.
-Semantic: `unknown`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
+Semantic: `unknown`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `logical:min_tl_xh:holding:3062`; component role: `word_1`.
 Vendor names: Reserved; vendor description: Reserved; vendor unit/type: kWh / register value.
 Normalized type/signedness/scale: `register value` / `False` / `10`.
@@ -3111,7 +3125,7 @@ Evidence: source_documented; resolution: `unknown_reserved`; write policy: `read
 
 Canonical description: Reserved
 Physical identity: `min_tl_xh:holding:3063`.
-Semantic: `unknown`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
+Semantic: `unknown`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `logical:min_tl_xh:holding:3062`; component role: `word_2`.
 Vendor names: Reserved; vendor description: Reserved; vendor unit/type: kWh / register value.
 Normalized type/signedness/scale: `register value` / `False` / `10`.
@@ -3123,7 +3137,7 @@ Evidence: source_documented; resolution: `unknown_reserved`; write policy: `read
 
 Canonical description: Reserved
 Physical identity: `min_tl_xh:holding:3064`.
-Semantic: `unknown`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
+Semantic: `unknown`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `logical:min_tl_xh:holding:3064`; component role: `word_1`.
 Vendor names: Reserved; vendor description: Reserved; vendor unit/type: kWh / register value.
 Normalized type/signedness/scale: `register value` / `False` / `10`.
@@ -3135,7 +3149,7 @@ Evidence: source_documented; resolution: `unknown_reserved`; write policy: `read
 
 Canonical description: Reserved
 Physical identity: `min_tl_xh:holding:3065`.
-Semantic: `unknown`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
+Semantic: `unknown`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `logical:min_tl_xh:holding:3064`; component role: `word_2`.
 Vendor names: Reserved; vendor description: Reserved; vendor unit/type: kWh / register value.
 Normalized type/signedness/scale: `register value` / `False` / `10`.
@@ -3147,7 +3161,7 @@ Evidence: source_documented; resolution: `unknown_reserved`; write policy: `read
 
 Canonical description: Reserved
 Physical identity: `min_tl_xh:holding:3066`.
-Semantic: `unknown`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
+Semantic: `unknown`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `logical:min_tl_xh:holding:3066`; component role: `word_1`.
 Vendor names: Reserved; vendor description: Reserved; vendor unit/type: kWh / register value.
 Normalized type/signedness/scale: `register value` / `False` / `10`.
@@ -3159,7 +3173,7 @@ Evidence: source_documented; resolution: `unknown_reserved`; write policy: `read
 
 Canonical description: Reserved
 Physical identity: `min_tl_xh:holding:3067`.
-Semantic: `unknown`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
+Semantic: `unknown`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `logical:min_tl_xh:holding:3066`; component role: `word_2`.
 Vendor names: Reserved; vendor description: Reserved; vendor unit/type: kWh / register value.
 Normalized type/signedness/scale: `register value` / `False` / `10`.
@@ -3171,7 +3185,7 @@ Evidence: source_documented; resolution: `unknown_reserved`; write policy: `read
 
 Canonical description: Reserved
 Physical identity: `min_tl_xh:holding:3068`.
-Semantic: `unknown`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
+Semantic: `unknown`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `logical:min_tl_xh:holding:3068`; component role: `word_1`.
 Vendor names: Reserved; vendor description: Reserved; vendor unit/type: kWh / register value.
 Normalized type/signedness/scale: `register value` / `False` / `10`.
@@ -3183,7 +3197,7 @@ Evidence: source_documented; resolution: `unknown_reserved`; write policy: `read
 
 Canonical description: Reserved
 Physical identity: `min_tl_xh:holding:3069`.
-Semantic: `unknown`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
+Semantic: `unknown`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `logical:min_tl_xh:holding:3068`; component role: `word_2`.
 Vendor names: Reserved; vendor description: Reserved; vendor unit/type: kWh / register value.
 Normalized type/signedness/scale: `register value` / `False` / `10`.
@@ -3195,7 +3209,7 @@ Evidence: source_documented; resolution: `unknown_reserved`; write policy: `read
 
 Canonical description: Batterytype 0:Lithium 1:Lead-acid 2:other
 Physical identity: `min_tl_xh:holding:3070`.
-Semantic: `battery.type`; subsystem: `storage_device`; measurement point: `bdc_or_storage_device`; instance/index: `not_applicable/None`.
+Semantic: `battery.type`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `logical:min_tl_xh:holding:3070`; component role: `word_1`.
 Vendor names: BatteryType; vendor description: Batterytype 0:Lithium 1:Lead-acid 2:other; vendor unit/type: kWh / register value.
 Normalized type/signedness/scale: `register value` / `False` / `10`.
@@ -3220,7 +3234,7 @@ Evidence: source_documented; resolution: `source_only`; write policy: `unknown_w
 
 Canonical description: Reserved
 Physical identity: `min_tl_xh:holding:3072`.
-Semantic: `unknown`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
+Semantic: `unknown`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `logical:min_tl_xh:holding:3072`; component role: `word_1`.
 Vendor names: Reserved; vendor description: Reserved; vendor unit/type: kWh / register value.
 Normalized type/signedness/scale: `register value` / `False` / `10`.
@@ -3232,7 +3246,7 @@ Evidence: source_documented; resolution: `unknown_reserved`; write policy: `read
 
 Canonical description: Reserved
 Physical identity: `min_tl_xh:holding:3073`.
-Semantic: `unknown`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
+Semantic: `unknown`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `logical:min_tl_xh:holding:3072`; component role: `word_2`.
 Vendor names: Reserved; vendor description: Reserved; vendor unit/type: kWh / register value.
 Normalized type/signedness/scale: `register value` / `False` / `10`.
@@ -3244,7 +3258,7 @@ Evidence: source_documented; resolution: `unknown_reserved`; write policy: `read
 
 Canonical description: Reserved
 Physical identity: `min_tl_xh:holding:3074`.
-Semantic: `unknown`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
+Semantic: `unknown`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `logical:min_tl_xh:holding:3074`; component role: `word_1`.
 Vendor names: Reserved; vendor description: Reserved; vendor unit/type: kWh / register value.
 Normalized type/signedness/scale: `register value` / `False` / `10`.
@@ -3256,7 +3270,7 @@ Evidence: source_documented; resolution: `unknown_reserved`; write policy: `read
 
 Canonical description: Reserved
 Physical identity: `min_tl_xh:holding:3075`.
-Semantic: `unknown`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
+Semantic: `unknown`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `logical:min_tl_xh:holding:3074`; component role: `word_2`.
 Vendor names: Reserved; vendor description: Reserved; vendor unit/type: kWh / register value.
 Normalized type/signedness/scale: `register value` / `False` / `10`.
@@ -3268,7 +3282,7 @@ Evidence: source_documented; resolution: `unknown_reserved`; write policy: `read
 
 Canonical description: Reserved
 Physical identity: `min_tl_xh:holding:3076`.
-Semantic: `unknown`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
+Semantic: `unknown`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `logical:min_tl_xh:holding:3076`; component role: `word_1`.
 Vendor names: Reserved; vendor description: Reserved; vendor unit/type: kWh / register value.
 Normalized type/signedness/scale: `register value` / `False` / `10`.
@@ -3280,7 +3294,7 @@ Evidence: source_documented; resolution: `unknown_reserved`; write policy: `read
 
 Canonical description: Reserved
 Physical identity: `min_tl_xh:holding:3077`.
-Semantic: `unknown`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
+Semantic: `unknown`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `logical:min_tl_xh:holding:3076`; component role: `word_2`.
 Vendor names: Reserved; vendor description: Reserved; vendor unit/type: kWh / register value.
 Normalized type/signedness/scale: `register value` / `False` / `10`.
@@ -3292,7 +3306,7 @@ Evidence: source_documented; resolution: `unknown_reserved`; write policy: `read
 
 Canonical description: Reserved
 Physical identity: `min_tl_xh:holding:3078`.
-Semantic: `unknown`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
+Semantic: `unknown`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `logical:min_tl_xh:holding:3078`; component role: `word_1`.
 Vendor names: Reserved; vendor description: Reserved; vendor unit/type: kWh / register value.
 Normalized type/signedness/scale: `register value` / `False` / `10`.
@@ -3304,25 +3318,25 @@ Evidence: source_documented; resolution: `unknown_reserved`; write policy: `read
 
 Canonical description: UPS/EPS function enable
 Physical identity: `min_tl_xh:holding:3079`.
-Semantic: `control.ups_eps_function_enable`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
+Semantic: `ups.eps.function.enable`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `logical:min_tl_xh:holding:3078`; component role: `word_2`.
-Vendor names: UpsFunEn; vendor description: UPS/EPS function enable; vendor unit/type: bool / u16 enum 0=disabled, 1=enabled.
+Vendor names: UpsFunEn; vendor description: UPS/EPS function enable; vendor unit/type: — / u16 enum 0=disabled, 1=enabled.
 Normalized type/signedness/scale: `u16 enum 0=disabled, 1=enabled` / `False` / `—`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, read_observed; resolution: `source_only`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
-Enums: 0=disable_1_disabled (disable 1 / disabled); 1=enabled_bool (enabled bool)
+Enums: 0=disable_1_disabled (disable 1 / disabled); 1=enabled_none (enabled None)
 
 ### holding 3080 — UPS/EPS voltage selection
 
 Canonical description: UPS/EPS voltage selection
 Physical identity: `min_tl_xh:holding:3080`.
-Semantic: `control.ups_eps_voltage_selection`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
+Semantic: `ups.eps.voltage.selection`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
 Vendor names: UPSVoltSet; vendor description: UPS/EPS voltage selection; vendor unit/type: V / u16 enum 0=230 V, 1=208 V, 2=240 V.
 Normalized type/signedness/scale: `u16 enum 0=230 V, 1=208 V, 2=240 V` / `False` / `—`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, read_observed; resolution: `source_only`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 0=230_v (230 V); 1=208_v (208 V); 2=240_v (240 V)
 
@@ -3330,12 +3344,12 @@ Enums: 0=230_v (230 V); 1=208_v (208 V); 2=240_v (240 V)
 
 Canonical description: UPS/EPS frequency selection
 Physical identity: `min_tl_xh:holding:3081`.
-Semantic: `control.ups_eps_frequency_selection`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
+Semantic: `ups.eps.frequency.selection`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
 Vendor names: UPSFreqSet; vendor description: UPS/EPS frequency selection; vendor unit/type: Hz / u16 enum 0=50 Hz, 1=60 Hz.
 Normalized type/signedness/scale: `u16 enum 0=50 Hz, 1=60 Hz` / `False` / `—`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, read_observed; resolution: `source_only`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 0=50_hz (50 Hz); 1=60_hz (60 Hz)
 
@@ -3343,12 +3357,12 @@ Enums: 0=50_hz (50 Hz); 1=60_hz (60 Hz)
 
 Canonical description: Load-first stop SOC
 Physical identity: `min_tl_xh:holding:3082`.
-Semantic: `load.first.stop.soc`; subsystem: `load`; measurement point: `load_meter_or_inverter`; instance/index: `not_applicable/None`.
+Semantic: `load.first.stop.soc`; subsystem: `control`; measurement point: `inverter_control`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
 Vendor names: bLoadFirstSto pSocSet; vendor description: Load-first stop SOC; vendor unit/type: % / u16 percentage.
 Normalized type/signedness/scale: `u16 percentage` / `False` / `—`.
 Applicability: hybrid TL-XH; relationships: none.
-Evidence: source_documented, read_observed; resolution: `source_only`; write policy: `unknown_write_risk`; native blocks: min_fc03_holding_3000_3124.
+Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `unknown_write_risk`; native blocks: min_fc03_holding_3000_3124.
 
 
 ### holding 3083 — Reserved
@@ -3676,7 +3690,7 @@ Logical field: `logical:min_tl_xh:holding:3123`; component role: `word_2`.
 Vendor names: Reserved; vendor description: Available in firmware but not yet exposed as an integration attribute.; vendor unit/type: kWh / register value.
 Normalized type/signedness/scale: `register value` / `False` / `10`.
 Applicability: family-level; relationships: none.
-Evidence: source_documented; resolution: `source_only`; write policy: `read_only`; native blocks: none.
+Evidence: source_documented; resolution: `source_only`; write policy: `read_only`; native blocks: min_fc03_holding_3000_3124.
 
 
 ### holding 3125 — Us Tou Month Groups
@@ -6781,29 +6795,18 @@ Applicability: family-level; relationships: alternate:min_tl_xh:input:3105.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: none.
 
 
-### input 110 — Warning code
+### input 110 — Inverter warning bitfield high word
 
 Canonical description: WarningbitH
 Physical identity: `min_tl_xh:input:110`.
-Semantic: `diagnostic.warning_code`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
-Logical field: `logical:min_tl_xh:input:110`; component role: `word_1`.
-Vendor names: WarningbitH; vendor description: WarningbitH; vendor unit/type: — / register value.
-Normalized type/signedness/scale: `register value` / `None` / `10`.
+Semantic: `inverter.warning_flags_high`; subsystem: `inverter`; measurement point: `inverter`; instance/index: `not_applicable/None`.
+Logical field: `none`; component role: `complete_value`.
+Vendor names: WarningbitH; vendor description: WarningbitH; vendor unit/type: — / u16 vendor-defined warning bitfield.
+Normalized type/signedness/scale: `u16 vendor-defined warning bitfield` / `False` / `—`.
 Applicability: family-level; relationships: none.
 Evidence: source_documented; resolution: `source_only`; write policy: `read_only`; native blocks: none.
 
-
-### input 111 — Warning code
-
-Canonical description: Inverterwarnsubcode
-Physical identity: `min_tl_xh:input:111`.
-Semantic: `diagnostic.warning_code`; subsystem: `inverter`; measurement point: `inverter`; instance/index: `not_applicable/None`.
-Logical field: `logical:min_tl_xh:input:110`; component role: `word_2`.
-Vendor names: WarnSubcode; vendor description: Inverterwarnsubcode; vendor unit/type: — / register value.
-Normalized type/signedness/scale: `register value` / `False` / `10`.
-Applicability: family-level; relationships: none.
-Evidence: source_documented; resolution: `source_only`; write policy: `read_only`; native blocks: none.
-
+Bitfields: [0, 15]=undocumented_flags (placeholder)
 
 ### input 234 — Output reactive power (high word)
 
@@ -7052,8 +7055,8 @@ Canonical description: reactivepower
 Physical identity: `min_tl_xh:input:3021`.
 Semantic: `telemetry.output_reactive_power`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
 Logical field: `logical:min_tl_xh:input:3021:telemetry_output_reactive_power`; component role: `high_word`.
-Vendor names: QacH; vendor description: reactivepower; vendor unit/type: POWER_REACTIVE / register value.
-Normalized type/signedness/scale: `register value` / `True` / `10`.
+Vendor names: QacH; vendor description: reactivepower; vendor unit/type: var / s32 / 10.
+Normalized type/signedness/scale: `s32 / 10` / `True` / `10`.
 Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
@@ -7586,50 +7589,50 @@ Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
 
-### input 3071 — Grid export power (high word)
+### input 3071 — Grid export energy today (high word)
 
 Canonical description: Todayenergytogrid
 Physical identity: `min_tl_xh:input:3071`.
-Semantic: `grid.export_power`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
-Logical field: `logical:min_tl_xh:input:3071:grid_export_power`; component role: `high_word`.
-Vendor names: Etogrid_todayH; vendor description: Todayenergytogrid; vendor unit/type: kWh / register value.
-Normalized type/signedness/scale: `register value` / `None` / `10`.
+Semantic: `grid.export_energy_today`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
+Logical field: `logical:min_tl_xh:input:3071:grid_export_energy_today`; component role: `high_word`.
+Vendor names: Etogrid_todayH; vendor description: Todayenergytogrid; vendor unit/type: kWh / u32 / 10.
+Normalized type/signedness/scale: `u32 / 10` / `False` / `10`.
 Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
 
-### input 3072 — Grid export power (low word)
+### input 3072 — Grid export energy today (low word)
 
 Canonical description: Energy exported to the grid today (0.1 kWh resolution).
 Physical identity: `min_tl_xh:input:3072`.
-Semantic: `grid.export_power`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
-Logical field: `logical:min_tl_xh:input:3071:grid_export_power`; component role: `low_word`.
-Vendor names: Etogrid_todayL; vendor description: Energy exported to the grid today (0.1 kWh resolution).; vendor unit/type: kWh / register value.
-Normalized type/signedness/scale: `register value` / `None` / `10`.
+Semantic: `grid.export_energy_today`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
+Logical field: `logical:min_tl_xh:input:3071:grid_export_energy_today`; component role: `low_word`.
+Vendor names: Etogrid_todayL; vendor description: Energy exported to the grid today (0.1 kWh resolution).; vendor unit/type: kWh / u32 / 10.
+Normalized type/signedness/scale: `u32 / 10` / `False` / `10`.
 Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
 
-### input 3073 — Grid export power (high word)
+### input 3073 — Grid export energy total (high word)
 
 Canonical description: Totalenergytogrid
 Physical identity: `min_tl_xh:input:3073`.
-Semantic: `grid.export_power`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
-Logical field: `logical:min_tl_xh:input:3073:grid_export_power`; component role: `high_word`.
-Vendor names: Etogrid_totalH; vendor description: Totalenergytogrid; vendor unit/type: kWh / register value.
-Normalized type/signedness/scale: `register value` / `None` / `10`.
+Semantic: `grid.export_energy_total`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
+Logical field: `logical:min_tl_xh:input:3073:grid_export_energy_total`; component role: `high_word`.
+Vendor names: Etogrid_totalH; vendor description: Totalenergytogrid; vendor unit/type: kWh / u32 / 10.
+Normalized type/signedness/scale: `u32 / 10` / `False` / `10`.
 Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
 
-### input 3074 — Grid export power (low word)
+### input 3074 — Grid export energy total (low word)
 
 Canonical description: Lifetime energy exported to the grid (0.1 kWh resolution).
 Physical identity: `min_tl_xh:input:3074`.
-Semantic: `grid.export_power`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
-Logical field: `logical:min_tl_xh:input:3073:grid_export_power`; component role: `low_word`.
-Vendor names: Etogrid_totalL; vendor description: Lifetime energy exported to the grid (0.1 kWh resolution).; vendor unit/type: kWh / register value.
-Normalized type/signedness/scale: `register value` / `None` / `10`.
+Semantic: `grid.export_energy_total`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
+Logical field: `logical:min_tl_xh:input:3073:grid_export_energy_total`; component role: `low_word`.
+Vendor names: Etogrid_totalL; vendor description: Lifetime energy exported to the grid (0.1 kWh resolution).; vendor unit/type: kWh / u32 / 10.
+Normalized type/signedness/scale: `u32 / 10` / `False` / `10`.
 Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
@@ -7868,10 +7871,10 @@ Canonical description: Inverterstandbyflag
 Physical identity: `min_tl_xh:input:3104`.
 Semantic: `field.standby_flags`; subsystem: `inverter`; measurement point: `inverter`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: StandbyFlag; vendor description: Inverterstandbyflag; vendor unit/type: bit0:turn off Order； bit1:PVLow； bit2:AC Volt/Freq outofscope； bit3~bit7 ： Reserved / register value.
-Normalized type/signedness/scale: `register value` / `True` / `1`.
+Vendor names: StandbyFlag; vendor description: Inverterstandbyflag; vendor unit/type: — / u16 vendor-defined bitfield.
+Normalized type/signedness/scale: `u16 vendor-defined bitfield` / `False` / `—`.
 Applicability: family-level; relationships: none.
-Evidence: source_documented, implementation_correlated; resolution: `resolved`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
+Evidence: source_documented, implementation_correlated; resolution: `source_only`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
 Bitfields: [0, 15]=undocumented_flags (placeholder)
 
@@ -7887,29 +7890,18 @@ Applicability: family-level; relationships: alternate:min_tl_xh:input:105.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
 
-### input 3110 — Warning code
+### input 3110 — Inverter warning bitfield
 
 Canonical description: Current inverter warning code (vendor-defined bitmask).
 Physical identity: `min_tl_xh:input:3110`.
-Semantic: `diagnostic.warning_code`; subsystem: `inverter`; measurement point: `inverter`; instance/index: `not_applicable/None`.
-Logical field: `logical:min_tl_xh:input:3110`; component role: `word_1`.
-Vendor names: —; vendor description: Current inverter warning code (vendor-defined bitmask).; vendor unit/type: — / register value.
-Normalized type/signedness/scale: `register value` / `None` / `1`.
+Semantic: `inverter.warning_flags`; subsystem: `inverter`; measurement point: `inverter`; instance/index: `not_applicable/None`.
+Logical field: `none`; component role: `complete_value`.
+Vendor names: —; vendor description: Current inverter warning code (vendor-defined bitmask).; vendor unit/type: — / u16 vendor-defined warning bitfield.
+Normalized type/signedness/scale: `u16 vendor-defined warning bitfield` / `False` / `—`.
 Applicability: family-level; relationships: none.
-Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
+Evidence: source_documented, implementation_correlated; resolution: `source_only`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
-
-### input 3111 — Warning code
-
-Canonical description: PresentFFTValue[CHANNEL_A]
-Physical identity: `min_tl_xh:input:3111`.
-Semantic: `diagnostic.warning_code`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
-Logical field: `logical:min_tl_xh:input:3110`; component role: `word_2`.
-Vendor names: uwPresentFFTVa lue[CHANNEL_A ]; vendor description: PresentFFTValue[CHANNEL_A]; vendor unit/type: — / register value.
-Normalized type/signedness/scale: `register value` / `None` / `1`.
-Applicability: family-level; relationships: none.
-Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
-
+Bitfields: [0, 15]=undocumented_flags (placeholder)
 
 ### input 3119 — Dry contact state
 
@@ -7968,7 +7960,7 @@ Logical field: `logical:min_tl_xh:input:3123:telemetry_system_energy_today`; com
 Vendor names: Esys_todayL; vendor description: Total energy processed by the hybrid system today (0.1 kWh resolution).; vendor unit/type: kWh / register value.
 Normalized type/signedness/scale: `register value` / `None` / `10`.
 Applicability: family-level; relationships: none.
-Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: none.
+Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
 
 ### input 3125 — Battery discharge energy today (high word)
@@ -8283,41 +8275,41 @@ Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `resolved`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
 
 
-### input 3164 — BDC presence flag
+### input 3164 — BDC data-separation flag
 
 Canonical description: BDC presence flag
 Physical identity: `min_tl_xh:input:3164`.
-Semantic: `field.bdc_presence_flag`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
+Semantic: `bdc.data_separation`; subsystem: `storage_device`; measurement point: `bdc_controller`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: NewBdcFlag; vendor description: BDC presence flag; vendor unit/type: 0:Don'tneed 1：need / u16 flag.
-Normalized type/signedness/scale: `u16 flag` / `False` / `—`.
+Vendor names: NewBdcFlag; vendor description: BDC presence flag; vendor unit/type: — / u16 enum 0=no separate BDC data, 1=separate BDC data.
+Normalized type/signedness/scale: `u16 enum 0=no separate BDC data, 1=separate BDC data` / `False` / `—`.
 Applicability: MIN 6000TL-XH; relationships: none.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
 
-Enums: 0=don_tneed_1_need (Don'tneed 1：need)
+Enums: 0=no_separate_bdc_data (no separate BDC data); 1=separate_bdc_data_none (separate BDC data None)
 Bitfields: [0, 15]=undocumented_flags (placeholder)
 
 ### input 3165 — BDC derating mode
 
 Canonical description: BDCDeratingMode： 0:Normal,unrestricted 1：Standbyorfault 2：Maximumbatterycurrentlimit (discharge) 3：BatterydischargeEnable(Discharge) 4：Highbusdischargederating
 Physical identity: `min_tl_xh:input:3165`.
-Semantic: `diagnostic.bdc_derating_mode`; subsystem: `storage_device`; measurement point: `bdc_or_storage_device`; instance/index: `not_applicable/None`.
+Semantic: `bdc.derating_mode`; subsystem: `storage_device`; measurement point: `bdc_controller`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: BDCDeratingMo de; vendor description: BDCDeratingMode： 0:Normal,unrestricted 1：Standbyorfault 2：Maximumbatterycurrentlimit (discharge) 3：BatterydischargeEnable(Discharge) 4：Highbusdischargederating; vendor unit/type: — / register value.
-Normalized type/signedness/scale: `register value` / `None` / `1`.
+Vendor names: BDCDeratingMo de; vendor description: BDCDeratingMode： 0:Normal,unrestricted 1：Standbyorfault 2：Maximumbatterycurrentlimit (discharge) 3：BatterydischargeEnable(Discharge) 4：Highbusdischargederating; vendor unit/type: — / u16 enum 0=normal, 1=standby/fault, 2=maximum discharge-current limit, 3=discharge enabled, 4=high-bus discharge derating.
+Normalized type/signedness/scale: `u16 enum 0=normal, 1=standby/fault, 2=maximum discharge-current limit, 3=discharge enabled, 4=high-bus discharge derating` / `False` / `1`.
 Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
 
-Enums: 0=normal (Normal)
+Enums: 0=normal_normal (Normal / normal); 1=standby_fault (standby/fault); 2=maximum_discharge_current_limit (maximum discharge-current limit); 3=discharge_enabled (discharge enabled); 4=high_bus_discharge_derating_none (high-bus discharge derating None)
 
-### input 3166 — BDC system mode
+### input 3166 — BDC system mode and status
 
 Canonical description: SystemworkStateandmodeThe upper8bitsindicatethemode; 0：Nochargeanddischarge； 1：charge； 2：Discharge； Thelower8bitsrepresentthestatus; 0:StandbyStatus; 1:NormalStatus; 2:FaultStatus 3：FlashStatus;
 Physical identity: `min_tl_xh:input:3166`.
-Semantic: `field.bdc_system_mode`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
+Semantic: `bdc.system_mode_status`; subsystem: `storage_device`; measurement point: `bdc_controller`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: SysState_Mode; vendor description: SystemworkStateandmodeThe upper8bitsindicatethemode; 0：Nochargeanddischarge； 1：charge； 2：Discharge； Thelower8bitsrepresentthestatus; 0:StandbyStatus; 1:NormalStatus; 2:FaultStatus 3：FlashStatus;; vendor unit/type: — / register value.
-Normalized type/signedness/scale: `register value` / `None` / `1`.
+Vendor names: SysState_Mode; vendor description: SystemworkStateandmodeThe upper8bitsindicatethemode; 0：Nochargeanddischarge； 1：charge； 2：Discharge； Thelower8bitsrepresentthestatus; 0:StandbyStatus; 1:NormalStatus; 2:FaultStatus 3：FlashStatus;; vendor unit/type: — / u16 packed: upper byte mode, lower byte status.
+Normalized type/signedness/scale: `u16 packed: upper byte mode, lower byte status` / `False` / `1`.
 Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
 
@@ -8496,6 +8488,19 @@ Evidence: source_documented, implementation_correlated; resolution: `resolved_wi
 
 Bitfields: [0, 15]=undocumented_flags (placeholder)
 
+### input 3210 — Battery insulation status
+
+Canonical description: BatteryISOdetectionstatus
+Physical identity: `min_tl_xh:input:3210`.
+Semantic: `diagnostic.battery_insulation_status`; subsystem: `storage_device`; measurement point: `bdc_or_storage_device`; instance/index: `not_applicable/None`.
+Logical field: `none`; component role: `complete_value`.
+Vendor names: BatIsoStatus; vendor description: BatteryISOdetectionstatus; vendor unit/type: — / u16 enum 0=not detected, 1=detection completed.
+Normalized type/signedness/scale: `u16 enum 0=not detected, 1=detection completed` / `False` / `—`.
+Applicability: family-level; relationships: none.
+Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
+
+Enums: 0=not_detected (not detected); 1=detection_completed_none (detection completed None)
+
 ### input 3211 — Battery request flags
 
 Canonical description: batteryworkrequest
@@ -8508,19 +8513,6 @@ Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
 
 Bitfields: [0]=charging_prohibited (structured); [1]=strong_charge_enabled (structured); [2]=strong_charge_2_enabled (structured); [8]=discharge_prohibited (structured); [9]=power_reduction_enabled (structured)
-
-### input 3212 — BMS status
-
-Canonical description: BMS status
-Physical identity: `min_tl_xh:input:3212`.
-Semantic: `diagnostic.bms_status`; subsystem: `bms`; measurement point: `bms`; instance/index: `unknown/None`.
-Logical field: `none`; component role: `complete_value`.
-Vendor names: BMS_Status; vendor description: BMS status; vendor unit/type: 0:dormancy 1:Charge 2:Discharge 3:free 4:standby 5:Softstart 6:fault 7:update / u16 enum.
-Normalized type/signedness/scale: `u16 enum` / `False` / `—`.
-Applicability: MIN 6000TL-XH; relationships: none.
-Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
-
-Enums: 0=dormancy (dormancy); 1=charge (Charge); 2=discharge (Discharge); 3=free (free); 4=standby (standby); 5=softstart (Softstart); 6=fault (fault); 7=update (update)
 
 ### input 3213 — BMS protect flags 2
 
@@ -8826,14 +8818,14 @@ Applicability: family-level; relationships: alternate:min_tl_xh:input:3271, alte
 Evidence: source_documented; resolution: `source_only`; write policy: `read_only`; native blocks: min_fc04_input_3250_3374.
 
 
-### input 3280 — bClrTodayDataFl ag
+### input 3280 — Clear current-day data flag
 
 Canonical description: Cleardaydataflag
 Physical identity: `min_tl_xh:input:3280`.
-Semantic: `field.bclrtodaydatafl_ag`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
+Semantic: `field.clear_current_day_data_flag`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: bClrTodayDataFl ag; vendor description: Cleardaydataflag; vendor unit/type: Data of the current day that the server / register value.
-Normalized type/signedness/scale: `register value` / `None` / `—`.
+Vendor names: bClrTodayDataFl ag; vendor description: Cleardaydataflag; vendor unit/type: — / u16 vendor-defined flag.
+Normalized type/signedness/scale: `u16 vendor-defined flag` / `False` / `—`.
 Applicability: family-level; relationships: none.
 Evidence: source_documented; resolution: `source_only`; write policy: `read_only`; native blocks: min_fc04_input_3250_3374.
 

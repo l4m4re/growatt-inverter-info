@@ -24,6 +24,7 @@ MIN_LIVE_PATH = DOC_DIR / "sources" / "evidence" / "min-6000tl-xh-live-validatio
 OPENINVERTER_PATH = DOC_DIR / "sources" / "external" / "openinverter-gateway-registers.snapshot.json"
 HA_RUNTIME_PATH = DOC_DIR / "sources" / "runtime" / "ha-local-registers.snapshot.json"
 MIN_BLOCK_VALIDATION_PATH = DOC_DIR / "sources" / "evidence" / "min-6000tl-xh-block-validation.json"
+MIN_SEMANTIC_REVIEW_PATH = DOC_DIR / "sources" / "evidence" / "min-6000tl-xh-semantic-review.json"
 OUTPUT_PATH = DOC_DIR / "knowledge" / "compatibility" / "growatt-register-reference.json"
 MARKDOWN_PATH = DOC_DIR / "knowledge" / "compatibility" / "GROWATT_REGISTER_REFERENCE.md"
 
@@ -95,6 +96,12 @@ SOURCE_DEFINITIONS: dict[str, dict[str, Any]] = {
         "kind": "live_hardware_evidence",
         "path": "sources/evidence/min-6000tl-xh-block-validation.json",
         "independent": True,
+    },
+    "min_semantic_review": {
+        "label": "GII-2 MIN/TL-XH semantic review",
+        "kind": "model_specific_semantic_review",
+        "path": "sources/evidence/min-6000tl-xh-semantic-review.json",
+        "independent": False,
     },
     "ha5_regression_tests": {
         "label": "HA-5 regression tests",
@@ -310,6 +317,16 @@ SEMANTIC_DEFINITIONS: dict[str, dict[str, Any]] = {
         "name": "Grid-first stop SOC",
         "category": "control",
         "aliases": ["Grid-first stop SOC"],
+    },
+    "grid_export_energy_today": {
+        "name": "Grid export energy today",
+        "category": "energy",
+        "aliases": ["Export energy today", "TodayEnergyToGrid"],
+    },
+    "grid_export_energy_total": {
+        "name": "Grid export energy total",
+        "category": "energy",
+        "aliases": ["Export energy total", "TotalEnergyToGrid"],
     },
     "load_first_stop_soc": {
         "name": "Load-first stop SOC",
@@ -853,6 +870,17 @@ def apply_openinverter(record: dict[str, Any], entry: dict[str, Any]) -> None:
 
 
 def refresh_semantic(record: dict[str, Any]) -> None:
+    if semantic_key := record.get("_semantic_override"):
+        definition = SEMANTIC_DEFINITIONS.get(semantic_key, {})
+        record["semantic_key"] = semantic_key
+        record["semantic_name"] = definition.get(
+            "name", record.get("canonical_name")
+        )
+        record["semantic_aliases"] = definition.get(
+            "aliases", [record.get("canonical_name", "")]
+        )
+        record["semantic_role"] = "supported"
+        return
     semantic_key, semantic_fields = semantic_for_record(
         record.get("canonical_name", ""),
         record.get("description", ""),
@@ -982,6 +1010,47 @@ def apply_min_overlay(
                 "detail": "0xFEB6 decodes to -3.30 A at 0.01 A resolution.",
             }
         )
+
+
+def apply_semantic_review(record: dict[str, Any], review: dict[str, Any]) -> None:
+    """Apply model-specific corrections before compatibility classification."""
+    record["_review"] = review
+    record["provenance"] = sorted(
+        set(record.get("provenance", [])) | {"min_semantic_review"}
+    )
+    for key in (
+        "canonical_name",
+        "description",
+        "encoding",
+        "length_registers",
+        "signed",
+        "divisor",
+        "scale",
+        "unit",
+        "access",
+        "semantic_category",
+        "model_applicability",
+    ):
+        if key in review:
+            record[key] = review[key]
+    if "semantic_key" in review:
+        record["_semantic_override"] = review["semantic_key"]
+        refresh_semantic(record)
+    if "subsystem" in review:
+        record["_review_subsystem"] = review["subsystem"]
+    if "measurement_point" in review:
+        record["_review_measurement_point"] = review["measurement_point"]
+    for source in review.get("source_basis", []):
+        mapped = {
+            "vendor_v124": "vendor_v124",
+            "grott": "grott",
+            "openinverter_gateway": "openinverter_gateway",
+            "ha_runtime": "ha_runtime",
+            "min_live_validation": "min_live_validation",
+        }.get(source)
+        if mapped:
+            record["provenance"].append(mapped)
+    record["provenance"] = sorted(set(record["provenance"]))
 
 
 def add_min_legacy_bridges(
@@ -1508,6 +1577,15 @@ def build_runtime_audit(
 
 
 def classify(record: dict[str, Any], has_min_overlay: bool) -> None:
+    if review := record.get("_review"):
+        if review.get("resolution_status"):
+            record["resolution_status"] = review["resolution_status"].upper()
+            record["confidence"] = review.get("confidence", record["confidence"])
+            if review.get("rationale"):
+                record["conflicts"].append(
+                    {"kind": "gii2_semantic_review", "detail": review["rationale"]}
+                )
+            return
     name = f"{record.get('canonical_name', '')} {record.get('description', '')}".lower()
     if any(token in name for token in ("reserved", "unknown")) and not record.get(
         "validation_evidence"
@@ -1549,6 +1627,11 @@ def build_reference() -> dict[str, Any]:
     openinverter = load_json(OPENINVERTER_PATH)
     runtime = load_json(HA_RUNTIME_PATH)
     block_validation = load_json(MIN_BLOCK_VALIDATION_PATH)
+    semantic_review = load_json(MIN_SEMANTIC_REVIEW_PATH)
+    review_by_key = {
+        (semantic_review["meta"]["family"], item["table"], int(item["address"])): item
+        for item in semantic_review["records"]
+    }
     ranges = graph_ranges(canonical)
     family_by_id = {family["id"]: family for family in FAMILY_DEFINITIONS}
     records: dict[tuple[str, str, int], dict[str, Any]] = {}
@@ -1621,6 +1704,10 @@ def build_reference() -> dict[str, Any]:
         apply_min_overlay(records[key], row, relocation_note, live_index)
         min_overlays.add(key)
 
+    for key, review in review_by_key.items():
+        if key in records:
+            apply_semantic_review(records[key], review)
+
     for address in (3047, 3048):
         key = ("min_tl_xh", "input", address)
         if key in records:
@@ -1649,6 +1736,11 @@ def build_reference() -> dict[str, Any]:
             record.get("validation_evidence", []),
             key=lambda item: (item.get("source", ""), str(item.get("locations", ""))),
         )
+        if review := record.pop("_review", None):
+            record["review"] = review
+        record.pop("_semantic_override", None)
+        record.pop("_review_subsystem", None)
+        record.pop("_review_measurement_point", None)
 
     ordered_records = sorted(
         records.values(),
@@ -1706,6 +1798,7 @@ def build_reference() -> dict[str, Any]:
         "min_resolved_map": MIN_MAP_PATH,
         "min_live_validation": MIN_LIVE_PATH,
         "min_block_validation": MIN_BLOCK_VALIDATION_PATH,
+        "min_semantic_review": MIN_SEMANTIC_REVIEW_PATH,
         "graph_export": CANONICAL_PATH,
     })
     for source_id, source in SOURCE_DEFINITIONS.items():

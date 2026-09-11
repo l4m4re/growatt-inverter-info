@@ -177,6 +177,10 @@ This index preserves subsystem and instance distinctions; entries are not automa
 - `mod_tl3_xh` input 3220 — bms / bms — `supported`
 - `storage_mix` input 3220 — bms / bms — `supported`
 
+## `battery.bms_max_soc`
+
+- `min_tl_xh` input 3196 — bms / bms — `supported`
+
 ## `battery.bms_maxcurr`
 
 - `storage_mix` input 1090 — bms / bms — `supported`
@@ -206,6 +210,10 @@ This index preserves subsystem and instance distinctions; entries are not automa
 - `min_tl_xh` input 3231 — bms / bms — `supported`
 - `mod_tl3_xh` input 3231 — bms / bms — `supported`
 - `storage_mix` input 3231 — bms / bms — `supported`
+
+## `battery.bms_min_soc`
+
+- `min_tl_xh` input 3197 — bms / bms — `supported`
 
 ## `battery.bms_packinfo`
 
@@ -334,14 +342,54 @@ This index preserves subsystem and instance distinctions; entries are not automa
 
 ## `battery.first.charge.rate`
 
-- `min_tl_xh` holding 3047 — storage_device / bdc_or_storage_device — `supported`
+- `min_tl_xh` holding 3047 — control / inverter_control — `supported`
 - `storage_mix` holding 1090 — storage_device / bdc_or_storage_device — `supported`
 - `storage_spa` holding 1090 — storage_device / bdc_or_storage_device — `supported`
 - `storage_sph` holding 1090 — storage_device / bdc_or_storage_device — `supported`
 
+## `battery.first.schedule.1.end`
+
+- `min_tl_xh` holding 3051 — control / inverter_control — `supported`
+
+## `battery.first.schedule.1.start.control`
+
+- `min_tl_xh` holding 3050 — control / inverter_control — `supported`
+
+## `battery.first.schedule.2.end`
+
+- `min_tl_xh` holding 3053 — control / inverter_control — `supported`
+
+## `battery.first.schedule.2.start.control`
+
+- `min_tl_xh` holding 3052 — control / inverter_control — `supported`
+
+## `battery.first.schedule.3.end`
+
+- `min_tl_xh` holding 3055 — control / inverter_control — `supported`
+
+## `battery.first.schedule.3.start.control`
+
+- `min_tl_xh` holding 3054 — control / inverter_control — `supported`
+
+## `battery.first.schedule.4.end`
+
+- `min_tl_xh` holding 3057 — control / inverter_control — `supported`
+
+## `battery.first.schedule.4.start.control`
+
+- `min_tl_xh` holding 3056 — control / inverter_control — `supported`
+
+## `battery.first.schedule.5.end`
+
+- `min_tl_xh` holding 3059 — control / inverter_control — `supported`
+
+## `battery.first.schedule.5.start.control`
+
+- `min_tl_xh` holding 3058 — control / inverter_control — `supported`
+
 ## `battery.first.stop.soc`
 
-- `min_tl_xh` holding 3048 — storage_device / bdc_or_storage_device — `supported`
+- `min_tl_xh` holding 3048 — control / inverter_control — `supported`
 - `storage_mix` holding 1091 — storage_device / bdc_or_storage_device — `supported`
 - `storage_spa` holding 1091 — storage_device / bdc_or_storage_device — `supported`
 - `storage_sph` holding 1091 — storage_device / bdc_or_storage_device — `supported`
@@ -432,8 +480,6 @@ This index preserves subsystem and instance distinctions; entries are not automa
 
 - `min_tl_xh` input 1014 — storage_device / bdc_or_storage_device — `preferred`
 - `min_tl_xh` input 3171 — storage_device / bdc_or_storage_device — `alternate`
-- `min_tl_xh` input 3196 — bms / bms — `supported`
-- `min_tl_xh` input 3197 — bms / bms — `supported`
 - `min_tl_xh` input 3215 — bms / bms — `supported`
 - `mod_tl3_xh` holding 3048 — storage_device / bdc_or_storage_device — `preferred`
 - `mod_tl3_xh` input 3171 — storage_device / bdc_or_storage_device — `alternate`
@@ -467,7 +513,7 @@ This index preserves subsystem and instance distinctions; entries are not automa
 - `storage_sph` holding 1048 — storage_device / bdc_or_storage_device — `legacy_or_supported`
 - `storage_sph` input 119 — storage_device / bdc_or_storage_device — `preferred`
 - `tl3_max_mid_mac` input 119 — storage_device / bdc_or_storage_device — `supported`
-- logical field `logical:min_tl_xh:holding:3070` — storage_device / bdc_or_storage_device — `supported` — unknown / kWh — I3070 word_1, I3071 word_2
+- logical field `logical:min_tl_xh:holding:3070` — control / inverter_control — `supported` — unknown / kWh — I3070 word_1, I3071 word_2
 
 ## `battery.uwmaxcellvolt`
 
@@ -502,6 +548,26 @@ This index preserves subsystem and instance distinctions; entries are not automa
 - `storage_mix` input 3169 — storage_device / bdc_or_storage_device — `supported`
 - `storage_mix` input 3216 — bms / bms — `supported`
 - `tl3_max_mid_mac` input 1013 — storage_device / bdc_or_storage_device — `supported`
+
+## `bdc.data_separation`
+
+- `min_tl_xh` input 3164 — storage_device / bdc_controller — `supported`
+
+## `bdc.derating_mode`
+
+- `min_tl_xh` input 3165 — storage_device / bdc_controller — `supported`
+
+## `bdc.fault_code`
+
+- `min_tl_xh` input 3167 — storage_device / bdc_controller — `supported`
+
+## `bdc.system_mode_status`
+
+- `min_tl_xh` input 3166 — storage_device / bdc_controller — `supported`
+
+## `bdc.warning_code`
+
+- `min_tl_xh` input 3168 — storage_device / bdc_controller — `supported`
 
 ## `control.70_inv_power_adjust`
 
@@ -631,46 +697,6 @@ This index preserves subsystem and instance distinctions; entries are not automa
 - `storage_mix` holding 1092 — storage_device / bdc_or_storage_device — `supported`
 - `storage_spa` holding 1092 — storage_device / bdc_or_storage_device — `supported`
 - `storage_sph` holding 1092 — storage_device / bdc_or_storage_device — `supported`
-
-## `control.battery_first_schedule_1_end`
-
-- `min_tl_xh` holding 3051 — storage_device / bdc_or_storage_device — `supported`
-
-## `control.battery_first_schedule_1_start_control`
-
-- `min_tl_xh` holding 3050 — storage_device / bdc_or_storage_device — `supported`
-
-## `control.battery_first_schedule_2_end`
-
-- `min_tl_xh` holding 3053 — storage_device / bdc_or_storage_device — `supported`
-
-## `control.battery_first_schedule_2_start_control`
-
-- `min_tl_xh` holding 3052 — storage_device / bdc_or_storage_device — `supported`
-
-## `control.battery_first_schedule_3_end`
-
-- `min_tl_xh` holding 3055 — storage_device / bdc_or_storage_device — `supported`
-
-## `control.battery_first_schedule_3_start_control`
-
-- `min_tl_xh` holding 3054 — storage_device / bdc_or_storage_device — `supported`
-
-## `control.battery_first_schedule_4_end`
-
-- `min_tl_xh` holding 3057 — storage_device / bdc_or_storage_device — `supported`
-
-## `control.battery_first_schedule_4_start_control`
-
-- `min_tl_xh` holding 3056 — storage_device / bdc_or_storage_device — `supported`
-
-## `control.battery_first_schedule_5_end`
-
-- `min_tl_xh` holding 3059 — storage_device / bdc_or_storage_device — `supported`
-
-## `control.battery_first_schedule_5_start_control`
-
-- `min_tl_xh` holding 3058 — storage_device / bdc_or_storage_device — `supported`
 
 ## `control.battery_first_slot_1_enable`
 
@@ -1120,38 +1146,6 @@ This index preserves subsystem and instance distinctions; entries are not automa
 
 - `mod_tl3_xh` holding 3039 — grid / grid_meter_or_inverter — `supported`
 - `storage_mix` holding 3039 — grid / grid_meter_or_inverter — `supported`
-
-## `control.grid_first_schedule_1_end`
-
-- `min_tl_xh` holding 3039 — grid / grid_meter_or_inverter — `supported`
-
-## `control.grid_first_schedule_1_start_control`
-
-- `min_tl_xh` holding 3038 — grid / grid_meter_or_inverter — `supported`
-
-## `control.grid_first_schedule_2_end`
-
-- `min_tl_xh` holding 3041 — grid / grid_meter_or_inverter — `supported`
-
-## `control.grid_first_schedule_2_start_control`
-
-- `min_tl_xh` holding 3040 — grid / grid_meter_or_inverter — `supported`
-
-## `control.grid_first_schedule_3_end`
-
-- `min_tl_xh` holding 3043 — grid / grid_meter_or_inverter — `supported`
-
-## `control.grid_first_schedule_3_start_control`
-
-- `min_tl_xh` holding 3042 — grid / grid_meter_or_inverter — `supported`
-
-## `control.grid_first_schedule_4_end`
-
-- `min_tl_xh` holding 3045 — grid / grid_meter_or_inverter — `supported`
-
-## `control.grid_first_schedule_4_start_control`
-
-- `min_tl_xh` holding 3044 — grid / grid_meter_or_inverter — `supported`
 
 ## `control.grid_first_slot_1_enable`
 
@@ -2079,14 +2073,6 @@ This index preserves subsystem and instance distinctions; entries are not automa
 - `min_tl_xh` holding 3035 — grid / grid_meter_or_inverter — `supported`
 - `mod_tl3_xh` holding 3035 — grid / grid_meter_or_inverter — `supported`
 
-## `control.ups_eps_frequency_selection`
-
-- `min_tl_xh` holding 3081 — grid / grid_meter_or_inverter — `supported`
-
-## `control.ups_eps_voltage_selection`
-
-- `min_tl_xh` holding 3080 — control / inverter_control — `supported`
-
 ## `control.upsfreqset`
 
 - `mod_tl3_xh` holding 3081 — control / inverter_control — `supported`
@@ -2341,17 +2327,14 @@ This index preserves subsystem and instance distinctions; entries are not automa
 
 ## `diagnostic.bdc_derating_mode`
 
-- `min_tl_xh` input 3165 — storage_device / bdc_or_storage_device — `supported`
 - `mod_tl3_xh` input 3165 — storage_device / bdc_or_storage_device — `supported`
 
 ## `diagnostic.bdc_fault_code`
 
-- `min_tl_xh` input 3167 — unknown / unknown — `supported`
 - `mod_tl3_xh` input 3167 — unknown / unknown — `supported`
 
 ## `diagnostic.bdc_warning_code`
 
-- `min_tl_xh` input 3168 — unknown / unknown — `supported`
 - `mod_tl3_xh` input 3168 — unknown / unknown — `supported`
 
 ## `diagnostic.bfanfaultbit`
@@ -2360,7 +2343,6 @@ This index preserves subsystem and instance distinctions; entries are not automa
 
 ## `diagnostic.bms_average_temperature_a`
 
-- `min_tl_xh` input 3191 — bms / bms — `supported`
 - `mod_tl3_xh` input 3191 — bms / bms — `supported`
 - `storage_mix` input 3191 — bms / bms — `supported`
 
@@ -2372,9 +2354,16 @@ This index preserves subsystem and instance distinctions; entries are not automa
 
 ## `diagnostic.bms_average_temperature_c`
 
-- `min_tl_xh` input 3195 — bms / bms — `supported`
 - `mod_tl3_xh` input 3195 — bms / bms — `supported`
 - `storage_mix` input 3195 — bms / bms — `supported`
+
+## `diagnostic.bms_average_temperature_channel_a`
+
+- `min_tl_xh` input 3191 — bms / bms — `supported`
+
+## `diagnostic.bms_average_temperature_channel_c`
+
+- `min_tl_xh` input 3195 — bms / bms — `supported`
 
 ## `diagnostic.bms_fault_flags_1`
 
@@ -2402,9 +2391,12 @@ This index preserves subsystem and instance distinctions; entries are not automa
 
 ## `diagnostic.bms_max_cell_temperature_b`
 
-- `min_tl_xh` input 3194 — bms / bms — `supported`
 - `mod_tl3_xh` input 3194 — bms / bms — `supported`
 - `storage_mix` input 3194 — bms / bms — `supported`
+
+## `diagnostic.bms_max_cell_temperature_channel_b`
+
+- `min_tl_xh` input 3194 — bms / bms — `supported`
 
 ## `diagnostic.bms_status`
 
@@ -2638,8 +2630,6 @@ This index preserves subsystem and instance distinctions; entries are not automa
 ## `diagnostic.warning_code`
 
 - `storage_mix` input 3111 — unknown / unknown — `preferred`
-- logical field `logical:min_tl_xh:input:110` — unknown / unknown — `supported` — unknown / unitless — I110 word_1, I111 word_2
-- logical field `logical:min_tl_xh:input:3110` — inverter / inverter — `supported` — unknown / unitless — I3110 word_1, I3111 word_2
 - logical field `logical:mod_tl3_xh:input:3110` — inverter / inverter — `supported` — unknown / unitless — I3110 word_1, I3111 word_2
 - logical field `logical:storage_mix:input:110` — unknown / unknown — `supported` — unknown / unitless — I110 word_1, I111 word_2
 - logical field `logical:storage_sph:input:110` — unknown / unknown — `supported` — unknown / unitless — I110 word_1, I111 word_2
@@ -2827,10 +2817,6 @@ This index preserves subsystem and instance distinctions; entries are not automa
 
 - `spf_offgrid` input 77 — unknown / unknown — `supported`
 
-## `field.bclrtodaydatafl_ag`
-
-- `min_tl_xh` input 3280 — unknown / unknown — `supported`
-
 ## `field.bdc_certification_version`
 
 - `min_tl_xh` holding 3114 — unknown / unknown — `supported`
@@ -2871,7 +2857,6 @@ This index preserves subsystem and instance distinctions; entries are not automa
 
 ## `field.bdc_presence_flag`
 
-- `min_tl_xh` input 3164 — unknown / unknown — `supported`
 - `mod_tl3_xh` input 3164 — unknown / unknown — `supported`
 - `storage_mix` input 3164 — unknown / unknown — `supported`
 
@@ -2883,7 +2868,6 @@ This index preserves subsystem and instance distinctions; entries are not automa
 
 ## `field.bdc_system_mode`
 
-- `min_tl_xh` input 3166 — unknown / unknown — `supported`
 - `mod_tl3_xh` input 3166 — unknown / unknown — `supported`
 
 ## `field.bflasheraseaging_okflag`
@@ -2932,6 +2916,10 @@ This index preserves subsystem and instance distinctions; entries are not automa
 ## `field.busbagingtestok_flag`
 
 - `tl3_max_mid_mac` input 198 — unknown / unknown — `supported`
+
+## `field.clear_current_day_data_flag`
+
+- `min_tl_xh` input 3280 — unknown / unknown — `supported`
 
 ## `field.comp_q_rh`
 
@@ -4484,11 +4472,17 @@ This index preserves subsystem and instance distinctions; entries are not automa
 
 - `tl3_max_mid_mac` input 875 — pv / pv_or_mppt — `supported`
 
+## `grid.export_energy_today`
+
+- logical field `logical:min_tl_xh:input:3071:grid_export_energy_today` — grid / grid_meter_or_inverter — `supported` — high_low / kWh — I3071 high_word, I3072 low_word
+
+## `grid.export_energy_total`
+
+- logical field `logical:min_tl_xh:input:3073:grid_export_energy_total` — grid / grid_meter_or_inverter — `supported` — high_low / kWh — I3073 high_word, I3074 low_word
+
 ## `grid.export_power`
 
 - logical field `logical:min_tl_xh:input:3043:grid_export_power` — grid / grid_meter_or_inverter — `supported` — high_low / W — I3043 high_word, I3044 low_word
-- logical field `logical:min_tl_xh:input:3071:grid_export_power` — grid / grid_meter_or_inverter — `supported` — high_low / kWh — I3071 high_word, I3072 low_word
-- logical field `logical:min_tl_xh:input:3073:grid_export_power` — grid / grid_meter_or_inverter — `supported` — high_low / kWh — I3073 high_word, I3074 low_word
 - logical field `logical:mod_tl3_xh:input:3043:grid_export_power` — grid / grid_meter_or_inverter — `supported` — high_low / Totalreverse power — I3043 high_word, I3044 low_word
 - logical field `logical:mod_tl3_xh:input:3071:grid_export_power` — grid / grid_meter_or_inverter — `supported` — high_low / Todayenergy togrid — I3071 high_word, I3072 low_word
 - logical field `logical:mod_tl3_xh:input:3073:grid_export_power` — grid / grid_meter_or_inverter — `supported` — high_low / Totalenergy togrid — I3073 high_word, I3074 low_word
@@ -4498,15 +4492,47 @@ This index preserves subsystem and instance distinctions; entries are not automa
 
 ## `grid.first.discharge.rate`
 
-- `min_tl_xh` holding 3036 — grid / grid_meter_or_inverter — `supported`
+- `min_tl_xh` holding 3036 — control / inverter_control — `supported`
 - `mod_tl3_xh` holding 3036 — grid / grid_meter_or_inverter — `supported`
 - `storage_mix` holding 1070 — grid / grid_meter_or_inverter — `supported`
 - `storage_spa` holding 1070 — grid / grid_meter_or_inverter — `supported`
 - `storage_sph` holding 1070 — grid / grid_meter_or_inverter — `supported`
 
+## `grid.first.schedule.1.end`
+
+- `min_tl_xh` holding 3039 — control / inverter_control — `supported`
+
+## `grid.first.schedule.1.start.control`
+
+- `min_tl_xh` holding 3038 — control / inverter_control — `supported`
+
+## `grid.first.schedule.2.end`
+
+- `min_tl_xh` holding 3041 — control / inverter_control — `supported`
+
+## `grid.first.schedule.2.start.control`
+
+- `min_tl_xh` holding 3040 — control / inverter_control — `supported`
+
+## `grid.first.schedule.3.end`
+
+- `min_tl_xh` holding 3043 — control / inverter_control — `supported`
+
+## `grid.first.schedule.3.start.control`
+
+- `min_tl_xh` holding 3042 — control / inverter_control — `supported`
+
+## `grid.first.schedule.4.end`
+
+- `min_tl_xh` holding 3045 — control / inverter_control — `supported`
+
+## `grid.first.schedule.4.start.control`
+
+- `min_tl_xh` holding 3044 — control / inverter_control — `supported`
+
 ## `grid.first.stop.soc`
 
-- `min_tl_xh` holding 3037 — grid / grid_meter_or_inverter — `supported`
+- `min_tl_xh` holding 3037 — control / inverter_control — `supported`
 - `mod_tl3_xh` holding 3037 — grid / grid_meter_or_inverter — `supported`
 - `storage_mix` holding 1071 — grid / grid_meter_or_inverter — `supported`
 - `storage_spa` holding 1071 — grid / grid_meter_or_inverter — `supported`
@@ -4575,6 +4601,10 @@ This index preserves subsystem and instance distinctions; entries are not automa
 - logical field `logical:mod_tl3_xh:input:3041:grid_import_power` — load / load_meter_or_inverter — `supported` — high_low / Total forward power — I3041 high_word, I3042 low_word
 - logical field `logical:storage_mix:input:3041:grid_import_power` — load / load_meter_or_inverter — `supported` — high_low / Total forward power — I3041 high_word, I3042 low_word
 
+## `inverter.present_fft_value_channel_a`
+
+- `min_tl_xh` input 3111 — unknown / unknown — `supported`
+
 ## `inverter.runtime`
 
 - logical field `logical:min_tl_xh:input:57:inverter_runtime` — unknown / unknown — `supported` — high_low / h — I57 high_word, I58 low_word
@@ -4593,9 +4623,21 @@ This index preserves subsystem and instance distinctions; entries are not automa
 - `storage_sph` input 0 — inverter / inverter — `supported`
 - `tl3_max_mid_mac` input 0 — inverter / inverter — `supported`
 
+## `inverter.warning_flags`
+
+- `min_tl_xh` input 3110 — inverter / inverter — `supported`
+
+## `inverter.warning_flags_high`
+
+- `min_tl_xh` input 110 — inverter / inverter — `supported`
+
+## `inverter.warning_subcode`
+
+- `min_tl_xh` input 111 — inverter / inverter — `supported`
+
 ## `load.first.stop.soc`
 
-- `min_tl_xh` holding 3082 — load / load_meter_or_inverter — `supported`
+- `min_tl_xh` holding 3082 — control / inverter_control — `supported`
 
 ## `load.house_power`
 
@@ -5085,7 +5127,7 @@ This index preserves subsystem and instance distinctions; entries are not automa
 ## `telemetry.output_reactive_power`
 
 - logical field `logical:min_tl_xh:input:234:telemetry_output_reactive_power` — unknown / unknown — `supported` — high_low / var — I234 high_word, I235 low_word
-- logical field `logical:min_tl_xh:input:3021:telemetry_output_reactive_power` — unknown / unknown — `supported` — high_low / POWER_REACTIVE — I3021 high_word, I3022 low_word
+- logical field `logical:min_tl_xh:input:3021:telemetry_output_reactive_power` — unknown / unknown — `supported` — high_low / var — I3021 high_word, I3022 low_word
 - logical field `logical:mod_tl3_xh:input:3021:telemetry_output_reactive_power` — unknown / unknown — `supported` — high_low / var — I3021 high_word, I3022 low_word
 - logical field `logical:tl3_max_mid_mac:input:234:telemetry_output_reactive_power` — unknown / unknown — `supported` — high_low / var — I234 high_word, I235 low_word
 
@@ -5635,3 +5677,11 @@ This index preserves subsystem and instance distinctions; entries are not automa
 - `min_tl_xh` input 3173 — unknown / unknown — `supported`
 - `mod_tl3_xh` input 3173 — unknown / unknown — `supported`
 - `storage_mix` input 3173 — unknown / unknown — `supported`
+
+## `ups.eps.frequency.selection`
+
+- `min_tl_xh` holding 3081 — control / inverter_control — `supported`
+
+## `ups.eps.voltage.selection`
+
+- `min_tl_xh` holding 3080 — control / inverter_control — `supported`

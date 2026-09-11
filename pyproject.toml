@@ -24,6 +24,7 @@ growatt-build-compatibility = "tools.build_resolved_register_reference:main"
 growatt-build-spec = "tools.build_register_spec:main"
 growatt-validate-compatibility = "tools.validate_resolved_register_reference:main"
 growatt-validate-spec = "tools.validate_register_spec:main"
+growatt-validate-min-tlxh-metadata = "tools.validate_min_tlxh_metadata:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
