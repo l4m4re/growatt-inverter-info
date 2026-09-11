@@ -98,7 +98,7 @@
       "kind": "model_specific_resolved_overlay",
       "path": "sources/evidence/min-6000tl-xh-register-map.json",
       "independent": false,
-      "sha256": "f8a791e72592e82e3f6b7ed5c3a499f11019a7142831d467bb48d0df0b8e6ccd"
+      "sha256": "329599003a7bd27d0cd6ccc2f1019521c2fce22580988ab2e72da78f91ac6766"
     },
     "min_live_validation": {
       "label": "MIN 6000TL-XH live read validation",
@@ -119,14 +119,14 @@
       "kind": "model_specific_semantic_review",
       "path": "sources/evidence/min-6000tl-xh-semantic-review.json",
       "independent": false,
-      "sha256": "1215d616f09d343cbe5354b7f7ba293d700e9feffaebbedc23fce08243a7a402"
+      "sha256": "f613b2d7a76ea4e3dba3b5dcc7a1ec243d15947e87d919c43d35be00ec6a7b79"
     },
     "ha5_regression_tests": {
       "label": "HA-5 regression tests",
       "kind": "deterministic_validation",
       "path": "tests/test_resolved_register_reference.py",
       "independent": false,
-      "sha256": "89e15d08948c2849bc29dad7c9a841983b66465da670b997ff173f82af27bb6b"
+      "sha256": "fe8d55b95275d89e806fe837a7fcfe9267b08bcc0ee98a111b4468e41a67240c"
     },
     "graph_export": {
       "label": "graph-derived consolidated export",
@@ -134,7 +134,7 @@
       "path": "knowledge/audit/consolidated-register-reference.json",
       "independent": false,
       "derived": true,
-      "sha256": "0bfe5ff3aa3b520c44e3da9f5cbbb3b5cf03fa6ff7318156d95f2ce3b1b86cc9"
+      "sha256": "69244ab7636527d3d34f06db6673580158ca054f17905fe9032a10874b1f147f"
     },
     "protocol_v314": {
       "label": "Growatt V3.14/3.15 protocol constraints",
@@ -38430,9 +38430,9 @@
         }
       ],
       "resolution": {
-        "status": "resolved_with_notes",
-        "confidence": "medium",
-        "note": "Signed int16 is implementation-correlated and physically read, but the retained live samples do not contain a negative I3170 raw value; do not treat HA signed=True as proof."
+        "status": "resolved",
+        "confidence": "high",
+        "note": "Growatt V4 bdc1_ibat is non-negative in 66 charge and 77 discharge records; I3170 is distinct from directional BMS current I3217."
       },
       "normalization": {
         "status": "assigned",
@@ -70917,7 +70917,7 @@
         "instance_status": "not_applicable",
         "index_kind": null,
         "index": null,
-        "relationship_role": "preferred"
+        "relationship_role": "alternate"
       },
       "instance": {
         "instance_kind": null,
@@ -83712,12 +83712,14 @@
         "name": "Output power percentage",
         "description": "RealOutputpowerPercent",
         "raw_type": "register value",
-        "signed": true,
+        "signed": false,
         "divisor": 1,
         "multiplier": 1,
         "scale": 1,
         "unit": "%",
-        "access": "R"
+        "access": "R",
+        "signedness_status": "v4_history_validated_non_negative",
+        "signedness_note": "Growatt V4 real_op_percent was non-negative in all 145 retained history records, with an observed range of 0..43%."
       },
       "semantic_identity": {
         "quantity": "telemetry.output_power_percentage",
@@ -83730,7 +83732,7 @@
         "instance_status": "not_applicable",
         "index_kind": null,
         "index": null,
-        "relationship_role": "alternate"
+        "relationship_role": "preferred"
       },
       "instance": {
         "instance_kind": null,
@@ -83749,9 +83751,9 @@
         }
       ],
       "resolution": {
-        "status": "resolved_with_notes",
-        "confidence": "medium",
-        "note": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        "status": "resolved",
+        "confidence": "high",
+        "note": "I3101 is Growatt RealOPPercent, a non-negative output-power percentage. The reactivated V4 energy history returned real_op_percent in all 145 records within the 0..43% range and never returned a negative value."
       },
       "normalization": {
         "status": "assigned",
@@ -83779,6 +83781,8 @@
         "grott",
         "ha_runtime",
         "manual",
+        "min_live_validation",
+        "min_semantic_review",
         "openinverter_gateway",
         "vendor_v124"
       ],
@@ -83804,7 +83808,21 @@
       "write_policy": "read_only",
       "native_read_blocks": [
         "min_fc04_input_3000_3124"
-      ]
+      ],
+      "review": {
+        "disposition": "PROVEN",
+        "rationale": "I3101 is Growatt RealOPPercent, a non-negative output-power percentage. The reactivated V4 energy history returned real_op_percent in all 145 records within the 0..43% range and never returned a negative value.",
+        "live_observation": "Growatt V4 real_op_percent: 145 records, range 0..43%, negative records 0",
+        "source_basis": [
+          "vendor_v124",
+          "grott",
+          "openinverter_gateway",
+          "ha_runtime",
+          "min_live_validation"
+        ],
+        "resolution_status": "resolved",
+        "confidence": "high"
+      }
     },
     {
       "physical_id": "min_tl_xh:input:3102",
@@ -91089,7 +91107,7 @@
           "Ibat"
         ],
         "description": "Battery current",
-        "datatype_notation": "s16 / 10",
+        "datatype_notation": "u16 / 10",
         "unit_notation": "A",
         "access": "R",
         "applicability": [
@@ -91099,15 +91117,15 @@
       "normalized": {
         "name": "Battery current",
         "description": "Battery current",
-        "raw_type": "s16 / 10",
-        "signed": true,
+        "raw_type": "u16 / 10",
+        "signed": false,
         "divisor": 10,
         "multiplier": 0.1,
         "scale": 0.1,
         "unit": "A",
         "access": "R",
-        "signedness_status": "implementation_correlated_not_live_sign_validated",
-        "signedness_note": "Retained live samples show plausible positive Ibat values but no negative raw I3170 sample; vendor/implementation evidence supports signed int16 without making the HA consumer authoritative."
+        "signedness_status": "v4_history_validated_non_negative_magnitude",
+        "signedness_note": "Growatt V4 bdc1_ibat is non-negative in 66 charge and 77 discharge records; I3170 is distinct from directional BMS current I3217."
       },
       "semantic_identity": {
         "quantity": "battery.current",
@@ -91133,9 +91151,9 @@
       "packed_fields": null,
       "relationships": [],
       "resolution": {
-        "status": "resolved_with_notes",
-        "confidence": "medium",
-        "note": "Signed int16 is implementation-correlated and physically read, but the retained live samples do not contain a negative I3170 raw value; do not treat HA signed=True as proof."
+        "status": "resolved",
+        "confidence": "high",
+        "note": "Growatt V4 bdc1_ibat is non-negative in 66 charge and 77 discharge records; I3170 is distinct from directional BMS current I3217."
       },
       "normalization": {
         "status": "assigned",
@@ -91236,17 +91254,17 @@
         "min_fc04_input_3125_3249"
       ],
       "review": {
-        "disposition": "UNCERTAIN",
-        "rationale": "I3170 is a storage-device battery-current field with implementation-correlated s16 /10 semantics, but retained live evidence contains no negative sample for this physical source. Do not collapse it with the independently validated BMS current at I3217.",
-        "live_observation": "retained live samples positive; signedness not live-validated",
+        "disposition": "PROVEN",
+        "rationale": "I3170 is Growatt bdc1_ibat, the storage-device/BDC battery-current magnitude. HA-GII-4B found 66 charging and 77 discharging V4 records: BDC current was 0 negative / 3 zero / 63 positive during charge and 0 negative / 2 zero / 75 positive during discharge. I3217 remains the distinct directional BMS current.",
+        "live_observation": "Growatt V4 bdc1_ibat: 143 classified records, no negative values in charge or discharge",
         "source_basis": [
           "vendor_v124",
           "openinverter_gateway",
           "ha_runtime",
           "min_live_validation"
         ],
-        "resolution_status": "resolved_with_notes",
-        "confidence": "medium"
+        "resolution_status": "resolved",
+        "confidence": "high"
       }
     },
     {
@@ -433532,9 +433550,9 @@
       "mapping_occurrences_checked": 274,
       "unique_family_table_address_mappings": 206,
       "unique_physical_mappings_checked": 206,
-      "finding_occurrences": 27,
-      "unique_family_table_address_issue_findings": 24,
-      "unique_findings": 24,
+      "finding_occurrences": 24,
+      "unique_family_table_address_issue_findings": 22,
+      "unique_findings": 22,
       "finding_kinds": [
         "length_mismatch",
         "signedness_mismatch"
@@ -433708,24 +433726,6 @@
           "group": "input_tl_xh",
           "family": "min_tl_xh",
           "table": "input",
-          "address": 3101,
-          "runtime_name": "real_output_power_percent",
-          "runtime_semantic_key": null,
-          "reference_id": "register:min_tl_xh:input:3101",
-          "issues": [
-            {
-              "kind": "signedness_mismatch",
-              "reference": true,
-              "runtime": false,
-              "declared": false
-            }
-          ]
-        },
-        {
-          "device": "tlx",
-          "group": "input_tl_xh",
-          "family": "min_tl_xh",
-          "table": "input",
           "address": 3110,
           "runtime_name": "warning_code",
           "runtime_semantic_key": null,
@@ -433735,24 +433735,6 @@
               "kind": "length_mismatch",
               "reference": 1,
               "runtime": 2
-            }
-          ]
-        },
-        {
-          "device": "tlx",
-          "group": "input_tl_xh",
-          "family": "min_tl_xh",
-          "table": "input",
-          "address": 3170,
-          "runtime_name": "battery_current",
-          "runtime_semantic_key": null,
-          "reference_id": "register:min_tl_xh:input:3170",
-          "issues": [
-            {
-              "kind": "signedness_mismatch",
-              "reference": true,
-              "runtime": false,
-              "declared": false
             }
           ]
         },
@@ -434004,24 +433986,6 @@
               "kind": "signedness_mismatch",
               "reference": false,
               "runtime": true,
-              "declared": false
-            }
-          ]
-        },
-        {
-          "device": "storage",
-          "group": "input_tl_xh",
-          "family": "min_tl_xh",
-          "table": "input",
-          "address": 3170,
-          "runtime_name": "battery_current",
-          "runtime_semantic_key": null,
-          "reference_id": "register:min_tl_xh:input:3170",
-          "issues": [
-            {
-              "kind": "signedness_mismatch",
-              "reference": true,
-              "runtime": false,
               "declared": false
             }
           ]

@@ -11,7 +11,7 @@ Write verified: **0** (the current hardware evidence is read-only)
 
 | Family | Holding coverage | Input coverage | Resolution quality | Live validation |
 |---|---:|---:|---|---:|
-| MIN / TL-XH | 415 | 480 | RESOLVED=87, RESOLVED_WITH_NOTES=276, SOURCE_ONLY=384, UNKNOWN_RESERVED=148 | 60 |
+| MIN / TL-XH | 415 | 480 | RESOLVED=89, RESOLVED_WITH_NOTES=274, SOURCE_ONLY=384, UNKNOWN_RESERVED=148 | 60 |
 | TL3-X / MAX / MID / MAC | 250 | 399 | RESOLVED=24, RESOLVED_WITH_NOTES=92, SOURCE_ONLY=473, UNKNOWN_RESERVED=60 | 0 |
 | MOD TL3-XH | 290 | 250 | RESOLVED=45, RESOLVED_WITH_NOTES=199, SOURCE_ONLY=242, UNKNOWN_RESERVED=54 | 0 |
 | MIX storage | 350 | 325 | RESOLVED=61, RESOLVED_WITH_NOTES=183, SOURCE_ONLY=358, UNKNOWN_RESERVED=73 | 0 |
@@ -88,7 +88,7 @@ Non-MIN plans are derived from the family/protocol source corpus and are not har
 
 ## Runtime consistency audit
 
-HA runtime mappings checked: **198**; findings: **27**; status: **issues_found**.
+HA runtime mappings checked: **198**; findings: **24**; status: **issues_found**.
 
 | Family | Table | Address | Runtime name | Finding |
 |---|---|---:|---|---|
@@ -101,9 +101,7 @@ HA runtime mappings checked: **198**; findings: **27**; status: **issues_found**
 | min_tl_xh | input | 3049 | output_energy_today | signedness_mismatch |
 | min_tl_xh | input | 3071 | energy_to_grid_today | signedness_mismatch |
 | min_tl_xh | input | 3073 | energy_to_grid_total | signedness_mismatch |
-| min_tl_xh | input | 3101 | real_output_power_percent | signedness_mismatch |
 | min_tl_xh | input | 3110 | warning_code | length_mismatch |
-| min_tl_xh | input | 3170 | battery_current | signedness_mismatch |
 | storage_mix | input | 1009 | discharge_power | signedness_mismatch |
 | storage_mix | input | 1011 | charge_power | signedness_mismatch |
 | storage_mix | input | 1021 | pac_to_user_total | signedness_mismatch |
@@ -118,7 +116,6 @@ HA runtime mappings checked: **198**; findings: **27**; status: **issues_found**
 | storage_mix | input | 1058 | charge_energy_total | signedness_mismatch |
 | min_tl_xh | input | 3071 | energy_to_grid_today | signedness_mismatch |
 | min_tl_xh | input | 3073 | energy_to_grid_total | signedness_mismatch |
-| min_tl_xh | input | 3170 | battery_current | signedness_mismatch |
 
 ## Register tables by family
 
@@ -749,7 +746,7 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | input | 3098 | — | unknown | P-bus voltage | PBusinsideVoltage | register value; /10 | V | R | RESOLVED_WITH_NOTES | semantic_correlated, source_claim | Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives.; ;  |
 | input | 3099 | — | unknown | N-bus voltage | NBusinsideVoltage | register value; /10 | V | R | RESOLVED_WITH_NOTES | semantic_correlated, source_claim | Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives.; ;  |
 | input | 3100 | — | unknown | Inverter output power factor | InverteroutputPFnow | register value; /1 | — | R | RESOLVED_WITH_NOTES | semantic_correlated, source_claim | Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives.; ;  |
-| input | 3101 | — | unknown | Output power percentage | RealOutputpowerPercent | register value; /1 | % | R | RESOLVED_WITH_NOTES | semantic_correlated, source_claim | Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives.; ;  |
+| input | 3101 | — | unknown | Output power percentage | RealOutputpowerPercent | register value; /1 | % | R | RESOLVED | semantic_correlated, source_claim | Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives.; I3101 is Growatt RealOPPercent, a non-negative output-power percentage. The reactivated V4 energy history returned real_op_percent in all 145 records within the 0..43% range and never returned a negative value.; ;  |
 | input | 3102 | — | unknown | Output max power limit | OutputMaxpowerLimited | register value; /10 | W | R | RESOLVED_WITH_NOTES | semantic_correlated, source_claim | Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives.; ;  |
 | input | 3103 | — | unknown | Output max power limit | Current active output power limit enforced by the inverter (0.1 W resolution). | register value; /10 | W | R | RESOLVED_WITH_NOTES | semantic_correlated, source_claim | Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives.; ;  |
 | input | 3104 | — | unknown | Standby flags | Inverterstandbyflag | u16 vendor-defined bitfield | — | R | SOURCE_ONLY | semantic_correlated, source_claim | Vendor bit descriptions belong to bitfield/description metadata, not the engineering unit. The field remains a raw placeholder bitfield because individual meanings are not fully validated.; ;  |
@@ -818,7 +815,7 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | input | 3167 | bdc_fault_code | supported | BDC fault code | Storgedevicefaultcode | u16 vendor-defined fault code | — | R | RESOLVED_WITH_NOTES | semantic_correlated, source_claim | Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives.; V1.24 identifies the field as the storage-device fault code; the numeric codebook remains unresolved.; ;  |
 | input | 3168 | bdc_warning_code | supported | BDC warning code | Storgedevicewarningcode | u16 vendor-defined warning code | — | R | RESOLVED_WITH_NOTES | semantic_correlated, source_claim | Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives.; V1.24 identifies the field as the storage-device warning code; it is separate from inverter warning fields and the numeric codebook remains unresolved.; ;  |
 | input | 3169 | battery_voltage | preferred | Battery voltage | Battery voltage | u16 / 100; /100 | V | R | RESOLVED_WITH_NOTES | read_verified, semantic_correlated, source_claim | Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives.; OpenInverter lists /10; live raw 21146 is plausible as 211.46 V and not 2114.6 V.; ; alternates: register:min_tl_xh:input:3216 |
-| input | 3170 | battery_current | preferred | Battery current | Battery current | s16 / 10; /10 | A | R | RESOLVED_WITH_NOTES | read_verified, semantic_correlated, source_claim | Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives.; I3170 is a storage-device battery-current field with implementation-correlated s16 /10 semantics, but retained live evidence contains no negative sample for this physical source. Do not collapse it with the independently validated BMS current at I3217.; ; alternates: register:min_tl_xh:input:3217 |
+| input | 3170 | battery_current | preferred | Battery current | Battery current | u16 / 10; /10 | A | R | RESOLVED | read_verified, semantic_correlated, source_claim | Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives.; I3170 is Growatt bdc1_ibat, the storage-device/BDC battery-current magnitude. HA-GII-4B found 66 charging and 77 discharging V4 records: BDC current was 0 negative / 3 zero / 63 positive during charge and 0 negative / 2 zero / 75 positive during discharge. I3217 remains the distinct directional BMS current.; ; alternates: register:min_tl_xh:input:3217 |
 | input | 3171 | battery_soc | preferred | Battery SOC | Battery SOC | u16 percentage | % | R | RESOLVED_WITH_NOTES | read_verified, semantic_correlated, source_claim | Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives.; ; alternates: register:min_tl_xh:input:1014, register:min_tl_xh:input:3215 |
 | input | 3172 | — | unknown | VBUS1 voltage | TotalBUSvoltage | u16 / 10; /10 | V | R | RESOLVED_WITH_NOTES | semantic_correlated, source_claim | Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives.; Vendor V1.24 and the curated MIN/TL-XH map identify Vbus1 as a 0.1 V voltage field. The OpenInverter snapshot contributes a conflicting CURRENT unit; that source claim is retained in provenance but is not selected for the canonical unit.; ;  |
 | input | 3173 | — | unknown | VBUS2 voltage | OntheBUSvoltage | u16 / 10; /10 | V | R | RESOLVED_WITH_NOTES | semantic_correlated, source_claim | Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives.; Vendor V1.24 and the curated MIN/TL-XH map identify Vbus2 as a 0.1 V voltage field. The OpenInverter snapshot contributes a conflicting CURRENT unit; that source claim is retained in provenance but is not selected for the canonical unit.; ;  |
