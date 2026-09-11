@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "growatt-inverter-info"
+version = "0.1.0"
+description = "Project-independent Growatt Modbus register knowledge and evidence pipeline"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.11"
+dependencies = [
+  "jsonschema>=4.20",
+  "networkx>=3.2",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0"]
+
+[project.scripts]
+growatt-build-graph = "tools.build_register_graph:main"
+growatt-build-audit = "tools.generate_consolidated_ref:main"
+growatt-build-compatibility = "tools.build_resolved_register_reference:main"
+growatt-build-spec = "tools.build_register_spec:main"
+growatt-validate-compatibility = "tools.validate_resolved_register_reference:main"
+growatt-validate-spec = "tools.validate_register_spec:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+asyncio_mode = "auto"
+
+[tool.setuptools]
+packages = ["tools"]

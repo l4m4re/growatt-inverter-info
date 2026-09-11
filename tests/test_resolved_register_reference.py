@@ -3,7 +3,7 @@
 import json
 from pathlib import Path
 
-from doc.validate_resolved_register_reference import (
+from tools.validate_resolved_register_reference import (
     validate_contract,
     validate_generated_files,
 )
@@ -13,7 +13,7 @@ REPO = Path(__file__).parents[1]
 
 def test_resolved_reference_is_valid_and_reproducible() -> None:
     """The checked-in public reference matches its deterministic generator."""
-    reference = json.loads((REPO / "doc/growatt_register_reference.json").read_text())
+    reference = json.loads((REPO / "knowledge/compatibility/growatt-register-reference.json").read_text())
 
     validate_contract(reference)
     validate_generated_files()
@@ -21,7 +21,7 @@ def test_resolved_reference_is_valid_and_reproducible() -> None:
 
 def test_min_table_identity_and_signed_bms_current() -> None:
     """MIN table identity and HA-5 signed BMS current remain explicit."""
-    reference = json.loads((REPO / "doc/growatt_register_reference.json").read_text())
+    reference = json.loads((REPO / "knowledge/compatibility/growatt-register-reference.json").read_text())
     records = {record["id"]: record for record in reference["records"]}
 
     holding_3081 = records["register:min_tl_xh:holding:3081"]
@@ -39,7 +39,7 @@ def test_min_table_identity_and_signed_bms_current() -> None:
 
 def test_semantic_aliases_and_min_preferred_registers() -> None:
     """Equivalent MIN physical registers retain one semantic identity."""
-    reference = json.loads((REPO / "doc/growatt_register_reference.json").read_text())
+    reference = json.loads((REPO / "knowledge/compatibility/growatt-register-reference.json").read_text())
     records = {record["id"]: record for record in reference["records"]}
 
     legacy = records["register:min_tl_xh:input:1014"]
@@ -54,7 +54,7 @@ def test_semantic_aliases_and_min_preferred_registers() -> None:
 
 def test_min_transport_and_native_read_plans() -> None:
     """MIN plans use validated vendor pages and the V1.24 timing model."""
-    reference = json.loads((REPO / "doc/growatt_register_reference.json").read_text())
+    reference = json.loads((REPO / "knowledge/compatibility/growatt-register-reference.json").read_text())
     plans = reference["read_plans"]
     transport = plans["vendor_transport"]
 
@@ -86,7 +86,7 @@ def test_min_transport_and_native_read_plans() -> None:
 
 def test_runtime_audit_preserves_findings_without_hiding_fixed_defects() -> None:
     """Known source/runtime disagreements remain visible to later consumers."""
-    reference = json.loads((REPO / "doc/growatt_register_reference.json").read_text())
+    reference = json.loads((REPO / "knowledge/compatibility/growatt-register-reference.json").read_text())
     audit = reference["runtime_audit"]
 
     assert audit["status"] == "issues_found"

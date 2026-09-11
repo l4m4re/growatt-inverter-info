@@ -8,9 +8,9 @@ import subprocess
 import sys
 
 REPO = Path(__file__).parents[1]
-SPEC_DIR = REPO / "doc" / "register-spec"
+SPEC_DIR = REPO / "spec"
 VALIDATOR_SPEC = importlib.util.spec_from_file_location(
-    "growatt_register_spec_validator", SPEC_DIR / "validate_register_spec.py"
+    "growatt_register_spec_validator", REPO / "tools" / "validate_register_spec.py"
 )
 assert VALIDATOR_SPEC and VALIDATOR_SPEC.loader
 VALIDATOR = importlib.util.module_from_spec(VALIDATOR_SPEC)
@@ -207,7 +207,7 @@ def test_semantic_reconciliation_and_single_canonical_truth() -> None:
     assert records["storage_mix:holding:3070"]["semantic_identity"]["quantity"] == "battery.type"
     assert not any("battery.battery" in key or "_typ_e" in key for key in spec["semantic_index"])
     assert spec["coverage"]["semantic_reconciled_records"] < spec["coverage"]["semantic_key_assigned_records"]
-    compatibility = json.loads((REPO / "doc/growatt_register_reference.json").read_text())
+    compatibility = json.loads((REPO / "knowledge/compatibility/growatt-register-reference.json").read_text())
     assert spec["specification"]["canonical_truth"] is True
     assert compatibility["meta"]["canonical"] is False
     assert compatibility["meta"]["generated_compatibility_view"] is True
@@ -237,7 +237,7 @@ def test_generated_human_docs_persist_and_regenerate_deterministically() -> None
         SPEC_DIR / "growatt-register-spec.schema.json",
     ]
     before = {path: hashlib.sha256(path.read_bytes()).digest() for path in expected}
-    subprocess.run([sys.executable, "doc/register-spec/build_register_spec.py"], cwd=REPO, check=True)
-    subprocess.run([sys.executable, "doc/register-spec/build_register_spec.py"], cwd=REPO, check=True)
+    subprocess.run([sys.executable, "tools/build_register_spec.py"], cwd=REPO, check=True)
+    subprocess.run([sys.executable, "tools/build_register_spec.py"], cwd=REPO, check=True)
     assert all(path.is_file() for path in expected)
     assert before == {path: hashlib.sha256(path.read_bytes()).digest() for path in expected}

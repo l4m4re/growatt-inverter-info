@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "repository": "growatt-inverter-info",
+  "purpose": "Public-safe provenance and reproducibility manifest for the Growatt knowledge pipeline.",
+  "source_extraction": {
+    "origin_repository": "l4m4re/Homeassistant-Growatt-Local-Modbus",
+    "origin_branch": "integration/register-spec-consolidation-20260911",
+    "origin_head": "ddfa899d171a2eb84cc9d78d2d1fe3c5a50171f2",
+    "source_branches_not_merged": [
+      "feature/ha-8d-shadow-ems-planner-20260906",
+      "research/resolved-register-reference-20260906"
+    ],
+    "method": "history-filtered extraction followed by path reorganization and public-safety review",
+    "consumer_migration": "intentionally deferred"
+  },
+  "classifications": {
+    "PUBLIC_SAFE": [
+      "sources/vendor/growatt-v1.24-tables.json",
+      "sources/curated/",
+      "sources/external/*snapshot.json",
+      "sources/runtime/ha-local-registers.snapshot.json",
+      "sources/evidence/min-6000tl-xh-*.json",
+      "knowledge/",
+      "spec/"
+    ],
+    "METADATA_ONLY": [
+      "Growatt protocol V1.24 PDF",
+      "Growatt protocol V3.14 PDF",
+      "local external research checkouts"
+    ],
+    "LOCAL_ONLY": [
+      "vendor PDFs and text exports",
+      "firmware and flash dumps",
+      "portal exports and screenshots",
+      "raw broker/sniff/serial captures",
+      "HA live entity inventory containing installation identifiers",
+      "broker source and production configuration"
+    ],
+    "NEEDS_REVIEW": []
+  },
+  "vendor_documents": [
+    {
+      "description": "Growatt Modbus RTU Protocol II V1.24 PDF",
+      "redistribution": "metadata only",
+      "sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320"
+    },
+    {
+      "description": "Growatt PV Inverter Modbus RS485 RTU Protocol V3.14 PDF",
+      "redistribution": "metadata only",
+      "sha256": "599cb825d3e8f83f88043b41a144d8b4f4d1f5697c7e30f2041e9f9080b00006"
+    }
+  ],
+  "external_projects": [
+    {
+      "name": "Grott",
+      "repository": "https://github.com/johanmeijer/grott",
+      "revision": "fb52e2d4ff3065f60db45a7c2c82f2ad7e9f8463",
+      "snapshot": "sources/external/grott-register-layouts.snapshot.json",
+      "role": "decoded payload/layout corroboration"
+    },
+    {
+      "name": "inverter-to-mqtt-esp8266",
+      "repository": "https://github.com/enide-electronics/inverter-to-mqtt-esp8266",
+      "revision": "8f6de8bd4e859e514acf95dddba5e8c3e6c24a49",
+      "snapshot": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+      "role": "implementation/register/topic corroboration"
+    },
+    {
+      "name": "OpenInverterGateway",
+      "repository": null,
+      "revision": null,
+      "snapshot": "sources/external/openinverter-gateway-registers.snapshot.json",
+      "role": "implementation corroboration; source checkout revision unavailable"
+    }
+  ],
+  "live_evidence_policy": {
+    "model": "MIN 6000TL-XH",
+    "access": "read-only FC03/FC04",
+    "writes_verified": 0,
+    "identifiers": "installation identifiers and network endpoints redacted",
+    "raw_captures": "not redistributed; only bounded derived evidence is retained"
+  }
+}

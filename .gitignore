@@ -1,0 +1,18 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+
+# Local-only research inputs and captures must never enter the public repo.
+sources/local/
+captures/
+*.pcap
+*.pcapng
+*.bin
+*.elf
+*.hex
+*.img
+*.pdf
+*.jsonl
