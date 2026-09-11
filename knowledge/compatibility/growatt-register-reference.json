@@ -2,7 +2,7 @@
   "meta": {
     "schema_version": "1.0.0",
     "reference_version": "2026.09-resolved",
-    "generated_at": "2026-09-11T12:05:06.524527+00:00",
+    "generated_at": "2026-09-11T12:06:45.866670+00:00",
     "generator": "build_resolved_register_reference.py",
     "canonical": false,
     "generated_compatibility_view": true,
@@ -93,7 +93,7 @@
         "path": "knowledge/audit/consolidated-register-reference.json",
         "independent": false,
         "derived": true,
-        "sha256": "de2ba071b515533a3fcf986cecf18423409de8c8348378666ce81678f2e9890d"
+        "sha256": "db6aa56cfc579d2dfe3ebd7a8a5a6ab8c60e399618de222612e275f302d65ebe"
       }
     },
     "lineage_policy": "Generated graph and overlay derivatives do not count as independent corroboration."
