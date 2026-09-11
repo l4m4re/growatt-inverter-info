@@ -63,6 +63,47 @@ def test_known_min_tlxh_corrections_survive_regeneration() -> None:
     )
 
 
+def test_min_control_review_preserves_packed_schedules_and_table_overlaps() -> None:
+    """MIN controls retain scalar/packed meanings in the holding namespace."""
+    records = {record["physical_id"]: record for record in load_spec()["registers"]}
+
+    schedule = records["min_tl_xh:holding:3038"]
+    assert schedule["normalized"]["unit"] is None
+    assert schedule["normalized"]["raw_type"].startswith("packed u16")
+    assert schedule["review"]["disposition"] == "PROVEN"
+    assert records["min_tl_xh:holding:3047"]["semantic_identity"]["quantity"] == (
+        "battery.first.charge.rate"
+    )
+    assert records["min_tl_xh:holding:3082"]["review"]["live_observation"]
+    assert records["min_tl_xh:holding:3081"]["table"] != records[
+        "min_tl_xh:input:3081"
+    ]["table"]
+
+
+def test_min_semantic_review_keeps_bms_and_warning_fields_honest() -> None:
+    """BMS, inverter-warning, and diagnostic fields are not conflated."""
+    records = {record["physical_id"]: record for record in load_spec()["registers"]}
+
+    assert records["min_tl_xh:input:110"]["length_words"] == 1
+    assert records["min_tl_xh:input:111"]["length_words"] == 1
+    assert records["min_tl_xh:input:3111"]["semantic_identity"]["quantity"] == (
+        "inverter.present_fft_value_channel_a"
+    )
+    assert records["min_tl_xh:input:3164"]["semantic_identity"]["quantity"] == (
+        "bdc.data_separation"
+    )
+    assert records["min_tl_xh:input:3196"]["semantic_identity"]["quantity"] == (
+        "battery.bms_max_soc"
+    )
+    assert records["min_tl_xh:input:3197"]["semantic_identity"]["quantity"] == (
+        "battery.bms_min_soc"
+    )
+    assert records["min_tl_xh:input:3217"]["normalized"]["signed"] is True
+    assert records["min_tl_xh:input:3217"]["normalized"]["divisor"] == 100
+    assert records["min_tl_xh:input:3230"]["normalized"]["divisor"] == 1000
+    assert records["min_tl_xh:input:3231"]["normalized"]["divisor"] == 1000
+
+
 def test_bms_and_storage_current_are_distinct_measurement_points() -> None:
     """I3170 and I3217 retain different subsystem meanings."""
     records = {record["physical_id"]: record for record in load_spec()["registers"]}
@@ -130,10 +171,13 @@ def test_runtime_audit_reports_occurrences_and_unique_findings() -> None:
 
     assert audit["mapping_occurrences_checked"] == 274
     assert audit["unique_family_table_address_mappings"] == 206
-    assert audit["unique_family_table_address_issue_findings"] == 27
-    assert audit["finding_occurrences"] == 34
-    assert audit["unique_findings"] == 27
-    assert set(audit["finding_kinds"]) == {"scale_mismatch", "signedness_mismatch"}
+    assert audit["unique_family_table_address_issue_findings"] == 22
+    assert audit["finding_occurrences"] == 23
+    assert audit["unique_findings"] == 22
+    assert set(audit["finding_kinds"]) == {
+        "length_mismatch",
+        "signedness_mismatch",
+    }
 
 
 def test_known_min_high_low_pairs_are_logical_fields_not_alternates() -> None:

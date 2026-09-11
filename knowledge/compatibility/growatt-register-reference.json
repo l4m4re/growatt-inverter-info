@@ -2,7 +2,7 @@
   "meta": {
     "schema_version": "1.0.0",
     "reference_version": "2026.09-resolved",
-    "generated_at": "2026-09-11T12:06:45.866670+00:00",
+    "generated_at": "2026-09-11T12:51:42.490672+00:00",
     "generator": "build_resolved_register_reference.py",
     "canonical": false,
     "generated_compatibility_view": true,
@@ -80,6 +80,13 @@
         "independent": true,
         "sha256": "413147996c701dd01ae504c9f16f4b64e04ca4f71e3be68d3d8c08b8841fe0a1"
       },
+      "min_semantic_review": {
+        "label": "GII-2 MIN/TL-XH semantic review",
+        "kind": "model_specific_semantic_review",
+        "path": "sources/evidence/min-6000tl-xh-semantic-review.json",
+        "independent": false,
+        "sha256": "4567b177dcddcc3f6cb6c28df0162cbe42f08dfecabdf973e2d1cf2d0fab2b60"
+      },
       "ha5_regression_tests": {
         "label": "HA-5 regression tests",
         "kind": "deterministic_validation",
@@ -93,7 +100,7 @@
         "path": "knowledge/audit/consolidated-register-reference.json",
         "independent": false,
         "derived": true,
-        "sha256": "db6aa56cfc579d2dfe3ebd7a8a5a6ab8c60e399618de222612e275f302d65ebe"
+        "sha256": "5a1e34e95f1a564be7005c3a70789c34397738fc04b7ded897672eefe76fd306"
       }
     },
     "lineage_policy": "Generated graph and overlay derivatives do not count as independent corroboration."
@@ -165,10 +172,10 @@
         "holding": 415,
         "input": 480,
         "by_resolution_status": {
-          "RESOLVED": 82,
-          "RESOLVED_WITH_NOTES": 288,
+          "RESOLVED": 89,
+          "RESOLVED_WITH_NOTES": 275,
           "CONFLICTED": 0,
-          "SOURCE_ONLY": 377,
+          "SOURCE_ONLY": 383,
           "UNKNOWN_RESERVED": 148
         },
         "live_read_verified": 60,
@@ -10877,6 +10884,7 @@
         "curated_best_guess",
         "min_live_validation",
         "min_resolved_map",
+        "min_semantic_review",
         "openinverter_gateway",
         "vendor_v124"
       ],
@@ -10885,7 +10893,12 @@
         "semantic_correlated",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 defines the grid-first discharge power-rate control and the source map corroborates its hybrid TL-XH applicability."
+        }
+      ],
       "alternatives": [
         "datatype:openinverter_gateway:len2|unsigned|mult1|unit:PERCENTAGE"
       ],
@@ -10930,7 +10943,24 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "holding",
+        "address": 3036,
+        "canonical_name": "Grid-first discharge power rate",
+        "encoding": "u16 percentage; 255 disables limit",
+        "unit": "%",
+        "semantic_key": "grid_first_discharge_rate",
+        "resolution_status": "resolved",
+        "confidence": "high",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 defines the grid-first discharge power-rate control and the source map corroborates its hybrid TL-XH applicability.",
+        "source_basis": [
+          "vendor_v124",
+          "openinverter_gateway",
+          "min_live_validation"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3037",
@@ -10944,7 +10974,7 @@
       "canonical_name": "Grid-first stop SOC",
       "description": "Grid-first stop SOC",
       "length_registers": 1,
-      "encoding": "u16",
+      "encoding": "u16 percentage",
       "signed": false,
       "divisor": null,
       "scale": null,
@@ -10968,6 +10998,7 @@
         "curated_best_guess",
         "min_live_validation",
         "min_resolved_map",
+        "min_semantic_review",
         "openinverter_gateway",
         "vendor_v124"
       ],
@@ -10976,7 +11007,12 @@
         "semantic_correlated",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 defines the grid-first stop-SOC control; it is a scalar percentage and not part of the adjacent schedule word."
+        }
+      ],
       "alternatives": [
         "datatype:openinverter_gateway:len2|unsigned|mult1|unit:PERCENTAGE"
       ],
@@ -11021,7 +11057,24 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "holding",
+        "address": 3037,
+        "canonical_name": "Grid-first stop SOC",
+        "encoding": "u16 percentage",
+        "unit": "%",
+        "semantic_key": "grid_first_stop_soc",
+        "resolution_status": "resolved",
+        "confidence": "high",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 defines the grid-first stop-SOC control; it is a scalar percentage and not part of the adjacent schedule word.",
+        "source_basis": [
+          "vendor_v124",
+          "openinverter_gateway",
+          "min_live_validation"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3038",
@@ -11035,7 +11088,7 @@
       "canonical_name": "Grid-first schedule 1 start/control",
       "description": "Grid-first schedule 1 start/control",
       "length_registers": 1,
-      "encoding": "packed minute/hour/priority/enable",
+      "encoding": "packed u16: minute/hour/priority/enable",
       "signed": null,
       "divisor": null,
       "scale": null,
@@ -11074,10 +11127,12 @@
       ],
       "bitfields": [],
       "semantic_category": "control",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "grid_first_schedule_1_start_control",
+      "semantic_name": "Grid-first schedule 1 start/control",
+      "semantic_aliases": [
+        "Grid-first schedule 1 start/control"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED",
@@ -11086,13 +11141,19 @@
         "curated_best_guess",
         "manual",
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
         "read_verified",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 defines Time1 as one packed schedule word; the adjacent end word is 3039."
+        }
+      ],
       "alternatives": [
         "datatype:manual:len2"
       ],
@@ -11135,7 +11196,22 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "holding",
+        "address": 3038,
+        "canonical_name": "Grid-first schedule 1 start/control",
+        "encoding": "packed u16: minute/hour/priority/enable",
+        "unit": null,
+        "semantic_key": "grid_first_schedule_1_start_control",
+        "resolution_status": "resolved",
+        "confidence": "high",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 defines Time1 as one packed schedule word; the adjacent end word is 3039.",
+        "source_basis": [
+          "vendor_v124"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3039",
@@ -11149,7 +11225,7 @@
       "canonical_name": "Grid-first schedule 1 end",
       "description": "Grid-first schedule 1 end",
       "length_registers": 1,
-      "encoding": "packed minute/hour",
+      "encoding": "packed u16: minute/hour",
       "signed": null,
       "divisor": null,
       "scale": null,
@@ -11172,10 +11248,12 @@
       ],
       "bitfields": [],
       "semantic_category": "control",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "grid_first_schedule_1_end",
+      "semantic_name": "Grid-first schedule 1 end",
+      "semantic_aliases": [
+        "Grid-first schedule 1 end"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED",
@@ -11184,13 +11262,19 @@
         "curated_best_guess",
         "manual",
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
         "read_verified",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 defines the end time as the adjacent packed word; no power or energy unit applies."
+        }
+      ],
       "alternatives": [
         "datatype:manual:len2"
       ],
@@ -11230,7 +11314,22 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "holding",
+        "address": 3039,
+        "canonical_name": "Grid-first schedule 1 end",
+        "encoding": "packed u16: minute/hour",
+        "unit": null,
+        "semantic_key": "grid_first_schedule_1_end",
+        "resolution_status": "resolved",
+        "confidence": "high",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 defines the end time as the adjacent packed word; no power or energy unit applies.",
+        "source_basis": [
+          "vendor_v124"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3040",
@@ -11244,7 +11343,7 @@
       "canonical_name": "Grid-first schedule 2 start/control",
       "description": "Grid-first schedule 2 start/control",
       "length_registers": 1,
-      "encoding": "packed minute/hour/priority/enable",
+      "encoding": "packed u16: minute/hour/priority/enable",
       "signed": null,
       "divisor": null,
       "scale": null,
@@ -11279,23 +11378,31 @@
       ],
       "bitfields": [],
       "semantic_category": "control",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "grid_first_schedule_2_start_control",
+      "semantic_name": "Grid-first schedule 2 start/control",
+      "semantic_aliases": [
+        "Grid-first schedule 2 start/control"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED",
       "confidence": "high",
       "provenance": [
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
         "read_verified",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 describes Time2 with the same packed schedule structure as Time1."
+        }
+      ],
       "alternatives": [],
       "source_aliases": {
         "vendor": [
@@ -11331,7 +11438,22 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "holding",
+        "address": 3040,
+        "canonical_name": "Grid-first schedule 2 start/control",
+        "encoding": "packed u16: minute/hour/priority/enable",
+        "unit": null,
+        "semantic_key": "grid_first_schedule_2_start_control",
+        "resolution_status": "resolved",
+        "confidence": "high",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 describes Time2 with the same packed schedule structure as Time1.",
+        "source_basis": [
+          "vendor_v124"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3041",
@@ -11345,12 +11467,12 @@
       "canonical_name": "Grid-first schedule 2 end",
       "description": "Grid-first schedule 2 end",
       "length_registers": 1,
-      "encoding": "packed minute/hour",
+      "encoding": "packed u16: minute/hour",
       "signed": null,
       "divisor": null,
       "scale": null,
       "multiplier": null,
-      "unit": "W",
+      "unit": null,
       "access": "R/W",
       "enum_definitions": [
         {
@@ -11368,10 +11490,12 @@
       ],
       "bitfields": [],
       "semantic_category": "control",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "grid_first_schedule_2_end",
+      "semantic_name": "Grid-first schedule 2 end",
+      "semantic_aliases": [
+        "Grid-first schedule 2 end"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED",
@@ -11379,13 +11503,19 @@
       "provenance": [
         "manual",
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
         "read_verified",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 describes the adjacent end word as packed time data; the inherited W unit was an unrelated datatype collision."
+        }
+      ],
       "alternatives": [
         "datatype:manual:len4|unsigned|scale10|unit:W"
       ],
@@ -11421,7 +11551,22 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "holding",
+        "address": 3041,
+        "canonical_name": "Grid-first schedule 2 end",
+        "encoding": "packed u16: minute/hour",
+        "unit": null,
+        "semantic_key": "grid_first_schedule_2_end",
+        "resolution_status": "resolved",
+        "confidence": "high",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 describes the adjacent end word as packed time data; the inherited W unit was an unrelated datatype collision.",
+        "source_basis": [
+          "vendor_v124"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3042",
@@ -11435,34 +11580,42 @@
       "canonical_name": "Grid-first schedule 3 start/control",
       "description": "Grid-first schedule 3 start/control",
       "length_registers": 1,
-      "encoding": "packed minute/hour/priority/enable",
+      "encoding": "packed u16: minute/hour/priority/enable",
       "signed": null,
       "divisor": null,
       "scale": null,
       "multiplier": null,
-      "unit": "W",
+      "unit": null,
       "access": "R/W",
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "control",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "grid_first_schedule_3_start_control",
+      "semantic_name": "Grid-first schedule 3 start/control",
+      "semantic_aliases": [
+        "Grid-first schedule 3 start/control"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED",
-      "confidence": "high",
+      "confidence": "medium",
       "provenance": [
         "manual",
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
         "read_verified",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 states that Time3 has the Time1 packed layout."
+        }
+      ],
       "alternatives": [
         "datatype:manual:len4|unsigned|scale10|unit:W"
       ],
@@ -11502,7 +11655,22 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "holding",
+        "address": 3042,
+        "canonical_name": "Grid-first schedule 3 start/control",
+        "encoding": "packed u16: minute/hour/priority/enable",
+        "unit": null,
+        "semantic_key": "grid_first_schedule_3_start_control",
+        "resolution_status": "resolved",
+        "confidence": "medium",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 states that Time3 has the Time1 packed layout.",
+        "source_basis": [
+          "vendor_v124"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3043",
@@ -11516,34 +11684,42 @@
       "canonical_name": "Grid-first schedule 3 end",
       "description": "Grid-first schedule 3 end",
       "length_registers": 1,
-      "encoding": "packed minute/hour",
+      "encoding": "packed u16: minute/hour",
       "signed": null,
       "divisor": null,
       "scale": null,
       "multiplier": null,
-      "unit": "W",
+      "unit": null,
       "access": "R/W",
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "control",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "grid_first_schedule_3_end",
+      "semantic_name": "Grid-first schedule 3 end",
+      "semantic_aliases": [
+        "Grid-first schedule 3 end"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED",
-      "confidence": "high",
+      "confidence": "medium",
       "provenance": [
         "manual",
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
         "read_verified",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 states that the Time3 end word has the Time1 packed layout."
+        }
+      ],
       "alternatives": [
         "datatype:manual:len4|unsigned|scale10|unit:W"
       ],
@@ -11579,7 +11755,22 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "holding",
+        "address": 3043,
+        "canonical_name": "Grid-first schedule 3 end",
+        "encoding": "packed u16: minute/hour",
+        "unit": null,
+        "semantic_key": "grid_first_schedule_3_end",
+        "resolution_status": "resolved",
+        "confidence": "medium",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 states that the Time3 end word has the Time1 packed layout.",
+        "source_basis": [
+          "vendor_v124"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3044",
@@ -11593,34 +11784,42 @@
       "canonical_name": "Grid-first schedule 4 start/control",
       "description": "Grid-first schedule 4 start/control",
       "length_registers": 1,
-      "encoding": "packed minute/hour/priority/enable",
+      "encoding": "packed u16: minute/hour/priority/enable",
       "signed": null,
       "divisor": null,
       "scale": null,
       "multiplier": null,
-      "unit": "W",
+      "unit": null,
       "access": "R/W",
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "control",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "grid_first_schedule_4_start_control",
+      "semantic_name": "Grid-first schedule 4 start/control",
+      "semantic_aliases": [
+        "Grid-first schedule 4 start/control"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED",
-      "confidence": "high",
+      "confidence": "medium",
       "provenance": [
         "manual",
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
         "read_verified",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 states that Time4 has the Time1 packed layout."
+        }
+      ],
       "alternatives": [
         "datatype:manual:len4|unsigned|scale10|unit:W"
       ],
@@ -11660,7 +11859,22 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "holding",
+        "address": 3044,
+        "canonical_name": "Grid-first schedule 4 start/control",
+        "encoding": "packed u16: minute/hour/priority/enable",
+        "unit": null,
+        "semantic_key": "grid_first_schedule_4_start_control",
+        "resolution_status": "resolved",
+        "confidence": "medium",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 states that Time4 has the Time1 packed layout.",
+        "source_basis": [
+          "vendor_v124"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3045",
@@ -11674,34 +11888,42 @@
       "canonical_name": "Grid-first schedule 4 end",
       "description": "Grid-first schedule 4 end",
       "length_registers": 1,
-      "encoding": "packed minute/hour",
+      "encoding": "packed u16: minute/hour",
       "signed": null,
       "divisor": null,
       "scale": null,
       "multiplier": null,
-      "unit": "W",
+      "unit": null,
       "access": "R/W",
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "control",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "grid_first_schedule_4_end",
+      "semantic_name": "Grid-first schedule 4 end",
+      "semantic_aliases": [
+        "Grid-first schedule 4 end"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED",
-      "confidence": "high",
+      "confidence": "medium",
       "provenance": [
         "manual",
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
         "read_verified",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 states that the Time4 end word has the Time1 packed layout."
+        }
+      ],
       "alternatives": [
         "datatype:manual:len4|unsigned|scale10|unit:W"
       ],
@@ -11737,7 +11959,22 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "holding",
+        "address": 3045,
+        "canonical_name": "Grid-first schedule 4 end",
+        "encoding": "packed u16: minute/hour",
+        "unit": null,
+        "semantic_key": "grid_first_schedule_4_end",
+        "resolution_status": "resolved",
+        "confidence": "medium",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 states that the Time4 end word has the Time1 packed layout.",
+        "source_basis": [
+          "vendor_v124"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3046",
@@ -11850,11 +12087,13 @@
       "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
-      "resolution_status": "RESOLVED_WITH_NOTES",
+      "resolution_status": "RESOLVED",
       "confidence": "high",
       "provenance": [
+        "ha_runtime",
         "min_live_validation",
         "min_resolved_map",
+        "min_semantic_review",
         "openinverter_gateway",
         "vendor_v124"
       ],
@@ -11867,6 +12106,10 @@
         {
           "kind": "model_map_note",
           "detail": "Legacy data-type catalogue incorrectly labels this as a two-word runtime counter."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor and implementation evidence agree that H3047 is the battery-first charge-rate control; the conflicting two-word runtime interpretation belongs to input 3047."
         }
       ],
       "alternatives": [
@@ -11910,7 +12153,25 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "holding",
+        "address": 3047,
+        "canonical_name": "Battery-first charge power rate",
+        "encoding": "u16 percentage",
+        "unit": "%",
+        "semantic_key": "battery_first_charge_rate",
+        "resolution_status": "resolved",
+        "confidence": "high",
+        "disposition": "PROVEN",
+        "rationale": "Vendor and implementation evidence agree that H3047 is the battery-first charge-rate control; the conflicting two-word runtime interpretation belongs to input 3047.",
+        "source_basis": [
+          "vendor_v124",
+          "openinverter_gateway",
+          "ha_runtime",
+          "min_live_validation"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3048",
@@ -11924,7 +12185,7 @@
       "canonical_name": "Battery-first stop SOC",
       "description": "Battery-first stop SOC",
       "length_registers": 1,
-      "encoding": "u16",
+      "encoding": "u16 percentage",
       "signed": false,
       "divisor": null,
       "scale": null,
@@ -11942,11 +12203,13 @@
       "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
-      "resolution_status": "RESOLVED_WITH_NOTES",
+      "resolution_status": "RESOLVED",
       "confidence": "high",
       "provenance": [
+        "ha_runtime",
         "min_live_validation",
         "min_resolved_map",
+        "min_semantic_review",
         "openinverter_gateway",
         "vendor_v124"
       ],
@@ -11959,6 +12222,10 @@
         {
           "kind": "model_map_note",
           "detail": "Legacy data-type catalogue incorrectly labels this as the low word of runtime."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor and implementation evidence agree that H3048 is the battery-first stop-SOC control; it is not the low word of input runtime."
         }
       ],
       "alternatives": [
@@ -12002,7 +12269,25 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "holding",
+        "address": 3048,
+        "canonical_name": "Battery-first stop SOC",
+        "encoding": "u16 percentage",
+        "unit": "%",
+        "semantic_key": "battery_first_stop_soc",
+        "resolution_status": "resolved",
+        "confidence": "high",
+        "disposition": "PROVEN",
+        "rationale": "Vendor and implementation evidence agree that H3048 is the battery-first stop-SOC control; it is not the low word of input runtime.",
+        "source_basis": [
+          "vendor_v124",
+          "openinverter_gateway",
+          "ha_runtime",
+          "min_live_validation"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3049",
@@ -12035,7 +12320,7 @@
       "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
-      "resolution_status": "RESOLVED_WITH_NOTES",
+      "resolution_status": "RESOLVED",
       "confidence": "high",
       "provenance": [
         "curated_best_guess",
@@ -12043,6 +12328,7 @@
         "manual",
         "min_live_validation",
         "min_resolved_map",
+        "min_semantic_review",
         "openinverter_gateway",
         "vendor_v124"
       ],
@@ -12055,6 +12341,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor, HA and retained live evidence identify H3049 as the AC-charge enable control; the adjacent input 3049 is an energy counter."
         }
       ],
       "alternatives": [
@@ -12108,7 +12398,24 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "enum_or_bitfield"
+      "value_encoding": "enum_or_bitfield",
+      "review": {
+        "table": "holding",
+        "address": 3049,
+        "canonical_name": "AC charge enabled",
+        "encoding": "u16 enum 0=disabled, 1=enabled",
+        "unit": null,
+        "semantic_key": "ac_charge_enabled",
+        "resolution_status": "resolved",
+        "confidence": "high",
+        "disposition": "PROVEN",
+        "rationale": "Vendor, HA and retained live evidence identify H3049 as the AC-charge enable control; the adjacent input 3049 is an energy counter.",
+        "source_basis": [
+          "vendor_v124",
+          "ha_runtime",
+          "min_live_validation"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3050",
@@ -12122,7 +12429,7 @@
       "canonical_name": "Battery-first schedule 1 start/control",
       "description": "Battery-first schedule 1 start/control",
       "length_registers": 1,
-      "encoding": "packed minute/hour/priority/enable",
+      "encoding": "packed u16: minute/hour/priority/enable",
       "signed": null,
       "divisor": null,
       "scale": null,
@@ -12132,23 +12439,31 @@
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "control",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "battery_first_schedule_1_start_control",
+      "semantic_name": "Battery-first schedule 1 start/control",
+      "semantic_aliases": [
+        "Battery-first schedule 1 start/control"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED",
       "confidence": "high",
       "provenance": [
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
         "read_verified",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 defines Time5 as one packed schedule word."
+        }
+      ],
       "alternatives": [],
       "source_aliases": {
         "vendor": [
@@ -12179,7 +12494,22 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "holding",
+        "address": 3050,
+        "canonical_name": "Battery-first schedule 1 start/control",
+        "encoding": "packed u16: minute/hour/priority/enable",
+        "unit": null,
+        "semantic_key": "battery_first_schedule_1_start_control",
+        "resolution_status": "resolved",
+        "confidence": "high",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 defines Time5 as one packed schedule word.",
+        "source_basis": [
+          "vendor_v124"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3051",
@@ -12193,20 +12523,22 @@
       "canonical_name": "Battery-first schedule 1 end",
       "description": "Battery-first schedule 1 end",
       "length_registers": 1,
-      "encoding": "packed minute/hour",
+      "encoding": "packed u16: minute/hour",
       "signed": null,
       "divisor": null,
       "scale": null,
       "multiplier": null,
-      "unit": "kWh",
+      "unit": null,
       "access": "R/W",
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "control",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "battery_first_schedule_1_end",
+      "semantic_name": "Battery-first schedule 1 end",
+      "semantic_aliases": [
+        "Battery-first schedule 1 end"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED",
@@ -12214,13 +12546,19 @@
       "provenance": [
         "manual",
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
         "read_verified",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "The adjacent Time5 end word is packed time data; the inherited kWh unit was a datatype collision."
+        }
+      ],
       "alternatives": [
         "datatype:manual:len4|unsigned|scale10|unit:kWh"
       ],
@@ -12251,7 +12589,22 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "holding",
+        "address": 3051,
+        "canonical_name": "Battery-first schedule 1 end",
+        "encoding": "packed u16: minute/hour",
+        "unit": null,
+        "semantic_key": "battery_first_schedule_1_end",
+        "resolution_status": "resolved",
+        "confidence": "high",
+        "disposition": "PROVEN",
+        "rationale": "The adjacent Time5 end word is packed time data; the inherited kWh unit was a datatype collision.",
+        "source_basis": [
+          "vendor_v124"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3052",
@@ -12265,34 +12618,42 @@
       "canonical_name": "Battery-first schedule 2 start/control",
       "description": "Battery-first schedule 2 start/control",
       "length_registers": 1,
-      "encoding": "packed minute/hour/priority/enable",
+      "encoding": "packed u16: minute/hour/priority/enable",
       "signed": null,
       "divisor": null,
       "scale": null,
       "multiplier": null,
-      "unit": "kWh",
+      "unit": null,
       "access": "R/W",
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "control",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "battery_first_schedule_2_start_control",
+      "semantic_name": "Battery-first schedule 2 start/control",
+      "semantic_aliases": [
+        "Battery-first schedule 2 start/control"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED",
-      "confidence": "high",
+      "confidence": "medium",
       "provenance": [
         "manual",
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
         "read_verified",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 defines Time6 with the common packed schedule structure."
+        }
+      ],
       "alternatives": [
         "datatype:manual:len4|unsigned|scale10|unit:kWh"
       ],
@@ -12327,7 +12688,22 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "holding",
+        "address": 3052,
+        "canonical_name": "Battery-first schedule 2 start/control",
+        "encoding": "packed u16: minute/hour/priority/enable",
+        "unit": null,
+        "semantic_key": "battery_first_schedule_2_start_control",
+        "resolution_status": "resolved",
+        "confidence": "medium",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 defines Time6 with the common packed schedule structure.",
+        "source_basis": [
+          "vendor_v124"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3053",
@@ -12341,34 +12717,42 @@
       "canonical_name": "Battery-first schedule 2 end",
       "description": "Battery-first schedule 2 end",
       "length_registers": 1,
-      "encoding": "packed minute/hour",
+      "encoding": "packed u16: minute/hour",
       "signed": null,
       "divisor": null,
       "scale": null,
       "multiplier": null,
-      "unit": "kWh",
+      "unit": null,
       "access": "R/W",
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "control",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "battery_first_schedule_2_end",
+      "semantic_name": "Battery-first schedule 2 end",
+      "semantic_aliases": [
+        "Battery-first schedule 2 end"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED",
-      "confidence": "high",
+      "confidence": "medium",
       "provenance": [
         "manual",
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
         "read_verified",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 defines the adjacent end word as packed time data."
+        }
+      ],
       "alternatives": [
         "datatype:manual:len4|unsigned|scale10|unit:kWh"
       ],
@@ -12399,7 +12783,22 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "holding",
+        "address": 3053,
+        "canonical_name": "Battery-first schedule 2 end",
+        "encoding": "packed u16: minute/hour",
+        "unit": null,
+        "semantic_key": "battery_first_schedule_2_end",
+        "resolution_status": "resolved",
+        "confidence": "medium",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 defines the adjacent end word as packed time data.",
+        "source_basis": [
+          "vendor_v124"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3054",
@@ -12413,34 +12812,42 @@
       "canonical_name": "Battery-first schedule 3 start/control",
       "description": "Battery-first schedule 3 start/control",
       "length_registers": 1,
-      "encoding": "packed minute/hour/priority/enable",
+      "encoding": "packed u16: minute/hour/priority/enable",
       "signed": null,
       "divisor": null,
       "scale": null,
       "multiplier": null,
-      "unit": "kWh",
+      "unit": null,
       "access": "R/W",
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "control",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "battery_first_schedule_3_start_control",
+      "semantic_name": "Battery-first schedule 3 start/control",
+      "semantic_aliases": [
+        "Battery-first schedule 3 start/control"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED",
-      "confidence": "high",
+      "confidence": "medium",
       "provenance": [
         "manual",
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
         "read_verified",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 defines Time7 with the common packed schedule structure."
+        }
+      ],
       "alternatives": [
         "datatype:manual:len4|unsigned|scale10|unit:kWh"
       ],
@@ -12475,7 +12882,22 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "holding",
+        "address": 3054,
+        "canonical_name": "Battery-first schedule 3 start/control",
+        "encoding": "packed u16: minute/hour/priority/enable",
+        "unit": null,
+        "semantic_key": "battery_first_schedule_3_start_control",
+        "resolution_status": "resolved",
+        "confidence": "medium",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 defines Time7 with the common packed schedule structure.",
+        "source_basis": [
+          "vendor_v124"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3055",
@@ -12489,34 +12911,42 @@
       "canonical_name": "Battery-first schedule 3 end",
       "description": "Battery-first schedule 3 end",
       "length_registers": 1,
-      "encoding": "packed minute/hour",
+      "encoding": "packed u16: minute/hour",
       "signed": null,
       "divisor": null,
       "scale": null,
       "multiplier": null,
-      "unit": "kWh",
+      "unit": null,
       "access": "R/W",
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "control",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "battery_first_schedule_3_end",
+      "semantic_name": "Battery-first schedule 3 end",
+      "semantic_aliases": [
+        "Battery-first schedule 3 end"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED",
-      "confidence": "high",
+      "confidence": "medium",
       "provenance": [
         "manual",
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
         "read_verified",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 defines the adjacent end word as packed time data."
+        }
+      ],
       "alternatives": [
         "datatype:manual:len4|unsigned|scale10|unit:kWh"
       ],
@@ -12547,7 +12977,22 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "holding",
+        "address": 3055,
+        "canonical_name": "Battery-first schedule 3 end",
+        "encoding": "packed u16: minute/hour",
+        "unit": null,
+        "semantic_key": "battery_first_schedule_3_end",
+        "resolution_status": "resolved",
+        "confidence": "medium",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 defines the adjacent end word as packed time data.",
+        "source_basis": [
+          "vendor_v124"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3056",
@@ -12561,34 +13006,42 @@
       "canonical_name": "Battery-first schedule 4 start/control",
       "description": "Battery-first schedule 4 start/control",
       "length_registers": 1,
-      "encoding": "packed minute/hour/priority/enable",
+      "encoding": "packed u16: minute/hour/priority/enable",
       "signed": null,
       "divisor": null,
       "scale": null,
       "multiplier": null,
-      "unit": "kWh",
+      "unit": null,
       "access": "R/W",
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "control",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "battery_first_schedule_4_start_control",
+      "semantic_name": "Battery-first schedule 4 start/control",
+      "semantic_aliases": [
+        "Battery-first schedule 4 start/control"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED",
-      "confidence": "high",
+      "confidence": "medium",
       "provenance": [
         "manual",
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
         "read_verified",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 defines Time8 with the common packed schedule structure."
+        }
+      ],
       "alternatives": [
         "datatype:manual:len4|unsigned|scale10|unit:kWh"
       ],
@@ -12623,7 +13076,22 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "holding",
+        "address": 3056,
+        "canonical_name": "Battery-first schedule 4 start/control",
+        "encoding": "packed u16: minute/hour/priority/enable",
+        "unit": null,
+        "semantic_key": "battery_first_schedule_4_start_control",
+        "resolution_status": "resolved",
+        "confidence": "medium",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 defines Time8 with the common packed schedule structure.",
+        "source_basis": [
+          "vendor_v124"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3057",
@@ -12637,34 +13105,42 @@
       "canonical_name": "Battery-first schedule 4 end",
       "description": "Battery-first schedule 4 end",
       "length_registers": 1,
-      "encoding": "packed minute/hour",
+      "encoding": "packed u16: minute/hour",
       "signed": null,
       "divisor": null,
       "scale": null,
       "multiplier": null,
-      "unit": "kWh",
+      "unit": null,
       "access": "R/W",
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "control",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "battery_first_schedule_4_end",
+      "semantic_name": "Battery-first schedule 4 end",
+      "semantic_aliases": [
+        "Battery-first schedule 4 end"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED",
-      "confidence": "high",
+      "confidence": "medium",
       "provenance": [
         "manual",
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
         "read_verified",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 defines the adjacent end word as packed time data."
+        }
+      ],
       "alternatives": [
         "datatype:manual:len4|unsigned|scale10|unit:kWh"
       ],
@@ -12695,7 +13171,22 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "holding",
+        "address": 3057,
+        "canonical_name": "Battery-first schedule 4 end",
+        "encoding": "packed u16: minute/hour",
+        "unit": null,
+        "semantic_key": "battery_first_schedule_4_end",
+        "resolution_status": "resolved",
+        "confidence": "medium",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 defines the adjacent end word as packed time data.",
+        "source_basis": [
+          "vendor_v124"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3058",
@@ -12709,34 +13200,42 @@
       "canonical_name": "Battery-first schedule 5 start/control",
       "description": "Battery-first schedule 5 start/control",
       "length_registers": 1,
-      "encoding": "packed minute/hour/priority/enable",
+      "encoding": "packed u16: minute/hour/priority/enable",
       "signed": null,
       "divisor": null,
       "scale": null,
       "multiplier": null,
-      "unit": "kWh",
+      "unit": null,
       "access": "R/W",
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "control",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "battery_first_schedule_5_start_control",
+      "semantic_name": "Battery-first schedule 5 start/control",
+      "semantic_aliases": [
+        "Battery-first schedule 5 start/control"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED",
-      "confidence": "high",
+      "confidence": "medium",
       "provenance": [
         "manual",
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
         "read_verified",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 defines Time9 with the common packed schedule structure."
+        }
+      ],
       "alternatives": [
         "datatype:manual:len4|unsigned|scale10|unit:kWh"
       ],
@@ -12771,7 +13270,22 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "holding",
+        "address": 3058,
+        "canonical_name": "Battery-first schedule 5 start/control",
+        "encoding": "packed u16: minute/hour/priority/enable",
+        "unit": null,
+        "semantic_key": "battery_first_schedule_5_start_control",
+        "resolution_status": "resolved",
+        "confidence": "medium",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 defines Time9 with the common packed schedule structure.",
+        "source_basis": [
+          "vendor_v124"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3059",
@@ -12785,34 +13299,42 @@
       "canonical_name": "Battery-first schedule 5 end",
       "description": "Battery-first schedule 5 end",
       "length_registers": 1,
-      "encoding": "packed minute/hour",
+      "encoding": "packed u16: minute/hour",
       "signed": null,
       "divisor": null,
       "scale": null,
       "multiplier": null,
-      "unit": "kWh",
+      "unit": null,
       "access": "R/W",
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "control",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "battery_first_schedule_5_end",
+      "semantic_name": "Battery-first schedule 5 end",
+      "semantic_aliases": [
+        "Battery-first schedule 5 end"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED",
-      "confidence": "high",
+      "confidence": "medium",
       "provenance": [
         "manual",
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
         "read_verified",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 defines the adjacent end word as packed time data."
+        }
+      ],
       "alternatives": [
         "datatype:manual:len4|unsigned|scale10|unit:kWh"
       ],
@@ -12843,7 +13365,22 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "holding",
+        "address": 3059,
+        "canonical_name": "Battery-first schedule 5 end",
+        "encoding": "packed u16: minute/hour",
+        "unit": null,
+        "semantic_key": "battery_first_schedule_5_end",
+        "resolution_status": "resolved",
+        "confidence": "medium",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 defines the adjacent end word as packed time data.",
+        "source_basis": [
+          "vendor_v124"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3060",
@@ -13878,7 +14415,7 @@
       "divisor": null,
       "scale": null,
       "multiplier": null,
-      "unit": "bool",
+      "unit": null,
       "access": "R/W",
       "enum_definitions": [
         {
@@ -13888,10 +14425,12 @@
       ],
       "bitfields": [],
       "semantic_category": "control",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "ups_eps_function_enable",
+      "semantic_name": "UPS/EPS function enable",
+      "semantic_aliases": [
+        "UPS/EPS function enable"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED",
@@ -13899,13 +14438,19 @@
       "provenance": [
         "manual",
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
         "read_verified",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 identifies H3079 as the UPS/EPS function enable control."
+        }
+      ],
       "alternatives": [
         "datatype:manual:len2|unsigned|unit:bool"
       ],
@@ -13935,7 +14480,22 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "enum_or_bitfield"
+      "value_encoding": "enum_or_bitfield",
+      "review": {
+        "table": "holding",
+        "address": 3079,
+        "canonical_name": "UPS/EPS function enable",
+        "encoding": "u16 enum 0=disabled, 1=enabled",
+        "unit": null,
+        "semantic_key": "ups_eps_function_enable",
+        "resolution_status": "resolved",
+        "confidence": "high",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 identifies H3079 as the UPS/EPS function enable control.",
+        "source_basis": [
+          "vendor_v124"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3080",
@@ -13959,10 +14519,12 @@
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "control",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "ups_eps_voltage_selection",
+      "semantic_name": "UPS/EPS voltage selection",
+      "semantic_aliases": [
+        "UPS/EPS voltage selection"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED",
@@ -13970,13 +14532,19 @@
       "provenance": [
         "manual",
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
         "read_verified",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 identifies H3080 as the UPS/EPS voltage selection control."
+        }
+      ],
       "alternatives": [
         "datatype:manual:len2|unsigned|unit:V"
       ],
@@ -14006,7 +14574,22 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "enum_or_bitfield"
+      "value_encoding": "enum_or_bitfield",
+      "review": {
+        "table": "holding",
+        "address": 3080,
+        "canonical_name": "UPS/EPS voltage selection",
+        "encoding": "u16 enum 0=230 V, 1=208 V, 2=240 V",
+        "unit": "V",
+        "semantic_key": "ups_eps_voltage_selection",
+        "resolution_status": "resolved",
+        "confidence": "high",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 identifies H3080 as the UPS/EPS voltage selection control.",
+        "source_basis": [
+          "vendor_v124"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3081",
@@ -14030,18 +14613,21 @@
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "control",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "ups_eps_frequency_selection",
+      "semantic_name": "UPS/EPS frequency selection",
+      "semantic_aliases": [
+        "UPS/EPS frequency selection"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
-      "resolution_status": "RESOLVED_WITH_NOTES",
+      "resolution_status": "RESOLVED",
       "confidence": "high",
       "provenance": [
         "manual",
         "min_live_validation",
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -14052,6 +14638,10 @@
         {
           "kind": "model_map_note",
           "detail": "FC04 3081 is PV4 lifetime-energy high word; FC03 3081 is UPSFreqSet."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 identifies H3081 as the UPS/EPS frequency selection control; the input-space I3081 remains PV4 lifetime energy."
         }
       ],
       "alternatives": [
@@ -14086,7 +14676,23 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "enum_or_bitfield"
+      "value_encoding": "enum_or_bitfield",
+      "review": {
+        "table": "holding",
+        "address": 3081,
+        "canonical_name": "UPS/EPS frequency selection",
+        "encoding": "u16 enum 0=50 Hz, 1=60 Hz",
+        "unit": "Hz",
+        "semantic_key": "ups_eps_frequency_selection",
+        "resolution_status": "resolved",
+        "confidence": "high",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 identifies H3081 as the UPS/EPS frequency selection control; the input-space I3081 remains PV4 lifetime energy.",
+        "source_basis": [
+          "vendor_v124",
+          "min_live_validation"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3082",
@@ -14124,13 +14730,19 @@
         "manual",
         "min_live_validation",
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
         "read_verified",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 identifies H3082 as the load-first stop-SOC control. Raw zero observations are retained as observations, not rewritten as a different meaning."
+        }
+      ],
       "alternatives": [
         "datatype:manual:len2|unsigned|scale1|unit:%"
       ],
@@ -14163,7 +14775,24 @@
           "hybrid TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "holding",
+        "address": 3082,
+        "canonical_name": "Load-first stop SOC",
+        "encoding": "u16 percentage",
+        "unit": "%",
+        "semantic_key": "load_first_stop_soc",
+        "resolution_status": "resolved",
+        "confidence": "high",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 identifies H3082 as the load-first stop-SOC control. Raw zero observations are retained as observations, not rewritten as a different meaning.",
+        "live_observation": "retained raw-zero observation is not semantic proof",
+        "source_basis": [
+          "vendor_v124",
+          "min_live_validation"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:holding:3083",
@@ -34546,12 +35175,12 @@
       "table": "input",
       "address": 110,
       "model_applicability": [],
-      "canonical_name": "Warning code",
+      "canonical_name": "Inverter warning bitfield high word",
       "description": "WarningbitH",
-      "length_registers": 2,
-      "encoding": "register value",
-      "signed": null,
-      "divisor": 10,
+      "length_registers": 1,
+      "encoding": "u16 vendor-defined warning bitfield",
+      "signed": false,
+      "divisor": null,
       "scale": null,
       "multiplier": null,
       "unit": null,
@@ -34559,18 +35188,21 @@
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "diagnostic",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "inverter_warning_flags_high",
+      "semantic_name": "Inverter warning bitfield high word",
+      "semantic_aliases": [
+        "Inverter warning bitfield high word"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
-      "resolution_status": "RESOLVED_WITH_NOTES",
+      "resolution_status": "SOURCE_ONLY",
       "confidence": "medium",
       "provenance": [
         "curated_best_guess",
         "ha_runtime",
         "manual",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -34581,6 +35213,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 labels input 110 WarningbitH. The previous two-word Warning code label and /10 scale came from a runtime collision and must not absorb input 111."
         }
       ],
       "alternatives": [
@@ -34605,6 +35241,26 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 110,
+        "length_registers": 1,
+        "canonical_name": "Inverter warning bitfield high word",
+        "encoding": "u16 vendor-defined warning bitfield",
+        "signed": false,
+        "divisor": null,
+        "scale": null,
+        "unit": null,
+        "semantic_key": "inverter_warning_flags_high",
+        "resolution_status": "source_only",
+        "confidence": "medium",
+        "disposition": "MISLABELED",
+        "rationale": "Vendor V1.24 labels input 110 WarningbitH. The previous two-word Warning code label and /10 scale came from a runtime collision and must not absorb input 111.",
+        "source_basis": [
+          "vendor_v124",
+          "ha_runtime"
+        ]
       }
     },
     {
@@ -34614,12 +35270,12 @@
       "table": "input",
       "address": 111,
       "model_applicability": [],
-      "canonical_name": "Warning code",
+      "canonical_name": "Inverter warning subcode",
       "description": "Inverterwarnsubcode",
-      "length_registers": 2,
-      "encoding": "register value",
+      "length_registers": 1,
+      "encoding": "u16 vendor-defined warning subcode",
       "signed": false,
-      "divisor": 10,
+      "divisor": null,
       "scale": null,
       "multiplier": null,
       "unit": null,
@@ -34627,10 +35283,12 @@
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "diagnostic",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "inverter_warning_subcode",
+      "semantic_name": "Inverter warning subcode",
+      "semantic_aliases": [
+        "Inverter warning subcode"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "SOURCE_ONLY",
@@ -34638,12 +35296,18 @@
       "provenance": [
         "curated_best_guess",
         "manual",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 labels input 111 WarnSubcode as a separate word."
+        }
+      ],
       "alternatives": [
         "datatype:manual:len4|unsigned|scale10"
       ],
@@ -34662,6 +35326,25 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 111,
+        "length_registers": 1,
+        "canonical_name": "Inverter warning subcode",
+        "encoding": "u16 vendor-defined warning subcode",
+        "signed": false,
+        "divisor": null,
+        "scale": null,
+        "unit": null,
+        "semantic_key": "inverter_warning_subcode",
+        "resolution_status": "source_only",
+        "confidence": "medium",
+        "disposition": "MISLABELED",
+        "rationale": "Vendor V1.24 labels input 111 WarnSubcode as a separate word.",
+        "source_basis": [
+          "vendor_v124"
+        ]
       }
     },
     {
@@ -34948,22 +35631,12 @@
       "semantic_role": "legacy",
       "alternate_registers": [
         "register:min_tl_xh:input:3171",
-        "register:min_tl_xh:input:3196",
-        "register:min_tl_xh:input:3197",
         "register:min_tl_xh:input:3215"
       ],
       "relationships": [
         {
           "type": "alternate_registers",
           "target": "register:min_tl_xh:input:3171"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3196"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3197"
         },
         {
           "type": "alternate_registers",
@@ -43269,6 +43942,8 @@
         "grott",
         "ha_runtime",
         "manual",
+        "min_live_validation",
+        "min_semantic_review",
         "openinverter_gateway",
         "vendor_v124"
       ],
@@ -43313,6 +43988,17 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3095,
+        "disposition": "NOT_METER_SETTING",
+        "rationale": "Vendor V1.24 identifies input 3095 as Boost temperature, not an external-meter setting. The /10 °C interpretation is source-supported; retained zero values make the live physical value unresolved.",
+        "source_basis": [
+          "vendor_v124",
+          "ha_runtime",
+          "min_live_validation"
+        ]
       }
     },
     {
@@ -43562,6 +44248,7 @@
         "grott",
         "ha_runtime",
         "manual",
+        "min_semantic_review",
         "openinverter_gateway",
         "vendor_v124"
       ],
@@ -43606,6 +44293,16 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3099,
+        "disposition": "UNCERTAIN",
+        "rationale": "Vendor V1.24 identifies input 3099 as N-bus internal voltage with 0.1 V resolution. The live mapping is not rejected solely because a zero/default may be observed.",
+        "source_basis": [
+          "vendor_v124",
+          "ha_runtime"
+        ]
       }
     },
     {
@@ -44282,12 +44979,12 @@
       "table": "input",
       "address": 3110,
       "model_applicability": [],
-      "canonical_name": "Warning code",
+      "canonical_name": "Inverter warning bitfield",
       "description": "Current inverter warning code (vendor-defined bitmask).",
-      "length_registers": 2,
-      "encoding": "register value",
-      "signed": null,
-      "divisor": 1,
+      "length_registers": 1,
+      "encoding": "u16 vendor-defined warning bitfield",
+      "signed": false,
+      "divisor": null,
       "scale": null,
       "multiplier": null,
       "unit": null,
@@ -44295,19 +44992,22 @@
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "diagnostic",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "inverter_warning_flags",
+      "semantic_name": "Inverter warning bitfield",
+      "semantic_aliases": [
+        "Inverter warning bitfield"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
-      "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "resolution_status": "SOURCE_ONLY",
+      "confidence": "low",
       "provenance": [
         "curated_best_guess",
         "grott",
         "ha_runtime",
         "manual",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -44318,6 +45018,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "The vendor identifies input 3110 only as a bitfield; the old two-word /10 Warning code interpretation is not supported by the retained source."
         }
       ],
       "alternatives": [
@@ -44343,6 +45047,26 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3110,
+        "length_registers": 1,
+        "canonical_name": "Inverter warning bitfield",
+        "encoding": "u16 vendor-defined warning bitfield",
+        "signed": false,
+        "divisor": null,
+        "scale": null,
+        "unit": null,
+        "semantic_key": "inverter_warning_flags",
+        "resolution_status": "source_only",
+        "confidence": "low",
+        "disposition": "UNCERTAIN",
+        "rationale": "The vendor identifies input 3110 only as a bitfield; the old two-word /10 Warning code interpretation is not supported by the retained source.",
+        "source_basis": [
+          "vendor_v124",
+          "ha_runtime"
+        ]
       }
     },
     {
@@ -44352,12 +45076,12 @@
       "table": "input",
       "address": 3111,
       "model_applicability": [],
-      "canonical_name": "Warning code",
+      "canonical_name": "Present FFT value (vendor channel A)",
       "description": "PresentFFTValue[CHANNEL_A]",
       "length_registers": 1,
-      "encoding": "register value",
-      "signed": null,
-      "divisor": 1,
+      "encoding": "u16 vendor-defined diagnostic value",
+      "signed": false,
+      "divisor": null,
       "scale": null,
       "multiplier": null,
       "unit": null,
@@ -44365,19 +45089,22 @@
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "diagnostic",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "inverter_present_fft_value_channel_a",
+      "semantic_name": "Present FFT value (vendor channel A)",
+      "semantic_aliases": [
+        "Present FFT value (vendor channel A)"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
-      "resolution_status": "RESOLVED_WITH_NOTES",
+      "resolution_status": "SOURCE_ONLY",
       "confidence": "medium",
       "provenance": [
         "curated_best_guess",
         "grott",
         "ha_runtime",
         "manual",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -44388,6 +45115,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 names input 3111 uwPresentFFTValue[CHANNEL_A]; it is not established as an inverter warning code."
         }
       ],
       "alternatives": [
@@ -44419,6 +45150,25 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3111,
+        "canonical_name": "Present FFT value (vendor channel A)",
+        "encoding": "u16 vendor-defined diagnostic value",
+        "signed": false,
+        "divisor": null,
+        "scale": null,
+        "unit": null,
+        "semantic_key": "inverter_present_fft_value_channel_a",
+        "resolution_status": "source_only",
+        "confidence": "medium",
+        "disposition": "MISLABELED",
+        "rationale": "Vendor V1.24 names input 3111 uwPresentFFTValue[CHANNEL_A]; it is not established as an inverter warning code.",
+        "source_basis": [
+          "vendor_v124",
+          "ha_runtime"
+        ]
       }
     },
     {
@@ -47912,23 +48662,25 @@
       "model_applicability": [
         "MIN 6000TL-XH"
       ],
-      "canonical_name": "BDC presence flag",
+      "canonical_name": "BDC data-separation flag",
       "description": "BDC presence flag",
       "length_registers": 1,
-      "encoding": "u16 flag",
+      "encoding": "u16 enum 0=no separate BDC data, 1=separate BDC data",
       "signed": false,
       "divisor": null,
       "scale": null,
       "multiplier": null,
-      "unit": "0:Don'tneed 1：need",
+      "unit": null,
       "access": "R",
       "enum_definitions": [],
       "bitfields": [],
-      "semantic_category": "register_data",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_category": "diagnostic",
+      "semantic_key": "bdc_data_separation",
+      "semantic_name": "BDC data-separation flag",
+      "semantic_aliases": [
+        "BDC data-separation flag"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
@@ -47940,6 +48692,7 @@
         "manual",
         "min_live_validation",
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -47951,6 +48704,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor text says whether BDC data should be parsed separately, not whether a BDC is physically present. Retained live raw value 0 does not prove a presence state."
         }
       ],
       "alternatives": [
@@ -48007,7 +48764,30 @@
           "MIN 6000TL-XH"
         ]
       },
-      "value_encoding": "enum_or_bitfield"
+      "value_encoding": "enum_or_bitfield",
+      "review": {
+        "table": "input",
+        "address": 3164,
+        "canonical_name": "BDC data-separation flag",
+        "encoding": "u16 enum 0=no separate BDC data, 1=separate BDC data",
+        "signed": false,
+        "divisor": null,
+        "scale": null,
+        "unit": null,
+        "semantic_key": "bdc_data_separation",
+        "semantic_category": "diagnostic",
+        "subsystem": "storage_device",
+        "measurement_point": "bdc_controller",
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high",
+        "disposition": "MISLABELED",
+        "rationale": "Vendor text says whether BDC data should be parsed separately, not whether a BDC is physically present. Retained live raw value 0 does not prove a presence state.",
+        "live_observation": "retained live sample raw 0",
+        "source_basis": [
+          "vendor_v124",
+          "min_live_validation"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:input:3165",
@@ -48019,9 +48799,9 @@
       "canonical_name": "BDC derating mode",
       "description": "BDCDeratingMode： 0:Normal,unrestricted 1：Standbyorfault 2：Maximumbatterycurrentlimit (discharge) 3：BatterydischargeEnable(Discharge) 4：Highbusdischargederating",
       "length_registers": 1,
-      "encoding": "register value",
-      "signed": null,
-      "divisor": 1,
+      "encoding": "u16 enum 0=normal, 1=standby/fault, 2=maximum discharge-current limit, 3=discharge enabled, 4=high-bus discharge derating",
+      "signed": false,
+      "divisor": null,
       "scale": null,
       "multiplier": 1,
       "unit": null,
@@ -48034,17 +48814,20 @@
       ],
       "bitfields": [],
       "semantic_category": "diagnostic",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "bdc_derating_mode",
+      "semantic_name": "BDC derating mode",
+      "semantic_aliases": [
+        "BDC derating mode"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
+        "min_semantic_review",
         "openinverter_gateway",
         "vendor_v124"
       ],
@@ -48056,6 +48839,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "The V1.24 vendor description defines the mode values; no live sample is required to establish the documented field identity."
         }
       ],
       "alternatives": [
@@ -48082,6 +48869,27 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3165,
+        "canonical_name": "BDC derating mode",
+        "encoding": "u16 enum 0=normal, 1=standby/fault, 2=maximum discharge-current limit, 3=discharge enabled, 4=high-bus discharge derating",
+        "signed": false,
+        "divisor": null,
+        "scale": null,
+        "unit": null,
+        "semantic_key": "bdc_derating_mode",
+        "semantic_category": "diagnostic",
+        "subsystem": "storage_device",
+        "measurement_point": "bdc_controller",
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high",
+        "disposition": "PROVEN",
+        "rationale": "The V1.24 vendor description defines the mode values; no live sample is required to establish the documented field identity.",
+        "source_basis": [
+          "vendor_v124"
+        ]
       }
     },
     {
@@ -48091,12 +48899,12 @@
       "table": "input",
       "address": 3166,
       "model_applicability": [],
-      "canonical_name": "BDC system mode",
+      "canonical_name": "BDC system mode and status",
       "description": "SystemworkStateandmodeThe upper8bitsindicatethemode; 0：Nochargeanddischarge； 1：charge； 2：Discharge； Thelower8bitsrepresentthestatus; 0:StandbyStatus; 1:NormalStatus; 2:FaultStatus 3：FlashStatus;",
       "length_registers": 1,
-      "encoding": "register value",
-      "signed": null,
-      "divisor": 1,
+      "encoding": "u16 packed: upper byte mode, lower byte status",
+      "signed": false,
+      "divisor": null,
       "scale": null,
       "multiplier": 1,
       "unit": null,
@@ -48116,18 +48924,21 @@
         }
       ],
       "bitfields": [],
-      "semantic_category": "register_data",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_category": "diagnostic",
+      "semantic_key": "bdc_system_mode_status",
+      "semantic_name": "BDC system mode and status",
+      "semantic_aliases": [
+        "BDC system mode and status"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
+        "min_semantic_review",
         "openinverter_gateway",
         "vendor_v124"
       ],
@@ -48139,6 +48950,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "V1.24 explicitly assigns the upper byte to charge/discharge mode and the lower byte to standby/normal/fault/flash status."
         }
       ],
       "alternatives": [
@@ -48167,6 +48982,27 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3166,
+        "canonical_name": "BDC system mode and status",
+        "encoding": "u16 packed: upper byte mode, lower byte status",
+        "signed": false,
+        "divisor": null,
+        "scale": null,
+        "unit": null,
+        "semantic_key": "bdc_system_mode_status",
+        "semantic_category": "diagnostic",
+        "subsystem": "storage_device",
+        "measurement_point": "bdc_controller",
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high",
+        "disposition": "PROVEN",
+        "rationale": "V1.24 explicitly assigns the upper byte to charge/discharge mode and the lower byte to standby/normal/fault/flash status.",
+        "source_basis": [
+          "vendor_v124"
+        ]
       }
     },
     {
@@ -48179,9 +49015,9 @@
       "canonical_name": "BDC fault code",
       "description": "Storgedevicefaultcode",
       "length_registers": 1,
-      "encoding": "register value",
-      "signed": null,
-      "divisor": 1,
+      "encoding": "u16 vendor-defined fault code",
+      "signed": false,
+      "divisor": null,
       "scale": null,
       "multiplier": 1,
       "unit": null,
@@ -48189,17 +49025,20 @@
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "diagnostic",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "bdc_fault_code",
+      "semantic_name": "BDC fault code",
+      "semantic_aliases": [
+        "BDC fault code"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
+        "min_semantic_review",
         "openinverter_gateway",
         "vendor_v124"
       ],
@@ -48211,6 +49050,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "V1.24 identifies the field as the storage-device fault code; the numeric codebook remains unresolved."
         }
       ],
       "alternatives": [
@@ -48237,6 +49080,27 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3167,
+        "canonical_name": "BDC fault code",
+        "encoding": "u16 vendor-defined fault code",
+        "signed": false,
+        "divisor": null,
+        "scale": null,
+        "unit": null,
+        "semantic_key": "bdc_fault_code",
+        "semantic_category": "diagnostic",
+        "subsystem": "storage_device",
+        "measurement_point": "bdc_controller",
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high",
+        "disposition": "PROVEN",
+        "rationale": "V1.24 identifies the field as the storage-device fault code; the numeric codebook remains unresolved.",
+        "source_basis": [
+          "vendor_v124"
+        ]
       }
     },
     {
@@ -48249,9 +49113,9 @@
       "canonical_name": "BDC warning code",
       "description": "Storgedevicewarningcode",
       "length_registers": 1,
-      "encoding": "register value",
-      "signed": null,
-      "divisor": 1,
+      "encoding": "u16 vendor-defined warning code",
+      "signed": false,
+      "divisor": null,
       "scale": null,
       "multiplier": 1,
       "unit": null,
@@ -48259,17 +49123,20 @@
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "diagnostic",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "bdc_warning_code",
+      "semantic_name": "BDC warning code",
+      "semantic_aliases": [
+        "BDC warning code"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
+        "min_semantic_review",
         "openinverter_gateway",
         "vendor_v124"
       ],
@@ -48281,6 +49148,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "V1.24 identifies the field as the storage-device warning code; it is separate from inverter warning fields and the numeric codebook remains unresolved."
         }
       ],
       "alternatives": [
@@ -48307,6 +49178,27 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3168,
+        "canonical_name": "BDC warning code",
+        "encoding": "u16 vendor-defined warning code",
+        "signed": false,
+        "divisor": null,
+        "scale": null,
+        "unit": null,
+        "semantic_key": "bdc_warning_code",
+        "semantic_category": "diagnostic",
+        "subsystem": "storage_device",
+        "measurement_point": "bdc_controller",
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high",
+        "disposition": "PROVEN",
+        "rationale": "V1.24 identifies the field as the storage-device warning code; it is separate from inverter warning fields and the numeric codebook remains unresolved.",
+        "source_basis": [
+          "vendor_v124"
+        ]
       }
     },
     {
@@ -48489,7 +49381,7 @@
         }
       ],
       "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "high",
+      "confidence": "medium",
       "provenance": [
         "curated_best_guess",
         "grott",
@@ -48497,6 +49389,7 @@
         "manual",
         "min_live_validation",
         "min_resolved_map",
+        "min_semantic_review",
         "openinverter_gateway",
         "vendor_v124"
       ],
@@ -48509,6 +49402,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "I3170 is a storage-device battery-current field with implementation-correlated s16 /10 semantics, but retained live evidence contains no negative sample for this physical source. Do not collapse it with the independently validated BMS current at I3217."
         }
       ],
       "alternatives": [
@@ -48583,7 +49480,22 @@
           "MIN 6000TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "input",
+        "address": 3170,
+        "disposition": "UNCERTAIN",
+        "rationale": "I3170 is a storage-device battery-current field with implementation-correlated s16 /10 semantics, but retained live evidence contains no negative sample for this physical source. Do not collapse it with the independently validated BMS current at I3217.",
+        "live_observation": "retained live samples positive; signedness not live-validated",
+        "source_basis": [
+          "vendor_v124",
+          "openinverter_gateway",
+          "ha_runtime",
+          "min_live_validation"
+        ],
+        "resolution_status": "resolved_with_notes",
+        "confidence": "medium"
+      }
     },
     {
       "id": "register:min_tl_xh:input:3171",
@@ -48619,22 +49531,12 @@
       "semantic_role": "preferred",
       "alternate_registers": [
         "register:min_tl_xh:input:1014",
-        "register:min_tl_xh:input:3196",
-        "register:min_tl_xh:input:3197",
         "register:min_tl_xh:input:3215"
       ],
       "relationships": [
         {
           "type": "alternate_registers",
           "target": "register:min_tl_xh:input:1014"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3196"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3197"
         },
         {
           "type": "alternate_registers",
@@ -49095,6 +49997,7 @@
         "grott",
         "ha_runtime",
         "manual",
+        "min_semantic_review",
         "openinverter_gateway",
         "vendor_v124"
       ],
@@ -49106,6 +50009,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "The vendor names BMS temperature A and the retained implementation uses /10 °C, but the corpus does not prove whether the field is pack, module, or channel scoped beyond the vendor label."
         }
       ],
       "alternatives": [
@@ -49140,6 +50047,19 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3176,
+        "disposition": "UNCERTAIN",
+        "rationale": "The vendor names BMS temperature A and the retained implementation uses /10 °C, but the corpus does not prove whether the field is pack, module, or channel scoped beyond the vendor label.",
+        "source_basis": [
+          "vendor_v124",
+          "openinverter_gateway",
+          "ha_runtime"
+        ],
+        "resolution_status": "resolved_with_notes",
+        "confidence": "medium"
       }
     },
     {
@@ -49175,6 +50095,7 @@
         "grott",
         "ha_runtime",
         "manual",
+        "min_semantic_review",
         "openinverter_gateway",
         "vendor_v124"
       ],
@@ -49186,6 +50107,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "The vendor names BMS temperature B and the retained implementation uses /10 °C, but the corpus does not prove whether the field is pack, module, or channel scoped beyond the vendor label."
         }
       ],
       "alternatives": [
@@ -49220,6 +50145,19 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3177,
+        "disposition": "UNCERTAIN",
+        "rationale": "The vendor names BMS temperature B and the retained implementation uses /10 °C, but the corpus does not prove whether the field is pack, module, or channel scoped beyond the vendor label.",
+        "source_basis": [
+          "vendor_v124",
+          "openinverter_gateway",
+          "ha_runtime"
+        ],
+        "resolution_status": "resolved_with_notes",
+        "confidence": "medium"
       }
     },
     {
@@ -50305,12 +51243,12 @@
       "table": "input",
       "address": 3191,
       "model_applicability": [],
-      "canonical_name": "BMS average temperature A",
+      "canonical_name": "BMS average temperature (vendor channel A)",
       "description": "BmsBatteryAvgTemp",
       "length_registers": 1,
-      "encoding": "register value",
-      "signed": null,
-      "divisor": 1,
+      "encoding": "u16 temperature; scale not specified by vendor",
+      "signed": false,
+      "divisor": null,
       "scale": null,
       "multiplier": null,
       "unit": "°C",
@@ -50318,19 +51256,23 @@
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "diagnostic",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "bms_average_temperature_channel_a",
+      "semantic_name": "BMS average temperature (vendor channel A)",
+      "semantic_aliases": [
+        "BMS average temperature (vendor channel A)"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
-      "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "resolution_status": "SOURCE_ONLY",
+      "confidence": "low",
       "provenance": [
         "curated_best_guess",
         "grott",
         "ha_runtime",
         "manual",
+        "min_live_validation",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -50341,6 +51283,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "The vendor names the field but supplies no scale; the retained raw zero cannot distinguish /1 from /10. Channel suffix is retained as vendor wording, not a proven pack number."
         }
       ],
       "alternatives": [
@@ -50370,6 +51316,26 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3191,
+        "canonical_name": "BMS average temperature (vendor channel A)",
+        "encoding": "u16 temperature; scale not specified by vendor",
+        "signed": false,
+        "divisor": null,
+        "scale": null,
+        "unit": "°C",
+        "semantic_key": "bms_average_temperature_channel_a",
+        "resolution_status": "source_only",
+        "confidence": "low",
+        "disposition": "UNCERTAIN",
+        "rationale": "The vendor names the field but supplies no scale; the retained raw zero cannot distinguish /1 from /10. Channel suffix is retained as vendor wording, not a proven pack number.",
+        "live_observation": "retained live sample raw 0",
+        "source_basis": [
+          "vendor_v124",
+          "min_live_validation"
+        ]
       }
     },
     {
@@ -50399,12 +51365,13 @@
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
         "ha_runtime",
         "manual",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -50415,6 +51382,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 explicitly gives 0.1 °C resolution for this BMS temperature field. The vendor channel suffix is retained without asserting a separate physical BMS instance."
         }
       ],
       "alternatives": [
@@ -50444,6 +51415,17 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3192,
+        "disposition": "STRONG",
+        "rationale": "Vendor V1.24 explicitly gives 0.1 °C resolution for this BMS temperature field. The vendor channel suffix is retained without asserting a separate physical BMS instance.",
+        "source_basis": [
+          "vendor_v124"
+        ],
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high"
       }
     },
     {
@@ -50473,12 +51455,13 @@
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
         "ha_runtime",
         "manual",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -50489,6 +51472,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 explicitly gives 0.1 °C resolution for this BMS temperature field. The vendor channel suffix is retained without asserting a separate physical BMS instance."
         }
       ],
       "alternatives": [
@@ -50518,6 +51505,17 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3193,
+        "disposition": "STRONG",
+        "rationale": "Vendor V1.24 explicitly gives 0.1 °C resolution for this BMS temperature field. The vendor channel suffix is retained without asserting a separate physical BMS instance.",
+        "source_basis": [
+          "vendor_v124"
+        ],
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high"
       }
     },
     {
@@ -50527,12 +51525,12 @@
       "table": "input",
       "address": 3194,
       "model_applicability": [],
-      "canonical_name": "BMS max cell temperature B",
+      "canonical_name": "BMS maximum cell temperature (vendor channel B)",
       "description": "BmsMaxCellTemp",
       "length_registers": 1,
-      "encoding": "register value",
-      "signed": null,
-      "divisor": 1,
+      "encoding": "u16 temperature; scale not specified by vendor",
+      "signed": false,
+      "divisor": null,
       "scale": null,
       "multiplier": null,
       "unit": "°C",
@@ -50540,19 +51538,23 @@
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "diagnostic",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "bms_max_cell_temperature_channel_b",
+      "semantic_name": "BMS maximum cell temperature (vendor channel B)",
+      "semantic_aliases": [
+        "BMS maximum cell temperature (vendor channel B)"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
-      "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "resolution_status": "SOURCE_ONLY",
+      "confidence": "low",
       "provenance": [
         "curated_best_guess",
         "grott",
         "ha_runtime",
         "manual",
+        "min_live_validation",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -50563,6 +51565,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "The vendor names the field but supplies no scale; the retained low raw value is insufficient to choose /1 or /10."
         }
       ],
       "alternatives": [
@@ -50592,6 +51598,26 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3194,
+        "canonical_name": "BMS maximum cell temperature (vendor channel B)",
+        "encoding": "u16 temperature; scale not specified by vendor",
+        "signed": false,
+        "divisor": null,
+        "scale": null,
+        "unit": "°C",
+        "semantic_key": "bms_max_cell_temperature_channel_b",
+        "resolution_status": "source_only",
+        "confidence": "low",
+        "disposition": "UNCERTAIN",
+        "rationale": "The vendor names the field but supplies no scale; the retained low raw value is insufficient to choose /1 or /10.",
+        "live_observation": "retained live sample raw 2",
+        "source_basis": [
+          "vendor_v124",
+          "min_live_validation"
+        ]
       }
     },
     {
@@ -50601,12 +51627,12 @@
       "table": "input",
       "address": 3195,
       "model_applicability": [],
-      "canonical_name": "BMS average temperature C",
+      "canonical_name": "BMS average temperature (vendor channel C)",
       "description": "BmsBatteryAvgTemp",
       "length_registers": 1,
-      "encoding": "register value",
-      "signed": null,
-      "divisor": 1,
+      "encoding": "u16 temperature; scale not specified by vendor",
+      "signed": false,
+      "divisor": null,
       "scale": null,
       "multiplier": null,
       "unit": "°C",
@@ -50614,19 +51640,23 @@
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "diagnostic",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "bms_average_temperature_channel_c",
+      "semantic_name": "BMS average temperature (vendor channel C)",
+      "semantic_aliases": [
+        "BMS average temperature (vendor channel C)"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
-      "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "resolution_status": "SOURCE_ONLY",
+      "confidence": "low",
       "provenance": [
         "curated_best_guess",
         "grott",
         "ha_runtime",
         "manual",
+        "min_live_validation",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -50637,6 +51667,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "The vendor names the repeated field but supplies no scale; the retained raw value alone cannot establish its physical resolution or hardware instance."
         }
       ],
       "alternatives": [
@@ -50666,6 +51700,26 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3195,
+        "canonical_name": "BMS average temperature (vendor channel C)",
+        "encoding": "u16 temperature; scale not specified by vendor",
+        "signed": false,
+        "divisor": null,
+        "scale": null,
+        "unit": "°C",
+        "semantic_key": "bms_average_temperature_channel_c",
+        "resolution_status": "source_only",
+        "confidence": "low",
+        "disposition": "UNCERTAIN",
+        "rationale": "The vendor names the repeated field but supplies no scale; the retained raw value alone cannot establish its physical resolution or hardware instance.",
+        "live_observation": "retained live sample raw 14",
+        "source_basis": [
+          "vendor_v124",
+          "min_live_validation"
+        ]
       }
     },
     {
@@ -50675,64 +51729,36 @@
       "table": "input",
       "address": 3196,
       "model_applicability": [],
-      "canonical_name": "BMS max SOC",
+      "canonical_name": "BMS maximum SOC",
       "description": "BmsMaxSOC",
       "length_registers": 1,
-      "encoding": "register value",
-      "signed": null,
-      "divisor": 1,
-      "scale": null,
+      "encoding": "u16 percentage",
+      "signed": false,
+      "divisor": null,
+      "scale": 1,
       "multiplier": null,
       "unit": "%",
       "access": "R",
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "battery",
-      "semantic_key": "battery_soc",
-      "semantic_name": "Battery state of charge",
+      "semantic_key": "bms_max_soc",
+      "semantic_name": "BMS maximum SOC",
       "semantic_aliases": [
-        "battery_soc",
-        "batSoc",
-        "Battery SOC",
-        "BMS SOC",
-        "SOC"
+        "BMS maximum SOC"
       ],
-      "semantic_role": "alternate",
-      "alternate_registers": [
-        "register:min_tl_xh:input:1014",
-        "register:min_tl_xh:input:3171",
-        "register:min_tl_xh:input:3197",
-        "register:min_tl_xh:input:3215"
-      ],
-      "relationships": [
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:1014"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3171"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3197"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3215"
-        },
-        {
-          "type": "preferred_register",
-          "target": "register:min_tl_xh:input:3171"
-        }
-      ],
+      "semantic_role": "supported",
+      "alternate_registers": [],
+      "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
         "ha_runtime",
         "manual",
+        "min_live_validation",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -50743,6 +51769,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 names a parallel-maximum-SOC diagnostic distinct from instantaneous BMS SOC; a retained zero is not reinterpreted as the live SOC."
         }
       ],
       "alternatives": [
@@ -50772,6 +51802,26 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3196,
+        "canonical_name": "BMS maximum SOC",
+        "encoding": "u16 percentage",
+        "signed": false,
+        "divisor": null,
+        "scale": 1,
+        "unit": "%",
+        "semantic_key": "bms_max_soc",
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 names a parallel-maximum-SOC diagnostic distinct from instantaneous BMS SOC; a retained zero is not reinterpreted as the live SOC.",
+        "live_observation": "retained live sample raw 0",
+        "source_basis": [
+          "vendor_v124",
+          "min_live_validation"
+        ]
       }
     },
     {
@@ -50781,64 +51831,36 @@
       "table": "input",
       "address": 3197,
       "model_applicability": [],
-      "canonical_name": "BMS min SOC",
+      "canonical_name": "BMS minimum SOC",
       "description": "BmsMinSOC",
       "length_registers": 1,
-      "encoding": "register value",
-      "signed": null,
-      "divisor": 1,
-      "scale": null,
+      "encoding": "u16 percentage",
+      "signed": false,
+      "divisor": null,
+      "scale": 1,
       "multiplier": null,
       "unit": "%",
       "access": "R",
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "battery",
-      "semantic_key": "battery_soc",
-      "semantic_name": "Battery state of charge",
+      "semantic_key": "bms_min_soc",
+      "semantic_name": "BMS minimum SOC",
       "semantic_aliases": [
-        "battery_soc",
-        "batSoc",
-        "Battery SOC",
-        "BMS SOC",
-        "SOC"
+        "BMS minimum SOC"
       ],
-      "semantic_role": "alternate",
-      "alternate_registers": [
-        "register:min_tl_xh:input:1014",
-        "register:min_tl_xh:input:3171",
-        "register:min_tl_xh:input:3196",
-        "register:min_tl_xh:input:3215"
-      ],
-      "relationships": [
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:1014"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3171"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3196"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3215"
-        },
-        {
-          "type": "preferred_register",
-          "target": "register:min_tl_xh:input:3171"
-        }
-      ],
+      "semantic_role": "supported",
+      "alternate_registers": [],
+      "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
         "ha_runtime",
         "manual",
+        "min_live_validation",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -50849,6 +51871,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 names a parallel-minimum-SOC diagnostic distinct from instantaneous BMS SOC; a retained zero is not reinterpreted as the live SOC."
         }
       ],
       "alternatives": [
@@ -50878,6 +51904,26 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3197,
+        "canonical_name": "BMS minimum SOC",
+        "encoding": "u16 percentage",
+        "signed": false,
+        "divisor": null,
+        "scale": 1,
+        "unit": "%",
+        "semantic_key": "bms_min_soc",
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 names a parallel-minimum-SOC diagnostic distinct from instantaneous BMS SOC; a retained zero is not reinterpreted as the live SOC.",
+        "live_observation": "retained live sample raw 0",
+        "source_basis": [
+          "vendor_v124",
+          "min_live_validation"
+        ]
       }
     },
     {
@@ -51035,12 +52081,12 @@
       "table": "input",
       "address": 3200,
       "model_applicability": [],
-      "canonical_name": "BMS full charge capacity",
+      "canonical_name": "BMS gauge full-charge capacity",
       "description": "BmsGaugeFCC（Ah）",
       "length_registers": 1,
-      "encoding": "register value",
-      "signed": null,
-      "divisor": 1,
+      "encoding": "u16 Ah; scale not specified by vendor",
+      "signed": false,
+      "divisor": null,
       "scale": null,
       "multiplier": null,
       "unit": "Ah",
@@ -51048,10 +52094,12 @@
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "battery",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "battery_bms_full_charge_capacity",
+      "semantic_name": "BMS gauge full-charge capacity",
+      "semantic_aliases": [
+        "BMS gauge full-charge capacity"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
@@ -51061,6 +52109,8 @@
         "grott",
         "ha_runtime",
         "manual",
+        "min_live_validation",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -51071,6 +52121,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor explicitly says GaugeFCC, but does not define numeric resolution. Equality with GaugeRM in one retained sample does not prove either a dynamic capacity meaning or a scale."
         }
       ],
       "alternatives": [
@@ -51100,6 +52154,25 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3200,
+        "canonical_name": "BMS gauge full-charge capacity",
+        "encoding": "u16 Ah; scale not specified by vendor",
+        "signed": false,
+        "divisor": null,
+        "scale": null,
+        "unit": "Ah",
+        "semantic_key": "battery_bms_full_charge_capacity",
+        "resolution_status": "resolved_with_notes",
+        "confidence": "medium",
+        "disposition": "UNCERTAIN",
+        "rationale": "Vendor explicitly says GaugeFCC, but does not define numeric resolution. Equality with GaugeRM in one retained sample does not prove either a dynamic capacity meaning or a scale.",
+        "source_basis": [
+          "vendor_v124",
+          "min_live_validation"
+        ]
       }
     },
     {
@@ -51109,12 +52182,12 @@
       "table": "input",
       "address": 3201,
       "model_applicability": [],
-      "canonical_name": "BMS remaining capacity",
+      "canonical_name": "BMS gauge remaining capacity",
       "description": "BmsGaugeRM（Ah）",
       "length_registers": 1,
-      "encoding": "register value",
-      "signed": null,
-      "divisor": 1,
+      "encoding": "u16 Ah; scale not specified by vendor",
+      "signed": false,
+      "divisor": null,
       "scale": null,
       "multiplier": null,
       "unit": "Ah",
@@ -51122,10 +52195,12 @@
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "battery",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "battery_bms_remaining_capacity",
+      "semantic_name": "BMS gauge remaining capacity",
+      "semantic_aliases": [
+        "BMS gauge remaining capacity"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
@@ -51135,6 +52210,8 @@
         "grott",
         "ha_runtime",
         "manual",
+        "min_live_validation",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -51145,6 +52222,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor explicitly says GaugeRM, but does not define numeric resolution. Equality with GaugeFCC in one retained sample means live remaining-capacity behavior remains unverified."
         }
       ],
       "alternatives": [
@@ -51174,6 +52255,25 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3201,
+        "canonical_name": "BMS gauge remaining capacity",
+        "encoding": "u16 Ah; scale not specified by vendor",
+        "signed": false,
+        "divisor": null,
+        "scale": null,
+        "unit": "Ah",
+        "semantic_key": "battery_bms_remaining_capacity",
+        "resolution_status": "resolved_with_notes",
+        "confidence": "medium",
+        "disposition": "UNCERTAIN",
+        "rationale": "Vendor explicitly says GaugeRM, but does not define numeric resolution. Equality with GaugeFCC in one retained sample means live remaining-capacity behavior remains unverified.",
+        "source_basis": [
+          "vendor_v124",
+          "min_live_validation"
+        ]
       }
     },
     {
@@ -51203,12 +52303,13 @@
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
         "ha_runtime",
         "manual",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -51219,6 +52320,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 identifies I3202 as a BMS gauge protection flag. The bit meanings are not published, so it remains a raw diagnostic flag rather than a decoded alarm."
         }
       ],
       "alternatives": [
@@ -51248,6 +52353,17 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3202,
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 identifies I3202 as a BMS gauge protection flag. The bit meanings are not published, so it remains a raw diagnostic flag rather than a decoded alarm.",
+        "source_basis": [
+          "vendor_v124"
+        ],
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high"
       }
     },
     {
@@ -51277,12 +52393,13 @@
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
         "ha_runtime",
         "manual",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -51293,6 +52410,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 identifies I3203 as a BMS gauge warning flag. The bit meanings are not published, so it remains a raw diagnostic flag rather than a decoded alarm."
         }
       ],
       "alternatives": [
@@ -51322,6 +52443,17 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3203,
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 identifies I3203 as a BMS gauge warning flag. The bit meanings are not published, so it remains a raw diagnostic flag rather than a decoded alarm.",
+        "source_basis": [
+          "vendor_v124"
+        ],
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high"
       }
     },
     {
@@ -51351,12 +52483,13 @@
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
         "ha_runtime",
         "manual",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -51367,6 +52500,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 identifies I3204 as a BMS gauge fault flag. The bit meanings are not published, so it remains a raw diagnostic flag rather than a decoded alarm."
         }
       ],
       "alternatives": [
@@ -51396,6 +52533,17 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3204,
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 identifies I3204 as a BMS gauge fault flag. The bit meanings are not published, so it remains a raw diagnostic flag rather than a decoded alarm.",
+        "source_basis": [
+          "vendor_v124"
+        ],
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high"
       }
     },
     {
@@ -51425,12 +52573,13 @@
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
         "ha_runtime",
         "manual",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -51441,6 +52590,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 identifies I3205 as a second BMS gauge fault flag. The bit meanings are not published, so it remains a raw diagnostic flag rather than a decoded alarm."
         }
       ],
       "alternatives": [
@@ -51470,6 +52623,17 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3205,
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 identifies I3205 as a second BMS gauge fault flag. The bit meanings are not published, so it remains a raw diagnostic flag rather than a decoded alarm.",
+        "source_basis": [
+          "vendor_v124"
+        ],
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high"
       }
     },
     {
@@ -52153,9 +53317,7 @@
       "semantic_role": "alternate",
       "alternate_registers": [
         "register:min_tl_xh:input:1014",
-        "register:min_tl_xh:input:3171",
-        "register:min_tl_xh:input:3196",
-        "register:min_tl_xh:input:3197"
+        "register:min_tl_xh:input:3171"
       ],
       "relationships": [
         {
@@ -52165,14 +53327,6 @@
         {
           "type": "alternate_registers",
           "target": "register:min_tl_xh:input:3171"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3196"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3197"
         },
         {
           "type": "preferred_register",
@@ -52471,7 +53625,7 @@
           "target": "register:min_tl_xh:input:3170"
         }
       ],
-      "resolution_status": "RESOLVED_WITH_NOTES",
+      "resolution_status": "RESOLVED",
       "confidence": "high",
       "provenance": [
         "curated_best_guess",
@@ -52481,6 +53635,7 @@
         "manual",
         "min_live_validation",
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -52492,6 +53647,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "The retained HA-5 regression and live sample support signed BMS current at 0.01 A resolution; raw 0xFEB6 decodes to -3.30 A. This is distinct from storage-device current I3170."
         }
       ],
       "alternatives": [
@@ -52580,7 +53739,21 @@
           "MIN 6000TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "input",
+        "address": 3217,
+        "disposition": "PROVEN",
+        "rationale": "The retained HA-5 regression and live sample support signed BMS current at 0.01 A resolution; raw 0xFEB6 decodes to -3.30 A. This is distinct from storage-device current I3170.",
+        "live_observation": "retained raw 0xFEB6 -> -3.30 A",
+        "source_basis": [
+          "vendor_v124",
+          "ha_runtime",
+          "min_live_validation"
+        ],
+        "resolution_status": "resolved",
+        "confidence": "high"
+      }
     },
     {
       "id": "register:min_tl_xh:input:3218",
@@ -52609,12 +53782,13 @@
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
         "ha_runtime",
         "manual",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -52625,6 +53799,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 explicitly gives 0.1 °C resolution for the BMS temperature field; numeric diagnostic semantics beyond that source label remain unexpanded."
         }
       ],
       "alternatives": [
@@ -52654,6 +53832,17 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3218,
+        "disposition": "STRONG",
+        "rationale": "Vendor V1.24 explicitly gives 0.1 °C resolution for the BMS temperature field; numeric diagnostic semantics beyond that source label remain unexpanded.",
+        "source_basis": [
+          "vendor_v124"
+        ],
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high"
       }
     },
     {
@@ -52814,20 +54003,22 @@
       "canonical_name": "BMS cycle count",
       "description": "BMSCycleCnt",
       "length_registers": 1,
-      "encoding": "register value",
-      "signed": null,
-      "divisor": 1,
-      "scale": null,
+      "encoding": "u16 cycle count",
+      "signed": false,
+      "divisor": null,
+      "scale": 1,
       "multiplier": null,
-      "unit": null,
+      "unit": "cycles",
       "access": "R",
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "battery",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "battery_bms_cycle_count",
+      "semantic_name": "BMS cycle count",
+      "semantic_aliases": [
+        "BMS cycle count"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
@@ -52837,6 +54028,8 @@
         "grott",
         "ha_runtime",
         "manual",
+        "min_live_validation",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -52847,6 +54040,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor names BMSCycleCnt, but a retained zero despite substantial throughput does not distinguish unsupported/default behavior from a genuine zero counter."
         }
       ],
       "alternatives": [
@@ -52876,6 +54073,26 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3221,
+        "canonical_name": "BMS cycle count",
+        "encoding": "u16 cycle count",
+        "signed": false,
+        "divisor": null,
+        "scale": 1,
+        "unit": "cycles",
+        "semantic_key": "battery_bms_cycle_count",
+        "resolution_status": "resolved_with_notes",
+        "confidence": "medium",
+        "disposition": "UNCERTAIN",
+        "rationale": "Vendor names BMSCycleCnt, but a retained zero despite substantial throughput does not distinguish unsupported/default behavior from a genuine zero counter.",
+        "live_observation": "retained live sample raw 0",
+        "source_basis": [
+          "vendor_v124",
+          "min_live_validation"
+        ]
       }
     },
     {
@@ -52887,23 +54104,25 @@
       "model_applicability": [
         "MIN 6000TL-XH"
       ],
-      "canonical_name": "BMS SOH",
+      "canonical_name": "BMS state of health",
       "description": "BMS SOH",
       "length_registers": 1,
       "encoding": "u16 percentage",
       "signed": false,
       "divisor": null,
-      "scale": null,
+      "scale": 1,
       "multiplier": null,
       "unit": "%",
       "access": "R",
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "battery",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "battery_bms_soh",
+      "semantic_name": "BMS state of health",
+      "semantic_aliases": [
+        "BMS state of health"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
@@ -52915,6 +54134,7 @@
         "manual",
         "min_live_validation",
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -52926,6 +54146,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor and independent implementations identify BMS SOH as a percentage; a live value of 100 is value evidence, not behavioral validation of the estimator."
         }
       ],
       "alternatives": [
@@ -53007,7 +54231,28 @@
           "MIN 6000TL-XH"
         ]
       },
-      "value_encoding": "numeric"
+      "value_encoding": "numeric",
+      "review": {
+        "table": "input",
+        "address": 3222,
+        "canonical_name": "BMS state of health",
+        "encoding": "u16 percentage",
+        "signed": false,
+        "divisor": null,
+        "scale": 1,
+        "unit": "%",
+        "semantic_key": "battery_bms_soh",
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high",
+        "disposition": "STRONG",
+        "rationale": "Vendor and independent implementations identify BMS SOH as a percentage; a live value of 100 is value evidence, not behavioral validation of the estimator.",
+        "live_observation": "retained live sample raw 100",
+        "source_basis": [
+          "vendor_v124",
+          "grott",
+          "min_live_validation"
+        ]
+      }
     },
     {
       "id": "register:min_tl_xh:input:3223",
@@ -53093,20 +54338,22 @@
       "canonical_name": "BMS discharge voltage limit",
       "description": "Batterydischargevoltagelimitvalue",
       "length_registers": 1,
-      "encoding": "register value",
-      "signed": null,
-      "divisor": 1,
-      "scale": null,
+      "encoding": "u16 / 100",
+      "signed": false,
+      "divisor": 100,
+      "scale": 0.01,
       "multiplier": null,
       "unit": "V",
       "access": "R",
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "battery",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "battery_bms_discharge_voltage_limit",
+      "semantic_name": "BMS discharge voltage limit",
+      "semantic_aliases": [
+        "BMS discharge voltage limit"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
@@ -53116,6 +54363,9 @@
         "grott",
         "ha_runtime",
         "manual",
+        "min_live_validation",
+        "min_semantic_review",
+        "openinverter_gateway",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -53126,6 +54376,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "The vendor leaves this row's scale blank, but the adjacent charge limit is /100 and the retained raw 18880 is physically plausible as 188.80 V; keep the claim below vendor-proven status."
         }
       ],
       "alternatives": [
@@ -53155,6 +54409,27 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3224,
+        "canonical_name": "BMS discharge voltage limit",
+        "encoding": "u16 / 100",
+        "signed": false,
+        "divisor": 100,
+        "scale": 0.01,
+        "unit": "V",
+        "semantic_key": "battery_bms_discharge_voltage_limit",
+        "resolution_status": "resolved_with_notes",
+        "confidence": "medium",
+        "disposition": "STRONG",
+        "rationale": "The vendor leaves this row's scale blank, but the adjacent charge limit is /100 and the retained raw 18880 is physically plausible as 188.80 V; keep the claim below vendor-proven status.",
+        "live_observation": "retained live sample raw 18880",
+        "source_basis": [
+          "vendor_v124",
+          "min_live_validation",
+          "openinverter_gateway"
+        ]
       }
     },
     {
@@ -53184,12 +54459,13 @@
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
         "ha_runtime",
         "manual",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -53200,6 +54476,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 identifies I3225 as a BMS warning-3 flag. The flag bits are not decoded without an independent codebook."
         }
       ],
       "alternatives": [
@@ -53229,6 +54509,17 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3225,
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 identifies I3225 as a BMS warning-3 flag. The flag bits are not decoded without an independent codebook.",
+        "source_basis": [
+          "vendor_v124"
+        ],
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high"
       }
     },
     {
@@ -53258,12 +54549,13 @@
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
         "ha_runtime",
         "manual",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -53274,6 +54566,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 identifies I3226 as a BMS protection-3 flag. The flag bits are not decoded without an independent codebook."
         }
       ],
       "alternatives": [
@@ -53303,6 +54599,17 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3226,
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 identifies I3226 as a BMS protection-3 flag. The flag bits are not decoded without an independent codebook.",
+        "source_basis": [
+          "vendor_v124"
+        ],
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high"
       }
     },
     {
@@ -53477,32 +54784,36 @@
       "table": "input",
       "address": 3230,
       "model_applicability": [],
-      "canonical_name": "BMS max cell voltage",
+      "canonical_name": "BMS maximum cell voltage",
       "description": "BMSBatterySingleVoltMax",
       "length_registers": 1,
-      "encoding": "register value",
-      "signed": null,
-      "divisor": 1,
-      "scale": null,
+      "encoding": "u16 / 1000",
+      "signed": false,
+      "divisor": 1000,
+      "scale": 0.001,
       "multiplier": null,
       "unit": "V",
       "access": "R",
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "battery",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "battery_bms_max_cell_voltage",
+      "semantic_name": "BMS maximum cell voltage",
+      "semantic_aliases": [
+        "BMS maximum cell voltage"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
-      "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "resolution_status": "RESOLVED",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
         "ha_runtime",
         "manual",
+        "min_live_validation",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -53513,6 +54824,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 explicitly specifies 0.001 V; retained raw 3314 decodes to 3.314 V, so frontend rounding must not change the canonical scale."
         }
       ],
       "alternatives": [
@@ -53542,6 +54857,26 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3230,
+        "canonical_name": "BMS maximum cell voltage",
+        "encoding": "u16 / 1000",
+        "signed": false,
+        "divisor": 1000,
+        "scale": 0.001,
+        "unit": "V",
+        "semantic_key": "battery_bms_max_cell_voltage",
+        "resolution_status": "resolved",
+        "confidence": "high",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 explicitly specifies 0.001 V; retained raw 3314 decodes to 3.314 V, so frontend rounding must not change the canonical scale.",
+        "live_observation": "retained live sample raw 3314 -> 3.314 V",
+        "source_basis": [
+          "vendor_v124",
+          "min_live_validation"
+        ]
       }
     },
     {
@@ -53551,32 +54886,36 @@
       "table": "input",
       "address": 3231,
       "model_applicability": [],
-      "canonical_name": "BMS min cell voltage",
+      "canonical_name": "BMS minimum cell voltage",
       "description": "BMSBatterySingleVoltMin",
       "length_registers": 1,
-      "encoding": "register value",
-      "signed": null,
-      "divisor": 1,
-      "scale": null,
+      "encoding": "u16 / 1000",
+      "signed": false,
+      "divisor": 1000,
+      "scale": 0.001,
       "multiplier": null,
       "unit": "V",
       "access": "R",
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "battery",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "battery_bms_min_cell_voltage",
+      "semantic_name": "BMS minimum cell voltage",
+      "semantic_aliases": [
+        "BMS minimum cell voltage"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
-      "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "resolution_status": "RESOLVED",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
         "ha_runtime",
         "manual",
+        "min_live_validation",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -53587,6 +54926,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 explicitly specifies 0.001 V; retained raw 3311 decodes to 3.311 V, so frontend rounding must not change the canonical scale."
         }
       ],
       "alternatives": [
@@ -53616,6 +54959,26 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3231,
+        "canonical_name": "BMS minimum cell voltage",
+        "encoding": "u16 / 1000",
+        "signed": false,
+        "divisor": 1000,
+        "scale": 0.001,
+        "unit": "V",
+        "semantic_key": "battery_bms_min_cell_voltage",
+        "resolution_status": "resolved",
+        "confidence": "high",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 explicitly specifies 0.001 V; retained raw 3311 decodes to 3.311 V, so frontend rounding must not change the canonical scale.",
+        "live_observation": "retained live sample raw 3311 -> 3.311 V",
+        "source_basis": [
+          "vendor_v124",
+          "min_live_validation"
+        ]
       }
     },
     {
@@ -245017,7 +246380,7 @@
   "runtime_audit": {
     "source": "HA_local_registers",
     "checked_mappings": 198,
-    "finding_count": 34,
+    "finding_count": 23,
     "status": "issues_found",
     "findings": [
       {
@@ -245169,6 +246532,23 @@
         "group": "input_tl_xh",
         "family": "min_tl_xh",
         "table": "input",
+        "address": 3110,
+        "runtime_name": "warning_code",
+        "runtime_semantic_key": null,
+        "reference_id": "register:min_tl_xh:input:3110",
+        "issues": [
+          {
+            "kind": "length_mismatch",
+            "reference": 1,
+            "runtime": 2
+          }
+        ]
+      },
+      {
+        "device": "tlx",
+        "group": "input_tl_xh",
+        "family": "min_tl_xh",
+        "table": "input",
         "address": 3170,
         "runtime_name": "battery_current",
         "runtime_semantic_key": null,
@@ -245179,108 +246559,6 @@
             "reference": true,
             "runtime": false,
             "declared": false
-          }
-        ]
-      },
-      {
-        "device": "tlx",
-        "group": "input_tl_xh",
-        "family": "min_tl_xh",
-        "table": "input",
-        "address": 3191,
-        "runtime_name": "bms_avg_temp_a",
-        "runtime_semantic_key": null,
-        "reference_id": "register:min_tl_xh:input:3191",
-        "issues": [
-          {
-            "kind": "scale_mismatch",
-            "reference": 1,
-            "runtime": 10
-          }
-        ]
-      },
-      {
-        "device": "tlx",
-        "group": "input_tl_xh",
-        "family": "min_tl_xh",
-        "table": "input",
-        "address": 3194,
-        "runtime_name": "bms_max_cell_temp_b",
-        "runtime_semantic_key": null,
-        "reference_id": "register:min_tl_xh:input:3194",
-        "issues": [
-          {
-            "kind": "scale_mismatch",
-            "reference": 1,
-            "runtime": 10
-          }
-        ]
-      },
-      {
-        "device": "tlx",
-        "group": "input_tl_xh",
-        "family": "min_tl_xh",
-        "table": "input",
-        "address": 3195,
-        "runtime_name": "bms_avg_temp_c",
-        "runtime_semantic_key": null,
-        "reference_id": "register:min_tl_xh:input:3195",
-        "issues": [
-          {
-            "kind": "scale_mismatch",
-            "reference": 1,
-            "runtime": 10
-          }
-        ]
-      },
-      {
-        "device": "tlx",
-        "group": "input_tl_xh",
-        "family": "min_tl_xh",
-        "table": "input",
-        "address": 3224,
-        "runtime_name": "bms_discharge_volt_limit",
-        "runtime_semantic_key": null,
-        "reference_id": "register:min_tl_xh:input:3224",
-        "issues": [
-          {
-            "kind": "scale_mismatch",
-            "reference": 1,
-            "runtime": 100
-          }
-        ]
-      },
-      {
-        "device": "tlx",
-        "group": "input_tl_xh",
-        "family": "min_tl_xh",
-        "table": "input",
-        "address": 3230,
-        "runtime_name": "bms_cell_volt_max",
-        "runtime_semantic_key": null,
-        "reference_id": "register:min_tl_xh:input:3230",
-        "issues": [
-          {
-            "kind": "scale_mismatch",
-            "reference": 1,
-            "runtime": 1000
-          }
-        ]
-      },
-      {
-        "device": "tlx",
-        "group": "input_tl_xh",
-        "family": "min_tl_xh",
-        "table": "input",
-        "address": 3231,
-        "runtime_name": "bms_cell_volt_min",
-        "runtime_semantic_key": null,
-        "reference_id": "register:min_tl_xh:input:3231",
-        "issues": [
-          {
-            "kind": "scale_mismatch",
-            "reference": 1,
-            "runtime": 1000
           }
         ]
       },
@@ -245515,108 +246793,6 @@
             "reference": true,
             "runtime": false,
             "declared": false
-          }
-        ]
-      },
-      {
-        "device": "storage",
-        "group": "input_tl_xh",
-        "family": "min_tl_xh",
-        "table": "input",
-        "address": 3191,
-        "runtime_name": "bms_avg_temp_a",
-        "runtime_semantic_key": null,
-        "reference_id": "register:min_tl_xh:input:3191",
-        "issues": [
-          {
-            "kind": "scale_mismatch",
-            "reference": 1,
-            "runtime": 10
-          }
-        ]
-      },
-      {
-        "device": "storage",
-        "group": "input_tl_xh",
-        "family": "min_tl_xh",
-        "table": "input",
-        "address": 3194,
-        "runtime_name": "bms_max_cell_temp_b",
-        "runtime_semantic_key": null,
-        "reference_id": "register:min_tl_xh:input:3194",
-        "issues": [
-          {
-            "kind": "scale_mismatch",
-            "reference": 1,
-            "runtime": 10
-          }
-        ]
-      },
-      {
-        "device": "storage",
-        "group": "input_tl_xh",
-        "family": "min_tl_xh",
-        "table": "input",
-        "address": 3195,
-        "runtime_name": "bms_avg_temp_c",
-        "runtime_semantic_key": null,
-        "reference_id": "register:min_tl_xh:input:3195",
-        "issues": [
-          {
-            "kind": "scale_mismatch",
-            "reference": 1,
-            "runtime": 10
-          }
-        ]
-      },
-      {
-        "device": "storage",
-        "group": "input_tl_xh",
-        "family": "min_tl_xh",
-        "table": "input",
-        "address": 3224,
-        "runtime_name": "bms_discharge_volt_limit",
-        "runtime_semantic_key": null,
-        "reference_id": "register:min_tl_xh:input:3224",
-        "issues": [
-          {
-            "kind": "scale_mismatch",
-            "reference": 1,
-            "runtime": 100
-          }
-        ]
-      },
-      {
-        "device": "storage",
-        "group": "input_tl_xh",
-        "family": "min_tl_xh",
-        "table": "input",
-        "address": 3230,
-        "runtime_name": "bms_cell_volt_max",
-        "runtime_semantic_key": null,
-        "reference_id": "register:min_tl_xh:input:3230",
-        "issues": [
-          {
-            "kind": "scale_mismatch",
-            "reference": 1,
-            "runtime": 1000
-          }
-        ]
-      },
-      {
-        "device": "storage",
-        "group": "input_tl_xh",
-        "family": "min_tl_xh",
-        "table": "input",
-        "address": 3231,
-        "runtime_name": "bms_cell_volt_min",
-        "runtime_semantic_key": null,
-        "reference_id": "register:min_tl_xh:input:3231",
-        "issues": [
-          {
-            "kind": "scale_mismatch",
-            "reference": 1,
-            "runtime": 1000
           }
         ]
       }
@@ -246012,12 +247188,15 @@
     "register:min_tl_xh:holding:5037",
     "register:min_tl_xh:holding:5038",
     "register:min_tl_xh:holding:5039",
+    "register:min_tl_xh:input:110",
     "register:min_tl_xh:input:111",
     "register:min_tl_xh:input:235",
     "register:min_tl_xh:input:237",
     "register:min_tl_xh:input:3085",
     "register:min_tl_xh:input:3096",
     "register:min_tl_xh:input:3109",
+    "register:min_tl_xh:input:3110",
+    "register:min_tl_xh:input:3111",
     "register:min_tl_xh:input:3116",
     "register:min_tl_xh:input:3117",
     "register:min_tl_xh:input:3120",
@@ -246027,6 +247206,9 @@
     "register:min_tl_xh:input:3163",
     "register:min_tl_xh:input:3186",
     "register:min_tl_xh:input:3187",
+    "register:min_tl_xh:input:3191",
+    "register:min_tl_xh:input:3194",
+    "register:min_tl_xh:input:3195",
     "register:min_tl_xh:input:3206",
     "register:min_tl_xh:input:3207",
     "register:min_tl_xh:input:3208",
@@ -248468,10 +249650,10 @@
     "holding_records": 1805,
     "input_records": 2243,
     "by_resolution_status": {
-      "RESOLVED": 317,
-      "RESOLVED_WITH_NOTES": 892,
+      "RESOLVED": 324,
+      "RESOLVED_WITH_NOTES": 879,
       "CONFLICTED": 0,
-      "SOURCE_ONLY": 2222,
+      "SOURCE_ONLY": 2228,
       "UNKNOWN_RESERVED": 617
     },
     "live_read_verified": 60,

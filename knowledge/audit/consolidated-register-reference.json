@@ -1,12 +1,12 @@
 {
   "meta": {
     "version": "0.5.0",
-    "generated_at": "2026-09-11T12:06:43.443537+00:00",
+    "generated_at": "2026-09-11T12:51:40.205617+00:00",
     "generator": "generate_consolidated_ref.py",
     "source_files": {
       "register_graph": {
         "path": "knowledge/graph/register-graph.gpickle",
-        "sha256": "4afa14f64678016907c5445b2f848e3afbd0f909758c41af2537a318b5605d45"
+        "sha256": "6f836a81c14eeed1c2e2eb0f71f1e7ff182fe8a6a7d8d914442f438e579da69b"
       }
     }
   },

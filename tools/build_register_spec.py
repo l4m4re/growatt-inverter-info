@@ -73,6 +73,27 @@ SEMANTIC_RENAMES = {
     "batterystate": "battery.state",
     "batterytype": "battery.type",
     "batteryvoltage": "battery.voltage",
+    "bdc_data_separation": "bdc.data_separation",
+    "bdc_derating_mode": "bdc.derating_mode",
+    "bdc_system_mode_status": "bdc.system_mode_status",
+    "bdc_fault_code": "bdc.fault_code",
+    "bdc_warning_code": "bdc.warning_code",
+    "inverter_warning_flags_high": "inverter.warning_flags_high",
+    "inverter_warning_subcode": "inverter.warning_subcode",
+    "inverter_warning_flags": "inverter.warning_flags",
+    "inverter_present_fft_value_channel_a": "inverter.present_fft_value_channel_a",
+    "bms_average_temperature_channel_a": "diagnostic.bms_average_temperature_channel_a",
+    "bms_max_cell_temperature_channel_b": "diagnostic.bms_max_cell_temperature_channel_b",
+    "bms_average_temperature_channel_c": "diagnostic.bms_average_temperature_channel_c",
+    "bms_max_soc": "battery.bms_max_soc",
+    "bms_min_soc": "battery.bms_min_soc",
+    "battery_bms_full_charge_capacity": "battery.bms_full_charge_capacity",
+    "battery_bms_remaining_capacity": "battery.bms_remaining_capacity",
+    "battery_bms_discharge_voltage_limit": "battery.bms_discharge_voltage_limit",
+    "battery_bms_max_cell_voltage": "battery.bms_max_cell_voltage",
+    "battery_bms_min_cell_voltage": "battery.bms_min_cell_voltage",
+    "battery_bms_cycle_count": "battery.bms_cycle_count",
+    "battery_bms_soh": "battery.bms_soh",
 }
 
 CANONICAL_NAME_ALIASES = {
@@ -269,6 +290,15 @@ def logical_key(record: dict[str, Any]) -> str:
 
 
 def subsystem(record: dict[str, Any]) -> tuple[str, str]:
+    review = record.get("review") or {}
+    if review.get("subsystem") and review.get("measurement_point"):
+        return review["subsystem"], review["measurement_point"]
+    if (
+        record.get("family") == "min_tl_xh"
+        and record.get("table") == "holding"
+        and 3036 <= record.get("address", -1) <= 3082
+    ):
+        return "control", "inverter_control"
     text = " ".join(
         [
             str(record.get("canonical_name", "")),
@@ -405,6 +435,15 @@ def write_policy(record: dict[str, Any]) -> str:
 def resolution_from_evidence(
     record: dict[str, Any], evidence_items: list[dict[str, Any]]
 ) -> dict[str, Any]:
+    review = record.get("review") or {}
+    if review.get("resolution_status"):
+        result = {
+            "status": review["resolution_status"],
+            "confidence": review.get("confidence"),
+        }
+        if review.get("rationale"):
+            result["note"] = review["rationale"]
+        return result
     name = str(record.get("canonical_name", ""))
     if name.lower().startswith(("register ", "reserved", "unknown")):
         return {"status": "unknown_reserved", "confidence": "low"}
@@ -560,6 +599,7 @@ def logical_fields(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
         for item in components:
             item["logical_field_id"] = field_id
             item["component_role"] = component_marker(item) or "word"
+            item["length_words"] = 1
             role_name = item["component_role"].replace("_", " ")
             item["normalized"]["name"] = f"{identity['canonical_name']} ({role_name})"
         fields.append(
@@ -611,6 +651,7 @@ def logical_fields(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
             assert item is not None
             item["logical_field_id"] = field_id
             item["component_role"] = f"word_{offset + 1}"
+            item["length_words"] = 1
         identity = record["semantic_identity"]
         fields.append(
             {
@@ -772,8 +813,24 @@ def build() -> dict[str, Any]:
             normalized["signedness_note"] = (
                 "HA-5 regression 0xFEB6 decodes to -3.30 A at 0.01 A resolution; retained live BMS sample is also negative."
             )
-        records.append(
+        review = old.get("review")
+        public_review = (
             {
+                key: review[key]
+                for key in (
+                    "disposition",
+                    "rationale",
+                    "live_observation",
+                    "source_basis",
+                    "resolution_status",
+                    "confidence",
+                )
+                if key in review
+            }
+            if review is not None
+            else None
+        )
+        record_output = {
                 "physical_id": physical_id,
                 "family": old["family"],
                 "family_name": old["family_name"],
@@ -810,8 +867,11 @@ def build() -> dict[str, Any]:
                 "validation_evidence": old.get("validation_evidence", []),
                 "write_policy": write_policy(old),
                 "native_read_blocks": [],
+                "review": public_review,
             }
-        )
+        if record_output["review"] is None:
+            del record_output["review"]
+        records.append(record_output)
 
     fields = logical_fields(records)
     field_by_component = {
@@ -1222,6 +1282,7 @@ false BMS instances. Native page reads establish `read_observed`, not
 Coverage: **{coverage["physical_registers"]}** physical records, **{coverage["holding_registers"]}** holding, **{coverage["input_registers"]}** input. Stable semantic keys are assigned to **{coverage["semantic_key_assigned_records"]}** records; **{coverage["semantic_reconciled_records"]}** are semantically reconciled (**{coverage["semantic_reconciled_percentage"]}%**), while **{coverage["semantic_unreconciled_records"]}** remain syntactic-only and **{coverage["semantic_unresolved_records"]}** unresolved. There are **{coverage["logical_multi_register_fields"]}** logical fields (**{coverage["source_explicit_logical_fields"]}** source-explicit, **{coverage["unknown_word_order_logical_fields"]}** unknown word order), **{coverage["enum_bearing_records"]}** enum-bearing records, and **{coverage["bitfield_structured_records"]}** structured versus **{coverage["bitfield_placeholder_records"]}** placeholder bitfield records.
 
 See [`SEMANTIC_INDEX.md`](SEMANTIC_INDEX.md), [`PROTOCOLS.md`](PROTOCOLS.md),
+and the generated [GII-2 MIN/TL-XH evidence-review matrix](../docs/reverse-engineering/GII-2_MIN_TL_XH_AUDIT_MATRIX.md),
 the family pages [`MIN_TL_XH.md`](families/MIN_TL_XH.md),
 [`TL3_MAX_MID_MAC.md`](families/TL3_MAX_MID_MAC.md),
 [`MOD_TL3_XH.md`](families/MOD_TL3_XH.md), [`MIX.md`](families/MIX.md),
