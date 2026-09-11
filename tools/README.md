@@ -23,3 +23,16 @@ the MIN/TL-XH review overlay. It is not an additional canonical register map.
 The metadata validator is a bounded consistency check for the MIN/TL-XH
 consumer projection; it reports valid holding/input address overlaps as
 informational and fails only on obvious contradictions.
+
+The Home Assistant read-side reconciliation is run explicitly against a
+consumer extractor snapshot:
+
+```bash
+python3 tools/audit_homeassistant_consumer.py \\
+  --ha-snapshot /path/to/ha-register-snapshot.json \\
+  --consumer-commit <consumer-commit> \\
+  --output docs/consumers/homeassistant/HA-GII-1_READ_SIDE_FINDINGS.json
+```
+
+The snapshot is an input artifact, not a public runtime configuration dump;
+private Home Assistant state must remain outside the repository.
