@@ -1,11 +1,14 @@
 """Tests for the project-independent Growatt Register Specification."""
 
+from copy import deepcopy
 import hashlib
 import importlib.util
 import json
 from pathlib import Path
 import subprocess
 import sys
+
+from tools.validate_min_tlxh_metadata import check as check_min_tlxh_metadata
 
 REPO = Path(__file__).parents[1]
 SPEC_DIR = REPO / "spec"
@@ -104,6 +107,28 @@ def test_min_semantic_review_keeps_bms_and_warning_fields_honest() -> None:
     assert records["min_tl_xh:input:3231"]["normalized"]["divisor"] == 1000
 
 
+def test_min_metadata_consistency_checker_catches_unit_collisions() -> None:
+    """The bounded checker accepts canonical metadata and catches regressions."""
+    spec = load_spec()
+    assert check_min_tlxh_metadata(spec)["errors"] == []
+    broken = deepcopy(spec)
+    broken_record = next(
+        record for record in broken["registers"] if record["physical_id"] == "min_tl_xh:input:3172"
+    )
+    broken_record["normalized"]["unit"] = "A"
+    assert any(
+        item["kind"] == "semantic_unit_contradiction"
+        for item in check_min_tlxh_metadata(broken)["errors"]
+    )
+    broken_record["normalized"]["name"] = "Synthetic field"
+    broken_record["normalized"]["raw_type"] = "u16 current"
+    broken_record["normalized"]["unit"] = "V"
+    assert any(
+        item["kind"] == "datatype_unit_contradiction"
+        for item in check_min_tlxh_metadata(broken)["errors"]
+    )
+
+
 def test_bms_and_storage_current_are_distinct_measurement_points() -> None:
     """I3170 and I3217 retain different subsystem meanings."""
     records = {record["physical_id"]: record for record in load_spec()["registers"]}
@@ -171,9 +196,9 @@ def test_runtime_audit_reports_occurrences_and_unique_findings() -> None:
 
     assert audit["mapping_occurrences_checked"] == 274
     assert audit["unique_family_table_address_mappings"] == 206
-    assert audit["unique_family_table_address_issue_findings"] == 22
-    assert audit["finding_occurrences"] == 23
-    assert audit["unique_findings"] == 22
+    assert audit["unique_family_table_address_issue_findings"] == 24
+    assert audit["finding_occurrences"] == 27
+    assert audit["unique_findings"] == 24
     assert set(audit["finding_kinds"]) == {
         "length_mismatch",
         "signedness_mismatch",
@@ -200,12 +225,30 @@ def test_known_min_high_low_pairs_are_logical_fields_not_alternates() -> None:
         assert high["component_of"] == low["component_of"]
         field = next(field for field in spec["logical_fields"] if field["id"] == high["component_of"])
         assert field["semantic_key"] == quantity
+        assert field["length_words"] == 2
         assert field["word_order"] == "high_low"
         assert high["relationships"] == low["relationships"] == []
         assert all(
             relationship["target"] not in {high["physical_id"], low["physical_id"]}
             for relationship in field["relationships"]
         )
+
+
+def test_min_canonical_units_and_physical_lengths_are_consistent() -> None:
+    """Corrected units stay separate from logical field length metadata."""
+    spec = load_spec()
+    records = {record["physical_id"]: record for record in spec["registers"]}
+    assert records["min_tl_xh:input:3172"]["normalized"]["unit"] == "V"
+    assert records["min_tl_xh:input:3173"]["normalized"]["unit"] == "V"
+    assert records["min_tl_xh:input:3172"]["normalized"]["signed"] is False
+    assert records["min_tl_xh:input:3173"]["normalized"]["signed"] is False
+    assert records["min_tl_xh:input:3217"]["normalized"]["unit"] == "A"
+    assert records["min_tl_xh:input:3230"]["normalized"]["unit"] == "V"
+    assert records["min_tl_xh:input:3231"]["normalized"]["unit"] == "V"
+    assert records["min_tl_xh:holding:3038"]["normalized"]["unit"] is None
+    assert records["min_tl_xh:holding:3050"]["normalized"]["unit"] is None
+    for address in (3047, 3048, 3081, 3082, 3178, 3179, 3180, 3181):
+        assert records[f"min_tl_xh:input:{address}"]["length_words"] == 1
 
 
 def test_representative_family_components_and_legacy_identity() -> None:

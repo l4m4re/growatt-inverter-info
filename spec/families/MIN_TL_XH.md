@@ -545,7 +545,7 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | I | 3018 | PV4 DC power (low word) | register value | W | R | resolved_with_notes |
 | I | 3019 | System output power (high word) | register value | W | R | resolved |
 | I | 3020 | System output power (low word) | register value | W | R | resolved |
-| I | 3021 | Output reactive power (high word) | register value | POWER_REACTIVE | R | resolved_with_notes |
+| I | 3021 | Output reactive power (high word) | s32 / 10 | var | R | resolved_with_notes |
 | I | 3022 | Output reactive power (low word) | register value | var | R | resolved_with_notes |
 | I | 3023 | AC output power | u32 / 10 | W | R | resolved_with_notes |
 | I | 3024 | AC output power | register value | W | R | resolved_with_notes |
@@ -595,10 +595,10 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | I | 3068 | Load energy today (low word) | register value | kWh | R | resolved_with_notes |
 | I | 3069 | Load energy total (high word) | register value | kWh | R | resolved_with_notes |
 | I | 3070 | Load energy total (low word) | register value | kWh | R | resolved_with_notes |
-| I | 3071 | Grid export power (high word) | register value | kWh | R | resolved_with_notes |
-| I | 3072 | Grid export power (low word) | register value | kWh | R | resolved_with_notes |
-| I | 3073 | Grid export power (high word) | register value | kWh | R | resolved_with_notes |
-| I | 3074 | Grid export power (low word) | register value | kWh | R | resolved_with_notes |
+| I | 3071 | Grid export energy today (high word) | u32 / 10 | kWh | R | resolved_with_notes |
+| I | 3072 | Grid export energy today (low word) | u32 / 10 | kWh | R | resolved_with_notes |
+| I | 3073 | Grid export energy total (high word) | u32 / 10 | kWh | R | resolved_with_notes |
+| I | 3074 | Grid export energy total (low word) | u32 / 10 | kWh | R | resolved_with_notes |
 | I | 3075 | User load energy today (high word) | register value | kWh | R | resolved_with_notes |
 | I | 3076 | User load energy today (low word) | register value | kWh | R | resolved_with_notes |
 | I | 3077 | User load energy total (high word) | register value | kWh | R | resolved_with_notes |
@@ -628,7 +628,7 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | I | 3101 | Output power percentage | register value | % | R | resolved_with_notes |
 | I | 3102 | Output max power limit (high word) | register value | W | R | resolved_with_notes |
 | I | 3103 | Output max power limit (low word) | register value | W | R | resolved_with_notes |
-| I | 3104 | Standby flags | register value | bit0:turn off Order； bit1:PVLow； bit2:AC Volt/Freq outofscope； bit3~bit7 ： Reserved | R | resolved |
+| I | 3104 | Standby flags | u16 vendor-defined bitfield | — | R | source_only |
 | I | 3105 | Fault code | register value | — | R | resolved_with_notes |
 | I | 3106 | Warning main code | register value | — | R | resolved_with_notes |
 | I | 3107 | Fault subcode | register value | — | R | resolved |
@@ -696,8 +696,8 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | I | 3169 | Battery voltage | u16 / 100 | V | R | resolved_with_notes |
 | I | 3170 | Battery current | s16 / 10 | A | R | resolved_with_notes |
 | I | 3171 | Battery state of charge | u16 percentage | % | R | resolved_with_notes |
-| I | 3172 | VBUS1 voltage | register value | A | R | resolved_with_notes |
-| I | 3173 | VBUS2 voltage | register value | A | R | resolved_with_notes |
+| I | 3172 | VBUS1 voltage | u16 / 10 | V | R | resolved_with_notes |
+| I | 3173 | VBUS2 voltage | u16 / 10 | V | R | resolved_with_notes |
 | I | 3174 | Buck/boost current | register value | A | R | resolved_with_notes |
 | I | 3175 | LLC stage current | register value | A | R | resolved_with_notes |
 | I | 3176 | Battery temperature A | register value | °C | R | resolved_with_notes |
@@ -734,9 +734,9 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | I | 3207 | Reserved | register value | — | R | unknown_reserved |
 | I | 3208 | Reserved | register value | — | R | unknown_reserved |
 | I | 3209 | Reserved | register value | — | R | unknown_reserved |
-| I | 3210 | Battery insulation status | register value | 0：Not detected 1：Detection completed | R | resolved_with_notes |
+| I | 3210 | Battery insulation status | u16 enum 0=not detected, 1=detection completed | — | R | resolved_with_notes |
 | I | 3211 | Battery request flags | register value | — | R | resolved_with_notes |
-| I | 3212 | BMS status | u16 enum | 0:dormancy 1:Charge 2:Discharge 3:free 4:standby 5:Softstart 6:fault 7:update | R | resolved_with_notes |
+| I | 3212 | BMS status | u16 enum | — | R | resolved_with_notes |
 | I | 3213 | BMS protect flags 2 | register value | — | R | resolved_with_notes |
 | I | 3214 | BMS warning flags 2 | register value | — | R | resolved_with_notes |
 | I | 3215 | Battery state of charge | u16 percentage | % | R | resolved_with_notes |
@@ -756,7 +756,7 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | I | 3229 | Reserved | register value | — | R | unknown_reserved |
 | I | 3230 | BMS maximum cell voltage | u16 / 1000 | V | R | resolved |
 | I | 3231 | BMS minimum cell voltage | u16 / 1000 | V | R | resolved |
-| I | 3232 | Battery load voltage | register value | [0，650.00] | R | resolved |
+| I | 3232 | Battery load voltage | u16 / 100 | V | R | resolved_with_notes |
 | I | 3233 | Register 3233 | register value | — | R | unknown_reserved |
 | I | 3234 | Debug data 1 | register value | — | R | resolved |
 | I | 3235 | Debug data 2 | register value | — | R | resolved |
@@ -804,7 +804,7 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | I | 3277 | Reserve | register value | — | R | source_only |
 | I | 3278 | Reserve | register value | — | R | source_only |
 | I | 3279 | Reserve | register value | — | R | source_only |
-| I | 3280 | bClrTodayDataFl ag | register value | Data of the current day that the server | R | source_only |
+| I | 3280 | Clear current-day data flag | u16 vendor-defined flag | — | R | source_only |
 | I | 3281 | Register 3281 | register value | — | R | unknown_reserved |
 | I | 3282 | Register 3282 | register value | — | R | unknown_reserved |
 | I | 3283 | Register 3283 | register value | — | R | unknown_reserved |
@@ -7055,8 +7055,8 @@ Canonical description: reactivepower
 Physical identity: `min_tl_xh:input:3021`.
 Semantic: `telemetry.output_reactive_power`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
 Logical field: `logical:min_tl_xh:input:3021:telemetry_output_reactive_power`; component role: `high_word`.
-Vendor names: QacH; vendor description: reactivepower; vendor unit/type: POWER_REACTIVE / register value.
-Normalized type/signedness/scale: `register value` / `True` / `10`.
+Vendor names: QacH; vendor description: reactivepower; vendor unit/type: var / s32 / 10.
+Normalized type/signedness/scale: `s32 / 10` / `True` / `10`.
 Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
@@ -7589,50 +7589,50 @@ Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
 
-### input 3071 — Grid export power (high word)
+### input 3071 — Grid export energy today (high word)
 
 Canonical description: Todayenergytogrid
 Physical identity: `min_tl_xh:input:3071`.
-Semantic: `grid.export_power`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
-Logical field: `logical:min_tl_xh:input:3071:grid_export_power`; component role: `high_word`.
-Vendor names: Etogrid_todayH; vendor description: Todayenergytogrid; vendor unit/type: kWh / register value.
-Normalized type/signedness/scale: `register value` / `None` / `10`.
+Semantic: `grid.export_energy_today`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
+Logical field: `logical:min_tl_xh:input:3071:grid_export_energy_today`; component role: `high_word`.
+Vendor names: Etogrid_todayH; vendor description: Todayenergytogrid; vendor unit/type: kWh / u32 / 10.
+Normalized type/signedness/scale: `u32 / 10` / `False` / `10`.
 Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
 
-### input 3072 — Grid export power (low word)
+### input 3072 — Grid export energy today (low word)
 
 Canonical description: Energy exported to the grid today (0.1 kWh resolution).
 Physical identity: `min_tl_xh:input:3072`.
-Semantic: `grid.export_power`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
-Logical field: `logical:min_tl_xh:input:3071:grid_export_power`; component role: `low_word`.
-Vendor names: Etogrid_todayL; vendor description: Energy exported to the grid today (0.1 kWh resolution).; vendor unit/type: kWh / register value.
-Normalized type/signedness/scale: `register value` / `None` / `10`.
+Semantic: `grid.export_energy_today`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
+Logical field: `logical:min_tl_xh:input:3071:grid_export_energy_today`; component role: `low_word`.
+Vendor names: Etogrid_todayL; vendor description: Energy exported to the grid today (0.1 kWh resolution).; vendor unit/type: kWh / u32 / 10.
+Normalized type/signedness/scale: `u32 / 10` / `False` / `10`.
 Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
 
-### input 3073 — Grid export power (high word)
+### input 3073 — Grid export energy total (high word)
 
 Canonical description: Totalenergytogrid
 Physical identity: `min_tl_xh:input:3073`.
-Semantic: `grid.export_power`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
-Logical field: `logical:min_tl_xh:input:3073:grid_export_power`; component role: `high_word`.
-Vendor names: Etogrid_totalH; vendor description: Totalenergytogrid; vendor unit/type: kWh / register value.
-Normalized type/signedness/scale: `register value` / `None` / `10`.
+Semantic: `grid.export_energy_total`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
+Logical field: `logical:min_tl_xh:input:3073:grid_export_energy_total`; component role: `high_word`.
+Vendor names: Etogrid_totalH; vendor description: Totalenergytogrid; vendor unit/type: kWh / u32 / 10.
+Normalized type/signedness/scale: `u32 / 10` / `False` / `10`.
 Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
 
-### input 3074 — Grid export power (low word)
+### input 3074 — Grid export energy total (low word)
 
 Canonical description: Lifetime energy exported to the grid (0.1 kWh resolution).
 Physical identity: `min_tl_xh:input:3074`.
-Semantic: `grid.export_power`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
-Logical field: `logical:min_tl_xh:input:3073:grid_export_power`; component role: `low_word`.
-Vendor names: Etogrid_totalL; vendor description: Lifetime energy exported to the grid (0.1 kWh resolution).; vendor unit/type: kWh / register value.
-Normalized type/signedness/scale: `register value` / `None` / `10`.
+Semantic: `grid.export_energy_total`; subsystem: `grid`; measurement point: `grid_meter_or_inverter`; instance/index: `not_applicable/None`.
+Logical field: `logical:min_tl_xh:input:3073:grid_export_energy_total`; component role: `low_word`.
+Vendor names: Etogrid_totalL; vendor description: Lifetime energy exported to the grid (0.1 kWh resolution).; vendor unit/type: kWh / u32 / 10.
+Normalized type/signedness/scale: `u32 / 10` / `False` / `10`.
 Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
@@ -7871,10 +7871,10 @@ Canonical description: Inverterstandbyflag
 Physical identity: `min_tl_xh:input:3104`.
 Semantic: `field.standby_flags`; subsystem: `inverter`; measurement point: `inverter`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: StandbyFlag; vendor description: Inverterstandbyflag; vendor unit/type: bit0:turn off Order； bit1:PVLow； bit2:AC Volt/Freq outofscope； bit3~bit7 ： Reserved / register value.
-Normalized type/signedness/scale: `register value` / `True` / `1`.
+Vendor names: StandbyFlag; vendor description: Inverterstandbyflag; vendor unit/type: — / u16 vendor-defined bitfield.
+Normalized type/signedness/scale: `u16 vendor-defined bitfield` / `False` / `—`.
 Applicability: family-level; relationships: none.
-Evidence: source_documented, implementation_correlated; resolution: `resolved`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
+Evidence: source_documented, implementation_correlated; resolution: `source_only`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
 Bitfields: [0, 15]=undocumented_flags (placeholder)
 
@@ -8488,6 +8488,19 @@ Evidence: source_documented, implementation_correlated; resolution: `resolved_wi
 
 Bitfields: [0, 15]=undocumented_flags (placeholder)
 
+### input 3210 — Battery insulation status
+
+Canonical description: BatteryISOdetectionstatus
+Physical identity: `min_tl_xh:input:3210`.
+Semantic: `diagnostic.battery_insulation_status`; subsystem: `storage_device`; measurement point: `bdc_or_storage_device`; instance/index: `not_applicable/None`.
+Logical field: `none`; component role: `complete_value`.
+Vendor names: BatIsoStatus; vendor description: BatteryISOdetectionstatus; vendor unit/type: — / u16 enum 0=not detected, 1=detection completed.
+Normalized type/signedness/scale: `u16 enum 0=not detected, 1=detection completed` / `False` / `—`.
+Applicability: family-level; relationships: none.
+Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
+
+Enums: 0=not_detected (not detected); 1=detection_completed_none (detection completed None)
+
 ### input 3211 — Battery request flags
 
 Canonical description: batteryworkrequest
@@ -8500,19 +8513,6 @@ Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
 
 Bitfields: [0]=charging_prohibited (structured); [1]=strong_charge_enabled (structured); [2]=strong_charge_2_enabled (structured); [8]=discharge_prohibited (structured); [9]=power_reduction_enabled (structured)
-
-### input 3212 — BMS status
-
-Canonical description: BMS status
-Physical identity: `min_tl_xh:input:3212`.
-Semantic: `diagnostic.bms_status`; subsystem: `bms`; measurement point: `bms`; instance/index: `unknown/None`.
-Logical field: `none`; component role: `complete_value`.
-Vendor names: BMS_Status; vendor description: BMS status; vendor unit/type: 0:dormancy 1:Charge 2:Discharge 3:free 4:standby 5:Softstart 6:fault 7:update / u16 enum.
-Normalized type/signedness/scale: `u16 enum` / `False` / `—`.
-Applicability: MIN 6000TL-XH; relationships: none.
-Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
-
-Enums: 0=dormancy (dormancy); 1=charge (Charge); 2=discharge (Discharge); 3=free (free); 4=standby (standby); 5=softstart (Softstart); 6=fault (fault); 7=update (update)
 
 ### input 3213 — BMS protect flags 2
 
@@ -8818,14 +8818,14 @@ Applicability: family-level; relationships: alternate:min_tl_xh:input:3271, alte
 Evidence: source_documented; resolution: `source_only`; write policy: `read_only`; native blocks: min_fc04_input_3250_3374.
 
 
-### input 3280 — bClrTodayDataFl ag
+### input 3280 — Clear current-day data flag
 
 Canonical description: Cleardaydataflag
 Physical identity: `min_tl_xh:input:3280`.
-Semantic: `field.bclrtodaydatafl_ag`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
+Semantic: `field.clear_current_day_data_flag`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: bClrTodayDataFl ag; vendor description: Cleardaydataflag; vendor unit/type: Data of the current day that the server / register value.
-Normalized type/signedness/scale: `register value` / `None` / `—`.
+Vendor names: bClrTodayDataFl ag; vendor description: Cleardaydataflag; vendor unit/type: — / u16 vendor-defined flag.
+Normalized type/signedness/scale: `u16 vendor-defined flag` / `False` / `—`.
 Applicability: family-level; relationships: none.
 Evidence: source_documented; resolution: `source_only`; write policy: `read_only`; native blocks: min_fc04_input_3250_3374.
 

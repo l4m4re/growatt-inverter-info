@@ -318,6 +318,16 @@ SEMANTIC_DEFINITIONS: dict[str, dict[str, Any]] = {
         "category": "control",
         "aliases": ["Grid-first stop SOC"],
     },
+    "grid_export_energy_today": {
+        "name": "Grid export energy today",
+        "category": "energy",
+        "aliases": ["Export energy today", "TodayEnergyToGrid"],
+    },
+    "grid_export_energy_total": {
+        "name": "Grid export energy total",
+        "category": "energy",
+        "aliases": ["Export energy total", "TotalEnergyToGrid"],
+    },
     "load_first_stop_soc": {
         "name": "Load-first stop SOC",
         "category": "control",

@@ -2,7 +2,7 @@
   "meta": {
     "schema_version": "1.0.0",
     "reference_version": "2026.09-resolved",
-    "generated_at": "2026-09-11T12:51:42.490672+00:00",
+    "generated_at": "2026-09-11T14:32:55.889748+00:00",
     "generator": "build_resolved_register_reference.py",
     "canonical": false,
     "generated_compatibility_view": true,
@@ -85,7 +85,7 @@
         "kind": "model_specific_semantic_review",
         "path": "sources/evidence/min-6000tl-xh-semantic-review.json",
         "independent": false,
-        "sha256": "4567b177dcddcc3f6cb6c28df0162cbe42f08dfecabdf973e2d1cf2d0fab2b60"
+        "sha256": "1215d616f09d343cbe5354b7f7ba293d700e9feffaebbedc23fce08243a7a402"
       },
       "ha5_regression_tests": {
         "label": "HA-5 regression tests",
@@ -100,7 +100,7 @@
         "path": "knowledge/audit/consolidated-register-reference.json",
         "independent": false,
         "derived": true,
-        "sha256": "5a1e34e95f1a564be7005c3a70789c34397738fc04b7ded897672eefe76fd306"
+        "sha256": "0bfe5ff3aa3b520c44e3da9f5cbbb3b5cf03fa6ff7318156d95f2ce3b1b86cc9"
       }
     },
     "lineage_policy": "Generated graph and overlay derivatives do not count as independent corroboration."
@@ -172,10 +172,10 @@
         "holding": 415,
         "input": 480,
         "by_resolution_status": {
-          "RESOLVED": 89,
-          "RESOLVED_WITH_NOTES": 275,
+          "RESOLVED": 87,
+          "RESOLVED_WITH_NOTES": 276,
           "CONFLICTED": 0,
-          "SOURCE_ONLY": 383,
+          "SOURCE_ONLY": 384,
           "UNKNOWN_RESERVED": 148
         },
         "live_read_verified": 60,
@@ -37724,12 +37724,12 @@
       "canonical_name": "Output reactive power",
       "description": "reactivepower",
       "length_registers": 2,
-      "encoding": "register value",
+      "encoding": "s32 / 10",
       "signed": true,
       "divisor": 10,
-      "scale": null,
+      "scale": 0.1,
       "multiplier": 0.1,
-      "unit": "POWER_REACTIVE",
+      "unit": "var",
       "access": "R",
       "enum_definitions": [],
       "bitfields": [],
@@ -37741,12 +37741,13 @@
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
         "ha_runtime",
         "manual",
+        "min_semantic_review",
         "openinverter_gateway",
         "vendor_v124"
       ],
@@ -37758,6 +37759,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "The OpenInverter snapshot uses the symbolic POWER_REACTIVE unit, while the curated map and independent implementation define signed reactive power in 0.1 var. The high word inherits the same logical-field unit as I3022."
         }
       ],
       "alternatives": [
@@ -37791,6 +37796,25 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3021,
+        "canonical_name": "Output reactive power",
+        "encoding": "s32 / 10",
+        "signed": true,
+        "divisor": 10,
+        "scale": 0.1,
+        "unit": "var",
+        "disposition": "WRONG_UNIT",
+        "rationale": "The OpenInverter snapshot uses the symbolic POWER_REACTIVE unit, while the curated map and independent implementation define signed reactive power in 0.1 var. The high word inherits the same logical-field unit as I3022.",
+        "source_basis": [
+          "openinverter_gateway",
+          "grott",
+          "ha_runtime"
+        ],
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high"
       }
     },
     {
@@ -39709,32 +39733,12 @@
       ],
       "semantic_role": "alternate",
       "alternate_registers": [
-        "register:min_tl_xh:input:3044",
-        "register:min_tl_xh:input:3071",
-        "register:min_tl_xh:input:3072",
-        "register:min_tl_xh:input:3073",
-        "register:min_tl_xh:input:3074"
+        "register:min_tl_xh:input:3044"
       ],
       "relationships": [
         {
           "type": "alternate_registers",
           "target": "register:min_tl_xh:input:3044"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3071"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3072"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3073"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3074"
         }
       ],
       "resolution_status": "RESOLVED_WITH_NOTES",
@@ -39842,32 +39846,12 @@
       ],
       "semantic_role": "alternate",
       "alternate_registers": [
-        "register:min_tl_xh:input:3043",
-        "register:min_tl_xh:input:3071",
-        "register:min_tl_xh:input:3072",
-        "register:min_tl_xh:input:3073",
-        "register:min_tl_xh:input:3074"
+        "register:min_tl_xh:input:3043"
       ],
       "relationships": [
         {
           "type": "alternate_registers",
           "target": "register:min_tl_xh:input:3043"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3071"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3072"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3073"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3074"
         },
         {
           "type": "preferred_register",
@@ -41988,67 +41972,43 @@
       "table": "input",
       "address": 3071,
       "model_applicability": [],
-      "canonical_name": "Export energy today",
+      "canonical_name": "Grid export energy today",
       "description": "Todayenergytogrid",
       "length_registers": 2,
-      "encoding": "register value",
-      "signed": null,
+      "encoding": "u32 / 10",
+      "signed": false,
       "divisor": 10,
-      "scale": null,
+      "scale": 0.1,
       "multiplier": 0.1,
       "unit": "kWh",
       "access": "R",
       "enum_definitions": [],
       "bitfields": [],
-      "semantic_category": "telemetry",
-      "semantic_key": "grid_export_power",
-      "semantic_name": "Grid export power",
+      "semantic_category": "energy",
+      "semantic_key": "grid_export_energy_today",
+      "semantic_name": "Grid export energy today",
       "semantic_aliases": [
-        "power_to_grid",
-        "Power to grid/export",
-        "grid export"
+        "Export energy today",
+        "TodayEnergyToGrid"
       ],
       "semantic_role": "alternate",
       "alternate_registers": [
-        "register:min_tl_xh:input:3043",
-        "register:min_tl_xh:input:3044",
-        "register:min_tl_xh:input:3072",
-        "register:min_tl_xh:input:3073",
-        "register:min_tl_xh:input:3074"
+        "register:min_tl_xh:input:3072"
       ],
       "relationships": [
         {
           "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3043"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3044"
-        },
-        {
-          "type": "alternate_registers",
           "target": "register:min_tl_xh:input:3072"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3073"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3074"
-        },
-        {
-          "type": "preferred_register",
-          "target": "register:min_tl_xh:input:3043"
         }
       ],
       "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
         "ha_runtime",
         "manual",
+        "min_semantic_review",
         "openinverter_gateway",
         "vendor_v124"
       ],
@@ -42060,6 +42020,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor Etogrid_todayH, Grott, curated and OpenInverter evidence identify this as the high word of today's grid-export energy, not instantaneous grid-export power."
         }
       ],
       "alternatives": [
@@ -42094,6 +42058,28 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3071,
+        "canonical_name": "Grid export energy today",
+        "encoding": "u32 / 10",
+        "signed": false,
+        "divisor": 10,
+        "scale": 0.1,
+        "unit": "kWh",
+        "semantic_key": "grid_export_energy_today",
+        "semantic_category": "energy",
+        "disposition": "MISLABELED",
+        "rationale": "Vendor Etogrid_todayH, Grott, curated and OpenInverter evidence identify this as the high word of today's grid-export energy, not instantaneous grid-export power.",
+        "source_basis": [
+          "vendor_v124",
+          "grott",
+          "openinverter_gateway",
+          "ha_runtime"
+        ],
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high"
       }
     },
     {
@@ -42103,66 +42089,47 @@
       "table": "input",
       "address": 3072,
       "model_applicability": [],
-      "canonical_name": "Export energy today",
+      "canonical_name": "Grid export energy today (low word)",
       "description": "Energy exported to the grid today (0.1 kWh resolution).",
       "length_registers": 2,
-      "encoding": "register value",
-      "signed": null,
+      "encoding": "u32 / 10",
+      "signed": false,
       "divisor": 10,
-      "scale": null,
+      "scale": 0.1,
       "multiplier": 0.1,
       "unit": "kWh",
       "access": "R",
       "enum_definitions": [],
       "bitfields": [],
-      "semantic_category": "telemetry",
-      "semantic_key": "grid_export_power",
-      "semantic_name": "Grid export power",
+      "semantic_category": "energy",
+      "semantic_key": "grid_export_energy_today",
+      "semantic_name": "Grid export energy today",
       "semantic_aliases": [
-        "power_to_grid",
-        "Power to grid/export",
-        "grid export"
+        "Export energy today",
+        "TodayEnergyToGrid"
       ],
       "semantic_role": "alternate",
       "alternate_registers": [
-        "register:min_tl_xh:input:3043",
-        "register:min_tl_xh:input:3044",
-        "register:min_tl_xh:input:3071",
-        "register:min_tl_xh:input:3073",
-        "register:min_tl_xh:input:3074"
+        "register:min_tl_xh:input:3071"
       ],
       "relationships": [
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3043"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3044"
-        },
         {
           "type": "alternate_registers",
           "target": "register:min_tl_xh:input:3071"
         },
         {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3073"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3074"
-        },
-        {
           "type": "preferred_register",
-          "target": "register:min_tl_xh:input:3043"
+          "target": "register:min_tl_xh:input:3071"
         }
       ],
       "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
+        "ha_runtime",
         "manual",
+        "min_semantic_review",
         "openinverter_gateway",
         "vendor_v124"
       ],
@@ -42174,6 +42141,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor Etogrid_todayL and correlated implementations identify this as the low word paired with I3071; the old power name was a semantic collision."
         }
       ],
       "alternatives": [
@@ -42204,6 +42175,28 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3072,
+        "canonical_name": "Grid export energy today (low word)",
+        "encoding": "u32 / 10",
+        "signed": false,
+        "divisor": 10,
+        "scale": 0.1,
+        "unit": "kWh",
+        "semantic_key": "grid_export_energy_today",
+        "semantic_category": "energy",
+        "disposition": "MISLABELED",
+        "rationale": "Vendor Etogrid_todayL and correlated implementations identify this as the low word paired with I3071; the old power name was a semantic collision.",
+        "source_basis": [
+          "vendor_v124",
+          "grott",
+          "openinverter_gateway",
+          "ha_runtime"
+        ],
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high"
       }
     },
     {
@@ -42213,67 +42206,43 @@
       "table": "input",
       "address": 3073,
       "model_applicability": [],
-      "canonical_name": "Export energy total",
+      "canonical_name": "Grid export energy total",
       "description": "Totalenergytogrid",
       "length_registers": 2,
-      "encoding": "register value",
-      "signed": null,
+      "encoding": "u32 / 10",
+      "signed": false,
       "divisor": 10,
-      "scale": null,
+      "scale": 0.1,
       "multiplier": 0.1,
       "unit": "kWh",
       "access": "R",
       "enum_definitions": [],
       "bitfields": [],
-      "semantic_category": "telemetry",
-      "semantic_key": "grid_export_power",
-      "semantic_name": "Grid export power",
+      "semantic_category": "energy",
+      "semantic_key": "grid_export_energy_total",
+      "semantic_name": "Grid export energy total",
       "semantic_aliases": [
-        "power_to_grid",
-        "Power to grid/export",
-        "grid export"
+        "Export energy total",
+        "TotalEnergyToGrid"
       ],
       "semantic_role": "alternate",
       "alternate_registers": [
-        "register:min_tl_xh:input:3043",
-        "register:min_tl_xh:input:3044",
-        "register:min_tl_xh:input:3071",
-        "register:min_tl_xh:input:3072",
         "register:min_tl_xh:input:3074"
       ],
       "relationships": [
         {
           "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3043"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3044"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3071"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3072"
-        },
-        {
-          "type": "alternate_registers",
           "target": "register:min_tl_xh:input:3074"
-        },
-        {
-          "type": "preferred_register",
-          "target": "register:min_tl_xh:input:3043"
         }
       ],
       "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
         "ha_runtime",
         "manual",
+        "min_semantic_review",
         "openinverter_gateway",
         "vendor_v124"
       ],
@@ -42285,6 +42254,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor Etogrid_totalH, Grott, curated and OpenInverter evidence identify this as the high word of lifetime grid-export energy, not instantaneous grid-export power."
         }
       ],
       "alternatives": [
@@ -42319,6 +42292,28 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3073,
+        "canonical_name": "Grid export energy total",
+        "encoding": "u32 / 10",
+        "signed": false,
+        "divisor": 10,
+        "scale": 0.1,
+        "unit": "kWh",
+        "semantic_key": "grid_export_energy_total",
+        "semantic_category": "energy",
+        "disposition": "MISLABELED",
+        "rationale": "Vendor Etogrid_totalH, Grott, curated and OpenInverter evidence identify this as the high word of lifetime grid-export energy, not instantaneous grid-export power.",
+        "source_basis": [
+          "vendor_v124",
+          "grott",
+          "openinverter_gateway",
+          "ha_runtime"
+        ],
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high"
       }
     },
     {
@@ -42328,66 +42323,47 @@
       "table": "input",
       "address": 3074,
       "model_applicability": [],
-      "canonical_name": "Export energy total",
+      "canonical_name": "Grid export energy total (low word)",
       "description": "Lifetime energy exported to the grid (0.1 kWh resolution).",
       "length_registers": 2,
-      "encoding": "register value",
-      "signed": null,
+      "encoding": "u32 / 10",
+      "signed": false,
       "divisor": 10,
-      "scale": null,
+      "scale": 0.1,
       "multiplier": 0.1,
       "unit": "kWh",
       "access": "R",
       "enum_definitions": [],
       "bitfields": [],
-      "semantic_category": "telemetry",
-      "semantic_key": "grid_export_power",
-      "semantic_name": "Grid export power",
+      "semantic_category": "energy",
+      "semantic_key": "grid_export_energy_total",
+      "semantic_name": "Grid export energy total",
       "semantic_aliases": [
-        "power_to_grid",
-        "Power to grid/export",
-        "grid export"
+        "Export energy total",
+        "TotalEnergyToGrid"
       ],
       "semantic_role": "alternate",
       "alternate_registers": [
-        "register:min_tl_xh:input:3043",
-        "register:min_tl_xh:input:3044",
-        "register:min_tl_xh:input:3071",
-        "register:min_tl_xh:input:3072",
         "register:min_tl_xh:input:3073"
       ],
       "relationships": [
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3043"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3044"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3071"
-        },
-        {
-          "type": "alternate_registers",
-          "target": "register:min_tl_xh:input:3072"
-        },
         {
           "type": "alternate_registers",
           "target": "register:min_tl_xh:input:3073"
         },
         {
           "type": "preferred_register",
-          "target": "register:min_tl_xh:input:3043"
+          "target": "register:min_tl_xh:input:3073"
         }
       ],
       "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
+        "ha_runtime",
         "manual",
+        "min_semantic_review",
         "openinverter_gateway",
         "vendor_v124"
       ],
@@ -42399,6 +42375,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor Etogrid_totalL and correlated implementations identify this as the low word paired with I3073; the old power name was a semantic collision."
         }
       ],
       "alternatives": [
@@ -42429,6 +42409,28 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3074,
+        "canonical_name": "Grid export energy total (low word)",
+        "encoding": "u32 / 10",
+        "signed": false,
+        "divisor": 10,
+        "scale": 0.1,
+        "unit": "kWh",
+        "semantic_key": "grid_export_energy_total",
+        "semantic_category": "energy",
+        "disposition": "MISLABELED",
+        "rationale": "Vendor Etogrid_totalL and correlated implementations identify this as the low word paired with I3073; the old power name was a semantic collision.",
+        "source_basis": [
+          "vendor_v124",
+          "grott",
+          "openinverter_gateway",
+          "ha_runtime"
+        ],
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high"
       }
     },
     {
@@ -44604,12 +44606,12 @@
       "canonical_name": "Standby flags",
       "description": "Inverterstandbyflag",
       "length_registers": 1,
-      "encoding": "register value",
-      "signed": true,
-      "divisor": 1,
+      "encoding": "u16 vendor-defined bitfield",
+      "signed": false,
+      "divisor": null,
       "scale": null,
       "multiplier": null,
-      "unit": "bit0:turn off Order； bit1:PVLow； bit2:AC Volt/Freq outofscope； bit3~bit7 ： Reserved",
+      "unit": null,
       "access": "R",
       "enum_definitions": [],
       "bitfields": [],
@@ -44620,18 +44622,25 @@
       "semantic_role": "unknown",
       "alternate_registers": [],
       "relationships": [],
-      "resolution_status": "RESOLVED",
+      "resolution_status": "SOURCE_ONLY",
       "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
+        "ha_runtime",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
         "semantic_correlated",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor bit descriptions belong to bitfield/description metadata, not the engineering unit. The field remains a raw placeholder bitfield because individual meanings are not fully validated."
+        }
+      ],
       "alternatives": [
         "datatype:grott:len2|signed|div1"
       ],
@@ -44651,6 +44660,25 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3104,
+        "canonical_name": "Standby flags",
+        "encoding": "u16 vendor-defined bitfield",
+        "signed": false,
+        "divisor": null,
+        "scale": null,
+        "unit": null,
+        "disposition": "WRONG_UNIT",
+        "rationale": "Vendor bit descriptions belong to bitfield/description metadata, not the engineering unit. The field remains a raw placeholder bitfield because individual meanings are not fully validated.",
+        "source_basis": [
+          "vendor_v124",
+          "grott",
+          "ha_runtime"
+        ],
+        "resolution_status": "source_only",
+        "confidence": "high"
       }
     },
     {
@@ -49654,12 +49682,12 @@
       "canonical_name": "VBUS1 voltage",
       "description": "TotalBUSvoltage",
       "length_registers": 1,
-      "encoding": "register value",
-      "signed": null,
+      "encoding": "u16 / 10",
+      "signed": false,
       "divisor": 10,
-      "scale": null,
+      "scale": 0.1,
       "multiplier": 0.1,
-      "unit": "A",
+      "unit": "V",
       "access": "R",
       "enum_definitions": [],
       "bitfields": [],
@@ -49671,12 +49699,13 @@
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
         "ha_runtime",
         "manual",
+        "min_semantic_review",
         "openinverter_gateway",
         "vendor_v124"
       ],
@@ -49688,6 +49717,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 and the curated MIN/TL-XH map identify Vbus1 as a 0.1 V voltage field. The OpenInverter snapshot contributes a conflicting CURRENT unit; that source claim is retained in provenance but is not selected for the canonical unit."
         }
       ],
       "alternatives": [
@@ -49722,6 +49755,25 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3172,
+        "canonical_name": "VBUS1 voltage",
+        "encoding": "u16 / 10",
+        "signed": false,
+        "divisor": 10,
+        "scale": 0.1,
+        "unit": "V",
+        "disposition": "WRONG_UNIT",
+        "rationale": "Vendor V1.24 and the curated MIN/TL-XH map identify Vbus1 as a 0.1 V voltage field. The OpenInverter snapshot contributes a conflicting CURRENT unit; that source claim is retained in provenance but is not selected for the canonical unit.",
+        "source_basis": [
+          "vendor_v124",
+          "openinverter_gateway",
+          "ha_runtime"
+        ],
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high"
       }
     },
     {
@@ -49734,12 +49786,12 @@
       "canonical_name": "VBUS2 voltage",
       "description": "OntheBUSvoltage",
       "length_registers": 1,
-      "encoding": "register value",
-      "signed": null,
+      "encoding": "u16 / 10",
+      "signed": false,
       "divisor": 10,
-      "scale": null,
+      "scale": 0.1,
       "multiplier": 0.1,
-      "unit": "A",
+      "unit": "V",
       "access": "R",
       "enum_definitions": [],
       "bitfields": [],
@@ -49751,12 +49803,13 @@
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
         "ha_runtime",
         "manual",
+        "min_semantic_review",
         "openinverter_gateway",
         "vendor_v124"
       ],
@@ -49768,6 +49821,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor V1.24 and the curated MIN/TL-XH map identify Vbus2 as a 0.1 V voltage field. The OpenInverter snapshot contributes a conflicting CURRENT unit; that source claim is retained in provenance but is not selected for the canonical unit."
         }
       ],
       "alternatives": [
@@ -49802,6 +49859,25 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3173,
+        "canonical_name": "VBUS2 voltage",
+        "encoding": "u16 / 10",
+        "signed": false,
+        "divisor": 10,
+        "scale": 0.1,
+        "unit": "V",
+        "disposition": "WRONG_UNIT",
+        "rationale": "Vendor V1.24 and the curated MIN/TL-XH map identify Vbus2 as a 0.1 V voltage field. The OpenInverter snapshot contributes a conflicting CURRENT unit; that source claim is retained in provenance but is not selected for the canonical unit.",
+        "source_basis": [
+          "vendor_v124",
+          "openinverter_gateway",
+          "ha_runtime"
+        ],
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high"
       }
     },
     {
@@ -52866,12 +52942,12 @@
       "canonical_name": "Battery insulation status",
       "description": "BatteryISOdetectionstatus",
       "length_registers": 1,
-      "encoding": "register value",
-      "signed": null,
-      "divisor": 1,
+      "encoding": "u16 enum 0=not detected, 1=detection completed",
+      "signed": false,
+      "divisor": null,
       "scale": null,
       "multiplier": null,
-      "unit": "0：Not detected 1：Detection completed",
+      "unit": null,
       "access": "R",
       "enum_definitions": [],
       "bitfields": [],
@@ -52883,12 +52959,13 @@
       "alternate_registers": [],
       "relationships": [],
       "resolution_status": "RESOLVED_WITH_NOTES",
-      "confidence": "medium",
+      "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
         "ha_runtime",
         "manual",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -52899,6 +52976,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "The vendor enum text was merged into unit; it describes values, not an engineering unit. The canonical field keeps the enum in the datatype/enum layer."
         }
       ],
       "alternatives": [
@@ -52928,6 +53009,25 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3210,
+        "canonical_name": "Battery insulation status",
+        "encoding": "u16 enum 0=not detected, 1=detection completed",
+        "signed": false,
+        "divisor": null,
+        "scale": null,
+        "unit": null,
+        "disposition": "WRONG_UNIT",
+        "rationale": "The vendor enum text was merged into unit; it describes values, not an engineering unit. The canonical field keeps the enum in the datatype/enum layer.",
+        "source_basis": [
+          "vendor_v124",
+          "grott",
+          "ha_runtime"
+        ],
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high"
       }
     },
     {
@@ -53021,7 +53121,7 @@
       "divisor": null,
       "scale": null,
       "multiplier": null,
-      "unit": "0:dormancy 1:Charge 2:Discharge 3:free 4:standby 5:Softstart 6:fault 7:update",
+      "unit": null,
       "access": "R",
       "enum_definitions": [],
       "bitfields": [],
@@ -53041,6 +53141,7 @@
         "manual",
         "min_live_validation",
         "min_resolved_map",
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
@@ -53052,6 +53153,10 @@
         {
           "kind": "datatype_catalogue",
           "detail": "Source datatype catalogue contains conflicting or incomplete fields; the selected interpretation is retained with alternatives."
+        },
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "The documented BMS status enum belongs to enum metadata; the textual value list is not an engineering unit. Existing decoded enum values are retained."
         }
       ],
       "alternatives": [
@@ -53133,7 +53238,21 @@
           "MIN 6000TL-XH"
         ]
       },
-      "value_encoding": "enum_or_bitfield"
+      "value_encoding": "enum_or_bitfield",
+      "review": {
+        "table": "input",
+        "address": 3212,
+        "unit": null,
+        "disposition": "WRONG_UNIT",
+        "rationale": "The documented BMS status enum belongs to enum metadata; the textual value list is not an engineering unit. Existing decoded enum values are retained.",
+        "source_basis": [
+          "vendor_v124",
+          "grott",
+          "ha_runtime"
+        ],
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high"
+      }
     },
     {
       "id": "register:min_tl_xh:input:3213",
@@ -54991,34 +55110,43 @@
       "canonical_name": "Battery load voltage",
       "description": "BatteryLoadVolt",
       "length_registers": 1,
-      "encoding": "register value",
-      "signed": true,
+      "encoding": "u16 / 100",
+      "signed": false,
       "divisor": 100,
-      "scale": null,
+      "scale": 0.01,
       "multiplier": null,
-      "unit": "[0，650.00]",
+      "unit": "V",
       "access": "R",
       "enum_definitions": [],
       "bitfields": [],
       "semantic_category": "battery",
-      "semantic_key": null,
-      "semantic_name": null,
-      "semantic_aliases": [],
-      "semantic_role": "unknown",
+      "semantic_key": "battery_load_voltage",
+      "semantic_name": "Battery load voltage",
+      "semantic_aliases": [
+        "Battery load voltage"
+      ],
+      "semantic_role": "supported",
       "alternate_registers": [],
       "relationships": [],
-      "resolution_status": "RESOLVED",
+      "resolution_status": "RESOLVED_WITH_NOTES",
       "confidence": "high",
       "provenance": [
         "curated_best_guess",
         "grott",
+        "min_semantic_review",
+        "openinverter_gateway",
         "vendor_v124"
       ],
       "evidence_levels": [
         "semantic_correlated",
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "Vendor BatLoadVolt places [0,650.00] in the range/value column and gives 0.01 V resolution. The curated source supplies V; the range text must not become the canonical unit."
+        }
+      ],
       "alternatives": [
         "datatype:grott:len2|signed|div100"
       ],
@@ -55038,6 +55166,26 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3232,
+        "canonical_name": "Battery load voltage",
+        "encoding": "u16 / 100",
+        "signed": false,
+        "divisor": 100,
+        "scale": 0.01,
+        "unit": "V",
+        "semantic_key": "battery_load_voltage",
+        "disposition": "WRONG_UNIT",
+        "rationale": "Vendor BatLoadVolt places [0,650.00] in the range/value column and gives 0.01 V resolution. The curated source supplies V; the range text must not become the canonical unit.",
+        "source_basis": [
+          "vendor_v124",
+          "grott",
+          "openinverter_gateway"
+        ],
+        "resolution_status": "resolved_with_notes",
+        "confidence": "high"
       }
     },
     {
@@ -57483,15 +57631,15 @@
       "table": "input",
       "address": 3280,
       "model_applicability": [],
-      "canonical_name": "bClrTodayDataFl ag",
+      "canonical_name": "Clear current-day data flag",
       "description": "Cleardaydataflag",
       "length_registers": 1,
-      "encoding": "register value",
-      "signed": null,
+      "encoding": "u16 vendor-defined flag",
+      "signed": false,
       "divisor": null,
       "scale": null,
       "multiplier": null,
-      "unit": "Data of the current day that the server",
+      "unit": null,
       "access": "R",
       "enum_definitions": [],
       "bitfields": [],
@@ -57505,12 +57653,18 @@
       "resolution_status": "SOURCE_ONLY",
       "confidence": "medium",
       "provenance": [
+        "min_semantic_review",
         "vendor_v124"
       ],
       "evidence_levels": [
         "source_claim"
       ],
-      "conflicts": [],
+      "conflicts": [
+        {
+          "kind": "gii2_semantic_review",
+          "detail": "The vendor sentence 'Data of the current day that the server' is descriptive text that entered the unit column. It is retained as provenance, while the canonical unit is empty because the bit semantics are not fully documented."
+        }
+      ],
       "alternatives": [],
       "source_aliases": {
         "vendor": [
@@ -57522,6 +57676,23 @@
       "applicability": {
         "status": "family_source_range",
         "models": []
+      },
+      "review": {
+        "table": "input",
+        "address": 3280,
+        "canonical_name": "Clear current-day data flag",
+        "encoding": "u16 vendor-defined flag",
+        "signed": false,
+        "divisor": null,
+        "scale": null,
+        "unit": null,
+        "disposition": "WRONG_UNIT",
+        "rationale": "The vendor sentence 'Data of the current day that the server' is descriptive text that entered the unit column. It is retained as provenance, while the canonical unit is empty because the bit semantics are not fully documented.",
+        "source_basis": [
+          "vendor_v124"
+        ],
+        "resolution_status": "source_only",
+        "confidence": "medium"
       }
     },
     {
@@ -245214,6 +245385,22 @@
         "Grid-first stop SOC"
       ]
     },
+    "grid_export_energy_today": {
+      "name": "Grid export energy today",
+      "category": "energy",
+      "aliases": [
+        "Export energy today",
+        "TodayEnergyToGrid"
+      ]
+    },
+    "grid_export_energy_total": {
+      "name": "Grid export energy total",
+      "category": "energy",
+      "aliases": [
+        "Export energy total",
+        "TotalEnergyToGrid"
+      ]
+    },
     "load_first_stop_soc": {
       "name": "Load-first stop SOC",
       "category": "control",
@@ -246380,7 +246567,7 @@
   "runtime_audit": {
     "source": "HA_local_registers",
     "checked_mappings": 198,
-    "finding_count": 23,
+    "finding_count": 27,
     "status": "issues_found",
     "findings": [
       {
@@ -246500,6 +246687,42 @@
         "runtime_name": "output_energy_today",
         "runtime_semantic_key": null,
         "reference_id": "register:min_tl_xh:input:3049",
+        "issues": [
+          {
+            "kind": "signedness_mismatch",
+            "reference": false,
+            "runtime": true,
+            "declared": false
+          }
+        ]
+      },
+      {
+        "device": "tlx",
+        "group": "input_tl_xh",
+        "family": "min_tl_xh",
+        "table": "input",
+        "address": 3071,
+        "runtime_name": "energy_to_grid_today",
+        "runtime_semantic_key": null,
+        "reference_id": "register:min_tl_xh:input:3071",
+        "issues": [
+          {
+            "kind": "signedness_mismatch",
+            "reference": false,
+            "runtime": true,
+            "declared": false
+          }
+        ]
+      },
+      {
+        "device": "tlx",
+        "group": "input_tl_xh",
+        "family": "min_tl_xh",
+        "table": "input",
+        "address": 3073,
+        "runtime_name": "energy_to_grid_total",
+        "runtime_semantic_key": null,
+        "reference_id": "register:min_tl_xh:input:3073",
         "issues": [
           {
             "kind": "signedness_mismatch",
@@ -246769,6 +246992,42 @@
         "runtime_name": "charge_energy_total",
         "runtime_semantic_key": null,
         "reference_id": "register:storage_mix:input:1058",
+        "issues": [
+          {
+            "kind": "signedness_mismatch",
+            "reference": false,
+            "runtime": true,
+            "declared": false
+          }
+        ]
+      },
+      {
+        "device": "storage",
+        "group": "input_tl_xh",
+        "family": "min_tl_xh",
+        "table": "input",
+        "address": 3071,
+        "runtime_name": "energy_to_grid_today",
+        "runtime_semantic_key": null,
+        "reference_id": "register:min_tl_xh:input:3071",
+        "issues": [
+          {
+            "kind": "signedness_mismatch",
+            "reference": false,
+            "runtime": true,
+            "declared": false
+          }
+        ]
+      },
+      {
+        "device": "storage",
+        "group": "input_tl_xh",
+        "family": "min_tl_xh",
+        "table": "input",
+        "address": 3073,
+        "runtime_name": "energy_to_grid_total",
+        "runtime_semantic_key": null,
+        "reference_id": "register:min_tl_xh:input:3073",
         "issues": [
           {
             "kind": "signedness_mismatch",
@@ -247194,6 +247453,7 @@
     "register:min_tl_xh:input:237",
     "register:min_tl_xh:input:3085",
     "register:min_tl_xh:input:3096",
+    "register:min_tl_xh:input:3104",
     "register:min_tl_xh:input:3109",
     "register:min_tl_xh:input:3110",
     "register:min_tl_xh:input:3111",
@@ -249650,10 +249910,10 @@
     "holding_records": 1805,
     "input_records": 2243,
     "by_resolution_status": {
-      "RESOLVED": 324,
-      "RESOLVED_WITH_NOTES": 879,
+      "RESOLVED": 322,
+      "RESOLVED_WITH_NOTES": 880,
       "CONFLICTED": 0,
-      "SOURCE_ONLY": 2228,
+      "SOURCE_ONLY": 2229,
       "UNKNOWN_RESERVED": 617
     },
     "live_read_verified": 60,

@@ -2817,10 +2817,6 @@ This index preserves subsystem and instance distinctions; entries are not automa
 
 - `spf_offgrid` input 77 — unknown / unknown — `supported`
 
-## `field.bclrtodaydatafl_ag`
-
-- `min_tl_xh` input 3280 — unknown / unknown — `supported`
-
 ## `field.bdc_certification_version`
 
 - `min_tl_xh` holding 3114 — unknown / unknown — `supported`
@@ -2920,6 +2916,10 @@ This index preserves subsystem and instance distinctions; entries are not automa
 ## `field.busbagingtestok_flag`
 
 - `tl3_max_mid_mac` input 198 — unknown / unknown — `supported`
+
+## `field.clear_current_day_data_flag`
+
+- `min_tl_xh` input 3280 — unknown / unknown — `supported`
 
 ## `field.comp_q_rh`
 
@@ -4472,11 +4472,17 @@ This index preserves subsystem and instance distinctions; entries are not automa
 
 - `tl3_max_mid_mac` input 875 — pv / pv_or_mppt — `supported`
 
+## `grid.export_energy_today`
+
+- logical field `logical:min_tl_xh:input:3071:grid_export_energy_today` — grid / grid_meter_or_inverter — `supported` — high_low / kWh — I3071 high_word, I3072 low_word
+
+## `grid.export_energy_total`
+
+- logical field `logical:min_tl_xh:input:3073:grid_export_energy_total` — grid / grid_meter_or_inverter — `supported` — high_low / kWh — I3073 high_word, I3074 low_word
+
 ## `grid.export_power`
 
 - logical field `logical:min_tl_xh:input:3043:grid_export_power` — grid / grid_meter_or_inverter — `supported` — high_low / W — I3043 high_word, I3044 low_word
-- logical field `logical:min_tl_xh:input:3071:grid_export_power` — grid / grid_meter_or_inverter — `supported` — high_low / kWh — I3071 high_word, I3072 low_word
-- logical field `logical:min_tl_xh:input:3073:grid_export_power` — grid / grid_meter_or_inverter — `supported` — high_low / kWh — I3073 high_word, I3074 low_word
 - logical field `logical:mod_tl3_xh:input:3043:grid_export_power` — grid / grid_meter_or_inverter — `supported` — high_low / Totalreverse power — I3043 high_word, I3044 low_word
 - logical field `logical:mod_tl3_xh:input:3071:grid_export_power` — grid / grid_meter_or_inverter — `supported` — high_low / Todayenergy togrid — I3071 high_word, I3072 low_word
 - logical field `logical:mod_tl3_xh:input:3073:grid_export_power` — grid / grid_meter_or_inverter — `supported` — high_low / Totalenergy togrid — I3073 high_word, I3074 low_word
@@ -5121,7 +5127,7 @@ This index preserves subsystem and instance distinctions; entries are not automa
 ## `telemetry.output_reactive_power`
 
 - logical field `logical:min_tl_xh:input:234:telemetry_output_reactive_power` — unknown / unknown — `supported` — high_low / var — I234 high_word, I235 low_word
-- logical field `logical:min_tl_xh:input:3021:telemetry_output_reactive_power` — unknown / unknown — `supported` — high_low / POWER_REACTIVE — I3021 high_word, I3022 low_word
+- logical field `logical:min_tl_xh:input:3021:telemetry_output_reactive_power` — unknown / unknown — `supported` — high_low / var — I3021 high_word, I3022 low_word
 - logical field `logical:mod_tl3_xh:input:3021:telemetry_output_reactive_power` — unknown / unknown — `supported` — high_low / var — I3021 high_word, I3022 low_word
 - logical field `logical:tl3_max_mid_mac:input:234:telemetry_output_reactive_power` — unknown / unknown — `supported` — high_low / var — I234 high_word, I235 low_word
 

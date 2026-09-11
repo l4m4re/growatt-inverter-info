@@ -51,6 +51,8 @@ SEMANTIC_RENAMES = {
     "pv_total_power": "pv.total_power",
     "grid_import_power": "grid.import_power",
     "grid_export_power": "grid.export_power",
+    "grid_export_energy_today": "grid.export_energy_today",
+    "grid_export_energy_total": "grid.export_energy_total",
     "house_load_power": "load.house_power",
     "inverter_status": "inverter.status",
     "grid_frequency": "grid.frequency",
@@ -612,6 +614,7 @@ def logical_fields(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "measurement_point": identity["measurement_point"],
                 "instance": first["instance"],
                 "resolution": first["resolution"],
+                "length_words": len(components),
                 "physical_registers": [
                     {
                         "physical_id": item["physical_id"],
@@ -663,6 +666,7 @@ def logical_fields(records: list[dict[str, Any]]) -> list[dict[str, Any]]:
                     "measurement_point": identity["measurement_point"],
                     "instance": record["instance"],
                     "resolution": record["resolution"],
+                    "length_words": len(component_records),
                     "physical_registers": [
                         {
                             "physical_id": item["physical_id"],
