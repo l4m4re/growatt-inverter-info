@@ -1,0 +1,114 @@
+{
+  "validation": "GII-MIN-RE-1",
+  "disposition": "GII_MIN_REGISTER_COMPLETION_ACCEPTED_WITH_FOLLOW_UP",
+  "gii_starting_sha": "f061c4aeeadeb06246aac6d4d0732da36fc6996d",
+  "shine_firmware": {
+    "file": "ShineWiFi-X-3.1.0.5.bin",
+    "size_bytes": 4194304,
+    "sha256": "b5e0644d03a33503812bd2770fde49762bd72e03dde3d92b5d68ad2a69afc173",
+    "architecture": "ESP8266 LX106",
+    "load_base": "0x40200000"
+  },
+  "tools": {
+    "ghidra": "12.1.3",
+    "objdump": "xtensa-lx106-elf-objdump 2.44",
+    "projects": [
+      "/tmp/shine-ghidra-project-full",
+      "/tmp/shine-ghidra-fc20-project.lbXCvL"
+    ]
+  },
+  "live_evidence": {
+    "ha_gii_4a_integration_sha": "4a452777ea1b8a8d596534723a476ecc42810afd",
+    "ha_gii_4b_evidence_sha": "64407145886ba0b89cc260ef3715f04d1023c5aa",
+    "growatt_fc0x20_capture_sha256": "56fa2ed1fcf859b8fb7e75793f71afbce9084b5bea6855161d85117c63253560",
+    "growatt_fc0x20_requests": 7,
+    "growatt_fc0x20_words_per_response": 100,
+    "v4_history_records": 145,
+    "v4_charge_records": 66,
+    "v4_discharge_records": 77
+  },
+  "registers": {
+    "I39": {
+      "classification": "CONFLICTING_EVIDENCE",
+      "semantic_quantity": "AC phase L1 current",
+      "layout": "unresolved one-word versus multi-register representation"
+    },
+    "I1014": {
+      "classification": "SUPPORTED_WITH_NOTES",
+      "semantic_quantity": "legacy/base battery SOC",
+      "scale_and_unit": "scale needs direct legacy verification; current lith/leadacid unit is malformed"
+    },
+    "I3032": {
+      "classification": "SUPPORTED_WITH_NOTES",
+      "semantic_quantity": "AC phase L2 power",
+      "w_versus_va": "unresolved"
+    },
+    "I3036": {
+      "classification": "SUPPORTED_WITH_NOTES",
+      "semantic_quantity": "AC phase L3 power",
+      "w_versus_va": "unresolved"
+    },
+    "I3191": {
+      "classification": "UNRESOLVED",
+      "semantic_quantity": "BMS average temperature, vendor channel A",
+      "raw_observations": [0],
+      "scale": "unresolved"
+    },
+    "I3194": {
+      "classification": "UNRESOLVED",
+      "semantic_quantity": "BMS maximum cell temperature, vendor channel B",
+      "raw_observations": [2],
+      "scale": "unresolved"
+    },
+    "I3195": {
+      "classification": "UNRESOLVED",
+      "semantic_quantity": "BMS average temperature, vendor channel C",
+      "raw_observations": [13, 14],
+      "scale": "unresolved"
+    },
+    "I3170": {
+      "classification": "PROVEN_OBSERVED_DOMAIN",
+      "semantic_quantity": "BDC-side battery current magnitude",
+      "charge_negative_zero_positive": [0, 3, 63],
+      "discharge_negative_zero_positive": [0, 2, 75],
+      "current_gii_signed": true,
+      "recommended_gii_signed": false,
+      "applied": false
+    },
+    "I3217": {
+      "classification": "PROVEN_OBSERVED_DOMAIN",
+      "semantic_quantity": "directional BMS battery current",
+      "charge_negative_zero_positive": [0, 9, 57],
+      "discharge_negative_zero_positive": [74, 3, 0]
+    },
+    "I3101": {
+      "classification": "STRONGLY_SUPPORTED_CORRECTION_CANDIDATE",
+      "real_op_percent_negative_records": 0,
+      "real_op_percent_range": [0, 43],
+      "applied": false
+    }
+  },
+  "timeout_findings": {
+    "H43": {
+      "constructor": "0x40244438",
+      "retry_wait_argument": "0x3e8",
+      "retry_wait_argument_decimal": 1000
+    },
+    "H209": {
+      "constructor": "0x402447ac",
+      "success_wait_argument": 30,
+      "failure_argument": "0xbb8",
+      "failure_argument_interpretation": "not promoted to a UART timeout"
+    },
+    "dynamic_read": {
+      "call_site": "0x40245b07",
+      "start": 180,
+      "count": 199,
+      "retry_limit_gate": 6,
+      "base_page_specific_policy": "not proven"
+    }
+  },
+  "canonical_changes_applied": false,
+  "runtime_or_configuration_changes": false,
+  "ha_gii_5_started": false
+}
