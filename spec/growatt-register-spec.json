@@ -63,7 +63,7 @@
       "kind": "runtime_implementation",
       "path": "sources/runtime/ha-local-registers.snapshot.json",
       "independent": true,
-      "sha256": "e8e3928e904ffca0128e8a6f36534997bd64e408022055765e4bef76c4d3f377"
+      "sha256": "8717d59b3dc9f0142c2a0723f1e3af0db08e3a5efd66bd1d5977f14151c7896a"
     },
     "openinverter_gateway": {
       "label": "OpenInverterGateway mapping",
@@ -134,7 +134,7 @@
       "path": "knowledge/audit/consolidated-register-reference.json",
       "independent": false,
       "derived": true,
-      "sha256": "69244ab7636527d3d34f06db6673580158ca054f17905fe9032a10874b1f147f"
+      "sha256": "59e76b4ed5bcb8438514dfbc5c6ba81ec9bfb8ed90a6c4a9005039267f6271ba"
     },
     "protocol_v314": {
       "label": "Growatt V3.14/3.15 protocol constraints",
