@@ -1,0 +1,6587 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "growatt_generic_source_claims",
+  "generated_by": "tools/build_fc04_source_research.py",
+  "sources": [
+    {
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+      "sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf"
+    },
+    {
+      "source_id": "vendor_v124_pdf",
+      "source_type": "VENDOR_DOCUMENT_CLAIM",
+      "artifact": "Growatt Inverter Modbus RTU Protocol II V1.24 PDF (metadata-only source)",
+      "sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320"
+    },
+    {
+      "source_id": "vendor_v124_tables",
+      "source_type": "VENDOR_DOCUMENT_CLAIM",
+      "artifact": "sources/vendor/growatt-v1.24-tables.json",
+      "sha256": "da2cc5349d0cf52498bac854bf5a477a0b64fe4e08475c6f47c216462d7e08d7"
+    },
+    {
+      "source_id": "grott_t06nnnnxmod",
+      "source_type": "EXTERNAL_IMPLEMENTATION_CLAIM",
+      "artifact": "sources/external/grott-register-layouts.snapshot.json",
+      "sha256": "860202e5b26c1392cd882a5630f4da807e5d35299f52b76c9bfcf7c1f4e07baa"
+    },
+    {
+      "source_id": "curated_input_review",
+      "source_type": "HUMAN_REVIEW_CLAIM",
+      "artifact": "sources/curated/growatt-registers-best-guess.json",
+      "sha256": "3c200232581d789b3ccf0e28cba89e341cb0a6859a9224f26a0ae31735e98867"
+    },
+    {
+      "source_id": "canonical_5c_snapshot",
+      "source_type": "HUMAN_REVIEW_CLAIM",
+      "artifact": "spec/growatt-register-spec.json",
+      "sha256": "e692d646e34040af999ba4854f65803e4218e184d9e04f2982c06d60782ee405"
+    },
+    {
+      "source_id": "retained_live_evidence",
+      "source_type": "LIVE_MODBUS_OBSERVATION",
+      "artifact": "sources/evidence/min-6000tl-xh-live-validation.json",
+      "sha256": "7eb21e0364e5d0c8b1b00fc39f7b2116cd55369935040f9e66f238a9325fd67d"
+    },
+    {
+      "source_id": "retained_cloud_evidence",
+      "source_type": "GROWATT_CLOUD_API_OBSERVATION",
+      "artifact": "sources/evidence/min-6000tl-xh-cloud-oracle-validation.json",
+      "sha256": "95c6cd930194d2b6af04c161781b555a5de3f6555db8c1de52266210d53f519b"
+    }
+  ],
+  "source_type_vocabulary": [
+    "SOURCE_RESEARCH_REVIEW",
+    "VENDOR_DOCUMENT_CLAIM",
+    "EXTERNAL_IMPLEMENTATION_CLAIM",
+    "HUMAN_REVIEW_CLAIM",
+    "LIVE_MODBUS_OBSERVATION",
+    "GROWATT_CLOUD_API_OBSERVATION"
+  ],
+  "claims": [
+    {
+      "claim_id": "gii_5d_source_review:input:3085:physical_layout",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3085
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "physical_layout",
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence_refs": [
+            "vendor_v124_pdf:p74",
+            "vendor_v124_tables:/input/687",
+            "grott_t06nnnnxmod:reserved3085"
+          ],
+          "contradictions": [
+            "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
+          ]
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p74",
+          "vendor_v124_tables:/input/687",
+          "grott_t06nnnnxmod:reserved3085"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3085:word_length",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3085
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "word_length",
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence_refs": [
+            "grott_t06nnnnxmod:register_count=1"
+          ],
+          "contradictions": [
+            "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
+          ]
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "grott_t06nnnnxmod:register_count=1"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3085:semantic_quantity",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3085
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "semantic_quantity",
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence_refs": [
+            "vendor_v124_pdf:p74:Reserved",
+            "grott_t06nnnnxmod:reserved3085"
+          ],
+          "contradictions": [
+            "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
+          ]
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p74:Reserved",
+          "grott_t06nnnnxmod:reserved3085"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3085:applicability",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3085
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "applicability",
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence_refs": [
+            "vendor_v124_pdf:p74"
+          ],
+          "contradictions": [
+            "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
+          ]
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p74"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3085:scale",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3085
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "scale",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": [
+            "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
+          ]
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3085:unit",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3085
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "unit",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": [
+            "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
+          ]
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3085:signedness",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3085
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "signedness",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": [
+            "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
+          ]
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3085:enum",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3085
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "enum",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": [
+            "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
+          ]
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3096:physical_layout",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3096
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "physical_layout",
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence_refs": [
+            "vendor_v124_pdf:p75",
+            "vendor_v124_tables:/input/698",
+            "grott_t06nnnnxmod:temp4"
+          ],
+          "contradictions": [
+            "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
+          ]
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p75",
+          "vendor_v124_tables:/input/698",
+          "grott_t06nnnnxmod:temp4"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3096:word_length",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3096
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "word_length",
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence_refs": [
+            "grott_t06nnnnxmod:register_count=1"
+          ],
+          "contradictions": [
+            "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
+          ]
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "grott_t06nnnnxmod:register_count=1"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3096:semantic_quantity",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3096
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "semantic_quantity",
+          "status": "SUPPORTED",
+          "value": "reserved_temperature_slot",
+          "evidence_refs": [
+            "vendor_v124_pdf:p75:Temp4/Reserved"
+          ],
+          "contradictions": [
+            "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
+          ]
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p75:Temp4/Reserved"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3096:scale",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3096
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "scale",
+          "status": "SUPPORTED",
+          "value": "0.1 °C per raw count",
+          "evidence_refs": [
+            "vendor_v124_pdf:p75:0.1°C",
+            "vendor_v124_tables:/input/698:value"
+          ],
+          "contradictions": [
+            "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
+          ]
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p75:0.1°C",
+          "vendor_v124_tables:/input/698:value"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3096:unit",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3096
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "unit",
+          "status": "SUPPORTED",
+          "value": "°C",
+          "evidence_refs": [
+            "vendor_v124_pdf:p75:0.1°C"
+          ],
+          "contradictions": [
+            "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
+          ]
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p75:0.1°C"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3096:signedness",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3096
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "signedness",
+          "status": "UNRESOLVED",
+          "value": null,
+          "evidence_refs": [
+            "no signedness is stated for the reserved slot"
+          ],
+          "contradictions": [
+            "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
+          ]
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "no signedness is stated for the reserved slot"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "medium",
+        "status": "unresolved",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3096:enum",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3096
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "enum",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": [
+            "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
+          ]
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3096:applicability",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3096
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "applicability",
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence_refs": [
+            "vendor_v124_pdf:p75"
+          ],
+          "contradictions": [
+            "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
+          ]
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p75"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3109:physical_layout",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3109
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "physical_layout",
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence_refs": [
+            "vendor_v124_pdf:p75",
+            "vendor_v124_tables:/input/711",
+            "grott_t06nnnnxmod:reserved3109"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p75",
+          "vendor_v124_tables:/input/711",
+          "grott_t06nnnnxmod:reserved3109"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3109:word_length",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3109
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "word_length",
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence_refs": [
+            "grott_t06nnnnxmod:register_count=1"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "grott_t06nnnnxmod:register_count=1"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3109:packed_field_structure",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3109
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "packed_field_structure",
+          "status": "SUPPORTED",
+          "value": "vendor marks the word as bitfield; bit positions are not specified",
+          "evidence_refs": [
+            "vendor_v124_pdf:p75:bitfield"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p75:bitfield"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3109:semantic_quantity",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3109
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "semantic_quantity",
+          "status": "UNRESOLVED",
+          "value": null,
+          "evidence_refs": [
+            "blank vendor name/description",
+            "Grott's reserved label is corroboration, not an independent semantic definition"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "blank vendor name/description",
+          "Grott's reserved label is corroboration, not an independent semantic definition"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "medium",
+        "status": "unresolved",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3109:scale",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3109
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "scale",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3109:unit",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3109
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "unit",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3109:signedness",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3109
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "signedness",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3109:enum",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3109
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "enum",
+          "status": "UNRESOLVED",
+          "value": null,
+          "evidence_refs": [
+            "no bit meanings or enum values are supplied"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "no bit meanings or enum values are supplied"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "medium",
+        "status": "unresolved",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3109:applicability",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3109
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "applicability",
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence_refs": [
+            "vendor_v124_pdf:p75"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p75"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3116:physical_layout",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3116
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "physical_layout",
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence_refs": [
+            "vendor_v124_pdf:p76",
+            "vendor_v124_tables:/input/718"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p76",
+          "vendor_v124_tables:/input/718"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3116:word_length",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3116
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "word_length",
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence_refs": [
+            "grott_t06nnnnxmod:register_count=1"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "grott_t06nnnnxmod:register_count=1"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3116:semantic_quantity",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3116
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "semantic_quantity",
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence_refs": [
+            "vendor_v124_pdf:p76:Reserved",
+            "grott_t06nnnnxmod:reserved3116"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p76:Reserved",
+          "grott_t06nnnnxmod:reserved3116"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3116:applicability",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3116
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "applicability",
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence_refs": [
+            "vendor_v124_pdf:p76"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p76"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3116:scale",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3116
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "scale",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3116:unit",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3116
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "unit",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3116:signedness",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3116
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "signedness",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3116:enum",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3116
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "enum",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3117:physical_layout",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3117
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "physical_layout",
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence_refs": [
+            "vendor_v124_pdf:p76",
+            "vendor_v124_tables:/input/719"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p76",
+          "vendor_v124_tables:/input/719"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3117:word_length",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3117
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "word_length",
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence_refs": [
+            "grott_t06nnnnxmod:register_count=1"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "grott_t06nnnnxmod:register_count=1"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3117:semantic_quantity",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3117
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "semantic_quantity",
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence_refs": [
+            "vendor_v124_pdf:p76:Reserved",
+            "grott_t06nnnnxmod:reserved3117"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p76:Reserved",
+          "grott_t06nnnnxmod:reserved3117"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3117:applicability",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3117
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "applicability",
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence_refs": [
+            "vendor_v124_pdf:p76"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p76"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3117:scale",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3117
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "scale",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3117:unit",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3117
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "unit",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3117:signedness",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3117
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "signedness",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3117:enum",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3117
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "enum",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3120:physical_layout",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3120
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "physical_layout",
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence_refs": [
+            "vendor_v124_pdf:p76",
+            "vendor_v124_tables:/input/722"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p76",
+          "vendor_v124_tables:/input/722"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3120:word_length",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3120
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "word_length",
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence_refs": [
+            "grott_t06nnnnxmod:register_count=1"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "grott_t06nnnnxmod:register_count=1"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3120:semantic_quantity",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3120
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "semantic_quantity",
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence_refs": [
+            "vendor_v124_pdf:p76:Reserved",
+            "grott_t06nnnnxmod:reserved3120"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p76:Reserved",
+          "grott_t06nnnnxmod:reserved3120"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3120:applicability",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3120
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "applicability",
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence_refs": [
+            "vendor_v124_pdf:p76"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p76"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3120:scale",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3120
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "scale",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3120:unit",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3120
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "unit",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3120:signedness",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3120
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "signedness",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3120:enum",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3120
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "enum",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3143:physical_layout",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3143
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "physical_layout",
+          "status": "SUPPORTED",
+          "value": "one FC04 input word; 3144 is a separate Priority field",
+          "evidence_refs": [
+            "vendor_v124_pdf:p77",
+            "vendor_v124_tables:/input/745"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p77",
+          "vendor_v124_tables:/input/745"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3143:word_length",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3143
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "word_length",
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence_refs": [
+            "grott_t06nnnnxmod:register_count=1"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "grott_t06nnnnxmod:register_count=1"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3143:semantic_quantity",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3143
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "semantic_quantity",
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence_refs": [
+            "vendor_v124_pdf:p77:Reserved",
+            "grott_t06nnnnxmod:reserved3143"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p77:Reserved",
+          "grott_t06nnnnxmod:reserved3143"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3143:applicability",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3143
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "applicability",
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence_refs": [
+            "vendor_v124_pdf:p77"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p77"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3143:scale",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3143
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "scale",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3143:unit",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3143
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "unit",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3143:signedness",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3143
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "signedness",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3143:enum",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3143
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "enum",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3163:physical_layout",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3163
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "physical_layout",
+          "status": "SUPPORTED",
+          "value": "one FC04 input word; 3164 is a separate NewBdcFlag field",
+          "evidence_refs": [
+            "vendor_v124_pdf:p77",
+            "vendor_v124_tables:/input/765"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p77",
+          "vendor_v124_tables:/input/765"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3163:word_length",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3163
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "word_length",
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence_refs": [
+            "grott_t06nnnnxmod:register_count=1"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "grott_t06nnnnxmod:register_count=1"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3163:semantic_quantity",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3163
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "semantic_quantity",
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence_refs": [
+            "vendor_v124_pdf:p77:Reserved",
+            "grott_t06nnnnxmod:reserved3163"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p77:Reserved",
+          "grott_t06nnnnxmod:reserved3163"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3163:applicability",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3163
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "applicability",
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence_refs": [
+            "vendor_v124_pdf:p77"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p77"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3163:scale",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3163
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "scale",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3163:unit",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3163
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "unit",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3163:signedness",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3163
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "signedness",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3163:enum",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3163
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "enum",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3186:physical_layout",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3186
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "physical_layout",
+          "status": "SUPPORTED",
+          "value": "one FC04 input word; 3187 is a separate BDC1_Flag field",
+          "evidence_refs": [
+            "vendor_v124_pdf:p79",
+            "vendor_v124_tables:/input/788"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p79",
+          "vendor_v124_tables:/input/788"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3186:word_length",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3186
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "word_length",
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence_refs": [
+            "grott_t06nnnnxmod:register_count=1"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "grott_t06nnnnxmod:register_count=1"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3186:semantic_quantity",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3186
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "semantic_quantity",
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence_refs": [
+            "vendor_v124_pdf:p79:Reserved",
+            "grott_t06nnnnxmod:reserved3186"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p79:Reserved",
+          "grott_t06nnnnxmod:reserved3186"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3186:applicability",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3186
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "applicability",
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence_refs": [
+            "vendor_v124_pdf:p79"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p79"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3186:scale",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3186
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "scale",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3186:unit",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3186
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "unit",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3186:signedness",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3186
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "signedness",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3186:enum",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3186
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "enum",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3206:physical_layout",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3206
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "physical_layout",
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence_refs": [
+            "vendor_v124_pdf:p80",
+            "vendor_v124_tables:/input/808"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p80",
+          "vendor_v124_tables:/input/808"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3206:word_length",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3206
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "word_length",
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence_refs": [
+            "grott_t06nnnnxmod:register_count=1"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "grott_t06nnnnxmod:register_count=1"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3206:semantic_quantity",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3206
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "semantic_quantity",
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence_refs": [
+            "vendor_v124_pdf:p80:Reserved",
+            "grott_t06nnnnxmod:reserved3206"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p80:Reserved",
+          "grott_t06nnnnxmod:reserved3206"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3206:applicability",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3206
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "applicability",
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence_refs": [
+            "vendor_v124_pdf:p80"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p80"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3206:scale",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3206
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "scale",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3206:unit",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3206
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "unit",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3206:signedness",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3206
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "signedness",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3206:enum",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3206
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "enum",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3207:physical_layout",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3207
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "physical_layout",
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence_refs": [
+            "vendor_v124_pdf:p80",
+            "vendor_v124_tables:/input/809"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p80",
+          "vendor_v124_tables:/input/809"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3207:word_length",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3207
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "word_length",
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence_refs": [
+            "grott_t06nnnnxmod:register_count=1"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "grott_t06nnnnxmod:register_count=1"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3207:semantic_quantity",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3207
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "semantic_quantity",
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence_refs": [
+            "vendor_v124_pdf:p80:Reserved",
+            "grott_t06nnnnxmod:reserved3207"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p80:Reserved",
+          "grott_t06nnnnxmod:reserved3207"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3207:applicability",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3207
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "applicability",
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence_refs": [
+            "vendor_v124_pdf:p80"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p80"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3207:scale",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3207
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "scale",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3207:unit",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3207
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "unit",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3207:signedness",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3207
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "signedness",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3207:enum",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3207
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "enum",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3208:physical_layout",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3208
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "physical_layout",
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence_refs": [
+            "vendor_v124_pdf:p80",
+            "vendor_v124_tables:/input/810"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p80",
+          "vendor_v124_tables:/input/810"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3208:word_length",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3208
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "word_length",
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence_refs": [
+            "grott_t06nnnnxmod:register_count=1"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "grott_t06nnnnxmod:register_count=1"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3208:semantic_quantity",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3208
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "semantic_quantity",
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence_refs": [
+            "vendor_v124_pdf:p80:Reserved",
+            "grott_t06nnnnxmod:reserved3208"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p80:Reserved",
+          "grott_t06nnnnxmod:reserved3208"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3208:applicability",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3208
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "applicability",
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence_refs": [
+            "vendor_v124_pdf:p80"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p80"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3208:scale",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3208
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "scale",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3208:unit",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3208
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "unit",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3208:signedness",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3208
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "signedness",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3208:enum",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3208
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "enum",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3209:physical_layout",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3209
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "physical_layout",
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence_refs": [
+            "vendor_v124_pdf:p80",
+            "vendor_v124_tables:/input/811"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p80",
+          "vendor_v124_tables:/input/811"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3209:word_length",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3209
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "word_length",
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence_refs": [
+            "grott_t06nnnnxmod:register_count=1"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "grott_t06nnnnxmod:register_count=1"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3209:semantic_quantity",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3209
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "semantic_quantity",
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence_refs": [
+            "vendor_v124_pdf:p80:Reserved",
+            "grott_t06nnnnxmod:reserved3209"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p80:Reserved",
+          "grott_t06nnnnxmod:reserved3209"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3209:applicability",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3209
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "applicability",
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence_refs": [
+            "vendor_v124_pdf:p80"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p80"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3209:scale",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3209
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "scale",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3209:unit",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3209
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "unit",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3209:signedness",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3209
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "signedness",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3209:enum",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3209
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "enum",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3227:physical_layout",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3227
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "physical_layout",
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence_refs": [
+            "vendor_v124_pdf:p82",
+            "vendor_v124_tables:/input/829"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p82",
+          "vendor_v124_tables:/input/829"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3227:word_length",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3227
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "word_length",
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence_refs": [
+            "grott_t06nnnnxmod:register_count=1"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "grott_t06nnnnxmod:register_count=1"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3227:semantic_quantity",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3227
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "semantic_quantity",
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence_refs": [
+            "vendor_v124_pdf:p82:Reserved",
+            "grott_t06nnnnxmod:reserved3227"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p82:Reserved",
+          "grott_t06nnnnxmod:reserved3227"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3227:applicability",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3227
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "applicability",
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence_refs": [
+            "vendor_v124_pdf:p82"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p82"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3227:scale",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3227
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "scale",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3227:unit",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3227
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "unit",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3227:signedness",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3227
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "signedness",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3227:enum",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3227
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "enum",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3228:physical_layout",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3228
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "physical_layout",
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence_refs": [
+            "vendor_v124_pdf:p82",
+            "vendor_v124_tables:/input/830"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p82",
+          "vendor_v124_tables:/input/830"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3228:word_length",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3228
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "word_length",
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence_refs": [
+            "grott_t06nnnnxmod:register_count=1"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "grott_t06nnnnxmod:register_count=1"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3228:semantic_quantity",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3228
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "semantic_quantity",
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence_refs": [
+            "vendor_v124_pdf:p82:Reserved",
+            "grott_t06nnnnxmod:reserved3228"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p82:Reserved",
+          "grott_t06nnnnxmod:reserved3228"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3228:applicability",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3228
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "applicability",
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence_refs": [
+            "vendor_v124_pdf:p82"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p82"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3228:scale",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3228
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "scale",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3228:unit",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3228
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "unit",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3228:signedness",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3228
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "signedness",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3228:enum",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3228
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "enum",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3229:physical_layout",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3229
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "physical_layout",
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence_refs": [
+            "vendor_v124_pdf:p82",
+            "vendor_v124_tables:/input/831"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p82",
+          "vendor_v124_tables:/input/831"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3229:word_length",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3229
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "word_length",
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence_refs": [
+            "grott_t06nnnnxmod:register_count=1"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "grott_t06nnnnxmod:register_count=1"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3229:semantic_quantity",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3229
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "semantic_quantity",
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence_refs": [
+            "vendor_v124_pdf:p82:Reserved",
+            "grott_t06nnnnxmod:reserved3229"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p82:Reserved",
+          "grott_t06nnnnxmod:reserved3229"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3229:applicability",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3229
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "applicability",
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence_refs": [
+            "vendor_v124_pdf:p82"
+          ],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p82"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3229:scale",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3229
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "scale",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3229:unit",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3229
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "unit",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3229:signedness",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3229
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "signedness",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3229:enum",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3229
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "enum",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": []
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3233:physical_layout",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3233
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "physical_layout",
+          "status": "SUPPORTED",
+          "value": "one FC04 input word between documented rows 3232 and 3234",
+          "evidence_refs": [
+            "vendor_v124_pdf:p82",
+            "vendor_v124_tables:/input/835",
+            "grott_t06nnnnxmod:reserved3233"
+          ],
+          "contradictions": [
+            "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
+          ]
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p82",
+          "vendor_v124_tables:/input/835",
+          "grott_t06nnnnxmod:reserved3233"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3233:word_length",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3233
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "word_length",
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence_refs": [
+            "grott_t06nnnnxmod:register_count=1"
+          ],
+          "contradictions": [
+            "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
+          ]
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "grott_t06nnnnxmod:register_count=1"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3233:semantic_quantity",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3233
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "semantic_quantity",
+          "status": "UNRESOLVED",
+          "value": null,
+          "evidence_refs": [
+            "the vendor row is visibly blank; Grott's reserved label is implementation corroboration only"
+          ],
+          "contradictions": [
+            "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
+          ]
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "the vendor row is visibly blank; Grott's reserved label is implementation corroboration only"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "medium",
+        "status": "unresolved",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3233:scale",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3233
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "scale",
+          "status": "UNRESOLVED",
+          "value": null,
+          "evidence_refs": [
+            "no scale is shown"
+          ],
+          "contradictions": [
+            "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
+          ]
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "no scale is shown"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "medium",
+        "status": "unresolved",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3233:unit",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3233
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "unit",
+          "status": "UNRESOLVED",
+          "value": null,
+          "evidence_refs": [
+            "no unit is shown"
+          ],
+          "contradictions": [
+            "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
+          ]
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "no unit is shown"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "medium",
+        "status": "unresolved",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3233:signedness",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3233
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "signedness",
+          "status": "UNRESOLVED",
+          "value": null,
+          "evidence_refs": [
+            "no numeric interpretation is shown"
+          ],
+          "contradictions": [
+            "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
+          ]
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "no numeric interpretation is shown"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "medium",
+        "status": "unresolved",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3233:enum",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3233
+      },
+      "assertion": {
+        "kind": "property_review",
+        "value": {
+          "property": "enum",
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence_refs": [],
+          "contradictions": [
+            "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
+          ]
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": []
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "not_applicable",
+        "grade": [
+          "S2",
+          "E1"
+        ]
+      }
+    },
+    {
+      "claim_id": "gii_5d_source_review:input:3233:applicability",
+      "source_id": "gii_5d_source_review",
+      "source_type": "SOURCE_RESEARCH_REVIEW",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3233
+      },
+      "assertion": {
+        "kind": "property_support",
+        "value": {
+          "property": "applicability",
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence_refs": [
+            "vendor_v124_pdf:p82"
+          ],
+          "contradictions": [
+            "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
+          ]
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/gii-pipeline-5d-fc04-source-research.json",
+        "source_sha256": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf",
+        "source_property_evidence": [
+          "vendor_v124_pdf:p82"
+        ]
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "model": "MIN/TL-XH",
+        "protocol_revision": "V1.24",
+        "applicability": "5D source-research review of FC04 input cohort"
+      },
+      "evidence": {
+        "method": "property_level_source_review",
+        "confidence": "high",
+        "status": "resolved",
+        "grade": [
+          "S2"
+        ]
+      }
+    }
+  ]
+}

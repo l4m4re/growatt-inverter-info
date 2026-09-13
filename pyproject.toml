@@ -25,6 +25,14 @@ growatt-build-spec = "tools.build_register_spec:main"
 growatt-validate-compatibility = "tools.validate_resolved_register_reference:main"
 growatt-validate-spec = "tools.validate_register_spec:main"
 growatt-validate-min-tlxh-metadata = "tools.validate_min_tlxh_metadata:main"
+growatt-build-authority-coverage = "tools.build_authority_coverage:main"
+growatt-validate-authority-coverage = "tools.validate_authority_coverage:main"
+growatt-build-fc04-migration = "tools.build_fc04_migration:main"
+growatt-validate-fc04-migration = "tools.validate_fc04_migration:main"
+growatt-build-fc04-closure = "tools.build_fc04_closure:main"
+growatt-validate-fc04-closure = "tools.validate_fc04_closure:main"
+growatt-build-fc04-source-research = "tools.build_fc04_source_research:main"
+growatt-validate-fc04-source-research = "tools.validate_fc04_source_research:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

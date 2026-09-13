@@ -1,0 +1,15 @@
+{
+  "cases": [
+    {"document_id": "vendor_growatt_v124_2020", "claim_id": "vendor_growatt_v124_2020:input:p077:i3165:visual-review", "pages": [77, 78], "must_contain": ["22: Battery SOC", "24: System warning", "25-29: Reserve"]},
+    {"document_id": "vendor_growatt_v124_2020", "claim_id": "vendor_growatt_v124_2020:input:p080:i3211:visual-review", "pages": [80, 81], "must_contain": ["bit0", "bit1", "bit2", "bit8", "bit9"]},
+    {"document_id": "vendor_growatt_v124_2020", "claim_id": "vendor_growatt_v124_2020:input:p075:i3110:visual-review", "pages": [75], "must_contain": ["bitfield"]},
+    {"document_id": "vendor_growatt_v124_2020", "claim_id": "vendor_growatt_v124_2020:input:p075:i3111:visual-review", "pages": [75], "must_contain": ["PresentFFTValue", "bitfield"]},
+    {"document_id": "vendor_growatt_v124_2020", "claim_id": "vendor_growatt_v124_2020:input:p078:i3166:visual-review", "pages": [78], "must_contain": ["upper 8 bits", "lower 8 bits", "FaultStatus"]},
+    {"document_id": "vendor_growatt_v124_2020", "claim_id": "vendor_growatt_v124_2020:input:p069-070:i3000:visual-review", "pages": [70, 71], "must_contain": ["PVOfflineMode", "NormalStatus"]},
+    {"document_id": "vendor_growatt_v124_2020", "claim_id": "vendor_growatt_v124_2020:input:p075:i3104:visual-review", "pages": [75], "must_contain": ["bit0", "bit1", "bit2", "Reserved"]},
+    {"document_id": "vendor_growatt_v305_2013", "table": "holding", "parsed_address": 0, "must_contain": ["OnOff", "Auto"]},
+    {"document_id": "vendor_growatt_v305_2013", "table": "input", "parsed_address": 40, "must_contain": ["Fault code"]},
+    {"document_id": "vendor_growatt_v314_2016", "table": "holding", "parsed_address": 30, "must_contain": ["Communicate"]},
+    {"document_id": "vendor_growatt_v314_2016", "table": "input", "parsed_address": 64, "must_contain": ["Warning"]}
+  ]
+}

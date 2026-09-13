@@ -25,6 +25,7 @@ OPENINVERTER_PATH = DOC_DIR / "sources" / "external" / "openinverter-gateway-reg
 HA_RUNTIME_PATH = DOC_DIR / "sources" / "runtime" / "ha-local-registers.snapshot.json"
 MIN_BLOCK_VALIDATION_PATH = DOC_DIR / "sources" / "evidence" / "min-6000tl-xh-block-validation.json"
 MIN_SEMANTIC_REVIEW_PATH = DOC_DIR / "sources" / "evidence" / "min-6000tl-xh-semantic-review.json"
+MIN_CLOUD_ORACLE_PATH = DOC_DIR / "sources" / "evidence" / "min-6000tl-xh-cloud-oracle-validation.json"
 OUTPUT_PATH = DOC_DIR / "knowledge" / "compatibility" / "growatt-register-reference.json"
 MARKDOWN_PATH = DOC_DIR / "knowledge" / "compatibility" / "GROWATT_REGISTER_REFERENCE.md"
 
@@ -101,6 +102,12 @@ SOURCE_DEFINITIONS: dict[str, dict[str, Any]] = {
         "label": "GII-2 MIN/TL-XH semantic review",
         "kind": "model_specific_semantic_review",
         "path": "sources/evidence/min-6000tl-xh-semantic-review.json",
+        "independent": False,
+    },
+    "min_cloud_oracle": {
+        "label": "GII-MIN-RE-4 cloud-field consistency validation",
+        "kind": "bounded_runtime_cloud_evidence",
+        "path": "sources/evidence/min-6000tl-xh-cloud-oracle-validation.json",
         "independent": False,
     },
     "ha5_regression_tests": {
@@ -1022,6 +1029,7 @@ def apply_semantic_review(record: dict[str, Any], review: dict[str, Any]) -> Non
         "canonical_name",
         "description",
         "encoding",
+        "enum_definitions",
         "length_registers",
         "signed",
         "divisor",
@@ -1051,6 +1059,24 @@ def apply_semantic_review(record: dict[str, Any], review: dict[str, Any]) -> Non
         if mapped:
             record["provenance"].append(mapped)
     record["provenance"] = sorted(set(record["provenance"]))
+
+
+def apply_cloud_oracle_validation(
+    record: dict[str, Any], validation: dict[str, Any]
+) -> None:
+    record["provenance"] = sorted(
+        set(record.get("provenance", [])) | {"min_cloud_oracle"}
+    )
+    record["validation_evidence"].append(
+        {
+            "source": "min_cloud_oracle",
+            **{
+                key: value
+                for key, value in validation.items()
+                if key not in {"table", "address"}
+            },
+        }
+    )
 
 
 def add_min_legacy_bridges(
@@ -1628,6 +1654,7 @@ def build_reference() -> dict[str, Any]:
     runtime = load_json(HA_RUNTIME_PATH)
     block_validation = load_json(MIN_BLOCK_VALIDATION_PATH)
     semantic_review = load_json(MIN_SEMANTIC_REVIEW_PATH)
+    cloud_oracle = load_json(MIN_CLOUD_ORACLE_PATH)
     review_by_key = {
         (semantic_review["meta"]["family"], item["table"], int(item["address"])): item
         for item in semantic_review["records"]
@@ -1707,6 +1734,11 @@ def build_reference() -> dict[str, Any]:
     for key, review in review_by_key.items():
         if key in records:
             apply_semantic_review(records[key], review)
+
+    for item in cloud_oracle["records"]:
+        key = ("min_tl_xh", item["table"], int(item["address"]))
+        if key in records:
+            apply_cloud_oracle_validation(records[key], item)
 
     for address in (3047, 3048):
         key = ("min_tl_xh", "input", address)
@@ -1799,6 +1831,7 @@ def build_reference() -> dict[str, Any]:
         "min_live_validation": MIN_LIVE_PATH,
         "min_block_validation": MIN_BLOCK_VALIDATION_PATH,
         "min_semantic_review": MIN_SEMANTIC_REVIEW_PATH,
+        "min_cloud_oracle": MIN_CLOUD_ORACLE_PATH,
         "graph_export": CANONICAL_PATH,
     })
     for source_id, source in SOURCE_DEFINITIONS.items():

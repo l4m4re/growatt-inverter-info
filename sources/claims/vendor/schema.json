@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/l4m4re/growatt-inverter-info/schemas/vendor-source-claims.json",
+  "title": "Growatt vendor source claims",
+  "type": "object",
+  "required": ["schema_version", "artifact", "document", "extraction", "claims"],
+  "properties": {
+    "schema_version": {"type": "string"},
+    "artifact": {"const": "growatt_vendor_source_claims"},
+    "document": {"$ref": "#/$defs/document"},
+    "extraction": {"$ref": "#/$defs/extraction"},
+    "claims": {"type": "array", "items": {"$ref": "#/$defs/claim"}}
+  },
+  "$defs": {
+    "document": {
+      "type": "object",
+      "required": ["document_id", "filename", "title", "document_sha256", "page_count", "language", "apparent_family_scope", "source_origin"],
+      "properties": {
+        "document_id": {"type": "string", "pattern": "^vendor_[a-z0-9_]+$"},
+        "filename": {"type": "string", "minLength": 1},
+        "title": {"type": "string", "minLength": 1},
+        "declared_revision": {"type": ["string", "null"]},
+        "declared_dates": {"type": "array", "items": {"type": "string"}},
+        "pdf_metadata_date": {"type": ["string", "null"]},
+        "document_sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
+        "page_count": {"type": "integer", "minimum": 1},
+        "language": {"type": "string", "minLength": 1},
+        "apparent_family_scope": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "source_origin": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    },
+    "extraction": {
+      "type": "object",
+      "required": ["tool", "tool_version", "strategy", "pages_processed", "claims", "deterministic"],
+      "properties": {
+        "tool": {"type": "string"},
+        "tool_version": {"type": "string"},
+        "text_extractor": {"type": "string"},
+        "strategy": {"type": "string"},
+        "pages_processed": {"type": "integer", "minimum": 1},
+        "claims": {"type": "integer", "minimum": 0},
+        "continuation_fragments": {"type": "integer", "minimum": 0},
+        "ambiguous_address_claims": {"type": "integer", "minimum": 0},
+        "source_rows_without_parsed_address": {"type": "integer", "minimum": 0},
+        "manually_verified_claims": {"type": "integer", "minimum": 0},
+        "ocr_assisted_regions": {"type": "integer", "minimum": 0},
+        "diagnostic_counts": {"type": "object", "additionalProperties": {"type": "integer", "minimum": 0}},
+        "deterministic": {"const": true}
+      },
+      "additionalProperties": true
+    },
+    "fragment": {
+      "type": "object",
+      "required": ["fragment_id", "page", "lines", "text"],
+      "properties": {
+        "fragment_id": {"type": "string", "minLength": 1},
+        "page": {"type": "integer", "minimum": 1},
+        "lines": {"type": "array", "items": {"type": "string"}},
+        "text": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "claim": {
+      "type": "object",
+      "required": [
+        "claim_id", "document_id", "document_revision", "document_sha256", "source_kind",
+        "page", "page_end", "section_id", "section_title", "family_scope", "register_table",
+        "source_row_id", "raw_address_expression", "parsed_address", "parsed_address_end",
+        "raw_variable", "raw_description", "raw_value_text", "raw_unit_text", "raw_access_text",
+        "raw_initial_text", "raw_note", "raw_row_text", "reconstructed_row_text", "extraction_method",
+        "extraction_confidence", "source_status", "continuation_refs", "source_fragments", "diagnostics"
+      ],
+      "properties": {
+        "claim_id": {"type": "string", "minLength": 1},
+        "document_id": {"type": "string", "minLength": 1},
+        "document_revision": {"type": ["string", "null"]},
+        "document_sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
+        "source_kind": {"type": "string", "minLength": 1},
+        "page": {"type": "integer", "minimum": 1},
+        "page_end": {"type": "integer", "minimum": 1},
+        "section_id": {"type": "string", "minLength": 1},
+        "section_title": {"type": "string", "minLength": 1},
+        "family_scope": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}},
+        "register_table": {"enum": ["holding", "input"]},
+        "source_row_id": {"type": "string", "minLength": 1},
+        "raw_address_expression": {"type": "string", "minLength": 1},
+        "parsed_address": {"type": ["integer", "null"], "minimum": 0},
+        "parsed_address_end": {"type": ["integer", "null"], "minimum": 0},
+        "raw_variable": {"type": ["string", "null"]},
+        "reconstructed_variable": {"type": ["string", "null"]},
+        "raw_description": {"type": ["string", "null"]},
+        "raw_value_text": {"type": ["string", "null"]},
+        "raw_unit_text": {"type": ["string", "null"]},
+        "raw_access_text": {"type": ["string", "null"]},
+        "raw_initial_text": {"type": ["string", "null"]},
+        "raw_note": {"type": ["string", "null"]},
+        "raw_row_text": {"type": "string"},
+        "reconstructed_row_text": {"type": "string"},
+        "extraction_method": {"type": "string", "minLength": 1},
+        "extraction_confidence": {"enum": ["low", "medium", "high"]},
+        "source_status": {"type": "string", "minLength": 1},
+        "continuation_refs": {"type": "array", "items": {"type": "string"}},
+        "source_fragments": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/fragment"}},
+        "diagnostics": {"type": "array", "items": {"type": "string"}},
+        "review_note": {"type": "string"}
+      },
+      "additionalProperties": true
+    }
+  }
+}

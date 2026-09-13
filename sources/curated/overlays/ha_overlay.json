@@ -61,7 +61,7 @@
     "canonical:input:1-2": {
       "notes": {
         "ha_key": "input_power",
-        "ha_name": "Internal wattage",
+        "ha_name": "Internal power",
         "ha_device_class": "power",
         "ha_unit": "W"
       },
@@ -142,7 +142,7 @@
     "canonical:input:13-14": {
       "notes": {
         "ha_key": "input_3_power",
-        "ha_name": "Input 3 Wattage",
+        "ha_name": "Input 3 Power",
         "ha_device_class": "power",
         "ha_unit": "W"
       },
@@ -169,7 +169,7 @@
     "canonical:input:17-18": {
       "notes": {
         "ha_key": "input_4_power",
-        "ha_name": "Input 4 Wattage",
+        "ha_name": "Input 4 Power",
         "ha_device_class": "power",
         "ha_unit": "W"
       },
@@ -196,7 +196,7 @@
     "canonical:input:21-22": {
       "notes": {
         "ha_key": "input_5_power",
-        "ha_name": "Input 5 Wattage",
+        "ha_name": "Input 5 Power",
         "ha_device_class": "power",
         "ha_unit": "W"
       },
@@ -223,7 +223,7 @@
     "canonical:input:25-26": {
       "notes": {
         "ha_key": "input_6_power",
-        "ha_name": "Input 6 Wattage",
+        "ha_name": "Input 6 Power",
         "ha_device_class": "power",
         "ha_unit": "W"
       },
@@ -250,7 +250,7 @@
     "canonical:input:29-30": {
       "notes": {
         "ha_key": "input_7_power",
-        "ha_name": "Input 7 Wattage",
+        "ha_name": "Input 7 Power",
         "ha_device_class": "power",
         "ha_unit": "W"
       },
@@ -277,7 +277,7 @@
     "canonical:input:33-34": {
       "notes": {
         "ha_key": "input_8_power",
-        "ha_name": "Input 8 Wattage",
+        "ha_name": "Input 8 Power",
         "ha_device_class": "power",
         "ha_unit": "W"
       },
@@ -321,7 +321,7 @@
     "canonical:input:40-41": {
       "notes": {
         "ha_key": "output_1_power",
-        "ha_name": "Output 1 Wattage",
+        "ha_name": "Output 1 Power",
         "ha_device_class": "power",
         "ha_unit": "W"
       },
@@ -348,7 +348,7 @@
     "canonical:input:44-45": {
       "notes": {
         "ha_key": "output_2_power",
-        "ha_name": "Output 2 Wattage",
+        "ha_name": "Output 2 Power",
         "ha_device_class": "power",
         "ha_unit": "W"
       },
@@ -375,7 +375,7 @@
     "canonical:input:48-49": {
       "notes": {
         "ha_key": "output_3_power",
-        "ha_name": "Output 3 Wattage",
+        "ha_name": "Output 3 Power",
         "ha_device_class": "power",
         "ha_unit": "W"
       },
@@ -659,9 +659,9 @@
     "canonical:input:234-235": {
       "notes": {
         "ha_key": "output_reactive_power",
-        "ha_name": "Reactive wattage",
-        "ha_device_class": "power",
-        "ha_unit": "W"
+        "ha_name": "Reactive power",
+        "ha_device_class": "reactive_power",
+        "ha_unit": "var"
       },
       "enum_candidates": {}
     },
@@ -681,7 +681,7 @@
     "canonical:input:3001-3002": {
       "notes": {
         "ha_key": "input_power",
-        "ha_name": "Internal wattage",
+        "ha_name": "Internal power",
         "ha_device_class": "power",
         "ha_unit": "W"
       },
@@ -762,7 +762,7 @@
     "canonical:input:3013-3014": {
       "notes": {
         "ha_key": "input_3_power",
-        "ha_name": "Input 3 Wattage",
+        "ha_name": "Input 3 Power",
         "ha_device_class": "power",
         "ha_unit": "W"
       },
@@ -789,7 +789,7 @@
     "canonical:input:3017-3018": {
       "notes": {
         "ha_key": "input_4_power",
-        "ha_name": "Input 4 Wattage",
+        "ha_name": "Input 4 Power",
         "ha_device_class": "power",
         "ha_unit": "W"
       },
@@ -798,9 +798,9 @@
     "canonical:input:3021-3022": {
       "notes": {
         "ha_key": "output_reactive_power",
-        "ha_name": "Reactive wattage",
-        "ha_device_class": "power",
-        "ha_unit": "W"
+        "ha_name": "Reactive power",
+        "ha_device_class": "reactive_power",
+        "ha_unit": "var"
       },
       "enum_candidates": {}
     },
@@ -842,7 +842,7 @@
     "canonical:input:3028-3029": {
       "notes": {
         "ha_key": "output_1_power",
-        "ha_name": "Output 1 Wattage",
+        "ha_name": "Output 1 Power",
         "ha_device_class": "power",
         "ha_unit": "W"
       },
@@ -869,7 +869,7 @@
     "canonical:input:3032-3033": {
       "notes": {
         "ha_key": "output_2_power",
-        "ha_name": "Output 2 Wattage",
+        "ha_name": "Output 2 Power",
         "ha_device_class": "power",
         "ha_unit": "W"
       },
@@ -896,7 +896,7 @@
     "canonical:input:3036-3037": {
       "notes": {
         "ha_key": "output_3_power",
-        "ha_name": "Output 3 Wattage",
+        "ha_name": "Output 3 Power",
         "ha_device_class": "power",
         "ha_unit": "W"
       },

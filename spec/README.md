@@ -19,7 +19,7 @@ instance unless evidence proves an index. Diagnostic suffixes do not create
 false BMS instances. Native page reads establish `read_observed`, not
 `semantic_verified`.
 
-Coverage: **4048** physical records, **1805** holding, **2243** input. Stable semantic keys are assigned to **3471** records; **320** are semantically reconciled (**7.91%**), while **3151** remain syntactic-only and **577** unresolved. There are **550** logical fields (**355** source-explicit, **195** unknown word order), **162** enum-bearing records, and **42** structured versus **45** placeholder bitfield records.
+Coverage: **4048** physical records, **1805** holding, **2243** input. Stable semantic keys are assigned to **3471** records; **320** are semantically reconciled (**7.91%**), while **3151** remain syntactic-only and **577** unresolved. There are **550** logical fields (**355** source-explicit, **195** unknown word order), **164** enum-bearing records, and **43** structured versus **43** placeholder bitfield records.
 
 See [`SEMANTIC_INDEX.md`](SEMANTIC_INDEX.md), [`PROTOCOLS.md`](PROTOCOLS.md),
 and the generated [GII-2 MIN/TL-XH evidence-review matrix](../docs/reverse-engineering/GII-2_MIN_TL_XH_AUDIT_MATRIX.md),

@@ -1,0 +1,9 @@
+{
+  "profile_id": "vendor_growatt_v124_2020",
+  "document_id": "vendor_growatt_v124_2020",
+  "purpose": "Layout extraction hints only; no semantic or canonical register decisions.",
+  "row_indent_max": 14,
+  "table_detection": "generic Growatt holding/input headings",
+  "continuation_policy": "retain-until-next-row-or-table-boundary",
+  "manual_review_file": "sources/claims/vendor/reviews/vendor_growatt_v124_2020.json"
+}

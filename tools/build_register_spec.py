@@ -137,6 +137,13 @@ BITFIELD_OVERRIDES = {
         (8, 11, "warning_subcode", "WarnSubCode", "BDC sub-warning code."),
         (12, 15, "fault_subcode", "FaultSubCode", "BDC sub-error code."),
     ],
+    ("min_tl_xh", "input", 3104): [
+        (0, 0, "turn_off_order", "turn off Order", "Standby was requested by the turn-off order."),
+        (1, 1, "pv_low", "PVLow", "PV input is below the standby threshold."),
+        (2, 2, "ac_voltage_or_frequency_out_of_scope", "AC Volt/Freq out of scope", "AC voltage or frequency is out of scope."),
+        (3, 7, "reserved", "Reserved", "Reserved by the vendor."),
+    ],
+    ("min_tl_xh", "input", 3164): [],
     ("min_tl_xh", "input", 3211): [
         (0, 0, "charging_prohibited", "Prohibit charging", "1 prohibits charging; 0 allows charging."),
         (1, 1, "strong_charge_enabled", "Enable strong charge", "1 enables strong charge; 0 disables strong charge."),
@@ -147,6 +154,52 @@ BITFIELD_OVERRIDES = {
 }
 
 PACKED_FIELD_OVERRIDES = {
+    ("min_tl_xh", "input", 3000): [
+        {
+            "bits": [8, 15],
+            "name": "mode",
+            "vendor_label": "high-byte mode",
+            "description": "Vendor-defined inverter mode byte.",
+            "enum": {
+                "0": "waiting_module",
+                "1": "self_test",
+                "2": "reserved",
+                "3": "system_fault_module",
+                "4": "flash_module",
+                "5": "pv_battery_online_module",
+                "6": "battery_online_module",
+            },
+        },
+        {
+            "bits": [0, 7],
+            "name": "status",
+            "vendor_label": "low-byte status",
+            "description": "The vendor source does not enumerate the low-byte values separately.",
+        },
+    ],
+    ("min_tl_xh", "input", 3166): [
+        {
+            "bits": [8, 15],
+            "name": "mode",
+            "vendor_label": "mode",
+            "enum": {
+                "0": "no_charge_or_discharge",
+                "1": "charge",
+                "2": "discharge",
+            },
+        },
+        {
+            "bits": [0, 7],
+            "name": "status",
+            "vendor_label": "status",
+            "enum": {
+                "0": "standby",
+                "1": "normal",
+                "2": "fault",
+                "3": "flash",
+            },
+        },
+    ],
     ("min_tl_xh", "holding", 3125): [
         {"bits": [0, 3], "name": "month_low", "vendor_label": "month_L"},
         {"bits": [4, 7], "name": "month_high", "vendor_label": "month_H"},
@@ -170,6 +223,116 @@ PACKED_FIELD_OVERRIDES = {
         {"bits": [12, 14], "name": "priority", "vendor_label": "loadfirst/batfirst/gridfirst/anti-reflux", "enum": {"0": "load_first", "1": "battery_first", "2": "grid_first", "3": "anti_reflux"}},
         {"bits": [15, 15], "name": "enabled", "vendor_label": "enable", "enum": {"0": "disabled", "1": "enabled"}},
     ],
+}
+
+ENUM_OVERRIDES = {
+    ("min_tl_xh", "input", 0): {
+        0: "waiting",
+        1: "normal",
+        3: "fault",
+    },
+    ("min_tl_xh", "input", 3086): {
+        0: "not_derated",
+        1: "pv_high",
+        2: "power_constant",
+        3: "grid_voltage_high",
+        4: "frequency_high",
+        5: "dc_source_mode",
+        6: "inverter_temperature",
+        7: "active_power_order",
+        8: "load_speed",
+        9: "over_back_by_time",
+        10: "internal_temperature",
+        11: "outdoor_temperature",
+        12: "line_impedance_calculation",
+        13: "parallel_anti_backflow",
+        14: "local_anti_backflow",
+        15: "bdc_load_priority",
+        16: "ct_check_error",
+    },
+    ("min_tl_xh", "input", 3118): {
+        0: "no_bdc_connected",
+        1: "bdc1_connected",
+        2: "bdc2_connected",
+        3: "bdc1_and_bdc2_connected",
+    },
+    ("min_tl_xh", "input", 3164): {
+        0: "no_separate_bdc_data",
+        1: "separate_bdc_data",
+    },
+    ("min_tl_xh", "input", 3165): {
+        0: "normal_unrestricted",
+        1: "standby_or_fault",
+        2: "maximum_discharge_current_limit",
+        3: "battery_discharge_enabled",
+        4: "high_bus_discharge_derating",
+        5: "high_temperature_discharge_derating",
+        6: "system_warning_no_discharge",
+        16: "maximum_battery_charging_current",
+        17: "high_temperature_charging",
+        18: "final_soft_charge",
+        19: "soc_setting_limits_charging",
+        20: "battery_low_temperature_charging",
+        21: "high_bus_voltage_charging",
+        22: "battery_soc_charging",
+        23: "need_to_charge",
+        24: "system_warning_not_charging",
+    },
+    ("min_tl_xh", "input", 3210): {
+        0: "not_detected",
+        1: "detection_completed",
+    },
+    ("min_tl_xh", "input", 3212): {
+        0: "dormancy",
+        1: "charge",
+        2: "discharge",
+        3: "free",
+        4: "standby",
+        5: "soft_start",
+        6: "fault",
+        7: "update",
+    },
+}
+
+NORMALIZED_OVERRIDES = {
+    ("min_tl_xh", "input", 0): {
+        "raw_type": "u16 enum",
+        "signed": False,
+        "divisor": None,
+        "scale": 1,
+    },
+    ("min_tl_xh", "input", 3000): {
+        "raw_type": "u16 packed: high byte mode, low byte status",
+        "signed": False,
+    },
+    ("min_tl_xh", "input", 3104): {
+        "raw_type": "u16 vendor-defined bitfield",
+        "signed": False,
+    },
+    ("min_tl_xh", "input", 3086): {
+        "raw_type": "u16 enum",
+        "signed": False,
+        "divisor": None,
+        "scale": 1,
+    },
+    ("min_tl_xh", "input", 3118): {
+        "raw_type": "u16 enum",
+        "signed": False,
+        "divisor": None,
+        "scale": 1,
+    },
+    ("min_tl_xh", "input", 3166): {
+        "raw_type": "u16 packed: upper byte mode, lower byte status",
+        "signed": False,
+    },
+    ("min_tl_xh", "input", 3187): {
+        "raw_type": "u16 bitfield",
+        "signed": False,
+    },
+    ("min_tl_xh", "input", 3211): {
+        "raw_type": "u16 bitfield",
+        "signed": False,
+    },
 }
 
 EXTERNAL_IMPLEMENTATIONS = {
@@ -471,8 +634,20 @@ def resolution_from_evidence(
 
 def normalized_enums(record: dict[str, Any]) -> list[dict[str, Any]]:
     key = (record["family"], record["table"], record["address"])
-    if key in BITFIELD_OVERRIDES or key in PACKED_FIELD_OVERRIDES:
+    if key in PACKED_FIELD_OVERRIDES or (
+        key in BITFIELD_OVERRIDES and BITFIELD_OVERRIDES[key]
+    ):
         return []
+    if key in ENUM_OVERRIDES:
+        return [
+            {
+                "value": value,
+                "canonical_name": label,
+                "vendor_label": label,
+                "ambiguous": False,
+            }
+            for value, label in ENUM_OVERRIDES[key].items()
+        ]
     grouped: dict[int, set[str]] = defaultdict(set)
     definitions = list(record.get("enum_definitions", []))
     text = " ".join(
@@ -797,6 +972,9 @@ def build() -> dict[str, Any]:
             "unit": old.get("unit"),
             "access": old.get("access"),
         }
+        normalized.update(NORMALIZED_OVERRIDES.get(
+            (old["family"], old["table"], old["address"]), {}
+        ))
         if (
             old["family"] == "min_tl_xh"
             and old["table"] == "input"
@@ -1043,6 +1221,12 @@ def build() -> dict[str, Any]:
                 "path": "Growatt-PV-Inverter-Modbus-RS485-RTU-Protocol-V3-14.pdf",
                 "independent": True,
             },
+            "min_status_reconciliation": {
+                "label": "MIN/TL-XH status, fault and warning reconciliation",
+                "kind": "model_specific_status_review",
+                "path": "docs/reverse-engineering/GII-MIN-RE-3_STATUS_FAULT_WARNING_RECONCILIATION.md",
+                "independent": False,
+            },
         },
         "families": families,
         "protocols": {
@@ -1095,6 +1279,49 @@ def build() -> dict[str, Any]:
         "derived_views": {
             "ha_runtime_audit": runtime_audit_projection(source),
             "ha_read_plans": source["read_plans"]["profiles"],
+            "min_status_fault_warning_reconciliation": {
+                "source": "min_status_reconciliation",
+                "disposition": "GII_MIN_STATUS_FAULT_WARNING_RECONCILIATION_WITH_FOLLOW_UP",
+                "model": "MIN 6000TL-XH",
+                "live_read": {
+                    "function_code": 4,
+                    "blocks": [
+                        {"start": 3000, "count": 125, "response_words": 125},
+                        {"start": 3125, "count": 125, "response_words": 125},
+                    ],
+                },
+                "safe_structures": [
+                    "I0 legacy inverter status enum",
+                    "I3000 packed inverter mode/status word",
+                    "I104/I3086 derating mode enum",
+                    "I141 PID status enum",
+                    "I206 SVG/APF packed ratio/status word",
+                    "I238/I3112 AFCI status enum",
+                    "I3118 BDC connection enum",
+                    "I3119 dry-contact enum",
+                    "I3164 BDC data-separation enum",
+                    "I3165 BDC derating enum",
+                    "I3166 packed BDC mode/status word",
+                    "I3187 BDC flag word",
+                    "I3210 battery insulation enum",
+                    "I3211 battery request flag word",
+                    "I3212 BMS status enum",
+                ],
+                "retained_raw_unknowns": [
+                    "I105/I3105 inverter fault words",
+                    "I106/I3106 inverter warning words",
+                    "I107/I3107 and I108/I3108 subcodes",
+                    "I110/I3110 warning bitfield without safe individual meanings",
+                    "I115 and I1001-I1008 aggregate/system fault words",
+                    "I3167/I3168 BDC fault/warning codes",
+                    "I3199 and I3202-I3205/I3213-I3214/I3225-I3226 BMS diagnostic words",
+                ],
+                "follow_up": [
+                    "I3110/I3111 live values versus cloud sys_fault_word3/sys_fault_word4 mapping",
+                    "I3165 live value 22 versus the documented 0..4 enum and cloud derate reason",
+                    "cloud Warning401 without a proven physical register mapping",
+                ],
+            },
         },
         "coverage": {
             "physical_registers": len(records),
@@ -1189,6 +1416,10 @@ def render_family(spec: dict[str, Any], family: dict[str, Any]) -> str:
         or r["write_policy"] != "read_only"
         or r.get("component_of")
         or r["length_words"] > 1
+        or any(
+            item.get("source") == "min_cloud_oracle"
+            for item in r["validation_evidence"]
+        )
     ]
     if interesting:
         lines.extend(["", "## Details", ""])
@@ -1229,6 +1460,14 @@ def render_family(spec: dict[str, Any], family: dict[str, Any]) -> str:
                     "Packed fields: "
                     + "; ".join(
                         f"{item['bits']}={item['name']}" for item in record["packed_fields"]
+                    )
+                )
+            if record["validation_evidence"]:
+                lines.append(
+                    "Validation evidence: "
+                    + "; ".join(
+                        f"{item['source']}={item.get('result', 'observed')}"
+                        for item in record["validation_evidence"]
                     )
                 )
             lines.append("")

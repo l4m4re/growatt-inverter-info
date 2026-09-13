@@ -1,0 +1,178 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "growatt_python_semantic_authority_inventory",
+  "purpose": "Migration inventory for PIPELINE-5; this file is not an evidence source.",
+  "classification_vocabulary": [
+    "GENERIC_TRANSFORMATION",
+    "DOMAIN_SEMANTIC_KNOWLEDGE",
+    "PRESENTATION_ONLY",
+    "LEGACY_COMPATIBILITY",
+    "DEAD/REDUNDANT",
+    "UNKNOWN"
+  ],
+  "rules": [
+    {
+      "source": "tools/build_register_spec.py",
+      "constant": "FAMILY_SLUGS",
+      "classification": "PRESENTATION_ONLY",
+      "entry_count": 8,
+      "migration_status": "retain_until_generator_cutover",
+      "notes": "Stable family identifiers and generated-document filenames; not register semantics."
+    },
+    {
+      "source": "tools/build_register_spec.py",
+      "constant": "HA6C_COMPONENT_ALTERNATE_EDGES",
+      "classification": "LEGACY_COMPATIBILITY",
+      "entry_count": 1,
+      "migration_status": "remove_or_replace_in_pipeline_5",
+      "notes": "Historical audit count used by the compatibility migration. It must not become upstream semantic evidence."
+    },
+    {
+      "source": "tools/build_register_spec.py",
+      "constant": "SEMANTIC_RENAMES",
+      "classification": "DOMAIN_SEMANTIC_KNOWLEDGE",
+      "entry_count": 53,
+      "migration_status": "partial_migration_bridge",
+      "represented_decisions": [
+        "min-input-i3101-nonnegative",
+        "min-input-i3110-warning-word",
+        "min-input-i3111-present-fft",
+        "min-input-i3170-bdc-current-magnitude",
+        "min-input-i3211-request-flags",
+        "min-input-i3212-bms-status",
+        "min-input-i3217-bms-current",
+        "min-xh-h3036-grid-first-discharge-rate",
+        "min-xh-h3037-grid-first-stop-soc",
+        "min-xh-h3047-battery-first-charge-rate",
+        "min-xh-h3048-battery-first-stop-soc",
+        "min-xh-h3049-ac-charge-enable",
+        "min-xh-h3081-ups-frequency",
+        "min-xh-h3082-load-first-stop-soc"
+      ],
+      "notes": "The remaining entries are deliberately still a generator migration bridge; they are not silently treated as resolved claims."
+    },
+    {
+      "source": "tools/build_register_spec.py",
+      "constant": "CANONICAL_NAME_ALIASES",
+      "classification": "PRESENTATION_ONLY",
+      "entry_count": 14,
+      "migration_status": "partial_migration_bridge",
+      "notes": "Source spelling repair/display naming. Canonical semantic keys remain a separate layer."
+    },
+    {
+      "source": "tools/build_register_spec.py",
+      "constant": "BITFIELD_OVERRIDES",
+      "classification": "DOMAIN_SEMANTIC_KNOWLEDGE",
+      "entry_count": 5,
+      "migration_status": "partial_migration_bridge",
+      "represented_decisions": ["min-input-i3211-request-flags"],
+      "notes": "The remaining four keyed overrides require later claim-level migration."
+    },
+    {
+      "source": "tools/build_register_spec.py",
+      "constant": "PACKED_FIELD_OVERRIDES",
+      "classification": "DOMAIN_SEMANTIC_KNOWLEDGE",
+      "entry_count": 6,
+      "migration_status": "partial_migration_bridge",
+      "represented_decisions": ["min-input-i3000-status-mode", "min-input-i3166-packed-status"],
+      "notes": "The XH schedule codec is represented by reusable declarative templates rather than Python packed-field literals."
+    },
+    {
+      "source": "tools/build_register_spec.py",
+      "constant": "ENUM_OVERRIDES",
+      "classification": "DOMAIN_SEMANTIC_KNOWLEDGE",
+      "entry_count": 7,
+      "migration_status": "partial_migration_bridge",
+      "represented_decisions": ["min-input-i3000-status-mode", "min-input-i3165-derating-codebook", "min-input-i3212-bms-status"],
+      "notes": "Unrepresented keyed enums remain migration work, not hidden authority that has been accepted by this pipeline."
+    },
+    {
+      "source": "tools/build_register_spec.py",
+      "constant": "NORMALIZED_OVERRIDES",
+      "classification": "DOMAIN_SEMANTIC_KNOWLEDGE",
+      "entry_count": 8,
+      "migration_status": "partial_migration_bridge",
+      "represented_decisions": ["min-input-i3000-status-mode", "min-input-i3166-packed-status"],
+      "notes": "Register-specific normalization remains duplicated until the canonical cutover."
+    },
+    {
+      "source": "tools/build_register_spec.py",
+      "constant": "EXTERNAL_IMPLEMENTATIONS",
+      "classification": "GENERIC_TRANSFORMATION",
+      "entry_count": 3,
+      "migration_status": "retain_as_provenance_vocabulary",
+      "notes": "Recognized implementation provenance identifiers; not semantic decisions by themselves."
+    },
+    {
+      "source": "tools/build_register_spec.py",
+      "constant": "EVIDENCE_LEVELS/EVIDENCE_DESCRIPTIONS",
+      "classification": "GENERIC_TRANSFORMATION",
+      "entry_count": 8,
+      "migration_status": "retain_as_generic_vocabulary",
+      "notes": "Evidence vocabulary and presentation descriptions, not register meanings."
+    },
+    {
+      "source": "tools/build_register_spec.py::semantic_quantity",
+      "constant": "direct_names",
+      "classification": "DOMAIN_SEMANTIC_KNOWLEDGE",
+      "entry_count": 19,
+      "migration_status": "partial_migration_bridge",
+      "notes": "Name-to-semantic fallback rules are hidden semantic authority and are scheduled for claim-level migration."
+    },
+    {
+      "source": "tools/build_resolved_register_reference.py",
+      "constant": "SEMANTIC_DEFINITIONS/SEMANTIC_RULES",
+      "classification": "DOMAIN_SEMANTIC_KNOWLEDGE",
+      "entry_count": 22,
+      "migration_status": "partial_migration_bridge",
+      "represented_decisions": ["min-input-i3165-derating-codebook", "min-input-i3166-packed-status", "min-input-i3212-bms-status"],
+      "notes": "The semantic fallback rules remain in the legacy resolved-reference generator until PIPELINE-5."
+    },
+    {
+      "source": "tools/build_resolved_register_reference.py",
+      "constant": "SEMANTIC_ROLE_OVERRIDES",
+      "classification": "DOMAIN_SEMANTIC_KNOWLEDGE",
+      "entry_count": 7,
+      "migration_status": "not_migrated",
+      "notes": "Preferred/legacy/alternate physical-register roles require separate declarative migration."
+    },
+    {
+      "source": "tools/build_resolved_register_reference.py",
+      "constant": "MIN_CAPABILITY_DEFINITIONS/READ_PLAN_PROFILES",
+      "classification": "DOMAIN_SEMANTIC_KNOWLEDGE",
+      "entry_count": 8,
+      "migration_status": "not_migrated",
+      "notes": "Family capability and transport planning metadata is outside the representative PIPELINE-4 cut."
+    },
+    {
+      "source": "tools/build_resolved_register_reference.py",
+      "constant": "PROTOCOL_TRANSPORT_MODEL",
+      "classification": "DOMAIN_SEMANTIC_KNOWLEDGE",
+      "entry_count": 3,
+      "migration_status": "not_migrated",
+      "notes": "Protocol-family transport limits are semantic source knowledge and must move with explicit claims."
+    },
+    {
+      "source": "tools/build_resolved_register_reference.py",
+      "constant": "SOURCE_DEFINITIONS/FAMILY_DEFINITIONS/SOURCE_KEY_MAP/UNIT_MAP",
+      "classification": "GENERIC_TRANSFORMATION",
+      "entry_count": 40,
+      "migration_status": "retain_until_generator_cutover",
+      "notes": "Source and output vocabulary/normalization used to assemble the legacy reference."
+    },
+    {
+      "source": "tools/audit_homeassistant_consumer.py",
+      "constant": "GROUP_LAYOUT/HA_SEMANTIC_ALIASES",
+      "classification": "LEGACY_COMPATIBILITY",
+      "entry_count": 90,
+      "migration_status": "out_of_scope_consumer_audit_bridge",
+      "notes": "Consumer compatibility/audit vocabulary is not upstream register authority and is not used as reconciliation support."
+    }
+  ],
+  "pipeline_4_coverage": {
+    "decision_records": 29,
+    "representative_min_tl_xh_registers": [3000, 3101, 3110, 3111, 3165, 3166, 3170, 3211, 3212, 3217],
+    "representative_min_tl_xh_holding_registers": [3036, 3037, 3038, 3039, 3040, 3041, 3042, 3043, 3044, 3045, 3046, 3047, 3048, 3049, 3050, 3051, 3052, 3053, 3054, 3055, 3056, 3057, 3058, 3059, 3081, 3082],
+    "remaining_authority": "documented_migration_bridge_for_pipeline_5"
+  }
+}

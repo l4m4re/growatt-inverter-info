@@ -1,0 +1,274 @@
+{
+  "review_schema_version": "1.0.0",
+  "document_id": "vendor_growatt_v124_2020",
+  "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+  "include_files": ["vendor_growatt_v124_2020_ems.json"],
+  "claims": [
+    {
+      "claim_id": "vendor_growatt_v124_2020:input:p077:i3165:visual-review",
+      "page": 77,
+      "section_id": "tl_x_tl_xh_input_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": ["TL-X", "TL-XH"],
+      "register_table": "input",
+      "source_row_id": "3165",
+      "raw_address_expression": "3165",
+      "parsed_address": 3165,
+      "raw_variable": "BDCDeratingMo de",
+      "reconstructed_variable": "BDCDeratingMode",
+      "raw_description": "BDCDeratingMode",
+      "raw_value_text": "0: Normal, unrestricted; 1: Standby or fault; 2: Maximum battery current limit (discharge); 3: Battery discharge Enable (Discharge); 4: High bus discharge derating (discharge); 5: High temperature discharge derating (discharge); 6: System warning No discharge (discharge); 7-15 Reserved (Discharge); 16: Maximum charging current of battery (charging); 17: High Temperature (LLC and Buckboost) (Charging); 18: Final soft charge; 19: SOC setting limits (charging); 20: Battery low temperature (charging); 21: High bus voltage (charging); 22: Battery SOC (charging); 23: Need to charge (charge); 24: System warning not charging (charging); 25-29: Reserve (charge)",
+      "raw_unit_text": null,
+      "raw_access_text": "R/W",
+      "raw_initial_text": null,
+      "raw_note": null,
+      "reconstructed_row_text": "3165 BDCDeratingMode: 0: Normal, unrestricted; 1: Standby or fault; 2: Maximum battery current limit (discharge); 3: Battery discharge Enable (Discharge); 4: High bus discharge derating (discharge); 5: High temperature discharge derating (discharge); 6: System warning No discharge (discharge); 7-15 Reserved (Discharge); 16: Maximum charging current of battery (charging); 17: High Temperature (LLC and Buckboost) (Charging); 18: Final soft charge; 19: SOC setting limits (charging); 20: Battery low temperature (charging); 21: High bus voltage (charging); 22: Battery SOC (charging); 23: Need to charge (charge); 24: System warning not charging (charging); 25-29: Reserve (charge)",
+      "extraction_confidence": "high",
+      "diagnostics": ["duplicate_address_across_sections", "enum_or_bitfield_candidate", "page_spanning_continuation"],
+      "review_note": "Visually verified against the rendered original. The cell starts on page 77 and continues on page 78; page 78 is not a new register row. The split variable is retained literally and reconstructed separately.",
+      "source_fragments": [
+        {
+          "page": 77,
+          "lines": [
+            "3165 BDCDeratingMo de BDCDeratingMode: 0: Normal, unrestricted 1: Standby or fault 2: Maximum battery current limit (discharge) 3: Battery discharge Enable (Discharge) 4: High bus discharge derating (discharge)"
+          ]
+        },
+        {
+          "page": 78,
+          "lines": [
+            "(discharge) 5: High temperature discharge derating (discharge) 6: System warning No discharge (discharge) 7-15 Reserved (Discharge) 16: Maximum charging current of battery (charging) 17: High Temperature (LLC and Buckboost) (Charging) 18: Final soft charge 19: SOC setting limits (charging) 20: Battery low temperature (charging) 21: High bus voltage (charging) 22: Battery SOC (charging) 23: Need to charge (charge) 24: System warning not charging (charging) 25-29: Reserve (charge)"
+          ]
+        }
+      ]
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:input:p080:i3211:visual-review",
+      "page": 80,
+      "section_id": "tl_x_tl_xh_input_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": ["TL-X", "TL-XH"],
+      "register_table": "input",
+      "source_row_id": "3211",
+      "raw_address_expression": "3211",
+      "parsed_address": 3211,
+      "raw_variable": "BattNeedCharge RequestFlag",
+      "reconstructed_variable": "BattNeedCharge RequestFlag",
+      "raw_description": "battery work request",
+      "raw_value_text": "bit0: 1: Prohibit charging, 0: Allow the charging; bit1: 1: Enable strong charge, 0: disable strong charge; bit2: 1: Enable strong charge2, 0: disable strong charge 2; bit8: 1: Discharge is prohibited, 0: allow discharge; bit9: 1: Turn on power reduction, 0: turn off power reduction",
+      "raw_unit_text": null,
+      "raw_access_text": null,
+      "raw_initial_text": null,
+      "raw_note": null,
+      "reconstructed_row_text": "3211 BattNeedCharge RequestFlag battery work request bit0: 1: Prohibit charging, 0: Allow the charging; bit1: 1: Enable strong charge, 0: disable strong charge; bit2: 1: Enable strong charge2, 0: disable strong charge 2; bit8: 1: Discharge is prohibited, 0: allow discharge; bit9: 1: Turn on power reduction, 0: turn off power reduction",
+      "extraction_confidence": "high",
+      "diagnostics": ["duplicate_address_across_sections", "enum_or_bitfield_candidate", "page_spanning_continuation"],
+      "review_note": "Visually verified against the rendered original. Bits 0, 1 and 2 are on page 80; bits 8 and 9 continue on page 81.",
+      "source_fragments": [
+        {
+          "page": 80,
+          "lines": [
+            "3211 BattNeedCharge RequestFlag battery work request bit0: 1: Prohibit charging, 0: Allow the charging; bit1: 1: Enable strong charge, 0: disable strong charge; bit2: 1: Enable strong charge2, 0: disable strong charge 2"
+          ]
+        },
+        {
+          "page": 81,
+          "lines": [
+            "bit8: 1: Discharge is prohibited, 0: allow discharge; bit9: 1: Turn on power reduction, 0: turn off power reduction"
+          ]
+        }
+      ]
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:input:p078:i3166:visual-review",
+      "page": 78,
+      "section_id": "tl_x_tl_xh_input_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": ["TL-X", "TL-XH"],
+      "register_table": "input",
+      "source_row_id": "3166",
+      "raw_address_expression": "3166",
+      "parsed_address": 3166,
+      "raw_variable": "SysState_Mode",
+      "reconstructed_variable": "SysState_Mode",
+      "raw_description": "System work State and mode",
+      "raw_value_text": "upper 8 bits: 0 No charge and discharge; 1 charge; 2 Discharge; lower 8 bits: 0 StandbyStatus; 1 NormalStatus; 2 FaultStatus; 3 FlashStatus",
+      "raw_unit_text": null,
+      "raw_access_text": "R",
+      "raw_initial_text": null,
+      "raw_note": "BDC1",
+      "reconstructed_row_text": "3166 SysState_Mode System work State and mode; upper 8 bits: 0 No charge and discharge; 1 charge; 2 Discharge; lower 8 bits: 0 StandbyStatus; 1 NormalStatus; 2 FaultStatus; 3 FlashStatus",
+      "extraction_confidence": "high",
+      "diagnostics": ["duplicate_address_across_sections", "enum_or_bitfield_candidate"],
+      "review_note": "Visually verified against the rendered original page 78. This is a packed mode/status word, not a continuation of I3165.",
+      "source_fragments": [
+        {
+          "page": 78,
+          "lines": [
+            "3166 SysState_Mode System work State and mode The upper 8 bits indicate the mode; 0: No charge and discharge; 1: charge; 2: Discharge; The lower 8 bits represent the status; 0: StandbyStatus; 1: NormalStatus; 2: FaultStatus; 3: FlashStatus;"
+          ]
+        }
+      ]
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:input:p075:i3110:visual-review",
+      "page": 75,
+      "section_id": "tl_x_tl_xh_input_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": ["TL-X", "TL-XH"],
+      "register_table": "input",
+      "source_row_id": "3110",
+      "raw_address_expression": "3110",
+      "parsed_address": 3110,
+      "raw_variable": null,
+      "reconstructed_variable": null,
+      "raw_description": null,
+      "raw_value_text": null,
+      "raw_unit_text": null,
+      "raw_access_text": null,
+      "raw_initial_text": null,
+      "raw_note": null,
+      "reconstructed_row_text": "3110 datatype bitfield; the adjacent PresentFFT cell is laid out beside the following 3111 address",
+      "extraction_confidence": "medium",
+      "diagnostics": ["duplicate_address_across_sections", "enum_or_bitfield_candidate"],
+      "review_note": "Visually verified against page 75. The source datatype is bitfield, but the PDF provides no bit meanings for this row. The adjacent PresentFFT cell is retained as a separate 3111 claim rather than assigned to 3110.",
+      "source_fragments": [
+        {
+          "page": 75,
+          "lines": [
+            "3110 [blank variable cell] bitfield"
+          ]
+        }
+      ]
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:input:p075:i3111:visual-review",
+      "page": 75,
+      "section_id": "tl_x_tl_xh_input_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": ["TL-X", "TL-XH"],
+      "register_table": "input",
+      "source_row_id": "3111",
+      "raw_address_expression": "3111",
+      "parsed_address": 3111,
+      "raw_variable": "uwPresentFFTVa lue [CHANNEL_A]",
+      "reconstructed_variable": "uwPresentFFTValue [CHANNEL_A]",
+      "raw_description": "PresentFFTValue [CHANNEL_A]",
+      "raw_value_text": null,
+      "raw_unit_text": null,
+      "raw_access_text": null,
+      "raw_initial_text": null,
+      "raw_note": null,
+      "reconstructed_row_text": "3111 uwPresentFFTValue [CHANNEL_A] PresentFFTValue [CHANNEL_A] datatype bitfield",
+      "extraction_confidence": "high",
+      "diagnostics": ["duplicate_address_across_sections", "enum_or_bitfield_candidate"],
+      "review_note": "Visually verified against page 75. The source datatype is bitfield, but the PDF provides no bit meanings for this PresentFFT value. The split source spelling is retained separately from the reconstructed variable name.",
+      "source_fragments": [
+        {
+          "page": 75,
+          "lines": [
+            "3111 uwPresentFFTVa lue [CHANNEL_A] PresentFFTValue [CHANNEL_A] bitfield"
+          ]
+        }
+      ]
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:input:p069-070:i3000:visual-review",
+      "page": 70,
+      "section_id": "tl_x_tl_xh_input_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": ["TL-X", "TL-XH"],
+      "register_table": "input",
+      "source_row_id": "3000",
+      "raw_address_expression": "3000",
+      "parsed_address": 3000,
+      "raw_variable": "Inverter Status",
+      "reconstructed_variable": "Inverter Status",
+      "raw_description": "Inverter run state",
+      "raw_value_text": "High 8 bits mode: 0 Waiting module; 1 Self-test mode, optional; 2 Reserved; 3 SysFault module; 4 Flash module; 5 PVBATOnline module; 6 BatOnline module; 7 PVOfflineMode; 8 BatOfflineMode. Lower 8 bits machine status: 0 StandbyStatus; 1 NormalStatus; 3 FaultStatus; 4 FlashStatus",
+      "raw_unit_text": null,
+      "raw_access_text": null,
+      "raw_initial_text": null,
+      "raw_note": null,
+      "reconstructed_row_text": "3000 Inverter Status Inverter run state; high 8 bits mode: 0 Waiting module; 1 Self-test mode, optional; 2 Reserved; 3 SysFault module; 4 Flash module; 5 PVBATOnline module; 6 BatOnline module; 7 PVOfflineMode; 8 BatOfflineMode. Lower 8 bits machine status: 0 StandbyStatus; 1 NormalStatus; 3 FaultStatus; 4 FlashStatus",
+      "extraction_confidence": "high",
+      "diagnostics": ["duplicate_address_across_sections", "enum_or_bitfield_candidate", "page_spanning_continuation"],
+      "review_note": "Visually verified across pages 70 and 71. The row begins at the bottom of page 70 and its mode/status lists continue on page 71.",
+      "source_fragments": [
+        {
+          "page": 70,
+          "lines": [
+            "3000 Inverter Status Inverter run state High 8 bits mode: 0 Waiting module; 1 Self-test mode, optional; 2 Reserved; 3 SysFault module; 4 Flash module; 5 PVBATOnline module; 6 BatOnline module"
+          ]
+        },
+        {
+          "page": 71,
+          "lines": [
+            "7 PVOfflineMode; 8 BatOfflineMode. Lower 8 bits indicate machine status: 0 StandbyStatus; 1 NormalStatus; 3 FaultStatus; 4 FlashStatus"
+          ]
+        }
+      ]
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:input:p075:i3104:visual-review",
+      "page": 75,
+      "section_id": "tl_x_tl_xh_input_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": ["TL-X", "TL-XH"],
+      "register_table": "input",
+      "source_row_id": "3104",
+      "raw_address_expression": "3104",
+      "parsed_address": 3104,
+      "raw_variable": "StandbyFlag",
+      "reconstructed_variable": "StandbyFlag",
+      "raw_description": "Inverter standby flag",
+      "raw_value_text": "bitfield; bit0: turn off Order; bit1: PV Low; bit2: AC Volt/Freq out of scope; bit3~bit7: Reserved",
+      "raw_unit_text": null,
+      "raw_access_text": null,
+      "raw_initial_text": null,
+      "raw_note": null,
+      "reconstructed_row_text": "3104 StandbyFlag Inverter standby flag bitfield; bit0 turn off Order; bit1 PV Low; bit2 AC Volt/Freq out of scope; bit3~bit7 Reserved",
+      "extraction_confidence": "high",
+      "diagnostics": ["duplicate_address_across_sections", "enum_or_bitfield_candidate"],
+      "review_note": "Visually verified against page 75. The row is a bitfield with explicitly listed bits; no additional meanings are inferred.",
+      "source_fragments": [
+        {
+          "page": 75,
+          "lines": [
+            "3104 StandbyFlag Inverter standby flag bitfield; bit0:turn off Order; bit1:PV Low; bit2:AC Volt/Freq out of scope; bit3~bit7:Reserved"
+          ]
+        }
+      ]
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:input:p081:i3212:visual-review",
+      "page": 81,
+      "section_id": "tl_x_tl_xh_input_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": ["TL-X", "TL-XH"],
+      "register_table": "input",
+      "source_row_id": "3212",
+      "raw_address_expression": "3212",
+      "parsed_address": 3212,
+      "raw_variable": "BMS_Status",
+      "reconstructed_variable": "BMS_Status",
+      "raw_description": "battery working status",
+      "raw_value_text": "0: dormancy; 1: Charge; 2: Discharge; 3: free; 4: standby; 5: Soft start; 6: fault; 7: update",
+      "raw_unit_text": null,
+      "raw_access_text": "R",
+      "raw_initial_text": null,
+      "raw_note": null,
+      "reconstructed_row_text": "3212 BMS_Status battery working status 0 dormancy; 1 Charge; 2 Discharge; 3 free; 4 standby; 5 Soft start; 6 fault; 7 update",
+      "extraction_confidence": "high",
+      "diagnostics": ["duplicate_address_across_sections", "enum_or_bitfield_candidate"],
+      "review_note": "Visually verified against page 81. The source enum is retained without assigning canonical status names.",
+      "source_fragments": [
+        {
+          "page": 81,
+          "lines": [
+            "3212 BMS_Status battery working status R 0: dormancy; 1: Charge; 2: Discharge; 3: free; 4: standby; 5: Soft start; 6: fault; 7: update"
+          ]
+        }
+      ]
+    }
+  ]
+}

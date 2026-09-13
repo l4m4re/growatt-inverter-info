@@ -1,0 +1,3067 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "growatt_generic_claim_adapter",
+  "source_id": "inverter_to_mqtt",
+  "claims": [
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:0",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 0
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 0,
+          "text": "Inverter status (0, 1, 3, 5 & 6)"
+        },
+        "source_text": "Inverter status (0, 1, 3, 5 & 6)"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/0"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:1",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 0
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 0,
+          "text": "Standby"
+        },
+        "source_text": "Standby"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/1"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:2",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 1
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1,
+          "text": "Normal / Checking"
+        },
+        "source_text": "Normal / Checking"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/2"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:3",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 3
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 3,
+          "text": "Error / Fault"
+        },
+        "source_text": "Error / Fault"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/3"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:4",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 5
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 5,
+          "text": "Normal, battery and solar online"
+        },
+        "source_text": "Normal, battery and solar online"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/4"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:5",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 6
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 6,
+          "text": "Normal, only battery online (no solar)"
+        },
+        "source_text": "Normal, only battery online (no solar)"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/5"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:6",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 3
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 3,
+          "text": "Vpv1   (PV1 DC voltage)"
+        },
+        "source_text": "Vpv1   (PV1 DC voltage)"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/6"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:7",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 4
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 4,
+          "text": "Ipv1   (PV1 DC current)"
+        },
+        "source_text": "Ipv1   (PV1 DC current)"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/7"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:8",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 5
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 5,
+          "text": "Ppv1 H"
+        },
+        "source_text": "Ppv1 H"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/8"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:9",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 6
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 6,
+          "text": "Ppv1 L (PV1 power in watts)"
+        },
+        "source_text": "Ppv1 L (PV1 power in watts)"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/9"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:10",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 7
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 7,
+          "text": "Vpv2   (PV2 DC voltage)"
+        },
+        "source_text": "Vpv2   (PV2 DC voltage)"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/10"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:11",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 8
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 8,
+          "text": "Ipv2   (PV2 DC voltage)"
+        },
+        "source_text": "Ipv2   (PV2 DC voltage)"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/11"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:12",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 9
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 9,
+          "text": "Ppv2 H"
+        },
+        "source_text": "Ppv2 H"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/12"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:13",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 10
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 10,
+          "text": "Ppv2 L (PV2 power in watts)"
+        },
+        "source_text": "Ppv2 L (PV2 power in watts)"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/13"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:14",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 35
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 35,
+          "text": "Pac H"
+        },
+        "source_text": "Pac H"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/14"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:15",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 36
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 36,
+          "text": "Pac L  (Power output in Watts)"
+        },
+        "source_text": "Pac L  (Power output in Watts)"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/15"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:16",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 37
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 37,
+          "text": "Fac    (AC Grid frequency)"
+        },
+        "source_text": "Fac    (AC Grid frequency)"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/16"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:17",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 38
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 38,
+          "text": "Vac1   (AC Grid phase 1 voltage)"
+        },
+        "source_text": "Vac1   (AC Grid phase 1 voltage)"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/17"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:18",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 39
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 39,
+          "text": "Iac1   (AC Grid phase 1 current)"
+        },
+        "source_text": "Iac1   (AC Grid phase 1 current)"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/18"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:19",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 40
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 40,
+          "text": "Pac1 H"
+        },
+        "source_text": "Pac1 H"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/19"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:20",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 41
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 41,
+          "text": "Pac1 L (AC Grid phase 1 power output in VA)"
+        },
+        "source_text": "Pac1 L (AC Grid phase 1 power output in VA)"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/20"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:21",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 42
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 42,
+          "text": "Vac2   (AC Grid phase 2 voltage)"
+        },
+        "source_text": "Vac2   (AC Grid phase 2 voltage)"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/21"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:22",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 43
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 43,
+          "text": "Iac2   (AC Grid phase 2 current)"
+        },
+        "source_text": "Iac2   (AC Grid phase 2 current)"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/22"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:23",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 44
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 44,
+          "text": "Pac2 H"
+        },
+        "source_text": "Pac2 H"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/23"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:24",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 45
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 45,
+          "text": "Pac2 L (AC Grid phase 2 power output in VA)"
+        },
+        "source_text": "Pac2 L (AC Grid phase 2 power output in VA)"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/24"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:25",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 46
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 46,
+          "text": "Vac3   (AC Grid phase 3 voltage)"
+        },
+        "source_text": "Vac3   (AC Grid phase 3 voltage)"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/25"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:26",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 47
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 47,
+          "text": "Iac3   (AC Grid phase 3 current)"
+        },
+        "source_text": "Iac3   (AC Grid phase 3 current)"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/26"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:27",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 48
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 48,
+          "text": "Pac3 H"
+        },
+        "source_text": "Pac3 H"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/27"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:28",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 49
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 49,
+          "text": "Pac3 L (AC Grid phase 3 power output in VA)"
+        },
+        "source_text": "Pac3 L (AC Grid phase 3 power output in VA)"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/28"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:29",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 53
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 53,
+          "text": "Etotal H"
+        },
+        "source_text": "Etotal H"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/29"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:30",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 54
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 54,
+          "text": "Etotal L  (total energy produced by inverter [in watts ?])"
+        },
+        "source_text": "Etotal L  (total energy produced by inverter [in watts ?])"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/30"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:31",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 55
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 55,
+          "text": "Etoday H"
+        },
+        "source_text": "Etoday H"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/31"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:32",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 56
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 56,
+          "text": "Etoday L  (energy produced by inverter today [in watts ?])"
+        },
+        "source_text": "Etoday L  (energy produced by inverter today [in watts ?])"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/32"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:33",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 57
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 57,
+          "text": "Ttotal H"
+        },
+        "source_text": "Ttotal H"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/33"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:34",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 58
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 58,
+          "text": "Ttotal L  (total time inverter running [unknown units])"
+        },
+        "source_text": "Ttotal L  (total time inverter running [unknown units])"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/34"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:35",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 93
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 93,
+          "text": "Temp 1 inverter / ºC"
+        },
+        "source_text": "Temp 1 inverter / ºC"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/35"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:36",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 94
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 94,
+          "text": "Temp 2 inverter IPM / ºC"
+        },
+        "source_text": "Temp 2 inverter IPM / ºC"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/36"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:37",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 95
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 95,
+          "text": "Temp 3 inverter boost / ºC"
+        },
+        "source_text": "Temp 3 inverter boost / ºC"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/37"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:38",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 96
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 96,
+          "text": "Temp 4 (reserved and not read)"
+        },
+        "source_text": "Temp 4 (reserved and not read)"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/38"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:39",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 104
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 104,
+          "text": "Derating mode"
+        },
+        "source_text": "Derating mode"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/39"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:40",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 118
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 118,
+          "text": "Priority 0:LoadF, 1:BatF, 2:GridF"
+        },
+        "source_text": "Priority 0:LoadF, 1:BatF, 2:GridF"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/40"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:41",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 119
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 119,
+          "text": "Battery type 0:LeadAcid, 1:Lithium"
+        },
+        "source_text": "Battery type 0:LeadAcid, 1:Lithium"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/41"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:42",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 1009
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1009,
+          "text": "PdischargeH"
+        },
+        "source_text": "PdischargeH"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/42"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:43",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 1010
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1010,
+          "text": "PdischargeL"
+        },
+        "source_text": "PdischargeL"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/43"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:44",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 1011
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1011,
+          "text": "PchargeH"
+        },
+        "source_text": "PchargeH"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/44"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:45",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 1012
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1012,
+          "text": "PchargeL"
+        },
+        "source_text": "PchargeL"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/45"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:46",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 1013
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1013,
+          "text": "Vbat"
+        },
+        "source_text": "Vbat"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/46"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:47",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 1014
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1014,
+          "text": "SOC"
+        },
+        "source_text": "SOC"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/47"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:48",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 1086
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1086,
+          "text": "BMS_SOC"
+        },
+        "source_text": "BMS_SOC"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/48"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:49",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 1087
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1087,
+          "text": "BMS_BatteryVolt"
+        },
+        "source_text": "BMS_BatteryVolt"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/49"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:50",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 1088
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1088,
+          "text": "BMS_BatteryCurr"
+        },
+        "source_text": "BMS_BatteryCurr"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/50"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:51",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 1089
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1089,
+          "text": "BMS_BatteryTemp"
+        },
+        "source_text": "BMS_BatteryTemp"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/51"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:input_registers:52",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "input",
+        "address": 1090
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1090,
+          "text": "BMS_MaxCurr (pylon)"
+        },
+        "source_text": "BMS_MaxCurr (pylon)"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/input_registers/52"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:0",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1070
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1070,
+          "text": "Grid first discharge power rate"
+        },
+        "source_text": "Grid first discharge power rate"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/0"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:1",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1071
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1071,
+          "text": "Grid first Stop State of Charge"
+        },
+        "source_text": "Grid first Stop State of Charge"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/1"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:2",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1080
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1080,
+          "text": "Grid first Start Time 1"
+        },
+        "source_text": "Grid first Start Time 1"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/2"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:3",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1081
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1081,
+          "text": "Grid first Stop Time 1"
+        },
+        "source_text": "Grid first Stop Time 1"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/3"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:4",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1082
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1082,
+          "text": "Grid first Time 1 enable switch"
+        },
+        "source_text": "Grid first Time 1 enable switch"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/4"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:5",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1083
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1083,
+          "text": "Grid first Start Time 2"
+        },
+        "source_text": "Grid first Start Time 2"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/5"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:6",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1084
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1084,
+          "text": "Grid first Stop Time 2"
+        },
+        "source_text": "Grid first Stop Time 2"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/6"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:7",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1085
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1085,
+          "text": "Grid first Time 2 enable switch"
+        },
+        "source_text": "Grid first Time 2 enable switch"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/7"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:8",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1086
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1086,
+          "text": "Grid first Start Time 3"
+        },
+        "source_text": "Grid first Start Time 3"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/8"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:9",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1087
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1087,
+          "text": "Grid first Stop Time 3"
+        },
+        "source_text": "Grid first Stop Time 3"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/9"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:10",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1088
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1088,
+          "text": "Grid first Time 3 enable switch"
+        },
+        "source_text": "Grid first Time 3 enable switch"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/10"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:11",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1090
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1090,
+          "text": "Battery first charge power rate"
+        },
+        "source_text": "Battery first charge power rate"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/11"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:12",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1091
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1091,
+          "text": "Battery first Stop State of Charge"
+        },
+        "source_text": "Battery first Stop State of Charge"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/12"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:13",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1092
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1092,
+          "text": "Battery first AC charger enable switch"
+        },
+        "source_text": "Battery first AC charger enable switch"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/13"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:14",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1100
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1100,
+          "text": "Battery first Start Time 1"
+        },
+        "source_text": "Battery first Start Time 1"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/14"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:15",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1101
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1101,
+          "text": "Battery first Stop Time 1"
+        },
+        "source_text": "Battery first Stop Time 1"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/15"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:16",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1102
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1102,
+          "text": "Battery first Time 1 enable switch"
+        },
+        "source_text": "Battery first Time 1 enable switch"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/16"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:17",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1103
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1103,
+          "text": "Battery first Start Time 2"
+        },
+        "source_text": "Battery first Start Time 2"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/17"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:18",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1104
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1104,
+          "text": "Battery first Stop Time 2"
+        },
+        "source_text": "Battery first Stop Time 2"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/18"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:19",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1105
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1105,
+          "text": "Battery first Time 2 enable switch"
+        },
+        "source_text": "Battery first Time 2 enable switch"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/19"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:20",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1106
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1106,
+          "text": "Battery first Start Time 3"
+        },
+        "source_text": "Battery first Start Time 3"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/20"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:21",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1107
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1107,
+          "text": "Battery first Stop Time 3"
+        },
+        "source_text": "Battery first Stop Time 3"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/21"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:22",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1108
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1108,
+          "text": "Battery first Time 3 enable switch"
+        },
+        "source_text": "Battery first Time 3 enable switch"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/22"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:23",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1110
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1110,
+          "text": "Load first Start Time 1"
+        },
+        "source_text": "Load first Start Time 1"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/23"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:24",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1111
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1111,
+          "text": "Load first Stop Time 1"
+        },
+        "source_text": "Load first Stop Time 1"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/24"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:25",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1112
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1112,
+          "text": "Load first Time 1 enable switch"
+        },
+        "source_text": "Load first Time 1 enable switch"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/25"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:26",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1113
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1113,
+          "text": "Load first Start Time 2"
+        },
+        "source_text": "Load first Start Time 2"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/26"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:27",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1114
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1114,
+          "text": "Load first Stop Time 2"
+        },
+        "source_text": "Load first Stop Time 2"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/27"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:28",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1115
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1115,
+          "text": "Load first Time 2 enable switch"
+        },
+        "source_text": "Load first Time 2 enable switch"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/28"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:29",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1116
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1116,
+          "text": "Load first Start Time 3"
+        },
+        "source_text": "Load first Start Time 3"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/29"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:30",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1117
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1117,
+          "text": "Load first Stop Time 3"
+        },
+        "source_text": "Load first Stop Time 3"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/30"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    },
+    {
+      "claim_id": "inverter_to_mqtt:markdown_registers:holding_registers:31",
+      "source_id": "inverter_to_mqtt",
+      "source_type": "implementation_snapshot",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "unknown"
+        ],
+        "table": "holding",
+        "address": 1118
+      },
+      "assertion": {
+        "kind": "implementation_register_mapping",
+        "value": {
+          "address": 1118,
+          "text": "Load first Time 3 enable switch"
+        },
+        "source_text": "Load first Time 3 enable switch"
+      },
+      "provenance": {
+        "source_artifact": "sources/external/inverter-to-mqtt-registers.snapshot.json",
+        "json_pointer": "/markdown_registers/holding_registers/31"
+      },
+      "scope": {
+        "family": [
+          "unknown"
+        ],
+        "applicability": "implementation snapshot does not establish canonical applicability"
+      },
+      "evidence": {
+        "method": "implementation_asserted",
+        "confidence": "medium",
+        "status": "observed_in_source_snapshot"
+      }
+    }
+  ]
+}
