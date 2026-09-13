@@ -66,12 +66,12 @@ The selected raw values were:
 | I3104 | `0` | None of the documented standby bits set. |
 | I3105–I3108 | `0` | No current main/sub fault or warning code in these words. |
 | I3110 | `505` (`0x01f9`) | Non-zero unnamed vendor bitfield; must not be called an active warning solely from this value. |
-| I3111 | `110` (`0x006e`) | Vendor calls this Present FFT channel A, not a warning code. |
+| I3111 | `110` (`0x006e`) | Vendor calls this `uwPresentFFTValue[CHANNEL_A]`, not a warning code. The source datatype column says `bitfield`, but supplies no bit definitions; the observed field is retained as a raw unsigned numeric diagnostic value. |
 | I3112 | `0` | No AFCI state indicated. |
 | I3118 | `1` | BDC1 connected. |
 | I3119 | `0` | Dry contact off. |
 | I3164 | `0` | No separate BDC data flag. |
-| I3165 | `22` (`0x0016`) | Conflicts with the vendor-documented BDC derating enum domain `0..4`. |
+| I3165 | `22` (`0x0016`) | V1.24 explicitly defines `22` as `Battery SOC (charging)` in the BDC derating-mode codebook. |
 | I3166 | `513` (`0x0201`) | Packed value: upper byte `2` = discharge, lower byte `1` = normal. |
 | I3167–I3168 | `0` | No BDC1 fault/warning code. |
 | I3187 | `3` (`0x0003`) | Bits 0 and 1 set: charging and discharging allowed. |
@@ -101,7 +101,9 @@ future firmware values:
 * **I3118** — BDC connection state, values 0–3.
 * **I3119** — dry-contact state, 0/1.
 * **I3164** — BDC data separation flag, 0/1.
-* **I3165** — BDC derating mode, documented values 0–4.
+* **I3165** — BDC derating mode. V1.24 documents discharge reasons `0–6`,
+  charging reasons `16–24`, with `7–15` and `25–29` reserved; notably `22`
+  is Battery SOC (charging).
 * **I3166** — packed BDC1 mode/status: high byte mode, low byte status.
 * **I3210** — battery insulation detection, 0/1.
 * **I3212** — BMS status: dormancy, charge, discharge, free, standby,
@@ -121,10 +123,9 @@ decoding once the canonical metadata represents the complete word:
 * **I3104** — standby flags: turn-off order, PV low, AC voltage/frequency out
   of scope; bits 3–7 reserved.
 * **I3187** — BDC1 charge/discharge enable, warning subcode and fault subcode.
-* **I3211** — charging prohibition, strong-charge and strong-charge-2 bits.
-  The later vendor text also describes discharge-prohibition and power-
-  reduction bits; these remain part of the source evidence and need firmware
-  validation before being presented as universally applicable.
+* **I3211** — vendor request bitfield: bit 0 charging prohibition, bit 1
+  strong charge, bit 2 strong charge 2, bit 8 discharge prohibition and bit 9
+  power reduction. The raw word is retained so unlisted bits remain visible.
 
 The current canonical record for I3187 is marked signed. A bitfield is
 intrinsically an unsigned raw word; this is a correction candidate, but it was
@@ -176,16 +177,16 @@ firmware/source-level mapping.
 
 ### I3165 versus `bdc_derate_reason`
 
-The API reported `bdc_derate_reason=22`, matching the live raw I3165 value, but
-the vendor source defines I3165 as a BDC derating-mode enum with only values
-0–4. I3199 was zero in the same live read and is named `BmsDerateReason` by the
-vendor.
+The API reported `bdc_derate_reason=22`, matching the live raw I3165 value.
+The V1.24 vendor source now resolves the apparent conflict: its full
+`BDCDeratingMode` codebook explicitly defines `22` as `Battery SOC (charging)`
+and also defines the other charging reasons through `24`, with `7–15` and
+`25–29` reserved. I3199 remains separately named `BmsDerateReason`.
 
-Possible explanations include a vendor table label/address discrepancy, an API
-field-name mismatch, or a firmware-specific overloaded word. The current
-evidence is insufficient to choose between them. The canonical record must
-not be rewritten from the API label alone. This is the highest-priority
-follow-up before exposing I3165 as a decoded enum in runtime code.
+A later synchronized Shine-bound runtime check held I3165 at `0` and produced
+`bdc_derate_reason=0` in the next cloud history publication. This is
+consistent with the vendor mapping, but the vendor table remains the primary
+semantic evidence. I3165 is no longer an unresolved semantic conflict.
 
 ### Cloud `Warning401`
 

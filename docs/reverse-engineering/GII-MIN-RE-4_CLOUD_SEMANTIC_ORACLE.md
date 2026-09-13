@@ -123,6 +123,15 @@ candidate fields one at a time. Each override was held for at least 300 seconds
 before the read-only V4 history query. The temporary image was replaced only
 between candidate fields; no inverter write was issued by the experiment.
 
+The vendor codebook is primary semantic evidence for the status words. The
+cloud result is therefore a runtime-consistency check, not a replacement for
+the vendor definition. In particular, the V1.24 table labels I3111 as
+`uwPresentFFTValue[CHANNEL_A]` and also annotates the field as `bitfield`.
+It supplies no bit meanings, however, and the field name identifies a present
+FFT diagnostic value rather than a warning flag. It is consequently retained
+as a raw unsigned diagnostic value; it must not be decoded as a warning
+bitfield merely because of that source datatype annotation.
+
 I3000 was intentionally not repeated: its `0..8` status smoke test is already
 complete in GII-MIN-RE-3.
 
@@ -130,12 +139,14 @@ The complete remaining-field run was:
 
 | Target | Injected word | Active interval | Valid rewrites | Cloud result |
 |---|---:|---:|---:|---|
-| I3165 | `0` | 09:32:26–09:37:21 UTC | 29 | direct query still ended at `10:45:56`; no attributable `bdc_derate_reason=0` found later |
-| I3110 | `0x1234` (`4660`) | 09:38:04–09:43:58 UTC | 69 | direct query still ended at `10:45:56`; no attributable `sys_fault_word3=4660` found later |
+| I3165 (initial exploratory) | `0` | 09:32:26–09:37:21 UTC | 29 | direct query still ended at `10:45:56`; not counted because the publication boundary was not synchronized |
+| I3110 (initial exploratory) | `0x1234` (`4660`) | 09:38:04–09:43:58 UTC | 69 | direct query still ended at `10:45:56`; not counted because the publication boundary was not synchronized |
 | I3111 | `0x2345` (`9029`) | 09:53:09–09:58:08 UTC | 64 | new records through `11:56:13`; `sys_fault_word4=9029` at `11:46:13` and `11:56:13` |
-| I3211 | `1` | 09:58:50–10:03:50 UTC | 30 | new records through `12:01:14`; value `1` is too common for attribution |
-| I3166 | `0x0101` (`257`) | 10:04:34–10:09:35 UTC | 5 | new records through `12:06:14`; no attributable BDC mode/status result |
-| I3212 | `1` | 10:10:15–10:15:14 UTC | 29 | new records through `12:11:14`; `bms_status=1` is not uniquely attributable |
+| I3211 | `1` | 09:58:50–10:03:50 UTC | 30 | new records through `12:01:14`; value `1` is too common for attribution; vendor bitfield is authoritative |
+| I3166 | `0x0101` (`257`) | 10:04:34–10:09:35 UTC | 5 | new records through `12:06:14`; no attributable BDC mode/status result; vendor packed format is authoritative |
+| I3212 | `1` | 10:10:15–10:15:14 UTC | 29 | new records through `12:11:14`; `bms_status=1` is not uniquely attributable; vendor enum is authoritative |
+| I3110 (synchronized) | `0x1234` (`4660`) | 10:35:28–10:42:02 UTC | 83 | V4 history through `12:39:15` contains `sys_fault_word3=4660`; confirmed runtime/cloud correlation |
+| I3165 (synchronized) | `0` | 10:43:07–10:49:01 UTC | 37 | V4 history through `12:44:15` contains `bdc_derate_reason=0`; consistent runtime/cloud correlation, while the vendor codebook remains primary |
 
 I3111 also had an earlier partial attempt (09:44:59–09:49:48 UTC, 40
 rewrites); it was not counted as evidence and was repeated as the complete
@@ -153,12 +164,12 @@ without a cleaner isolated window.
 
 The I3211 and I3212 injected value `1` is present in many unrelated status
 fields, and I3166 value `257` occurred in unrelated cloud fields in older
-history. Those matches are therefore not evidence. I3165 and I3110 produced no
-matching distinctive value in the later history available to the experiment.
-The portal observation supplied during the run was stale, but the API history
-itself was not uniformly stale. The correct disposition is therefore one
-provisional cloud correlation (I3111 -> `sys_fault_word4`) and five unresolved
-candidate mappings.
+history. Those matches are therefore not evidence. The synchronized I3110 and
+I3165 cycles did produce distinctive cloud observations. I3110 maps to
+`sys_fault_word3` at the cloud-field level. I3165 agrees with
+`bdc_derate_reason`, but that cloud label does not override the explicit
+vendor `BDCDeratingMode` codebook. The portal observation supplied during the
+run was stale, but the API history itself was not uniformly stale.
 
 Transport details from the bounded broker logs:
 
@@ -211,6 +222,23 @@ continued Shine polling, and no observed new cloud sample. The semantic result
 for I3000 remains the complete GII-MIN-RE-3 mapping; this report does not
 promote a second or conflicting status interpretation.
 
+## Vendor-authoritative semantic/codebook evidence
+
+The following meanings come directly from the V1.24 vendor table and are not
+dependent on a cloud injection result:
+
+| Register | Vendor field | Authoritative interpretation |
+|---|---|---|
+| I3165 | `BDCDeratingMode` | Enum: `0` normal; `1` standby/fault; `2` maximum battery current limit (discharge); `3` battery discharge enabled; `4` high-bus discharge derating; `5` high-temperature discharge derating; `6` system warning/no discharge; `16` maximum charging current; `17` high temperature charging; `18` final soft charge; `19` SOC setting limits; `20` battery low temperature; `21` high bus voltage; `22` battery SOC (charging); `23` need to charge; `24` system warning not charging. `7–15` and `25–29` are reserved. |
+| I3166 | `SysState_Mode` | Packed word: upper 8 bits are mode (`0` no charge/discharge, `1` charge, `2` discharge); lower 8 bits are status (`0` standby, `1` normal, `2` fault, `3` flash). |
+| I3211 | `BattNeedCharge RequestFlag` | Bitfield: bit 0 prohibit charging; bit 1 strong charge; bit 2 strong charge 2; bit 8 discharge prohibited; bit 9 power reduction. Zero means the corresponding prohibition/reduction flags are clear. |
+| I3212 | `BMS_Status` | Enum: `0` dormancy, `1` charge, `2` discharge, `3` free, `4` standby, `5` soft start, `6` fault, `7` update. |
+| I3111 | `uwPresentFFTValue[CHANNEL_A]` | Numeric present FFT diagnostic value. The source datatype column says `bitfield`, but no bit meanings are given; retain the raw word and do not invent a bit decoder. |
+
+These definitions supersede the earlier RE-3 wording that treated I3165 as
+limited to `0–4` or treated I3165=`22` as a vendor conflict. The live value
+`22` is explicitly defined by V1.24 as `Battery SOC (charging)`.
+
 ## Semantic oracle findings
 
 The cloud API is a useful semantic oracle for field names and relationships.
@@ -226,25 +254,28 @@ consistent with the canonical GII evidence:
 |---|---|---|
 | `status`, `status_text` | inverter status enum/text pair | I3000 low-byte meanings are covered by GII-MIN-RE-3; no new cloud correlation here |
 | `operating_mode` | separate inverter operating-mode field | not conflated with I3000 without a fresh paired sample |
-| `bdc1_status`, `bdc1_mode`, `bdc_derate_reason` | BDC status/mode/derating namespace | consistent with I3165/I3166 family evidence; no new canonical change |
+| `bdc1_status`, `bdc1_mode`, `bdc_derate_reason` | BDC status/mode/derating namespace | I3165/I3166 semantics are vendor-resolved; synchronized I3165 result is runtime-consistent with `bdc_derate_reason`; no new canonical change |
 | `bdc1_ibat` | BDC/storage-side current magnitude | consistent with I3170 and HA-GII-4B |
 | `bms_ibat` | directional BMS current | consistent with I3217 and HA-GII-4B |
 | `bms_*` voltage/status/error fields | BMS namespace distinct from BDC | no new physical mapping promoted |
-| `warn_code`, `fault_type`, `sys_fault_word*` | cloud status/fault namespaces | I3111 has a strong provisional correlation to `sys_fault_word4`; I3110 remains unresolved |
+| `warn_code`, `fault_type`, `sys_fault_word*` | cloud status/fault namespaces | synchronized I3110 has a confirmed cloud-field correlation to `sys_fault_word3`; I3111 remains a strong provisional correlation to `sys_fault_word4` |
 | FC20 payload | proprietary telemetry/report namespace | kept separate from input-register semantics |
 
 No canonical GII record was edited by RE-4. In particular, I3000, I3165,
 I3110/I3111, I3211, I3170, I3217, or any status/fault/warning record was not
-silently reinterpreted.
+silently reinterpreted. The vendor definitions above are documentation of
+existing canonical evidence, not a new runtime mapping change.
 
 ## Remaining mapping disposition
 
-The remaining candidate cycles were completed technically. I3111 produced a
-strong provisional cloud correlation, while the other five candidates did not
-produce an attributable distinctive field. The cycles also establish that the
-registers can be rewritten in valid Shine-bound FC03/FC04 responses. No
-canonical GII or HA mapping change is justified by this run; the I3111 result
-requires one cleaner confirmatory cycle before promotion.
+The remaining candidate cycles were completed technically. The vendor source
+resolves the semantic/codebook questions for I3165, I3166, I3211 and I3212.
+The synchronized cycles additionally confirm I3110 → `sys_fault_word3` and
+provide runtime consistency for I3165 → `bdc_derate_reason`; I3111 →
+`sys_fault_word4` remains provisional. I3166, I3211 and I3212 were not
+cloud-discriminated because the chosen test values were non-unique, but no
+cloud result is required to replace the explicit vendor meanings. No
+canonical GII or HA mapping change is justified by this report-only update.
 
 The next useful experiment requires a demonstrably fresh cloud observation
 window (a portal/API timestamp that advances during the run) before another
@@ -254,5 +285,6 @@ repeated. FC20 remains a separate opaque experiment namespace and must not be
 inferred from ordinary I-register offsets.
 
 The current result is therefore useful evidence and a reusable injection
-mechanism, but not sufficient for canonical reconciliation or a new HA
-mapping.
+mechanism. It is sufficient to record the vendor semantics and the two
+runtime/cloud observations above, but not to promote the provisional I3111
+cloud correlation to a canonical physical mapping.
