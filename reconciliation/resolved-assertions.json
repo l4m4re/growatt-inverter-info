@@ -32466,6 +32466,132 @@
       "decision_source": "reconciliation/min_tl_xh.json"
     },
     {
+      "decision_id": "min-xh-h3038-ems-semantic-authority",
+      "target": {
+        "canonical_family": "min_tl_xh",
+        "namespace": "MODBUS",
+        "table": "holding",
+        "address": 3038,
+        "property": "semantic_mapping"
+      },
+      "scope": {
+        "family": "min_tl_xh",
+        "model": "MIN/TL-XH",
+        "firmware": null,
+        "protocol_revision": "V1.24",
+        "region": null,
+        "applicability": "MIN/TL-XH EMS holding register"
+      },
+      "decision": {
+        "status": "resolved",
+        "confidence": "high",
+        "value": {
+          "semantic_key": "grid_first_schedule_1_start_control",
+          "canonical_name": "Grid-first schedule 1 start/control",
+          "datatype": "packed u16: minute/hour/priority/enable",
+          "signedness": "not_applicable",
+          "unit": null,
+          "normalization": "identity",
+          "packed_layout": "xh_schedule_start_control_v124"
+        }
+      },
+      "support": [
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p038:h3038:visual-review",
+        "min_semantic_review:holding:3038:2"
+      ],
+      "conflicts": [],
+      "rationale": "The reviewed V1.24 vendor row and the existing semantic review establish the physical semantic for this MIN/TL-XH EMS register. Packed schedule words retain the reusable V1.24 codec; no unsupported enum members are added.",
+      "review": {
+        "status": "reviewed",
+        "notes": "PIPELINE-6 promotion of an already reviewed source claim; canonical output remains frozen."
+      },
+      "decision_source": "reconciliation/min_tl_xh_holding_ems_3036_3059_3081_3082.json"
+    },
+    {
+      "decision_id": "min-xh-h3039-ems-semantic-authority",
+      "target": {
+        "canonical_family": "min_tl_xh",
+        "namespace": "MODBUS",
+        "table": "holding",
+        "address": 3039,
+        "property": "semantic_mapping"
+      },
+      "scope": {
+        "family": "min_tl_xh",
+        "model": "MIN/TL-XH",
+        "firmware": null,
+        "protocol_revision": "V1.24",
+        "region": null,
+        "applicability": "MIN/TL-XH EMS holding register"
+      },
+      "decision": {
+        "status": "resolved",
+        "confidence": "high",
+        "value": {
+          "semantic_key": "grid_first_schedule_1_end",
+          "canonical_name": "Grid-first schedule 1 end",
+          "datatype": "packed u16: minute/hour",
+          "signedness": "not_applicable",
+          "unit": null,
+          "normalization": "identity",
+          "packed_layout": "xh_schedule_end_v124"
+        }
+      },
+      "support": [
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p038:h3039:visual-review",
+        "min_semantic_review:holding:3039:3"
+      ],
+      "conflicts": [],
+      "rationale": "The reviewed V1.24 vendor row and the existing semantic review establish the physical semantic for this MIN/TL-XH EMS register. Packed schedule words retain the reusable V1.24 codec; no unsupported enum members are added.",
+      "review": {
+        "status": "reviewed",
+        "notes": "PIPELINE-6 promotion of an already reviewed source claim; canonical output remains frozen."
+      },
+      "decision_source": "reconciliation/min_tl_xh_holding_ems_3036_3059_3081_3082.json"
+    },
+    {
+      "decision_id": "min-xh-h3040-ems-semantic-authority",
+      "target": {
+        "canonical_family": "min_tl_xh",
+        "namespace": "MODBUS",
+        "table": "holding",
+        "address": 3040,
+        "property": "semantic_mapping"
+      },
+      "scope": {
+        "family": "min_tl_xh",
+        "model": "MIN/TL-XH",
+        "firmware": null,
+        "protocol_revision": "V1.24",
+        "region": null,
+        "applicability": "MIN/TL-XH EMS holding register"
+      },
+      "decision": {
+        "status": "resolved",
+        "confidence": "high",
+        "value": {
+          "semantic_key": "grid_first_schedule_2_start_control",
+          "canonical_name": "Grid-first schedule 2 start/control",
+          "datatype": "packed u16: minute/hour/priority/enable",
+          "signedness": "not_applicable",
+          "unit": null,
+          "normalization": "identity",
+          "packed_layout": "xh_schedule_start_control_v124"
+        }
+      },
+      "support": [
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p038:h3040:visual-review",
+        "min_semantic_review:holding:3040:4"
+      ],
+      "conflicts": [],
+      "rationale": "The reviewed V1.24 vendor row and the existing semantic review establish the physical semantic for this MIN/TL-XH EMS register. Packed schedule words retain the reusable V1.24 codec; no unsupported enum members are added.",
+      "review": {
+        "status": "reviewed",
+        "notes": "PIPELINE-6 promotion of an already reviewed source claim; canonical output remains frozen."
+      },
+      "decision_source": "reconciliation/min_tl_xh_holding_ems_3036_3059_3081_3082.json"
+    },
+    {
       "decision_id": "min-xh-h3040-h3041-access",
       "target": {
         "canonical_family": "min_tl_xh",
@@ -32504,6 +32630,216 @@
         "notes": "Do not upgrade to exact_wire_write_verified."
       },
       "decision_source": "reconciliation/min_tl_xh.json"
+    },
+    {
+      "decision_id": "min-xh-h3041-ems-semantic-authority",
+      "target": {
+        "canonical_family": "min_tl_xh",
+        "namespace": "MODBUS",
+        "table": "holding",
+        "address": 3041,
+        "property": "semantic_mapping"
+      },
+      "scope": {
+        "family": "min_tl_xh",
+        "model": "MIN/TL-XH",
+        "firmware": null,
+        "protocol_revision": "V1.24",
+        "region": null,
+        "applicability": "MIN/TL-XH EMS holding register"
+      },
+      "decision": {
+        "status": "resolved",
+        "confidence": "high",
+        "value": {
+          "semantic_key": "grid_first_schedule_2_end",
+          "canonical_name": "Grid-first schedule 2 end",
+          "datatype": "packed u16: minute/hour",
+          "signedness": "not_applicable",
+          "unit": null,
+          "normalization": "identity",
+          "packed_layout": "xh_schedule_end_v124"
+        }
+      },
+      "support": [
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p039:h3041:visual-review",
+        "min_semantic_review:holding:3041:5"
+      ],
+      "conflicts": [],
+      "rationale": "The reviewed V1.24 vendor row and the existing semantic review establish the physical semantic for this MIN/TL-XH EMS register. Packed schedule words retain the reusable V1.24 codec; no unsupported enum members are added.",
+      "review": {
+        "status": "reviewed",
+        "notes": "PIPELINE-6 promotion of an already reviewed source claim; canonical output remains frozen."
+      },
+      "decision_source": "reconciliation/min_tl_xh_holding_ems_3036_3059_3081_3082.json"
+    },
+    {
+      "decision_id": "min-xh-h3042-ems-semantic-authority",
+      "target": {
+        "canonical_family": "min_tl_xh",
+        "namespace": "MODBUS",
+        "table": "holding",
+        "address": 3042,
+        "property": "semantic_mapping"
+      },
+      "scope": {
+        "family": "min_tl_xh",
+        "model": "MIN/TL-XH",
+        "firmware": null,
+        "protocol_revision": "V1.24",
+        "region": null,
+        "applicability": "MIN/TL-XH EMS holding register"
+      },
+      "decision": {
+        "status": "resolved",
+        "confidence": "medium",
+        "value": {
+          "semantic_key": "grid_first_schedule_3_start_control",
+          "canonical_name": "Grid-first schedule 3 start/control",
+          "datatype": "packed u16: minute/hour/priority/enable",
+          "signedness": "not_applicable",
+          "unit": null,
+          "normalization": "identity",
+          "packed_layout": "xh_schedule_start_control_v124"
+        }
+      },
+      "support": [
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p039:h3042:visual-review",
+        "min_semantic_review:holding:3042:6"
+      ],
+      "conflicts": [],
+      "rationale": "The reviewed V1.24 vendor row and the existing semantic review establish the physical semantic for this MIN/TL-XH EMS register. Packed schedule words retain the reusable V1.24 codec; no unsupported enum members are added.",
+      "review": {
+        "status": "reviewed",
+        "notes": "PIPELINE-6 promotion of an already reviewed source claim; canonical output remains frozen."
+      },
+      "decision_source": "reconciliation/min_tl_xh_holding_ems_3036_3059_3081_3082.json"
+    },
+    {
+      "decision_id": "min-xh-h3043-ems-semantic-authority",
+      "target": {
+        "canonical_family": "min_tl_xh",
+        "namespace": "MODBUS",
+        "table": "holding",
+        "address": 3043,
+        "property": "semantic_mapping"
+      },
+      "scope": {
+        "family": "min_tl_xh",
+        "model": "MIN/TL-XH",
+        "firmware": null,
+        "protocol_revision": "V1.24",
+        "region": null,
+        "applicability": "MIN/TL-XH EMS holding register"
+      },
+      "decision": {
+        "status": "resolved",
+        "confidence": "medium",
+        "value": {
+          "semantic_key": "grid_first_schedule_3_end",
+          "canonical_name": "Grid-first schedule 3 end",
+          "datatype": "packed u16: minute/hour",
+          "signedness": "not_applicable",
+          "unit": null,
+          "normalization": "identity",
+          "packed_layout": "xh_schedule_end_v124"
+        }
+      },
+      "support": [
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p039:h3043:visual-review",
+        "min_semantic_review:holding:3043:7"
+      ],
+      "conflicts": [],
+      "rationale": "The reviewed V1.24 vendor row and the existing semantic review establish the physical semantic for this MIN/TL-XH EMS register. Packed schedule words retain the reusable V1.24 codec; no unsupported enum members are added.",
+      "review": {
+        "status": "reviewed",
+        "notes": "PIPELINE-6 promotion of an already reviewed source claim; canonical output remains frozen."
+      },
+      "decision_source": "reconciliation/min_tl_xh_holding_ems_3036_3059_3081_3082.json"
+    },
+    {
+      "decision_id": "min-xh-h3044-ems-semantic-authority",
+      "target": {
+        "canonical_family": "min_tl_xh",
+        "namespace": "MODBUS",
+        "table": "holding",
+        "address": 3044,
+        "property": "semantic_mapping"
+      },
+      "scope": {
+        "family": "min_tl_xh",
+        "model": "MIN/TL-XH",
+        "firmware": null,
+        "protocol_revision": "V1.24",
+        "region": null,
+        "applicability": "MIN/TL-XH EMS holding register"
+      },
+      "decision": {
+        "status": "resolved",
+        "confidence": "medium",
+        "value": {
+          "semantic_key": "grid_first_schedule_4_start_control",
+          "canonical_name": "Grid-first schedule 4 start/control",
+          "datatype": "packed u16: minute/hour/priority/enable",
+          "signedness": "not_applicable",
+          "unit": null,
+          "normalization": "identity",
+          "packed_layout": "xh_schedule_start_control_v124"
+        }
+      },
+      "support": [
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p039:h3044:visual-review",
+        "min_semantic_review:holding:3044:8"
+      ],
+      "conflicts": [],
+      "rationale": "The reviewed V1.24 vendor row and the existing semantic review establish the physical semantic for this MIN/TL-XH EMS register. Packed schedule words retain the reusable V1.24 codec; no unsupported enum members are added.",
+      "review": {
+        "status": "reviewed",
+        "notes": "PIPELINE-6 promotion of an already reviewed source claim; canonical output remains frozen."
+      },
+      "decision_source": "reconciliation/min_tl_xh_holding_ems_3036_3059_3081_3082.json"
+    },
+    {
+      "decision_id": "min-xh-h3045-ems-semantic-authority",
+      "target": {
+        "canonical_family": "min_tl_xh",
+        "namespace": "MODBUS",
+        "table": "holding",
+        "address": 3045,
+        "property": "semantic_mapping"
+      },
+      "scope": {
+        "family": "min_tl_xh",
+        "model": "MIN/TL-XH",
+        "firmware": null,
+        "protocol_revision": "V1.24",
+        "region": null,
+        "applicability": "MIN/TL-XH EMS holding register"
+      },
+      "decision": {
+        "status": "resolved",
+        "confidence": "medium",
+        "value": {
+          "semantic_key": "grid_first_schedule_4_end",
+          "canonical_name": "Grid-first schedule 4 end",
+          "datatype": "packed u16: minute/hour",
+          "signedness": "not_applicable",
+          "unit": null,
+          "normalization": "identity",
+          "packed_layout": "xh_schedule_end_v124"
+        }
+      },
+      "support": [
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p039:h3045:visual-review",
+        "min_semantic_review:holding:3045:9"
+      ],
+      "conflicts": [],
+      "rationale": "The reviewed V1.24 vendor row and the existing semantic review establish the physical semantic for this MIN/TL-XH EMS register. Packed schedule words retain the reusable V1.24 codec; no unsupported enum members are added.",
+      "review": {
+        "status": "reviewed",
+        "notes": "PIPELINE-6 promotion of an already reviewed source claim; canonical output remains frozen."
+      },
+      "decision_source": "reconciliation/min_tl_xh_holding_ems_3036_3059_3081_3082.json"
     },
     {
       "decision_id": "min-xh-h3046-reserved",
@@ -32665,6 +33001,426 @@
         "notes": "Write access evidence is implementation asserted; vendor access cell is incomplete."
       },
       "decision_source": "reconciliation/min_tl_xh.json"
+    },
+    {
+      "decision_id": "min-xh-h3050-ems-semantic-authority",
+      "target": {
+        "canonical_family": "min_tl_xh",
+        "namespace": "MODBUS",
+        "table": "holding",
+        "address": 3050,
+        "property": "semantic_mapping"
+      },
+      "scope": {
+        "family": "min_tl_xh",
+        "model": "MIN/TL-XH",
+        "firmware": null,
+        "protocol_revision": "V1.24",
+        "region": null,
+        "applicability": "MIN/TL-XH EMS holding register"
+      },
+      "decision": {
+        "status": "resolved",
+        "confidence": "high",
+        "value": {
+          "semantic_key": "battery_first_schedule_1_start_control",
+          "canonical_name": "Battery-first schedule 1 start/control",
+          "datatype": "packed u16: minute/hour/priority/enable",
+          "signedness": "not_applicable",
+          "unit": null,
+          "normalization": "identity",
+          "packed_layout": "xh_schedule_start_control_v124"
+        }
+      },
+      "support": [
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p039:h3050:visual-review",
+        "min_semantic_review:holding:3050:13"
+      ],
+      "conflicts": [],
+      "rationale": "The reviewed V1.24 vendor row and the existing semantic review establish the physical semantic for this MIN/TL-XH EMS register. Packed schedule words retain the reusable V1.24 codec; no unsupported enum members are added.",
+      "review": {
+        "status": "reviewed",
+        "notes": "PIPELINE-6 promotion of an already reviewed source claim; canonical output remains frozen."
+      },
+      "decision_source": "reconciliation/min_tl_xh_holding_ems_3036_3059_3081_3082.json"
+    },
+    {
+      "decision_id": "min-xh-h3051-ems-semantic-authority",
+      "target": {
+        "canonical_family": "min_tl_xh",
+        "namespace": "MODBUS",
+        "table": "holding",
+        "address": 3051,
+        "property": "semantic_mapping"
+      },
+      "scope": {
+        "family": "min_tl_xh",
+        "model": "MIN/TL-XH",
+        "firmware": null,
+        "protocol_revision": "V1.24",
+        "region": null,
+        "applicability": "MIN/TL-XH EMS holding register"
+      },
+      "decision": {
+        "status": "resolved",
+        "confidence": "high",
+        "value": {
+          "semantic_key": "battery_first_schedule_1_end",
+          "canonical_name": "Battery-first schedule 1 end",
+          "datatype": "packed u16: minute/hour",
+          "signedness": "not_applicable",
+          "unit": null,
+          "normalization": "identity",
+          "packed_layout": "xh_schedule_end_v124"
+        }
+      },
+      "support": [
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p039:h3051:visual-review",
+        "min_semantic_review:holding:3051:14"
+      ],
+      "conflicts": [],
+      "rationale": "The reviewed V1.24 vendor row and the existing semantic review establish the physical semantic for this MIN/TL-XH EMS register. Packed schedule words retain the reusable V1.24 codec; no unsupported enum members are added.",
+      "review": {
+        "status": "reviewed",
+        "notes": "PIPELINE-6 promotion of an already reviewed source claim; canonical output remains frozen."
+      },
+      "decision_source": "reconciliation/min_tl_xh_holding_ems_3036_3059_3081_3082.json"
+    },
+    {
+      "decision_id": "min-xh-h3052-ems-semantic-authority",
+      "target": {
+        "canonical_family": "min_tl_xh",
+        "namespace": "MODBUS",
+        "table": "holding",
+        "address": 3052,
+        "property": "semantic_mapping"
+      },
+      "scope": {
+        "family": "min_tl_xh",
+        "model": "MIN/TL-XH",
+        "firmware": null,
+        "protocol_revision": "V1.24",
+        "region": null,
+        "applicability": "MIN/TL-XH EMS holding register"
+      },
+      "decision": {
+        "status": "resolved",
+        "confidence": "medium",
+        "value": {
+          "semantic_key": "battery_first_schedule_2_start_control",
+          "canonical_name": "Battery-first schedule 2 start/control",
+          "datatype": "packed u16: minute/hour/priority/enable",
+          "signedness": "not_applicable",
+          "unit": null,
+          "normalization": "identity",
+          "packed_layout": "xh_schedule_start_control_v124"
+        }
+      },
+      "support": [
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p039:h3052:visual-review",
+        "min_semantic_review:holding:3052:15"
+      ],
+      "conflicts": [],
+      "rationale": "The reviewed V1.24 vendor row and the existing semantic review establish the physical semantic for this MIN/TL-XH EMS register. Packed schedule words retain the reusable V1.24 codec; no unsupported enum members are added.",
+      "review": {
+        "status": "reviewed",
+        "notes": "PIPELINE-6 promotion of an already reviewed source claim; canonical output remains frozen."
+      },
+      "decision_source": "reconciliation/min_tl_xh_holding_ems_3036_3059_3081_3082.json"
+    },
+    {
+      "decision_id": "min-xh-h3053-ems-semantic-authority",
+      "target": {
+        "canonical_family": "min_tl_xh",
+        "namespace": "MODBUS",
+        "table": "holding",
+        "address": 3053,
+        "property": "semantic_mapping"
+      },
+      "scope": {
+        "family": "min_tl_xh",
+        "model": "MIN/TL-XH",
+        "firmware": null,
+        "protocol_revision": "V1.24",
+        "region": null,
+        "applicability": "MIN/TL-XH EMS holding register"
+      },
+      "decision": {
+        "status": "resolved",
+        "confidence": "medium",
+        "value": {
+          "semantic_key": "battery_first_schedule_2_end",
+          "canonical_name": "Battery-first schedule 2 end",
+          "datatype": "packed u16: minute/hour",
+          "signedness": "not_applicable",
+          "unit": null,
+          "normalization": "identity",
+          "packed_layout": "xh_schedule_end_v124"
+        }
+      },
+      "support": [
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p039:h3053:visual-review",
+        "min_semantic_review:holding:3053:16"
+      ],
+      "conflicts": [],
+      "rationale": "The reviewed V1.24 vendor row and the existing semantic review establish the physical semantic for this MIN/TL-XH EMS register. Packed schedule words retain the reusable V1.24 codec; no unsupported enum members are added.",
+      "review": {
+        "status": "reviewed",
+        "notes": "PIPELINE-6 promotion of an already reviewed source claim; canonical output remains frozen."
+      },
+      "decision_source": "reconciliation/min_tl_xh_holding_ems_3036_3059_3081_3082.json"
+    },
+    {
+      "decision_id": "min-xh-h3054-ems-semantic-authority",
+      "target": {
+        "canonical_family": "min_tl_xh",
+        "namespace": "MODBUS",
+        "table": "holding",
+        "address": 3054,
+        "property": "semantic_mapping"
+      },
+      "scope": {
+        "family": "min_tl_xh",
+        "model": "MIN/TL-XH",
+        "firmware": null,
+        "protocol_revision": "V1.24",
+        "region": null,
+        "applicability": "MIN/TL-XH EMS holding register"
+      },
+      "decision": {
+        "status": "resolved",
+        "confidence": "medium",
+        "value": {
+          "semantic_key": "battery_first_schedule_3_start_control",
+          "canonical_name": "Battery-first schedule 3 start/control",
+          "datatype": "packed u16: minute/hour/priority/enable",
+          "signedness": "not_applicable",
+          "unit": null,
+          "normalization": "identity",
+          "packed_layout": "xh_schedule_start_control_v124"
+        }
+      },
+      "support": [
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p039:h3054:visual-review",
+        "min_semantic_review:holding:3054:17"
+      ],
+      "conflicts": [],
+      "rationale": "The reviewed V1.24 vendor row and the existing semantic review establish the physical semantic for this MIN/TL-XH EMS register. Packed schedule words retain the reusable V1.24 codec; no unsupported enum members are added.",
+      "review": {
+        "status": "reviewed",
+        "notes": "PIPELINE-6 promotion of an already reviewed source claim; canonical output remains frozen."
+      },
+      "decision_source": "reconciliation/min_tl_xh_holding_ems_3036_3059_3081_3082.json"
+    },
+    {
+      "decision_id": "min-xh-h3055-ems-semantic-authority",
+      "target": {
+        "canonical_family": "min_tl_xh",
+        "namespace": "MODBUS",
+        "table": "holding",
+        "address": 3055,
+        "property": "semantic_mapping"
+      },
+      "scope": {
+        "family": "min_tl_xh",
+        "model": "MIN/TL-XH",
+        "firmware": null,
+        "protocol_revision": "V1.24",
+        "region": null,
+        "applicability": "MIN/TL-XH EMS holding register"
+      },
+      "decision": {
+        "status": "resolved",
+        "confidence": "medium",
+        "value": {
+          "semantic_key": "battery_first_schedule_3_end",
+          "canonical_name": "Battery-first schedule 3 end",
+          "datatype": "packed u16: minute/hour",
+          "signedness": "not_applicable",
+          "unit": null,
+          "normalization": "identity",
+          "packed_layout": "xh_schedule_end_v124"
+        }
+      },
+      "support": [
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p039:h3055:visual-review",
+        "min_semantic_review:holding:3055:18"
+      ],
+      "conflicts": [],
+      "rationale": "The reviewed V1.24 vendor row and the existing semantic review establish the physical semantic for this MIN/TL-XH EMS register. Packed schedule words retain the reusable V1.24 codec; no unsupported enum members are added.",
+      "review": {
+        "status": "reviewed",
+        "notes": "PIPELINE-6 promotion of an already reviewed source claim; canonical output remains frozen."
+      },
+      "decision_source": "reconciliation/min_tl_xh_holding_ems_3036_3059_3081_3082.json"
+    },
+    {
+      "decision_id": "min-xh-h3056-ems-semantic-authority",
+      "target": {
+        "canonical_family": "min_tl_xh",
+        "namespace": "MODBUS",
+        "table": "holding",
+        "address": 3056,
+        "property": "semantic_mapping"
+      },
+      "scope": {
+        "family": "min_tl_xh",
+        "model": "MIN/TL-XH",
+        "firmware": null,
+        "protocol_revision": "V1.24",
+        "region": null,
+        "applicability": "MIN/TL-XH EMS holding register"
+      },
+      "decision": {
+        "status": "resolved",
+        "confidence": "medium",
+        "value": {
+          "semantic_key": "battery_first_schedule_4_start_control",
+          "canonical_name": "Battery-first schedule 4 start/control",
+          "datatype": "packed u16: minute/hour/priority/enable",
+          "signedness": "not_applicable",
+          "unit": null,
+          "normalization": "identity",
+          "packed_layout": "xh_schedule_start_control_v124"
+        }
+      },
+      "support": [
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p039:h3056:visual-review",
+        "min_semantic_review:holding:3056:19"
+      ],
+      "conflicts": [],
+      "rationale": "The reviewed V1.24 vendor row and the existing semantic review establish the physical semantic for this MIN/TL-XH EMS register. Packed schedule words retain the reusable V1.24 codec; no unsupported enum members are added.",
+      "review": {
+        "status": "reviewed",
+        "notes": "PIPELINE-6 promotion of an already reviewed source claim; canonical output remains frozen."
+      },
+      "decision_source": "reconciliation/min_tl_xh_holding_ems_3036_3059_3081_3082.json"
+    },
+    {
+      "decision_id": "min-xh-h3057-ems-semantic-authority",
+      "target": {
+        "canonical_family": "min_tl_xh",
+        "namespace": "MODBUS",
+        "table": "holding",
+        "address": 3057,
+        "property": "semantic_mapping"
+      },
+      "scope": {
+        "family": "min_tl_xh",
+        "model": "MIN/TL-XH",
+        "firmware": null,
+        "protocol_revision": "V1.24",
+        "region": null,
+        "applicability": "MIN/TL-XH EMS holding register"
+      },
+      "decision": {
+        "status": "resolved",
+        "confidence": "medium",
+        "value": {
+          "semantic_key": "battery_first_schedule_4_end",
+          "canonical_name": "Battery-first schedule 4 end",
+          "datatype": "packed u16: minute/hour",
+          "signedness": "not_applicable",
+          "unit": null,
+          "normalization": "identity",
+          "packed_layout": "xh_schedule_end_v124"
+        }
+      },
+      "support": [
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p039:h3057:visual-review",
+        "min_semantic_review:holding:3057:20"
+      ],
+      "conflicts": [],
+      "rationale": "The reviewed V1.24 vendor row and the existing semantic review establish the physical semantic for this MIN/TL-XH EMS register. Packed schedule words retain the reusable V1.24 codec; no unsupported enum members are added.",
+      "review": {
+        "status": "reviewed",
+        "notes": "PIPELINE-6 promotion of an already reviewed source claim; canonical output remains frozen."
+      },
+      "decision_source": "reconciliation/min_tl_xh_holding_ems_3036_3059_3081_3082.json"
+    },
+    {
+      "decision_id": "min-xh-h3058-ems-semantic-authority",
+      "target": {
+        "canonical_family": "min_tl_xh",
+        "namespace": "MODBUS",
+        "table": "holding",
+        "address": 3058,
+        "property": "semantic_mapping"
+      },
+      "scope": {
+        "family": "min_tl_xh",
+        "model": "MIN/TL-XH",
+        "firmware": null,
+        "protocol_revision": "V1.24",
+        "region": null,
+        "applicability": "MIN/TL-XH EMS holding register"
+      },
+      "decision": {
+        "status": "resolved",
+        "confidence": "medium",
+        "value": {
+          "semantic_key": "battery_first_schedule_5_start_control",
+          "canonical_name": "Battery-first schedule 5 start/control",
+          "datatype": "packed u16: minute/hour/priority/enable",
+          "signedness": "not_applicable",
+          "unit": null,
+          "normalization": "identity",
+          "packed_layout": "xh_schedule_start_control_v124"
+        }
+      },
+      "support": [
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p039:h3058:visual-review",
+        "min_semantic_review:holding:3058:21"
+      ],
+      "conflicts": [],
+      "rationale": "The reviewed V1.24 vendor row and the existing semantic review establish the physical semantic for this MIN/TL-XH EMS register. Packed schedule words retain the reusable V1.24 codec; no unsupported enum members are added.",
+      "review": {
+        "status": "reviewed",
+        "notes": "PIPELINE-6 promotion of an already reviewed source claim; canonical output remains frozen."
+      },
+      "decision_source": "reconciliation/min_tl_xh_holding_ems_3036_3059_3081_3082.json"
+    },
+    {
+      "decision_id": "min-xh-h3059-ems-semantic-authority",
+      "target": {
+        "canonical_family": "min_tl_xh",
+        "namespace": "MODBUS",
+        "table": "holding",
+        "address": 3059,
+        "property": "semantic_mapping"
+      },
+      "scope": {
+        "family": "min_tl_xh",
+        "model": "MIN/TL-XH",
+        "firmware": null,
+        "protocol_revision": "V1.24",
+        "region": null,
+        "applicability": "MIN/TL-XH EMS holding register"
+      },
+      "decision": {
+        "status": "resolved",
+        "confidence": "medium",
+        "value": {
+          "semantic_key": "battery_first_schedule_5_end",
+          "canonical_name": "Battery-first schedule 5 end",
+          "datatype": "packed u16: minute/hour",
+          "signedness": "not_applicable",
+          "unit": null,
+          "normalization": "identity",
+          "packed_layout": "xh_schedule_end_v124"
+        }
+      },
+      "support": [
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p039:h3059:visual-review",
+        "min_semantic_review:holding:3059:22"
+      ],
+      "conflicts": [],
+      "rationale": "The reviewed V1.24 vendor row and the existing semantic review establish the physical semantic for this MIN/TL-XH EMS register. Packed schedule words retain the reusable V1.24 codec; no unsupported enum members are added.",
+      "review": {
+        "status": "reviewed",
+        "notes": "PIPELINE-6 promotion of an already reviewed source claim; canonical output remains frozen."
+      },
+      "decision_source": "reconciliation/min_tl_xh_holding_ems_3036_3059_3081_3082.json"
     },
     {
       "decision_id": "min-xh-h3081-ups-frequency",
@@ -33134,7 +33890,7 @@
     "not_applicable": 61,
     "provisionally_resolved": 1,
     "reserved": 1,
-    "resolved": 525,
+    "resolved": 543,
     "unresolved": 8
   },
   "canonical_status": "shadow_only_not_canonical"
