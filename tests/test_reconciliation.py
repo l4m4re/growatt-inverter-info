@@ -69,6 +69,17 @@ def test_xh_slots_use_reusable_packed_codecs() -> None:
     assert items["min-xh-slot-5-through-9"]["decision"]["value"]["inherits_from"] == "Time1"
 
 
+def test_i3000_raw_normal_decodes_into_status_byte() -> None:
+    item = decisions()["min-input-i3000-status-mode"]["decision"]["value"]
+    raw = 0x0001
+    mode = raw >> 8
+    status = raw & 0xFF
+    assert (mode, status) == (0, 1)
+    assert item["fields"][0]["enum"][str(mode)] == "waiting_module"
+    assert item["fields"][1]["enum"][str(status)] == "normal"
+    assert set(item["fields"][0]["enum"].values()).isdisjoint(item["fields"][1]["enum"].values())
+
+
 def test_status_codebooks_and_current_relationships_remain_explicit() -> None:
     items = decisions()
     derating = items["min-input-i3165-derating-codebook"]["decision"]["value"]
@@ -83,6 +94,20 @@ def test_status_codebooks_and_current_relationships_remain_explicit() -> None:
     assert items["min-input-i3111-present-fft"]["decision"]["value"]["semantic_key"] != "sys_fault_word4"
     assert items["min-input-i3170-bdc-current-magnitude"]["decision"]["value"]["signedness"] == "non_negative"
     assert items["min-input-i3217-bms-current"]["decision"]["value"]["signedness"] == "signed"
+
+
+def test_percentage_normalizations_have_explicit_review_support() -> None:
+    items = decisions()
+    support = {key: set(items[key]["support"]) for key in (
+        "min-xh-h3036-grid-first-discharge-rate",
+        "min-xh-h3037-grid-first-stop-soc",
+        "min-xh-h3082-load-first-stop-soc",
+    )}
+    assert "min_semantic_review:holding:3036:0" in support["min-xh-h3036-grid-first-discharge-rate"]
+    assert "min_semantic_review:holding:3037:1" in support["min-xh-h3037-grid-first-stop-soc"]
+    assert "min_semantic_review:holding:3082:26" in support["min-xh-h3082-load-first-stop-soc"]
+    assert items["min-xh-h3036-grid-first-discharge-rate"]["decision"]["value"]["special_value_semantics"]["255"] == "unresolved"
+    assert items["min-xh-h3082-load-first-stop-soc"]["decision"]["value"]["source_unit"] == "ratio"
 
 
 def test_fc20_is_separate_and_unresolved() -> None:

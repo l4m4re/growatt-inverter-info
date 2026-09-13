@@ -40,6 +40,14 @@ def validate_ranges(value: Any, prefix: str) -> list[str]:
     return errors
 
 
+def require_claims(
+    support: list[str], prefixes: tuple[str, ...], prefix: str, property_name: str
+) -> list[str]:
+    if any(claim_id.startswith(candidate) for claim_id in support for candidate in prefixes):
+        return []
+    return [f"{prefix}: {property_name} lacks required claim-level support"]
+
+
 def validate() -> list[str]:
     errors: list[str] = []
     claims = {item["claim_id"]: item for item in read("sources/claims/generic-claims.json")["claims"]}
@@ -77,6 +85,33 @@ def validate() -> list[str]:
                 errors.append(f"{prefix}: dangling template reference")
         for rejection in item.get("conflicts", []):
             if not rejection.get("reason"): errors.append(f"{prefix}: rejection without reason")
+        address = target.get("address")
+        value = item.get("decision", {}).get("value", {})
+        if address == 3000 and target.get("table") == "input" and "fields" in value:
+            errors.extend(require_claims(item.get("support", []), ("vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:input:p069-070:i3000:visual-review:enum",), prefix, "I3000 packed enum"))
+        if address in {3036, 3037} and target.get("table") == "holding" and value.get("unit") == "%":
+            errors.extend(require_claims(item.get("support", []), ("min_semantic_review:holding:", "openinverter_gateway:devices:GrowattTLXH:holding_registers:"), prefix, f"H{address} percentage interpretation"))
+        if address == 3082 and target.get("table") == "holding" and value.get("unit") == "%":
+            errors.extend(require_claims(item.get("support", []), ("min_semantic_review:holding:3082:",), prefix, "H3082 ratio-to-percentage normalization"))
+        if address == 3166 and target.get("table") == "input" and "fields" in value:
+            errors.extend(require_claims(item.get("support", []), ("vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:input:p078:i3166:visual-review:enum",), prefix, "I3166 packed enum"))
+        if address == 3000 and target.get("table") == "input":
+            fields = {field.get("name"): field for field in value.get("fields", [])}
+            if fields.get("mode", {}).get("bits") != [8, 15] or fields.get("status", {}).get("bits") != [0, 7]:
+                errors.append(f"{prefix}: I3000 mode/status byte assignment is invalid")
+            if set(fields.get("mode", {}).get("enum", {})) != {str(number) for number in range(9)}:
+                errors.append(f"{prefix}: I3000 mode enum is incomplete or has extra values")
+            if set(fields.get("status", {}).get("enum", {})) != {"0", "1", "3", "4"}:
+                errors.append(f"{prefix}: I3000 status enum is incomplete or has extra values")
+        if address == 3166 and target.get("table") == "input":
+            fields = {field.get("name"): field for field in value.get("fields", [])}
+            if fields.get("mode", {}).get("bits") != [8, 15] or fields.get("status", {}).get("bits") != [0, 7]:
+                errors.append(f"{prefix}: I3166 mode/status byte assignment is invalid")
+        if target.get("logical_object") == "xh_schedule_start_control_v124":
+            fields = {field.get("name"): field for field in value.get("fields", [])}
+            expected = {"minute": [0, 7], "hour": [8, 12], "priority": [13, 14], "enable": [15, 15]}
+            if {name: field.get("bits") for name, field in fields.items()} != expected:
+                errors.append(f"{prefix}: XH start/control codec is incomplete or misplaced")
     candidate = read("reconciliation/resolved-assertions.json")
     if candidate.get("canonical_status") != "shadow_only_not_canonical": errors.append("candidate is not marked shadow-only")
     if len(candidate.get("decisions", [])) != len(data["decisions"]): errors.append("candidate/decision count mismatch")

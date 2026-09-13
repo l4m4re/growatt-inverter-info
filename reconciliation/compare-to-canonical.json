@@ -10,6 +10,7 @@
       "classification": "candidate_available_for_parity_review",
       "candidate_status": "resolved",
       "candidate_value": {
+        "semantic_key": "inverter.status",
         "datatype": "u16 packed",
         "fields": [
           {
@@ -17,22 +18,39 @@
             "bits": [
               8,
               15
-            ]
+            ],
+            "enum": {
+              "0": "waiting_module",
+              "1": "self_test",
+              "2": "reserved",
+              "3": "system_fault_module",
+              "4": "flash_module",
+              "5": "pv_battery_online_module",
+              "6": "battery_online_module",
+              "7": "pv_offline_mode",
+              "8": "battery_offline_mode"
+            }
           },
           {
             "name": "status",
             "bits": [
               0,
               7
-            ]
+            ],
+            "enum": {
+              "0": "standby",
+              "1": "normal",
+              "3": "fault",
+              "4": "flash"
+            }
           }
         ],
-        "mode_values": {
-          "0": "waiting",
-          "1": "normal",
-          "3": "fault",
-          "5": "normal_battery_and_solar_online",
-          "6": "normal_battery_only"
+        "observed_decodings": {
+          "0x0001": {
+            "mode": 0,
+            "status": 1,
+            "status_name": "normal"
+          }
         }
       },
       "current_canonical_semantic": "inverter.status"
@@ -264,8 +282,13 @@
       "candidate_value": {
         "semantic_key": "grid_first_discharge_rate",
         "canonical_name": "Grid-first discharge power rate",
-        "datatype": "u16 percentage",
-        "unit": "%"
+        "datatype": "u16",
+        "signedness": "unsigned",
+        "range": "1-255",
+        "unit": "%",
+        "special_value_semantics": {
+          "255": "unresolved"
+        }
       },
       "current_canonical_semantic": "grid.first.discharge.rate"
     },
@@ -277,7 +300,9 @@
       "candidate_value": {
         "semantic_key": "grid_first_stop_soc",
         "canonical_name": "Grid-first stop SOC",
-        "datatype": "u16 percentage",
+        "datatype": "u16",
+        "signedness": "unsigned",
+        "range": "1-100",
         "unit": "%"
       },
       "current_canonical_semantic": "grid.first.stop.soc"
@@ -360,8 +385,11 @@
       "candidate_value": {
         "semantic_key": "load_first_stop_soc",
         "canonical_name": "Load-first stop SOC",
-        "datatype": "u16 percentage",
-        "unit": "%"
+        "datatype": "u16",
+        "signedness": "unsigned",
+        "range": "13-100",
+        "unit": "%",
+        "source_unit": "ratio"
       },
       "current_canonical_semantic": "load.first.stop.soc"
     }

@@ -63,6 +63,7 @@
         "status": "resolved",
         "confidence": "high",
         "value": {
+          "semantic_key": "inverter.status",
           "datatype": "u16 packed",
           "fields": [
             {
@@ -70,32 +71,50 @@
               "bits": [
                 8,
                 15
-              ]
+              ],
+              "enum": {
+                "0": "waiting_module",
+                "1": "self_test",
+                "2": "reserved",
+                "3": "system_fault_module",
+                "4": "flash_module",
+                "5": "pv_battery_online_module",
+                "6": "battery_online_module",
+                "7": "pv_offline_mode",
+                "8": "battery_offline_mode"
+              }
             },
             {
               "name": "status",
               "bits": [
                 0,
                 7
-              ]
+              ],
+              "enum": {
+                "0": "standby",
+                "1": "normal",
+                "3": "fault",
+                "4": "flash"
+              }
             }
           ],
-          "mode_values": {
-            "0": "waiting",
-            "1": "normal",
-            "3": "fault",
-            "5": "normal_battery_and_solar_online",
-            "6": "normal_battery_only"
+          "observed_decodings": {
+            "0x0001": {
+              "mode": 0,
+              "status": 1,
+              "status_name": "normal"
+            }
           }
         }
       },
       "support": [
         "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:input:p069-070:i3000:visual-review:enum",
+        "min_live:raw:input:3000:sample-0",
         "min_live:decoded:status:sample-0",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:0"
       ],
       "conflicts": [],
-      "rationale": "The vendor and retained live/API-reviewed evidence support the packed status/mode interpretation without deriving enum members from formatting artifacts.",
+      "rationale": "The reviewed V1.24 claim explicitly assigns independent high-byte mode and low-byte machine-status enums. The retained I3000 raw value 0x0001 therefore decodes deterministically as mode 0 Waiting module and status 1 Normal; no additional values are inferred.",
       "review": {
         "status": "reviewed",
         "notes": ""
@@ -664,16 +683,24 @@
         "value": {
           "semantic_key": "grid_first_discharge_rate",
           "canonical_name": "Grid-first discharge power rate",
-          "datatype": "u16 percentage",
-          "unit": "%"
+          "datatype": "u16",
+          "signedness": "unsigned",
+          "range": "1-255",
+          "unit": "%",
+          "special_value_semantics": {
+            "255": "unresolved"
+          }
         }
       },
       "support": [
         "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p038:h3036:visual-review",
+        "min_register_map:holding:3036:5",
+        "min_semantic_review:holding:3036:0",
+        "openinverter_gateway:devices:GrowattTLXH:holding_registers:1",
         "min_live:holding:3036:fc03_3036_count14_registers"
       ],
       "conflicts": [],
-      "rationale": "The reviewed source names H3036 GridFirstDischargePowerRate and retained live evidence is a raw observation only; access is intentionally decided separately.",
+      "rationale": "The vendor source supplies the register role and 1-255 range. The reviewed interpretation and independent OpenInverter mapping support the percentage encoding; the possible 255 disable sentinel is retained as unresolved rather than silently promoted.",
       "review": {
         "status": "reviewed",
         "notes": "Vendor source access cell is incomplete; no writeability is inferred here."
@@ -703,16 +730,20 @@
         "value": {
           "semantic_key": "grid_first_stop_soc",
           "canonical_name": "Grid-first stop SOC",
-          "datatype": "u16 percentage",
+          "datatype": "u16",
+          "signedness": "unsigned",
+          "range": "1-100",
           "unit": "%"
         }
       },
       "support": [
         "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p038:h3037:visual-review",
+        "min_semantic_review:holding:3037:1",
+        "openinverter_gateway:devices:GrowattTLXH:holding_registers:2",
         "min_live:holding:3037:fc03_3036_count14_registers"
       ],
       "conflicts": [],
-      "rationale": "The reviewed source names H3037 GridFirstStopSOC. The raw live value remains an observation, not a writeability assertion.",
+      "rationale": "The vendor source supplies the Grid First stop-SOC role and 1-100 range. The reviewed interpretation and independent OpenInverter mapping explicitly support the percentage encoding; the raw live value remains an observation, not a writeability assertion.",
       "review": {
         "status": "reviewed",
         "notes": "Access remains separate and unresolved where source cells are blank."
@@ -985,19 +1016,24 @@
         "value": {
           "semantic_key": "load_first_stop_soc",
           "canonical_name": "Load-first stop SOC",
-          "datatype": "u16 percentage",
-          "unit": "%"
+          "datatype": "u16",
+          "signedness": "unsigned",
+          "range": "13-100",
+          "unit": "%",
+          "source_unit": "ratio"
         }
       },
       "support": [
         "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p040:h3082:visual-review:name",
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p040:h3082:visual-review",
+        "min_semantic_review:holding:3082:26",
         "min_live:holding:3082:fc03_3079_count4_registers"
       ],
       "conflicts": [],
-      "rationale": "The reviewed vendor row identifies H3082 as Load-first stop SOC; the zero live value is not reinterpreted as another meaning.",
+      "rationale": "The vendor source visibly gives StopSoc When LoadFirst, range 13-100, and unit ratio. The separately reviewed interpretation claim resolves this ratio-like SOC control as a percentage candidate; `%` is not presented as literal vendor-unit text. The zero live value is not reinterpreted as another meaning.",
       "review": {
         "status": "reviewed",
-        "notes": ""
+        "notes": "The ratio-to-percentage normalization is claim-supported; source wording remains preserved in the vendor claim."
       },
       "decision_source": "reconciliation/min_tl_xh.json"
     },
