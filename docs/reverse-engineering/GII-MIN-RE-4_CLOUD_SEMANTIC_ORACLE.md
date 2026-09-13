@@ -130,23 +130,35 @@ The complete remaining-field run was:
 
 | Target | Injected word | Active interval | Valid rewrites | Cloud result |
 |---|---:|---:|---:|---|
-| I3165 | `0` | 09:32:26–09:37:21 UTC | 29 | no new history timestamp |
-| I3110 | `0x1234` (`4660`) | 09:38:04–09:43:58 UTC | 69 | no new history timestamp |
-| I3111 | `0x2345` (`9029`) | 09:53:09–09:58:08 UTC | 64 | no new history timestamp |
-| I3211 | `1` | 09:58:50–10:03:50 UTC | 30 | no new history timestamp |
-| I3166 | `0x0101` (`257`) | 10:04:34–10:09:35 UTC | 5 | no new history timestamp |
-| I3212 | `1` | 10:10:15–10:15:14 UTC | 29 | no new history timestamp |
+| I3165 | `0` | 09:32:26–09:37:21 UTC | 29 | direct query still ended at `10:45:56`; no attributable `bdc_derate_reason=0` found later |
+| I3110 | `0x1234` (`4660`) | 09:38:04–09:43:58 UTC | 69 | direct query still ended at `10:45:56`; no attributable `sys_fault_word3=4660` found later |
+| I3111 | `0x2345` (`9029`) | 09:53:09–09:58:08 UTC | 64 | new records through `11:56:13`; `sys_fault_word4=9029` at `11:46:13` and `11:56:13` |
+| I3211 | `1` | 09:58:50–10:03:50 UTC | 30 | new records through `12:01:14`; value `1` is too common for attribution |
+| I3166 | `0x0101` (`257`) | 10:04:34–10:09:35 UTC | 5 | new records through `12:06:14`; no attributable BDC mode/status result |
+| I3212 | `1` | 10:10:15–10:15:14 UTC | 29 | new records through `12:11:14`; `bms_status=1` is not uniquely attributable |
 
 I3111 also had an earlier partial attempt (09:44:59–09:49:48 UTC, 40
 rewrites); it was not counted as evidence and was repeated as the complete
 cycle shown above.
 
-For each completed cycle the API returned the same latest device timestamp,
-`2026-09-13T00:02:13`, despite returning a few additional duplicate history
-rows. This is not a fresh cloud publication and cannot identify any injected
-field. The portal observation supplied during the run likewise showed a stale
-inverter update time. Consequently none of these trials promotes a new
-physical-to-cloud semantic mapping.
+The V4 history is returned newest-first. The earlier analysis incorrectly used
+the final array element, `2026-09-13T00:02:13`, as the latest sample. Correctly
+reading the first/newest records shows that the API did receive newer samples
+during the later cycles. In particular, the two distinctive
+`sys_fault_word4=9029` samples after the I3111 cycle are a strong provisional
+correlation of I3111 with that cloud field. The intervening sample at
+`11:51:13` contained the normal value, and the device/API timestamps are
+offset from the local broker clock, so this is not promoted as conclusive
+without a cleaner isolated window.
+
+The I3211 and I3212 injected value `1` is present in many unrelated status
+fields, and I3166 value `257` occurred in unrelated cloud fields in older
+history. Those matches are therefore not evidence. I3165 and I3110 produced no
+matching distinctive value in the later history available to the experiment.
+The portal observation supplied during the run was stale, but the API history
+itself was not uniformly stale. The correct disposition is therefore one
+provisional cloud correlation (I3111 -> `sys_fault_word4`) and five unresolved
+candidate mappings.
 
 Transport details from the bounded broker logs:
 
@@ -201,10 +213,11 @@ promote a second or conflicting status interpretation.
 
 ## Semantic oracle findings
 
-The cloud API is a useful semantic oracle for field names and relationships,
-but it is not yet a reliable response-injection oracle for this device because
-the history/current endpoints returned a stale or device-time-offset snapshot
-and the injection was not held through a complete five-minute upload.
+The cloud API is a useful semantic oracle for field names and relationships.
+The corrected history analysis demonstrates that response injection can reach
+the cloud-report path, but device/API time offset, delayed/backlog records, and
+the non-unique test values prevent all candidate fields from being resolved in
+this run.
 
 The following correlations are supported at the cloud-field level and remain
 consistent with the canonical GII evidence:
@@ -217,7 +230,7 @@ consistent with the canonical GII evidence:
 | `bdc1_ibat` | BDC/storage-side current magnitude | consistent with I3170 and HA-GII-4B |
 | `bms_ibat` | directional BMS current | consistent with I3217 and HA-GII-4B |
 | `bms_*` voltage/status/error fields | BMS namespace distinct from BDC | no new physical mapping promoted |
-| `warn_code`, `fault_type`, `sys_fault_word*` | cloud status/fault namespaces | not equated to I3110/I3111 by this run |
+| `warn_code`, `fault_type`, `sys_fault_word*` | cloud status/fault namespaces | I3111 has a strong provisional correlation to `sys_fault_word4`; I3110 remains unresolved |
 | FC20 payload | proprietary telemetry/report namespace | kept separate from input-register semantics |
 
 No canonical GII record was edited by RE-4. In particular, I3000, I3165,
@@ -226,11 +239,12 @@ silently reinterpreted.
 
 ## Remaining mapping disposition
 
-The remaining candidate cycles were completed technically, but none produced a
-fresh cloud observation. Therefore the cycles establish only that these
-registers can be rewritten in valid Shine-bound FC03/FC04 responses; they do
-not establish the cloud field corresponding to any injected value. No canonical
-GII or HA mapping change is justified by this run.
+The remaining candidate cycles were completed technically. I3111 produced a
+strong provisional cloud correlation, while the other five candidates did not
+produce an attributable distinctive field. The cycles also establish that the
+registers can be rewritten in valid Shine-bound FC03/FC04 responses. No
+canonical GII or HA mapping change is justified by this run; the I3111 result
+requires one cleaner confirmatory cycle before promotion.
 
 The next useful experiment requires a demonstrably fresh cloud observation
 window (a portal/API timestamp that advances during the run) before another
