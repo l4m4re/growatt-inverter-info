@@ -1,0 +1,3201 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "growatt_fc04_semantic_closure_inventory",
+  "canonical_modified": false,
+  "cohort": {
+    "family": "min_tl_xh",
+    "table": "input",
+    "start": 3000,
+    "end": 3249,
+    "function_code": 4
+  },
+  "source_inputs": {
+    "claims": "ccdfdc50d5d5b69d67deef0256180b34e64d5e0b727c85b2476c957d4cf26c3a",
+    "vendor": "da2cc5349d0cf52498bac854bf5a477a0b64fe4e08475c6f47c216462d7e08d7",
+    "curated": "3c200232581d789b3ccf0e28cba89e341cb0a6859a9224f26a0ae31735e98867",
+    "oracle": "8fa2eb448c01d746d2a614c1eb6eb165a4d125780e2adf90edfefb82d88fee1a",
+    "canonical_parity_target": "bf6e08582e12a5c289b85a5c3e2638ff1097a9a4d4186630affe40754a29f780"
+  },
+  "original_unresolved_count": 129,
+  "targets": [
+    {
+      "address": 3000,
+      "physical_id": "min_tl_xh:input:3000",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "not_applicable_or_unknown",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "source_declared",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3000:602",
+        "curated_fc04_semantics:input:3000-3000:71"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3001,
+      "physical_id": "min_tl_xh:input:3001",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3001:603",
+        "curated_fc04_semantics:input:3001-3002:72"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3002,
+      "physical_id": "min_tl_xh:input:3002",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3002:604",
+        "curated_fc04_semantics:input:3001-3002:72"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3003,
+      "physical_id": "min_tl_xh:input:3003",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3003:605",
+        "curated_fc04_semantics:input:3003-3003:73"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3004,
+      "physical_id": "min_tl_xh:input:3004",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3004:606",
+        "curated_fc04_semantics:input:3004-3004:74"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3005,
+      "physical_id": "min_tl_xh:input:3005",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3005:607",
+        "curated_fc04_semantics:input:3005-3006:75"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3006,
+      "physical_id": "min_tl_xh:input:3006",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3006:608",
+        "curated_fc04_semantics:input:3005-3006:75"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3007,
+      "physical_id": "min_tl_xh:input:3007",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3007:609",
+        "curated_fc04_semantics:input:3007-3007:76"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3008,
+      "physical_id": "min_tl_xh:input:3008",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3008:610",
+        "curated_fc04_semantics:input:3008-3008:77"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3009,
+      "physical_id": "min_tl_xh:input:3009",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3009:611",
+        "curated_fc04_semantics:input:3009-3010:78"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3010,
+      "physical_id": "min_tl_xh:input:3010",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3010:612",
+        "curated_fc04_semantics:input:3009-3010:78"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3013,
+      "physical_id": "min_tl_xh:input:3013",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3013:615",
+        "curated_fc04_semantics:input:3013-3014:81"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3014,
+      "physical_id": "min_tl_xh:input:3014",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3014:616",
+        "curated_fc04_semantics:input:3013-3014:81"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3017,
+      "physical_id": "min_tl_xh:input:3017",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3017:619",
+        "curated_fc04_semantics:input:3017-3018:84"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3018,
+      "physical_id": "min_tl_xh:input:3018",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3018:620",
+        "curated_fc04_semantics:input:3017-3018:84"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3019,
+      "physical_id": "min_tl_xh:input:3019",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3019:621",
+        "curated_fc04_semantics:input:3019-3020:85"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3020,
+      "physical_id": "min_tl_xh:input:3020",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3020:622",
+        "curated_fc04_semantics:input:3019-3020:85"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3021,
+      "physical_id": "min_tl_xh:input:3021",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "source_declared",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3021:623",
+        "curated_fc04_semantics:input:3021-3022:86"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3022,
+      "physical_id": "min_tl_xh:input:3022",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "source_declared",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3022:624",
+        "curated_fc04_semantics:input:3021-3022:86"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3024,
+      "physical_id": "min_tl_xh:input:3024",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3024:626",
+        "curated_fc04_semantics:input:3023-3024:87"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3029,
+      "physical_id": "min_tl_xh:input:3029",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3029:631",
+        "curated_fc04_semantics:input:3028-3029:91"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3033,
+      "physical_id": "min_tl_xh:input:3033",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3033:635",
+        "curated_fc04_semantics:input:3032-3033:94"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3037,
+      "physical_id": "min_tl_xh:input:3037",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3037:639",
+        "curated_fc04_semantics:input:3036-3037:97"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3041,
+      "physical_id": "min_tl_xh:input:3041",
+      "classification": "DERIVED_OR_AGGREGATE",
+      "rationale": "Cloud/API may calculate or aggregate this field; a one-register causal claim must not be assumed.",
+      "dimensions": {
+        "physical": "candidate",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "derived_or_aggregate_candidate",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3041:643",
+        "curated_fc04_semantics:input:3041-3042:101"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3042,
+      "physical_id": "min_tl_xh:input:3042",
+      "classification": "DERIVED_OR_AGGREGATE",
+      "rationale": "Cloud/API may calculate or aggregate this field; a one-register causal claim must not be assumed.",
+      "dimensions": {
+        "physical": "candidate",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "derived_or_aggregate_candidate",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3042:644",
+        "curated_fc04_semantics:input:3041-3042:101"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3043,
+      "physical_id": "min_tl_xh:input:3043",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3043:645",
+        "curated_fc04_semantics:input:3043-3044:102"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3044,
+      "physical_id": "min_tl_xh:input:3044",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3044:646",
+        "curated_fc04_semantics:input:3043-3044:102"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3045,
+      "physical_id": "min_tl_xh:input:3045",
+      "classification": "DERIVED_OR_AGGREGATE",
+      "rationale": "Cloud/API may calculate or aggregate this field; a one-register causal claim must not be assumed.",
+      "dimensions": {
+        "physical": "candidate",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "derived_or_aggregate_candidate",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3045:647",
+        "curated_fc04_semantics:input:3045-3046:103"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3046,
+      "physical_id": "min_tl_xh:input:3046",
+      "classification": "DERIVED_OR_AGGREGATE",
+      "rationale": "Cloud/API may calculate or aggregate this field; a one-register causal claim must not be assumed.",
+      "dimensions": {
+        "physical": "candidate",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "derived_or_aggregate_candidate",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3046:648",
+        "curated_fc04_semantics:input:3045-3046:103"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3047,
+      "physical_id": "min_tl_xh:input:3047",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3047:649",
+        "curated_fc04_semantics:input:3047-3048:104"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3048,
+      "physical_id": "min_tl_xh:input:3048",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3048:650",
+        "curated_fc04_semantics:input:3047-3048:104"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3049,
+      "physical_id": "min_tl_xh:input:3049",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3049:651",
+        "curated_fc04_semantics:input:3049-3050:105"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3050,
+      "physical_id": "min_tl_xh:input:3050",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3050:652",
+        "curated_fc04_semantics:input:3049-3050:105"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3052,
+      "physical_id": "min_tl_xh:input:3052",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3052:654",
+        "curated_fc04_semantics:input:3051-3052:106"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3054,
+      "physical_id": "min_tl_xh:input:3054",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3054:656",
+        "curated_fc04_semantics:input:3053-3054:107"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3056,
+      "physical_id": "min_tl_xh:input:3056",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3056:658",
+        "curated_fc04_semantics:input:3055-3056:108"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3058,
+      "physical_id": "min_tl_xh:input:3058",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3058:660",
+        "curated_fc04_semantics:input:3057-3058:109"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3060,
+      "physical_id": "min_tl_xh:input:3060",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3060:662",
+        "curated_fc04_semantics:input:3059-3060:110"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3062,
+      "physical_id": "min_tl_xh:input:3062",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3062:664",
+        "curated_fc04_semantics:input:3061-3062:111"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3064,
+      "physical_id": "min_tl_xh:input:3064",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3064:666",
+        "curated_fc04_semantics:input:3063-3064:112"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3066,
+      "physical_id": "min_tl_xh:input:3066",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3066:668",
+        "curated_fc04_semantics:input:3065-3066:113"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3067,
+      "physical_id": "min_tl_xh:input:3067",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3067:669",
+        "curated_fc04_semantics:input:3067-3068:114"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3068,
+      "physical_id": "min_tl_xh:input:3068",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3068:670",
+        "curated_fc04_semantics:input:3067-3068:114"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3069,
+      "physical_id": "min_tl_xh:input:3069",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3069:671",
+        "curated_fc04_semantics:input:3069-3070:115"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3070,
+      "physical_id": "min_tl_xh:input:3070",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3070:672",
+        "curated_fc04_semantics:input:3069-3070:115"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3071,
+      "physical_id": "min_tl_xh:input:3071",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3071:673",
+        "curated_fc04_semantics:input:3071-3072:116"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3072,
+      "physical_id": "min_tl_xh:input:3072",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3072:674",
+        "curated_fc04_semantics:input:3071-3072:116"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3073,
+      "physical_id": "min_tl_xh:input:3073",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3073:675",
+        "curated_fc04_semantics:input:3073-3074:117"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3074,
+      "physical_id": "min_tl_xh:input:3074",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3074:676",
+        "curated_fc04_semantics:input:3073-3074:117"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3075,
+      "physical_id": "min_tl_xh:input:3075",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3075:677",
+        "curated_fc04_semantics:input:3075-3076:118"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3076,
+      "physical_id": "min_tl_xh:input:3076",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3076:678",
+        "curated_fc04_semantics:input:3075-3076:118"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3077,
+      "physical_id": "min_tl_xh:input:3077",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3077:679",
+        "curated_fc04_semantics:input:3077-3078:119"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3078,
+      "physical_id": "min_tl_xh:input:3078",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3078:680",
+        "curated_fc04_semantics:input:3077-3078:119"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3080,
+      "physical_id": "min_tl_xh:input:3080",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3080:682",
+        "curated_fc04_semantics:input:3079-3080:120"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3082,
+      "physical_id": "min_tl_xh:input:3082",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3082:684",
+        "curated_fc04_semantics:input:3081-3082:121"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3083,
+      "physical_id": "min_tl_xh:input:3083",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3083:685",
+        "curated_fc04_semantics:input:3083-3084:122"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3084,
+      "physical_id": "min_tl_xh:input:3084",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3084:686",
+        "curated_fc04_semantics:input:3083-3084:122"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3085,
+      "physical_id": "min_tl_xh:input:3085",
+      "classification": "SOURCE_RESEARCH_CANDIDATE",
+      "rationale": "The vendor row or source name is incomplete; source/layout research is higher value than blind cloud injection.",
+      "dimensions": {
+        "physical": "source_row_only",
+        "scale": "unknown",
+        "signedness": "unknown",
+        "unit": "not_applicable_or_unknown",
+        "numeric": "unknown",
+        "semantic": "unknown",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "unknown"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3085:687"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3096,
+      "physical_id": "min_tl_xh:input:3096",
+      "classification": "SOURCE_RESEARCH_CANDIDATE",
+      "rationale": "The vendor row or source name is incomplete; source/layout research is higher value than blind cloud injection.",
+      "dimensions": {
+        "physical": "source_row_only",
+        "scale": "unknown",
+        "signedness": "unknown",
+        "unit": "not_applicable_or_unknown",
+        "numeric": "unknown",
+        "semantic": "unknown",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "unknown"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3096:698"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3102,
+      "physical_id": "min_tl_xh:input:3102",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3102:704",
+        "curated_fc04_semantics:input:3102-3103:138"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3103,
+      "physical_id": "min_tl_xh:input:3103",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3103:705",
+        "curated_fc04_semantics:input:3102-3103:138"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3109,
+      "physical_id": "min_tl_xh:input:3109",
+      "classification": "SOURCE_RESEARCH_CANDIDATE",
+      "rationale": "The vendor row or source name is incomplete; source/layout research is higher value than blind cloud injection.",
+      "dimensions": {
+        "physical": "source_row_only",
+        "scale": "unknown",
+        "signedness": "unknown",
+        "unit": "not_applicable_or_unknown",
+        "numeric": "unknown",
+        "semantic": "unknown",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "unknown"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3109:711"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3110,
+      "physical_id": "min_tl_xh:input:3110",
+      "classification": "EXISTING_EVIDENCE_SUFFICIENT",
+      "rationale": "Existing Cloud/Shine oracle evidence is already claim-backed; no repeat injection is justified.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "not_applicable_or_unknown",
+        "numeric": "source_oracle_bounded",
+        "semantic": "source_oracle_bounded",
+        "enum": "source_declared",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3110:712",
+        "curated_fc04_semantics:input:3110-3111:144",
+        "min_shine_injection:input:3110:0:physical",
+        "min_cloud_oracle:input:3110:0:sys_fault_word3"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3111,
+      "physical_id": "min_tl_xh:input:3111",
+      "classification": "EXISTING_EVIDENCE_SUFFICIENT",
+      "rationale": "Existing Cloud/Shine oracle evidence is already claim-backed; no repeat injection is justified.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "not_applicable_or_unknown",
+        "numeric": "source_oracle_bounded",
+        "semantic": "source_oracle_bounded",
+        "enum": "source_declared",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3111:713",
+        "curated_fc04_semantics:input:3110-3111:144",
+        "min_shine_injection:input:3111:1:physical",
+        "min_cloud_oracle:input:3111:1:sys_fault_word4"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3116,
+      "physical_id": "min_tl_xh:input:3116",
+      "classification": "SOURCE_RESEARCH_CANDIDATE",
+      "rationale": "The vendor row or source name is incomplete; source/layout research is higher value than blind cloud injection.",
+      "dimensions": {
+        "physical": "source_row_only",
+        "scale": "unknown",
+        "signedness": "unknown",
+        "unit": "not_applicable_or_unknown",
+        "numeric": "unknown",
+        "semantic": "unknown",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "unknown"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3116:718"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3117,
+      "physical_id": "min_tl_xh:input:3117",
+      "classification": "SOURCE_RESEARCH_CANDIDATE",
+      "rationale": "The vendor row or source name is incomplete; source/layout research is higher value than blind cloud injection.",
+      "dimensions": {
+        "physical": "source_row_only",
+        "scale": "unknown",
+        "signedness": "unknown",
+        "unit": "not_applicable_or_unknown",
+        "numeric": "unknown",
+        "semantic": "unknown",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "unknown"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3117:719"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3120,
+      "physical_id": "min_tl_xh:input:3120",
+      "classification": "SOURCE_RESEARCH_CANDIDATE",
+      "rationale": "The vendor row or source name is incomplete; source/layout research is higher value than blind cloud injection.",
+      "dimensions": {
+        "physical": "source_row_only",
+        "scale": "unknown",
+        "signedness": "unknown",
+        "unit": "not_applicable_or_unknown",
+        "numeric": "unknown",
+        "semantic": "unknown",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "unknown"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3120:722"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3121,
+      "physical_id": "min_tl_xh:input:3121",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3121:723",
+        "curated_fc04_semantics:input:3121-3122:152"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3122,
+      "physical_id": "min_tl_xh:input:3122",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3122:724",
+        "curated_fc04_semantics:input:3121-3122:152"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3123,
+      "physical_id": "min_tl_xh:input:3123",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3123:725",
+        "curated_fc04_semantics:input:3123-3124:153"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3124,
+      "physical_id": "min_tl_xh:input:3124",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3124:726",
+        "curated_fc04_semantics:input:3123-3124:153"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3125,
+      "physical_id": "min_tl_xh:input:3125",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3125:727",
+        "curated_fc04_semantics:input:3125-3126:155"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3126,
+      "physical_id": "min_tl_xh:input:3126",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3126:728",
+        "curated_fc04_semantics:input:3125-3126:155"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3127,
+      "physical_id": "min_tl_xh:input:3127",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3127:729",
+        "curated_fc04_semantics:input:3127-3128:156"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3128,
+      "physical_id": "min_tl_xh:input:3128",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3128:730",
+        "curated_fc04_semantics:input:3127-3128:156"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3129,
+      "physical_id": "min_tl_xh:input:3129",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3129:731",
+        "curated_fc04_semantics:input:3129-3130:157"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3130,
+      "physical_id": "min_tl_xh:input:3130",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3130:732",
+        "curated_fc04_semantics:input:3129-3130:157"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3131,
+      "physical_id": "min_tl_xh:input:3131",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3131:733",
+        "curated_fc04_semantics:input:3131-3132:158"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3132,
+      "physical_id": "min_tl_xh:input:3132",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3132:734",
+        "curated_fc04_semantics:input:3131-3132:158"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3133,
+      "physical_id": "min_tl_xh:input:3133",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3133:735",
+        "curated_fc04_semantics:input:3133-3134:159"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3134,
+      "physical_id": "min_tl_xh:input:3134",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3134:736",
+        "curated_fc04_semantics:input:3133-3134:159"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3135,
+      "physical_id": "min_tl_xh:input:3135",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3135:737",
+        "curated_fc04_semantics:input:3135-3136:160"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3136,
+      "physical_id": "min_tl_xh:input:3136",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3136:738",
+        "curated_fc04_semantics:input:3135-3136:160"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3137,
+      "physical_id": "min_tl_xh:input:3137",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3137:739",
+        "curated_fc04_semantics:input:3137-3138:161"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3138,
+      "physical_id": "min_tl_xh:input:3138",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3138:740",
+        "curated_fc04_semantics:input:3137-3138:161"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3139,
+      "physical_id": "min_tl_xh:input:3139",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3139:741",
+        "curated_fc04_semantics:input:3139-3140:162"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3140,
+      "physical_id": "min_tl_xh:input:3140",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3140:742",
+        "curated_fc04_semantics:input:3139-3140:162"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3141,
+      "physical_id": "min_tl_xh:input:3141",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3141:743",
+        "curated_fc04_semantics:input:3141-3142:163"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3142,
+      "physical_id": "min_tl_xh:input:3142",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3142:744",
+        "curated_fc04_semantics:input:3141-3142:163"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3143,
+      "physical_id": "min_tl_xh:input:3143",
+      "classification": "SOURCE_RESEARCH_CANDIDATE",
+      "rationale": "The vendor row or source name is incomplete; source/layout research is higher value than blind cloud injection.",
+      "dimensions": {
+        "physical": "source_row_only",
+        "scale": "unknown",
+        "signedness": "unknown",
+        "unit": "not_applicable_or_unknown",
+        "numeric": "unknown",
+        "semantic": "unknown",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "unknown"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3143:745"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3148,
+      "physical_id": "min_tl_xh:input:3148",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3148:750",
+        "curated_fc04_semantics:input:3148-3149:168"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3149,
+      "physical_id": "min_tl_xh:input:3149",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3149:751",
+        "curated_fc04_semantics:input:3148-3149:168"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3152,
+      "physical_id": "min_tl_xh:input:3152",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3152:754",
+        "curated_fc04_semantics:input:3152-3153:171"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3153,
+      "physical_id": "min_tl_xh:input:3153",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3153:755",
+        "curated_fc04_semantics:input:3152-3153:171"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3156,
+      "physical_id": "min_tl_xh:input:3156",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3156:758",
+        "curated_fc04_semantics:input:3156-3157:174"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3157,
+      "physical_id": "min_tl_xh:input:3157",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3157:759",
+        "curated_fc04_semantics:input:3156-3157:174"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3158,
+      "physical_id": "min_tl_xh:input:3158",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3158:760",
+        "curated_fc04_semantics:input:3158-3159:175"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3159,
+      "physical_id": "min_tl_xh:input:3159",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3159:761",
+        "curated_fc04_semantics:input:3158-3159:175"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3163,
+      "physical_id": "min_tl_xh:input:3163",
+      "classification": "SOURCE_RESEARCH_CANDIDATE",
+      "rationale": "The vendor row or source name is incomplete; source/layout research is higher value than blind cloud injection.",
+      "dimensions": {
+        "physical": "source_row_only",
+        "scale": "unknown",
+        "signedness": "unknown",
+        "unit": "not_applicable_or_unknown",
+        "numeric": "unknown",
+        "semantic": "unknown",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "unknown"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3163:765"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3164,
+      "physical_id": "min_tl_xh:input:3164",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "not_applicable_or_unknown",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "source_declared",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3164:766",
+        "curated_fc04_semantics:input:3164-3164:179"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3166,
+      "physical_id": "min_tl_xh:input:3166",
+      "classification": "EXISTING_EVIDENCE_SUFFICIENT",
+      "rationale": "Existing Cloud/Shine oracle evidence is already claim-backed; no repeat injection is justified.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "not_applicable_or_unknown",
+        "numeric": "source_oracle_bounded",
+        "semantic": "source_oracle_bounded",
+        "enum": "source_declared",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3166:768",
+        "curated_fc04_semantics:input:3166-3166:181",
+        "min_shine_injection:input:3166:3:physical"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3171,
+      "physical_id": "min_tl_xh:input:3171",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3171:773",
+        "curated_fc04_semantics:input:3171-3171:186"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3178,
+      "physical_id": "min_tl_xh:input:3178",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "source_declared",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3178:780",
+        "curated_fc04_semantics:input:3178-3179:193"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3179,
+      "physical_id": "min_tl_xh:input:3179",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "source_declared",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3179:781",
+        "curated_fc04_semantics:input:3178-3179:193"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3180,
+      "physical_id": "min_tl_xh:input:3180",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "source_declared",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3180:782",
+        "curated_fc04_semantics:input:3180-3181:194"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3181,
+      "physical_id": "min_tl_xh:input:3181",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "source_declared",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3181:783",
+        "curated_fc04_semantics:input:3180-3181:194"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3183,
+      "physical_id": "min_tl_xh:input:3183",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3183:785",
+        "curated_fc04_semantics:input:3182-3183:195"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3185,
+      "physical_id": "min_tl_xh:input:3185",
+      "classification": "COUNTER_AVOID_ACTIVE_INJECTION",
+      "rationale": "Counter or cumulative semantics can be sourced/passively correlated; fake cloud values would pollute history.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "counter_source_only",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3185:787",
+        "curated_fc04_semantics:input:3184-3185:196"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3186,
+      "physical_id": "min_tl_xh:input:3186",
+      "classification": "SOURCE_RESEARCH_CANDIDATE",
+      "rationale": "The vendor row or source name is incomplete; source/layout research is higher value than blind cloud injection.",
+      "dimensions": {
+        "physical": "source_row_only",
+        "scale": "unknown",
+        "signedness": "unknown",
+        "unit": "not_applicable_or_unknown",
+        "numeric": "unknown",
+        "semantic": "unknown",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "unknown"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3186:788"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3191,
+      "physical_id": "min_tl_xh:input:3191",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "source_declared",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3191:793",
+        "curated_fc04_semantics:input:3191-3191:201"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3194,
+      "physical_id": "min_tl_xh:input:3194",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "source_declared",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3194:796",
+        "curated_fc04_semantics:input:3194-3194:204"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3195,
+      "physical_id": "min_tl_xh:input:3195",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "source_declared",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3195:797",
+        "curated_fc04_semantics:input:3195-3195:205"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3196,
+      "physical_id": "min_tl_xh:input:3196",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3196:798",
+        "curated_fc04_semantics:input:3196-3196:206"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3197,
+      "physical_id": "min_tl_xh:input:3197",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3197:799",
+        "curated_fc04_semantics:input:3197-3197:207"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3200,
+      "physical_id": "min_tl_xh:input:3200",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3200:802",
+        "curated_fc04_semantics:input:3200-3200:211"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3201,
+      "physical_id": "min_tl_xh:input:3201",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3201:803",
+        "curated_fc04_semantics:input:3201-3201:212"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3206,
+      "physical_id": "min_tl_xh:input:3206",
+      "classification": "SOURCE_RESEARCH_CANDIDATE",
+      "rationale": "The vendor row or source name is incomplete; source/layout research is higher value than blind cloud injection.",
+      "dimensions": {
+        "physical": "source_row_only",
+        "scale": "unknown",
+        "signedness": "unknown",
+        "unit": "not_applicable_or_unknown",
+        "numeric": "unknown",
+        "semantic": "unknown",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "unknown"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3206:808"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3207,
+      "physical_id": "min_tl_xh:input:3207",
+      "classification": "SOURCE_RESEARCH_CANDIDATE",
+      "rationale": "The vendor row or source name is incomplete; source/layout research is higher value than blind cloud injection.",
+      "dimensions": {
+        "physical": "source_row_only",
+        "scale": "unknown",
+        "signedness": "unknown",
+        "unit": "not_applicable_or_unknown",
+        "numeric": "unknown",
+        "semantic": "unknown",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "unknown"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3207:809"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3208,
+      "physical_id": "min_tl_xh:input:3208",
+      "classification": "SOURCE_RESEARCH_CANDIDATE",
+      "rationale": "The vendor row or source name is incomplete; source/layout research is higher value than blind cloud injection.",
+      "dimensions": {
+        "physical": "source_row_only",
+        "scale": "unknown",
+        "signedness": "unknown",
+        "unit": "not_applicable_or_unknown",
+        "numeric": "unknown",
+        "semantic": "unknown",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "unknown"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3208:810"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3209,
+      "physical_id": "min_tl_xh:input:3209",
+      "classification": "SOURCE_RESEARCH_CANDIDATE",
+      "rationale": "The vendor row or source name is incomplete; source/layout research is higher value than blind cloud injection.",
+      "dimensions": {
+        "physical": "source_row_only",
+        "scale": "unknown",
+        "signedness": "unknown",
+        "unit": "not_applicable_or_unknown",
+        "numeric": "unknown",
+        "semantic": "unknown",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "unknown"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3209:811"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3215,
+      "physical_id": "min_tl_xh:input:3215",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3215:817",
+        "curated_fc04_semantics:input:3215-3215:222"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3216,
+      "physical_id": "min_tl_xh:input:3216",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3216:818",
+        "curated_fc04_semantics:input:3216-3216:223"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3217,
+      "physical_id": "min_tl_xh:input:3217",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "source_declared",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3217:819",
+        "curated_fc04_semantics:input:3217-3217:224"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3227,
+      "physical_id": "min_tl_xh:input:3227",
+      "classification": "SOURCE_RESEARCH_CANDIDATE",
+      "rationale": "The vendor row or source name is incomplete; source/layout research is higher value than blind cloud injection.",
+      "dimensions": {
+        "physical": "source_row_only",
+        "scale": "unknown",
+        "signedness": "unknown",
+        "unit": "not_applicable_or_unknown",
+        "numeric": "unknown",
+        "semantic": "unknown",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "unknown"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3227:829"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3228,
+      "physical_id": "min_tl_xh:input:3228",
+      "classification": "SOURCE_RESEARCH_CANDIDATE",
+      "rationale": "The vendor row or source name is incomplete; source/layout research is higher value than blind cloud injection.",
+      "dimensions": {
+        "physical": "source_row_only",
+        "scale": "unknown",
+        "signedness": "unknown",
+        "unit": "not_applicable_or_unknown",
+        "numeric": "unknown",
+        "semantic": "unknown",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "unknown"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3228:830"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3229,
+      "physical_id": "min_tl_xh:input:3229",
+      "classification": "SOURCE_RESEARCH_CANDIDATE",
+      "rationale": "The vendor row or source name is incomplete; source/layout research is higher value than blind cloud injection.",
+      "dimensions": {
+        "physical": "source_row_only",
+        "scale": "unknown",
+        "signedness": "unknown",
+        "unit": "not_applicable_or_unknown",
+        "numeric": "unknown",
+        "semantic": "unknown",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "unknown"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3229:831"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3230,
+      "physical_id": "min_tl_xh:input:3230",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3230:832",
+        "curated_fc04_semantics:input:3230-3230:234"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3231,
+      "physical_id": "min_tl_xh:input:3231",
+      "classification": "INSUFFICIENT_EVIDENCE",
+      "rationale": "The source gives a label/encoding candidate, but retained evidence does not prove the exact semantic relationship needed for closure.",
+      "dimensions": {
+        "physical": "resolved",
+        "scale": "source_declared",
+        "signedness": "unknown",
+        "unit": "source_declared",
+        "numeric": "source_declared",
+        "semantic": "unresolved",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "family-scoped"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3231:833",
+        "curated_fc04_semantics:input:3231-3231:235"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    },
+    {
+      "address": 3233,
+      "physical_id": "min_tl_xh:input:3233",
+      "classification": "SOURCE_RESEARCH_CANDIDATE",
+      "rationale": "The vendor row or source name is incomplete; source/layout research is higher value than blind cloud injection.",
+      "dimensions": {
+        "physical": "source_row_only",
+        "scale": "unknown",
+        "signedness": "unknown",
+        "unit": "not_applicable_or_unknown",
+        "numeric": "unknown",
+        "semantic": "unknown",
+        "enum": "not_applicable_or_unknown",
+        "applicability": "unknown"
+      },
+      "source_claims": [
+        "vendor_v124_fc04:input:3233:835"
+      ],
+      "experiment": {
+        "eligible": false,
+        "performed": false
+      }
+    }
+  ],
+  "api_inventory": {
+    "source": "existing sanitized GII-MIN-RE-4 evidence",
+    "read_only": true,
+    "surfaces": [
+      {
+        "group": "inverter",
+        "fields": [
+          "status",
+          "status_text",
+          "operating_mode",
+          "real_op_percent"
+        ]
+      },
+      {
+        "group": "bdc",
+        "fields": [
+          "bdc1_status",
+          "bdc1_mode",
+          "bdc1_ibat",
+          "bdc1_vbat",
+          "bdc1_charge_power",
+          "bdc1_discharge_power",
+          "bdc_derate_reason"
+        ]
+      },
+      {
+        "group": "bms",
+        "fields": [
+          "bms_status",
+          "bms_ibat",
+          "bms_vbat",
+          "bms_soc",
+          "bms_soh",
+          "bms_error",
+          "bms_warning"
+        ]
+      },
+      {
+        "group": "status_words",
+        "fields": [
+          "warn_code",
+          "new_warn_code",
+          "fault_type",
+          "sys_fault_word",
+          "sys_fault_word2",
+          "sys_fault_word3",
+          "sys_fault_word4",
+          "sys_fault_word5",
+          "sys_fault_word6",
+          "sys_fault_word7",
+          "warn_text"
+        ]
+      },
+      {
+        "group": "grid_load_energy",
+        "fields": [
+          "pac",
+          "p_system",
+          "pac_to_local_load",
+          "grid_import",
+          "grid_export",
+          "pv_total",
+          "charge_energy",
+          "discharge_energy"
+        ]
+      },
+      {
+        "group": "winter_mode",
+        "fields": [
+          "win_mode",
+          "win_request",
+          "win_on_grid_soc",
+          "win_off_grid_soc",
+          "win_start",
+          "win_end"
+        ]
+      }
+    ],
+    "field_to_register_is_not_assumed": true
+  },
+  "timing": {
+    "source": "existing GII-MIN-RE-4 bounded run",
+    "shine_cloud_regime": "approximately 5 minutes per publication",
+    "propagation": "assessed only after a held marker crossed a publication boundary",
+    "new_measurement_in_5c": false,
+    "reason": "existing retained timing evidence was sufficient and no new injection was required"
+  },
+  "active_experiments": [],
+  "safety": {
+    "shine_bound_only": true,
+    "local_ground_truth_modified": false,
+    "intentional_inverter_writes": false,
+    "counters_injected": false,
+    "identity_injected": false
+  }
+}
