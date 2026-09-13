@@ -8,10 +8,27 @@
     "schema_version": {"const": "1.0.0"},
     "artifact": {"const": "growatt_generic_source_claims"},
     "generated_by": {"type": "string"},
-    "sources": {"type": "string", "minLength": 1},
+    "sources": {
+      "oneOf": [
+        {"type": "string", "minLength": 1},
+        {"type": "array", "items": {"$ref": "#/$defs/source"}}
+      ]
+    },
+    "source_type_vocabulary": {"type": "array", "items": {"type": "string", "minLength": 1}},
     "claims": {"type": "array", "items": {"$ref": "#/$defs/claim"}}
   },
   "$defs": {
+    "source": {
+      "type": "object",
+      "required": ["source_id", "source_type", "artifact"],
+      "properties": {
+        "source_id": {"type": "string", "minLength": 1},
+        "source_type": {"type": "string", "minLength": 1},
+        "artifact": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+      },
+      "additionalProperties": true
+    },
     "subject": {
       "type": "object",
       "required": ["namespace", "family_scope"],
@@ -86,7 +103,8 @@
       "properties": {
         "method": {"type": "string", "minLength": 1},
         "confidence": {"enum": ["high", "medium", "low", "provisional", "not_attributable", "unknown"]},
-        "status": {"type": "string", "minLength": 1}
+        "status": {"type": "string", "minLength": 1},
+        "grade": {"type": "array", "items": {"type": "string", "minLength": 1}}
       },
       "additionalProperties": false
     },

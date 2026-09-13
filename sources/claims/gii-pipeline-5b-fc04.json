@@ -25,13 +25,13 @@
       "source_id": "min_shine_injection",
       "source_type": "SHINE_BOUND_INJECTION_OBSERVATION",
       "artifact": "sources/evidence/min-6000tl-xh-cloud-oracle-validation.json",
-      "sha256": "8fa2eb448c01d746d2a614c1eb6eb165a4d125780e2adf90edfefb82d88fee1a"
+      "sha256": "95c6cd930194d2b6af04c161781b555a5de3f6555db8c1de52266210d53f519b"
     },
     {
       "source_id": "min_cloud_oracle",
       "source_type": "GROWATT_CLOUD_API_OBSERVATION",
       "artifact": "sources/evidence/min-6000tl-xh-cloud-oracle-validation.json",
-      "sha256": "8fa2eb448c01d746d2a614c1eb6eb165a4d125780e2adf90edfefb82d88fee1a"
+      "sha256": "95c6cd930194d2b6af04c161781b555a5de3f6555db8c1de52266210d53f519b"
     }
   ],
   "source_type_vocabulary": [
@@ -21076,7 +21076,7 @@
       },
       "provenance": {
         "source_artifact": "sources/evidence/min-6000tl-xh-cloud-oracle-validation.json",
-        "document_sha256": "8fa2eb448c01d746d2a614c1eb6eb165a4d125780e2adf90edfefb82d88fee1a",
+        "document_sha256": "95c6cd930194d2b6af04c161781b555a5de3f6555db8c1de52266210d53f519b",
         "record_id": "0",
         "json_pointer": "/records/0"
       },
@@ -21124,7 +21124,7 @@
       },
       "provenance": {
         "source_artifact": "sources/evidence/min-6000tl-xh-cloud-oracle-validation.json",
-        "document_sha256": "8fa2eb448c01d746d2a614c1eb6eb165a4d125780e2adf90edfefb82d88fee1a",
+        "document_sha256": "95c6cd930194d2b6af04c161781b555a5de3f6555db8c1de52266210d53f519b",
         "record_id": "0",
         "json_pointer": "/records/0"
       },
@@ -21174,7 +21174,7 @@
       },
       "provenance": {
         "source_artifact": "sources/evidence/min-6000tl-xh-cloud-oracle-validation.json",
-        "document_sha256": "8fa2eb448c01d746d2a614c1eb6eb165a4d125780e2adf90edfefb82d88fee1a",
+        "document_sha256": "95c6cd930194d2b6af04c161781b555a5de3f6555db8c1de52266210d53f519b",
         "record_id": "1",
         "json_pointer": "/records/1"
       },
@@ -21222,7 +21222,7 @@
       },
       "provenance": {
         "source_artifact": "sources/evidence/min-6000tl-xh-cloud-oracle-validation.json",
-        "document_sha256": "8fa2eb448c01d746d2a614c1eb6eb165a4d125780e2adf90edfefb82d88fee1a",
+        "document_sha256": "95c6cd930194d2b6af04c161781b555a5de3f6555db8c1de52266210d53f519b",
         "record_id": "1",
         "json_pointer": "/records/1"
       },
@@ -21272,7 +21272,7 @@
       },
       "provenance": {
         "source_artifact": "sources/evidence/min-6000tl-xh-cloud-oracle-validation.json",
-        "document_sha256": "8fa2eb448c01d746d2a614c1eb6eb165a4d125780e2adf90edfefb82d88fee1a",
+        "document_sha256": "95c6cd930194d2b6af04c161781b555a5de3f6555db8c1de52266210d53f519b",
         "record_id": "2",
         "json_pointer": "/records/2"
       },
@@ -21320,7 +21320,7 @@
       },
       "provenance": {
         "source_artifact": "sources/evidence/min-6000tl-xh-cloud-oracle-validation.json",
-        "document_sha256": "8fa2eb448c01d746d2a614c1eb6eb165a4d125780e2adf90edfefb82d88fee1a",
+        "document_sha256": "95c6cd930194d2b6af04c161781b555a5de3f6555db8c1de52266210d53f519b",
         "record_id": "2",
         "json_pointer": "/records/2"
       },
@@ -21368,7 +21368,7 @@
       },
       "provenance": {
         "source_artifact": "sources/evidence/min-6000tl-xh-cloud-oracle-validation.json",
-        "document_sha256": "8fa2eb448c01d746d2a614c1eb6eb165a4d125780e2adf90edfefb82d88fee1a",
+        "document_sha256": "95c6cd930194d2b6af04c161781b555a5de3f6555db8c1de52266210d53f519b",
         "record_id": "3",
         "json_pointer": "/records/3"
       },
@@ -21416,7 +21416,7 @@
       },
       "provenance": {
         "source_artifact": "sources/evidence/min-6000tl-xh-cloud-oracle-validation.json",
-        "document_sha256": "8fa2eb448c01d746d2a614c1eb6eb165a4d125780e2adf90edfefb82d88fee1a",
+        "document_sha256": "95c6cd930194d2b6af04c161781b555a5de3f6555db8c1de52266210d53f519b",
         "record_id": "4",
         "json_pointer": "/records/4"
       },
@@ -21464,7 +21464,7 @@
       },
       "provenance": {
         "source_artifact": "sources/evidence/min-6000tl-xh-cloud-oracle-validation.json",
-        "document_sha256": "8fa2eb448c01d746d2a614c1eb6eb165a4d125780e2adf90edfefb82d88fee1a",
+        "document_sha256": "95c6cd930194d2b6af04c161781b555a5de3f6555db8c1de52266210d53f519b",
         "record_id": "5",
         "json_pointer": "/records/5"
       },

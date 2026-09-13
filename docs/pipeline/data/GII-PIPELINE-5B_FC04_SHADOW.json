@@ -15,7 +15,7 @@
     "logical_decisions": 180,
     "canonical_output_not_replaced": true
   },
-  "canonical_parity_target_sha256": "bf6e08582e12a5c289b85a5c3e2638ff1097a9a4d4186630affe40754a29f780",
+  "canonical_parity_target_sha256": "e692d646e34040af999ba4854f65803e4218e184d9e04f2982c06d60782ee405",
   "parity": {
     "physical_identity": 250,
     "source_shape": 250,

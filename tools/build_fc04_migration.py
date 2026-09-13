@@ -333,6 +333,11 @@ def build_reconciliation(claims: dict[str, Any]) -> dict[str, Any]:
             "support": support,
             "conflicts": [],
             "rationale": "The logical mapping is sourced from a bounded reviewed data record; the source variable and physical register remain separately claim-addressable.",
+            "review": {
+                "status": "accepted_source_review",
+                "notes": "PIPELINE-5B bounded FC04 migration decision; canonical output remains unchanged.",
+                "reviewed_at": "2026-09-13",
+            },
         })
 
     for address in range(START, END + 1):
@@ -361,6 +366,11 @@ def build_reconciliation(claims: dict[str, Any]) -> dict[str, Any]:
             "support": support,
             "conflicts": [],
             "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
+            "review": {
+                "status": "accepted_source_review",
+                "notes": "PIPELINE-5B bounded FC04 migration decision; canonical output remains unchanged.",
+                "reviewed_at": "2026-09-13",
+            },
         })
 
     return {
