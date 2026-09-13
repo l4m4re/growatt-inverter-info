@@ -7,6 +7,7 @@
 Starting SHA: `4eb8b10364751e4d29243481501c4c72b6def69a`  
 Branch: `research/gii-pipeline-5d-min-tlxh-source-closure-20260913`  
 Implementation commit: `4c820ce`  
+Final implementation SHA: `6bce92a8b8b74b4f4ec2aca9734289f2ac52e2a8`  
 Canonical modified: `false`  
 Active experiments: none
 
