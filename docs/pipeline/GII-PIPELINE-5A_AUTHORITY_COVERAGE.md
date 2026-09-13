@@ -13,28 +13,31 @@ This task does not cut over canonical generation and does not change any
 register semantics, Home Assistant code, broker behavior, hardware or
 production configuration.
 
+## Repaired lineage metadata
+
+| Item | Value |
+|---|---|
+| Repair branch | `repair/gii-pipeline-5a-5d-lineage-20260913` |
+| Accepted base | `8ceb8cd94f50235af4fc10b44ad8cbb355919518` (PIPELINE-4A) |
+| Original stage commit | `3357ce56b445c1d4783d8d5888b31d75052c6d3e` |
+| Replayed stage commit | `5bc715e035612c57e03252f2e7f03c2796d1698c` |
+| Repaired artifact commit | `755986d03f74cc4fdebe30f7a91a4d6d384c73fc` |
+| Canonical modified | `false` |
+
 ## Starting point
 
 | Item | Value |
 | --- | --- |
-| Starting branch | `main` |
-| Starting SHA | `5fa71e87ac89f66b13dcf1599834a2f7a446981b` |
+| Starting branch | `repair/gii-pipeline-5a-5d-lineage-20260913` |
+| Starting SHA | `8ceb8cd94f50235af4fc10b44ad8cbb355919518` |
 | Canonical artifact | `spec/growatt-register-spec.json` |
-| Canonical SHA-256 | `bf6e08582e12a5c289b85a5c3e2638ff1097a9a4d4186630affe40754a29f780` |
+| Canonical SHA-256 | `e692d646e34040af999ba4854f65803e4218e184d9e04f2982c06d60782ee405` |
 | Declarative diagnostic reference | `8ceb8cd94f50235af4fc10b44ad8cbb355919518` |
 | Working tree | clean at start |
 
-The task branch is:
-
-`research/gii-pipeline-5a-authority-coverage-20260913`
-
-The current `main` tree has no checked-in `reconciliation/` or
-`sources/claims/` directory. Therefore the 4A layer is loaded only as a
-fixed, historical, non-authoritative diagnostic snapshot from the recorded
-4A commit. The coverage artifact records that fact explicitly. A future
-migration must first make the reviewed declarative source available in the
-same source history as the migration cohort, without promoting it to
-canonical authority prematurely.
+The repaired branch contains the reviewed 4A declarative source and keeps it
+non-authoritative for the canonical generator. A future migration must still
+promote it only through the reviewed authority gates.
 
 ## Authority diagram
 
@@ -116,7 +119,7 @@ record.
 
 ## Declarative coverage
 
-The historical PIPELINE-4A snapshot contains 29 decisions:
+The repaired PIPELINE-4A reconciliation contains 29 decisions:
 
 | Measure | Count |
 | --- | ---: |
@@ -124,7 +127,7 @@ The historical PIPELINE-4A snapshot contains 29 decisions:
 | Physical MODBUS targets | 18 |
 | Logical targets | 10 |
 | FC0x20 logical target | 1 |
-| Matching current-main canonical family records | 18 |
+| Matching repaired canonical family records | 18 |
 
 The 18 physical targets are the reviewed MIN/TL-XH subjects at H3036, H3037,
 H3046-H3049, H3081-H3082, I3000, I3101, I3110-I3111, I3165-I3166, I3170,
@@ -159,9 +162,9 @@ not be a safe cutover.
 ## Current authority origins
 
 The machine-readable inventory records one entry for every canonical physical
-record and property-level origin details. The current output has 49,864
-non-empty property cells. Of those, 49,622 (99.51%) still involve either a
-legacy Python or compatibility-rule origin. Seven cells are exclusively
+record and property-level origin details. The repaired output has 49,867
+non-empty property cells. Of those, 49,632 (99.53%) still involve either a
+legacy Python or compatibility-rule origin. Forty-one cells are exclusively
 legacy-Python supplied; most other cells combine source/compatibility data
 with generator transformations. Unknown origin cells are explicitly counted
 as zero by this inventory, but that does not mean their provenance is complete
@@ -320,15 +323,14 @@ python3 -m pytest -q tests/test_authority_coverage.py
 3 passed
 ```
 
-The canonical artifact remained byte-identical to the starting SHA. No live
+The canonical artifact remained byte-identical to the repaired starting SHA. No live
 hardware, cloud API, Home Assistant, broker or inverter state was accessed or
 changed.
 
 ## Remaining risks and follow-up
 
-* The declarative layer is currently in a historical PIPELINE-4A ref rather
-  than `main`; its source claims and reconciliation files need a reviewed,
-  non-authoritative migration into the active source line.
+* The declarative layer is present on this repair branch rather than `main`;
+  it remains a reviewed, non-authoritative migration input.
 * Property-origin classification is exact for the known generator paths, but
   source-level provenance is not yet uniformly property-granular in the
   canonical schema.

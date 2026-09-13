@@ -16,9 +16,9 @@ Starting SHA:
 
 `8ceb8cd94f50235af4fc10b44ad8cbb355919518`
 
-The verified implementation tip immediately before adding this report was
-`6214202`; the final branch tip is reported in the handoff together with its
-remote SHA.
+The verified implementation tip before LINEAGE-REPAIR-1A metadata
+normalization was `0c31a66e2bd6203dfa7a9cf81f1ac434b6ea3611`; the final branch
+tip is reported in the handoff together with its remote SHA.
 
 ## Replayed history
 
@@ -26,12 +26,12 @@ The six historical pipeline commits were cherry-picked in order:
 
 | Stage | Original commit | Repaired replay |
 |---|---|---|
-| 5A authority coverage | `3357ce5` | `5bc715e` |
-| 5B FC04 migration | `fee9a0e` | `bfee137` |
-| 5C semantic closure | `4eb8b10` | `969431a` |
-| 5D source-research implementation | `4c820ce` | `4429472` |
-| 5D checkpoint | `6bce92a` | `cf6a3de` |
-| 5D final report | `08975f2` | `717468b` |
+| 5A authority coverage | `3357ce56b445c1d4783d8d5888b31d75052c6d3e` | `5bc715e035612c57e03252f2e7f03c2796d1698c` |
+| 5B FC04 migration | `fee9a0ec1348937af853148d95b948e9a0540b24` | `bfee1377750690d200c76c3454596312d0a7ffd5` |
+| 5C semantic closure | `4eb8b10364751e4d29243481501c4c72b6def69a` | `969431af1a117b5423eef821eb2bd3b500e32f55` |
+| 5D source-research implementation | `4c820ce` | `4429472de51d18b44d36ecf672957f563e04e963` |
+| 5D checkpoint | `6bce92a` | `cf6a3def77c1f636e2900ea3912c0aabeefc8d42` |
+| 5D final report | `08975f2` | `717468b26ec8d06fb261b128f4b96b742672d053` |
 
 The replay required repair commits because the original generated artifacts
 embedded the canonical SHA and claim/reconciliation assumptions from the
@@ -80,10 +80,8 @@ The repaired authority snapshot is generated against the 4A canonical output:
 - 41 legacy-exclusive cells;
 - 18 declarative diagnostic targets.
 
-The historical wrong-lineage snapshot reported 49,864 cells, 49,622
-legacy-authoritative cells and 7 legacy-exclusive cells. The repaired numbers
-are not semantic edits to the canonical spec; they are the authority inventory
-of the accepted 4A tree.
+These are not semantic edits to the canonical spec; they are the authority
+inventory of the accepted 4A tree.
 
 ### PIPELINE-5B
 

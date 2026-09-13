@@ -11,8 +11,20 @@ counters, possible aggregates, source-research items or insufficient evidence.
 No new live experiment was necessary or started. Canonical output remains
 frozen.
 
-Starting SHA: `fee9a0ec1348937af853148d95b948e9a0540b24`  
-Branch: `research/gii-pipeline-5c-cloud-oracle-closure-20260913`  
+## Repaired lineage metadata
+
+| Item | Value |
+|---|---|
+| Repair branch | `repair/gii-pipeline-5a-5d-lineage-20260913` |
+| Accepted base | `8ceb8cd94f50235af4fc10b44ad8cbb355919518` (PIPELINE-4A) |
+| Repaired 5B parent | `fade85974d658c7d487c44a48821263010f685b7` |
+| Original stage commit | `4eb8b10364751e4d29243481501c4c72b6def69a` |
+| Replayed stage commit | `969431af1a117b5423eef821eb2bd3b500e32f55` |
+| Repaired contract commit | `6f664fff6b1523bf1a485b420dc8d4d3237eb1e0` |
+| Canonical SHA-256 | `e692d646e34040af999ba4854f65803e4218e184d9e04f2982c06d60782ee405` |
+
+Starting SHA: `fade85974d658c7d487c44a48821263010f685b7`
+Branch: `repair/gii-pipeline-5a-5d-lineage-20260913`
 Canonical modified: `false`
 
 Machine-readable outputs:

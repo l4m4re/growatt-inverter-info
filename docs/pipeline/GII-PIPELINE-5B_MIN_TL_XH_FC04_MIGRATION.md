@@ -10,9 +10,21 @@ specification was not regenerated or changed. The shadow is usable as the
 next reviewed authority input, but 129 semantic parity items remain explicitly
 unresolved and must not silently replace existing canonical semantics.
 
-Starting SHA: `3357ce56b445c1d4783d8d5888b31d75052c6d3e`  
-PIPELINE-5A SHA: `3357ce56b445c1d4783d8d5888b31d75052c6d3e`  
-Branch: `migration/gii-pipeline-5b-min-tlxh-fc04-20260913`  
+## Repaired lineage metadata
+
+| Item | Value |
+|---|---|
+| Repair branch | `repair/gii-pipeline-5a-5d-lineage-20260913` |
+| Accepted base | `8ceb8cd94f50235af4fc10b44ad8cbb355919518` (PIPELINE-4A) |
+| Repaired 5A parent | `755986d03f74cc4fdebe30f7a91a4d6d384c73fc` |
+| Original stage commit | `fee9a0ec1348937af853148d95b948e9a0540b24` |
+| Replayed stage commit | `bfee1377750690d200c76c3454596312d0a7ffd5` |
+| Repaired contract commit | `fade85974d658c7d487c44a48821263010f685b7` |
+| Canonical SHA-256 | `e692d646e34040af999ba4854f65803e4218e184d9e04f2982c06d60782ee405` |
+
+Starting SHA: `755986d03f74cc4fdebe30f7a91a4d6d384c73fc`
+PIPELINE-5A SHA: `755986d03f74cc4fdebe30f7a91a4d6d384c73fc`
+Branch: `repair/gii-pipeline-5a-5d-lineage-20260913`
 Canonical modified: `false`
 
 ## Scope and result
@@ -129,14 +141,15 @@ normalized names exactly and are classified as representation-only parity.
 The remaining 129 semantic differences are classified `UNRESOLVED`; no
 semantic correction was silently promoted.
 
-PIPELINE-5A reported 22 declarative property cells in this cohort and 3,728
-missing declarative property cells. The new shadow explicitly declares 2,935
+The repaired PIPELINE-5A inventory reports 49,867 canonical property cells,
+49,632 legacy-authoritative cells (99.53%) and 41 legacy-exclusive cells. The
+new shadow explicitly declares 2,935
 source-backed property cells across physical identity/layout, access,
 applicability, aliases, provenance, read-only write semantics and available
 logical source mappings. On the same projected cohort basis, legacy-dependent
 cells reduce from 3,166 to a projected 231. These are shadow metrics: because
 the global generator cutover is intentionally deferred, the current
-repository-wide canonical inventory remains 49,622 legacy/compatibility
+repository-wide canonical inventory remains 49,632 legacy/compatibility
 property cells until a later reviewed cutover.
 
 The remaining follow-up is concrete: resolve the 129 semantic parity items,

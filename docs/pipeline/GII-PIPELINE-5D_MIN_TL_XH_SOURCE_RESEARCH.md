@@ -4,10 +4,10 @@
 
 `GII_PIPELINE_FC04_SOURCE_CLOSURE_ACCEPTED_WITH_FOLLOW_UP`
 
-Starting SHA: `4eb8b10364751e4d29243481501c4c72b6def69a`  
-Branch: `research/gii-pipeline-5d-min-tlxh-source-closure-20260913`  
-Implementation commit: `4c820ce`  
-Final implementation SHA: `6bce92a8b8b74b4f4ec2aca9734289f2ac52e2a8`  
+Starting SHA: `6f664fff6b1523bf1a485b420dc8d4d3237eb1e0`
+Branch: `repair/gii-pipeline-5a-5d-lineage-20260913`
+Implementation commit: `4429472de51d18b44d36ecf672957f563e04e963`
+Final implementation SHA: `638b061c05dae49d1859d7412dbb78a217839719`
 Canonical modified: `false`  
 Active experiments: none
 
@@ -15,6 +15,20 @@ PIPELINE-5D reviewed exactly the 17 `SOURCE_RESEARCH_CANDIDATE` records from
 PIPELINE-5C. It did not reopen the 51 insufficient-evidence records, inject
 Cloud/Shine values, or alter the inverter, broker, Home Assistant, or canonical
 register specification.
+
+## Repaired lineage metadata
+
+| Item | Value |
+|---|---|
+| Repair branch | `repair/gii-pipeline-5a-5d-lineage-20260913` |
+| Accepted base | `8ceb8cd94f50235af4fc10b44ad8cbb355919518` (PIPELINE-4A) |
+| Repaired 5C parent | `6f664fff6b1523bf1a485b420dc8d4d3237eb1e0` |
+| Original implementation commit | `4c820ce` |
+| Replayed implementation commit | `4429472de51d18b44d36ecf672957f563e04e963` |
+| Repaired contract commit | `638b061c05dae49d1859d7412dbb78a217839719` |
+| Checkpoint replay | `cf6a3def77c1f636e2900ea3912c0aabeefc8d42` |
+| Final-report replay | `717468b26ec8d06fb261b128f4b96b742672d053` |
+| Canonical SHA-256 | `e692d646e34040af999ba4854f65803e4218e184d9e04f2982c06d60782ee405` |
 
 ## Deliverables
 
@@ -123,9 +137,9 @@ output. For the 17 candidate records its before/after numbers are unchanged:
 |---|---:|---:|
 | cohort declarative-authoritative property cells | 0 | 0 |
 | cohort legacy-authoritative dependency cells | 52 | 52 |
-| repository declarative-authoritative property cells | 242 | 242 |
-| repository legacy-authoritative property cells | 49,622 | 49,622 |
-| repository canonical property cells | 49,864 | 49,864 |
+| repository declarative-authoritative property cells | 235 | 235 |
+| repository legacy-authoritative property cells | 49,632 | 49,632 |
+| repository canonical property cells | 49,867 | 49,867 |
 
 This unchanged 5A result is intentional: 5D adds property-level declarative
 evidence and reconciliation, but does not cut that evidence into the canonical
