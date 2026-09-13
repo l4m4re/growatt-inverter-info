@@ -2,7 +2,7 @@
 
 ## Disposition
 
-`GII_PIPELINE_LINEAGE_REPAIR_ACCEPTED_WITH_FOLLOW_UP`
+`ACCEPTED_WITH_FOLLOW_UP`
 
 This branch reconstructs PIPELINE-5A through 5D on the accepted PIPELINE-4A
 architecture. The original historical branches were not rewritten and the
@@ -17,8 +17,8 @@ Starting SHA:
 `8ceb8cd94f50235af4fc10b44ad8cbb355919518`
 
 The verified implementation tip immediately before adding this report was
-`6214202`; the final branch tip is the commit that adds this report and is
-reported in the handoff together with its remote SHA.
+`6214202`; the final branch tip is reported in the handoff together with its
+remote SHA.
 
 ## Replayed history
 
