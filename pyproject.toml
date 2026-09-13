@@ -31,6 +31,8 @@ growatt-build-fc04-migration = "tools.build_fc04_migration:main"
 growatt-validate-fc04-migration = "tools.validate_fc04_migration:main"
 growatt-build-fc04-closure = "tools.build_fc04_closure:main"
 growatt-validate-fc04-closure = "tools.validate_fc04_closure:main"
+growatt-build-fc04-source-research = "tools.build_fc04_source_research:main"
+growatt-validate-fc04-source-research = "tools.validate_fc04_source_research:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

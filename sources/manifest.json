@@ -20,6 +20,7 @@
       "sources/external/*snapshot.json",
       "sources/runtime/ha-local-registers.snapshot.json",
       "sources/evidence/min-6000tl-xh-*.json",
+      "sources/evidence/gii-pipeline-5d-*.json",
       "knowledge/",
       "spec/"
     ],
