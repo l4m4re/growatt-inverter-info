@@ -2,7 +2,7 @@
 
 ## Disposition
 
-`ACCEPTED_WITH_FOLLOW_UP`
+`GII_PIPELINE_LINEAGE_REPAIR_ACCEPTED`
 
 This branch reconstructs PIPELINE-5A through 5D on the accepted PIPELINE-4A
 architecture. The original historical branches were not rewritten and the
