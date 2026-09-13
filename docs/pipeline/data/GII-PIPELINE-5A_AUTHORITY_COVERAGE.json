@@ -5,16 +5,16 @@
   "inputs": {
     "canonical": {
       "path": "spec/growatt-register-spec.json",
-      "sha256": "bf6e08582e12a5c289b85a5c3e2638ff1097a9a4d4186630affe40754a29f780"
+      "sha256": "e692d646e34040af999ba4854f65803e4218e184d9e04f2982c06d60782ee405"
     },
     "compatibility": {
       "path": "knowledge/compatibility/growatt-register-reference.json",
-      "sha256": "75a5b0dd2c78cba1158cbcc1ba83cdc651f8f0bd933a208fd8ba6b889aa34aca",
+      "sha256": "d4c0aee9d903c114d25f4526184152650a73b24d8cef24fe748a3085ea952e44",
       "role": "current legacy generator input, not future authority"
     },
     "declarative": {
-      "status": "historical_non_authoritative_snapshot",
-      "source": "git:8ceb8cd94f50235af4fc10b44ad8cbb355919518:reconciliation/min_tl_xh.json"
+      "status": "local_non_authoritative_input",
+      "source": "reconciliation/min_tl_xh.json"
     }
   },
   "authority_status": {
@@ -37,8 +37,8 @@
     "expansion_ratio_family_records_per_bus_unit": 2.26
   },
   "declarative_coverage": {
-    "status": "historical_non_authoritative_snapshot",
-    "source": "git:8ceb8cd94f50235af4fc10b44ad8cbb355919518:reconciliation/min_tl_xh.json",
+    "status": "local_non_authoritative_input",
+    "source": "reconciliation/min_tl_xh.json",
     "physical_targets": 18,
     "canonical_family_target_matches": 18,
     "decision_record_count": 29,
@@ -122,10 +122,10 @@
     }
   },
   "authority_origin_metrics": {
-    "canonical_property_cells": 49864,
-    "legacy_authoritative_property_cells": 49622,
-    "legacy_authoritative_property_cell_percentage": 99.51,
-    "legacy_exclusive_property_cells": 7,
+    "canonical_property_cells": 49867,
+    "legacy_authoritative_property_cells": 49632,
+    "legacy_authoritative_property_cell_percentage": 99.53,
+    "legacy_exclusive_property_cells": 41,
     "unknown_origin_property_cells": 0,
     "by_property": {
       "physical_identity": {
@@ -145,16 +145,18 @@
       "signedness": {
         "cells": 4048,
         "current_origin_counts": {
-          "MULTIPLE_SOURCES": 4048
+          "LEGACY_PYTHON": 8,
+          "MULTIPLE_SOURCES": 4040
         },
-        "legacy_exclusive_cells": 0
+        "legacy_exclusive_cells": 8
       },
       "scale": {
         "cells": 4048,
         "current_origin_counts": {
-          "MULTIPLE_SOURCES": 4048
+          "LEGACY_PYTHON": 8,
+          "MULTIPLE_SOURCES": 4040
         },
-        "legacy_exclusive_cells": 0
+        "legacy_exclusive_cells": 8
       },
       "unit": {
         "cells": 2133,
@@ -178,19 +180,20 @@
         "legacy_exclusive_cells": 0
       },
       "enum_definitions": {
-        "cells": 162,
-        "current_origin_counts": {
-          "MULTIPLE_SOURCES": 162
-        },
-        "legacy_exclusive_cells": 0
-      },
-      "packed_layout": {
-        "cells": 87,
+        "cells": 164,
         "current_origin_counts": {
           "LEGACY_PYTHON": 7,
-          "MULTIPLE_SOURCES": 80
+          "MULTIPLE_SOURCES": 157
         },
         "legacy_exclusive_cells": 7
+      },
+      "packed_layout": {
+        "cells": 88,
+        "current_origin_counts": {
+          "LEGACY_PYTHON": 10,
+          "MULTIPLE_SOURCES": 78
+        },
+        "legacy_exclusive_cells": 10
       },
       "access": {
         "cells": 4048,
@@ -223,9 +226,10 @@
       "normalization": {
         "cells": 4048,
         "current_origin_counts": {
-          "MULTIPLE_SOURCES": 4048
+          "LEGACY_PYTHON": 8,
+          "MULTIPLE_SOURCES": 4040
         },
-        "legacy_exclusive_cells": 0
+        "legacy_exclusive_cells": 8
       },
       "write_semantics": {
         "cells": 4048,
@@ -483,10 +487,10 @@
       "source_provenance_records": 39
     },
     "structured_encoding": {
-      "family_records": 1503,
-      "physical_units": 594,
-      "semantic_records": 1416,
-      "source_provenance_records": 1503
+      "family_records": 1507,
+      "physical_units": 595,
+      "semantic_records": 1420,
+      "source_provenance_records": 1507
     },
     "shared_bus_units": {
       "physical_units": 1044,
@@ -512,9 +516,9 @@
     "provenance": "Every supported semantic property has decision and claim/evidence traceability; unresolved facts remain unresolved."
   },
   "migration_class_counts": {
-    "COMPATIBILITY_DERIVED": 1675,
+    "COMPATIBILITY_DERIVED": 1674,
     "EVIDENCE_GATED": 656,
-    "LEGACY_ONLY_COMPLEX": 494,
+    "LEGACY_ONLY_COMPLEX": 495,
     "PARTIAL_DECLARATIVE": 18,
     "SYNTHETIC_OR_GENERATED": 1205
   },
@@ -23250,9 +23254,12 @@
       ],
       "declarative_properties": [],
       "legacy_dependencies": [
+        "enum_definitions",
         "human_description",
         "normalization",
         "physical_quantity",
+        "scale",
+        "signedness",
         "write_semantics"
       ],
       "compatibility_dependencies": [
@@ -23261,12 +23268,9 @@
         "human_description",
         "length_words",
         "model_applicability",
-        "normalization",
         "physical_identity",
         "physical_quantity",
         "provenance_support",
-        "scale",
-        "signedness",
         "write_semantics"
       ],
       "missing_declarative_properties": [
@@ -28921,7 +28925,10 @@
       "legacy_dependencies": [
         "human_description",
         "normalization",
+        "packed_layout",
         "physical_quantity",
+        "scale",
+        "signedness",
         "write_semantics"
       ],
       "compatibility_dependencies": [
@@ -28930,12 +28937,9 @@
         "human_description",
         "length_words",
         "model_applicability",
-        "normalization",
         "physical_identity",
         "physical_quantity",
         "provenance_support",
-        "scale",
-        "signedness",
         "write_semantics"
       ],
       "missing_declarative_properties": [
@@ -33554,9 +33558,12 @@
       ],
       "declarative_properties": [],
       "legacy_dependencies": [
+        "enum_definitions",
         "human_description",
         "normalization",
         "physical_quantity",
+        "scale",
+        "signedness",
         "write_semantics"
       ],
       "compatibility_dependencies": [
@@ -33565,12 +33572,9 @@
         "human_description",
         "length_words",
         "model_applicability",
-        "normalization",
         "physical_identity",
         "physical_quantity",
         "provenance_support",
-        "scale",
-        "signedness",
         "write_semantics"
       ],
       "missing_declarative_properties": [
@@ -34526,7 +34530,10 @@
       "legacy_dependencies": [
         "human_description",
         "normalization",
+        "packed_layout",
         "physical_quantity",
+        "scale",
+        "signedness",
         "write_semantics"
       ],
       "compatibility_dependencies": [
@@ -34535,12 +34542,9 @@
         "human_description",
         "length_words",
         "model_applicability",
-        "normalization",
         "physical_identity",
         "physical_quantity",
         "provenance_support",
-        "scale",
-        "signedness",
         "write_semantics"
       ],
       "missing_declarative_properties": [
@@ -35257,9 +35261,12 @@
       ],
       "declarative_properties": [],
       "legacy_dependencies": [
+        "enum_definitions",
         "human_description",
         "normalization",
         "physical_quantity",
+        "scale",
+        "signedness",
         "write_semantics"
       ],
       "compatibility_dependencies": [
@@ -35268,12 +35275,9 @@
         "human_description",
         "length_words",
         "model_applicability",
-        "normalization",
         "physical_identity",
         "physical_quantity",
         "provenance_support",
-        "scale",
-        "signedness",
         "write_semantics"
       ],
       "missing_declarative_properties": [
@@ -35294,8 +35298,8 @@
         "write_semantics"
       ],
       "provenance_status": "canonical_source_provenance_present",
-      "migration_class": "COMPATIBILITY_DERIVED",
-      "migration_risk": "low"
+      "migration_class": "LEGACY_ONLY_COMPLEX",
+      "migration_risk": "high"
     },
     {
       "unit_id": "min_tl_xh:input:3119:1",
@@ -37723,6 +37727,7 @@
       ],
       "declarative_properties": [],
       "legacy_dependencies": [
+        "enum_definitions",
         "human_description",
         "normalization",
         "physical_quantity",
@@ -37778,6 +37783,7 @@
         "enum_definitions"
       ],
       "legacy_dependencies": [
+        "enum_definitions",
         "human_description",
         "normalization",
         "physical_quantity",
@@ -37836,7 +37842,10 @@
       "legacy_dependencies": [
         "human_description",
         "normalization",
+        "packed_layout",
         "physical_quantity",
+        "scale",
+        "signedness",
         "write_semantics"
       ],
       "compatibility_dependencies": [
@@ -37845,12 +37854,9 @@
         "human_description",
         "length_words",
         "model_applicability",
-        "normalization",
         "physical_identity",
         "physical_quantity",
         "provenance_support",
-        "scale",
-        "signedness",
         "write_semantics"
       ],
       "missing_declarative_properties": [
@@ -38962,6 +38968,8 @@
         "normalization",
         "packed_layout",
         "physical_quantity",
+        "scale",
+        "signedness",
         "write_semantics"
       ],
       "compatibility_dependencies": [
@@ -38970,12 +38978,9 @@
         "human_description",
         "length_words",
         "model_applicability",
-        "normalization",
         "physical_identity",
         "physical_quantity",
         "provenance_support",
-        "scale",
-        "signedness",
         "write_semantics"
       ],
       "missing_declarative_properties": [
@@ -40172,6 +40177,7 @@
       ],
       "declarative_properties": [],
       "legacy_dependencies": [
+        "enum_definitions",
         "human_description",
         "normalization",
         "physical_quantity",
@@ -40231,6 +40237,8 @@
         "normalization",
         "packed_layout",
         "physical_quantity",
+        "scale",
+        "signedness",
         "write_semantics"
       ],
       "compatibility_dependencies": [
@@ -40239,12 +40247,9 @@
         "human_description",
         "length_words",
         "model_applicability",
-        "normalization",
         "physical_identity",
         "physical_quantity",
         "provenance_support",
-        "scale",
-        "signedness",
         "write_semantics"
       ],
       "missing_declarative_properties": [
@@ -40282,6 +40287,7 @@
         "enum_definitions"
       ],
       "legacy_dependencies": [
+        "enum_definitions",
         "human_description",
         "normalization",
         "physical_quantity",
