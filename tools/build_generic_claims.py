@@ -11,6 +11,10 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 CLAIMS_DIR = ROOT / "sources" / "claims"
+SCOPED_CLAIM_FILES = (
+    "sources/claims/gii-pipeline-5b-fc04.json",
+    "sources/claims/gii-pipeline-5d-fc04.json",
+)
 
 VENDOR_FILES = [
     "vendor/vendor_growatt_v305_2013.json",
@@ -402,6 +406,9 @@ def build() -> list[dict[str, Any]]:
         dump({"schema_version": "1.0.0", "artifact": "growatt_generic_claim_adapter", "source_id": source_id, "claims": adapter}, f"sources/claims/implementation/{source_id}.json")
         all_claims.extend(adapter)
     all_claims.extend(fc20_claims())
+    for relative in SCOPED_CLAIM_FILES:
+        scoped = load(relative)
+        all_claims.extend(scoped["claims"])
     all_claims.sort(key=lambda item: item["claim_id"])
     dump({"schema_version": "1.0.0", "artifact": "growatt_generic_source_claims", "generated_by": "tools/build_generic_claims.py", "sources": "sources/claims/source-registry.json", "claims": all_claims}, "sources/claims/generic-claims.json")
     return all_claims

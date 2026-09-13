@@ -114,7 +114,12 @@ def validate() -> list[str]:
                 errors.append(f"{prefix}: XH start/control codec is incomplete or misplaced")
     candidate = read("reconciliation/resolved-assertions.json")
     if candidate.get("canonical_status") != "shadow_only_not_canonical": errors.append("candidate is not marked shadow-only")
-    if len(candidate.get("decisions", [])) != len(data["decisions"]): errors.append("candidate/decision count mismatch")
+    source_decision_count = 0
+    for path in sorted((ROOT / "reconciliation").glob("*.json")):
+        if path.name in {"resolved-assertions.json", "validation-report.json", "scope-mappings.json"}:
+            continue
+        source_decision_count += len(json.loads(path.read_text(encoding="utf-8")).get("decisions", []))
+    if len(candidate.get("decisions", [])) != source_decision_count: errors.append("candidate/decision count mismatch")
     return errors
 
 

@@ -19,6 +19,7 @@ def decisions() -> dict[str, dict[str, Any]]:
     return {
         item["decision_id"]: item
         for item in json.loads((ROOT / "reconciliation/resolved-assertions.json").read_text())["decisions"]
+        if item["decision_source"] == "reconciliation/min_tl_xh.json"
     }
 
 

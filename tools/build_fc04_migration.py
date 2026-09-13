@@ -345,7 +345,7 @@ def build_reconciliation(claims: dict[str, Any]) -> dict[str, Any]:
         logical = logical_for_address.get(address)
         support = vendor_support[:]
         if logical:
-            support.append(next(iter(logical["logical"].get("support", [])), logical["decision_id"]))
+            support.append(logical["logical"]["support_claim"])
         value: dict[str, Any] = {
             "table": "input",
             "address": address,

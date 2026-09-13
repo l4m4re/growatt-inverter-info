@@ -8548,7 +8548,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3000:602",
-        "min-xh-fc04-semantic:3000-3000"
+        "curated_fc04_semantics:input:3000-3000:71"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -8592,7 +8592,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3001:603",
-        "min-xh-fc04-semantic:3001-3002"
+        "curated_fc04_semantics:input:3001-3002:72"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -8636,7 +8636,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3002:604",
-        "min-xh-fc04-semantic:3001-3002"
+        "curated_fc04_semantics:input:3001-3002:72"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -8680,7 +8680,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3003:605",
-        "min-xh-fc04-semantic:3003-3003"
+        "curated_fc04_semantics:input:3003-3003:73"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -8724,7 +8724,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3004:606",
-        "min-xh-fc04-semantic:3004-3004"
+        "curated_fc04_semantics:input:3004-3004:74"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -8768,7 +8768,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3005:607",
-        "min-xh-fc04-semantic:3005-3006"
+        "curated_fc04_semantics:input:3005-3006:75"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -8812,7 +8812,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3006:608",
-        "min-xh-fc04-semantic:3005-3006"
+        "curated_fc04_semantics:input:3005-3006:75"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -8856,7 +8856,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3007:609",
-        "min-xh-fc04-semantic:3007-3007"
+        "curated_fc04_semantics:input:3007-3007:76"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -8900,7 +8900,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3008:610",
-        "min-xh-fc04-semantic:3008-3008"
+        "curated_fc04_semantics:input:3008-3008:77"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -8944,7 +8944,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3009:611",
-        "min-xh-fc04-semantic:3009-3010"
+        "curated_fc04_semantics:input:3009-3010:78"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -8988,7 +8988,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3010:612",
-        "min-xh-fc04-semantic:3009-3010"
+        "curated_fc04_semantics:input:3009-3010:78"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -9032,7 +9032,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3011:613",
-        "min-xh-fc04-semantic:3011-3011"
+        "curated_fc04_semantics:input:3011-3011:79"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -9076,7 +9076,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3012:614",
-        "min-xh-fc04-semantic:3012-3012"
+        "curated_fc04_semantics:input:3012-3012:80"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -9120,7 +9120,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3013:615",
-        "min-xh-fc04-semantic:3013-3014"
+        "curated_fc04_semantics:input:3013-3014:81"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -9164,7 +9164,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3014:616",
-        "min-xh-fc04-semantic:3013-3014"
+        "curated_fc04_semantics:input:3013-3014:81"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -9208,7 +9208,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3015:617",
-        "min-xh-fc04-semantic:3015-3015"
+        "curated_fc04_semantics:input:3015-3015:82"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -9252,7 +9252,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3016:618",
-        "min-xh-fc04-semantic:3016-3016"
+        "curated_fc04_semantics:input:3016-3016:83"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -9296,7 +9296,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3017:619",
-        "min-xh-fc04-semantic:3017-3018"
+        "curated_fc04_semantics:input:3017-3018:84"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -9340,7 +9340,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3018:620",
-        "min-xh-fc04-semantic:3017-3018"
+        "curated_fc04_semantics:input:3017-3018:84"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -9384,7 +9384,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3019:621",
-        "min-xh-fc04-semantic:3019-3020"
+        "curated_fc04_semantics:input:3019-3020:85"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -9428,7 +9428,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3020:622",
-        "min-xh-fc04-semantic:3019-3020"
+        "curated_fc04_semantics:input:3019-3020:85"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -9472,7 +9472,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3021:623",
-        "min-xh-fc04-semantic:3021-3022"
+        "curated_fc04_semantics:input:3021-3022:86"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -9516,7 +9516,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3022:624",
-        "min-xh-fc04-semantic:3021-3022"
+        "curated_fc04_semantics:input:3021-3022:86"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -9560,7 +9560,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3023:625",
-        "min-xh-fc04-semantic:3023-3024"
+        "curated_fc04_semantics:input:3023-3024:87"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -9604,7 +9604,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3024:626",
-        "min-xh-fc04-semantic:3023-3024"
+        "curated_fc04_semantics:input:3023-3024:87"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -9648,7 +9648,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3025:627",
-        "min-xh-fc04-semantic:3025-3025"
+        "curated_fc04_semantics:input:3025-3025:88"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -9692,7 +9692,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3026:628",
-        "min-xh-fc04-semantic:3026-3026"
+        "curated_fc04_semantics:input:3026-3026:89"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -9736,7 +9736,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3027:629",
-        "min-xh-fc04-semantic:3027-3027"
+        "curated_fc04_semantics:input:3027-3027:90"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -9780,7 +9780,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3028:630",
-        "min-xh-fc04-semantic:3028-3029"
+        "curated_fc04_semantics:input:3028-3029:91"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -9824,7 +9824,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3029:631",
-        "min-xh-fc04-semantic:3028-3029"
+        "curated_fc04_semantics:input:3028-3029:91"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -9868,7 +9868,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3030:632",
-        "min-xh-fc04-semantic:3030-3030"
+        "curated_fc04_semantics:input:3030-3030:92"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -9912,7 +9912,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3031:633",
-        "min-xh-fc04-semantic:3031-3031"
+        "curated_fc04_semantics:input:3031-3031:93"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -9956,7 +9956,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3032:634",
-        "min-xh-fc04-semantic:3032-3033"
+        "curated_fc04_semantics:input:3032-3033:94"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -10000,7 +10000,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3033:635",
-        "min-xh-fc04-semantic:3032-3033"
+        "curated_fc04_semantics:input:3032-3033:94"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -10044,7 +10044,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3034:636",
-        "min-xh-fc04-semantic:3034-3034"
+        "curated_fc04_semantics:input:3034-3034:95"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -10088,7 +10088,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3035:637",
-        "min-xh-fc04-semantic:3035-3035"
+        "curated_fc04_semantics:input:3035-3035:96"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -10132,7 +10132,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3036:638",
-        "min-xh-fc04-semantic:3036-3037"
+        "curated_fc04_semantics:input:3036-3037:97"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -10176,7 +10176,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3037:639",
-        "min-xh-fc04-semantic:3036-3037"
+        "curated_fc04_semantics:input:3036-3037:97"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -10220,7 +10220,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3038:640",
-        "min-xh-fc04-semantic:3038-3038"
+        "curated_fc04_semantics:input:3038-3038:98"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -10264,7 +10264,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3039:641",
-        "min-xh-fc04-semantic:3039-3039"
+        "curated_fc04_semantics:input:3039-3039:99"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -10308,7 +10308,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3040:642",
-        "min-xh-fc04-semantic:3040-3040"
+        "curated_fc04_semantics:input:3040-3040:100"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -10352,7 +10352,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3041:643",
-        "min-xh-fc04-semantic:3041-3042"
+        "curated_fc04_semantics:input:3041-3042:101"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -10396,7 +10396,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3042:644",
-        "min-xh-fc04-semantic:3041-3042"
+        "curated_fc04_semantics:input:3041-3042:101"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -10440,7 +10440,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3043:645",
-        "min-xh-fc04-semantic:3043-3044"
+        "curated_fc04_semantics:input:3043-3044:102"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -10484,7 +10484,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3044:646",
-        "min-xh-fc04-semantic:3043-3044"
+        "curated_fc04_semantics:input:3043-3044:102"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -10528,7 +10528,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3045:647",
-        "min-xh-fc04-semantic:3045-3046"
+        "curated_fc04_semantics:input:3045-3046:103"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -10572,7 +10572,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3046:648",
-        "min-xh-fc04-semantic:3045-3046"
+        "curated_fc04_semantics:input:3045-3046:103"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -10616,7 +10616,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3047:649",
-        "min-xh-fc04-semantic:3047-3048"
+        "curated_fc04_semantics:input:3047-3048:104"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -10660,7 +10660,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3048:650",
-        "min-xh-fc04-semantic:3047-3048"
+        "curated_fc04_semantics:input:3047-3048:104"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -10704,7 +10704,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3049:651",
-        "min-xh-fc04-semantic:3049-3050"
+        "curated_fc04_semantics:input:3049-3050:105"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -10748,7 +10748,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3050:652",
-        "min-xh-fc04-semantic:3049-3050"
+        "curated_fc04_semantics:input:3049-3050:105"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -10792,7 +10792,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3051:653",
-        "min-xh-fc04-semantic:3051-3052"
+        "curated_fc04_semantics:input:3051-3052:106"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -10836,7 +10836,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3052:654",
-        "min-xh-fc04-semantic:3051-3052"
+        "curated_fc04_semantics:input:3051-3052:106"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -10880,7 +10880,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3053:655",
-        "min-xh-fc04-semantic:3053-3054"
+        "curated_fc04_semantics:input:3053-3054:107"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -10924,7 +10924,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3054:656",
-        "min-xh-fc04-semantic:3053-3054"
+        "curated_fc04_semantics:input:3053-3054:107"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -10968,7 +10968,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3055:657",
-        "min-xh-fc04-semantic:3055-3056"
+        "curated_fc04_semantics:input:3055-3056:108"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -11012,7 +11012,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3056:658",
-        "min-xh-fc04-semantic:3055-3056"
+        "curated_fc04_semantics:input:3055-3056:108"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -11056,7 +11056,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3057:659",
-        "min-xh-fc04-semantic:3057-3058"
+        "curated_fc04_semantics:input:3057-3058:109"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -11100,7 +11100,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3058:660",
-        "min-xh-fc04-semantic:3057-3058"
+        "curated_fc04_semantics:input:3057-3058:109"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -11144,7 +11144,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3059:661",
-        "min-xh-fc04-semantic:3059-3060"
+        "curated_fc04_semantics:input:3059-3060:110"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -11188,7 +11188,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3060:662",
-        "min-xh-fc04-semantic:3059-3060"
+        "curated_fc04_semantics:input:3059-3060:110"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -11232,7 +11232,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3061:663",
-        "min-xh-fc04-semantic:3061-3062"
+        "curated_fc04_semantics:input:3061-3062:111"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -11276,7 +11276,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3062:664",
-        "min-xh-fc04-semantic:3061-3062"
+        "curated_fc04_semantics:input:3061-3062:111"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -11320,7 +11320,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3063:665",
-        "min-xh-fc04-semantic:3063-3064"
+        "curated_fc04_semantics:input:3063-3064:112"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -11364,7 +11364,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3064:666",
-        "min-xh-fc04-semantic:3063-3064"
+        "curated_fc04_semantics:input:3063-3064:112"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -11408,7 +11408,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3065:667",
-        "min-xh-fc04-semantic:3065-3066"
+        "curated_fc04_semantics:input:3065-3066:113"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -11452,7 +11452,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3066:668",
-        "min-xh-fc04-semantic:3065-3066"
+        "curated_fc04_semantics:input:3065-3066:113"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -11496,7 +11496,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3067:669",
-        "min-xh-fc04-semantic:3067-3068"
+        "curated_fc04_semantics:input:3067-3068:114"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -11540,7 +11540,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3068:670",
-        "min-xh-fc04-semantic:3067-3068"
+        "curated_fc04_semantics:input:3067-3068:114"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -11584,7 +11584,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3069:671",
-        "min-xh-fc04-semantic:3069-3070"
+        "curated_fc04_semantics:input:3069-3070:115"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -11628,7 +11628,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3070:672",
-        "min-xh-fc04-semantic:3069-3070"
+        "curated_fc04_semantics:input:3069-3070:115"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -11672,7 +11672,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3071:673",
-        "min-xh-fc04-semantic:3071-3072"
+        "curated_fc04_semantics:input:3071-3072:116"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -11716,7 +11716,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3072:674",
-        "min-xh-fc04-semantic:3071-3072"
+        "curated_fc04_semantics:input:3071-3072:116"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -11760,7 +11760,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3073:675",
-        "min-xh-fc04-semantic:3073-3074"
+        "curated_fc04_semantics:input:3073-3074:117"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -11804,7 +11804,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3074:676",
-        "min-xh-fc04-semantic:3073-3074"
+        "curated_fc04_semantics:input:3073-3074:117"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -11848,7 +11848,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3075:677",
-        "min-xh-fc04-semantic:3075-3076"
+        "curated_fc04_semantics:input:3075-3076:118"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -11892,7 +11892,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3076:678",
-        "min-xh-fc04-semantic:3075-3076"
+        "curated_fc04_semantics:input:3075-3076:118"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -11936,7 +11936,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3077:679",
-        "min-xh-fc04-semantic:3077-3078"
+        "curated_fc04_semantics:input:3077-3078:119"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -11980,7 +11980,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3078:680",
-        "min-xh-fc04-semantic:3077-3078"
+        "curated_fc04_semantics:input:3077-3078:119"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -12024,7 +12024,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3079:681",
-        "min-xh-fc04-semantic:3079-3080"
+        "curated_fc04_semantics:input:3079-3080:120"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -12068,7 +12068,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3080:682",
-        "min-xh-fc04-semantic:3079-3080"
+        "curated_fc04_semantics:input:3079-3080:120"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -12112,7 +12112,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3081:683",
-        "min-xh-fc04-semantic:3081-3082"
+        "curated_fc04_semantics:input:3081-3082:121"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -12156,7 +12156,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3082:684",
-        "min-xh-fc04-semantic:3081-3082"
+        "curated_fc04_semantics:input:3081-3082:121"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -12200,7 +12200,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3083:685",
-        "min-xh-fc04-semantic:3083-3084"
+        "curated_fc04_semantics:input:3083-3084:122"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -12244,7 +12244,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3084:686",
-        "min-xh-fc04-semantic:3083-3084"
+        "curated_fc04_semantics:input:3083-3084:122"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -12328,7 +12328,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3086:688",
-        "min-xh-fc04-semantic:3086-3086"
+        "curated_fc04_semantics:input:3086-3086:123"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -12372,7 +12372,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3087:689",
-        "min-xh-fc04-semantic:3087-3087"
+        "curated_fc04_semantics:input:3087-3087:124"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -12416,7 +12416,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3088:690",
-        "min-xh-fc04-semantic:3088-3088"
+        "curated_fc04_semantics:input:3088-3088:125"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -12460,7 +12460,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3089:691",
-        "min-xh-fc04-semantic:3089-3089"
+        "curated_fc04_semantics:input:3089-3089:126"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -12504,7 +12504,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3090:692",
-        "min-xh-fc04-semantic:3090-3090"
+        "curated_fc04_semantics:input:3090-3090:127"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -12548,7 +12548,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3091:693",
-        "min-xh-fc04-semantic:3091-3091"
+        "curated_fc04_semantics:input:3091-3091:128"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -12592,7 +12592,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3092:694",
-        "min-xh-fc04-semantic:3092-3092"
+        "curated_fc04_semantics:input:3092-3092:129"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -12636,7 +12636,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3093:695",
-        "min-xh-fc04-semantic:3093-3093"
+        "curated_fc04_semantics:input:3093-3093:130"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -12680,7 +12680,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3094:696",
-        "min-xh-fc04-semantic:3094-3094"
+        "curated_fc04_semantics:input:3094-3094:131"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -12724,7 +12724,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3095:697",
-        "min-xh-fc04-semantic:3095-3095"
+        "curated_fc04_semantics:input:3095-3095:132"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -12808,7 +12808,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3097:699",
-        "min-xh-fc04-semantic:3097-3097"
+        "curated_fc04_semantics:input:3097-3097:133"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -12852,7 +12852,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3098:700",
-        "min-xh-fc04-semantic:3098-3098"
+        "curated_fc04_semantics:input:3098-3098:134"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -12896,7 +12896,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3099:701",
-        "min-xh-fc04-semantic:3099-3099"
+        "curated_fc04_semantics:input:3099-3099:135"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -12940,7 +12940,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3100:702",
-        "min-xh-fc04-semantic:3100-3100"
+        "curated_fc04_semantics:input:3100-3100:136"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -12984,7 +12984,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3101:703",
-        "min-xh-fc04-semantic:3101-3101"
+        "curated_fc04_semantics:input:3101-3101:137"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -13028,7 +13028,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3102:704",
-        "min-xh-fc04-semantic:3102-3103"
+        "curated_fc04_semantics:input:3102-3103:138"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -13072,7 +13072,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3103:705",
-        "min-xh-fc04-semantic:3102-3103"
+        "curated_fc04_semantics:input:3102-3103:138"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -13116,7 +13116,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3104:706",
-        "min-xh-fc04-semantic:3104-3104"
+        "curated_fc04_semantics:input:3104-3104:139"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -13160,7 +13160,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3105:707",
-        "min-xh-fc04-semantic:3105-3105"
+        "curated_fc04_semantics:input:3105-3105:140"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -13204,7 +13204,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3106:708",
-        "min-xh-fc04-semantic:3106-3106"
+        "curated_fc04_semantics:input:3106-3106:141"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -13248,7 +13248,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3107:709",
-        "min-xh-fc04-semantic:3107-3107"
+        "curated_fc04_semantics:input:3107-3107:142"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -13292,7 +13292,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3108:710",
-        "min-xh-fc04-semantic:3108-3108"
+        "curated_fc04_semantics:input:3108-3108:143"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -13372,7 +13372,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3110:712",
-        "min-xh-fc04-semantic:3110-3111"
+        "curated_fc04_semantics:input:3110-3111:144"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -13416,7 +13416,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3111:713",
-        "min-xh-fc04-semantic:3111-3111"
+        "curated_fc04_semantics:input:3111-3111:145"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -13460,7 +13460,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3112:714",
-        "min-xh-fc04-semantic:3112-3112"
+        "curated_fc04_semantics:input:3112-3112:146"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -13504,7 +13504,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3113:715",
-        "min-xh-fc04-semantic:3113-3113"
+        "curated_fc04_semantics:input:3113-3113:147"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -13548,7 +13548,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3114:716",
-        "min-xh-fc04-semantic:3114-3114"
+        "curated_fc04_semantics:input:3114-3114:148"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -13592,7 +13592,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3115:717",
-        "min-xh-fc04-semantic:3115-3115"
+        "curated_fc04_semantics:input:3115-3115:149"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -13716,7 +13716,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3118:720",
-        "min-xh-fc04-semantic:3118-3118"
+        "curated_fc04_semantics:input:3118-3118:150"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -13760,7 +13760,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3119:721",
-        "min-xh-fc04-semantic:3119-3119"
+        "curated_fc04_semantics:input:3119-3119:151"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -13844,7 +13844,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3121:723",
-        "min-xh-fc04-semantic:3121-3122"
+        "curated_fc04_semantics:input:3121-3122:152"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -13888,7 +13888,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3122:724",
-        "min-xh-fc04-semantic:3121-3122"
+        "curated_fc04_semantics:input:3121-3122:152"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -13932,7 +13932,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3123:725",
-        "min-xh-fc04-semantic:3123-3124"
+        "curated_fc04_semantics:input:3123-3124:153"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -13976,7 +13976,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3124:726",
-        "min-xh-fc04-semantic:3123-3124"
+        "curated_fc04_semantics:input:3123-3124:153"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -14020,7 +14020,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3125:727",
-        "min-xh-fc04-semantic:3125-3126"
+        "curated_fc04_semantics:input:3125-3126:155"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -14064,7 +14064,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3126:728",
-        "min-xh-fc04-semantic:3125-3126"
+        "curated_fc04_semantics:input:3125-3126:155"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -14108,7 +14108,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3127:729",
-        "min-xh-fc04-semantic:3127-3128"
+        "curated_fc04_semantics:input:3127-3128:156"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -14152,7 +14152,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3128:730",
-        "min-xh-fc04-semantic:3127-3128"
+        "curated_fc04_semantics:input:3127-3128:156"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -14196,7 +14196,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3129:731",
-        "min-xh-fc04-semantic:3129-3130"
+        "curated_fc04_semantics:input:3129-3130:157"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -14240,7 +14240,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3130:732",
-        "min-xh-fc04-semantic:3129-3130"
+        "curated_fc04_semantics:input:3129-3130:157"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -14284,7 +14284,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3131:733",
-        "min-xh-fc04-semantic:3131-3132"
+        "curated_fc04_semantics:input:3131-3132:158"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -14328,7 +14328,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3132:734",
-        "min-xh-fc04-semantic:3131-3132"
+        "curated_fc04_semantics:input:3131-3132:158"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -14372,7 +14372,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3133:735",
-        "min-xh-fc04-semantic:3133-3134"
+        "curated_fc04_semantics:input:3133-3134:159"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -14416,7 +14416,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3134:736",
-        "min-xh-fc04-semantic:3133-3134"
+        "curated_fc04_semantics:input:3133-3134:159"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -14460,7 +14460,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3135:737",
-        "min-xh-fc04-semantic:3135-3136"
+        "curated_fc04_semantics:input:3135-3136:160"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -14504,7 +14504,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3136:738",
-        "min-xh-fc04-semantic:3135-3136"
+        "curated_fc04_semantics:input:3135-3136:160"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -14548,7 +14548,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3137:739",
-        "min-xh-fc04-semantic:3137-3138"
+        "curated_fc04_semantics:input:3137-3138:161"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -14592,7 +14592,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3138:740",
-        "min-xh-fc04-semantic:3137-3138"
+        "curated_fc04_semantics:input:3137-3138:161"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -14636,7 +14636,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3139:741",
-        "min-xh-fc04-semantic:3139-3140"
+        "curated_fc04_semantics:input:3139-3140:162"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -14680,7 +14680,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3140:742",
-        "min-xh-fc04-semantic:3139-3140"
+        "curated_fc04_semantics:input:3139-3140:162"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -14724,7 +14724,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3141:743",
-        "min-xh-fc04-semantic:3141-3142"
+        "curated_fc04_semantics:input:3141-3142:163"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -14768,7 +14768,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3142:744",
-        "min-xh-fc04-semantic:3141-3142"
+        "curated_fc04_semantics:input:3141-3142:163"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -14852,7 +14852,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3144:746",
-        "min-xh-fc04-semantic:3144-3144"
+        "curated_fc04_semantics:input:3144-3144:164"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -14896,7 +14896,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3145:747",
-        "min-xh-fc04-semantic:3145-3145"
+        "curated_fc04_semantics:input:3145-3145:165"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -14940,7 +14940,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3146:748",
-        "min-xh-fc04-semantic:3146-3146"
+        "curated_fc04_semantics:input:3146-3146:166"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -14984,7 +14984,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3147:749",
-        "min-xh-fc04-semantic:3147-3147"
+        "curated_fc04_semantics:input:3147-3147:167"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -15028,7 +15028,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3148:750",
-        "min-xh-fc04-semantic:3148-3149"
+        "curated_fc04_semantics:input:3148-3149:168"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -15072,7 +15072,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3149:751",
-        "min-xh-fc04-semantic:3148-3149"
+        "curated_fc04_semantics:input:3148-3149:168"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -15116,7 +15116,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3150:752",
-        "min-xh-fc04-semantic:3150-3150"
+        "curated_fc04_semantics:input:3150-3150:169"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -15160,7 +15160,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3151:753",
-        "min-xh-fc04-semantic:3151-3151"
+        "curated_fc04_semantics:input:3151-3151:170"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -15204,7 +15204,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3152:754",
-        "min-xh-fc04-semantic:3152-3153"
+        "curated_fc04_semantics:input:3152-3153:171"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -15248,7 +15248,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3153:755",
-        "min-xh-fc04-semantic:3152-3153"
+        "curated_fc04_semantics:input:3152-3153:171"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -15292,7 +15292,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3154:756",
-        "min-xh-fc04-semantic:3154-3154"
+        "curated_fc04_semantics:input:3154-3154:172"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -15336,7 +15336,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3155:757",
-        "min-xh-fc04-semantic:3155-3155"
+        "curated_fc04_semantics:input:3155-3155:173"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -15380,7 +15380,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3156:758",
-        "min-xh-fc04-semantic:3156-3157"
+        "curated_fc04_semantics:input:3156-3157:174"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -15424,7 +15424,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3157:759",
-        "min-xh-fc04-semantic:3156-3157"
+        "curated_fc04_semantics:input:3156-3157:174"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -15468,7 +15468,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3158:760",
-        "min-xh-fc04-semantic:3158-3159"
+        "curated_fc04_semantics:input:3158-3159:175"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -15512,7 +15512,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3159:761",
-        "min-xh-fc04-semantic:3158-3159"
+        "curated_fc04_semantics:input:3158-3159:175"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -15556,7 +15556,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3160:762",
-        "min-xh-fc04-semantic:3160-3160"
+        "curated_fc04_semantics:input:3160-3160:176"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -15600,7 +15600,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3161:763",
-        "min-xh-fc04-semantic:3161-3161"
+        "curated_fc04_semantics:input:3161-3161:177"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -15644,7 +15644,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3162:764",
-        "min-xh-fc04-semantic:3162-3162"
+        "curated_fc04_semantics:input:3162-3162:178"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -15728,7 +15728,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3164:766",
-        "min-xh-fc04-semantic:3164-3164"
+        "curated_fc04_semantics:input:3164-3164:179"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -15772,7 +15772,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3165:767",
-        "min-xh-fc04-semantic:3165-3165"
+        "curated_fc04_semantics:input:3165-3165:180"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -15816,7 +15816,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3166:768",
-        "min-xh-fc04-semantic:3166-3166"
+        "curated_fc04_semantics:input:3166-3166:181"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -15860,7 +15860,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3167:769",
-        "min-xh-fc04-semantic:3167-3167"
+        "curated_fc04_semantics:input:3167-3167:182"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -15904,7 +15904,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3168:770",
-        "min-xh-fc04-semantic:3168-3168"
+        "curated_fc04_semantics:input:3168-3168:183"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -15948,7 +15948,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3169:771",
-        "min-xh-fc04-semantic:3169-3169"
+        "curated_fc04_semantics:input:3169-3169:184"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -15992,7 +15992,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3170:772",
-        "min-xh-fc04-semantic:3170-3170"
+        "curated_fc04_semantics:input:3170-3170:185"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -16036,7 +16036,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3171:773",
-        "min-xh-fc04-semantic:3171-3171"
+        "curated_fc04_semantics:input:3171-3171:186"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -16080,7 +16080,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3172:774",
-        "min-xh-fc04-semantic:3172-3172"
+        "curated_fc04_semantics:input:3172-3172:187"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -16124,7 +16124,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3173:775",
-        "min-xh-fc04-semantic:3173-3173"
+        "curated_fc04_semantics:input:3173-3173:188"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -16168,7 +16168,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3174:776",
-        "min-xh-fc04-semantic:3174-3174"
+        "curated_fc04_semantics:input:3174-3174:189"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -16212,7 +16212,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3175:777",
-        "min-xh-fc04-semantic:3175-3175"
+        "curated_fc04_semantics:input:3175-3175:190"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -16256,7 +16256,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3176:778",
-        "min-xh-fc04-semantic:3176-3176"
+        "curated_fc04_semantics:input:3176-3176:191"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -16300,7 +16300,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3177:779",
-        "min-xh-fc04-semantic:3177-3177"
+        "curated_fc04_semantics:input:3177-3177:192"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -16344,7 +16344,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3178:780",
-        "min-xh-fc04-semantic:3178-3179"
+        "curated_fc04_semantics:input:3178-3179:193"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -16388,7 +16388,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3179:781",
-        "min-xh-fc04-semantic:3178-3179"
+        "curated_fc04_semantics:input:3178-3179:193"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -16432,7 +16432,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3180:782",
-        "min-xh-fc04-semantic:3180-3181"
+        "curated_fc04_semantics:input:3180-3181:194"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -16476,7 +16476,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3181:783",
-        "min-xh-fc04-semantic:3180-3181"
+        "curated_fc04_semantics:input:3180-3181:194"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -16520,7 +16520,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3182:784",
-        "min-xh-fc04-semantic:3182-3183"
+        "curated_fc04_semantics:input:3182-3183:195"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -16564,7 +16564,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3183:785",
-        "min-xh-fc04-semantic:3182-3183"
+        "curated_fc04_semantics:input:3182-3183:195"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -16608,7 +16608,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3184:786",
-        "min-xh-fc04-semantic:3184-3185"
+        "curated_fc04_semantics:input:3184-3185:196"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -16652,7 +16652,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3185:787",
-        "min-xh-fc04-semantic:3184-3185"
+        "curated_fc04_semantics:input:3184-3185:196"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -16736,7 +16736,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3187:789",
-        "min-xh-fc04-semantic:3187-3187"
+        "curated_fc04_semantics:input:3187-3187:197"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -16780,7 +16780,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3188:790",
-        "min-xh-fc04-semantic:3188-3188"
+        "curated_fc04_semantics:input:3188-3188:198"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -16824,7 +16824,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3189:791",
-        "min-xh-fc04-semantic:3189-3189"
+        "curated_fc04_semantics:input:3189-3189:199"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -16868,7 +16868,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3190:792",
-        "min-xh-fc04-semantic:3190-3190"
+        "curated_fc04_semantics:input:3190-3190:200"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -16912,7 +16912,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3191:793",
-        "min-xh-fc04-semantic:3191-3191"
+        "curated_fc04_semantics:input:3191-3191:201"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -16956,7 +16956,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3192:794",
-        "min-xh-fc04-semantic:3192-3192"
+        "curated_fc04_semantics:input:3192-3192:202"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -17000,7 +17000,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3193:795",
-        "min-xh-fc04-semantic:3193-3193"
+        "curated_fc04_semantics:input:3193-3193:203"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -17044,7 +17044,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3194:796",
-        "min-xh-fc04-semantic:3194-3194"
+        "curated_fc04_semantics:input:3194-3194:204"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -17088,7 +17088,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3195:797",
-        "min-xh-fc04-semantic:3195-3195"
+        "curated_fc04_semantics:input:3195-3195:205"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -17132,7 +17132,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3196:798",
-        "min-xh-fc04-semantic:3196-3196"
+        "curated_fc04_semantics:input:3196-3196:206"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -17176,7 +17176,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3197:799",
-        "min-xh-fc04-semantic:3197-3197"
+        "curated_fc04_semantics:input:3197-3197:207"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -17220,7 +17220,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3198:800",
-        "min-xh-fc04-semantic:3198-3198"
+        "curated_fc04_semantics:input:3198-3198:208"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -17264,7 +17264,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3199:801",
-        "min-xh-fc04-semantic:3199-3199"
+        "curated_fc04_semantics:input:3199-3199:209"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -17308,7 +17308,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3200:802",
-        "min-xh-fc04-semantic:3200-3200"
+        "curated_fc04_semantics:input:3200-3200:211"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -17352,7 +17352,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3201:803",
-        "min-xh-fc04-semantic:3201-3201"
+        "curated_fc04_semantics:input:3201-3201:212"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -17396,7 +17396,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3202:804",
-        "min-xh-fc04-semantic:3202-3202"
+        "curated_fc04_semantics:input:3202-3202:213"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -17440,7 +17440,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3203:805",
-        "min-xh-fc04-semantic:3203-3203"
+        "curated_fc04_semantics:input:3203-3203:214"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -17484,7 +17484,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3204:806",
-        "min-xh-fc04-semantic:3204-3204"
+        "curated_fc04_semantics:input:3204-3204:215"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -17528,7 +17528,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3205:807",
-        "min-xh-fc04-semantic:3205-3205"
+        "curated_fc04_semantics:input:3205-3205:216"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -17732,7 +17732,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3210:812",
-        "min-xh-fc04-semantic:3210-3210"
+        "curated_fc04_semantics:input:3210-3210:217"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -17776,7 +17776,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3211:813",
-        "min-xh-fc04-semantic:3211-3211"
+        "curated_fc04_semantics:input:3211-3211:218"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -17820,7 +17820,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3212:814",
-        "min-xh-fc04-semantic:3212-3212"
+        "curated_fc04_semantics:input:3212-3212:219"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -17864,7 +17864,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3213:815",
-        "min-xh-fc04-semantic:3213-3213"
+        "curated_fc04_semantics:input:3213-3213:220"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -17908,7 +17908,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3214:816",
-        "min-xh-fc04-semantic:3214-3214"
+        "curated_fc04_semantics:input:3214-3214:221"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -17952,7 +17952,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3215:817",
-        "min-xh-fc04-semantic:3215-3215"
+        "curated_fc04_semantics:input:3215-3215:222"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -17996,7 +17996,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3216:818",
-        "min-xh-fc04-semantic:3216-3216"
+        "curated_fc04_semantics:input:3216-3216:223"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -18040,7 +18040,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3217:819",
-        "min-xh-fc04-semantic:3217-3217"
+        "curated_fc04_semantics:input:3217-3217:224"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -18084,7 +18084,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3218:820",
-        "min-xh-fc04-semantic:3218-3218"
+        "curated_fc04_semantics:input:3218-3218:225"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -18128,7 +18128,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3219:821",
-        "min-xh-fc04-semantic:3219-3219"
+        "curated_fc04_semantics:input:3219-3219:226"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -18172,7 +18172,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3220:822",
-        "min-xh-fc04-semantic:3220-3220"
+        "curated_fc04_semantics:input:3220-3220:227"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -18216,7 +18216,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3221:823",
-        "min-xh-fc04-semantic:3221-3221"
+        "curated_fc04_semantics:input:3221-3221:228"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -18260,7 +18260,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3222:824",
-        "min-xh-fc04-semantic:3222-3222"
+        "curated_fc04_semantics:input:3222-3222:229"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -18304,7 +18304,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3223:825",
-        "min-xh-fc04-semantic:3223-3223"
+        "curated_fc04_semantics:input:3223-3223:230"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -18348,7 +18348,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3224:826",
-        "min-xh-fc04-semantic:3224-3224"
+        "curated_fc04_semantics:input:3224-3224:231"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -18392,7 +18392,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3225:827",
-        "min-xh-fc04-semantic:3225-3225"
+        "curated_fc04_semantics:input:3225-3225:232"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -18436,7 +18436,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3226:828",
-        "min-xh-fc04-semantic:3226-3226"
+        "curated_fc04_semantics:input:3226-3226:233"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -18600,7 +18600,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3230:832",
-        "min-xh-fc04-semantic:3230-3230"
+        "curated_fc04_semantics:input:3230-3230:234"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -18644,7 +18644,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3231:833",
-        "min-xh-fc04-semantic:3231-3231"
+        "curated_fc04_semantics:input:3231-3231:235"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -18688,7 +18688,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3232:834",
-        "min-xh-fc04-semantic:3232-3232"
+        "curated_fc04_semantics:input:3232-3232:236"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -18770,7 +18770,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3234:836",
-        "min-xh-fc04-semantic:3234-3234"
+        "curated_fc04_semantics:input:3234-3234:237"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -18814,7 +18814,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3235:837",
-        "min-xh-fc04-semantic:3235-3235"
+        "curated_fc04_semantics:input:3235-3235:238"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -18858,7 +18858,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3236:838",
-        "min-xh-fc04-semantic:3236-3236"
+        "curated_fc04_semantics:input:3236-3236:239"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -18902,7 +18902,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3237:839",
-        "min-xh-fc04-semantic:3237-3237"
+        "curated_fc04_semantics:input:3237-3237:240"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -18946,7 +18946,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3238:840",
-        "min-xh-fc04-semantic:3238-3238"
+        "curated_fc04_semantics:input:3238-3238:241"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -18990,7 +18990,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3239:841",
-        "min-xh-fc04-semantic:3239-3239"
+        "curated_fc04_semantics:input:3239-3239:242"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -19034,7 +19034,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3240:842",
-        "min-xh-fc04-semantic:3240-3240"
+        "curated_fc04_semantics:input:3240-3240:243"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -19078,7 +19078,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3241:843",
-        "min-xh-fc04-semantic:3241-3241"
+        "curated_fc04_semantics:input:3241-3241:244"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -19122,7 +19122,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3242:844",
-        "min-xh-fc04-semantic:3242-3242"
+        "curated_fc04_semantics:input:3242-3242:245"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -19166,7 +19166,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3243:845",
-        "min-xh-fc04-semantic:3243-3243"
+        "curated_fc04_semantics:input:3243-3243:246"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -19210,7 +19210,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3244:846",
-        "min-xh-fc04-semantic:3244-3244"
+        "curated_fc04_semantics:input:3244-3244:247"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -19254,7 +19254,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3245:847",
-        "min-xh-fc04-semantic:3245-3245"
+        "curated_fc04_semantics:input:3245-3245:248"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -19298,7 +19298,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3246:848",
-        "min-xh-fc04-semantic:3246-3246"
+        "curated_fc04_semantics:input:3246-3246:249"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -19342,7 +19342,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3247:849",
-        "min-xh-fc04-semantic:3247-3247"
+        "curated_fc04_semantics:input:3247-3247:250"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -19386,7 +19386,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3248:850",
-        "min-xh-fc04-semantic:3248-3248"
+        "curated_fc04_semantics:input:3248-3248:251"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
@@ -19430,7 +19430,7 @@
       },
       "support": [
         "vendor_v124_fc04:input:3249:851",
-        "min-xh-fc04-semantic:3249-3249"
+        "curated_fc04_semantics:input:3249-3249:252"
       ],
       "conflicts": [],
       "rationale": "Physical identity is the FC04 table/address; one-word bus identity is distinct from any multiword logical quantity.",
