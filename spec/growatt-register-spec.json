@@ -119,7 +119,14 @@
       "kind": "model_specific_semantic_review",
       "path": "sources/evidence/min-6000tl-xh-semantic-review.json",
       "independent": false,
-      "sha256": "f613b2d7a76ea4e3dba3b5dcc7a1ec243d15947e87d919c43d35be00ec6a7b79"
+      "sha256": "b5af03b4d9c13d7b61dd6c0ede444c8486a82d79b9a6531baee5d967412ec403"
+    },
+    "min_cloud_oracle": {
+      "label": "GII-MIN-RE-4 cloud-field consistency validation",
+      "kind": "bounded_runtime_cloud_evidence",
+      "path": "sources/evidence/min-6000tl-xh-cloud-oracle-validation.json",
+      "independent": false,
+      "sha256": "95c6cd930194d2b6af04c161781b555a5de3f6555db8c1de52266210d53f519b"
     },
     "ha5_regression_tests": {
       "label": "HA-5 regression tests",
@@ -84934,6 +84941,7 @@
         "grott",
         "ha_runtime",
         "manual",
+        "min_cloud_oracle",
         "min_semantic_review",
         "vendor_v124"
       ],
@@ -84948,7 +84956,21 @@
           "Warning code"
         ]
       },
-      "validation_evidence": [],
+      "validation_evidence": [
+        {
+          "source": "min_cloud_oracle",
+          "result": "confirmed_cloud_field_correlation",
+          "injected_value": 4660,
+          "active_interval_utc": "2026-09-13T10:35:28–10:42:02",
+          "valid_rewrites": 83,
+          "cloud_publication_timestamp_utc": "2026-09-13T12:39:15",
+          "cloud_fields": {
+            "sys_fault_word3": 4660
+          },
+          "confidence": "high",
+          "note": "Distinctive I3110 response value was observed in the next cloud history publication; this establishes a cloud-field correlation, not a new warning-bit definition."
+        }
+      ],
       "write_policy": "read_only",
       "native_read_blocks": [
         "min_fc04_input_3000_3124"
@@ -84996,8 +85018,8 @@
         "quantity": "inverter.present_fft_value_channel_a",
         "canonical_name": "Present FFT value (vendor channel A)",
         "reconciliation_status": "reconciled",
-        "subsystem": "unknown",
-        "measurement_point": "unknown",
+        "subsystem": "inverter",
+        "measurement_point": "inverter",
         "instance_kind": null,
         "instance": null,
         "instance_status": "not_applicable",
@@ -85018,7 +85040,7 @@
       "resolution": {
         "status": "source_only",
         "confidence": "medium",
-        "note": "Vendor V1.24 names input 3111 uwPresentFFTValue[CHANNEL_A]; it is not established as an inverter warning code."
+        "note": "Vendor V1.24 names input 3111 uwPresentFFTValue[CHANNEL_A]. The source datatype column says bitfield but supplies no bit definitions; retain the word as a raw unsigned numeric diagnostic value, not as an inverter warning code."
       },
       "normalization": {
         "status": "assigned",
@@ -85045,6 +85067,7 @@
         "grott",
         "ha_runtime",
         "manual",
+        "min_cloud_oracle",
         "min_semantic_review",
         "vendor_v124"
       ],
@@ -85063,14 +85086,31 @@
           "uwPresentFFTVa lue[CHANNEL_A ]"
         ]
       },
-      "validation_evidence": [],
+      "validation_evidence": [
+        {
+          "source": "min_cloud_oracle",
+          "result": "provisional_cloud_field_correlation",
+          "injected_value": 9029,
+          "active_interval_utc": "2026-09-13T09:53:09–09:58:08",
+          "valid_rewrites": 64,
+          "cloud_publication_timestamps_utc": [
+            "2026-09-13T11:46:13",
+            "2026-09-13T11:56:13"
+          ],
+          "cloud_fields": {
+            "sys_fault_word4": 9029
+          },
+          "confidence": "provisional",
+          "note": "The correlation is retained as provisional because an intervening sample reverted and device/API timestamps are offset. The vendor field identity remains uwPresentFFTValue[CHANNEL_A], a numeric diagnostic value; the source datatype annotation bitfield has no documented bit meanings."
+        }
+      ],
       "write_policy": "read_only",
       "native_read_blocks": [
         "min_fc04_input_3000_3124"
       ],
       "review": {
-        "disposition": "MISLABELED",
-        "rationale": "Vendor V1.24 names input 3111 uwPresentFFTValue[CHANNEL_A]; it is not established as an inverter warning code.",
+        "disposition": "PROVEN",
+        "rationale": "Vendor V1.24 names input 3111 uwPresentFFTValue[CHANNEL_A]. The source datatype column says bitfield but supplies no bit definitions; retain the word as a raw unsigned numeric diagnostic value, not as an inverter warning code.",
         "source_basis": [
           "vendor_v124",
           "ha_runtime"
@@ -90628,16 +90668,16 @@
         "variable_names": [
           "BDCDeratingMo de"
         ],
-        "description": "BDCDeratingMode： 0:Normal,unrestricted 1：Standbyorfault 2：Maximumbatterycurrentlimit (discharge) 3：BatterydischargeEnable(Discharge) 4：Highbusdischargederating",
-        "datatype_notation": "u16 enum 0=normal, 1=standby/fault, 2=maximum discharge-current limit, 3=discharge enabled, 4=high-bus discharge derating",
+        "description": "BDCDeratingMode: 0=Normal, unrestricted; 1=Standby or fault; 2=Maximum battery current limit (discharge); 3=Battery discharge enabled; 4=High bus discharge derating; 5=High temperature discharge derating; 6=System warning, no discharge; 16=Maximum charging current; 17=High temperature charging; 18=Final soft charge; 19=SOC setting limits; 20=Battery low temperature; 21=High bus voltage; 22=Battery SOC (charging); 23=Need to charge; 24=System warning, not charging. Values 7-15 and 25-29 are reserved.",
+        "datatype_notation": "u16 enum",
         "unit_notation": null,
         "access": "R",
         "applicability": []
       },
       "normalized": {
         "name": "BDC derating mode",
-        "description": "BDCDeratingMode： 0:Normal,unrestricted 1：Standbyorfault 2：Maximumbatterycurrentlimit (discharge) 3：BatterydischargeEnable(Discharge) 4：Highbusdischargederating",
-        "raw_type": "u16 enum 0=normal, 1=standby/fault, 2=maximum discharge-current limit, 3=discharge enabled, 4=high-bus discharge derating",
+        "description": "BDCDeratingMode: 0=Normal, unrestricted; 1=Standby or fault; 2=Maximum battery current limit (discharge); 3=Battery discharge enabled; 4=High bus discharge derating; 5=High temperature discharge derating; 6=System warning, no discharge; 16=Maximum charging current; 17=High temperature charging; 18=Final soft charge; 19=SOC setting limits; 20=Battery low temperature; 21=High bus voltage; 22=Battery SOC (charging); 23=Need to charge; 24=System warning, not charging. Values 7-15 and 25-29 are reserved.",
+        "raw_type": "u16 enum",
         "signed": false,
         "divisor": null,
         "multiplier": 1,
@@ -90694,6 +90734,72 @@
           "canonical_name": "high_bus_discharge_derating",
           "vendor_label": "high_bus_discharge_derating",
           "ambiguous": false
+        },
+        {
+          "value": 5,
+          "canonical_name": "high_temperature_discharge_derating",
+          "vendor_label": "high_temperature_discharge_derating",
+          "ambiguous": false
+        },
+        {
+          "value": 6,
+          "canonical_name": "system_warning_no_discharge",
+          "vendor_label": "system_warning_no_discharge",
+          "ambiguous": false
+        },
+        {
+          "value": 16,
+          "canonical_name": "maximum_battery_charging_current",
+          "vendor_label": "maximum_battery_charging_current",
+          "ambiguous": false
+        },
+        {
+          "value": 17,
+          "canonical_name": "high_temperature_charging",
+          "vendor_label": "high_temperature_charging",
+          "ambiguous": false
+        },
+        {
+          "value": 18,
+          "canonical_name": "final_soft_charge",
+          "vendor_label": "final_soft_charge",
+          "ambiguous": false
+        },
+        {
+          "value": 19,
+          "canonical_name": "soc_setting_limits_charging",
+          "vendor_label": "soc_setting_limits_charging",
+          "ambiguous": false
+        },
+        {
+          "value": 20,
+          "canonical_name": "battery_low_temperature_charging",
+          "vendor_label": "battery_low_temperature_charging",
+          "ambiguous": false
+        },
+        {
+          "value": 21,
+          "canonical_name": "high_bus_voltage_charging",
+          "vendor_label": "high_bus_voltage_charging",
+          "ambiguous": false
+        },
+        {
+          "value": 22,
+          "canonical_name": "battery_soc_charging",
+          "vendor_label": "battery_soc_charging",
+          "ambiguous": false
+        },
+        {
+          "value": 23,
+          "canonical_name": "need_to_charge",
+          "vendor_label": "need_to_charge",
+          "ambiguous": false
+        },
+        {
+          "value": 24,
+          "canonical_name": "system_warning_not_charging",
+          "vendor_label": "system_warning_not_charging",
+          "ambiguous": false
         }
       ],
       "bitfields": [],
@@ -90728,6 +90834,7 @@
       "source_provenance": [
         "curated_best_guess",
         "grott",
+        "min_cloud_oracle",
         "min_semantic_review",
         "openinverter_gateway",
         "vendor_v124"
@@ -90747,7 +90854,21 @@
           "BDCDeratingMo de"
         ]
       },
-      "validation_evidence": [],
+      "validation_evidence": [
+        {
+          "source": "min_cloud_oracle",
+          "result": "runtime_cloud_consistency",
+          "injected_value": 0,
+          "active_interval_utc": "2026-09-13T10:43:07–10:49:01",
+          "valid_rewrites": 37,
+          "cloud_publication_timestamp_utc": "2026-09-13T12:44:15",
+          "cloud_fields": {
+            "bdc_derate_reason": 0
+          },
+          "confidence": "high",
+          "note": "The cloud field follows the injected runtime value. V1.24 remains the primary semantic source and explicitly defines the complete BDCDeratingMode codebook, including 22=Battery SOC (charging)."
+        }
+      ],
       "write_policy": "read_only",
       "native_read_blocks": [
         "min_fc04_input_3125_3249"
@@ -90878,6 +90999,7 @@
       "source_provenance": [
         "curated_best_guess",
         "grott",
+        "min_cloud_oracle",
         "min_semantic_review",
         "openinverter_gateway",
         "vendor_v124"
@@ -90899,7 +91021,18 @@
           "SysState_Mode"
         ]
       },
-      "validation_evidence": [],
+      "validation_evidence": [
+        {
+          "source": "min_cloud_oracle",
+          "result": "not_discriminating",
+          "injected_value": 257,
+          "active_interval_utc": "2026-09-13T10:04:34–10:09:35",
+          "valid_rewrites": 5,
+          "cloud_publication_timestamp_utc": "2026-09-13T12:06:14",
+          "confidence": "not_attributable",
+          "note": "The test value did not produce an attributable cloud result. The packed upper-byte mode/lower-byte status semantics are directly vendor-defined."
+        }
+      ],
       "write_policy": "read_only",
       "native_read_blocks": [
         "min_fc04_input_3125_3249"
@@ -96318,6 +96451,7 @@
         "grott",
         "ha_runtime",
         "manual",
+        "min_cloud_oracle",
         "vendor_v124"
       ],
       "source_aliases": {
@@ -96334,7 +96468,18 @@
           "BattNeedCharge RequestFlag"
         ]
       },
-      "validation_evidence": [],
+      "validation_evidence": [
+        {
+          "source": "min_cloud_oracle",
+          "result": "not_discriminating",
+          "injected_value": 1,
+          "active_interval_utc": "2026-09-13T09:58:50–10:03:50",
+          "valid_rewrites": 30,
+          "cloud_publication_timestamp_utc": "2026-09-13T12:01:14",
+          "confidence": "not_attributable",
+          "note": "Value 1 is common across status fields, so the cloud result does not identify a field. The vendor-defined bits remain canonical."
+        }
+      ],
       "write_policy": "read_only",
       "native_read_blocks": [
         "min_fc04_input_3125_3249"
@@ -96482,6 +96627,7 @@
         "grott",
         "ha_runtime",
         "manual",
+        "min_cloud_oracle",
         "min_live_validation",
         "min_resolved_map",
         "min_semantic_review",
@@ -96502,6 +96648,16 @@
         ]
       },
       "validation_evidence": [
+        {
+          "source": "min_cloud_oracle",
+          "result": "not_discriminating",
+          "injected_value": 1,
+          "active_interval_utc": "2026-09-13T10:10:15–10:15:14",
+          "valid_rewrites": 29,
+          "cloud_publication_timestamp_utc": "2026-09-13T12:11:14",
+          "confidence": "not_attributable",
+          "note": "Cloud value 1 is not unique. The live raw value 2 matched the API BMS status 2, and the complete 0–7 enum is vendor-defined."
+        },
         {
           "source": "min_live_validation",
           "locations": [

@@ -689,7 +689,7 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | I | 3162 | BDC DC voltage | register value | V | R | resolved |
 | I | 3163 | Reserved | register value | — | R | unknown_reserved |
 | I | 3164 | BDC data-separation flag | u16 enum 0=no separate BDC data, 1=separate BDC data | — | R | resolved_with_notes |
-| I | 3165 | BDC derating mode | u16 enum 0=normal, 1=standby/fault, 2=maximum discharge-current limit, 3=discharge enabled, 4=high-bus discharge derating | — | R | resolved_with_notes |
+| I | 3165 | BDC derating mode | u16 enum | — | R | resolved_with_notes |
 | I | 3166 | BDC system mode and status | u16 packed: upper byte mode, lower byte status | — | R | resolved_with_notes |
 | I | 3167 | BDC fault code | u16 vendor-defined fault code | — | R | resolved_with_notes |
 | I | 3168 | BDC warning code | u16 vendor-defined warning code | — | R | resolved_with_notes |
@@ -914,6 +914,7 @@ Applicability: TL-XH; relationships: none.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `conditional`; native blocks: min_fc03_holding_0_124.
 
 Bitfields: [0, 15]=undocumented_flags (placeholder)
+Validation evidence: min_live_validation=observed
 
 ### holding 1 — Safety function enable flags
 
@@ -1183,6 +1184,7 @@ Normalized type/signedness/scale: `ASCII, 10 characters` / `None` / `—`.
 Applicability: TL-XH; relationships: none.
 Evidence: source_documented, read_observed; resolution: `source_only`; write policy: `read_only`; native blocks: min_fc03_holding_0_124.
 
+Validation evidence: min_live_validation=observed
 
 ### holding 24 — Serial Number
 
@@ -2801,6 +2803,7 @@ Normalized type/signedness/scale: `u16 percentage; 255 disables limit` / `False`
 Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved`; write policy: `unknown_write_risk`; native blocks: min_fc03_holding_3000_3124.
 
+Validation evidence: min_live_validation=observed
 
 ### holding 3037 — Grid-first stop SOC
 
@@ -2813,6 +2816,7 @@ Normalized type/signedness/scale: `u16 percentage` / `False` / `1`.
 Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved`; write policy: `unknown_write_risk`; native blocks: min_fc03_holding_3000_3124.
 
+Validation evidence: min_live_validation=observed
 
 ### holding 3038 — Grid-first schedule 1 start/control
 
@@ -2826,6 +2830,7 @@ Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 0=loadpriority_prohibited (loadpriority / prohibited); 1=batterypriority_enabled (batterypriority / enabled); 2=gridpriority (Gridpriority); 6=minute_hour_priority_enable_none (minute/hour/priority/enable None); 7=minutes (minutes); 12=hour (hour)
+Validation evidence: min_live_validation=observed
 
 ### holding 3039 — Grid-first schedule 1 end
 
@@ -2839,6 +2844,7 @@ Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 6=minute_hour_none (minute/hour None); 7=minutes (minutes); 12=hour (hour); 15=reserved (reserved)
+Validation evidence: min_live_validation=observed
 
 ### holding 3040 — Grid-first schedule 2 start/control
 
@@ -2852,6 +2858,7 @@ Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 0=loadpriority_prohibited (loadpriority / prohibited); 1=batterypriority (batterypriority); 2=gridpriority (Gridpriority); 6=minute_hour_priority_enable_none (minute/hour/priority/enable None); 7=minutes (minutes); 12=hour (hour)
+Validation evidence: min_live_validation=observed
 
 ### holding 3041 — Grid-first schedule 2 end
 
@@ -2865,6 +2872,7 @@ Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 6=minute_hour_none (minute/hour None); 7=minutes (minutes); 12=hour (hour); 15=reserved (reserved)
+Validation evidence: min_live_validation=observed
 
 ### holding 3042 — Grid-first schedule 3 start/control
 
@@ -2878,6 +2886,7 @@ Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 6=minute_hour_priority_enable_none (minute/hour/priority/enable None)
+Validation evidence: min_live_validation=observed
 
 ### holding 3043 — Grid-first schedule 3 end
 
@@ -2891,6 +2900,7 @@ Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 6=minute_hour_none (minute/hour None)
+Validation evidence: min_live_validation=observed
 
 ### holding 3044 — Grid-first schedule 4 start/control
 
@@ -2904,6 +2914,7 @@ Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 6=minute_hour_priority_enable_none (minute/hour/priority/enable None)
+Validation evidence: min_live_validation=observed
 
 ### holding 3045 — Grid-first schedule 4 end
 
@@ -2917,6 +2928,7 @@ Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 6=minute_hour_none (minute/hour None)
+Validation evidence: min_live_validation=observed
 
 ### holding 3047 — Battery-first charge power rate
 
@@ -2929,6 +2941,7 @@ Normalized type/signedness/scale: `u16 percentage` / `False` / `1`.
 Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved`; write policy: `unknown_write_risk`; native blocks: min_fc03_holding_3000_3124.
 
+Validation evidence: min_live_validation=observed
 
 ### holding 3048 — Battery-first stop SOC
 
@@ -2941,6 +2954,7 @@ Normalized type/signedness/scale: `u16 percentage` / `False` / `1`.
 Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved`; write policy: `unknown_write_risk`; native blocks: min_fc03_holding_3000_3124.
 
+Validation evidence: min_live_validation=observed
 
 ### holding 3049 — AC charging enabled
 
@@ -2954,6 +2968,7 @@ Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 0=disabled (disabled); 1=enabled_none (enabled None)
+Validation evidence: min_live_validation=observed
 
 ### holding 3050 — Battery-first schedule 1 start/control
 
@@ -2967,6 +2982,7 @@ Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 6=minute_hour_priority_enable_none (minute/hour/priority/enable None)
+Validation evidence: min_live_validation=observed
 
 ### holding 3051 — Battery-first schedule 1 end
 
@@ -2980,6 +2996,7 @@ Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 6=minute_hour_none (minute/hour None)
+Validation evidence: min_live_validation=observed
 
 ### holding 3052 — Battery-first schedule 2 start/control
 
@@ -2993,6 +3010,7 @@ Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 6=minute_hour_priority_enable_none (minute/hour/priority/enable None)
+Validation evidence: min_live_validation=observed
 
 ### holding 3053 — Battery-first schedule 2 end
 
@@ -3006,6 +3024,7 @@ Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 6=minute_hour_none (minute/hour None)
+Validation evidence: min_live_validation=observed
 
 ### holding 3054 — Battery-first schedule 3 start/control
 
@@ -3019,6 +3038,7 @@ Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 6=minute_hour_priority_enable_none (minute/hour/priority/enable None)
+Validation evidence: min_live_validation=observed
 
 ### holding 3055 — Battery-first schedule 3 end
 
@@ -3032,6 +3052,7 @@ Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 6=minute_hour_none (minute/hour None)
+Validation evidence: min_live_validation=observed
 
 ### holding 3056 — Battery-first schedule 4 start/control
 
@@ -3045,6 +3066,7 @@ Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 6=minute_hour_priority_enable_none (minute/hour/priority/enable None)
+Validation evidence: min_live_validation=observed
 
 ### holding 3057 — Battery-first schedule 4 end
 
@@ -3058,6 +3080,7 @@ Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 6=minute_hour_none (minute/hour None)
+Validation evidence: min_live_validation=observed
 
 ### holding 3058 — Battery-first schedule 5 start/control
 
@@ -3071,6 +3094,7 @@ Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 6=minute_hour_priority_enable_none (minute/hour/priority/enable None)
+Validation evidence: min_live_validation=observed
 
 ### holding 3059 — Battery-first schedule 5 end
 
@@ -3084,6 +3108,7 @@ Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 6=minute_hour_none (minute/hour None)
+Validation evidence: min_live_validation=observed
 
 ### holding 3060 — Reserved
 
@@ -3326,6 +3351,7 @@ Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 0=disable_1_disabled (disable 1 / disabled); 1=enabled_none (enabled None)
+Validation evidence: min_live_validation=observed
 
 ### holding 3080 — UPS/EPS voltage selection
 
@@ -3339,6 +3365,7 @@ Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 0=230_v (230 V); 1=208_v (208 V); 2=240_v (240 V)
+Validation evidence: min_live_validation=observed
 
 ### holding 3081 — UPS/EPS frequency selection
 
@@ -3352,6 +3379,7 @@ Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `conditional`; native blocks: min_fc03_holding_3000_3124.
 
 Enums: 0=50_hz (50 Hz); 1=60_hz (60 Hz)
+Validation evidence: min_live_validation=observed
 
 ### holding 3082 — Load-first stop SOC
 
@@ -3364,6 +3392,7 @@ Normalized type/signedness/scale: `u16 percentage` / `False` / `—`.
 Applicability: hybrid TL-XH; relationships: none.
 Evidence: source_documented, read_observed; resolution: `resolved`; write policy: `unknown_write_risk`; native blocks: min_fc03_holding_3000_3124.
 
+Validation evidence: min_live_validation=observed
 
 ### holding 3083 — Reserved
 
@@ -6881,6 +6910,7 @@ Applicability: MIN 6000TL-XH; relationships: alternate:min_tl_xh:input:0.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
 Packed fields: [8, 15]=mode; [0, 7]=status
+Validation evidence: min_live_validation=observed
 
 ### input 3001 — PV total power (high word)
 
@@ -6893,6 +6923,7 @@ Normalized type/signedness/scale: `u32 / 10` / `False` / `10`.
 Applicability: MIN 6000TL-XH; relationships: none.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
+Validation evidence: min_live_validation=observed
 
 ### input 3002 — PV total power (low word)
 
@@ -6917,6 +6948,7 @@ Normalized type/signedness/scale: `u32 / 10` / `False` / `10`.
 Applicability: MIN 6000TL-XH; relationships: none.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
+Validation evidence: min_live_validation=observed
 
 ### input 3006 — PV1 power (low word)
 
@@ -6941,6 +6973,7 @@ Normalized type/signedness/scale: `u32 / 10` / `False` / `10`.
 Applicability: MIN 6000TL-XH; relationships: none.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
+Validation evidence: min_live_validation=observed
 
 ### input 3010 — PV2 power (low word)
 
@@ -7085,6 +7118,7 @@ Normalized type/signedness/scale: `u32 / 10` / `False` / `10`.
 Applicability: MIN 6000TL-XH; relationships: none.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
+Validation evidence: min_live_validation=observed
 
 ### input 3024 — AC output power
 
@@ -7109,6 +7143,7 @@ Normalized type/signedness/scale: `u16 / 100` / `False` / `100`.
 Applicability: MIN 6000TL-XH; relationships: alternate:min_tl_xh:holding:62, alternate:min_tl_xh:holding:63, alternate:min_tl_xh:holding:72, alternate:min_tl_xh:holding:73, alternate:min_tl_xh:holding:74, alternate:min_tl_xh:holding:75, alternate:min_tl_xh:holding:78, alternate:min_tl_xh:holding:79, alternate:logical:min_tl_xh:input:37.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
+Validation evidence: min_live_validation=observed
 
 ### input 3028 — AC phase L1 power
 
@@ -7121,6 +7156,7 @@ Normalized type/signedness/scale: `u32 / 10` / `False` / `10`.
 Applicability: MIN 6000TL-XH; relationships: none.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
+Validation evidence: min_live_validation=observed
 
 ### input 3029 — AC phase L1 power
 
@@ -7241,6 +7277,7 @@ Normalized type/signedness/scale: `s32 / 10` / `True` / `10`.
 Applicability: MIN 6000TL-XH; relationships: none.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
+Validation evidence: min_live_validation=observed
 
 ### input 3042 — Grid import power (low word)
 
@@ -7265,6 +7302,7 @@ Normalized type/signedness/scale: `s32 / 10` / `True` / `10`.
 Applicability: MIN 6000TL-XH; relationships: none.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
+Validation evidence: min_live_validation=observed
 
 ### input 3044 — Grid export power (low word)
 
@@ -7289,6 +7327,7 @@ Normalized type/signedness/scale: `s32 / 10` / `True` / `10`.
 Applicability: MIN 6000TL-XH; relationships: none.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
+Validation evidence: min_live_validation=observed
 
 ### input 3046 — House load power (low word)
 
@@ -7904,6 +7943,20 @@ Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `source_only`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
 Bitfields: [0, 15]=undocumented_flags (placeholder)
+Validation evidence: min_cloud_oracle=confirmed_cloud_field_correlation
+
+### input 3111 — Present FFT value (vendor channel A)
+
+Canonical description: PresentFFTValue[CHANNEL_A]
+Physical identity: `min_tl_xh:input:3111`.
+Semantic: `inverter.present_fft_value_channel_a`; subsystem: `inverter`; measurement point: `inverter`; instance/index: `not_applicable/None`.
+Logical field: `none`; component role: `complete_value`.
+Vendor names: uwPresentFFTVa lue[CHANNEL_A ]; vendor description: PresentFFTValue[CHANNEL_A]; vendor unit/type: — / u16 vendor-defined diagnostic value.
+Normalized type/signedness/scale: `u16 vendor-defined diagnostic value` / `False` / `—`.
+Applicability: family-level; relationships: none.
+Evidence: source_documented, implementation_correlated; resolution: `source_only`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
+
+Validation evidence: min_cloud_oracle=provisional_cloud_field_correlation
 
 ### input 3118 — BDC connect state
 
@@ -8302,19 +8355,35 @@ Applicability: MIN 6000TL-XH; relationships: none.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
 
 Enums: 0=no_separate_bdc_data (no_separate_bdc_data); 1=separate_bdc_data (separate_bdc_data)
+Validation evidence: min_live_validation=observed
 
 ### input 3165 — BDC derating mode
 
-Canonical description: BDCDeratingMode： 0:Normal,unrestricted 1：Standbyorfault 2：Maximumbatterycurrentlimit (discharge) 3：BatterydischargeEnable(Discharge) 4：Highbusdischargederating
+Canonical description: BDCDeratingMode: 0=Normal, unrestricted; 1=Standby or fault; 2=Maximum battery current limit (discharge); 3=Battery discharge enabled; 4=High bus discharge derating; 5=High temperature discharge derating; 6=System warning, no discharge; 16=Maximum charging current; 17=High temperature charging; 18=Final soft charge; 19=SOC setting limits; 20=Battery low temperature; 21=High bus voltage; 22=Battery SOC (charging); 23=Need to charge; 24=System warning, not charging. Values 7-15 and 25-29 are reserved.
 Physical identity: `min_tl_xh:input:3165`.
 Semantic: `bdc.derating_mode`; subsystem: `storage_device`; measurement point: `bdc_controller`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
-Vendor names: BDCDeratingMo de; vendor description: BDCDeratingMode： 0:Normal,unrestricted 1：Standbyorfault 2：Maximumbatterycurrentlimit (discharge) 3：BatterydischargeEnable(Discharge) 4：Highbusdischargederating; vendor unit/type: — / u16 enum 0=normal, 1=standby/fault, 2=maximum discharge-current limit, 3=discharge enabled, 4=high-bus discharge derating.
-Normalized type/signedness/scale: `u16 enum 0=normal, 1=standby/fault, 2=maximum discharge-current limit, 3=discharge enabled, 4=high-bus discharge derating` / `False` / `1`.
+Vendor names: BDCDeratingMo de; vendor description: BDCDeratingMode: 0=Normal, unrestricted; 1=Standby or fault; 2=Maximum battery current limit (discharge); 3=Battery discharge enabled; 4=High bus discharge derating; 5=High temperature discharge derating; 6=System warning, no discharge; 16=Maximum charging current; 17=High temperature charging; 18=Final soft charge; 19=SOC setting limits; 20=Battery low temperature; 21=High bus voltage; 22=Battery SOC (charging); 23=Need to charge; 24=System warning, not charging. Values 7-15 and 25-29 are reserved.; vendor unit/type: — / u16 enum.
+Normalized type/signedness/scale: `u16 enum` / `False` / `1`.
 Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
 
-Enums: 0=normal_unrestricted (normal_unrestricted); 1=standby_or_fault (standby_or_fault); 2=maximum_discharge_current_limit (maximum_discharge_current_limit); 3=battery_discharge_enabled (battery_discharge_enabled); 4=high_bus_discharge_derating (high_bus_discharge_derating)
+Enums: 0=normal_unrestricted (normal_unrestricted); 1=standby_or_fault (standby_or_fault); 2=maximum_discharge_current_limit (maximum_discharge_current_limit); 3=battery_discharge_enabled (battery_discharge_enabled); 4=high_bus_discharge_derating (high_bus_discharge_derating); 5=high_temperature_discharge_derating (high_temperature_discharge_derating); 6=system_warning_no_discharge (system_warning_no_discharge); 16=maximum_battery_charging_current (maximum_battery_charging_current); 17=high_temperature_charging (high_temperature_charging); 18=final_soft_charge (final_soft_charge); 19=soc_setting_limits_charging (soc_setting_limits_charging); 20=battery_low_temperature_charging (battery_low_temperature_charging); 21=high_bus_voltage_charging (high_bus_voltage_charging); 22=battery_soc_charging (battery_soc_charging); 23=need_to_charge (need_to_charge); 24=system_warning_not_charging (system_warning_not_charging)
+Validation evidence: min_cloud_oracle=runtime_cloud_consistency
+
+### input 3166 — BDC system mode and status
+
+Canonical description: SystemworkStateandmodeThe upper8bitsindicatethemode; 0：Nochargeanddischarge； 1：charge； 2：Discharge； Thelower8bitsrepresentthestatus; 0:StandbyStatus; 1:NormalStatus; 2:FaultStatus 3：FlashStatus;
+Physical identity: `min_tl_xh:input:3166`.
+Semantic: `bdc.system_mode_status`; subsystem: `storage_device`; measurement point: `bdc_controller`; instance/index: `not_applicable/None`.
+Logical field: `none`; component role: `complete_value`.
+Vendor names: SysState_Mode; vendor description: SystemworkStateandmodeThe upper8bitsindicatethemode; 0：Nochargeanddischarge； 1：charge； 2：Discharge； Thelower8bitsrepresentthestatus; 0:StandbyStatus; 1:NormalStatus; 2:FaultStatus 3：FlashStatus;; vendor unit/type: — / u16 packed: upper byte mode, lower byte status.
+Normalized type/signedness/scale: `u16 packed: upper byte mode, lower byte status` / `False` / `1`.
+Applicability: family-level; relationships: none.
+Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
+
+Packed fields: [8, 15]=mode; [0, 7]=status
+Validation evidence: min_cloud_oracle=not_discriminating
 
 ### input 3171 — Battery state of charge
 
@@ -8327,6 +8396,7 @@ Normalized type/signedness/scale: `u16 percentage` / `False` / `1`.
 Applicability: MIN 6000TL-XH; relationships: alternate:min_tl_xh:input:1014.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
 
+Validation evidence: min_live_validation=observed
 
 ### input 3178 — Battery discharge power (high word)
 
@@ -8339,6 +8409,7 @@ Normalized type/signedness/scale: `s32 / 10` / `True` / `10`.
 Applicability: MIN 6000TL-XH; relationships: none.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
 
+Validation evidence: min_live_validation=observed
 
 ### input 3179 — Battery discharge power (low word)
 
@@ -8363,6 +8434,7 @@ Normalized type/signedness/scale: `s32 / 10` / `True` / `10`.
 Applicability: MIN 6000TL-XH; relationships: none.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
 
+Validation evidence: min_live_validation=observed
 
 ### input 3181 — Battery charge power (low word)
 
@@ -8514,6 +8586,7 @@ Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
 
 Bitfields: [0]=charging_prohibited (structured); [1]=strong_charge_enabled (structured); [2]=strong_charge_2_enabled (structured); [8]=discharge_prohibited (structured); [9]=power_reduction_enabled (structured)
+Validation evidence: min_cloud_oracle=not_discriminating
 
 ### input 3212 — BMS status
 
@@ -8527,6 +8600,7 @@ Applicability: MIN 6000TL-XH; relationships: none.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
 
 Enums: 0=dormancy (dormancy); 1=charge (charge); 2=discharge (discharge); 3=free (free); 4=standby (standby); 5=soft_start (soft_start); 6=fault (fault); 7=update (update)
+Validation evidence: min_cloud_oracle=not_discriminating; min_live_validation=observed
 
 ### input 3213 — BMS protect flags 2
 

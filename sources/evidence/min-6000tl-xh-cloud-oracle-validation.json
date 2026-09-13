@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "model": "MIN 6000TL-XH",
+    "purpose": "Sanitized cloud-field consistency evidence from the bounded GII-MIN-RE-4 Shine-bound response-injection run.",
+    "source_report": "docs/reverse-engineering/GII-MIN-RE-4_CLOUD_SEMANTIC_ORACLE.md",
+    "access": "read-only cloud observation; no inverter or configuration writes",
+    "publication_rule": "A value was assessed only after it was held across a five-minute Shine publication interval and a newer API history timestamp was observed."
+  },
+  "records": [
+    {
+      "table": "input",
+      "address": 3110,
+      "result": "confirmed_cloud_field_correlation",
+      "injected_value": 4660,
+      "active_interval_utc": "2026-09-13T10:35:28–10:42:02",
+      "valid_rewrites": 83,
+      "cloud_publication_timestamp_utc": "2026-09-13T12:39:15",
+      "cloud_fields": {
+        "sys_fault_word3": 4660
+      },
+      "confidence": "high",
+      "note": "Distinctive I3110 response value was observed in the next cloud history publication; this establishes a cloud-field correlation, not a new warning-bit definition."
+    },
+    {
+      "table": "input",
+      "address": 3111,
+      "result": "provisional_cloud_field_correlation",
+      "injected_value": 9029,
+      "active_interval_utc": "2026-09-13T09:53:09–09:58:08",
+      "valid_rewrites": 64,
+      "cloud_publication_timestamps_utc": [
+        "2026-09-13T11:46:13",
+        "2026-09-13T11:56:13"
+      ],
+      "cloud_fields": {
+        "sys_fault_word4": 9029
+      },
+      "confidence": "provisional",
+      "note": "The correlation is retained as provisional because an intervening sample reverted and device/API timestamps are offset. The vendor field identity remains uwPresentFFTValue[CHANNEL_A], a numeric diagnostic value; the source datatype annotation bitfield has no documented bit meanings."
+    },
+    {
+      "table": "input",
+      "address": 3165,
+      "result": "runtime_cloud_consistency",
+      "injected_value": 0,
+      "active_interval_utc": "2026-09-13T10:43:07–10:49:01",
+      "valid_rewrites": 37,
+      "cloud_publication_timestamp_utc": "2026-09-13T12:44:15",
+      "cloud_fields": {
+        "bdc_derate_reason": 0
+      },
+      "confidence": "high",
+      "note": "The cloud field follows the injected runtime value. V1.24 remains the primary semantic source and explicitly defines the complete BDCDeratingMode codebook, including 22=Battery SOC (charging)."
+    },
+    {
+      "table": "input",
+      "address": 3166,
+      "result": "not_discriminating",
+      "injected_value": 257,
+      "active_interval_utc": "2026-09-13T10:04:34–10:09:35",
+      "valid_rewrites": 5,
+      "cloud_publication_timestamp_utc": "2026-09-13T12:06:14",
+      "confidence": "not_attributable",
+      "note": "The test value did not produce an attributable cloud result. The packed upper-byte mode/lower-byte status semantics are directly vendor-defined."
+    },
+    {
+      "table": "input",
+      "address": 3211,
+      "result": "not_discriminating",
+      "injected_value": 1,
+      "active_interval_utc": "2026-09-13T09:58:50–10:03:50",
+      "valid_rewrites": 30,
+      "cloud_publication_timestamp_utc": "2026-09-13T12:01:14",
+      "confidence": "not_attributable",
+      "note": "Value 1 is common across status fields, so the cloud result does not identify a field. The vendor-defined bits remain canonical."
+    },
+    {
+      "table": "input",
+      "address": 3212,
+      "result": "not_discriminating",
+      "injected_value": 1,
+      "active_interval_utc": "2026-09-13T10:10:15–10:15:14",
+      "valid_rewrites": 29,
+      "cloud_publication_timestamp_utc": "2026-09-13T12:11:14",
+      "confidence": "not_attributable",
+      "note": "Cloud value 1 is not unique. The live raw value 2 matched the API BMS status 2, and the complete 0–7 enum is vendor-defined."
+    }
+  ]
+}

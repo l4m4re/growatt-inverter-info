@@ -123,9 +123,25 @@ def test_min_status_words_preserve_vendor_packing_and_unsigned_flags() -> None:
     assert bdc["packed_fields"][0]["enum"]["2"] == "discharge"
     assert bdc["packed_fields"][1]["enum"]["3"] == "flash"
 
+    derating = records["min_tl_xh:input:3165"]
+    assert derating["enums"][-1]["value"] == 24
+    assert derating["enums"][-1]["canonical_name"] == "system_warning_not_charging"
+    assert next(item for item in derating["enums"] if item["value"] == 22)["canonical_name"] == "battery_soc_charging"
+
     assert records["min_tl_xh:input:3187"]["normalized"]["signed"] is False
     assert records["min_tl_xh:input:3211"]["normalized"]["signed"] is False
     assert records["min_tl_xh:input:3104"]["bitfields"][0]["name"] == "turn_off_order"
+    assert records["min_tl_xh:input:3111"]["bitfields"] == []
+
+    for address, result in {
+        3110: "confirmed_cloud_field_correlation",
+        3165: "runtime_cloud_consistency",
+        3166: "not_discriminating",
+        3211: "not_discriminating",
+        3212: "not_discriminating",
+    }.items():
+        evidence = records[f"min_tl_xh:input:{address}"]["validation_evidence"]
+        assert any(item.get("source") == "min_cloud_oracle" and item.get("result") == result for item in evidence)
 
 
 def test_min_status_enums_are_explicit_and_not_parser_artifacts() -> None:

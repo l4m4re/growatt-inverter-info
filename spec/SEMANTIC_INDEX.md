@@ -4603,7 +4603,7 @@ This index preserves subsystem and instance distinctions; entries are not automa
 
 ## `inverter.present_fft_value_channel_a`
 
-- `min_tl_xh` input 3111 — unknown / unknown — `supported`
+- `min_tl_xh` input 3111 — inverter / inverter — `supported`
 
 ## `inverter.runtime`
 

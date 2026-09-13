@@ -266,6 +266,17 @@ ENUM_OVERRIDES = {
         2: "maximum_discharge_current_limit",
         3: "battery_discharge_enabled",
         4: "high_bus_discharge_derating",
+        5: "high_temperature_discharge_derating",
+        6: "system_warning_no_discharge",
+        16: "maximum_battery_charging_current",
+        17: "high_temperature_charging",
+        18: "final_soft_charge",
+        19: "soc_setting_limits_charging",
+        20: "battery_low_temperature_charging",
+        21: "high_bus_voltage_charging",
+        22: "battery_soc_charging",
+        23: "need_to_charge",
+        24: "system_warning_not_charging",
     },
     ("min_tl_xh", "input", 3210): {
         0: "not_detected",
@@ -1405,6 +1416,10 @@ def render_family(spec: dict[str, Any], family: dict[str, Any]) -> str:
         or r["write_policy"] != "read_only"
         or r.get("component_of")
         or r["length_words"] > 1
+        or any(
+            item.get("source") == "min_cloud_oracle"
+            for item in r["validation_evidence"]
+        )
     ]
     if interesting:
         lines.extend(["", "## Details", ""])
@@ -1445,6 +1460,14 @@ def render_family(spec: dict[str, Any], family: dict[str, Any]) -> str:
                     "Packed fields: "
                     + "; ".join(
                         f"{item['bits']}={item['name']}" for item in record["packed_fields"]
+                    )
+                )
+            if record["validation_evidence"]:
+                lines.append(
+                    "Validation evidence: "
+                    + "; ".join(
+                        f"{item['source']}={item.get('result', 'observed')}"
+                        for item in record["validation_evidence"]
                     )
                 )
             lines.append("")
