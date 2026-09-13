@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "natural_shine_action_evidence",
+  "scope": "public-safe evidence for one naturally observed Shine/portal TOU action",
+  "family": "MIN/TL-XH",
+  "table": "holding",
+  "registers": [3040, 3041],
+  "action": "disable_time_period_2",
+  "observed_protocol": {
+    "function": 16,
+    "function_hex": "0x10",
+    "meaning": "Write Multiple Registers",
+    "unit": 1,
+    "start": 3040,
+    "quantity": 2,
+    "payload_words": ["0x2000", "0x0700"],
+    "reconstructed_request_pdu_without_crc": "01 10 0B E0 00 02 04 20 00 07 00",
+    "captured_request_frame": null,
+    "captured_request_crc": null
+  },
+  "readback": {
+    "observed": true,
+    "function": 3,
+    "start": 3040,
+    "quantity": 2,
+    "captured_response_frame": null,
+    "captured_response_crc": null
+  },
+  "state_transition": {
+    "before": {"H3040": "0xA000", "H3041": "0x0700"},
+    "after": {"H3040": "0x2000", "H3041": "0x0700"},
+    "interpretation": "H3040 bit15 changed from enabled to prohibited; the time word H3041 remained unchanged."
+  },
+  "evidence": {
+    "primary_record": "external/growatt-rtu-broker/docs/HA-DEV-3D_SESSION_CHECKPOINT.md:230-239",
+    "primary_record_status": "human-reviewed broker-session summary; the original raw write/readback lines are not present in the retained capture files",
+    "supporting_capture": {
+      "path": "/tmp/growatt-ha-dev2c-raw-20260907-184343.jsonl",
+      "sha256": "56fa2ed1fcf859b8fb7e75793f71afbce9084b5bea6855161d85117c63253560",
+      "status": "supports the surrounding Shine FC03/FC04/FC20 wire session, not the missing write frame"
+    },
+    "source_provenance": "The action was reported as Shine-originated and broker-forwarded; no broker-originated write is claimed."
+  },
+  "limitations": [
+    "The request PDU shown above is a deterministic reconstruction from the reviewed unit/function/start/count/payload fields, not a raw-capture substitute.",
+    "The exact FC16 CRC, physical acknowledgement bytes, and FC03 readback bytes require recovery of the original write capture for byte-level verification.",
+    "This artifact must not be used as write-verified evidence beyond the reviewed logical association."
+  ]
+}

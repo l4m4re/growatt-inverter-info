@@ -61,6 +61,33 @@ def test_reviewed_continuations_and_raw_split_are_explicit() -> None:
     assert "bit8" in i3211["raw_value_text"] and "bit9" in i3211["raw_value_text"]
 
 
+def test_ems_review_covers_vendor_rows_and_family_scope() -> None:
+    claims = claims_by_id(ROOT / "sources/claims/vendor/vendor_growatt_v124_2020.json")
+    reviewed = {
+        address: claims[
+            f"vendor_growatt_v124_2020:holding:p{page:03d}:h{address}:visual-review"
+        ]
+        for address, page in [
+            *[(value, 38) for value in range(3036, 3041)],
+            *[(value, 39) for value in range(3041, 3060)],
+            (3081, 40),
+            (3082, 40),
+        ]
+    }
+    assert len(reviewed) == 26
+    assert all(claim["family_scope"] == ["TL-X", "TL-XH"] for claim in reviewed.values())
+    assert reviewed[3038]["reconstructed_row_text"].count("priority") == 3
+    assert "Bit15" in reviewed[3040]["reconstructed_row_text"]
+    assert reviewed[3040]["page_end"] == 39
+    assert len(reviewed[3040]["source_fragments"]) == 2
+    assert "reserved" in reviewed[3041]["reconstructed_row_text"]
+    assert reviewed[3042]["raw_note"] == "With Time1"
+    assert reviewed[3046]["raw_variable"] == "预留"
+    assert reviewed[3049]["raw_note"] == "Disable:0"
+    assert reviewed[3081]["raw_note"] == "0:50Hz; 1:60Hz"
+    assert reviewed[3082]["raw_unit_text"] == "ratio"
+
+
 def test_duplicate_address_claims_remain_distinct() -> None:
     claims = json.loads((ROOT / "sources/claims/vendor/vendor_growatt_v305_2013.json").read_text())["claims"]
     address_zero = [claim for claim in claims if claim["register_table"] == "holding" and claim["parsed_address"] == 0]

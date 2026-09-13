@@ -283,63 +283,69 @@ def load_review_claims(path: Path, metadata: dict[str, Any]) -> list[dict[str, A
     semantics; the original page fragments and review note remain mandatory.
     """
     payload = json.loads(path.read_text(encoding="utf-8"))
-    if payload["document_id"] != metadata["document_id"]:
-        raise ValueError(f"review document mismatch in {path}")
-    if payload["document_sha256"].lower() != metadata["document_sha256"].lower():
-        raise ValueError(f"review hash mismatch in {path}")
+    review_paths = [path]
+    review_paths.extend(path.parent / include for include in payload.get("include_files", []))
     claims: list[dict[str, Any]] = []
-    for item in payload.get("claims", []):
-        claim_id = item["claim_id"]
-        fragments = [
-            {
-                "fragment_id": f"{claim_id}:fragment-p{fragment['page']:03d}",
-                "page": fragment["page"],
-                "lines": fragment["lines"],
-                "text": "\n".join(fragment["lines"]),
+    for review_path in review_paths:
+        review = json.loads(review_path.read_text(encoding="utf-8"))
+        if review["document_id"] != metadata["document_id"]:
+            raise ValueError(f"review document mismatch in {review_path}")
+        if review["document_sha256"].lower() != metadata["document_sha256"].lower():
+            raise ValueError(f"review hash mismatch in {review_path}")
+        for item in review.get("claims", []):
+            exclude_from_duplicate = review.get("exclude_from_duplicate", False)
+            claim_id = item["claim_id"]
+            fragments = [
+                {
+                    "fragment_id": f"{claim_id}:fragment-p{fragment['page']:03d}",
+                    "page": fragment["page"],
+                    "lines": fragment["lines"],
+                    "text": "\n".join(fragment["lines"]),
+                }
+                for fragment in item["source_fragments"]
+            ]
+            continuation_refs = [
+                f"{claim_id}:fragment-p{fragment['page']:03d}"
+                for fragment in fragments[1:]
+            ]
+            claim = {
+                "claim_id": claim_id,
+                "document_id": metadata["document_id"],
+                "document_revision": metadata["declared_revision"],
+                "document_sha256": metadata["document_sha256"],
+                "source_kind": "manual_original_document_verified",
+                "page": item["page"],
+                "page_end": fragments[-1]["page"],
+                "section_id": item["section_id"],
+                "section_title": item["section_title"],
+                "family_scope": item.get("family_scope", metadata["apparent_family_scope"]),
+                "register_table": item["register_table"],
+                "source_row_id": item["source_row_id"],
+                "raw_address_expression": item["raw_address_expression"],
+                "parsed_address": item.get("parsed_address"),
+                "parsed_address_end": item.get("parsed_address_end"),
+                "raw_variable": item.get("raw_variable"),
+                "reconstructed_variable": item.get("reconstructed_variable"),
+                "raw_description": item.get("raw_description"),
+                "raw_value_text": item.get("raw_value_text"),
+                "raw_unit_text": item.get("raw_unit_text"),
+                "raw_access_text": item.get("raw_access_text"),
+                "raw_initial_text": item.get("raw_initial_text"),
+                "raw_note": item.get("raw_note"),
+                "raw_row_text": "\n".join(
+                    line for fragment in fragments for line in fragment["lines"]
+                ),
+                "reconstructed_row_text": item["reconstructed_row_text"],
+                "extraction_method": "native_text+agent_visual_review",
+                "extraction_confidence": item.get("extraction_confidence", "high"),
+                "source_status": "manually_reviewed",
+                "continuation_refs": continuation_refs,
+                "source_fragments": fragments,
+                "diagnostics": sorted(set(item.get("diagnostics", []))),
+                "review_note": item["review_note"],
+                "exclude_from_duplicate": exclude_from_duplicate,
             }
-            for fragment in item["source_fragments"]
-        ]
-        continuation_refs = [
-            f"{claim_id}:fragment-p{fragment['page']:03d}"
-            for fragment in fragments[1:]
-        ]
-        claim = {
-            "claim_id": claim_id,
-            "document_id": metadata["document_id"],
-            "document_revision": metadata["declared_revision"],
-            "document_sha256": metadata["document_sha256"],
-            "source_kind": "manual_original_document_verified",
-            "page": item["page"],
-            "page_end": fragments[-1]["page"],
-            "section_id": item["section_id"],
-            "section_title": item["section_title"],
-            "family_scope": item.get("family_scope", metadata["apparent_family_scope"]),
-            "register_table": item["register_table"],
-            "source_row_id": item["source_row_id"],
-            "raw_address_expression": item["raw_address_expression"],
-            "parsed_address": item.get("parsed_address"),
-            "parsed_address_end": item.get("parsed_address_end"),
-            "raw_variable": item.get("raw_variable"),
-            "reconstructed_variable": item.get("reconstructed_variable"),
-            "raw_description": item.get("raw_description"),
-            "raw_value_text": item.get("raw_value_text"),
-            "raw_unit_text": item.get("raw_unit_text"),
-            "raw_access_text": item.get("raw_access_text"),
-            "raw_initial_text": item.get("raw_initial_text"),
-            "raw_note": item.get("raw_note"),
-            "raw_row_text": "\n".join(
-                line for fragment in fragments for line in fragment["lines"]
-            ),
-            "reconstructed_row_text": item["reconstructed_row_text"],
-            "extraction_method": "native_text+agent_visual_review",
-            "extraction_confidence": item.get("extraction_confidence", "high"),
-            "source_status": "manually_reviewed",
-            "continuation_refs": continuation_refs,
-            "source_fragments": fragments,
-            "diagnostics": sorted(set(item.get("diagnostics", []))),
-            "review_note": item["review_note"],
-        }
-        claims.append(claim)
+            claims.append(claim)
     return claims
 
 
@@ -462,7 +468,7 @@ def extract_document(
         diagnostic_counts[item["kind"]] = diagnostic_counts.get(item["kind"], 0) + 1
     numeric_groups: dict[tuple[str, int], list[dict[str, Any]]] = {}
     for claim in claims:
-        if claim["parsed_address"] is not None:
+        if claim["parsed_address"] is not None and not claim.get("exclude_from_duplicate", False):
             numeric_groups.setdefault((claim["register_table"], claim["parsed_address"]), []).append(claim)
     duplicate_groups = [
         group for group in numeric_groups.values()

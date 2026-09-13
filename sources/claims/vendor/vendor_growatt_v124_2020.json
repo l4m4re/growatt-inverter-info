@@ -24,11 +24,11 @@
     "text_extractor": "pdftotext 25.x -layout -enc UTF-8",
     "strategy": "embedded text first; layout-preserving page parser; no OCR",
     "pages_processed": 85,
-    "claims": 1501,
-    "continuation_fragments": 35,
+    "claims": 1527,
+    "continuation_fragments": 36,
     "ambiguous_address_claims": 81,
     "source_rows_without_parsed_address": 81,
-    "manually_verified_claims": 8,
+    "manually_verified_claims": 34,
     "ocr_assisted_regions": 0,
     "diagnostic_counts": {
       "algebraic_address_expression": 2,
@@ -22361,6 +22361,255 @@
       ]
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:holding:p038:h3036:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 38,
+      "page_end": 38,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3036",
+      "raw_address_expression": "3036",
+      "parsed_address": 3036,
+      "parsed_address_end": null,
+      "raw_variable": "GridFirstDisch\nargePowerRat\ne",
+      "reconstructed_variable": "GridFirstDischargePowerRate",
+      "raw_description": "Discharge Power Rate when Grid First",
+      "raw_value_text": "1-255",
+      "raw_unit_text": null,
+      "raw_access_text": null,
+      "raw_initial_text": null,
+      "raw_note": null,
+      "raw_row_text": "3036 GridFirstDisch argePowerRat e Discharge Power Rate when Grid First 1-255",
+      "reconstructed_row_text": "3036 GridFirstDisch argePowerRat e Discharge Power Rate when Grid First 1-255",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p038:h3036:visual-review:fragment-p038",
+          "page": 38,
+          "lines": [
+            "3036 GridFirstDisch argePowerRat e Discharge Power Rate when Grid First 1-255"
+          ],
+          "text": "3036 GridFirstDisch argePowerRat e Discharge Power Rate when Grid First 1-255"
+        }
+      ],
+      "diagnostics": [],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 38. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:holding:p038:h3037:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 38,
+      "page_end": 38,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3037",
+      "raw_address_expression": "3037",
+      "parsed_address": 3037,
+      "parsed_address_end": null,
+      "raw_variable": "GridFirstStopS\nOC",
+      "reconstructed_variable": "GridFirstStopSOC",
+      "raw_description": "Stop Discharge soc when Grid First",
+      "raw_value_text": "1-100",
+      "raw_unit_text": null,
+      "raw_access_text": null,
+      "raw_initial_text": null,
+      "raw_note": null,
+      "raw_row_text": "3037 GridFirstStopS OC Stop Discharge soc when Grid First 1-100",
+      "reconstructed_row_text": "3037 GridFirstStopS OC Stop Discharge soc when Grid First 1-100",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p038:h3037:visual-review:fragment-p038",
+          "page": 38,
+          "lines": [
+            "3037 GridFirstStopS OC Stop Discharge soc when Grid First 1-100"
+          ],
+          "text": "3037 GridFirstStopS OC Stop Discharge soc when Grid First 1-100"
+        }
+      ],
+      "diagnostics": [],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 38. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:holding:p038:h3038:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 38,
+      "page_end": 38,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3038",
+      "raw_address_expression": "3038",
+      "parsed_address": 3038,
+      "parsed_address_end": null,
+      "raw_variable": "Time 1(xh)",
+      "reconstructed_variable": "Time 1(xh)",
+      "raw_description": "Period 1: [Start Time ~ End Time], [Charge/Discharge], [Disable/Enable]; 3038 enable, charge and discharge, start time, end time 3039",
+      "raw_value_text": null,
+      "raw_unit_text": null,
+      "raw_access_text": "R/W",
+      "raw_initial_text": null,
+      "raw_note": "Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;",
+      "raw_row_text": "3038 Time 1(xh) Period 1: [Start Time ~ End Time], [Charge/Discharge], [Disable/Enable] 3038 enable, charge and discharge, start time, end time 3039 Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;",
+      "reconstructed_row_text": "3038 Time 1(xh) Period 1: [Start Time ~ End Time], [Charge/Discharge], [Disable/Enable] 3038 enable, charge and discharge, start time, end time 3039 Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p038:h3038:visual-review:fragment-p038",
+          "page": 38,
+          "lines": [
+            "3038 Time 1(xh) Period 1: [Start Time ~ End Time], [Charge/Discharge], [Disable/Enable] 3038 enable, charge and discharge, start time, end time 3039 Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;"
+          ],
+          "text": "3038 Time 1(xh) Period 1: [Start Time ~ End Time], [Charge/Discharge], [Disable/Enable] 3038 enable, charge and discharge, start time, end time 3039 Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;"
+        }
+      ],
+      "diagnostics": [
+        "packed_field_candidate"
+      ],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 38. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:holding:p038:h3039:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 38,
+      "page_end": 38,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3039",
+      "raw_address_expression": "3039",
+      "parsed_address": 3039,
+      "parsed_address_end": null,
+      "raw_variable": null,
+      "reconstructed_variable": null,
+      "raw_description": null,
+      "raw_value_text": null,
+      "raw_unit_text": null,
+      "raw_access_text": "R/W",
+      "raw_initial_text": null,
+      "raw_note": "Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved",
+      "raw_row_text": "3039 R/W Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved",
+      "reconstructed_row_text": "3039 R/W Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p038:h3039:visual-review:fragment-p038",
+          "page": 38,
+          "lines": [
+            "3039 R/W Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved"
+          ],
+          "text": "3039 R/W Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved"
+        }
+      ],
+      "diagnostics": [],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 38. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:holding:p038:h3040:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 38,
+      "page_end": 39,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3040",
+      "raw_address_expression": "3040",
+      "parsed_address": 3040,
+      "parsed_address_end": null,
+      "raw_variable": "Time 2(xh)",
+      "reconstructed_variable": "Time 2(xh)",
+      "raw_description": "Time period 2: [start time ~ end time], [charge / discharge], [disable / enable]; 3040 enable, charge and discharge, start time, 3041 end time",
+      "raw_value_text": null,
+      "raw_unit_text": null,
+      "raw_access_text": "R/W",
+      "raw_initial_text": null,
+      "raw_note": "Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;",
+      "raw_row_text": "3040 Time 2(xh) Time period 2: [start time ~ end time], [charge / discharge], [disable / enable] 3040 enable, charge and discharge, start time, 3041 end time Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;\nenabled;",
+      "reconstructed_row_text": "3040 Time 2(xh) Time period 2: [start time ~ end time], [charge / discharge], [disable / enable] 3040 enable, charge and discharge, start time, 3041 end time Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [
+        "vendor_growatt_v124_2020:holding:p038:h3040:visual-review:fragment-p039"
+      ],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p038:h3040:visual-review:fragment-p038",
+          "page": 38,
+          "lines": [
+            "3040 Time 2(xh) Time period 2: [start time ~ end time], [charge / discharge], [disable / enable] 3040 enable, charge and discharge, start time, 3041 end time Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;"
+          ],
+          "text": "3040 Time 2(xh) Time period 2: [start time ~ end time], [charge / discharge], [disable / enable] 3040 enable, charge and discharge, start time, 3041 end time Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;"
+        },
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p038:h3040:visual-review:fragment-p039",
+          "page": 39,
+          "lines": [
+            "enabled;"
+          ],
+          "text": "enabled;"
+        }
+      ],
+      "diagnostics": [
+        "packed_field_candidate"
+      ],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 38. The source-column transcription is retained separately from the reconstructed variable spelling. The final source cell continues at the top of page 39; it is one logical row, not a new register.",
+      "exclude_from_duplicate": true
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:holding:p039:row-039-0467",
       "document_id": "vendor_growatt_v124_2020",
       "document_revision": "V1.24",
@@ -23345,6 +23594,899 @@
       ]
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:holding:p039:h3041:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 39,
+      "page_end": 39,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3041",
+      "raw_address_expression": "3041",
+      "parsed_address": 3041,
+      "parsed_address_end": null,
+      "raw_variable": null,
+      "reconstructed_variable": null,
+      "raw_description": null,
+      "raw_value_text": null,
+      "raw_unit_text": null,
+      "raw_access_text": "R/W",
+      "raw_initial_text": null,
+      "raw_note": "Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved",
+      "raw_row_text": "3041 R/W Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved",
+      "reconstructed_row_text": "3041 R/W Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p039:h3041:visual-review:fragment-p039",
+          "page": 39,
+          "lines": [
+            "3041 R/W Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved"
+          ],
+          "text": "3041 R/W Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved"
+        }
+      ],
+      "diagnostics": [],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 39. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:holding:p039:h3042:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 39,
+      "page_end": 39,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3042",
+      "raw_address_expression": "3042",
+      "parsed_address": 3042,
+      "parsed_address_end": null,
+      "raw_variable": "Time 3(xh)",
+      "reconstructed_variable": "Time 3(xh)",
+      "raw_description": "With Time1",
+      "raw_value_text": null,
+      "raw_unit_text": null,
+      "raw_access_text": "R/W",
+      "raw_initial_text": null,
+      "raw_note": "With Time1",
+      "raw_row_text": "3042 Time 3(xh) With Time1 R/W With Time1",
+      "reconstructed_row_text": "3042 Time 3(xh) With Time1 R/W With Time1",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p039:h3042:visual-review:fragment-p039",
+          "page": 39,
+          "lines": [
+            "3042 Time 3(xh) With Time1 R/W With Time1"
+          ],
+          "text": "3042 Time 3(xh) With Time1 R/W With Time1"
+        }
+      ],
+      "diagnostics": [],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 39. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:holding:p039:h3043:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 39,
+      "page_end": 39,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3043",
+      "raw_address_expression": "3043",
+      "parsed_address": 3043,
+      "parsed_address_end": null,
+      "raw_variable": null,
+      "reconstructed_variable": null,
+      "raw_description": null,
+      "raw_value_text": null,
+      "raw_unit_text": null,
+      "raw_access_text": "R/W",
+      "raw_initial_text": null,
+      "raw_note": "With Time1",
+      "raw_row_text": "3043 R/W With Time1",
+      "reconstructed_row_text": "3043 R/W With Time1",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p039:h3043:visual-review:fragment-p039",
+          "page": 39,
+          "lines": [
+            "3043 R/W With Time1"
+          ],
+          "text": "3043 R/W With Time1"
+        }
+      ],
+      "diagnostics": [],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 39. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:holding:p039:h3044:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 39,
+      "page_end": 39,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3044",
+      "raw_address_expression": "3044",
+      "parsed_address": 3044,
+      "parsed_address_end": null,
+      "raw_variable": "Time 4(xh)",
+      "reconstructed_variable": "Time 4(xh)",
+      "raw_description": "With Time1",
+      "raw_value_text": null,
+      "raw_unit_text": null,
+      "raw_access_text": "R/W",
+      "raw_initial_text": null,
+      "raw_note": "With Time1",
+      "raw_row_text": "3044 Time 4(xh) With Time1 R/W With Time1",
+      "reconstructed_row_text": "3044 Time 4(xh) With Time1 R/W With Time1",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p039:h3044:visual-review:fragment-p039",
+          "page": 39,
+          "lines": [
+            "3044 Time 4(xh) With Time1 R/W With Time1"
+          ],
+          "text": "3044 Time 4(xh) With Time1 R/W With Time1"
+        }
+      ],
+      "diagnostics": [],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 39. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:holding:p039:h3045:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 39,
+      "page_end": 39,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3045",
+      "raw_address_expression": "3045",
+      "parsed_address": 3045,
+      "parsed_address_end": null,
+      "raw_variable": null,
+      "reconstructed_variable": null,
+      "raw_description": null,
+      "raw_value_text": null,
+      "raw_unit_text": null,
+      "raw_access_text": "R/W",
+      "raw_initial_text": null,
+      "raw_note": "With Time1",
+      "raw_row_text": "3045 R/W With Time1",
+      "reconstructed_row_text": "3045 R/W With Time1",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p039:h3045:visual-review:fragment-p039",
+          "page": 39,
+          "lines": [
+            "3045 R/W With Time1"
+          ],
+          "text": "3045 R/W With Time1"
+        }
+      ],
+      "diagnostics": [],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 39. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:holding:p039:h3046:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 39,
+      "page_end": 39,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3046",
+      "raw_address_expression": "3046",
+      "parsed_address": 3046,
+      "parsed_address_end": null,
+      "raw_variable": "预留",
+      "reconstructed_variable": "预留",
+      "raw_description": null,
+      "raw_value_text": null,
+      "raw_unit_text": null,
+      "raw_access_text": null,
+      "raw_initial_text": null,
+      "raw_note": null,
+      "raw_row_text": "3046 预留",
+      "reconstructed_row_text": "3046 预留",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p039:h3046:visual-review:fragment-p039",
+          "page": 39,
+          "lines": [
+            "3046 预留"
+          ],
+          "text": "3046 预留"
+        }
+      ],
+      "diagnostics": [],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 39. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:holding:p039:h3047:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 39,
+      "page_end": 39,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3047",
+      "raw_address_expression": "3047",
+      "parsed_address": 3047,
+      "parsed_address_end": null,
+      "raw_variable": "BatFirstPower\nRate",
+      "reconstructed_variable": "BatFirstPowerRate",
+      "raw_description": "Charge Power Rate when Bat First",
+      "raw_value_text": "1-100",
+      "raw_unit_text": null,
+      "raw_access_text": null,
+      "raw_initial_text": null,
+      "raw_note": null,
+      "raw_row_text": "3047 BatFirstPower Rate Charge Power Rate when Bat First 1-100",
+      "reconstructed_row_text": "3047 BatFirstPower Rate Charge Power Rate when Bat First 1-100",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p039:h3047:visual-review:fragment-p039",
+          "page": 39,
+          "lines": [
+            "3047 BatFirstPower Rate Charge Power Rate when Bat First 1-100"
+          ],
+          "text": "3047 BatFirstPower Rate Charge Power Rate when Bat First 1-100"
+        }
+      ],
+      "diagnostics": [],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 39. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:holding:p039:h3048:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 39,
+      "page_end": 39,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3048",
+      "raw_address_expression": "3048",
+      "parsed_address": 3048,
+      "parsed_address_end": null,
+      "raw_variable": "wBatFirst stop\nSOC",
+      "reconstructed_variable": "wBatFirst stop SOC",
+      "raw_description": "Stop Charge soc when Bat First",
+      "raw_value_text": "1-100",
+      "raw_unit_text": null,
+      "raw_access_text": null,
+      "raw_initial_text": null,
+      "raw_note": null,
+      "raw_row_text": "3048 wBatFirst stop SOC Stop Charge soc when Bat First 1-100",
+      "reconstructed_row_text": "3048 wBatFirst stop SOC Stop Charge soc when Bat First 1-100",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p039:h3048:visual-review:fragment-p039",
+          "page": 39,
+          "lines": [
+            "3048 wBatFirst stop SOC Stop Charge soc when Bat First 1-100"
+          ],
+          "text": "3048 wBatFirst stop SOC Stop Charge soc when Bat First 1-100"
+        }
+      ],
+      "diagnostics": [],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 39. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:holding:p039:h3049:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 39,
+      "page_end": 39,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3049",
+      "raw_address_expression": "3049",
+      "parsed_address": 3049,
+      "parsed_address_end": null,
+      "raw_variable": "AcChargeEna\nble",
+      "reconstructed_variable": "AcChargeEnable",
+      "raw_description": "AcChargeEnable",
+      "raw_value_text": null,
+      "raw_unit_text": null,
+      "raw_access_text": null,
+      "raw_initial_text": "Enable :1",
+      "raw_note": "Disable:0",
+      "raw_row_text": "3049 AcChargeEna ble AcChargeEnable Enable :1 Disable:0",
+      "reconstructed_row_text": "3049 AcChargeEna ble AcChargeEnable Enable :1 Disable:0",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p039:h3049:visual-review:fragment-p039",
+          "page": 39,
+          "lines": [
+            "3049 AcChargeEna ble AcChargeEnable Enable :1 Disable:0"
+          ],
+          "text": "3049 AcChargeEna ble AcChargeEnable Enable :1 Disable:0"
+        }
+      ],
+      "diagnostics": [],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 39. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:holding:p039:h3050:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 39,
+      "page_end": 39,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3050",
+      "raw_address_expression": "3050",
+      "parsed_address": 3050,
+      "parsed_address_end": null,
+      "raw_variable": "Time 5(xh)",
+      "reconstructed_variable": "Time 5(xh)",
+      "raw_description": "With Time1",
+      "raw_value_text": null,
+      "raw_unit_text": null,
+      "raw_access_text": "R/W",
+      "raw_initial_text": null,
+      "raw_note": "With Time1",
+      "raw_row_text": "3050 Time 5(xh) With Time1 R/W With Time1",
+      "reconstructed_row_text": "3050 Time 5(xh) With Time1 R/W With Time1",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p039:h3050:visual-review:fragment-p039",
+          "page": 39,
+          "lines": [
+            "3050 Time 5(xh) With Time1 R/W With Time1"
+          ],
+          "text": "3050 Time 5(xh) With Time1 R/W With Time1"
+        }
+      ],
+      "diagnostics": [],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 39. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:holding:p039:h3051:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 39,
+      "page_end": 39,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3051",
+      "raw_address_expression": "3051",
+      "parsed_address": 3051,
+      "parsed_address_end": null,
+      "raw_variable": null,
+      "reconstructed_variable": null,
+      "raw_description": null,
+      "raw_value_text": null,
+      "raw_unit_text": null,
+      "raw_access_text": "R/W",
+      "raw_initial_text": null,
+      "raw_note": "With Time1",
+      "raw_row_text": "3051 R/W With Time1",
+      "reconstructed_row_text": "3051 R/W With Time1",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p039:h3051:visual-review:fragment-p039",
+          "page": 39,
+          "lines": [
+            "3051 R/W With Time1"
+          ],
+          "text": "3051 R/W With Time1"
+        }
+      ],
+      "diagnostics": [],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 39. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:holding:p039:h3052:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 39,
+      "page_end": 39,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3052",
+      "raw_address_expression": "3052",
+      "parsed_address": 3052,
+      "parsed_address_end": null,
+      "raw_variable": "Time 6(xh)",
+      "reconstructed_variable": "Time 6(xh)",
+      "raw_description": "With Time1",
+      "raw_value_text": null,
+      "raw_unit_text": null,
+      "raw_access_text": "R/W",
+      "raw_initial_text": null,
+      "raw_note": "With Time1",
+      "raw_row_text": "3052 Time 6(xh) With Time1 R/W With Time1",
+      "reconstructed_row_text": "3052 Time 6(xh) With Time1 R/W With Time1",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p039:h3052:visual-review:fragment-p039",
+          "page": 39,
+          "lines": [
+            "3052 Time 6(xh) With Time1 R/W With Time1"
+          ],
+          "text": "3052 Time 6(xh) With Time1 R/W With Time1"
+        }
+      ],
+      "diagnostics": [],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 39. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:holding:p039:h3053:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 39,
+      "page_end": 39,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3053",
+      "raw_address_expression": "3053",
+      "parsed_address": 3053,
+      "parsed_address_end": null,
+      "raw_variable": null,
+      "reconstructed_variable": null,
+      "raw_description": null,
+      "raw_value_text": null,
+      "raw_unit_text": null,
+      "raw_access_text": "R/W",
+      "raw_initial_text": null,
+      "raw_note": "With Time1",
+      "raw_row_text": "3053 R/W With Time1",
+      "reconstructed_row_text": "3053 R/W With Time1",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p039:h3053:visual-review:fragment-p039",
+          "page": 39,
+          "lines": [
+            "3053 R/W With Time1"
+          ],
+          "text": "3053 R/W With Time1"
+        }
+      ],
+      "diagnostics": [],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 39. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:holding:p039:h3054:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 39,
+      "page_end": 39,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3054",
+      "raw_address_expression": "3054",
+      "parsed_address": 3054,
+      "parsed_address_end": null,
+      "raw_variable": "Time 7(xh)",
+      "reconstructed_variable": "Time 7(xh)",
+      "raw_description": "With Time1",
+      "raw_value_text": null,
+      "raw_unit_text": null,
+      "raw_access_text": "R/W",
+      "raw_initial_text": null,
+      "raw_note": "With Time1",
+      "raw_row_text": "3054 Time 7(xh) With Time1 R/W With Time1",
+      "reconstructed_row_text": "3054 Time 7(xh) With Time1 R/W With Time1",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p039:h3054:visual-review:fragment-p039",
+          "page": 39,
+          "lines": [
+            "3054 Time 7(xh) With Time1 R/W With Time1"
+          ],
+          "text": "3054 Time 7(xh) With Time1 R/W With Time1"
+        }
+      ],
+      "diagnostics": [],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 39. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:holding:p039:h3055:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 39,
+      "page_end": 39,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3055",
+      "raw_address_expression": "3055",
+      "parsed_address": 3055,
+      "parsed_address_end": null,
+      "raw_variable": null,
+      "reconstructed_variable": null,
+      "raw_description": null,
+      "raw_value_text": null,
+      "raw_unit_text": null,
+      "raw_access_text": "R/W",
+      "raw_initial_text": null,
+      "raw_note": "With Time1",
+      "raw_row_text": "3055 R/W With Time1",
+      "reconstructed_row_text": "3055 R/W With Time1",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p039:h3055:visual-review:fragment-p039",
+          "page": 39,
+          "lines": [
+            "3055 R/W With Time1"
+          ],
+          "text": "3055 R/W With Time1"
+        }
+      ],
+      "diagnostics": [],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 39. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:holding:p039:h3056:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 39,
+      "page_end": 39,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3056",
+      "raw_address_expression": "3056",
+      "parsed_address": 3056,
+      "parsed_address_end": null,
+      "raw_variable": "Time 8(xh)",
+      "reconstructed_variable": "Time 8(xh)",
+      "raw_description": "With Time1",
+      "raw_value_text": null,
+      "raw_unit_text": null,
+      "raw_access_text": "R/W",
+      "raw_initial_text": null,
+      "raw_note": "With Time1",
+      "raw_row_text": "3056 Time 8(xh) With Time1 R/W With Time1",
+      "reconstructed_row_text": "3056 Time 8(xh) With Time1 R/W With Time1",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p039:h3056:visual-review:fragment-p039",
+          "page": 39,
+          "lines": [
+            "3056 Time 8(xh) With Time1 R/W With Time1"
+          ],
+          "text": "3056 Time 8(xh) With Time1 R/W With Time1"
+        }
+      ],
+      "diagnostics": [],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 39. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:holding:p039:h3057:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 39,
+      "page_end": 39,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3057",
+      "raw_address_expression": "3057",
+      "parsed_address": 3057,
+      "parsed_address_end": null,
+      "raw_variable": null,
+      "reconstructed_variable": null,
+      "raw_description": null,
+      "raw_value_text": null,
+      "raw_unit_text": null,
+      "raw_access_text": "R/W",
+      "raw_initial_text": null,
+      "raw_note": "With Time1",
+      "raw_row_text": "3057 R/W With Time1",
+      "reconstructed_row_text": "3057 R/W With Time1",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p039:h3057:visual-review:fragment-p039",
+          "page": 39,
+          "lines": [
+            "3057 R/W With Time1"
+          ],
+          "text": "3057 R/W With Time1"
+        }
+      ],
+      "diagnostics": [],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 39. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:holding:p039:h3058:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 39,
+      "page_end": 39,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3058",
+      "raw_address_expression": "3058",
+      "parsed_address": 3058,
+      "parsed_address_end": null,
+      "raw_variable": "Time 9(xh)",
+      "reconstructed_variable": "Time 9(xh)",
+      "raw_description": "With Time1",
+      "raw_value_text": null,
+      "raw_unit_text": null,
+      "raw_access_text": "R/W",
+      "raw_initial_text": null,
+      "raw_note": "With Time1",
+      "raw_row_text": "3058 Time 9(xh) With Time1 R/W With Time1",
+      "reconstructed_row_text": "3058 Time 9(xh) With Time1 R/W With Time1",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p039:h3058:visual-review:fragment-p039",
+          "page": 39,
+          "lines": [
+            "3058 Time 9(xh) With Time1 R/W With Time1"
+          ],
+          "text": "3058 Time 9(xh) With Time1 R/W With Time1"
+        }
+      ],
+      "diagnostics": [],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 39. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:holding:p039:h3059:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 39,
+      "page_end": 39,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3059",
+      "raw_address_expression": "3059",
+      "parsed_address": 3059,
+      "parsed_address_end": null,
+      "raw_variable": null,
+      "reconstructed_variable": null,
+      "raw_description": null,
+      "raw_value_text": null,
+      "raw_unit_text": null,
+      "raw_access_text": "R/W",
+      "raw_initial_text": null,
+      "raw_note": "With Time1",
+      "raw_row_text": "3059 R/W With Time1",
+      "reconstructed_row_text": "3059 R/W With Time1",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p039:h3059:visual-review:fragment-p039",
+          "page": 39,
+          "lines": [
+            "3059 R/W With Time1"
+          ],
+          "text": "3059 R/W With Time1"
+        }
+      ],
+      "diagnostics": [],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 39. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:holding:p040:row-040-0488",
       "document_id": "vendor_growatt_v124_2020",
       "document_revision": "V1.24",
@@ -24178,6 +25320,100 @@
       "diagnostics": [
         "internal_split_word_candidate"
       ]
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:holding:p040:h3081:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 40,
+      "page_end": 40,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3081",
+      "raw_address_expression": "3081",
+      "parsed_address": 3081,
+      "parsed_address_end": null,
+      "raw_variable": "UPSFreqSet",
+      "reconstructed_variable": "UPSFreqSet",
+      "raw_description": "UPS output frequency",
+      "raw_value_text": null,
+      "raw_unit_text": null,
+      "raw_access_text": "R/W",
+      "raw_initial_text": "0",
+      "raw_note": "0:50Hz; 1:60Hz",
+      "raw_row_text": "3081 UPSFreqSet UPS output frequency R/W 0 0:50Hz 1:60Hz",
+      "reconstructed_row_text": "3081 UPSFreqSet UPS output frequency R/W 0 0:50Hz 1:60Hz",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p040:h3081:visual-review:fragment-p040",
+          "page": 40,
+          "lines": [
+            "3081 UPSFreqSet UPS output frequency R/W 0 0:50Hz 1:60Hz"
+          ],
+          "text": "3081 UPSFreqSet UPS output frequency R/W 0 0:50Hz 1:60Hz"
+        }
+      ],
+      "diagnostics": [],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 40. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:holding:p040:h3082:visual-review",
+      "document_id": "vendor_growatt_v124_2020",
+      "document_revision": "V1.24",
+      "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "source_kind": "manual_original_document_verified",
+      "page": 40,
+      "page_end": 40,
+      "section_id": "tl_x_tl_xh_holding_registers",
+      "section_title": "Use for TL-X and TL-XH",
+      "family_scope": [
+        "TL-X",
+        "TL-XH"
+      ],
+      "register_table": "holding",
+      "source_row_id": "3082",
+      "raw_address_expression": "3082",
+      "parsed_address": 3082,
+      "parsed_address_end": null,
+      "raw_variable": "bLoadFirstSto\npSocSet",
+      "reconstructed_variable": "bLoadFirstStopSocSet",
+      "raw_description": "StopSoc When LoadFirst",
+      "raw_value_text": "13-100",
+      "raw_unit_text": "ratio",
+      "raw_access_text": "R/W",
+      "raw_initial_text": null,
+      "raw_note": null,
+      "raw_row_text": "3082 bLoadFirstSto pSocSet StopSoc When LoadFirst R/W 13-100 ratio",
+      "reconstructed_row_text": "3082 bLoadFirstSto pSocSet StopSoc When LoadFirst R/W 13-100 ratio",
+      "extraction_method": "native_text+agent_visual_review",
+      "extraction_confidence": "high",
+      "source_status": "manually_reviewed",
+      "continuation_refs": [],
+      "source_fragments": [
+        {
+          "fragment_id": "vendor_growatt_v124_2020:holding:p040:h3082:visual-review:fragment-p040",
+          "page": 40,
+          "lines": [
+            "3082 bLoadFirstSto pSocSet StopSoc When LoadFirst R/W 13-100 ratio"
+          ],
+          "text": "3082 bLoadFirstSto pSocSet StopSoc When LoadFirst R/W 13-100 ratio"
+        }
+      ],
+      "diagnostics": [],
+      "review_note": "Visually verified against the rendered original PDF and compared with native pdftotext -layout output on page 40. The source-column transcription is retained separately from the reconstructed variable spelling. No cross-page continuation was inferred.",
+      "exclude_from_duplicate": true
     },
     {
       "claim_id": "vendor_growatt_v124_2020:holding:p041:row-041-0506",
@@ -57055,7 +58291,8 @@
         "enum_or_bitfield_candidate",
         "page_spanning_continuation"
       ],
-      "review_note": "Visually verified across pages 70 and 71. The row begins at the bottom of page 70 and its mode/status lists continue on page 71."
+      "review_note": "Visually verified across pages 70 and 71. The row begins at the bottom of page 70 and its mode/status lists continue on page 71.",
+      "exclude_from_duplicate": false
     },
     {
       "claim_id": "vendor_growatt_v124_2020:input:p071:row-071-1212",
@@ -62410,7 +63647,8 @@
         "duplicate_address_across_sections",
         "enum_or_bitfield_candidate"
       ],
-      "review_note": "Visually verified against page 75. The row is a bitfield with explicitly listed bits; no additional meanings are inferred."
+      "review_note": "Visually verified against page 75. The row is a bitfield with explicitly listed bits; no additional meanings are inferred.",
+      "exclude_from_duplicate": false
     },
     {
       "claim_id": "vendor_growatt_v124_2020:input:p075:i3110:visual-review",
@@ -62459,7 +63697,8 @@
         "duplicate_address_across_sections",
         "enum_or_bitfield_candidate"
       ],
-      "review_note": "Visually verified against page 75. The source datatype is bitfield, but the PDF provides no bit meanings for this row. The adjacent PresentFFT cell is retained as a separate 3111 claim rather than assigned to 3110."
+      "review_note": "Visually verified against page 75. The source datatype is bitfield, but the PDF provides no bit meanings for this row. The adjacent PresentFFT cell is retained as a separate 3111 claim rather than assigned to 3110.",
+      "exclude_from_duplicate": false
     },
     {
       "claim_id": "vendor_growatt_v124_2020:input:p075:i3111:visual-review",
@@ -62508,7 +63747,8 @@
         "duplicate_address_across_sections",
         "enum_or_bitfield_candidate"
       ],
-      "review_note": "Visually verified against page 75. The source datatype is bitfield, but the PDF provides no bit meanings for this PresentFFT value. The split source spelling is retained separately from the reconstructed variable name."
+      "review_note": "Visually verified against page 75. The source datatype is bitfield, but the PDF provides no bit meanings for this PresentFFT value. The split source spelling is retained separately from the reconstructed variable name.",
+      "exclude_from_duplicate": false
     },
     {
       "claim_id": "vendor_growatt_v124_2020:input:p076:row-076-1325",
@@ -65050,7 +66290,8 @@
         "enum_or_bitfield_candidate",
         "page_spanning_continuation"
       ],
-      "review_note": "Visually verified against the rendered original. The cell starts on page 77 and continues on page 78; page 78 is not a new register row. The split variable is retained literally and reconstructed separately."
+      "review_note": "Visually verified against the rendered original. The cell starts on page 77 and continues on page 78; page 78 is not a new register row. The split variable is retained literally and reconstructed separately.",
+      "exclude_from_duplicate": false
     },
     {
       "claim_id": "vendor_growatt_v124_2020:input:p078:row-078-1377",
@@ -65750,7 +66991,8 @@
         "duplicate_address_across_sections",
         "enum_or_bitfield_candidate"
       ],
-      "review_note": "Visually verified against the rendered original page 78. This is a packed mode/status word, not a continuation of I3165."
+      "review_note": "Visually verified against the rendered original page 78. This is a packed mode/status word, not a continuation of I3165.",
+      "exclude_from_duplicate": false
     },
     {
       "claim_id": "vendor_growatt_v124_2020:input:p079:row-079-1391",
@@ -67400,7 +68642,8 @@
         "enum_or_bitfield_candidate",
         "page_spanning_continuation"
       ],
-      "review_note": "Visually verified against the rendered original. Bits 0, 1 and 2 are on page 80; bits 8 and 9 continue on page 81."
+      "review_note": "Visually verified against the rendered original. Bits 0, 1 and 2 are on page 80; bits 8 and 9 continue on page 81.",
+      "exclude_from_duplicate": false
     },
     {
       "claim_id": "vendor_growatt_v124_2020:input:p081:row-081-1423",
@@ -67939,7 +69182,8 @@
         "duplicate_address_across_sections",
         "enum_or_bitfield_candidate"
       ],
-      "review_note": "Visually verified against page 81. The source enum is retained without assigning canonical status names."
+      "review_note": "Visually verified against page 81. The source enum is retained without assigning canonical status names.",
+      "exclude_from_duplicate": false
     },
     {
       "claim_id": "vendor_growatt_v124_2020:input:p082:row-082-1433",
