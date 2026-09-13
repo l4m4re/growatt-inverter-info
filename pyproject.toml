@@ -25,6 +25,8 @@ growatt-build-spec = "tools.build_register_spec:main"
 growatt-validate-compatibility = "tools.validate_resolved_register_reference:main"
 growatt-validate-spec = "tools.validate_register_spec:main"
 growatt-validate-min-tlxh-metadata = "tools.validate_min_tlxh_metadata:main"
+growatt-build-authority-coverage = "tools.build_authority_coverage:main"
+growatt-validate-authority-coverage = "tools.validate_authority_coverage:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
