@@ -1,0 +1,537 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "growatt_reconciliation_shadow_comparison",
+  "canonical_input": "spec/growatt-register-spec.json",
+  "canonical_modified": false,
+  "comparisons": [
+    {
+      "decision_id": "min-input-i3000-status-mode",
+      "physical_id": "input:3000",
+      "classification": "candidate_available_for_parity_review",
+      "candidate_status": "resolved",
+      "candidate_value": {
+        "datatype": "u16 packed",
+        "fields": [
+          {
+            "name": "mode",
+            "bits": [
+              8,
+              15
+            ]
+          },
+          {
+            "name": "status",
+            "bits": [
+              0,
+              7
+            ]
+          }
+        ],
+        "mode_values": {
+          "0": "waiting",
+          "1": "normal",
+          "3": "fault",
+          "5": "normal_battery_and_solar_online",
+          "6": "normal_battery_only"
+        }
+      },
+      "current_canonical_semantic": "inverter.status"
+    },
+    {
+      "decision_id": "min-input-i3101-nonnegative",
+      "physical_id": "input:3101",
+      "classification": "expected_semantic_delta",
+      "candidate_status": "resolved",
+      "candidate_value": {
+        "semantic_key": "inverter.real_output_power_percent",
+        "datatype": "u16",
+        "signedness": "non_negative",
+        "unit": "%",
+        "range": "0-100"
+      },
+      "current_canonical_semantic": "telemetry.output_power_percentage"
+    },
+    {
+      "decision_id": "min-input-i3110-warning-word",
+      "physical_id": "input:3110",
+      "classification": "candidate_available_for_parity_review",
+      "candidate_status": "resolved",
+      "candidate_value": {
+        "semantic_key": "inverter.warning_flags",
+        "datatype": "u16 vendor-defined bitfield",
+        "signedness": "unsigned",
+        "cloud_relationship": "separate sys_fault_word3 correlation"
+      },
+      "current_canonical_semantic": "inverter.warning_flags"
+    },
+    {
+      "decision_id": "min-input-i3111-present-fft",
+      "physical_id": "input:3111",
+      "classification": "candidate_available_for_parity_review",
+      "candidate_status": "resolved",
+      "candidate_value": {
+        "semantic_key": "inverter.present_fft_value_channel_a",
+        "canonical_name": "Present FFT value (vendor channel A)",
+        "datatype": "u16 vendor-defined diagnostic value",
+        "signedness": "unsigned"
+      },
+      "current_canonical_semantic": "inverter.present_fft_value_channel_a"
+    },
+    {
+      "decision_id": "min-input-i3165-derating-codebook",
+      "physical_id": "input:3165",
+      "classification": "candidate_available_for_parity_review",
+      "candidate_status": "resolved",
+      "candidate_value": {
+        "semantic_key": "bdc.derating_mode",
+        "datatype": "u16 enum",
+        "values": {
+          "0": "normal_unrestricted",
+          "1": "standby_or_fault",
+          "2": "maximum_discharge_current_limit",
+          "3": "battery_discharge_enabled",
+          "4": "high_bus_discharge_derating",
+          "5": "high_temperature_discharge_derating",
+          "6": "system_warning_no_discharge",
+          "16": "maximum_battery_charging_current",
+          "17": "high_temperature_charging",
+          "18": "final_soft_charge",
+          "19": "soc_setting_limits_charging",
+          "20": "battery_low_temperature_charging",
+          "21": "high_bus_voltage_charging",
+          "22": "battery_soc_charging",
+          "23": "need_to_charge",
+          "24": "system_warning_not_charging"
+        },
+        "reserved": [
+          [
+            7,
+            15
+          ],
+          [
+            25,
+            29
+          ]
+        ]
+      },
+      "current_canonical_semantic": "bdc.derating_mode"
+    },
+    {
+      "decision_id": "min-input-i3166-packed-status",
+      "physical_id": "input:3166",
+      "classification": "candidate_available_for_parity_review",
+      "candidate_status": "resolved",
+      "candidate_value": {
+        "semantic_key": "bdc.system_mode_status",
+        "fields": [
+          {
+            "name": "mode",
+            "bits": [
+              8,
+              15
+            ],
+            "enum": {
+              "0": "no_charge_or_discharge",
+              "1": "charge",
+              "2": "discharge"
+            }
+          },
+          {
+            "name": "status",
+            "bits": [
+              0,
+              7
+            ],
+            "enum": {
+              "0": "standby",
+              "1": "normal",
+              "2": "fault",
+              "3": "flash"
+            }
+          }
+        ]
+      },
+      "current_canonical_semantic": "bdc.system_mode_status"
+    },
+    {
+      "decision_id": "min-input-i3170-bdc-current-magnitude",
+      "physical_id": "input:3170",
+      "classification": "expected_semantic_delta",
+      "candidate_status": "resolved",
+      "candidate_value": {
+        "semantic_key": "battery.bdc_current",
+        "datatype": "u16",
+        "signedness": "non_negative",
+        "scale": "/10 A",
+        "direction": "represented by operating state/other BMS current"
+      },
+      "current_canonical_semantic": "battery.current"
+    },
+    {
+      "decision_id": "min-input-i3211-request-flags",
+      "physical_id": "input:3211",
+      "classification": "candidate_available_for_parity_review",
+      "candidate_status": "resolved",
+      "candidate_value": {
+        "semantic_key": "battery.request_flags",
+        "datatype": "u16 bitfield",
+        "bits": [
+          {
+            "bit": 0,
+            "name": "charging_prohibited",
+            "values": {
+              "0": "allow",
+              "1": "prohibit"
+            }
+          },
+          {
+            "bit": 1,
+            "name": "strong_charge_enabled",
+            "values": {
+              "0": "disabled",
+              "1": "enabled"
+            }
+          },
+          {
+            "bit": 2,
+            "name": "strong_charge_2_enabled",
+            "values": {
+              "0": "disabled",
+              "1": "enabled"
+            }
+          },
+          {
+            "bit": 8,
+            "name": "discharge_prohibited",
+            "values": {
+              "0": "allow",
+              "1": "prohibit"
+            }
+          },
+          {
+            "bit": 9,
+            "name": "power_reduction_enabled",
+            "values": {
+              "0": "off",
+              "1": "on"
+            }
+          }
+        ],
+        "unspecified_bits": "unknown_or_reserved"
+      },
+      "current_canonical_semantic": "battery.request_flags"
+    },
+    {
+      "decision_id": "min-input-i3212-bms-status",
+      "physical_id": "input:3212",
+      "classification": "expected_semantic_delta",
+      "candidate_status": "resolved",
+      "candidate_value": {
+        "semantic_key": "battery.bms_status",
+        "datatype": "u16 enum",
+        "values": {
+          "0": "dormancy",
+          "1": "charge",
+          "2": "discharge",
+          "3": "free",
+          "4": "standby",
+          "5": "soft_start",
+          "6": "fault",
+          "7": "update"
+        }
+      },
+      "current_canonical_semantic": "diagnostic.bms_status"
+    },
+    {
+      "decision_id": "min-input-i3217-bms-current",
+      "physical_id": "input:3217",
+      "classification": "expected_semantic_delta",
+      "candidate_status": "resolved",
+      "candidate_value": {
+        "semantic_key": "battery.bms_current",
+        "datatype": "s16",
+        "signedness": "signed",
+        "scale": "/100 A",
+        "direction": "positive_charge_negative_discharge"
+      },
+      "current_canonical_semantic": "battery.current"
+    },
+    {
+      "decision_id": "min-xh-h3036-grid-first-discharge-rate",
+      "physical_id": "holding:3036",
+      "classification": "candidate_available_for_parity_review",
+      "candidate_status": "resolved",
+      "candidate_value": {
+        "semantic_key": "grid_first_discharge_rate",
+        "canonical_name": "Grid-first discharge power rate",
+        "datatype": "u16 percentage",
+        "unit": "%"
+      },
+      "current_canonical_semantic": "grid.first.discharge.rate"
+    },
+    {
+      "decision_id": "min-xh-h3037-grid-first-stop-soc",
+      "physical_id": "holding:3037",
+      "classification": "candidate_available_for_parity_review",
+      "candidate_status": "resolved",
+      "candidate_value": {
+        "semantic_key": "grid_first_stop_soc",
+        "canonical_name": "Grid-first stop SOC",
+        "datatype": "u16 percentage",
+        "unit": "%"
+      },
+      "current_canonical_semantic": "grid.first.stop.soc"
+    },
+    {
+      "decision_id": "min-xh-h3046-reserved",
+      "physical_id": "holding:3046",
+      "classification": "candidate_available_for_parity_review",
+      "candidate_status": "reserved",
+      "candidate_value": {
+        "reserved": true
+      },
+      "current_canonical_semantic": null
+    },
+    {
+      "decision_id": "min-xh-h3047-battery-first-charge-rate",
+      "physical_id": "holding:3047",
+      "classification": "candidate_available_for_parity_review",
+      "candidate_status": "resolved",
+      "candidate_value": {
+        "semantic_key": "battery_first_charge_rate",
+        "canonical_name": "Battery-first charge power rate",
+        "datatype": "u16 percentage",
+        "unit": "%",
+        "range": "1-100"
+      },
+      "current_canonical_semantic": "battery.first.charge.rate"
+    },
+    {
+      "decision_id": "min-xh-h3048-battery-first-stop-soc",
+      "physical_id": "holding:3048",
+      "classification": "candidate_available_for_parity_review",
+      "candidate_status": "resolved",
+      "candidate_value": {
+        "semantic_key": "battery_first_stop_soc",
+        "canonical_name": "Battery-first stop SOC",
+        "datatype": "u16 percentage",
+        "unit": "%",
+        "range": "1-100"
+      },
+      "current_canonical_semantic": "battery.first.stop.soc"
+    },
+    {
+      "decision_id": "min-xh-h3049-ac-charge-enable",
+      "physical_id": "holding:3049",
+      "classification": "candidate_available_for_parity_review",
+      "candidate_status": "resolved",
+      "candidate_value": {
+        "semantic_key": "ac_charge_enabled",
+        "canonical_name": "AC charge enabled",
+        "datatype": "u16 enum",
+        "enum": {
+          "0": "disabled",
+          "1": "enabled"
+        }
+      },
+      "current_canonical_semantic": "ac.charge.enabled"
+    },
+    {
+      "decision_id": "min-xh-h3081-ups-frequency",
+      "physical_id": "holding:3081",
+      "classification": "candidate_available_for_parity_review",
+      "candidate_status": "resolved",
+      "candidate_value": {
+        "semantic_key": "ups_eps_frequency_selection",
+        "canonical_name": "UPS/EPS frequency selection",
+        "datatype": "u16 enum",
+        "enum": {
+          "0": "50_hz",
+          "1": "60_hz"
+        }
+      },
+      "current_canonical_semantic": "ups.eps.frequency.selection"
+    },
+    {
+      "decision_id": "min-xh-h3082-load-first-stop-soc",
+      "physical_id": "holding:3082",
+      "classification": "candidate_available_for_parity_review",
+      "candidate_status": "resolved",
+      "candidate_value": {
+        "semantic_key": "load_first_stop_soc",
+        "canonical_name": "Load-first stop SOC",
+        "datatype": "u16 percentage",
+        "unit": "%"
+      },
+      "current_canonical_semantic": "load.first.stop.soc"
+    }
+  ],
+  "expected_corrections": {
+    "xh_generic_slots": {
+      "classification": "expected_semantic_correction",
+      "decision_ids": [
+        "min-xh-slot-1",
+        "min-xh-slot-2",
+        "min-xh-slot-3",
+        "min-xh-slot-4",
+        "min-xh-slot-5-through-9"
+      ],
+      "candidate": "Slots 1-9 use the same generic priority codec; H3046 is reserved."
+    },
+    "schedule_enum_removal": {
+      "classification": "expected_semantic_correction",
+      "decision_id": "min-xh-template-start-control-v124",
+      "candidate": "Only minute/hour/priority/enable fields are retained; parser artifacts such as 6, 7, 12 and 15 are not enum members."
+    },
+    "packed_fields_introduction": {
+      "classification": "expected_semantic_correction",
+      "decision_ids": [
+        "min-xh-template-start-control-v124",
+        "min-xh-template-end-v124"
+      ],
+      "candidate": "Reusable packed start/control and end codecs."
+    },
+    "current_schedule_names": {
+      "holding:3038": "Grid-first schedule 1 start/control",
+      "holding:3039": "Grid-first schedule 1 end",
+      "holding:3040": "Grid-first schedule 2 start/control",
+      "holding:3041": "Grid-first schedule 2 end",
+      "holding:3042": "Grid-first schedule 3 start/control",
+      "holding:3043": "Grid-first schedule 3 end",
+      "holding:3044": "Grid-first schedule 4 start/control",
+      "holding:3045": "Grid-first schedule 4 end",
+      "holding:3050": "Battery-first schedule 1 start/control",
+      "holding:3051": "Battery-first schedule 1 end",
+      "holding:3052": "Battery-first schedule 2 start/control",
+      "holding:3053": "Battery-first schedule 2 end",
+      "holding:3054": "Battery-first schedule 3 start/control",
+      "holding:3055": "Battery-first schedule 3 end",
+      "holding:3056": "Battery-first schedule 4 start/control",
+      "holding:3057": "Battery-first schedule 4 end",
+      "holding:3058": "Battery-first schedule 5 start/control",
+      "holding:3059": "Battery-first schedule 5 end"
+    }
+  },
+  "parity": [
+    {
+      "physical_id": "input:3000",
+      "decision_ids": [
+        "min-input-i3000-status-mode"
+      ],
+      "canonical_present": true,
+      "status": "resolved"
+    },
+    {
+      "physical_id": "input:3101",
+      "decision_ids": [
+        "min-input-i3101-nonnegative"
+      ],
+      "canonical_present": true,
+      "status": "resolved"
+    },
+    {
+      "physical_id": "input:3165",
+      "decision_ids": [
+        "min-input-i3165-derating-codebook"
+      ],
+      "canonical_present": true,
+      "status": "resolved"
+    },
+    {
+      "physical_id": "input:3166",
+      "decision_ids": [
+        "min-input-i3166-packed-status"
+      ],
+      "canonical_present": true,
+      "status": "resolved"
+    },
+    {
+      "physical_id": "input:3170",
+      "decision_ids": [
+        "min-input-i3170-bdc-current-magnitude"
+      ],
+      "canonical_present": true,
+      "status": "resolved"
+    },
+    {
+      "physical_id": "input:3211",
+      "decision_ids": [
+        "min-input-i3211-request-flags"
+      ],
+      "canonical_present": true,
+      "status": "resolved"
+    },
+    {
+      "physical_id": "input:3212",
+      "decision_ids": [
+        "min-input-i3212-bms-status"
+      ],
+      "canonical_present": true,
+      "status": "resolved"
+    },
+    {
+      "physical_id": "input:3217",
+      "decision_ids": [
+        "min-input-i3217-bms-current"
+      ],
+      "canonical_present": true,
+      "status": "resolved"
+    },
+    {
+      "physical_id": "holding:3036",
+      "decision_ids": [
+        "min-xh-h3036-grid-first-discharge-rate"
+      ],
+      "canonical_present": true,
+      "status": "resolved"
+    },
+    {
+      "physical_id": "holding:3037",
+      "decision_ids": [
+        "min-xh-h3037-grid-first-stop-soc"
+      ],
+      "canonical_present": true,
+      "status": "resolved"
+    },
+    {
+      "physical_id": "holding:3047",
+      "decision_ids": [
+        "min-xh-h3047-battery-first-charge-rate"
+      ],
+      "canonical_present": true,
+      "status": "resolved"
+    },
+    {
+      "physical_id": "holding:3048",
+      "decision_ids": [
+        "min-xh-h3048-battery-first-stop-soc"
+      ],
+      "canonical_present": true,
+      "status": "resolved"
+    },
+    {
+      "physical_id": "holding:3049",
+      "decision_ids": [
+        "min-xh-h3049-ac-charge-enable"
+      ],
+      "canonical_present": true,
+      "status": "resolved"
+    },
+    {
+      "physical_id": "holding:3081",
+      "decision_ids": [
+        "min-xh-h3081-ups-frequency"
+      ],
+      "canonical_present": true,
+      "status": "resolved"
+    },
+    {
+      "physical_id": "holding:3082",
+      "decision_ids": [
+        "min-xh-h3082-load-first-stop-soc"
+      ],
+      "canonical_present": true,
+      "status": "resolved"
+    }
+  ]
+}

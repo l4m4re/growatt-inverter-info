@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "growatt_reconciliation_scope_mappings",
+  "description": "Explicit scope vocabulary used for comparison; this is not a precedence list.",
+  "scopes": [
+    {"scope_id":"min_tl_xh","canonical_family":"min_tl_xh","description":"MIN/TL-X/TL-XH V1.24 subject range"},
+    {"scope_id":"legacy_pv","canonical_family":"legacy_pv","description":"Older 1KW-50KW PV protocol subject range"},
+    {"scope_id":"unknown","canonical_family":null,"description":"Source scope cannot be safely normalized"}
+  ],
+  "mappings": [
+    {"mapping_id":"scope-min-6000tl-xh","source_family":"MIN 6000TL-XH","scope_id":"min_tl_xh","relation":"equivalent_for_subject_range","limitations":"Retained live evidence is one physical model, not all MIN products."},
+    {"mapping_id":"scope-min-tl-xh","source_family":"MIN/TL-XH","scope_id":"min_tl_xh","relation":"equivalent_for_subject_range","limitations":"Source shorthand; model and protocol scope remain explicit on each claim."},
+    {"mapping_id":"scope-tl-xh","source_family":"TL-XH","scope_id":"min_tl_xh","relation":"subset","limitations":"Does not broaden source claims to all storage families."},
+    {"mapping_id":"scope-tl-x-pair","source_family":"TL-X","scope_id":"min_tl_xh","relation":"overlapping","limitations":"Only overlapping subject ranges may be compared."},
+    {"mapping_id":"scope-v124-broad","source_family":"MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document","scope_id":"min_tl_xh","relation":"overlapping","limitations":"This broad document scope is not a universal family equivalence."},
+    {"mapping_id":"scope-legacy-pv","source_family":"1KW-50KW Growatt PV inverter protocol","scope_id":"legacy_pv","relation":"disjoint","limitations":"Not assumed equivalent to MIN/TL-XH."},
+    {"mapping_id":"scope-unknown","source_family":"unknown","scope_id":"unknown","relation":"unknown","limitations":"Unknown scope is never treated as a positive match."},
+    {"mapping_id":"scope-generic-families","source_family":"Growatt PV inverter families listed in the document","scope_id":"unknown","relation":"unknown","limitations":"The retained row does not identify a comparable family."}
+  ]
+}

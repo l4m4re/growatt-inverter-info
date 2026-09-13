@@ -1,6 +1,19 @@
 {
   "schema_version": "1.0.0",
   "artifact": "growatt_generic_claim_conflicts",
+  "scope_model": "reconciliation/scope-mappings.json",
+  "pipeline3_baseline": {
+    "count": 201,
+    "categories": {
+      "access_conflict": 1,
+      "value_conflict": 162,
+      "wording_difference": 38
+    }
+  },
+  "scope_aware_total": 201,
+  "hard_conflict_count": 46,
+  "potential_scope_conflict_count": 155,
+  "excluded_disjoint_or_unknown_scope_pairs": 0,
   "conflicts": [
     {
       "subject_assertion": [
@@ -14,7 +27,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:holding_common:0",
         "ha_runtime:devices:storage:holding_tl_xh:0",
@@ -80,7 +94,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:holding_common:3",
         "ha_runtime:devices:storage:holding_tl_xh:2",
@@ -131,7 +146,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:holding_common:1",
         "ha_runtime:devices:tlx:holding_common:1",
@@ -214,6 +230,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3036:5",
@@ -252,6 +269,7 @@
         ],
         "register_name"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p038:h3036:visual-review:name",
@@ -274,6 +292,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3037:6",
@@ -312,6 +331,7 @@
         ],
         "register_name"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p038:h3037:visual-review:name",
@@ -334,6 +354,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3038:7",
@@ -370,6 +391,7 @@
         ],
         "packed_field"
       ],
+      "scope_id": "min_tl_xh",
       "category": "value_conflict",
       "claims": [
         "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p038:h3038:visual-review:packed",
@@ -392,6 +414,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3039:8",
@@ -428,6 +451,7 @@
         ],
         "packed_field"
       ],
+      "scope_id": "min_tl_xh",
       "category": "value_conflict",
       "claims": [
         "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p038:h3039:visual-review:packed",
@@ -450,6 +474,7 @@
         ],
         "access"
       ],
+      "scope_id": "min_tl_xh",
       "category": "access_conflict",
       "claims": [
         "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p038:h3040:visual-review:access",
@@ -472,6 +497,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3040:9",
@@ -507,6 +533,7 @@
         ],
         "packed_field"
       ],
+      "scope_id": "min_tl_xh",
       "category": "value_conflict",
       "claims": [
         "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p038:h3040:visual-review:packed",
@@ -529,6 +556,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3041:10",
@@ -564,6 +592,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3042:11",
@@ -599,6 +628,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3043:12",
@@ -634,6 +664,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3044:13",
@@ -669,6 +700,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3045:14",
@@ -704,6 +736,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3047:16",
@@ -745,6 +778,7 @@
         ],
         "register_name"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3047:visual-review:name",
@@ -767,6 +801,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3048:17",
@@ -808,6 +843,7 @@
         ],
         "register_name"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3048:visual-review:name",
@@ -830,6 +866,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3049:18",
@@ -867,7 +904,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:holding_tl_xh:7",
         "openinverter_gateway:devices:GrowattTLXH:holding_registers:5"
@@ -911,6 +949,7 @@
         ],
         "register_name"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3049:visual-review:name",
@@ -933,6 +972,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3050:19",
@@ -968,6 +1008,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3051:20",
@@ -1003,6 +1044,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3052:21",
@@ -1038,6 +1080,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3053:22",
@@ -1073,6 +1116,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3054:23",
@@ -1108,6 +1152,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3055:24",
@@ -1143,6 +1188,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3056:25",
@@ -1178,6 +1224,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3057:26",
@@ -1213,6 +1260,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3058:27",
@@ -1248,6 +1296,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3059:28",
@@ -1283,6 +1332,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3081:31",
@@ -1323,6 +1373,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:holding:3082:32",
@@ -1360,6 +1411,7 @@
         ],
         "register_name"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p040:h3082:visual-review:name",
@@ -1382,7 +1434,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:0",
         "inverter_to_mqtt:markdown_registers:input_registers:0",
@@ -1491,7 +1544,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:1",
         "inverter_to_mqtt:markdown_registers:input_registers:2",
@@ -1597,7 +1651,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_common:0",
         "inverter_to_mqtt:markdown_registers:input_registers:42",
@@ -1645,7 +1700,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:62",
         "openinverter_gateway:devices:Growatt120:input_registers:65"
@@ -1688,7 +1744,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_common:1",
         "inverter_to_mqtt:markdown_registers:input_registers:44",
@@ -1736,7 +1793,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "inverter_to_mqtt:markdown_registers:input_registers:46",
         "openinverter_gateway:devices:Growatt124:input_registers:32"
@@ -1773,7 +1831,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_common:2",
         "inverter_to_mqtt:markdown_registers:input_registers:47",
@@ -1821,7 +1880,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_common:3",
         "openinverter_gateway:devices:Growatt124:input_registers:35"
@@ -1864,7 +1924,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_common:4",
         "openinverter_gateway:devices:Growatt124:input_registers:37"
@@ -1907,7 +1968,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:63",
         "inverter_to_mqtt:markdown_registers:input_registers:39",
@@ -1956,7 +2018,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_common:5",
         "openinverter_gateway:devices:Growatt124:input_registers:42"
@@ -1999,7 +2062,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_common:6",
         "openinverter_gateway:devices:Growatt124:input_registers:43"
@@ -2042,7 +2106,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_common:7",
         "openinverter_gateway:devices:Growatt124:input_registers:44"
@@ -2085,7 +2150,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:64",
         "openinverter_gateway:devices:Growatt120:input_registers:68"
@@ -2128,7 +2194,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_common:8",
         "openinverter_gateway:devices:Growatt124:input_registers:45"
@@ -2171,7 +2238,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_common:9",
         "openinverter_gateway:devices:Growatt124:input_registers:46"
@@ -2214,7 +2282,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_common:10",
         "openinverter_gateway:devices:Growatt124:input_registers:47"
@@ -2257,7 +2326,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_common:11",
         "openinverter_gateway:devices:Growatt124:input_registers:48"
@@ -2300,7 +2370,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_common:12",
         "openinverter_gateway:devices:Growatt124:input_registers:49"
@@ -2343,7 +2414,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:8",
         "openinverter_gateway:devices:Growatt120:input_registers:8",
@@ -2401,7 +2473,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:9",
         "openinverter_gateway:devices:Growatt120:input_registers:9"
@@ -2444,7 +2517,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:10",
         "openinverter_gateway:devices:Growatt120:input_registers:10",
@@ -2515,7 +2589,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:11",
         "openinverter_gateway:devices:Growatt120:input_registers:11",
@@ -2586,7 +2661,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:12",
         "openinverter_gateway:devices:Growatt120:input_registers:12",
@@ -2644,7 +2720,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:13",
         "openinverter_gateway:devices:Growatt120:input_registers:13",
@@ -2701,7 +2778,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:14",
         "openinverter_gateway:devices:Growatt120:input_registers:14",
@@ -2758,7 +2836,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:15",
         "openinverter_gateway:devices:Growatt120:input_registers:15",
@@ -2815,7 +2894,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:16",
         "openinverter_gateway:devices:Growatt120:input_registers:16",
@@ -2872,7 +2952,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:17",
         "openinverter_gateway:devices:Growatt120:input_registers:17",
@@ -2930,7 +3011,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:18",
         "openinverter_gateway:devices:Growatt120:input_registers:18",
@@ -2987,7 +3069,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:19",
         "openinverter_gateway:devices:Growatt120:input_registers:19",
@@ -3044,7 +3127,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "openinverter_gateway:devices:Growatt305:input_registers:8",
         "openinverter_gateway:devices:GrowattSPF:input_registers:20"
@@ -3090,7 +3174,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:20",
         "openinverter_gateway:devices:Growatt120:input_registers:20",
@@ -3147,7 +3232,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:21",
         "openinverter_gateway:devices:Growatt120:input_registers:21",
@@ -3205,7 +3291,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:22",
         "openinverter_gateway:devices:Growatt120:input_registers:22"
@@ -3248,7 +3335,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:2",
         "inverter_to_mqtt:markdown_registers:input_registers:3",
@@ -3358,6 +3446,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:input:3000:0",
@@ -3395,7 +3484,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:0",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:0",
@@ -3454,6 +3544,7 @@
         ],
         "register_name"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:input:p069-070:i3000:visual-review:name",
@@ -3476,7 +3567,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:1",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:2"
@@ -3519,7 +3611,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:2",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:3"
@@ -3562,7 +3655,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:3",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:4"
@@ -3605,7 +3699,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:4",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:5"
@@ -3648,7 +3743,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:5",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:6"
@@ -3691,7 +3787,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:6",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:7"
@@ -3734,7 +3831,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:7",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:8"
@@ -3777,7 +3875,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:8",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:9"
@@ -3820,7 +3919,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:9",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:10"
@@ -3863,7 +3963,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:10",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:11"
@@ -3906,7 +4007,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:11",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:12"
@@ -3949,7 +4051,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:12",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:13"
@@ -3992,7 +4095,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:13",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:14"
@@ -4035,7 +4139,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:14",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:16"
@@ -4078,7 +4183,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:15",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:17"
@@ -4121,7 +4227,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:16",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:18"
@@ -4164,7 +4271,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:17",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:19"
@@ -4207,7 +4315,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:18",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:20"
@@ -4250,7 +4359,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:19",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:21"
@@ -4293,7 +4403,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:20",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:22"
@@ -4336,7 +4447,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:21",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:23"
@@ -4379,7 +4491,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:22",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:24"
@@ -4422,7 +4535,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:23",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:25"
@@ -4465,7 +4579,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:24",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:26"
@@ -4508,7 +4623,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:25",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:27"
@@ -4551,7 +4667,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_tl_xh:0",
         "ha_runtime:devices:tlx:input_tl_xh:26",
@@ -4605,7 +4722,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_tl_xh:1",
         "ha_runtime:devices:tlx:input_tl_xh:27",
@@ -4659,7 +4777,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_tl_xh:2",
         "ha_runtime:devices:tlx:input_tl_xh:28",
@@ -4713,7 +4832,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:29",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:34"
@@ -4756,7 +4876,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:30",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:35"
@@ -4799,7 +4920,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:31",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:36"
@@ -4842,7 +4964,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:32",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:37"
@@ -4885,7 +5008,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:33",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:38"
@@ -4928,7 +5052,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:34",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:39"
@@ -4971,7 +5096,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:35",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:40"
@@ -5014,7 +5140,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:36",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:41"
@@ -5057,7 +5184,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:37",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:42"
@@ -5100,7 +5228,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:38",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:43"
@@ -5143,7 +5272,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_tl_xh:3",
         "ha_runtime:devices:tlx:input_tl_xh:39",
@@ -5197,7 +5327,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_tl_xh:4",
         "ha_runtime:devices:tlx:input_tl_xh:40",
@@ -5251,7 +5382,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_tl_xh:5",
         "ha_runtime:devices:tlx:input_tl_xh:41",
@@ -5305,7 +5437,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_tl_xh:6",
         "ha_runtime:devices:tlx:input_tl_xh:42",
@@ -5359,7 +5492,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:43",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:53"
@@ -5402,7 +5536,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:44",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:60"
@@ -5445,7 +5580,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:45",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:61"
@@ -5488,7 +5624,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:46",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:62"
@@ -5531,7 +5668,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_tl_xh:7",
         "ha_runtime:devices:tlx:input_tl_xh:47",
@@ -5585,7 +5723,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:48",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:64"
@@ -5628,7 +5767,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:49",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:65"
@@ -5671,7 +5811,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:23",
         "openinverter_gateway:devices:Growatt120:input_registers:23"
@@ -5714,7 +5855,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:50",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:67"
@@ -5757,7 +5899,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_tl_xh:51",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:69"
@@ -5800,6 +5943,7 @@
         ],
         "register_name"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:input:p075:i3111:visual-review:name",
@@ -5822,7 +5966,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_tl_xh:9",
         "ha_runtime:devices:tlx:input_tl_xh:54",
@@ -5876,7 +6021,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_tl_xh:10",
         "ha_runtime:devices:tlx:input_tl_xh:55",
@@ -5930,7 +6076,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_tl_xh:11",
         "ha_runtime:devices:tlx:input_tl_xh:56",
@@ -5984,7 +6131,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_tl_xh:12",
         "ha_runtime:devices:tlx:input_tl_xh:57",
@@ -6038,7 +6186,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_tl_xh:13",
         "ha_runtime:devices:tlx:input_tl_xh:58",
@@ -6092,6 +6241,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:input:p077:i3165:visual-review:description",
@@ -6114,6 +6264,7 @@
         ],
         "register_name"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:input:p077:i3165:visual-review:name",
@@ -6136,7 +6287,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "openinverter_gateway:devices:GrowattTLXH:input_registers:88",
         "openinverter_gateway:devices:GrowattTLXH:input_registers:89"
@@ -6182,6 +6334,7 @@
         ],
         "decoded_read_observation"
       ],
+      "scope_id": "min_tl_xh",
       "category": "value_conflict",
       "claims": [
         "min_live:decoded:battery_voltage_v:sample-0",
@@ -6204,7 +6357,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_tl_xh:15",
         "ha_runtime:devices:tlx:input_tl_xh:60",
@@ -6258,6 +6412,7 @@
         ],
         "decoded_read_observation"
       ],
+      "scope_id": "min_tl_xh",
       "category": "value_conflict",
       "claims": [
         "min_live:decoded:battery_current_a:sample-0",
@@ -6280,6 +6435,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:input:3170:22",
@@ -6315,7 +6471,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_tl_xh:16",
         "ha_runtime:devices:tlx:input_tl_xh:61",
@@ -6369,6 +6526,7 @@
         ],
         "decoded_read_observation"
       ],
+      "scope_id": "min_tl_xh",
       "category": "value_conflict",
       "claims": [
         "min_live:decoded:battery_soc_pct:sample-0",
@@ -6391,7 +6549,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_tl_xh:17",
         "ha_runtime:devices:tlx:input_tl_xh:62",
@@ -6445,7 +6604,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_tl_xh:18",
         "ha_runtime:devices:tlx:input_tl_xh:63",
@@ -6499,7 +6659,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_tl_xh:19",
         "ha_runtime:devices:tlx:input_tl_xh:64",
@@ -6553,7 +6714,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_tl_xh:20",
         "ha_runtime:devices:tlx:input_tl_xh:65",
@@ -6607,7 +6769,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_tl_xh:21",
         "ha_runtime:devices:tlx:input_tl_xh:66",
@@ -6661,7 +6824,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_tl_xh:22",
         "ha_runtime:devices:tlx:input_tl_xh:67",
@@ -6715,7 +6879,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_tl_xh:23",
         "ha_runtime:devices:tlx:input_tl_xh:68",
@@ -6769,7 +6934,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_tl_xh:24",
         "ha_runtime:devices:tlx:input_tl_xh:69",
@@ -6823,6 +6989,7 @@
         ],
         "decoded_read_observation"
       ],
+      "scope_id": "min_tl_xh",
       "category": "value_conflict",
       "claims": [
         "min_live:decoded:battery_discharge_w:sample-0",
@@ -6845,7 +7012,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:storage:input_tl_xh:25",
         "ha_runtime:devices:tlx:input_tl_xh:70",
@@ -6899,7 +7067,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:24",
         "openinverter_gateway:devices:Growatt120:input_registers:24",
@@ -6970,6 +7139,7 @@
         ],
         "description"
       ],
+      "scope_id": "min_tl_xh",
       "category": "wording_difference",
       "claims": [
         "min_register_map:input:3212:26",
@@ -7005,7 +7175,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:25",
         "openinverter_gateway:devices:Growatt120:input_registers:25",
@@ -7063,7 +7234,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:26",
         "inverter_to_mqtt:markdown_registers:input_registers:14",
@@ -7139,7 +7311,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "inverter_to_mqtt:markdown_registers:input_registers:15",
         "openinverter_gateway:devices:GrowattSPF:input_registers:24"
@@ -7176,7 +7349,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:27",
         "inverter_to_mqtt:markdown_registers:input_registers:16",
@@ -7252,7 +7426,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:28",
         "inverter_to_mqtt:markdown_registers:input_registers:17",
@@ -7342,7 +7517,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:29",
         "inverter_to_mqtt:markdown_registers:input_registers:18",
@@ -7419,7 +7595,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:3",
         "inverter_to_mqtt:markdown_registers:input_registers:7",
@@ -7509,7 +7686,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:30",
         "inverter_to_mqtt:markdown_registers:input_registers:19",
@@ -7586,7 +7764,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:31",
         "inverter_to_mqtt:markdown_registers:input_registers:21",
@@ -7662,7 +7841,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:32",
         "inverter_to_mqtt:markdown_registers:input_registers:22",
@@ -7738,7 +7918,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:33",
         "inverter_to_mqtt:markdown_registers:input_registers:23",
@@ -7814,7 +7995,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:34",
         "inverter_to_mqtt:markdown_registers:input_registers:25",
@@ -7890,7 +8072,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:35",
         "inverter_to_mqtt:markdown_registers:input_registers:26",
@@ -7967,7 +8150,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:36",
         "inverter_to_mqtt:markdown_registers:input_registers:27",
@@ -8044,7 +8228,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:4",
         "inverter_to_mqtt:markdown_registers:input_registers:4",
@@ -8139,7 +8324,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:37",
         "inverter_to_mqtt:markdown_registers:input_registers:29",
@@ -8215,7 +8401,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:38",
         "inverter_to_mqtt:markdown_registers:input_registers:31",
@@ -8291,7 +8478,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:39",
         "inverter_to_mqtt:markdown_registers:input_registers:33",
@@ -8368,7 +8556,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:40",
         "openinverter_gateway:devices:Growatt120:input_registers:43",
@@ -8439,7 +8628,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "inverter_to_mqtt:markdown_registers:input_registers:5",
         "inverter_to_mqtt:markdown_registers:input_registers:9"
@@ -8467,7 +8657,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:41",
         "openinverter_gateway:devices:Growatt120:input_registers:44",
@@ -8538,7 +8729,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:42",
         "openinverter_gateway:devices:Growatt120:input_registers:45",
@@ -8609,7 +8801,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:43",
         "openinverter_gateway:devices:Growatt120:input_registers:46",
@@ -8681,7 +8874,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:44",
         "openinverter_gateway:devices:Growatt120:input_registers:47"
@@ -8724,7 +8918,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:45",
         "openinverter_gateway:devices:Growatt120:input_registers:48"
@@ -8767,7 +8962,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:5",
         "inverter_to_mqtt:markdown_registers:input_registers:10",
@@ -8857,7 +9053,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:46",
         "openinverter_gateway:devices:Growatt120:input_registers:49"
@@ -8900,7 +9097,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:47",
         "openinverter_gateway:devices:Growatt120:input_registers:50"
@@ -8944,7 +9142,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:48",
         "openinverter_gateway:devices:Growatt120:input_registers:51"
@@ -8987,7 +9186,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:49",
         "openinverter_gateway:devices:Growatt120:input_registers:52",
@@ -9044,7 +9244,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:50",
         "openinverter_gateway:devices:Growatt120:input_registers:53"
@@ -9088,7 +9289,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:6",
         "inverter_to_mqtt:markdown_registers:input_registers:11",
@@ -9178,7 +9380,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:51",
         "openinverter_gateway:devices:Growatt120:input_registers:54"
@@ -9222,7 +9425,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:52",
         "openinverter_gateway:devices:Growatt120:input_registers:55"
@@ -9265,7 +9469,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:53",
         "openinverter_gateway:devices:Growatt120:input_registers:56"
@@ -9308,7 +9513,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:54",
         "openinverter_gateway:devices:Growatt120:input_registers:57"
@@ -9351,7 +9557,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:55",
         "openinverter_gateway:devices:Growatt120:input_registers:58"
@@ -9395,7 +9602,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:7",
         "inverter_to_mqtt:markdown_registers:input_registers:12",
@@ -9485,7 +9693,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:56",
         "openinverter_gateway:devices:Growatt120:input_registers:59",
@@ -9556,7 +9765,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:57",
         "inverter_to_mqtt:markdown_registers:input_registers:35",
@@ -9632,7 +9842,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:58",
         "inverter_to_mqtt:markdown_registers:input_registers:36",
@@ -9709,7 +9920,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:59",
         "inverter_to_mqtt:markdown_registers:input_registers:37",
@@ -9771,7 +9983,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:60",
         "openinverter_gateway:devices:Growatt120:input_registers:63"
@@ -9814,7 +10027,8 @@
         ],
         "implementation_register_mapping"
       ],
-      "category": "value_conflict",
+      "scope_id": "unknown",
+      "category": "potential_scope_conflict",
       "claims": [
         "ha_runtime:devices:tlx:input_common:61",
         "openinverter_gateway:devices:Growatt120:input_registers:64"
