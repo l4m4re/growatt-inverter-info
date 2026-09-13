@@ -141,6 +141,12 @@
       "kind": "primary_source_claim",
       "path": "Growatt-PV-Inverter-Modbus-RS485-RTU-Protocol-V3-14.pdf",
       "independent": true
+    },
+    "min_status_reconciliation": {
+      "label": "MIN/TL-XH status, fault and warning reconciliation",
+      "kind": "model_specific_status_review",
+      "path": "docs/reverse-engineering/GII-MIN-RE-3_STATUS_FAULT_WARNING_RECONCILIATION.md",
+      "independent": false
     }
   },
   "families": [
@@ -60609,9 +60615,9 @@
       "normalized": {
         "name": "Inverter operating status",
         "description": "InverterStatus",
-        "raw_type": "register value",
-        "signed": null,
-        "divisor": 10,
+        "raw_type": "u16 enum",
+        "signed": false,
+        "divisor": null,
         "multiplier": 1,
         "scale": 1,
         "unit": null,
@@ -60637,7 +60643,26 @@
         "index_kind": null,
         "index": null
       },
-      "enums": [],
+      "enums": [
+        {
+          "value": 0,
+          "canonical_name": "waiting",
+          "vendor_label": "waiting",
+          "ambiguous": false
+        },
+        {
+          "value": 1,
+          "canonical_name": "normal",
+          "vendor_label": "normal",
+          "ambiguous": false
+        },
+        {
+          "value": 3,
+          "canonical_name": "fault",
+          "vendor_label": "fault",
+          "ambiguous": false
+        }
+      ],
       "bitfields": [],
       "packed_fields": null,
       "relationships": [
@@ -71923,7 +71948,7 @@
       "normalized": {
         "name": "Inverter operating status",
         "description": "Inverter status",
-        "raw_type": "u16 enum; 1=normal",
+        "raw_type": "u16 packed: high byte mode, low byte status",
         "signed": false,
         "divisor": null,
         "multiplier": 1,
@@ -71951,34 +71976,45 @@
         "index_kind": null,
         "index": null
       },
-      "enums": [
+      "enums": [],
+      "bitfields": [],
+      "packed_fields": [
         {
-          "value": 0,
-          "canonical_name": "waitingmodule_1",
-          "vendor_label": "Waitingmodule 1",
-          "ambiguous": false
+          "bits": [
+            8,
+            15
+          ],
+          "name": "mode",
+          "vendor_label": "high-byte mode",
+          "description": "Vendor-defined inverter mode byte.",
+          "enum": {
+            "0": "waiting_module",
+            "1": "self_test",
+            "2": "reserved",
+            "3": "system_fault_module",
+            "4": "flash_module",
+            "5": "pv_battery_online_module",
+            "6": "battery_online_module"
+          },
+          "status": "source_explicit",
+          "provenance": [
+            "vendor_v124"
+          ]
         },
         {
-          "value": 1,
-          "canonical_name": "normal_none",
-          "vendor_label": "normal None",
-          "ambiguous": false
-        },
-        {
-          "value": 2,
-          "canonical_name": "reserved_3",
-          "vendor_label": "Reserved 3",
-          "ambiguous": false
-        },
-        {
-          "value": 4,
-          "canonical_name": "flashmodule_5",
-          "vendor_label": "Flashmodule 5",
-          "ambiguous": false
+          "bits": [
+            0,
+            7
+          ],
+          "name": "status",
+          "vendor_label": "low-byte status",
+          "description": "The vendor source does not enumerate the low-byte values separately.",
+          "status": "source_explicit",
+          "provenance": [
+            "vendor_v124"
+          ]
         }
       ],
-      "bitfields": [],
-      "packed_fields": null,
       "relationships": [
         {
           "type": "alternate",
@@ -82071,9 +82107,9 @@
       "normalized": {
         "name": "Derating mode",
         "description": "DeratingMode",
-        "raw_type": "register value",
-        "signed": null,
-        "divisor": 1,
+        "raw_type": "u16 enum",
+        "signed": false,
+        "divisor": null,
         "multiplier": 1,
         "scale": 1,
         "unit": null,
@@ -82099,7 +82135,110 @@
         "index_kind": null,
         "index": null
       },
-      "enums": [],
+      "enums": [
+        {
+          "value": 0,
+          "canonical_name": "not_derated",
+          "vendor_label": "not_derated",
+          "ambiguous": false
+        },
+        {
+          "value": 1,
+          "canonical_name": "pv_high",
+          "vendor_label": "pv_high",
+          "ambiguous": false
+        },
+        {
+          "value": 2,
+          "canonical_name": "power_constant",
+          "vendor_label": "power_constant",
+          "ambiguous": false
+        },
+        {
+          "value": 3,
+          "canonical_name": "grid_voltage_high",
+          "vendor_label": "grid_voltage_high",
+          "ambiguous": false
+        },
+        {
+          "value": 4,
+          "canonical_name": "frequency_high",
+          "vendor_label": "frequency_high",
+          "ambiguous": false
+        },
+        {
+          "value": 5,
+          "canonical_name": "dc_source_mode",
+          "vendor_label": "dc_source_mode",
+          "ambiguous": false
+        },
+        {
+          "value": 6,
+          "canonical_name": "inverter_temperature",
+          "vendor_label": "inverter_temperature",
+          "ambiguous": false
+        },
+        {
+          "value": 7,
+          "canonical_name": "active_power_order",
+          "vendor_label": "active_power_order",
+          "ambiguous": false
+        },
+        {
+          "value": 8,
+          "canonical_name": "load_speed",
+          "vendor_label": "load_speed",
+          "ambiguous": false
+        },
+        {
+          "value": 9,
+          "canonical_name": "over_back_by_time",
+          "vendor_label": "over_back_by_time",
+          "ambiguous": false
+        },
+        {
+          "value": 10,
+          "canonical_name": "internal_temperature",
+          "vendor_label": "internal_temperature",
+          "ambiguous": false
+        },
+        {
+          "value": 11,
+          "canonical_name": "outdoor_temperature",
+          "vendor_label": "outdoor_temperature",
+          "ambiguous": false
+        },
+        {
+          "value": 12,
+          "canonical_name": "line_impedance_calculation",
+          "vendor_label": "line_impedance_calculation",
+          "ambiguous": false
+        },
+        {
+          "value": 13,
+          "canonical_name": "parallel_anti_backflow",
+          "vendor_label": "parallel_anti_backflow",
+          "ambiguous": false
+        },
+        {
+          "value": 14,
+          "canonical_name": "local_anti_backflow",
+          "vendor_label": "local_anti_backflow",
+          "ambiguous": false
+        },
+        {
+          "value": 15,
+          "canonical_name": "bdc_load_priority",
+          "vendor_label": "bdc_load_priority",
+          "ambiguous": false
+        },
+        {
+          "value": 16,
+          "canonical_name": "ct_check_error",
+          "vendor_label": "ct_check_error",
+          "ambiguous": false
+        }
+      ],
       "bitfields": [],
       "packed_fields": null,
       "relationships": [
@@ -84091,13 +84230,49 @@
       "bitfields": [
         {
           "bits": [
-            0,
-            15
+            0
           ],
-          "name": "undocumented_flags",
-          "vendor_label": "undocumented flag word",
-          "status": "placeholder",
-          "description": "The source identifies a packed flag word but does not define safe individual meanings.",
+          "name": "turn_off_order",
+          "vendor_label": "turn off Order",
+          "status": "structured",
+          "description": "Standby was requested by the turn-off order.",
+          "provenance": [
+            "vendor_v124"
+          ]
+        },
+        {
+          "bits": [
+            1
+          ],
+          "name": "pv_low",
+          "vendor_label": "PVLow",
+          "status": "structured",
+          "description": "PV input is below the standby threshold.",
+          "provenance": [
+            "vendor_v124"
+          ]
+        },
+        {
+          "bits": [
+            2
+          ],
+          "name": "ac_voltage_or_frequency_out_of_scope",
+          "vendor_label": "AC Volt/Freq out of scope",
+          "status": "structured",
+          "description": "AC voltage or frequency is out of scope.",
+          "provenance": [
+            "vendor_v124"
+          ]
+        },
+        {
+          "bits": [
+            3,
+            7
+          ],
+          "name": "reserved",
+          "vendor_label": "Reserved",
+          "status": "structured",
+          "description": "Reserved by the vendor.",
           "provenance": [
             "vendor_v124"
           ]
@@ -85517,9 +85692,9 @@
       "normalized": {
         "name": "BDC connect state",
         "description": "BDCconnectstate",
-        "raw_type": "register value",
-        "signed": null,
-        "divisor": 1,
+        "raw_type": "u16 enum",
+        "signed": false,
+        "divisor": null,
         "multiplier": 1,
         "scale": 1,
         "unit": null,
@@ -85544,7 +85719,32 @@
         "index_kind": null,
         "index": null
       },
-      "enums": [],
+      "enums": [
+        {
+          "value": 0,
+          "canonical_name": "no_bdc_connected",
+          "vendor_label": "no_bdc_connected",
+          "ambiguous": false
+        },
+        {
+          "value": 1,
+          "canonical_name": "bdc1_connected",
+          "vendor_label": "bdc1_connected",
+          "ambiguous": false
+        },
+        {
+          "value": 2,
+          "canonical_name": "bdc2_connected",
+          "vendor_label": "bdc2_connected",
+          "ambiguous": false
+        },
+        {
+          "value": 3,
+          "canonical_name": "bdc1_and_bdc2_connected",
+          "vendor_label": "bdc1_and_bdc2_connected",
+          "ambiguous": false
+        }
+      ],
       "bitfields": [],
       "packed_fields": null,
       "relationships": [],
@@ -90308,31 +90508,17 @@
         {
           "value": 0,
           "canonical_name": "no_separate_bdc_data",
-          "vendor_label": "no separate BDC data",
+          "vendor_label": "no_separate_bdc_data",
           "ambiguous": false
         },
         {
           "value": 1,
-          "canonical_name": "separate_bdc_data_none",
-          "vendor_label": "separate BDC data None",
+          "canonical_name": "separate_bdc_data",
+          "vendor_label": "separate_bdc_data",
           "ambiguous": false
         }
       ],
-      "bitfields": [
-        {
-          "bits": [
-            0,
-            15
-          ],
-          "name": "undocumented_flags",
-          "vendor_label": "undocumented flag word",
-          "status": "placeholder",
-          "description": "The source identifies a packed flag word but does not define safe individual meanings.",
-          "provenance": [
-            "vendor_v124"
-          ]
-        }
-      ],
+      "bitfields": [],
       "packed_fields": null,
       "relationships": [],
       "resolution": {
@@ -90481,32 +90667,32 @@
       "enums": [
         {
           "value": 0,
-          "canonical_name": "normal_normal",
-          "vendor_label": "Normal / normal",
-          "ambiguous": true
+          "canonical_name": "normal_unrestricted",
+          "vendor_label": "normal_unrestricted",
+          "ambiguous": false
         },
         {
           "value": 1,
-          "canonical_name": "standby_fault",
-          "vendor_label": "standby/fault",
+          "canonical_name": "standby_or_fault",
+          "vendor_label": "standby_or_fault",
           "ambiguous": false
         },
         {
           "value": 2,
           "canonical_name": "maximum_discharge_current_limit",
-          "vendor_label": "maximum discharge-current limit",
+          "vendor_label": "maximum_discharge_current_limit",
           "ambiguous": false
         },
         {
           "value": 3,
-          "canonical_name": "discharge_enabled",
-          "vendor_label": "discharge enabled",
+          "canonical_name": "battery_discharge_enabled",
+          "vendor_label": "battery_discharge_enabled",
           "ambiguous": false
         },
         {
           "value": 4,
-          "canonical_name": "high_bus_discharge_derating_none",
-          "vendor_label": "high-bus discharge derating None",
+          "canonical_name": "high_bus_discharge_derating",
+          "vendor_label": "high_bus_discharge_derating",
           "ambiguous": false
         }
       ],
@@ -90623,28 +90809,45 @@
         "index_kind": null,
         "index": null
       },
-      "enums": [
+      "enums": [],
+      "bitfields": [],
+      "packed_fields": [
         {
-          "value": 0,
-          "canonical_name": "standbystatus",
-          "vendor_label": "StandbyStatus",
-          "ambiguous": false
+          "bits": [
+            8,
+            15
+          ],
+          "name": "mode",
+          "vendor_label": "mode",
+          "enum": {
+            "0": "no_charge_or_discharge",
+            "1": "charge",
+            "2": "discharge"
+          },
+          "status": "source_explicit",
+          "provenance": [
+            "vendor_v124"
+          ]
         },
         {
-          "value": 1,
-          "canonical_name": "normalstatus",
-          "vendor_label": "NormalStatus",
-          "ambiguous": false
-        },
-        {
-          "value": 2,
-          "canonical_name": "faultstatus_3_faultstatus_3_flashstatus",
-          "vendor_label": "FaultStatus 3 / FaultStatus 3：FlashStatus",
-          "ambiguous": true
+          "bits": [
+            0,
+            7
+          ],
+          "name": "status",
+          "vendor_label": "status",
+          "enum": {
+            "0": "standby",
+            "1": "normal",
+            "2": "fault",
+            "3": "flash"
+          },
+          "status": "source_explicit",
+          "provenance": [
+            "vendor_v124"
+          ]
         }
       ],
-      "bitfields": [],
-      "packed_fields": null,
       "relationships": [],
       "resolution": {
         "status": "resolved_with_notes",
@@ -93215,8 +93418,8 @@
       "normalized": {
         "name": "BDC flag word",
         "description": "BDCmark(chargeanddischarge, faultalarmcode) Bit0:ChargeEn;BDCallowscharging Bit1:DischargeEn;BDCallows discharge Bit2~7:Resvd;reserved Bit8~11:WarnSubCode;BDC sub-warningcode Bit12~15:FaultSubCode;BDC sub-errorcode",
-        "raw_type": "register value",
-        "signed": true,
+        "raw_type": "u16 bitfield",
+        "signed": false,
         "divisor": 1,
         "multiplier": null,
         "scale": null,
@@ -95896,13 +96099,13 @@
         {
           "value": 0,
           "canonical_name": "not_detected",
-          "vendor_label": "not detected",
+          "vendor_label": "not_detected",
           "ambiguous": false
         },
         {
           "value": 1,
-          "canonical_name": "detection_completed_none",
-          "vendor_label": "detection completed None",
+          "canonical_name": "detection_completed",
+          "vendor_label": "detection_completed",
           "ambiguous": false
         }
       ],
@@ -95993,8 +96196,8 @@
       "normalized": {
         "name": "Battery request flags",
         "description": "batteryworkrequest",
-        "raw_type": "register value",
-        "signed": null,
+        "raw_type": "u16 bitfield",
+        "signed": false,
         "divisor": 1,
         "multiplier": null,
         "scale": null,
@@ -96190,7 +96393,56 @@
         "structure_id": "bms_status_and_telemetry_block",
         "structure_note": "Repeated BMS fields are retained structurally; numeric suffixes on diagnostics do not prove separate BMS instances."
       },
-      "enums": [],
+      "enums": [
+        {
+          "value": 0,
+          "canonical_name": "dormancy",
+          "vendor_label": "dormancy",
+          "ambiguous": false
+        },
+        {
+          "value": 1,
+          "canonical_name": "charge",
+          "vendor_label": "charge",
+          "ambiguous": false
+        },
+        {
+          "value": 2,
+          "canonical_name": "discharge",
+          "vendor_label": "discharge",
+          "ambiguous": false
+        },
+        {
+          "value": 3,
+          "canonical_name": "free",
+          "vendor_label": "free",
+          "ambiguous": false
+        },
+        {
+          "value": 4,
+          "canonical_name": "standby",
+          "vendor_label": "standby",
+          "ambiguous": false
+        },
+        {
+          "value": 5,
+          "canonical_name": "soft_start",
+          "vendor_label": "soft_start",
+          "ambiguous": false
+        },
+        {
+          "value": 6,
+          "canonical_name": "fault",
+          "vendor_label": "fault",
+          "ambiguous": false
+        },
+        {
+          "value": 7,
+          "canonical_name": "update",
+          "vendor_label": "update",
+          "ambiguous": false
+        }
+      ],
       "bitfields": [],
       "packed_fields": null,
       "relationships": [],
@@ -434209,7 +434461,58 @@
           }
         ]
       }
-    ]
+    ],
+    "min_status_fault_warning_reconciliation": {
+      "source": "min_status_reconciliation",
+      "disposition": "GII_MIN_STATUS_FAULT_WARNING_RECONCILIATION_WITH_FOLLOW_UP",
+      "model": "MIN 6000TL-XH",
+      "live_read": {
+        "function_code": 4,
+        "blocks": [
+          {
+            "start": 3000,
+            "count": 125,
+            "response_words": 125
+          },
+          {
+            "start": 3125,
+            "count": 125,
+            "response_words": 125
+          }
+        ]
+      },
+      "safe_structures": [
+        "I0 legacy inverter status enum",
+        "I3000 packed inverter mode/status word",
+        "I104/I3086 derating mode enum",
+        "I141 PID status enum",
+        "I206 SVG/APF packed ratio/status word",
+        "I238/I3112 AFCI status enum",
+        "I3118 BDC connection enum",
+        "I3119 dry-contact enum",
+        "I3164 BDC data-separation enum",
+        "I3165 BDC derating enum",
+        "I3166 packed BDC mode/status word",
+        "I3187 BDC flag word",
+        "I3210 battery insulation enum",
+        "I3211 battery request flag word",
+        "I3212 BMS status enum"
+      ],
+      "retained_raw_unknowns": [
+        "I105/I3105 inverter fault words",
+        "I106/I3106 inverter warning words",
+        "I107/I3107 and I108/I3108 subcodes",
+        "I110/I3110 warning bitfield without safe individual meanings",
+        "I115 and I1001-I1008 aggregate/system fault words",
+        "I3167/I3168 BDC fault/warning codes",
+        "I3199 and I3202-I3205/I3213-I3214/I3225-I3226 BMS diagnostic words"
+      ],
+      "follow_up": [
+        "I3110/I3111 live values versus cloud sys_fault_word3/sys_fault_word4 mapping",
+        "I3165 live value 22 versus the documented 0..4 enum and cloud derate reason",
+        "cloud Warning401 without a proven physical register mapping"
+      ]
+    }
   },
   "coverage": {
     "physical_registers": 4048,
@@ -434234,14 +434537,14 @@
     "component_as_alternate_errors_found": 2096,
     "component_as_alternate_relationships_removed": 2096,
     "indexed_structures": 492,
-    "enum_bearing_records": 162,
-    "bitfield_bearing_records": 87,
-    "bitfield_source_indicated_records": 87,
-    "bitfield_structured_records": 42,
+    "enum_bearing_records": 164,
+    "bitfield_bearing_records": 86,
+    "bitfield_source_indicated_records": 86,
+    "bitfield_structured_records": 43,
     "bitfield_partially_structured_records": 0,
-    "bitfield_placeholder_records": 45,
-    "defined_bitfield_ranges": 83,
-    "defined_bit_or_range_count": 83,
+    "bitfield_placeholder_records": 43,
+    "defined_bitfield_ranges": 87,
+    "defined_bit_or_range_count": 87,
     "known_indexed_instances": 492,
     "unknown_instance_structures": 230,
     "read_only_records": 2804,

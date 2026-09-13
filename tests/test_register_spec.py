@@ -107,6 +107,41 @@ def test_min_semantic_review_keeps_bms_and_warning_fields_honest() -> None:
     assert records["min_tl_xh:input:3231"]["normalized"]["divisor"] == 1000
 
 
+def test_min_status_words_preserve_vendor_packing_and_unsigned_flags() -> None:
+    """Status words are represented by their documented byte/bit layout."""
+    records = {record["physical_id"]: record for record in load_spec()["registers"]}
+
+    status = records["min_tl_xh:input:3000"]
+    assert status["normalized"]["signed"] is False
+    assert status["enums"] == []
+    assert [field["bits"] for field in status["packed_fields"]] == [[8, 15], [0, 7]]
+    assert status["packed_fields"][0]["enum"]["3"] == "system_fault_module"
+    assert status["packed_fields"][1].get("enum") is None
+
+    bdc = records["min_tl_xh:input:3166"]
+    assert bdc["enums"] == []
+    assert bdc["packed_fields"][0]["enum"]["2"] == "discharge"
+    assert bdc["packed_fields"][1]["enum"]["3"] == "flash"
+
+    assert records["min_tl_xh:input:3187"]["normalized"]["signed"] is False
+    assert records["min_tl_xh:input:3211"]["normalized"]["signed"] is False
+    assert records["min_tl_xh:input:3104"]["bitfields"][0]["name"] == "turn_off_order"
+
+
+def test_min_status_enums_are_explicit_and_not_parser_artifacts() -> None:
+    """Vendor status enums have stable values and readable canonical names."""
+    records = {record["physical_id"]: record for record in load_spec()["registers"]}
+
+    assert [(item["value"], item["canonical_name"]) for item in records["min_tl_xh:input:3118"]["enums"]] == [
+        (0, "no_bdc_connected"),
+        (1, "bdc1_connected"),
+        (2, "bdc2_connected"),
+        (3, "bdc1_and_bdc2_connected"),
+    ]
+    assert records["min_tl_xh:input:3212"]["enums"][-1]["canonical_name"] == "update"
+    assert records["min_tl_xh:input:3164"]["bitfields"] == []
+
+
 def test_min_metadata_consistency_checker_catches_unit_collisions() -> None:
     """The bounded checker accepts canonical metadata and catches regressions."""
     spec = load_spec()

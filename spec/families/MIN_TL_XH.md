@@ -419,7 +419,7 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | H | 5037 | Bdc Slot 1 Metadata | register value | — | R/W | unknown_reserved |
 | H | 5038 | Bdc Slot 1 Metadata | register value | — | R/W | unknown_reserved |
 | H | 5039 | Bdc Slot 1 Metadata | register value | — | R/W | unknown_reserved |
-| I | 0 | Inverter operating status | register value | — | R | resolved_with_notes |
+| I | 0 | Inverter operating status | u16 enum | — | R | resolved_with_notes |
 | I | 1 | PV total power | register value | 0.1W | R/W | resolved_with_notes |
 | I | 2 | PV total power | register value | 0.1W | R/W | resolved_with_notes |
 | I | 3 | PV1 DC voltage | register value | 0.1V | R | resolved_with_notes |
@@ -524,7 +524,7 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | I | 236 | Reactive energy total (high word) | register value | kvarh | R | source_only |
 | I | 237 | Reactive energy total (low word) | register value | kvarh | R | source_only |
 | I | 1014 | Battery state of charge | register value | lith/leadacid | R | resolved_with_notes |
-| I | 3000 | Inverter operating status | u16 enum; 1=normal | — | R | resolved_with_notes |
+| I | 3000 | Inverter operating status | u16 packed: high byte mode, low byte status | — | R | resolved_with_notes |
 | I | 3001 | PV total power (high word) | u32 / 10 | W | R | resolved_with_notes |
 | I | 3002 | PV total power (low word) | register value | W | R | resolved_with_notes |
 | I | 3003 | PV1 voltage | u16 / 10 | V | R | resolved_with_notes |
@@ -610,7 +610,7 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | I | 3083 | PV energy today (high word) | register value | kWh | R | resolved_with_notes |
 | I | 3084 | PV energy today (low word) | register value | kWh | R | resolved_with_notes |
 | I | 3085 | Reserved | register value | — | R | unknown_reserved |
-| I | 3086 | Derating mode | register value | — | R | resolved_with_notes |
+| I | 3086 | Derating mode | u16 enum | — | R | resolved_with_notes |
 | I | 3087 | PV insulation resistance | register value | kΩ | R | resolved_with_notes |
 | I | 3088 | Residual current R | register value | A | R | resolved_with_notes |
 | I | 3089 | Residual current S | register value | A | R | resolved_with_notes |
@@ -642,7 +642,7 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | I | 3115 | Inverter start delay | register value | s | R | resolved_with_notes |
 | I | 3116 | Reserved | register value | — | R | unknown_reserved |
 | I | 3117 | Reserved | register value | — | R | unknown_reserved |
-| I | 3118 | BDC connect state | register value | — | R | resolved_with_notes |
+| I | 3118 | BDC connect state | u16 enum | — | R | resolved_with_notes |
 | I | 3119 | Dry contact state | register value | — | R | resolved_with_notes |
 | I | 3120 | Reserved | register value | — | R | unknown_reserved |
 | I | 3121 | Self-use power (high word) | register value | W | R | resolved_with_notes |
@@ -711,7 +711,7 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | I | 3184 | BDC charge energy total | register value | kWh | R | resolved_with_notes |
 | I | 3185 | BDC charge energy total | register value | kWh | R | resolved_with_notes |
 | I | 3186 | Reserved | register value | — | R | unknown_reserved |
-| I | 3187 | BDC flag word | register value | — | R | resolved |
+| I | 3187 | BDC flag word | u16 bitfield | — | R | resolved |
 | I | 3188 | VBUS2 low voltage | register value | V | R | resolved |
 | I | 3189 | BMS max cell index | register value | — | R | resolved_with_notes |
 | I | 3190 | BMS min cell index | register value | — | R | resolved_with_notes |
@@ -735,7 +735,7 @@ Best-supported model family; MIN 6000TL-XH is live read validated.
 | I | 3208 | Reserved | register value | — | R | unknown_reserved |
 | I | 3209 | Reserved | register value | — | R | unknown_reserved |
 | I | 3210 | Battery insulation status | u16 enum 0=not detected, 1=detection completed | — | R | resolved_with_notes |
-| I | 3211 | Battery request flags | register value | — | R | resolved_with_notes |
+| I | 3211 | Battery request flags | u16 bitfield | — | R | resolved_with_notes |
 | I | 3212 | BMS status | u16 enum | — | R | resolved_with_notes |
 | I | 3213 | BMS protect flags 2 | register value | — | R | resolved_with_notes |
 | I | 3214 | BMS warning flags 2 | register value | — | R | resolved_with_notes |
@@ -5698,10 +5698,11 @@ Physical identity: `min_tl_xh:input:0`.
 Semantic: `inverter.status`; subsystem: `inverter`; measurement point: `inverter`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
 Vendor names: —; vendor description: InverterStatus; vendor unit/type: — / register value.
-Normalized type/signedness/scale: `register value` / `None` / `10`.
+Normalized type/signedness/scale: `u16 enum` / `False` / `1`.
 Applicability: family-level; relationships: alternate:min_tl_xh:input:3000.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: none.
 
+Enums: 0=waiting (waiting); 1=normal (normal); 3=fault (fault)
 
 ### input 1 — PV total power
 
@@ -6875,11 +6876,11 @@ Physical identity: `min_tl_xh:input:3000`.
 Semantic: `inverter.status`; subsystem: `inverter`; measurement point: `inverter`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
 Vendor names: InverterStatus; vendor description: Inverter status; vendor unit/type: — / u16 enum; 1=normal.
-Normalized type/signedness/scale: `u16 enum; 1=normal` / `False` / `1`.
+Normalized type/signedness/scale: `u16 packed: high byte mode, low byte status` / `False` / `1`.
 Applicability: MIN 6000TL-XH; relationships: alternate:min_tl_xh:input:0.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
-Enums: 0=waitingmodule_1 (Waitingmodule 1); 1=normal_none (normal None); 2=reserved_3 (Reserved 3); 4=flashmodule_5 (Flashmodule 5)
+Packed fields: [8, 15]=mode; [0, 7]=status
 
 ### input 3001 — PV total power (high word)
 
@@ -7764,10 +7765,11 @@ Physical identity: `min_tl_xh:input:3086`.
 Semantic: `diagnostic.derating_mode`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
 Vendor names: DeratingMode; vendor description: DeratingMode; vendor unit/type: — / register value.
-Normalized type/signedness/scale: `register value` / `None` / `1`.
+Normalized type/signedness/scale: `u16 enum` / `False` / `1`.
 Applicability: family-level; relationships: alternate:min_tl_xh:input:104.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
+Enums: 0=not_derated (not_derated); 1=pv_high (pv_high); 2=power_constant (power_constant); 3=grid_voltage_high (grid_voltage_high); 4=frequency_high (frequency_high); 5=dc_source_mode (dc_source_mode); 6=inverter_temperature (inverter_temperature); 7=active_power_order (active_power_order); 8=load_speed (load_speed); 9=over_back_by_time (over_back_by_time); 10=internal_temperature (internal_temperature); 11=outdoor_temperature (outdoor_temperature); 12=line_impedance_calculation (line_impedance_calculation); 13=parallel_anti_backflow (parallel_anti_backflow); 14=local_anti_backflow (local_anti_backflow); 15=bdc_load_priority (bdc_load_priority); 16=ct_check_error (ct_check_error)
 
 ### input 3093 — Inverter temperature
 
@@ -7876,7 +7878,7 @@ Normalized type/signedness/scale: `u16 vendor-defined bitfield` / `False` / `—
 Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `source_only`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
-Bitfields: [0, 15]=undocumented_flags (placeholder)
+Bitfields: [0]=turn_off_order (structured); [1]=pv_low (structured); [2]=ac_voltage_or_frequency_out_of_scope (structured); [3, 7]=reserved (structured)
 
 ### input 3105 — Fault code
 
@@ -7902,6 +7904,19 @@ Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `source_only`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
 
 Bitfields: [0, 15]=undocumented_flags (placeholder)
+
+### input 3118 — BDC connect state
+
+Canonical description: BDCconnectstate
+Physical identity: `min_tl_xh:input:3118`.
+Semantic: `field.bdc_connect_state`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
+Logical field: `none`; component role: `complete_value`.
+Vendor names: BDC_OnOffState; vendor description: BDCconnectstate; vendor unit/type: — / register value.
+Normalized type/signedness/scale: `u16 enum` / `False` / `1`.
+Applicability: family-level; relationships: none.
+Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3000_3124.
+
+Enums: 0=no_bdc_connected (no_bdc_connected); 1=bdc1_connected (bdc1_connected); 2=bdc2_connected (bdc2_connected); 3=bdc1_and_bdc2_connected (bdc1_and_bdc2_connected)
 
 ### input 3119 — Dry contact state
 
@@ -8286,8 +8301,7 @@ Normalized type/signedness/scale: `u16 enum 0=no separate BDC data, 1=separate B
 Applicability: MIN 6000TL-XH; relationships: none.
 Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
 
-Enums: 0=no_separate_bdc_data (no separate BDC data); 1=separate_bdc_data_none (separate BDC data None)
-Bitfields: [0, 15]=undocumented_flags (placeholder)
+Enums: 0=no_separate_bdc_data (no_separate_bdc_data); 1=separate_bdc_data (separate_bdc_data)
 
 ### input 3165 — BDC derating mode
 
@@ -8300,20 +8314,7 @@ Normalized type/signedness/scale: `u16 enum 0=normal, 1=standby/fault, 2=maximum
 Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
 
-Enums: 0=normal_normal (Normal / normal); 1=standby_fault (standby/fault); 2=maximum_discharge_current_limit (maximum discharge-current limit); 3=discharge_enabled (discharge enabled); 4=high_bus_discharge_derating_none (high-bus discharge derating None)
-
-### input 3166 — BDC system mode and status
-
-Canonical description: SystemworkStateandmodeThe upper8bitsindicatethemode; 0：Nochargeanddischarge； 1：charge； 2：Discharge； Thelower8bitsrepresentthestatus; 0:StandbyStatus; 1:NormalStatus; 2:FaultStatus 3：FlashStatus;
-Physical identity: `min_tl_xh:input:3166`.
-Semantic: `bdc.system_mode_status`; subsystem: `storage_device`; measurement point: `bdc_controller`; instance/index: `not_applicable/None`.
-Logical field: `none`; component role: `complete_value`.
-Vendor names: SysState_Mode; vendor description: SystemworkStateandmodeThe upper8bitsindicatethemode; 0：Nochargeanddischarge； 1：charge； 2：Discharge； Thelower8bitsrepresentthestatus; 0:StandbyStatus; 1:NormalStatus; 2:FaultStatus 3：FlashStatus;; vendor unit/type: — / u16 packed: upper byte mode, lower byte status.
-Normalized type/signedness/scale: `u16 packed: upper byte mode, lower byte status` / `False` / `1`.
-Applicability: family-level; relationships: none.
-Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
-
-Enums: 0=standbystatus (StandbyStatus); 1=normalstatus (NormalStatus); 2=faultstatus_3_faultstatus_3_flashstatus (FaultStatus 3 / FaultStatus 3：FlashStatus)
+Enums: 0=normal_unrestricted (normal_unrestricted); 1=standby_or_fault (standby_or_fault); 2=maximum_discharge_current_limit (maximum_discharge_current_limit); 3=battery_discharge_enabled (battery_discharge_enabled); 4=high_bus_discharge_derating (high_bus_discharge_derating)
 
 ### input 3171 — Battery state of charge
 
@@ -8430,7 +8431,7 @@ Physical identity: `min_tl_xh:input:3187`.
 Semantic: `field.bdc_flag_word`; subsystem: `unknown`; measurement point: `unknown`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
 Vendor names: BDC1_Flag; vendor description: BDCmark(chargeanddischarge, faultalarmcode) Bit0:ChargeEn;BDCallowscharging Bit1:DischargeEn;BDCallows discharge Bit2~7:Resvd;reserved Bit8~11:WarnSubCode;BDC sub-warningcode Bit12~15:FaultSubCode;BDC sub-errorcode; vendor unit/type: — / register value.
-Normalized type/signedness/scale: `register value` / `True` / `1`.
+Normalized type/signedness/scale: `u16 bitfield` / `False` / `1`.
 Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `resolved`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
 
@@ -8499,7 +8500,7 @@ Normalized type/signedness/scale: `u16 enum 0=not detected, 1=detection complete
 Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
 
-Enums: 0=not_detected (not detected); 1=detection_completed_none (detection completed None)
+Enums: 0=not_detected (not_detected); 1=detection_completed (detection_completed)
 
 ### input 3211 — Battery request flags
 
@@ -8508,11 +8509,24 @@ Physical identity: `min_tl_xh:input:3211`.
 Semantic: `battery.request_flags`; subsystem: `storage_device`; measurement point: `bdc_or_storage_device`; instance/index: `not_applicable/None`.
 Logical field: `none`; component role: `complete_value`.
 Vendor names: BattNeedCharge RequestFlag; vendor description: batteryworkrequest; vendor unit/type: — / register value.
-Normalized type/signedness/scale: `register value` / `None` / `1`.
+Normalized type/signedness/scale: `u16 bitfield` / `False` / `1`.
 Applicability: family-level; relationships: none.
 Evidence: source_documented, implementation_correlated; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
 
 Bitfields: [0]=charging_prohibited (structured); [1]=strong_charge_enabled (structured); [2]=strong_charge_2_enabled (structured); [8]=discharge_prohibited (structured); [9]=power_reduction_enabled (structured)
+
+### input 3212 — BMS status
+
+Canonical description: BMS status
+Physical identity: `min_tl_xh:input:3212`.
+Semantic: `diagnostic.bms_status`; subsystem: `bms`; measurement point: `bms`; instance/index: `unknown/None`.
+Logical field: `none`; component role: `complete_value`.
+Vendor names: BMS_Status; vendor description: BMS status; vendor unit/type: — / u16 enum.
+Normalized type/signedness/scale: `u16 enum` / `False` / `—`.
+Applicability: MIN 6000TL-XH; relationships: none.
+Evidence: source_documented, implementation_correlated, read_observed; resolution: `resolved_with_notes`; write policy: `read_only`; native blocks: min_fc04_input_3125_3249.
+
+Enums: 0=dormancy (dormancy); 1=charge (charge); 2=discharge (discharge); 3=free (free); 4=standby (standby); 5=soft_start (soft_start); 6=fault (fault); 7=update (update)
 
 ### input 3213 — BMS protect flags 2
 
