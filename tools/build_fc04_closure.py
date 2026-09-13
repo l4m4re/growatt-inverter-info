@@ -152,6 +152,12 @@ def build() -> tuple[dict[str, Any], dict[str, Any]]:
             "decision": {"status": "classified", "confidence": "high" if category != "INSUFFICIENT_EVIDENCE" else "medium", "value": target},
             "support": supports,
             "conflicts": [],
+            "rationale": rationale,
+            "review": {
+                "status": "accepted_inventory_classification",
+                "notes": "PIPELINE-5C bounded closure classification; canonical output remains unchanged.",
+                "reviewed_at": "2026-09-13",
+            },
         })
     result = {
         "schema_version": "1.0.0",

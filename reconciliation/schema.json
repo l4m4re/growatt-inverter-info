@@ -41,7 +41,7 @@
       "type": "object",
       "required": ["status", "value", "confidence"],
       "properties": {
-        "status": {"enum": ["resolved", "provisionally_resolved", "unresolved", "not_applicable", "reserved", "scope_specific"]},
+        "status": {"enum": ["resolved", "provisionally_resolved", "unresolved", "not_applicable", "reserved", "scope_specific", "classified"]},
         "value": {},
         "confidence": {"enum": ["high", "medium", "low", "provisional", "unknown"]}
       },
