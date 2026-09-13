@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/l4m4re/growatt-inverter-info/schemas/gii-reconciliation-decisions.json",
+  "title": "Growatt declarative reconciliation decisions",
+  "type": "object",
+  "required": ["schema_version", "artifact", "cohort", "canonical_modified", "decisions"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"}, "artifact": {"const": "growatt_reconciliation_decisions"},
+    "canonical_modified": {"const": false}, "cohort": {"type": "object"},
+    "decisions": {"type": "array", "items": {"type": "object", "required": ["decision_id", "target", "decision", "support"], "properties": {"decision_id": {"type": "string"}, "target": {"type": "object"}, "decision": {"type": "object"}, "support": {"type": "array", "items": {"type": "string"}}, "conflicts": {"type": "array"}}, "additionalProperties": true}}
+  },
+  "additionalProperties": true
+}
