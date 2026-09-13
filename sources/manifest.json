@@ -16,6 +16,8 @@
   "classifications": {
     "PUBLIC_SAFE": [
       "sources/vendor/growatt-v1.24-tables.json",
+      "sources/claims/vendor/*.json",
+      "sources/vendor/profiles/*.json",
       "sources/curated/",
       "sources/external/*snapshot.json",
       "sources/runtime/ha-local-registers.snapshot.json",
@@ -26,6 +28,7 @@
     "METADATA_ONLY": [
       "Growatt protocol V1.24 PDF",
       "Growatt protocol V3.14 PDF",
+      "Growatt protocol V3.05 / 1KW-50KW PDF",
       "local external research checkouts"
     ],
     "LOCAL_ONLY": [
@@ -38,16 +41,59 @@
     ],
     "NEEDS_REVIEW": []
   },
+  "vendor_claim_pipeline": {
+    "extractor": "tools/extract_vendor_pdf.py",
+    "validator": "tools/validate_vendor_claims.py",
+    "comparison_tools": ["tools/compare_vendor_extractions.py", "tools/compare_vendor_documents.py"],
+    "schema": "sources/claims/vendor/schema.json",
+    "method": "embedded PDF text with layout preservation; explicit visual review sidecars for difficult rows; no OCR in this corpus",
+    "canonical_migration": "deferred"
+  },
   "vendor_documents": [
     {
-      "description": "Growatt Modbus RTU Protocol II V1.24 PDF",
+      "document_id": "vendor_growatt_v305_2013",
+      "filename": "1KW-50KW Modbus RS485 RTU Protocol.pdf",
+      "title": "Growatt PV Inverter Modbus RS485 RTU Protocol",
+      "revision": "V3.05",
+      "date": "2013-04-25",
+      "sha256": "dcdedc30edc61178de53b661a4087de6b20091864ddcd0187269c948ca0b05bc",
+      "page_count": 15,
+      "language": "English with Chinese text/footer",
+      "apparent_family_scope": "1KW-50KW Growatt PV inverter protocol; exact per-row applicability retained in claims",
+      "source_origin": "user-retained Growatt website download; original URL unknown/unretained",
       "redistribution": "metadata only",
-      "sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320"
+      "claim_artifact": "sources/claims/vendor/vendor_growatt_v305_2013.json",
+      "extraction_profile": "sources/vendor/profiles/vendor_growatt_v305_2013.json"
     },
     {
-      "description": "Growatt PV Inverter Modbus RS485 RTU Protocol V3.14 PDF",
+      "document_id": "vendor_growatt_v314_2016",
+      "filename": "Growatt-PV-Inverter-Modbus-RS485-RTU-Protocol-V3-14.pdf",
+      "title": "Growatt PV Inverter Modbus RS485 RTU Protocol",
+      "revision": "V3.14",
+      "date": "2016-09-27",
+      "sha256": "599cb825d3e8f83f88043b41a144d8b4f4d1f5697c7e30f2041e9f9080b00006",
+      "page_count": 32,
+      "language": "English with Chinese text/footer",
+      "apparent_family_scope": "Growatt PV inverter protocol; exact per-row applicability retained in claims",
+      "source_origin": "user-retained vendor PDF in Homeassistant-Growatt-Local-Modbus workspace",
       "redistribution": "metadata only",
-      "sha256": "599cb825d3e8f83f88043b41a144d8b4f4d1f5697c7e30f2041e9f9080b00006"
+      "claim_artifact": "sources/claims/vendor/vendor_growatt_v314_2016.json",
+      "extraction_profile": "sources/vendor/profiles/vendor_growatt_v314_2016.json"
+    },
+    {
+      "document_id": "vendor_growatt_v124_2020",
+      "filename": "Growatt-Inverter-Modbus-RTU-Protocol_II-V1_24-English.pdf",
+      "title": "Growatt Inverter Modbus RTU Protocol",
+      "revision": "V1.24",
+      "date": "2020-04-28 (first visible change record)",
+      "sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "page_count": 85,
+      "language": "English with Chinese text/footer",
+      "apparent_family_scope": "MIN/TL-X/TL-XH, TL3-X, MAX, MOD TL3-XH and storage families as listed by the document",
+      "source_origin": "user-retained vendor PDF in Homeassistant-Growatt-Local-Modbus workspace",
+      "redistribution": "metadata only",
+      "claim_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+      "extraction_profile": "sources/vendor/profiles/vendor_growatt_v124_2020.json"
     }
   ],
   "external_projects": [

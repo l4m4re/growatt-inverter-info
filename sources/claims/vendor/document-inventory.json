@@ -1,0 +1,48 @@
+{
+  "inventory_version": "1.0.0",
+  "corpus": [
+    {
+      "document_id": "vendor_growatt_v305_2013",
+      "filename": "1KW-50KW Modbus RS485 RTU Protocol.pdf",
+      "title": "Growatt PV Inverter Modbus RS485 RTU Protocol",
+      "revision": "V3.05",
+      "date": "2013-04-25",
+      "sha256": "dcdedc30edc61178de53b661a4087de6b20091864ddcd0187269c948ca0b05bc",
+      "page_count": 15,
+      "language": "English with Chinese text/footer",
+      "apparent_product_scope": ["1KW-50KW Growatt PV inverter protocol"],
+      "origin": "user-retained Growatt website download; original URL unknown/unretained",
+      "publication_status": "metadata_only_original_local",
+      "claim_artifact": "sources/claims/vendor/vendor_growatt_v305_2013.json"
+    },
+    {
+      "document_id": "vendor_growatt_v314_2016",
+      "filename": "Growatt-PV-Inverter-Modbus-RS485-RTU-Protocol-V3-14.pdf",
+      "title": "Growatt PV Inverter Modbus RS485 RTU Protocol",
+      "revision": "V3.14",
+      "date": "2016-09-27",
+      "sha256": "599cb825d3e8f83f88043b41a144d8b4f4d1f5697c7e30f2041e9f9080b00006",
+      "page_count": 32,
+      "language": "English with Chinese text/footer",
+      "apparent_product_scope": ["Growatt PV inverter families listed in the document"],
+      "origin": "user-retained vendor PDF in Homeassistant-Growatt-Local-Modbus workspace",
+      "publication_status": "metadata_only_original_local",
+      "claim_artifact": "sources/claims/vendor/vendor_growatt_v314_2016.json"
+    },
+    {
+      "document_id": "vendor_growatt_v124_2020",
+      "filename": "Growatt-Inverter-Modbus-RTU-Protocol_II-V1_24-English.pdf",
+      "title": "Growatt Inverter Modbus RTU Protocol",
+      "revision": "V1.24",
+      "date": "2020-04-28 (first visible change record)",
+      "sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+      "page_count": 85,
+      "language": "English with Chinese text/footer",
+      "apparent_product_scope": ["MIN/TL-X/TL-XH", "TL3-X", "MAX", "MOD TL3-XH", "MIX", "SPA", "SPH"],
+      "origin": "user-retained vendor PDF in Homeassistant-Growatt-Local-Modbus workspace",
+      "publication_status": "metadata_only_original_local",
+      "claim_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json"
+    }
+  ],
+  "note": "Adjacent copies and external-checkout PDFs are retained as future provenance-review inputs and are not silently treated as additional canonical corpus documents."
+}

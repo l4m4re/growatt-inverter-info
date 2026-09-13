@@ -1,0 +1,9 @@
+{
+  "profile_id": "vendor_growatt_v314_2016",
+  "document_id": "vendor_growatt_v314_2016",
+  "purpose": "Layout extraction hints only; no semantic or canonical register decisions.",
+  "row_indent_max": 14,
+  "table_detection": "generic Growatt holding/input headings",
+  "continuation_policy": "retain-until-next-row-or-table-boundary",
+  "manual_review_file": null
+}
