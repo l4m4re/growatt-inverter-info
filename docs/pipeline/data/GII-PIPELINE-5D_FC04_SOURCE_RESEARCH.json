@@ -1,0 +1,1646 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "growatt_fc04_source_research_inventory",
+  "pipeline": "GII-PIPELINE-5D",
+  "canonical_modified": false,
+  "cohort": {
+    "family": "min_tl_xh",
+    "table": "input",
+    "function_code": 4,
+    "start": 3000,
+    "end": 3249,
+    "candidates": [
+      3085,
+      3096,
+      3109,
+      3116,
+      3117,
+      3120,
+      3143,
+      3163,
+      3186,
+      3206,
+      3207,
+      3208,
+      3209,
+      3227,
+      3228,
+      3229,
+      3233
+    ]
+  },
+  "source_inputs": {
+    "pipeline_5c": "32f97731e576dfdcf792898dd276f6f5f01e385ac0a081b25a603e38fd29061b",
+    "canonical_parity_target": "bf6e08582e12a5c289b85a5c3e2638ff1097a9a4d4186630affe40754a29f780",
+    "source_research_input": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf"
+  },
+  "candidate_count": 17,
+  "resolution_counts": {
+    "FULLY_RESOLVED_AT_PROTOCOL_ROLE_SCOPE": 14,
+    "PARTIALLY_RESOLVED": 3
+  },
+  "property_status_counts": {
+    "applicability:SUPPORTED": 17,
+    "enum:NOT_APPLICABLE": 16,
+    "enum:UNRESOLVED": 1,
+    "packed_field_structure:SUPPORTED": 1,
+    "physical_layout:SUPPORTED": 17,
+    "scale:NOT_APPLICABLE": 15,
+    "scale:SUPPORTED": 1,
+    "scale:UNRESOLVED": 1,
+    "semantic_quantity:SUPPORTED": 15,
+    "semantic_quantity:UNRESOLVED": 2,
+    "signedness:NOT_APPLICABLE": 15,
+    "signedness:UNRESOLVED": 2,
+    "unit:NOT_APPLICABLE": 15,
+    "unit:SUPPORTED": 1,
+    "unit:UNRESOLVED": 1,
+    "word_length:SUPPORTED": 17
+  },
+  "candidate_findings": [
+    {
+      "address": 3085,
+      "pdf": {
+        "pages": [
+          74
+        ],
+        "fragment": "3085 Reserved"
+      },
+      "vendor_row": {
+        "source_row": "687",
+        "json_pointer": "/input/687",
+        "variable": "Reserved",
+        "description": "",
+        "datatype": "",
+        "unit": ""
+      },
+      "implementation": {
+        "layout": "T06NNNNXMOD",
+        "field": "reserved3085",
+        "byte_offset": 498,
+        "length_bytes": 2,
+        "register_count": 1,
+        "type": "numx",
+        "divide": 1,
+        "include_by_default": false
+      },
+      "sources_checked": [
+        "vendor_v124_pdf",
+        "vendor_v124_tables",
+        "grott_t06nnnnxmod",
+        "curated_input_review",
+        "canonical_5c_snapshot",
+        "retained_live_evidence",
+        "retained_cloud_evidence"
+      ],
+      "properties": {
+        "physical_layout": {
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence": [
+            "vendor_v124_pdf:p74",
+            "vendor_v124_tables:/input/687",
+            "grott_t06nnnnxmod:reserved3085"
+          ]
+        },
+        "word_length": {
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence": [
+            "grott_t06nnnnxmod:register_count=1"
+          ]
+        },
+        "semantic_quantity": {
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence": [
+            "vendor_v124_pdf:p74:Reserved",
+            "grott_t06nnnnxmod:reserved3085"
+          ]
+        },
+        "applicability": {
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence": [
+            "vendor_v124_pdf:p74"
+          ]
+        },
+        "scale": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "unit": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "signedness": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "enum": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        }
+      },
+      "contradictions": [
+        "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
+      ]
+    },
+    {
+      "address": 3096,
+      "pdf": {
+        "pages": [
+          75
+        ],
+        "fragment": "3096 Temp4 Reserved 0.1°C"
+      },
+      "vendor_row": {
+        "source_row": "698",
+        "json_pointer": "/input/698",
+        "variable": "Temp4",
+        "description": "Reserved",
+        "datatype": "0.1℃",
+        "unit": ""
+      },
+      "implementation": {
+        "layout": "T06NNNNXMOD",
+        "field": "temp4",
+        "byte_offset": 542,
+        "length_bytes": 2,
+        "register_count": 1,
+        "type": "numx",
+        "divide": 10
+      },
+      "sources_checked": [
+        "vendor_v124_pdf",
+        "vendor_v124_tables",
+        "grott_t06nnnnxmod",
+        "curated_input_review",
+        "canonical_5c_snapshot",
+        "retained_live_evidence",
+        "retained_cloud_evidence"
+      ],
+      "properties": {
+        "physical_layout": {
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence": [
+            "vendor_v124_pdf:p75",
+            "vendor_v124_tables:/input/698",
+            "grott_t06nnnnxmod:temp4"
+          ]
+        },
+        "word_length": {
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence": [
+            "grott_t06nnnnxmod:register_count=1"
+          ]
+        },
+        "semantic_quantity": {
+          "status": "SUPPORTED",
+          "value": "reserved_temperature_slot",
+          "evidence": [
+            "vendor_v124_pdf:p75:Temp4/Reserved"
+          ]
+        },
+        "scale": {
+          "status": "SUPPORTED",
+          "value": "0.1 °C per raw count",
+          "evidence": [
+            "vendor_v124_pdf:p75:0.1°C",
+            "vendor_v124_tables:/input/698:value"
+          ]
+        },
+        "unit": {
+          "status": "SUPPORTED",
+          "value": "°C",
+          "evidence": [
+            "vendor_v124_pdf:p75:0.1°C"
+          ]
+        },
+        "signedness": {
+          "status": "UNRESOLVED",
+          "value": null,
+          "evidence": [
+            "no signedness is stated for the reserved slot"
+          ]
+        },
+        "enum": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "applicability": {
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence": [
+            "vendor_v124_pdf:p75"
+          ]
+        }
+      },
+      "contradictions": [
+        "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
+      ]
+    },
+    {
+      "address": 3109,
+      "pdf": {
+        "pages": [
+          75
+        ],
+        "fragment": "3109 [blank name/description] bitfield"
+      },
+      "vendor_row": {
+        "source_row": "711",
+        "json_pointer": "/input/711",
+        "variable": "",
+        "description": "",
+        "datatype": "bitfield",
+        "unit": ""
+      },
+      "implementation": {
+        "layout": "T06NNNNXMOD",
+        "field": "reserved3109",
+        "byte_offset": 594,
+        "length_bytes": 2,
+        "register_count": 1,
+        "type": "numx",
+        "divide": 1,
+        "include_by_default": false
+      },
+      "sources_checked": [
+        "vendor_v124_pdf",
+        "vendor_v124_tables",
+        "grott_t06nnnnxmod",
+        "curated_input_review",
+        "canonical_5c_snapshot",
+        "retained_live_evidence",
+        "retained_cloud_evidence"
+      ],
+      "properties": {
+        "physical_layout": {
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence": [
+            "vendor_v124_pdf:p75",
+            "vendor_v124_tables:/input/711",
+            "grott_t06nnnnxmod:reserved3109"
+          ]
+        },
+        "word_length": {
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence": [
+            "grott_t06nnnnxmod:register_count=1"
+          ]
+        },
+        "packed_field_structure": {
+          "status": "SUPPORTED",
+          "value": "vendor marks the word as bitfield; bit positions are not specified",
+          "evidence": [
+            "vendor_v124_pdf:p75:bitfield"
+          ]
+        },
+        "semantic_quantity": {
+          "status": "UNRESOLVED",
+          "value": null,
+          "evidence": [
+            "blank vendor name/description",
+            "Grott's reserved label is corroboration, not an independent semantic definition"
+          ]
+        },
+        "scale": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "unit": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "signedness": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "enum": {
+          "status": "UNRESOLVED",
+          "value": null,
+          "evidence": [
+            "no bit meanings or enum values are supplied"
+          ]
+        },
+        "applicability": {
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence": [
+            "vendor_v124_pdf:p75"
+          ]
+        }
+      },
+      "contradictions": []
+    },
+    {
+      "address": 3116,
+      "pdf": {
+        "pages": [
+          76
+        ],
+        "fragment": "3116 Reserved"
+      },
+      "vendor_row": {
+        "source_row": "718",
+        "json_pointer": "/input/718",
+        "variable": "Reserved",
+        "description": "",
+        "datatype": "",
+        "unit": ""
+      },
+      "implementation": {
+        "layout": "T06NNNNXMOD",
+        "field": "reserved3116",
+        "byte_offset": 622,
+        "length_bytes": 2,
+        "register_count": 1,
+        "type": "numx",
+        "divide": 1,
+        "include_by_default": false
+      },
+      "sources_checked": [
+        "vendor_v124_pdf",
+        "vendor_v124_tables",
+        "grott_t06nnnnxmod",
+        "curated_input_review",
+        "canonical_5c_snapshot",
+        "retained_live_evidence",
+        "retained_cloud_evidence"
+      ],
+      "properties": {
+        "physical_layout": {
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence": [
+            "vendor_v124_pdf:p76",
+            "vendor_v124_tables:/input/718"
+          ]
+        },
+        "word_length": {
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence": [
+            "grott_t06nnnnxmod:register_count=1"
+          ]
+        },
+        "semantic_quantity": {
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence": [
+            "vendor_v124_pdf:p76:Reserved",
+            "grott_t06nnnnxmod:reserved3116"
+          ]
+        },
+        "applicability": {
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence": [
+            "vendor_v124_pdf:p76"
+          ]
+        },
+        "scale": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "unit": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "signedness": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "enum": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        }
+      },
+      "contradictions": []
+    },
+    {
+      "address": 3117,
+      "pdf": {
+        "pages": [
+          76
+        ],
+        "fragment": "3117 Reserved"
+      },
+      "vendor_row": {
+        "source_row": "719",
+        "json_pointer": "/input/719",
+        "variable": "Reserved",
+        "description": "",
+        "datatype": "",
+        "unit": ""
+      },
+      "implementation": {
+        "layout": "T06NNNNXMOD",
+        "field": "reserved3117",
+        "byte_offset": 626,
+        "length_bytes": 2,
+        "register_count": 1,
+        "type": "numx",
+        "divide": 1,
+        "include_by_default": false
+      },
+      "sources_checked": [
+        "vendor_v124_pdf",
+        "vendor_v124_tables",
+        "grott_t06nnnnxmod",
+        "curated_input_review",
+        "canonical_5c_snapshot",
+        "retained_live_evidence",
+        "retained_cloud_evidence"
+      ],
+      "properties": {
+        "physical_layout": {
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence": [
+            "vendor_v124_pdf:p76",
+            "vendor_v124_tables:/input/719"
+          ]
+        },
+        "word_length": {
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence": [
+            "grott_t06nnnnxmod:register_count=1"
+          ]
+        },
+        "semantic_quantity": {
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence": [
+            "vendor_v124_pdf:p76:Reserved",
+            "grott_t06nnnnxmod:reserved3117"
+          ]
+        },
+        "applicability": {
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence": [
+            "vendor_v124_pdf:p76"
+          ]
+        },
+        "scale": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "unit": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "signedness": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "enum": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        }
+      },
+      "contradictions": []
+    },
+    {
+      "address": 3120,
+      "pdf": {
+        "pages": [
+          76
+        ],
+        "fragment": "3120 Reserved"
+      },
+      "vendor_row": {
+        "source_row": "722",
+        "json_pointer": "/input/722",
+        "variable": "Reserved",
+        "description": "",
+        "datatype": "",
+        "unit": ""
+      },
+      "implementation": {
+        "layout": "T06NNNNXMOD",
+        "field": "reserved3120",
+        "byte_offset": 638,
+        "length_bytes": 2,
+        "register_count": 1,
+        "type": "numx",
+        "divide": 1,
+        "include_by_default": false
+      },
+      "sources_checked": [
+        "vendor_v124_pdf",
+        "vendor_v124_tables",
+        "grott_t06nnnnxmod",
+        "curated_input_review",
+        "canonical_5c_snapshot",
+        "retained_live_evidence",
+        "retained_cloud_evidence"
+      ],
+      "properties": {
+        "physical_layout": {
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence": [
+            "vendor_v124_pdf:p76",
+            "vendor_v124_tables:/input/722"
+          ]
+        },
+        "word_length": {
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence": [
+            "grott_t06nnnnxmod:register_count=1"
+          ]
+        },
+        "semantic_quantity": {
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence": [
+            "vendor_v124_pdf:p76:Reserved",
+            "grott_t06nnnnxmod:reserved3120"
+          ]
+        },
+        "applicability": {
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence": [
+            "vendor_v124_pdf:p76"
+          ]
+        },
+        "scale": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "unit": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "signedness": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "enum": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        }
+      },
+      "contradictions": []
+    },
+    {
+      "address": 3143,
+      "pdf": {
+        "pages": [
+          77
+        ],
+        "fragment": "3143 Reserved; 3144 Priority Word Mode"
+      },
+      "vendor_row": {
+        "source_row": "745",
+        "json_pointer": "/input/745",
+        "variable": "Reserved",
+        "description": "",
+        "datatype": "",
+        "unit": ""
+      },
+      "implementation": {
+        "layout": "T06NNNNXMOD",
+        "field": "reserved3143",
+        "byte_offset": 738,
+        "length_bytes": 2,
+        "register_count": 1,
+        "type": "numx",
+        "divide": 1
+      },
+      "sources_checked": [
+        "vendor_v124_pdf",
+        "vendor_v124_tables",
+        "grott_t06nnnnxmod",
+        "curated_input_review",
+        "canonical_5c_snapshot",
+        "retained_live_evidence",
+        "retained_cloud_evidence"
+      ],
+      "properties": {
+        "physical_layout": {
+          "status": "SUPPORTED",
+          "value": "one FC04 input word; 3144 is a separate Priority field",
+          "evidence": [
+            "vendor_v124_pdf:p77",
+            "vendor_v124_tables:/input/745"
+          ]
+        },
+        "word_length": {
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence": [
+            "grott_t06nnnnxmod:register_count=1"
+          ]
+        },
+        "semantic_quantity": {
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence": [
+            "vendor_v124_pdf:p77:Reserved",
+            "grott_t06nnnnxmod:reserved3143"
+          ]
+        },
+        "applicability": {
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence": [
+            "vendor_v124_pdf:p77"
+          ]
+        },
+        "scale": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "unit": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "signedness": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "enum": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        }
+      },
+      "contradictions": []
+    },
+    {
+      "address": 3163,
+      "pdf": {
+        "pages": [
+          77
+        ],
+        "fragment": "3163 Reserved; 3164 NewBdcFlag"
+      },
+      "vendor_row": {
+        "source_row": "765",
+        "json_pointer": "/input/765",
+        "variable": "Reserved",
+        "description": "",
+        "datatype": "",
+        "unit": ""
+      },
+      "implementation": {
+        "layout": "T06NNNNXMOD",
+        "field": "reserved3163",
+        "byte_offset": 818,
+        "length_bytes": 2,
+        "register_count": 1,
+        "type": "numx",
+        "divide": 1,
+        "include_by_default": false
+      },
+      "sources_checked": [
+        "vendor_v124_pdf",
+        "vendor_v124_tables",
+        "grott_t06nnnnxmod",
+        "curated_input_review",
+        "canonical_5c_snapshot",
+        "retained_live_evidence",
+        "retained_cloud_evidence"
+      ],
+      "properties": {
+        "physical_layout": {
+          "status": "SUPPORTED",
+          "value": "one FC04 input word; 3164 is a separate NewBdcFlag field",
+          "evidence": [
+            "vendor_v124_pdf:p77",
+            "vendor_v124_tables:/input/765"
+          ]
+        },
+        "word_length": {
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence": [
+            "grott_t06nnnnxmod:register_count=1"
+          ]
+        },
+        "semantic_quantity": {
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence": [
+            "vendor_v124_pdf:p77:Reserved",
+            "grott_t06nnnnxmod:reserved3163"
+          ]
+        },
+        "applicability": {
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence": [
+            "vendor_v124_pdf:p77"
+          ]
+        },
+        "scale": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "unit": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "signedness": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "enum": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        }
+      },
+      "contradictions": []
+    },
+    {
+      "address": 3186,
+      "pdf": {
+        "pages": [
+          79
+        ],
+        "fragment": "3186 Reserved; 3187 BDC1_Flag"
+      },
+      "vendor_row": {
+        "source_row": "788",
+        "json_pointer": "/input/788",
+        "variable": "Reserved",
+        "description": "Reserved",
+        "datatype": "",
+        "unit": ""
+      },
+      "implementation": {
+        "layout": "T06NNNNXMOD",
+        "field": "reserved3186",
+        "byte_offset": 910,
+        "length_bytes": 2,
+        "register_count": 1,
+        "type": "numx",
+        "divide": 1,
+        "include_by_default": false
+      },
+      "sources_checked": [
+        "vendor_v124_pdf",
+        "vendor_v124_tables",
+        "grott_t06nnnnxmod",
+        "curated_input_review",
+        "canonical_5c_snapshot",
+        "retained_live_evidence",
+        "retained_cloud_evidence"
+      ],
+      "properties": {
+        "physical_layout": {
+          "status": "SUPPORTED",
+          "value": "one FC04 input word; 3187 is a separate BDC1_Flag field",
+          "evidence": [
+            "vendor_v124_pdf:p79",
+            "vendor_v124_tables:/input/788"
+          ]
+        },
+        "word_length": {
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence": [
+            "grott_t06nnnnxmod:register_count=1"
+          ]
+        },
+        "semantic_quantity": {
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence": [
+            "vendor_v124_pdf:p79:Reserved",
+            "grott_t06nnnnxmod:reserved3186"
+          ]
+        },
+        "applicability": {
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence": [
+            "vendor_v124_pdf:p79"
+          ]
+        },
+        "scale": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "unit": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "signedness": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "enum": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        }
+      },
+      "contradictions": []
+    },
+    {
+      "address": 3206,
+      "pdf": {
+        "pages": [
+          80
+        ],
+        "fragment": "3206 Reserved"
+      },
+      "vendor_row": {
+        "source_row": "808",
+        "json_pointer": "/input/808",
+        "variable": "Reserved",
+        "description": "",
+        "datatype": "",
+        "unit": ""
+      },
+      "implementation": {
+        "layout": "T06NNNNXMOD",
+        "field": "reserved3206",
+        "byte_offset": 990,
+        "length_bytes": 2,
+        "register_count": 1,
+        "type": "numx",
+        "divide": 1,
+        "include_by_default": false
+      },
+      "sources_checked": [
+        "vendor_v124_pdf",
+        "vendor_v124_tables",
+        "grott_t06nnnnxmod",
+        "curated_input_review",
+        "canonical_5c_snapshot",
+        "retained_live_evidence",
+        "retained_cloud_evidence"
+      ],
+      "properties": {
+        "physical_layout": {
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence": [
+            "vendor_v124_pdf:p80",
+            "vendor_v124_tables:/input/808"
+          ]
+        },
+        "word_length": {
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence": [
+            "grott_t06nnnnxmod:register_count=1"
+          ]
+        },
+        "semantic_quantity": {
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence": [
+            "vendor_v124_pdf:p80:Reserved",
+            "grott_t06nnnnxmod:reserved3206"
+          ]
+        },
+        "applicability": {
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence": [
+            "vendor_v124_pdf:p80"
+          ]
+        },
+        "scale": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "unit": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "signedness": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "enum": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        }
+      },
+      "contradictions": []
+    },
+    {
+      "address": 3207,
+      "pdf": {
+        "pages": [
+          80
+        ],
+        "fragment": "3207 Reserved"
+      },
+      "vendor_row": {
+        "source_row": "809",
+        "json_pointer": "/input/809",
+        "variable": "Reserved",
+        "description": "",
+        "datatype": "",
+        "unit": ""
+      },
+      "implementation": {
+        "layout": "T06NNNNXMOD",
+        "field": "reserved3207",
+        "byte_offset": 994,
+        "length_bytes": 2,
+        "register_count": 1,
+        "type": "numx",
+        "divide": 1,
+        "include_by_default": false
+      },
+      "sources_checked": [
+        "vendor_v124_pdf",
+        "vendor_v124_tables",
+        "grott_t06nnnnxmod",
+        "curated_input_review",
+        "canonical_5c_snapshot",
+        "retained_live_evidence",
+        "retained_cloud_evidence"
+      ],
+      "properties": {
+        "physical_layout": {
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence": [
+            "vendor_v124_pdf:p80",
+            "vendor_v124_tables:/input/809"
+          ]
+        },
+        "word_length": {
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence": [
+            "grott_t06nnnnxmod:register_count=1"
+          ]
+        },
+        "semantic_quantity": {
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence": [
+            "vendor_v124_pdf:p80:Reserved",
+            "grott_t06nnnnxmod:reserved3207"
+          ]
+        },
+        "applicability": {
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence": [
+            "vendor_v124_pdf:p80"
+          ]
+        },
+        "scale": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "unit": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "signedness": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "enum": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        }
+      },
+      "contradictions": []
+    },
+    {
+      "address": 3208,
+      "pdf": {
+        "pages": [
+          80
+        ],
+        "fragment": "3208 Reserved"
+      },
+      "vendor_row": {
+        "source_row": "810",
+        "json_pointer": "/input/810",
+        "variable": "Reserved",
+        "description": "",
+        "datatype": "",
+        "unit": ""
+      },
+      "implementation": {
+        "layout": "T06NNNNXMOD",
+        "field": "reserved3208",
+        "byte_offset": 998,
+        "length_bytes": 2,
+        "register_count": 1,
+        "type": "numx",
+        "divide": 1,
+        "include_by_default": false
+      },
+      "sources_checked": [
+        "vendor_v124_pdf",
+        "vendor_v124_tables",
+        "grott_t06nnnnxmod",
+        "curated_input_review",
+        "canonical_5c_snapshot",
+        "retained_live_evidence",
+        "retained_cloud_evidence"
+      ],
+      "properties": {
+        "physical_layout": {
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence": [
+            "vendor_v124_pdf:p80",
+            "vendor_v124_tables:/input/810"
+          ]
+        },
+        "word_length": {
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence": [
+            "grott_t06nnnnxmod:register_count=1"
+          ]
+        },
+        "semantic_quantity": {
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence": [
+            "vendor_v124_pdf:p80:Reserved",
+            "grott_t06nnnnxmod:reserved3208"
+          ]
+        },
+        "applicability": {
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence": [
+            "vendor_v124_pdf:p80"
+          ]
+        },
+        "scale": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "unit": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "signedness": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "enum": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        }
+      },
+      "contradictions": []
+    },
+    {
+      "address": 3209,
+      "pdf": {
+        "pages": [
+          80
+        ],
+        "fragment": "3209 Reserved"
+      },
+      "vendor_row": {
+        "source_row": "811",
+        "json_pointer": "/input/811",
+        "variable": "Reserved",
+        "description": "",
+        "datatype": "",
+        "unit": ""
+      },
+      "implementation": {
+        "layout": "T06NNNNXMOD",
+        "field": "reserved3209",
+        "byte_offset": 1002,
+        "length_bytes": 2,
+        "register_count": 1,
+        "type": "numx",
+        "divide": 1,
+        "include_by_default": false
+      },
+      "sources_checked": [
+        "vendor_v124_pdf",
+        "vendor_v124_tables",
+        "grott_t06nnnnxmod",
+        "curated_input_review",
+        "canonical_5c_snapshot",
+        "retained_live_evidence",
+        "retained_cloud_evidence"
+      ],
+      "properties": {
+        "physical_layout": {
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence": [
+            "vendor_v124_pdf:p80",
+            "vendor_v124_tables:/input/811"
+          ]
+        },
+        "word_length": {
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence": [
+            "grott_t06nnnnxmod:register_count=1"
+          ]
+        },
+        "semantic_quantity": {
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence": [
+            "vendor_v124_pdf:p80:Reserved",
+            "grott_t06nnnnxmod:reserved3209"
+          ]
+        },
+        "applicability": {
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence": [
+            "vendor_v124_pdf:p80"
+          ]
+        },
+        "scale": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "unit": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "signedness": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "enum": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        }
+      },
+      "contradictions": []
+    },
+    {
+      "address": 3227,
+      "pdf": {
+        "pages": [
+          82
+        ],
+        "fragment": "3227 Reserved"
+      },
+      "vendor_row": {
+        "source_row": "829",
+        "json_pointer": "/input/829",
+        "variable": "Reserved",
+        "description": "",
+        "datatype": "",
+        "unit": ""
+      },
+      "implementation": {
+        "layout": "T06NNNNXMOD",
+        "field": "reserved3227",
+        "byte_offset": 1074,
+        "length_bytes": 2,
+        "register_count": 1,
+        "type": "numx",
+        "divide": 1,
+        "include_by_default": false
+      },
+      "sources_checked": [
+        "vendor_v124_pdf",
+        "vendor_v124_tables",
+        "grott_t06nnnnxmod",
+        "curated_input_review",
+        "canonical_5c_snapshot",
+        "retained_live_evidence",
+        "retained_cloud_evidence"
+      ],
+      "properties": {
+        "physical_layout": {
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence": [
+            "vendor_v124_pdf:p82",
+            "vendor_v124_tables:/input/829"
+          ]
+        },
+        "word_length": {
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence": [
+            "grott_t06nnnnxmod:register_count=1"
+          ]
+        },
+        "semantic_quantity": {
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence": [
+            "vendor_v124_pdf:p82:Reserved",
+            "grott_t06nnnnxmod:reserved3227"
+          ]
+        },
+        "applicability": {
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence": [
+            "vendor_v124_pdf:p82"
+          ]
+        },
+        "scale": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "unit": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "signedness": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "enum": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        }
+      },
+      "contradictions": []
+    },
+    {
+      "address": 3228,
+      "pdf": {
+        "pages": [
+          82
+        ],
+        "fragment": "3228 Reserved"
+      },
+      "vendor_row": {
+        "source_row": "830",
+        "json_pointer": "/input/830",
+        "variable": "Reserved",
+        "description": "",
+        "datatype": "",
+        "unit": ""
+      },
+      "implementation": {
+        "layout": "T06NNNNXMOD",
+        "field": "reserved3228",
+        "byte_offset": 1078,
+        "length_bytes": 2,
+        "register_count": 1,
+        "type": "numx",
+        "divide": 1,
+        "include_by_default": false
+      },
+      "sources_checked": [
+        "vendor_v124_pdf",
+        "vendor_v124_tables",
+        "grott_t06nnnnxmod",
+        "curated_input_review",
+        "canonical_5c_snapshot",
+        "retained_live_evidence",
+        "retained_cloud_evidence"
+      ],
+      "properties": {
+        "physical_layout": {
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence": [
+            "vendor_v124_pdf:p82",
+            "vendor_v124_tables:/input/830"
+          ]
+        },
+        "word_length": {
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence": [
+            "grott_t06nnnnxmod:register_count=1"
+          ]
+        },
+        "semantic_quantity": {
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence": [
+            "vendor_v124_pdf:p82:Reserved",
+            "grott_t06nnnnxmod:reserved3228"
+          ]
+        },
+        "applicability": {
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence": [
+            "vendor_v124_pdf:p82"
+          ]
+        },
+        "scale": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "unit": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "signedness": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "enum": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        }
+      },
+      "contradictions": []
+    },
+    {
+      "address": 3229,
+      "pdf": {
+        "pages": [
+          82
+        ],
+        "fragment": "3229 Reserved"
+      },
+      "vendor_row": {
+        "source_row": "831",
+        "json_pointer": "/input/831",
+        "variable": "Reserved",
+        "description": "",
+        "datatype": "",
+        "unit": ""
+      },
+      "implementation": {
+        "layout": "T06NNNNXMOD",
+        "field": "reserved3229",
+        "byte_offset": 1082,
+        "length_bytes": 2,
+        "register_count": 1,
+        "type": "numx",
+        "divide": 1,
+        "include_by_default": false
+      },
+      "sources_checked": [
+        "vendor_v124_pdf",
+        "vendor_v124_tables",
+        "grott_t06nnnnxmod",
+        "curated_input_review",
+        "canonical_5c_snapshot",
+        "retained_live_evidence",
+        "retained_cloud_evidence"
+      ],
+      "properties": {
+        "physical_layout": {
+          "status": "SUPPORTED",
+          "value": "one FC04 input word",
+          "evidence": [
+            "vendor_v124_pdf:p82",
+            "vendor_v124_tables:/input/831"
+          ]
+        },
+        "word_length": {
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence": [
+            "grott_t06nnnnxmod:register_count=1"
+          ]
+        },
+        "semantic_quantity": {
+          "status": "SUPPORTED",
+          "value": "reserved_or_unsupported",
+          "evidence": [
+            "vendor_v124_pdf:p82:Reserved",
+            "grott_t06nnnnxmod:reserved3229"
+          ]
+        },
+        "applicability": {
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence": [
+            "vendor_v124_pdf:p82"
+          ]
+        },
+        "scale": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "unit": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "signedness": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "enum": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        }
+      },
+      "contradictions": []
+    },
+    {
+      "address": 3233,
+      "pdf": {
+        "pages": [
+          82
+        ],
+        "fragment": "3233 blank row between 3232 BatLoadVolt and 3234 Debug data1"
+      },
+      "vendor_row": {
+        "source_row": "835",
+        "json_pointer": "/input/835",
+        "variable": "",
+        "description": "",
+        "datatype": "",
+        "unit": ""
+      },
+      "implementation": {
+        "layout": "T06NNNNXMOD",
+        "field": "reserved3233",
+        "byte_offset": 1098,
+        "length_bytes": 2,
+        "register_count": 1,
+        "type": "numx",
+        "divide": 1,
+        "include_by_default": false
+      },
+      "sources_checked": [
+        "vendor_v124_pdf",
+        "vendor_v124_tables",
+        "grott_t06nnnnxmod",
+        "curated_input_review",
+        "canonical_5c_snapshot",
+        "retained_live_evidence",
+        "retained_cloud_evidence"
+      ],
+      "properties": {
+        "physical_layout": {
+          "status": "SUPPORTED",
+          "value": "one FC04 input word between documented rows 3232 and 3234",
+          "evidence": [
+            "vendor_v124_pdf:p82",
+            "vendor_v124_tables:/input/835",
+            "grott_t06nnnnxmod:reserved3233"
+          ]
+        },
+        "word_length": {
+          "status": "SUPPORTED",
+          "value": 1,
+          "evidence": [
+            "grott_t06nnnnxmod:register_count=1"
+          ]
+        },
+        "semantic_quantity": {
+          "status": "UNRESOLVED",
+          "value": null,
+          "evidence": [
+            "the vendor row is visibly blank; Grott's reserved label is implementation corroboration only"
+          ]
+        },
+        "scale": {
+          "status": "UNRESOLVED",
+          "value": null,
+          "evidence": [
+            "no scale is shown"
+          ]
+        },
+        "unit": {
+          "status": "UNRESOLVED",
+          "value": null,
+          "evidence": [
+            "no unit is shown"
+          ]
+        },
+        "signedness": {
+          "status": "UNRESOLVED",
+          "value": null,
+          "evidence": [
+            "no numeric interpretation is shown"
+          ]
+        },
+        "enum": {
+          "status": "NOT_APPLICABLE",
+          "value": null,
+          "evidence": []
+        },
+        "applicability": {
+          "status": "SUPPORTED",
+          "value": "MIN/TL-XH V1.24 FC04 input table",
+          "evidence": [
+            "vendor_v124_pdf:p82"
+          ]
+        }
+      },
+      "contradictions": [
+        "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
+      ]
+    }
+  ],
+  "derived_aggregate_follow_up": {
+    "addresses": [
+      3041,
+      3042,
+      3045,
+      3046
+    ],
+    "status": "RETAINED_DERIVED_OR_AGGREGATE_CANDIDATE",
+    "finding": "The retained vendor and implementation material describes component/whole-word structures but does not explicitly prove a sum, average, difference or other calculation for these four mappings. No formula was inferred."
+  },
+  "scope_boundaries": {
+    "other_51_insufficient_evidence": "not reopened",
+    "counter_history_targets": "not actively researched",
+    "live_api_or_injection": "not used",
+    "canonical_spec": "frozen"
+  },
+  "authority_metrics": {
+    "authority_tool": "tools/build_authority_coverage.py",
+    "before_after_5a_snapshot": {
+      "cohort_declarative_authoritative_property_cells": 0,
+      "cohort_legacy_authoritative_dependency_cells": 52,
+      "repository_declarative_authoritative_property_cells": 242,
+      "repository_legacy_authoritative_property_cells": 49622,
+      "repository_canonical_property_cells": 49864,
+      "canonical_unchanged_so_5a_metrics_after": "identical_to_before"
+    },
+    "five_d_source_supported_property_claims_not_yet_cutover_authority": {
+      "length_words": 17,
+      "model_applicability": 17,
+      "packed_layout": 1,
+      "physical_identity": 17,
+      "physical_quantity": 15,
+      "scale": 1,
+      "unit": 1
+    },
+    "note": "5D adds property-level declarative evidence and reconciliation, but canonical generator authority is intentionally frozen; the existing 5A authority report therefore remains numerically unchanged."
+  },
+  "safety": {
+    "canonical_modified": false,
+    "live_experiment": false,
+    "inverter_writes": false,
+    "runtime_or_ha_changes": false
+  }
+}
