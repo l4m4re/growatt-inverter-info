@@ -36,8 +36,8 @@ def test_pipeline6_reduces_legacy_authority_without_changing_record_count() -> N
 
 
 def test_pipeline6_output_is_reproducible_and_canonical_is_untouched() -> None:
-    data = build()
+    checked_in = json.loads((ROOT / "docs/pipeline/data/GII-PIPELINE-6_NEXT_AUTHORITY_COHORT.json").read_text())
+    data = build(starting_sha=checked_in["starting_main_sha"])
     canonical = (ROOT / "spec/growatt-register-spec.json").read_bytes()
     assert hashlib.sha256(canonical).hexdigest() == EXPECTED_CANONICAL_SHA
-    checked_in = json.loads((ROOT / "docs/pipeline/data/GII-PIPELINE-6_NEXT_AUTHORITY_COHORT.json").read_text())
     assert json.dumps(data, sort_keys=True) == json.dumps(checked_in, sort_keys=True)
