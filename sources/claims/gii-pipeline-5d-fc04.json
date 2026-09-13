@@ -37,7 +37,7 @@
       "source_id": "canonical_5c_snapshot",
       "source_type": "HUMAN_REVIEW_CLAIM",
       "artifact": "spec/growatt-register-spec.json",
-      "sha256": "bf6e08582e12a5c289b85a5c3e2638ff1097a9a4d4186630affe40754a29f780"
+      "sha256": "e692d646e34040af999ba4854f65803e4218e184d9e04f2982c06d60782ee405"
     },
     {
       "source_id": "retained_live_evidence",
@@ -49,7 +49,7 @@
       "source_id": "retained_cloud_evidence",
       "source_type": "GROWATT_CLOUD_API_OBSERVATION",
       "artifact": "sources/evidence/min-6000tl-xh-cloud-oracle-validation.json",
-      "sha256": "8fa2eb448c01d746d2a614c1eb6eb165a4d125780e2adf90edfefb82d88fee1a"
+      "sha256": "95c6cd930194d2b6af04c161781b555a5de3f6555db8c1de52266210d53f519b"
     }
   ],
   "source_type_vocabulary": [
@@ -109,7 +109,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -159,7 +159,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -211,7 +211,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -261,7 +261,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -503,7 +503,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -553,7 +553,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -603,7 +603,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -655,7 +655,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -705,7 +705,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -754,7 +754,7 @@
       },
       "evidence": {
         "method": "property_level_source_review",
-        "confidence": "bounded",
+        "confidence": "medium",
         "status": "unresolved",
         "grade": [
           "S2",
@@ -853,7 +853,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -905,7 +905,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -953,7 +953,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -1001,7 +1001,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -1050,7 +1050,7 @@
       },
       "evidence": {
         "method": "property_level_source_review",
-        "confidence": "bounded",
+        "confidence": "medium",
         "status": "unresolved",
         "grade": [
           "S2",
@@ -1234,7 +1234,7 @@
       },
       "evidence": {
         "method": "property_level_source_review",
-        "confidence": "bounded",
+        "confidence": "medium",
         "status": "unresolved",
         "grade": [
           "S2",
@@ -1284,7 +1284,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -1334,7 +1334,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -1382,7 +1382,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -1432,7 +1432,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -1480,7 +1480,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -1710,7 +1710,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -1758,7 +1758,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -1808,7 +1808,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -1856,7 +1856,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -2086,7 +2086,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -2134,7 +2134,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -2184,7 +2184,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -2232,7 +2232,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -2462,7 +2462,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -2510,7 +2510,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -2560,7 +2560,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -2608,7 +2608,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -2838,7 +2838,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -2886,7 +2886,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -2936,7 +2936,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -2984,7 +2984,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -3214,7 +3214,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -3262,7 +3262,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -3312,7 +3312,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -3360,7 +3360,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -3590,7 +3590,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -3638,7 +3638,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -3688,7 +3688,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -3736,7 +3736,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -3966,7 +3966,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -4014,7 +4014,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -4064,7 +4064,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -4112,7 +4112,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -4342,7 +4342,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -4390,7 +4390,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -4440,7 +4440,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -4488,7 +4488,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -4718,7 +4718,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -4766,7 +4766,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -4816,7 +4816,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -4864,7 +4864,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -5094,7 +5094,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -5142,7 +5142,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -5192,7 +5192,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -5240,7 +5240,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -5470,7 +5470,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -5518,7 +5518,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -5568,7 +5568,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -5616,7 +5616,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -5846,7 +5846,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -5894,7 +5894,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -5944,7 +5944,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -5992,7 +5992,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -6226,7 +6226,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -6276,7 +6276,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]
@@ -6325,7 +6325,7 @@
       },
       "evidence": {
         "method": "property_level_source_review",
-        "confidence": "bounded",
+        "confidence": "medium",
         "status": "unresolved",
         "grade": [
           "S2",
@@ -6376,7 +6376,7 @@
       },
       "evidence": {
         "method": "property_level_source_review",
-        "confidence": "bounded",
+        "confidence": "medium",
         "status": "unresolved",
         "grade": [
           "S2",
@@ -6427,7 +6427,7 @@
       },
       "evidence": {
         "method": "property_level_source_review",
-        "confidence": "bounded",
+        "confidence": "medium",
         "status": "unresolved",
         "grade": [
           "S2",
@@ -6478,7 +6478,7 @@
       },
       "evidence": {
         "method": "property_level_source_review",
-        "confidence": "bounded",
+        "confidence": "medium",
         "status": "unresolved",
         "grade": [
           "S2",
@@ -6577,7 +6577,7 @@
       "evidence": {
         "method": "property_level_source_review",
         "confidence": "high",
-        "status": "supported",
+        "status": "resolved",
         "grade": [
           "S2"
         ]

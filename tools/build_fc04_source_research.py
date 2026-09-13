@@ -44,6 +44,14 @@ def resolved_scope(candidate: dict[str, Any]) -> str:
     return "FULLY_RESOLVED_AT_PROTOCOL_ROLE_SCOPE"
 
 
+def reconciliation_status(status: str) -> str:
+    return {
+        "SUPPORTED": "resolved",
+        "NOT_APPLICABLE": "not_applicable",
+        "UNRESOLVED": "unresolved",
+    }[status]
+
+
 def authority_metrics(candidates: list[dict[str, Any]]) -> dict[str, Any]:
     authority = load(AUTHORITY_PATH)
     addresses = {item["address"] for item in candidates}
@@ -141,8 +149,8 @@ def build() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
                     },
                     "evidence": {
                         "method": "property_level_source_review",
-                        "confidence": "high" if finding["status"] in {"SUPPORTED", "NOT_APPLICABLE"} else "bounded",
-                        "status": finding["status"].lower(),
+                        "confidence": "high" if finding["status"] in {"SUPPORTED", "NOT_APPLICABLE"} else "medium",
+                        "status": reconciliation_status(finding["status"]),
                         "grade": ["S2"] if finding["status"] == "SUPPORTED" else ["S2", "E1"],
                     },
                 }
@@ -164,13 +172,26 @@ def build() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
                         "applicability": "FC04 input source-research cohort",
                     },
                     "decision": {
-                        "status": finding["status"].lower(),
-                        "confidence": "high" if finding["status"] in {"SUPPORTED", "NOT_APPLICABLE"} else "bounded",
+                        "status": reconciliation_status(finding["status"]),
+                        "confidence": "high" if finding["status"] in {"SUPPORTED", "NOT_APPLICABLE"} else "medium",
                         "value": finding["value"],
                         "support_claim": claim_id,
                     },
-                    "support": claim_id,
-                    "conflicts": candidate["contradictions"],
+                    "support": [claim_id],
+                    "conflicts": [
+                        {
+                            "claim_id": claim_id,
+                            "disposition": "retained_as_conflict",
+                            "reason": contradiction,
+                        }
+                        for contradiction in candidate["contradictions"]
+                    ],
+                    "rationale": f"Property-level source review classified the finding as {finding['status']}; contradictions remain explicit and do not alter canonical output.",
+                    "review": {
+                        "status": "accepted_source_research_review",
+                        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+                        "reviewed_at": "2026-09-13",
+                    },
                 }
             )
 

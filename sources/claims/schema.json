@@ -79,7 +79,9 @@
         "json_pointer": {"type": "string", "pattern": "^/"},
         "capture_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
         "record_id": {"type": "string"},
-        "timestamp": {"type": "string"}
+        "timestamp": {"type": "string"},
+        "source_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "source_property_evidence": {"type": "array", "items": {"type": "string", "minLength": 1}}
       },
       "additionalProperties": false
     },

@@ -30,8 +30,8 @@
     ]
   },
   "source_inputs": {
-    "pipeline_5c": "32f97731e576dfdcf792898dd276f6f5f01e385ac0a081b25a603e38fd29061b",
-    "canonical_parity_target": "bf6e08582e12a5c289b85a5c3e2638ff1097a9a4d4186630affe40754a29f780",
+    "pipeline_5c": "e780726741d34bef236a2881219b2b0dd3ea61a2f644a8c025d88b00415c92c2",
+    "canonical_parity_target": "e692d646e34040af999ba4854f65803e4218e184d9e04f2982c06d60782ee405",
     "source_research_input": "e27e9fb681053c14f7802676b4cc7f4e8a9ba2a0c82a756e7921b97d1ef6ccbf"
   },
   "candidate_count": 17,
@@ -1621,9 +1621,9 @@
     "before_after_5a_snapshot": {
       "cohort_declarative_authoritative_property_cells": 0,
       "cohort_legacy_authoritative_dependency_cells": 52,
-      "repository_declarative_authoritative_property_cells": 242,
-      "repository_legacy_authoritative_property_cells": 49622,
-      "repository_canonical_property_cells": 49864,
+      "repository_declarative_authoritative_property_cells": 235,
+      "repository_legacy_authoritative_property_cells": 49632,
+      "repository_canonical_property_cells": 49867,
       "canonical_unchanged_so_5a_metrics_after": "identical_to_before"
     },
     "five_d_source_supported_property_claims_not_yet_cutover_authority": {

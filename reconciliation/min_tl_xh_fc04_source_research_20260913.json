@@ -3,7 +3,7 @@
   "artifact": "growatt_reconciliation_decisions",
   "migration": "GII-PIPELINE-5D",
   "canonical_modified": false,
-  "canonical_input_sha256": "bf6e08582e12a5c289b85a5c3e2638ff1097a9a4d4186630affe40754a29f780",
+  "canonical_input_sha256": "e692d646e34040af999ba4854f65803e4218e184d9e04f2982c06d60782ee405",
   "cohort": {
     "family": "min_tl_xh",
     "table": "input",
@@ -48,15 +48,27 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "one FC04 input word",
         "support_claim": "gii_5d_source_review:input:3085:physical_layout"
       },
-      "support": "gii_5d_source_review:input:3085:physical_layout",
+      "support": [
+        "gii_5d_source_review:input:3085:physical_layout"
+      ],
       "conflicts": [
-        "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
-      ]
+        {
+          "claim_id": "gii_5d_source_review:input:3085:physical_layout",
+          "disposition": "retained_as_conflict",
+          "reason": "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
+        }
+      ],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3085:word_length",
@@ -74,15 +86,27 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": 1,
         "support_claim": "gii_5d_source_review:input:3085:word_length"
       },
-      "support": "gii_5d_source_review:input:3085:word_length",
+      "support": [
+        "gii_5d_source_review:input:3085:word_length"
+      ],
       "conflicts": [
-        "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
-      ]
+        {
+          "claim_id": "gii_5d_source_review:input:3085:word_length",
+          "disposition": "retained_as_conflict",
+          "reason": "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
+        }
+      ],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3085:semantic_quantity",
@@ -100,15 +124,27 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "reserved_or_unsupported",
         "support_claim": "gii_5d_source_review:input:3085:semantic_quantity"
       },
-      "support": "gii_5d_source_review:input:3085:semantic_quantity",
+      "support": [
+        "gii_5d_source_review:input:3085:semantic_quantity"
+      ],
       "conflicts": [
-        "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
-      ]
+        {
+          "claim_id": "gii_5d_source_review:input:3085:semantic_quantity",
+          "disposition": "retained_as_conflict",
+          "reason": "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
+        }
+      ],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3085:applicability",
@@ -126,15 +162,27 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "MIN/TL-XH V1.24 FC04 input table",
         "support_claim": "gii_5d_source_review:input:3085:applicability"
       },
-      "support": "gii_5d_source_review:input:3085:applicability",
+      "support": [
+        "gii_5d_source_review:input:3085:applicability"
+      ],
       "conflicts": [
-        "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
-      ]
+        {
+          "claim_id": "gii_5d_source_review:input:3085:applicability",
+          "disposition": "retained_as_conflict",
+          "reason": "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
+        }
+      ],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3085:scale",
@@ -157,10 +205,22 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3085:scale"
       },
-      "support": "gii_5d_source_review:input:3085:scale",
+      "support": [
+        "gii_5d_source_review:input:3085:scale"
+      ],
       "conflicts": [
-        "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
-      ]
+        {
+          "claim_id": "gii_5d_source_review:input:3085:scale",
+          "disposition": "retained_as_conflict",
+          "reason": "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
+        }
+      ],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3085:unit",
@@ -183,10 +243,22 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3085:unit"
       },
-      "support": "gii_5d_source_review:input:3085:unit",
+      "support": [
+        "gii_5d_source_review:input:3085:unit"
+      ],
       "conflicts": [
-        "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
-      ]
+        {
+          "claim_id": "gii_5d_source_review:input:3085:unit",
+          "disposition": "retained_as_conflict",
+          "reason": "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
+        }
+      ],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3085:signedness",
@@ -209,10 +281,22 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3085:signedness"
       },
-      "support": "gii_5d_source_review:input:3085:signedness",
+      "support": [
+        "gii_5d_source_review:input:3085:signedness"
+      ],
       "conflicts": [
-        "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
-      ]
+        {
+          "claim_id": "gii_5d_source_review:input:3085:signedness",
+          "disposition": "retained_as_conflict",
+          "reason": "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
+        }
+      ],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3085:enum",
@@ -235,10 +319,22 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3085:enum"
       },
-      "support": "gii_5d_source_review:input:3085:enum",
+      "support": [
+        "gii_5d_source_review:input:3085:enum"
+      ],
       "conflicts": [
-        "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
-      ]
+        {
+          "claim_id": "gii_5d_source_review:input:3085:enum",
+          "disposition": "retained_as_conflict",
+          "reason": "Holding register 3085 is ComAddress in V1.24; the holding/input table distinction is material and the addresses must not be merged."
+        }
+      ],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3096:physical_layout",
@@ -256,15 +352,27 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "one FC04 input word",
         "support_claim": "gii_5d_source_review:input:3096:physical_layout"
       },
-      "support": "gii_5d_source_review:input:3096:physical_layout",
+      "support": [
+        "gii_5d_source_review:input:3096:physical_layout"
+      ],
       "conflicts": [
-        "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
-      ]
+        {
+          "claim_id": "gii_5d_source_review:input:3096:physical_layout",
+          "disposition": "retained_as_conflict",
+          "reason": "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
+        }
+      ],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3096:word_length",
@@ -282,15 +390,27 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": 1,
         "support_claim": "gii_5d_source_review:input:3096:word_length"
       },
-      "support": "gii_5d_source_review:input:3096:word_length",
+      "support": [
+        "gii_5d_source_review:input:3096:word_length"
+      ],
       "conflicts": [
-        "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
-      ]
+        {
+          "claim_id": "gii_5d_source_review:input:3096:word_length",
+          "disposition": "retained_as_conflict",
+          "reason": "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
+        }
+      ],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3096:semantic_quantity",
@@ -308,15 +428,27 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "reserved_temperature_slot",
         "support_claim": "gii_5d_source_review:input:3096:semantic_quantity"
       },
-      "support": "gii_5d_source_review:input:3096:semantic_quantity",
+      "support": [
+        "gii_5d_source_review:input:3096:semantic_quantity"
+      ],
       "conflicts": [
-        "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
-      ]
+        {
+          "claim_id": "gii_5d_source_review:input:3096:semantic_quantity",
+          "disposition": "retained_as_conflict",
+          "reason": "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
+        }
+      ],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3096:scale",
@@ -334,15 +466,27 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "0.1 °C per raw count",
         "support_claim": "gii_5d_source_review:input:3096:scale"
       },
-      "support": "gii_5d_source_review:input:3096:scale",
+      "support": [
+        "gii_5d_source_review:input:3096:scale"
+      ],
       "conflicts": [
-        "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
-      ]
+        {
+          "claim_id": "gii_5d_source_review:input:3096:scale",
+          "disposition": "retained_as_conflict",
+          "reason": "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
+        }
+      ],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3096:unit",
@@ -360,15 +504,27 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "°C",
         "support_claim": "gii_5d_source_review:input:3096:unit"
       },
-      "support": "gii_5d_source_review:input:3096:unit",
+      "support": [
+        "gii_5d_source_review:input:3096:unit"
+      ],
       "conflicts": [
-        "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
-      ]
+        {
+          "claim_id": "gii_5d_source_review:input:3096:unit",
+          "disposition": "retained_as_conflict",
+          "reason": "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
+        }
+      ],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3096:signedness",
@@ -387,14 +543,26 @@
       },
       "decision": {
         "status": "unresolved",
-        "confidence": "bounded",
+        "confidence": "medium",
         "value": null,
         "support_claim": "gii_5d_source_review:input:3096:signedness"
       },
-      "support": "gii_5d_source_review:input:3096:signedness",
+      "support": [
+        "gii_5d_source_review:input:3096:signedness"
+      ],
       "conflicts": [
-        "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
-      ]
+        {
+          "claim_id": "gii_5d_source_review:input:3096:signedness",
+          "disposition": "retained_as_conflict",
+          "reason": "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
+        }
+      ],
+      "rationale": "Property-level source review classified the finding as UNRESOLVED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3096:enum",
@@ -417,10 +585,22 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3096:enum"
       },
-      "support": "gii_5d_source_review:input:3096:enum",
+      "support": [
+        "gii_5d_source_review:input:3096:enum"
+      ],
       "conflicts": [
-        "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
-      ]
+        {
+          "claim_id": "gii_5d_source_review:input:3096:enum",
+          "disposition": "retained_as_conflict",
+          "reason": "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
+        }
+      ],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3096:applicability",
@@ -438,15 +618,27 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "MIN/TL-XH V1.24 FC04 input table",
         "support_claim": "gii_5d_source_review:input:3096:applicability"
       },
-      "support": "gii_5d_source_review:input:3096:applicability",
+      "support": [
+        "gii_5d_source_review:input:3096:applicability"
+      ],
       "conflicts": [
-        "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
-      ]
+        {
+          "claim_id": "gii_5d_source_review:input:3096:applicability",
+          "disposition": "retained_as_conflict",
+          "reason": "The vendor row carries a 0.1°C notation while its description says Reserved; this supports encoding, not an active temperature quantity."
+        }
+      ],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3109:physical_layout",
@@ -464,13 +656,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "one FC04 input word",
         "support_claim": "gii_5d_source_review:input:3109:physical_layout"
       },
-      "support": "gii_5d_source_review:input:3109:physical_layout",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3109:physical_layout"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3109:word_length",
@@ -488,13 +688,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": 1,
         "support_claim": "gii_5d_source_review:input:3109:word_length"
       },
-      "support": "gii_5d_source_review:input:3109:word_length",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3109:word_length"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3109:packed_field_structure",
@@ -512,13 +720,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "vendor marks the word as bitfield; bit positions are not specified",
         "support_claim": "gii_5d_source_review:input:3109:packed_field_structure"
       },
-      "support": "gii_5d_source_review:input:3109:packed_field_structure",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3109:packed_field_structure"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3109:semantic_quantity",
@@ -537,12 +753,20 @@
       },
       "decision": {
         "status": "unresolved",
-        "confidence": "bounded",
+        "confidence": "medium",
         "value": null,
         "support_claim": "gii_5d_source_review:input:3109:semantic_quantity"
       },
-      "support": "gii_5d_source_review:input:3109:semantic_quantity",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3109:semantic_quantity"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as UNRESOLVED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3109:scale",
@@ -565,8 +789,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3109:scale"
       },
-      "support": "gii_5d_source_review:input:3109:scale",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3109:scale"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3109:unit",
@@ -589,8 +821,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3109:unit"
       },
-      "support": "gii_5d_source_review:input:3109:unit",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3109:unit"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3109:signedness",
@@ -613,8 +853,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3109:signedness"
       },
-      "support": "gii_5d_source_review:input:3109:signedness",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3109:signedness"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3109:enum",
@@ -633,12 +881,20 @@
       },
       "decision": {
         "status": "unresolved",
-        "confidence": "bounded",
+        "confidence": "medium",
         "value": null,
         "support_claim": "gii_5d_source_review:input:3109:enum"
       },
-      "support": "gii_5d_source_review:input:3109:enum",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3109:enum"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as UNRESOLVED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3109:applicability",
@@ -656,13 +912,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "MIN/TL-XH V1.24 FC04 input table",
         "support_claim": "gii_5d_source_review:input:3109:applicability"
       },
-      "support": "gii_5d_source_review:input:3109:applicability",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3109:applicability"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3116:physical_layout",
@@ -680,13 +944,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "one FC04 input word",
         "support_claim": "gii_5d_source_review:input:3116:physical_layout"
       },
-      "support": "gii_5d_source_review:input:3116:physical_layout",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3116:physical_layout"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3116:word_length",
@@ -704,13 +976,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": 1,
         "support_claim": "gii_5d_source_review:input:3116:word_length"
       },
-      "support": "gii_5d_source_review:input:3116:word_length",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3116:word_length"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3116:semantic_quantity",
@@ -728,13 +1008,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "reserved_or_unsupported",
         "support_claim": "gii_5d_source_review:input:3116:semantic_quantity"
       },
-      "support": "gii_5d_source_review:input:3116:semantic_quantity",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3116:semantic_quantity"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3116:applicability",
@@ -752,13 +1040,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "MIN/TL-XH V1.24 FC04 input table",
         "support_claim": "gii_5d_source_review:input:3116:applicability"
       },
-      "support": "gii_5d_source_review:input:3116:applicability",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3116:applicability"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3116:scale",
@@ -781,8 +1077,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3116:scale"
       },
-      "support": "gii_5d_source_review:input:3116:scale",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3116:scale"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3116:unit",
@@ -805,8 +1109,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3116:unit"
       },
-      "support": "gii_5d_source_review:input:3116:unit",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3116:unit"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3116:signedness",
@@ -829,8 +1141,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3116:signedness"
       },
-      "support": "gii_5d_source_review:input:3116:signedness",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3116:signedness"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3116:enum",
@@ -853,8 +1173,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3116:enum"
       },
-      "support": "gii_5d_source_review:input:3116:enum",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3116:enum"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3117:physical_layout",
@@ -872,13 +1200,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "one FC04 input word",
         "support_claim": "gii_5d_source_review:input:3117:physical_layout"
       },
-      "support": "gii_5d_source_review:input:3117:physical_layout",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3117:physical_layout"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3117:word_length",
@@ -896,13 +1232,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": 1,
         "support_claim": "gii_5d_source_review:input:3117:word_length"
       },
-      "support": "gii_5d_source_review:input:3117:word_length",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3117:word_length"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3117:semantic_quantity",
@@ -920,13 +1264,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "reserved_or_unsupported",
         "support_claim": "gii_5d_source_review:input:3117:semantic_quantity"
       },
-      "support": "gii_5d_source_review:input:3117:semantic_quantity",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3117:semantic_quantity"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3117:applicability",
@@ -944,13 +1296,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "MIN/TL-XH V1.24 FC04 input table",
         "support_claim": "gii_5d_source_review:input:3117:applicability"
       },
-      "support": "gii_5d_source_review:input:3117:applicability",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3117:applicability"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3117:scale",
@@ -973,8 +1333,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3117:scale"
       },
-      "support": "gii_5d_source_review:input:3117:scale",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3117:scale"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3117:unit",
@@ -997,8 +1365,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3117:unit"
       },
-      "support": "gii_5d_source_review:input:3117:unit",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3117:unit"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3117:signedness",
@@ -1021,8 +1397,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3117:signedness"
       },
-      "support": "gii_5d_source_review:input:3117:signedness",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3117:signedness"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3117:enum",
@@ -1045,8 +1429,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3117:enum"
       },
-      "support": "gii_5d_source_review:input:3117:enum",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3117:enum"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3120:physical_layout",
@@ -1064,13 +1456,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "one FC04 input word",
         "support_claim": "gii_5d_source_review:input:3120:physical_layout"
       },
-      "support": "gii_5d_source_review:input:3120:physical_layout",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3120:physical_layout"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3120:word_length",
@@ -1088,13 +1488,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": 1,
         "support_claim": "gii_5d_source_review:input:3120:word_length"
       },
-      "support": "gii_5d_source_review:input:3120:word_length",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3120:word_length"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3120:semantic_quantity",
@@ -1112,13 +1520,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "reserved_or_unsupported",
         "support_claim": "gii_5d_source_review:input:3120:semantic_quantity"
       },
-      "support": "gii_5d_source_review:input:3120:semantic_quantity",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3120:semantic_quantity"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3120:applicability",
@@ -1136,13 +1552,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "MIN/TL-XH V1.24 FC04 input table",
         "support_claim": "gii_5d_source_review:input:3120:applicability"
       },
-      "support": "gii_5d_source_review:input:3120:applicability",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3120:applicability"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3120:scale",
@@ -1165,8 +1589,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3120:scale"
       },
-      "support": "gii_5d_source_review:input:3120:scale",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3120:scale"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3120:unit",
@@ -1189,8 +1621,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3120:unit"
       },
-      "support": "gii_5d_source_review:input:3120:unit",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3120:unit"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3120:signedness",
@@ -1213,8 +1653,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3120:signedness"
       },
-      "support": "gii_5d_source_review:input:3120:signedness",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3120:signedness"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3120:enum",
@@ -1237,8 +1685,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3120:enum"
       },
-      "support": "gii_5d_source_review:input:3120:enum",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3120:enum"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3143:physical_layout",
@@ -1256,13 +1712,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "one FC04 input word; 3144 is a separate Priority field",
         "support_claim": "gii_5d_source_review:input:3143:physical_layout"
       },
-      "support": "gii_5d_source_review:input:3143:physical_layout",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3143:physical_layout"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3143:word_length",
@@ -1280,13 +1744,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": 1,
         "support_claim": "gii_5d_source_review:input:3143:word_length"
       },
-      "support": "gii_5d_source_review:input:3143:word_length",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3143:word_length"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3143:semantic_quantity",
@@ -1304,13 +1776,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "reserved_or_unsupported",
         "support_claim": "gii_5d_source_review:input:3143:semantic_quantity"
       },
-      "support": "gii_5d_source_review:input:3143:semantic_quantity",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3143:semantic_quantity"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3143:applicability",
@@ -1328,13 +1808,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "MIN/TL-XH V1.24 FC04 input table",
         "support_claim": "gii_5d_source_review:input:3143:applicability"
       },
-      "support": "gii_5d_source_review:input:3143:applicability",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3143:applicability"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3143:scale",
@@ -1357,8 +1845,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3143:scale"
       },
-      "support": "gii_5d_source_review:input:3143:scale",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3143:scale"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3143:unit",
@@ -1381,8 +1877,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3143:unit"
       },
-      "support": "gii_5d_source_review:input:3143:unit",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3143:unit"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3143:signedness",
@@ -1405,8 +1909,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3143:signedness"
       },
-      "support": "gii_5d_source_review:input:3143:signedness",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3143:signedness"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3143:enum",
@@ -1429,8 +1941,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3143:enum"
       },
-      "support": "gii_5d_source_review:input:3143:enum",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3143:enum"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3163:physical_layout",
@@ -1448,13 +1968,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "one FC04 input word; 3164 is a separate NewBdcFlag field",
         "support_claim": "gii_5d_source_review:input:3163:physical_layout"
       },
-      "support": "gii_5d_source_review:input:3163:physical_layout",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3163:physical_layout"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3163:word_length",
@@ -1472,13 +2000,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": 1,
         "support_claim": "gii_5d_source_review:input:3163:word_length"
       },
-      "support": "gii_5d_source_review:input:3163:word_length",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3163:word_length"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3163:semantic_quantity",
@@ -1496,13 +2032,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "reserved_or_unsupported",
         "support_claim": "gii_5d_source_review:input:3163:semantic_quantity"
       },
-      "support": "gii_5d_source_review:input:3163:semantic_quantity",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3163:semantic_quantity"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3163:applicability",
@@ -1520,13 +2064,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "MIN/TL-XH V1.24 FC04 input table",
         "support_claim": "gii_5d_source_review:input:3163:applicability"
       },
-      "support": "gii_5d_source_review:input:3163:applicability",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3163:applicability"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3163:scale",
@@ -1549,8 +2101,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3163:scale"
       },
-      "support": "gii_5d_source_review:input:3163:scale",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3163:scale"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3163:unit",
@@ -1573,8 +2133,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3163:unit"
       },
-      "support": "gii_5d_source_review:input:3163:unit",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3163:unit"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3163:signedness",
@@ -1597,8 +2165,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3163:signedness"
       },
-      "support": "gii_5d_source_review:input:3163:signedness",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3163:signedness"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3163:enum",
@@ -1621,8 +2197,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3163:enum"
       },
-      "support": "gii_5d_source_review:input:3163:enum",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3163:enum"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3186:physical_layout",
@@ -1640,13 +2224,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "one FC04 input word; 3187 is a separate BDC1_Flag field",
         "support_claim": "gii_5d_source_review:input:3186:physical_layout"
       },
-      "support": "gii_5d_source_review:input:3186:physical_layout",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3186:physical_layout"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3186:word_length",
@@ -1664,13 +2256,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": 1,
         "support_claim": "gii_5d_source_review:input:3186:word_length"
       },
-      "support": "gii_5d_source_review:input:3186:word_length",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3186:word_length"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3186:semantic_quantity",
@@ -1688,13 +2288,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "reserved_or_unsupported",
         "support_claim": "gii_5d_source_review:input:3186:semantic_quantity"
       },
-      "support": "gii_5d_source_review:input:3186:semantic_quantity",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3186:semantic_quantity"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3186:applicability",
@@ -1712,13 +2320,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "MIN/TL-XH V1.24 FC04 input table",
         "support_claim": "gii_5d_source_review:input:3186:applicability"
       },
-      "support": "gii_5d_source_review:input:3186:applicability",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3186:applicability"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3186:scale",
@@ -1741,8 +2357,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3186:scale"
       },
-      "support": "gii_5d_source_review:input:3186:scale",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3186:scale"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3186:unit",
@@ -1765,8 +2389,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3186:unit"
       },
-      "support": "gii_5d_source_review:input:3186:unit",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3186:unit"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3186:signedness",
@@ -1789,8 +2421,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3186:signedness"
       },
-      "support": "gii_5d_source_review:input:3186:signedness",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3186:signedness"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3186:enum",
@@ -1813,8 +2453,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3186:enum"
       },
-      "support": "gii_5d_source_review:input:3186:enum",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3186:enum"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3206:physical_layout",
@@ -1832,13 +2480,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "one FC04 input word",
         "support_claim": "gii_5d_source_review:input:3206:physical_layout"
       },
-      "support": "gii_5d_source_review:input:3206:physical_layout",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3206:physical_layout"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3206:word_length",
@@ -1856,13 +2512,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": 1,
         "support_claim": "gii_5d_source_review:input:3206:word_length"
       },
-      "support": "gii_5d_source_review:input:3206:word_length",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3206:word_length"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3206:semantic_quantity",
@@ -1880,13 +2544,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "reserved_or_unsupported",
         "support_claim": "gii_5d_source_review:input:3206:semantic_quantity"
       },
-      "support": "gii_5d_source_review:input:3206:semantic_quantity",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3206:semantic_quantity"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3206:applicability",
@@ -1904,13 +2576,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "MIN/TL-XH V1.24 FC04 input table",
         "support_claim": "gii_5d_source_review:input:3206:applicability"
       },
-      "support": "gii_5d_source_review:input:3206:applicability",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3206:applicability"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3206:scale",
@@ -1933,8 +2613,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3206:scale"
       },
-      "support": "gii_5d_source_review:input:3206:scale",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3206:scale"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3206:unit",
@@ -1957,8 +2645,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3206:unit"
       },
-      "support": "gii_5d_source_review:input:3206:unit",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3206:unit"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3206:signedness",
@@ -1981,8 +2677,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3206:signedness"
       },
-      "support": "gii_5d_source_review:input:3206:signedness",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3206:signedness"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3206:enum",
@@ -2005,8 +2709,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3206:enum"
       },
-      "support": "gii_5d_source_review:input:3206:enum",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3206:enum"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3207:physical_layout",
@@ -2024,13 +2736,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "one FC04 input word",
         "support_claim": "gii_5d_source_review:input:3207:physical_layout"
       },
-      "support": "gii_5d_source_review:input:3207:physical_layout",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3207:physical_layout"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3207:word_length",
@@ -2048,13 +2768,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": 1,
         "support_claim": "gii_5d_source_review:input:3207:word_length"
       },
-      "support": "gii_5d_source_review:input:3207:word_length",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3207:word_length"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3207:semantic_quantity",
@@ -2072,13 +2800,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "reserved_or_unsupported",
         "support_claim": "gii_5d_source_review:input:3207:semantic_quantity"
       },
-      "support": "gii_5d_source_review:input:3207:semantic_quantity",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3207:semantic_quantity"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3207:applicability",
@@ -2096,13 +2832,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "MIN/TL-XH V1.24 FC04 input table",
         "support_claim": "gii_5d_source_review:input:3207:applicability"
       },
-      "support": "gii_5d_source_review:input:3207:applicability",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3207:applicability"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3207:scale",
@@ -2125,8 +2869,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3207:scale"
       },
-      "support": "gii_5d_source_review:input:3207:scale",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3207:scale"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3207:unit",
@@ -2149,8 +2901,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3207:unit"
       },
-      "support": "gii_5d_source_review:input:3207:unit",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3207:unit"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3207:signedness",
@@ -2173,8 +2933,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3207:signedness"
       },
-      "support": "gii_5d_source_review:input:3207:signedness",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3207:signedness"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3207:enum",
@@ -2197,8 +2965,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3207:enum"
       },
-      "support": "gii_5d_source_review:input:3207:enum",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3207:enum"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3208:physical_layout",
@@ -2216,13 +2992,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "one FC04 input word",
         "support_claim": "gii_5d_source_review:input:3208:physical_layout"
       },
-      "support": "gii_5d_source_review:input:3208:physical_layout",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3208:physical_layout"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3208:word_length",
@@ -2240,13 +3024,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": 1,
         "support_claim": "gii_5d_source_review:input:3208:word_length"
       },
-      "support": "gii_5d_source_review:input:3208:word_length",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3208:word_length"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3208:semantic_quantity",
@@ -2264,13 +3056,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "reserved_or_unsupported",
         "support_claim": "gii_5d_source_review:input:3208:semantic_quantity"
       },
-      "support": "gii_5d_source_review:input:3208:semantic_quantity",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3208:semantic_quantity"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3208:applicability",
@@ -2288,13 +3088,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "MIN/TL-XH V1.24 FC04 input table",
         "support_claim": "gii_5d_source_review:input:3208:applicability"
       },
-      "support": "gii_5d_source_review:input:3208:applicability",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3208:applicability"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3208:scale",
@@ -2317,8 +3125,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3208:scale"
       },
-      "support": "gii_5d_source_review:input:3208:scale",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3208:scale"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3208:unit",
@@ -2341,8 +3157,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3208:unit"
       },
-      "support": "gii_5d_source_review:input:3208:unit",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3208:unit"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3208:signedness",
@@ -2365,8 +3189,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3208:signedness"
       },
-      "support": "gii_5d_source_review:input:3208:signedness",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3208:signedness"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3208:enum",
@@ -2389,8 +3221,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3208:enum"
       },
-      "support": "gii_5d_source_review:input:3208:enum",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3208:enum"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3209:physical_layout",
@@ -2408,13 +3248,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "one FC04 input word",
         "support_claim": "gii_5d_source_review:input:3209:physical_layout"
       },
-      "support": "gii_5d_source_review:input:3209:physical_layout",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3209:physical_layout"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3209:word_length",
@@ -2432,13 +3280,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": 1,
         "support_claim": "gii_5d_source_review:input:3209:word_length"
       },
-      "support": "gii_5d_source_review:input:3209:word_length",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3209:word_length"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3209:semantic_quantity",
@@ -2456,13 +3312,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "reserved_or_unsupported",
         "support_claim": "gii_5d_source_review:input:3209:semantic_quantity"
       },
-      "support": "gii_5d_source_review:input:3209:semantic_quantity",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3209:semantic_quantity"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3209:applicability",
@@ -2480,13 +3344,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "MIN/TL-XH V1.24 FC04 input table",
         "support_claim": "gii_5d_source_review:input:3209:applicability"
       },
-      "support": "gii_5d_source_review:input:3209:applicability",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3209:applicability"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3209:scale",
@@ -2509,8 +3381,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3209:scale"
       },
-      "support": "gii_5d_source_review:input:3209:scale",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3209:scale"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3209:unit",
@@ -2533,8 +3413,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3209:unit"
       },
-      "support": "gii_5d_source_review:input:3209:unit",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3209:unit"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3209:signedness",
@@ -2557,8 +3445,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3209:signedness"
       },
-      "support": "gii_5d_source_review:input:3209:signedness",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3209:signedness"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3209:enum",
@@ -2581,8 +3477,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3209:enum"
       },
-      "support": "gii_5d_source_review:input:3209:enum",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3209:enum"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3227:physical_layout",
@@ -2600,13 +3504,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "one FC04 input word",
         "support_claim": "gii_5d_source_review:input:3227:physical_layout"
       },
-      "support": "gii_5d_source_review:input:3227:physical_layout",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3227:physical_layout"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3227:word_length",
@@ -2624,13 +3536,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": 1,
         "support_claim": "gii_5d_source_review:input:3227:word_length"
       },
-      "support": "gii_5d_source_review:input:3227:word_length",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3227:word_length"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3227:semantic_quantity",
@@ -2648,13 +3568,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "reserved_or_unsupported",
         "support_claim": "gii_5d_source_review:input:3227:semantic_quantity"
       },
-      "support": "gii_5d_source_review:input:3227:semantic_quantity",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3227:semantic_quantity"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3227:applicability",
@@ -2672,13 +3600,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "MIN/TL-XH V1.24 FC04 input table",
         "support_claim": "gii_5d_source_review:input:3227:applicability"
       },
-      "support": "gii_5d_source_review:input:3227:applicability",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3227:applicability"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3227:scale",
@@ -2701,8 +3637,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3227:scale"
       },
-      "support": "gii_5d_source_review:input:3227:scale",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3227:scale"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3227:unit",
@@ -2725,8 +3669,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3227:unit"
       },
-      "support": "gii_5d_source_review:input:3227:unit",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3227:unit"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3227:signedness",
@@ -2749,8 +3701,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3227:signedness"
       },
-      "support": "gii_5d_source_review:input:3227:signedness",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3227:signedness"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3227:enum",
@@ -2773,8 +3733,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3227:enum"
       },
-      "support": "gii_5d_source_review:input:3227:enum",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3227:enum"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3228:physical_layout",
@@ -2792,13 +3760,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "one FC04 input word",
         "support_claim": "gii_5d_source_review:input:3228:physical_layout"
       },
-      "support": "gii_5d_source_review:input:3228:physical_layout",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3228:physical_layout"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3228:word_length",
@@ -2816,13 +3792,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": 1,
         "support_claim": "gii_5d_source_review:input:3228:word_length"
       },
-      "support": "gii_5d_source_review:input:3228:word_length",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3228:word_length"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3228:semantic_quantity",
@@ -2840,13 +3824,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "reserved_or_unsupported",
         "support_claim": "gii_5d_source_review:input:3228:semantic_quantity"
       },
-      "support": "gii_5d_source_review:input:3228:semantic_quantity",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3228:semantic_quantity"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3228:applicability",
@@ -2864,13 +3856,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "MIN/TL-XH V1.24 FC04 input table",
         "support_claim": "gii_5d_source_review:input:3228:applicability"
       },
-      "support": "gii_5d_source_review:input:3228:applicability",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3228:applicability"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3228:scale",
@@ -2893,8 +3893,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3228:scale"
       },
-      "support": "gii_5d_source_review:input:3228:scale",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3228:scale"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3228:unit",
@@ -2917,8 +3925,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3228:unit"
       },
-      "support": "gii_5d_source_review:input:3228:unit",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3228:unit"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3228:signedness",
@@ -2941,8 +3957,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3228:signedness"
       },
-      "support": "gii_5d_source_review:input:3228:signedness",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3228:signedness"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3228:enum",
@@ -2965,8 +3989,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3228:enum"
       },
-      "support": "gii_5d_source_review:input:3228:enum",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3228:enum"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3229:physical_layout",
@@ -2984,13 +4016,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "one FC04 input word",
         "support_claim": "gii_5d_source_review:input:3229:physical_layout"
       },
-      "support": "gii_5d_source_review:input:3229:physical_layout",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3229:physical_layout"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3229:word_length",
@@ -3008,13 +4048,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": 1,
         "support_claim": "gii_5d_source_review:input:3229:word_length"
       },
-      "support": "gii_5d_source_review:input:3229:word_length",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3229:word_length"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3229:semantic_quantity",
@@ -3032,13 +4080,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "reserved_or_unsupported",
         "support_claim": "gii_5d_source_review:input:3229:semantic_quantity"
       },
-      "support": "gii_5d_source_review:input:3229:semantic_quantity",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3229:semantic_quantity"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3229:applicability",
@@ -3056,13 +4112,21 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "MIN/TL-XH V1.24 FC04 input table",
         "support_claim": "gii_5d_source_review:input:3229:applicability"
       },
-      "support": "gii_5d_source_review:input:3229:applicability",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3229:applicability"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3229:scale",
@@ -3085,8 +4149,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3229:scale"
       },
-      "support": "gii_5d_source_review:input:3229:scale",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3229:scale"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3229:unit",
@@ -3109,8 +4181,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3229:unit"
       },
-      "support": "gii_5d_source_review:input:3229:unit",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3229:unit"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3229:signedness",
@@ -3133,8 +4213,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3229:signedness"
       },
-      "support": "gii_5d_source_review:input:3229:signedness",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3229:signedness"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3229:enum",
@@ -3157,8 +4245,16 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3229:enum"
       },
-      "support": "gii_5d_source_review:input:3229:enum",
-      "conflicts": []
+      "support": [
+        "gii_5d_source_review:input:3229:enum"
+      ],
+      "conflicts": [],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3233:physical_layout",
@@ -3176,15 +4272,27 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "one FC04 input word between documented rows 3232 and 3234",
         "support_claim": "gii_5d_source_review:input:3233:physical_layout"
       },
-      "support": "gii_5d_source_review:input:3233:physical_layout",
+      "support": [
+        "gii_5d_source_review:input:3233:physical_layout"
+      ],
       "conflicts": [
-        "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
-      ]
+        {
+          "claim_id": "gii_5d_source_review:input:3233:physical_layout",
+          "disposition": "retained_as_conflict",
+          "reason": "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
+        }
+      ],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3233:word_length",
@@ -3202,15 +4310,27 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": 1,
         "support_claim": "gii_5d_source_review:input:3233:word_length"
       },
-      "support": "gii_5d_source_review:input:3233:word_length",
+      "support": [
+        "gii_5d_source_review:input:3233:word_length"
+      ],
       "conflicts": [
-        "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
-      ]
+        {
+          "claim_id": "gii_5d_source_review:input:3233:word_length",
+          "disposition": "retained_as_conflict",
+          "reason": "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
+        }
+      ],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3233:semantic_quantity",
@@ -3229,14 +4349,26 @@
       },
       "decision": {
         "status": "unresolved",
-        "confidence": "bounded",
+        "confidence": "medium",
         "value": null,
         "support_claim": "gii_5d_source_review:input:3233:semantic_quantity"
       },
-      "support": "gii_5d_source_review:input:3233:semantic_quantity",
+      "support": [
+        "gii_5d_source_review:input:3233:semantic_quantity"
+      ],
       "conflicts": [
-        "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
-      ]
+        {
+          "claim_id": "gii_5d_source_review:input:3233:semantic_quantity",
+          "disposition": "retained_as_conflict",
+          "reason": "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
+        }
+      ],
+      "rationale": "Property-level source review classified the finding as UNRESOLVED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3233:scale",
@@ -3255,14 +4387,26 @@
       },
       "decision": {
         "status": "unresolved",
-        "confidence": "bounded",
+        "confidence": "medium",
         "value": null,
         "support_claim": "gii_5d_source_review:input:3233:scale"
       },
-      "support": "gii_5d_source_review:input:3233:scale",
+      "support": [
+        "gii_5d_source_review:input:3233:scale"
+      ],
       "conflicts": [
-        "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
-      ]
+        {
+          "claim_id": "gii_5d_source_review:input:3233:scale",
+          "disposition": "retained_as_conflict",
+          "reason": "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
+        }
+      ],
+      "rationale": "Property-level source review classified the finding as UNRESOLVED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3233:unit",
@@ -3281,14 +4425,26 @@
       },
       "decision": {
         "status": "unresolved",
-        "confidence": "bounded",
+        "confidence": "medium",
         "value": null,
         "support_claim": "gii_5d_source_review:input:3233:unit"
       },
-      "support": "gii_5d_source_review:input:3233:unit",
+      "support": [
+        "gii_5d_source_review:input:3233:unit"
+      ],
       "conflicts": [
-        "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
-      ]
+        {
+          "claim_id": "gii_5d_source_review:input:3233:unit",
+          "disposition": "retained_as_conflict",
+          "reason": "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
+        }
+      ],
+      "rationale": "Property-level source review classified the finding as UNRESOLVED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3233:signedness",
@@ -3307,14 +4463,26 @@
       },
       "decision": {
         "status": "unresolved",
-        "confidence": "bounded",
+        "confidence": "medium",
         "value": null,
         "support_claim": "gii_5d_source_review:input:3233:signedness"
       },
-      "support": "gii_5d_source_review:input:3233:signedness",
+      "support": [
+        "gii_5d_source_review:input:3233:signedness"
+      ],
       "conflicts": [
-        "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
-      ]
+        {
+          "claim_id": "gii_5d_source_review:input:3233:signedness",
+          "disposition": "retained_as_conflict",
+          "reason": "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
+        }
+      ],
+      "rationale": "Property-level source review classified the finding as UNRESOLVED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3233:enum",
@@ -3337,10 +4505,22 @@
         "value": null,
         "support_claim": "gii_5d_source_review:input:3233:enum"
       },
-      "support": "gii_5d_source_review:input:3233:enum",
+      "support": [
+        "gii_5d_source_review:input:3233:enum"
+      ],
       "conflicts": [
-        "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
-      ]
+        {
+          "claim_id": "gii_5d_source_review:input:3233:enum",
+          "disposition": "retained_as_conflict",
+          "reason": "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
+        }
+      ],
+      "rationale": "Property-level source review classified the finding as NOT_APPLICABLE; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     },
     {
       "decision_id": "min-xh-fc04-source-research:3233:applicability",
@@ -3358,15 +4538,27 @@
         "applicability": "FC04 input source-research cohort"
       },
       "decision": {
-        "status": "supported",
+        "status": "resolved",
         "confidence": "high",
         "value": "MIN/TL-XH V1.24 FC04 input table",
         "support_claim": "gii_5d_source_review:input:3233:applicability"
       },
-      "support": "gii_5d_source_review:input:3233:applicability",
+      "support": [
+        "gii_5d_source_review:input:3233:applicability"
+      ],
       "conflicts": [
-        "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
-      ]
+        {
+          "claim_id": "gii_5d_source_review:input:3233:applicability",
+          "disposition": "retained_as_conflict",
+          "reason": "The visual/vendor row is blank rather than explicitly labelled Reserved; the stronger wording is intentionally not promoted to vendor-proven semantics."
+        }
+      ],
+      "rationale": "Property-level source review classified the finding as SUPPORTED; contradictions remain explicit and do not alter canonical output.",
+      "review": {
+        "status": "accepted_source_research_review",
+        "notes": "PIPELINE-5D property-level evidence; canonical output remains unchanged.",
+        "reviewed_at": "2026-09-13"
+      }
     }
   ],
   "derived_aggregate_follow_up": {

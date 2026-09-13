@@ -59,7 +59,10 @@ def validate() -> list[str]:
     source_ids = {source["source_id"] for source in claims["sources"]}
     if any(claim["source_id"] not in source_ids for claim in claims["claims"]):
         errors.append("claim references an unknown source")
-    if any(decision["support"] not in claim_ids for decision in reconciliation["decisions"]):
+    if any(
+        any(claim_id not in claim_ids for claim_id in decision["support"])
+        for decision in reconciliation["decisions"]
+    ):
         errors.append("reconciliation references an unknown claim")
     if inventory["canonical_modified"] or reconciliation["canonical_modified"]:
         errors.append("PIPELINE-5D changed canonical state")
