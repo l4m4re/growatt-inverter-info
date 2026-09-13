@@ -14,6 +14,7 @@
     "start": 3040,
     "quantity": 2,
     "payload_words": ["0x2000", "0x0700"],
+    "reconstructed_rtu_request_without_crc": "01 10 0B E0 00 02 04 20 00 07 00",
     "reconstructed_request_pdu_without_crc": "01 10 0B E0 00 02 04 20 00 07 00",
     "captured_request_frame": null,
     "captured_request_crc": null

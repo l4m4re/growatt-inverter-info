@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/l4m4re/growatt-inverter-info/schemas/generic-claims.json",
+  "title": "Growatt generic source claims",
+  "type": "object",
+  "required": ["schema_version", "artifact", "sources", "claims"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "artifact": {"const": "growatt_generic_source_claims"},
+    "generated_by": {"type": "string"},
+    "sources": {"type": "string", "minLength": 1},
+    "claims": {"type": "array", "items": {"$ref": "#/$defs/claim"}}
+  },
+  "$defs": {
+    "subject": {
+      "type": "object",
+      "required": ["namespace", "family_scope"],
+      "properties": {
+        "namespace": {"enum": ["MODBUS", "GROWATT_FC0x20", "LOGICAL", "IMPLEMENTATION"]},
+        "family_scope": {"type": "array", "items": {"type": "string"}},
+        "table": {"enum": ["holding", "input"]},
+        "address": {"type": "integer", "minimum": 0, "maximum": 65535},
+        "address_end": {"type": "integer", "minimum": 0, "maximum": 65535},
+        "logical_object": {"type": "string", "minLength": 1},
+        "field": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "assertion": {
+      "type": "object",
+      "required": ["kind", "value"],
+      "properties": {
+        "kind": {"type": "string", "pattern": "^[a-z][a-z0-9_]*$"},
+        "value": {},
+        "source_text": {"type": ["string", "null"]},
+        "raw_value": {},
+        "datatype": {"type": ["string", "null"]},
+        "signedness": {"enum": ["signed", "unsigned", "non_negative", "unknown", null]},
+        "unit": {"type": ["string", "null"]},
+        "range": {"type": ["object", "array", "string", "null"]},
+        "enum_value": {"type": ["integer", "string", "null"]},
+        "bit_range": {"type": ["string", "null"]},
+        "relationship": {"type": ["object", "array", "string", "null"]},
+        "observation": {"type": ["object", "array", "string", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "provenance": {
+      "type": "object",
+      "required": ["source_artifact"],
+      "properties": {
+        "source_artifact": {"type": "string", "minLength": 1},
+        "document_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "page": {"type": "integer", "minimum": 1},
+        "page_end": {"type": "integer", "minimum": 1},
+        "section": {"type": "string"},
+        "source_row": {"type": ["string", "null"]},
+        "repository": {"type": "string"},
+        "commit": {"type": "string"},
+        "file": {"type": "string"},
+        "line_range": {"type": "string"},
+        "json_pointer": {"type": "string", "pattern": "^/"},
+        "capture_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "record_id": {"type": "string"},
+        "timestamp": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "scope": {
+      "type": "object",
+      "required": ["family", "applicability"],
+      "properties": {
+        "family": {"type": ["array", "string", "null"]},
+        "model": {"type": ["string", "null"]},
+        "firmware": {"type": ["string", "null"]},
+        "protocol_revision": {"type": ["string", "null"]},
+        "region": {"type": ["string", "null"]},
+        "hardware_revision": {"type": ["string", "null"]},
+        "applicability": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["method", "confidence", "status"],
+      "properties": {
+        "method": {"type": "string", "minLength": 1},
+        "confidence": {"enum": ["high", "medium", "low", "provisional", "not_attributable", "unknown"]},
+        "status": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "claim": {
+      "type": "object",
+      "required": ["claim_id", "source_id", "source_type", "subject", "assertion", "provenance", "scope", "evidence"],
+      "properties": {
+        "claim_id": {"type": "string", "minLength": 1},
+        "source_id": {"type": "string", "minLength": 1},
+        "source_type": {"type": "string", "minLength": 1},
+        "subject": {"$ref": "#/$defs/subject"},
+        "assertion": {"$ref": "#/$defs/assertion"},
+        "provenance": {"$ref": "#/$defs/provenance"},
+        "scope": {"$ref": "#/$defs/scope"},
+        "evidence": {"$ref": "#/$defs/evidence"},
+        "notes": {"type": "array", "items": {"type": "string"}},
+        "diagnostics": {"type": "array", "items": {"type": "string"}}
+      },
+      "additionalProperties": false
+    }
+  }
+}
