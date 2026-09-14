@@ -336,7 +336,7 @@ def candidate_ranking(authority: dict[str, Any]) -> list[dict[str, Any]]:
     return result
 
 
-def build() -> dict[str, Any]:
+def build(starting_sha: str | None = None) -> dict[str, Any]:
     authority = build_authority()
     new_decisions = build_decisions()
     selected = selected_decisions(new_decisions)
@@ -350,7 +350,7 @@ def build() -> dict[str, Any]:
         "schema_version": "1.0.0",
         "artifact": "growatt_pipeline6_next_authority_cohort",
         "generated_by": "tools/build_pipeline6_cohort.py",
-        "starting_main_sha": subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, check=True, capture_output=True, text=True).stdout.strip(),
+        "starting_main_sha": starting_sha or subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, check=True, capture_output=True, text=True).stdout.strip(),
         "canonical": {"path": "spec/growatt-register-spec.json", "sha256": sha256(CANONICAL_PATH), "canonical_modified": False},
         "selected_cohort": {
             "id": "min_tl_xh_holding_ems_3036_3059_3081_3082",
