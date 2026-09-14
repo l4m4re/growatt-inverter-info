@@ -8,6 +8,8 @@ from pathlib import Path
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
+_APPLICABILITY_INDEX: tuple[object, dict[tuple[str, str], list[dict[str, Any]]]] | None = None
+_CLAIM_INDEX: tuple[object, dict[tuple[str, int], list[dict[str, Any]]]] | None = None
 
 SUPPORTED_UNCONDITIONAL = "SUPPORTED_UNCONDITIONAL"
 SUPPORTED_QUALIFIED = "SUPPORTED_QUALIFIED"
@@ -24,12 +26,20 @@ def load_claims() -> list[dict[str, Any]]:
 def claims_for(
     claims: list[dict[str, Any]], family: str, table: str, address: int
 ) -> list[dict[str, Any]]:
+    global _CLAIM_INDEX
+    if _CLAIM_INDEX is None or _CLAIM_INDEX[0] is not claims:
+        index: dict[tuple[str, int], list[dict[str, Any]]] = defaultdict(list)
+        for claim in claims:
+            claim_table = claim["subject"].get("table")
+            claim_address = claim["subject"].get("address")
+            if claim_table is not None and isinstance(claim_address, int):
+                index[(claim_table, claim_address)].append(claim)
+        _CLAIM_INDEX = (claims, index)
+    indexed = _CLAIM_INDEX[1].get((table, address), [])
     return [
         claim
-        for claim in claims
-        if claim["subject"].get("table") == table
-        and claim["subject"].get("address") == address
-        and (
+        for claim in indexed
+        if (
             claim["subject"].get("family_scope") == [family]
             or claim["source_id"] == "vendor_growatt_v124_2020"
         )
@@ -43,13 +53,22 @@ def applicability_claims_for(
     address: int,
     source_scope: str | None = None,
 ) -> list[dict[str, Any]]:
+    global _APPLICABILITY_INDEX
+    if _APPLICABILITY_INDEX is None or _APPLICABILITY_INDEX[0] is not claims:
+        index: dict[tuple[str, str], list[dict[str, Any]]] = defaultdict(list)
+        for claim in claims:
+            if claim["assertion"]["kind"] != "document_range_applicability":
+                continue
+            family_scope = claim["subject"].get("family_scope", [])
+            table_name = claim["subject"].get("table")
+            if len(family_scope) == 1 and table_name is not None:
+                index[(family_scope[0], table_name)].append(claim)
+        _APPLICABILITY_INDEX = (claims, index)
+    index = _APPLICABILITY_INDEX[1]
     return [
         claim
-        for claim in claims
-        if claim["assertion"]["kind"] == "document_range_applicability"
-        and claim["subject"].get("family_scope") == [family]
-        and (source_scope is None or claim["subject"].get("source_scope") == source_scope)
-        and claim["subject"].get("table") == table
+        for claim in index.get((family, table), [])
+        if (source_scope is None or claim["subject"].get("source_scope") == source_scope)
         and claim["subject"].get("address", -1) <= address <= claim["subject"].get("address_end", -1)
     ]
 
