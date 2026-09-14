@@ -24,10 +24,12 @@ try:
         path_key,
         promoted_properties,
     )
+    from tools.property_cell_provenance import authority_support_for_decision
 except ModuleNotFoundError:
     from build_authority_coverage import DECISION_PROPERTY_MAP, build as build_authority, canonical_authority_origins, override_keys
     from build_reconciliation import build as build_reconciliation
     from pipeline9_candidates import accepted_decisions, enumerate_candidates, path_key, promoted_properties
+    from property_cell_provenance import authority_support_for_decision
 
 ROOT = Path(__file__).resolve().parents[1]
 CANONICAL_PATH = ROOT / "spec/growatt-register-spec.json"
@@ -74,13 +76,14 @@ def _authority_metrics(
         promoted = accepted.get(key, set())
         legacy += len(old_legacy - promoted)
         exclusive += len(old_exclusive - promoted)
-        declarative += len(set(record["declarative_properties"]) | promoted)
-    return {
+        declarative += len(promoted)
+    result = {
         "canonical_property_cells": authority["authority_origin_metrics"]["canonical_property_cells"],
         "legacy_authoritative_property_cells": legacy,
         "declarative_authoritative_property_cells": declarative,
         "legacy_exclusive_property_cells": exclusive,
     }
+    return result
 
 
 def _decision(
@@ -92,6 +95,8 @@ def _decision(
     canonical: dict[str, Any],
     applicability_paths: list[dict[str, Any]],
     claims_by_id: dict[str, dict[str, Any]],
+    decision_prefix: str = "pipeline9",
+    pipeline_name: str = "PIPELINE-9",
 ) -> dict[str, Any]:
     scope = target["source_scope"]
     family = target["family"]
@@ -128,8 +133,8 @@ def _decision(
             ],
             "encoding": "vendor_documented_packed_layout",
         }
-    return {
-        "decision_id": f"pipeline9-{safe_scope}-{family}-{target['table']}-{address}-{property_name}",
+    result = {
+        "decision_id": f"{decision_prefix}-{safe_scope}-{family}-{target['table']}-{address}-{property_name}",
         "target": {
             "canonical_family": family,
             "namespace": "MODBUS",
@@ -165,15 +170,22 @@ def _decision(
         },
         "support": sorted(set(support)),
         "conflicts": [],
-        "rationale": "PIPELINE-9 generic candidate enumeration selected this exact vendor row and explicit source-scope applicability path; canonical output remains frozen.",
+        "rationale": f"{pipeline_name} generic candidate enumeration selected this exact vendor row and explicit source-scope applicability path; canonical output remains frozen.",
         "review": {
             "status": "reviewed",
             "notes": "Claim-driven shadow authority only. Vendor documentation and live-write verification remain separate; no inverter write was performed.",
         },
     }
+    result["authority_support"] = authority_support_for_decision(result, claims_by_id)
+    return result
 
 
-def _build_decisions(candidate: dict[str, Any]) -> list[dict[str, Any]]:
+def _build_decisions(
+    candidate: dict[str, Any],
+    *,
+    decision_prefix: str = "pipeline9",
+    pipeline_name: str = "PIPELINE-9",
+) -> list[dict[str, Any]]:
     claims = read(ROOT / "sources/claims/generic-claims.json")["claims"]
     claims_by_id = {claim["claim_id"]: claim for claim in claims}
     row = next(claim for claim in claims if claim["claim_id"] == candidate["vendor_row_claim_id"])
@@ -190,7 +202,18 @@ def _build_decisions(candidate: dict[str, Any]) -> list[dict[str, Any]]:
         supports = candidate["properties_by_physical_target"][":".join(map(str, key))]
         for property_name, support in sorted(supports.items()):
             decisions.append(
-                _decision(candidate, target, property_name, support, row, canonical[key], path_items, claims_by_id)
+                _decision(
+                    candidate,
+                    target,
+                    property_name,
+                    support,
+                    row,
+                    canonical[key],
+                    path_items,
+                    claims_by_id,
+                    decision_prefix,
+                    pipeline_name,
+                )
             )
     return sorted(decisions, key=lambda item: item["decision_id"])
 
@@ -247,13 +270,14 @@ def _selected_authority(
 
 
 def build(starting_main_sha: str) -> tuple[dict[str, Any], list[dict[str, Any]]]:
-    enumeration = enumerate_candidates()
+    historical_source = {"reconciliation/pipeline9_repository_wide_next_cohort.json"}
+    enumeration = enumerate_candidates(exclude_accepted_sources=historical_source)
     ranking = enumeration["candidate_ranking"]
     if not ranking:
         raise AssertionError("PIPELINE-9 produced no evidence-supported bounded candidate")
     selected = ranking[0]
     decisions = _build_decisions(selected)
-    before_decisions = accepted_decisions()
+    before_decisions = accepted_decisions(exclude_sources=historical_source)
     authority = build_authority()
     before = _authority_metrics(authority, before_decisions)
     after = _authority_metrics(authority, [*before_decisions, *decisions])

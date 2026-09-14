@@ -37,6 +37,7 @@
     "expansion_ratio_family_records_per_bus_unit": 2.26
   },
   "declarative_coverage": {
+    "accounting_mode": "explicit_property_cell_support",
     "status": "local_non_authoritative_input",
     "source": "reconciliation/min_tl_xh.json",
     "physical_targets": 18,
@@ -55,9 +56,9 @@
         "percentage": 0.0
       },
       "signedness": {
-        "covered_family_records": 12,
+        "covered_family_records": 4,
         "total_family_records": 4048,
-        "percentage": 0.3
+        "percentage": 0.1
       },
       "scale": {
         "covered_family_records": 0,
@@ -65,34 +66,34 @@
         "percentage": 0.0
       },
       "unit": {
-        "covered_family_records": 9,
-        "total_family_records": 4048,
-        "percentage": 0.22
-      },
-      "physical_quantity": {
-        "covered_family_records": 11,
-        "total_family_records": 4048,
-        "percentage": 0.27
-      },
-      "human_description": {
-        "covered_family_records": 9,
-        "total_family_records": 4048,
-        "percentage": 0.22
-      },
-      "enum_definitions": {
         "covered_family_records": 4,
         "total_family_records": 4048,
         "percentage": 0.1
       },
-      "packed_layout": {
-        "covered_family_records": 3,
+      "physical_quantity": {
+        "covered_family_records": 4,
         "total_family_records": 4048,
-        "percentage": 0.07
+        "percentage": 0.1
       },
-      "access": {
+      "human_description": {
+        "covered_family_records": 4,
+        "total_family_records": 4048,
+        "percentage": 0.1
+      },
+      "enum_definitions": {
         "covered_family_records": 0,
         "total_family_records": 4048,
         "percentage": 0.0
+      },
+      "packed_layout": {
+        "covered_family_records": 0,
+        "total_family_records": 4048,
+        "percentage": 0.0
+      },
+      "access": {
+        "covered_family_records": 1,
+        "total_family_records": 4048,
+        "percentage": 0.02
       },
       "model_applicability": {
         "covered_family_records": 0,
@@ -110,9 +111,9 @@
         "percentage": 0.02
       },
       "normalization": {
-        "covered_family_records": 9,
+        "covered_family_records": 0,
         "total_family_records": 4048,
-        "percentage": 0.22
+        "percentage": 0.0
       },
       "write_semantics": {
         "covered_family_records": 0,
@@ -516,10 +517,10 @@
     "provenance": "Every supported semantic property has decision and claim/evidence traceability; unresolved facts remain unresolved."
   },
   "migration_class_counts": {
-    "COMPATIBILITY_DERIVED": 1674,
+    "COMPATIBILITY_DERIVED": 1678,
     "EVIDENCE_GATED": 656,
-    "LEGACY_ONLY_COMPLEX": 495,
-    "PARTIAL_DECLARATIVE": 18,
+    "LEGACY_ONLY_COMPLEX": 503,
+    "PARTIAL_DECLARATIVE": 6,
     "SYNTHETIC_OR_GENERATED": 1205
   },
   "records": [
@@ -9832,8 +9833,8 @@
         "grid.first.discharge.rate"
       ],
       "declarative_properties": [
+        "access",
         "human_description",
-        "normalization",
         "physical_quantity",
         "signedness",
         "unit"
@@ -9860,11 +9861,11 @@
         "write_semantics"
       ],
       "missing_declarative_properties": [
-        "access",
         "aliases",
         "enum_definitions",
         "length_words",
         "model_applicability",
+        "normalization",
         "packed_layout",
         "physical_identity",
         "provenance_support",
@@ -9888,7 +9889,6 @@
       ],
       "declarative_properties": [
         "human_description",
-        "normalization",
         "physical_quantity",
         "signedness",
         "unit"
@@ -9920,6 +9920,7 @@
         "enum_definitions",
         "length_words",
         "model_applicability",
+        "normalization",
         "packed_layout",
         "physical_identity",
         "provenance_support",
@@ -10413,13 +10414,7 @@
       "semantic_keys": [
         "battery.first.charge.rate"
       ],
-      "declarative_properties": [
-        "human_description",
-        "normalization",
-        "physical_quantity",
-        "signedness",
-        "unit"
-      ],
+      "declarative_properties": [],
       "legacy_dependencies": [
         "human_description",
         "normalization",
@@ -10445,17 +10440,22 @@
         "access",
         "aliases",
         "enum_definitions",
+        "human_description",
         "length_words",
         "model_applicability",
+        "normalization",
         "packed_layout",
         "physical_identity",
+        "physical_quantity",
         "provenance_support",
         "scale",
+        "signedness",
+        "unit",
         "write_semantics"
       ],
       "provenance_status": "canonical_source_provenance_present",
-      "migration_class": "PARTIAL_DECLARATIVE",
-      "migration_risk": "medium"
+      "migration_class": "COMPATIBILITY_DERIVED",
+      "migration_risk": "low"
     },
     {
       "unit_id": "min_tl_xh:holding:3048:1",
@@ -10468,13 +10468,7 @@
       "semantic_keys": [
         "battery.first.stop.soc"
       ],
-      "declarative_properties": [
-        "human_description",
-        "normalization",
-        "physical_quantity",
-        "signedness",
-        "unit"
-      ],
+      "declarative_properties": [],
       "legacy_dependencies": [
         "human_description",
         "normalization",
@@ -10500,17 +10494,22 @@
         "access",
         "aliases",
         "enum_definitions",
+        "human_description",
         "length_words",
         "model_applicability",
+        "normalization",
         "packed_layout",
         "physical_identity",
+        "physical_quantity",
         "provenance_support",
         "scale",
+        "signedness",
+        "unit",
         "write_semantics"
       ],
       "provenance_status": "canonical_source_provenance_present",
-      "migration_class": "PARTIAL_DECLARATIVE",
-      "migration_risk": "medium"
+      "migration_class": "COMPATIBILITY_DERIVED",
+      "migration_risk": "low"
     },
     {
       "unit_id": "min_tl_xh:holding:3049:1",
@@ -10523,13 +10522,7 @@
       "semantic_keys": [
         "ac.charge.enabled"
       ],
-      "declarative_properties": [
-        "human_description",
-        "normalization",
-        "physical_quantity",
-        "signedness",
-        "unit"
-      ],
+      "declarative_properties": [],
       "legacy_dependencies": [
         "human_description",
         "normalization",
@@ -10554,17 +10547,22 @@
         "access",
         "aliases",
         "enum_definitions",
+        "human_description",
         "length_words",
         "model_applicability",
+        "normalization",
         "packed_layout",
         "physical_identity",
+        "physical_quantity",
         "provenance_support",
         "scale",
+        "signedness",
+        "unit",
         "write_semantics"
       ],
       "provenance_status": "canonical_source_provenance_present",
-      "migration_class": "PARTIAL_DECLARATIVE",
-      "migration_risk": "medium"
+      "migration_class": "LEGACY_ONLY_COMPLEX",
+      "migration_risk": "high"
     },
     {
       "unit_id": "min_tl_xh:holding:3050:1",
@@ -12167,13 +12165,7 @@
       "semantic_keys": [
         "ups.eps.frequency.selection"
       ],
-      "declarative_properties": [
-        "human_description",
-        "normalization",
-        "physical_quantity",
-        "signedness",
-        "unit"
-      ],
+      "declarative_properties": [],
       "legacy_dependencies": [
         "human_description",
         "normalization",
@@ -12199,17 +12191,22 @@
         "access",
         "aliases",
         "enum_definitions",
+        "human_description",
         "length_words",
         "model_applicability",
+        "normalization",
         "packed_layout",
         "physical_identity",
+        "physical_quantity",
         "provenance_support",
         "scale",
+        "signedness",
+        "unit",
         "write_semantics"
       ],
       "provenance_status": "canonical_source_provenance_present",
-      "migration_class": "PARTIAL_DECLARATIVE",
-      "migration_risk": "medium"
+      "migration_class": "LEGACY_ONLY_COMPLEX",
+      "migration_risk": "high"
     },
     {
       "unit_id": "min_tl_xh:holding:3082:1",
@@ -12224,7 +12221,6 @@
       ],
       "declarative_properties": [
         "human_description",
-        "normalization",
         "physical_quantity",
         "signedness",
         "unit"
@@ -12256,6 +12252,7 @@
         "enum_definitions",
         "length_words",
         "model_applicability",
+        "normalization",
         "packed_layout",
         "physical_identity",
         "provenance_support",
@@ -28917,11 +28914,7 @@
       "semantic_keys": [
         "inverter.status"
       ],
-      "declarative_properties": [
-        "enum_definitions",
-        "packed_layout",
-        "physical_quantity"
-      ],
+      "declarative_properties": [],
       "legacy_dependencies": [
         "human_description",
         "normalization",
@@ -28945,11 +28938,14 @@
       "missing_declarative_properties": [
         "access",
         "aliases",
+        "enum_definitions",
         "human_description",
         "length_words",
         "model_applicability",
         "normalization",
+        "packed_layout",
         "physical_identity",
+        "physical_quantity",
         "provenance_support",
         "scale",
         "signedness",
@@ -28957,8 +28953,8 @@
         "write_semantics"
       ],
       "provenance_status": "canonical_source_provenance_present",
-      "migration_class": "PARTIAL_DECLARATIVE",
-      "migration_risk": "medium"
+      "migration_class": "LEGACY_ONLY_COMPLEX",
+      "migration_risk": "high"
     },
     {
       "unit_id": "min_tl_xh:input:3001:1",
@@ -34364,7 +34360,9 @@
         "telemetry.output_power_percentage"
       ],
       "declarative_properties": [
-        "signedness"
+        "human_description",
+        "physical_quantity",
+        "unit"
       ],
       "legacy_dependencies": [
         "human_description",
@@ -34391,16 +34389,14 @@
         "access",
         "aliases",
         "enum_definitions",
-        "human_description",
         "length_words",
         "model_applicability",
         "normalization",
         "packed_layout",
         "physical_identity",
-        "physical_quantity",
         "provenance_support",
         "scale",
-        "unit",
+        "signedness",
         "write_semantics"
       ],
       "provenance_status": "canonical_source_provenance_present",
@@ -34840,13 +34836,7 @@
       "semantic_keys": [
         "inverter.warning_flags"
       ],
-      "declarative_properties": [
-        "human_description",
-        "normalization",
-        "physical_quantity",
-        "signedness",
-        "unit"
-      ],
+      "declarative_properties": [],
       "legacy_dependencies": [
         "human_description",
         "normalization",
@@ -34871,17 +34861,22 @@
         "access",
         "aliases",
         "enum_definitions",
+        "human_description",
         "length_words",
         "model_applicability",
+        "normalization",
         "packed_layout",
         "physical_identity",
+        "physical_quantity",
         "provenance_support",
         "scale",
+        "signedness",
+        "unit",
         "write_semantics"
       ],
       "provenance_status": "canonical_source_provenance_present",
-      "migration_class": "PARTIAL_DECLARATIVE",
-      "migration_risk": "medium"
+      "migration_class": "LEGACY_ONLY_COMPLEX",
+      "migration_risk": "high"
     },
     {
       "unit_id": "min_tl_xh:input:3111:1",
@@ -34894,13 +34889,7 @@
       "semantic_keys": [
         "inverter.present_fft_value_channel_a"
       ],
-      "declarative_properties": [
-        "human_description",
-        "normalization",
-        "physical_quantity",
-        "signedness",
-        "unit"
-      ],
+      "declarative_properties": [],
       "legacy_dependencies": [
         "human_description",
         "normalization",
@@ -34925,17 +34914,22 @@
         "access",
         "aliases",
         "enum_definitions",
+        "human_description",
         "length_words",
         "model_applicability",
+        "normalization",
         "packed_layout",
         "physical_identity",
+        "physical_quantity",
         "provenance_support",
         "scale",
+        "signedness",
+        "unit",
         "write_semantics"
       ],
       "provenance_status": "canonical_source_provenance_present",
-      "migration_class": "PARTIAL_DECLARATIVE",
-      "migration_risk": "medium"
+      "migration_class": "COMPATIBILITY_DERIVED",
+      "migration_risk": "low"
     },
     {
       "unit_id": "min_tl_xh:input:3112:1",
@@ -37779,9 +37773,7 @@
       "semantic_keys": [
         "bdc.derating_mode"
       ],
-      "declarative_properties": [
-        "enum_definitions"
-      ],
+      "declarative_properties": [],
       "legacy_dependencies": [
         "enum_definitions",
         "human_description",
@@ -37806,6 +37798,7 @@
       "missing_declarative_properties": [
         "access",
         "aliases",
+        "enum_definitions",
         "human_description",
         "length_words",
         "model_applicability",
@@ -37820,8 +37813,8 @@
         "write_semantics"
       ],
       "provenance_status": "canonical_source_provenance_present",
-      "migration_class": "PARTIAL_DECLARATIVE",
-      "migration_risk": "medium"
+      "migration_class": "LEGACY_ONLY_COMPLEX",
+      "migration_risk": "high"
     },
     {
       "unit_id": "min_tl_xh:input:3166:1",
@@ -37834,11 +37827,7 @@
       "semantic_keys": [
         "bdc.system_mode_status"
       ],
-      "declarative_properties": [
-        "enum_definitions",
-        "packed_layout",
-        "physical_quantity"
-      ],
+      "declarative_properties": [],
       "legacy_dependencies": [
         "human_description",
         "normalization",
@@ -37862,11 +37851,14 @@
       "missing_declarative_properties": [
         "access",
         "aliases",
+        "enum_definitions",
         "human_description",
         "length_words",
         "model_applicability",
         "normalization",
+        "packed_layout",
         "physical_identity",
+        "physical_quantity",
         "provenance_support",
         "scale",
         "signedness",
@@ -37874,8 +37866,8 @@
         "write_semantics"
       ],
       "provenance_status": "canonical_source_provenance_present",
-      "migration_class": "PARTIAL_DECLARATIVE",
-      "migration_risk": "medium"
+      "migration_class": "LEGACY_ONLY_COMPLEX",
+      "migration_risk": "high"
     },
     {
       "unit_id": "min_tl_xh:input:3167:1",
@@ -40229,9 +40221,7 @@
       "semantic_keys": [
         "battery.request_flags"
       ],
-      "declarative_properties": [
-        "packed_layout"
-      ],
+      "declarative_properties": [],
       "legacy_dependencies": [
         "human_description",
         "normalization",
@@ -40260,6 +40250,7 @@
         "length_words",
         "model_applicability",
         "normalization",
+        "packed_layout",
         "physical_identity",
         "physical_quantity",
         "provenance_support",
@@ -40269,8 +40260,8 @@
         "write_semantics"
       ],
       "provenance_status": "canonical_source_provenance_present",
-      "migration_class": "PARTIAL_DECLARATIVE",
-      "migration_risk": "medium"
+      "migration_class": "LEGACY_ONLY_COMPLEX",
+      "migration_risk": "high"
     },
     {
       "unit_id": "min_tl_xh:input:3212:1",
@@ -40283,9 +40274,7 @@
       "semantic_keys": [
         "diagnostic.bms_status"
       ],
-      "declarative_properties": [
-        "enum_definitions"
-      ],
+      "declarative_properties": [],
       "legacy_dependencies": [
         "enum_definitions",
         "human_description",
@@ -40310,6 +40299,7 @@
       "missing_declarative_properties": [
         "access",
         "aliases",
+        "enum_definitions",
         "human_description",
         "length_words",
         "model_applicability",
@@ -40324,8 +40314,8 @@
         "write_semantics"
       ],
       "provenance_status": "canonical_source_provenance_present",
-      "migration_class": "PARTIAL_DECLARATIVE",
-      "migration_risk": "medium"
+      "migration_class": "LEGACY_ONLY_COMPLEX",
+      "migration_risk": "high"
     },
     {
       "unit_id": "min_tl_xh:input:3213:1",
@@ -40552,9 +40542,7 @@
       "semantic_keys": [
         "battery.current"
       ],
-      "declarative_properties": [
-        "signedness"
-      ],
+      "declarative_properties": [],
       "legacy_dependencies": [
         "human_description",
         "normalization",
@@ -40589,12 +40577,13 @@
         "physical_quantity",
         "provenance_support",
         "scale",
+        "signedness",
         "unit",
         "write_semantics"
       ],
       "provenance_status": "canonical_source_provenance_present",
-      "migration_class": "PARTIAL_DECLARATIVE",
-      "migration_risk": "medium"
+      "migration_class": "COMPATIBILITY_DERIVED",
+      "migration_risk": "low"
     },
     {
       "unit_id": "min_tl_xh:input:3218:1",

@@ -682,7 +682,9 @@ def build(starting_sha: str | None = None) -> dict[str, Any]:
 @lru_cache(maxsize=1)
 def authority_snapshot() -> dict[str, Any]:
     """Reuse the immutable authority inventory during one generator run."""
-    return build_authority()
+    # Preserve reproducibility of this historical report; PIPELINE-10A uses
+    # the default explicit property-cell accounting for current authority.
+    return build_authority(property_cell_accounting=False)
 
 
 def render_report(data: dict[str, Any]) -> str:

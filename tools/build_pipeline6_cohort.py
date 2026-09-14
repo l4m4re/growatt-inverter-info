@@ -337,7 +337,9 @@ def candidate_ranking(authority: dict[str, Any]) -> list[dict[str, Any]]:
 
 
 def build(starting_sha: str | None = None) -> dict[str, Any]:
-    authority = build_authority()
+    # Preserve reproducibility of this historical report; PIPELINE-10A uses
+    # the default explicit property-cell accounting for current authority.
+    authority = build_authority(property_cell_accounting=False)
     new_decisions = build_decisions()
     selected = selected_decisions(new_decisions)
     authority_metrics = metrics(authority, selected)

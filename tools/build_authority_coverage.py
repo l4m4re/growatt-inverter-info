@@ -12,6 +12,11 @@ from pathlib import Path
 import subprocess
 from typing import Any
 
+try:
+    from tools.property_cell_provenance import supported_property_cells
+except ModuleNotFoundError:
+    from property_cell_provenance import supported_property_cells
+
 ROOT = Path(__file__).resolve().parents[1]
 CANONICAL_PATH = ROOT / "spec" / "growatt-register-spec.json"
 COMPATIBILITY_PATH = ROOT / "knowledge" / "compatibility" / "growatt-register-reference.json"
@@ -114,6 +119,26 @@ def decision_index(data: dict[str, Any] | None) -> dict[tuple[str, str, int], se
         property_name = target.get("property")
         if isinstance(family, str) and table in {"holding", "input"} and isinstance(property_name, str):
             indexed[(family, table, target["address"])].add(property_name)
+    return indexed
+
+
+def property_decision_index(data: dict[str, Any] | None) -> dict[tuple[str, str, int], set[str]]:
+    """Index only canonical property cells with explicit claim support."""
+    indexed: dict[tuple[str, str, int], set[str]] = defaultdict(set)
+    if data is None:
+        return indexed
+    claims = load_json(ROOT / "sources" / "claims" / "generic-claims.json")["claims"]
+    claims_by_id = {claim["claim_id"]: claim for claim in claims}
+    for decision in data.get("decisions", []):
+        target = decision.get("target", {})
+        if target.get("namespace") != "MODBUS" or not isinstance(target.get("address"), int):
+            continue
+        family = target.get("canonical_family")
+        table = target.get("table")
+        if isinstance(family, str) and table in {"holding", "input"}:
+            indexed[(family, table, target["address"])].update(
+                supported_property_cells(decision, claims_by_id)
+            )
     return indexed
 
 
@@ -302,9 +327,8 @@ def declarative_metrics(
     covered_records = [record for record in records if (record["family"], record["table"], record["address"]) in physical_targets]
     by_property: dict[str, set[str]] = defaultdict(set)
     for key, properties in decisions.items():
-        for decision_property in properties:
-            for property_name in DECISION_PROPERTY_MAP.get(decision_property, set()):
-                by_property[property_name].add(key)
+        for property_name in properties:
+            by_property[property_name].add(key)
     result = {
         "physical_targets": len(physical_targets),
         "canonical_family_target_matches": len(covered_records),
@@ -367,12 +391,12 @@ def cohort_summary(records: list[dict[str, Any]], unit_records: dict[tuple[str, 
     return result
 
 
-def build() -> dict[str, Any]:
+def build(*, property_cell_accounting: bool = True) -> dict[str, Any]:
     canonical = load_json(CANONICAL_PATH)
     compatibility = load_json(COMPATIBILITY_PATH)
     records = canonical["registers"]
     declarative, declarative_source = load_declarative()
-    decisions = decision_index(declarative)
+    decisions = property_decision_index(declarative) if property_cell_accounting else decision_index(declarative)
     decision_record_count = len(declarative.get("decisions", [])) if declarative else 0
     override_map = override_keys()
     origin_metrics, origins_by_record = origin_summary(records, override_map)
@@ -383,10 +407,13 @@ def build() -> dict[str, Any]:
     inventory = []
     migration_counts: Counter[str] = Counter()
     for record in records:
-        decision_properties = set()
         decision_key = (record["family"], record["table"], record["address"])
-        for decision_property in decisions.get(decision_key, set()):
-            decision_properties.update(DECISION_PROPERTY_MAP.get(decision_property, set()))
+        decision_properties = set()
+        if property_cell_accounting:
+            decision_properties.update(decisions.get(decision_key, set()))
+        else:
+            for decision_property in decisions.get(decision_key, set()):
+                decision_properties.update(DECISION_PROPERTY_MAP.get(decision_property, set()))
         origins = origins_by_record[record["physical_id"]]
         classification = migration_class(record, decision_properties, origins)
         migration_counts[classification] += 1
@@ -441,6 +468,7 @@ def build() -> dict[str, Any]:
             "expansion_ratio_family_records_per_bus_unit": round(len(records) / len(unit_records), 3),
         },
         "declarative_coverage": {
+            "accounting_mode": "explicit_property_cell_support" if property_cell_accounting else "historical_decision_expansion",
             **declarative_source,
             **declarative_metrics(records, decisions, decision_record_count),
         },
