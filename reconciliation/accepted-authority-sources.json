@@ -21,6 +21,9 @@
     },
     {
       "path": "reconciliation/pipeline9_repository_wide_next_cohort.json"
+    },
+    {
+      "path": "reconciliation/pipeline10_next_repository_wide_cohort.json"
     }
   ]
 }

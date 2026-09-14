@@ -225,12 +225,12 @@ def test_every_accepted_promoted_cell_has_real_noncanonical_support() -> None:
             )
 
 
-def test_accepted_authority_registry_excludes_unaccepted_pipeline10() -> None:
+def test_accepted_authority_registry_includes_merged_pipeline10() -> None:
     first = accepted_decisions()
     second = accepted_decisions()
     assert first == second
-    assert all(not item["decision_id"].startswith("pipeline10-") for item in first)
-    assert len(first) == 43
+    assert any(item["decision_id"].startswith("pipeline10-") for item in first)
+    assert len(first) == 49
 
 
 def test_property_cell_rebaseline_records_h123_h10_and_corrected_rank_one() -> None:
