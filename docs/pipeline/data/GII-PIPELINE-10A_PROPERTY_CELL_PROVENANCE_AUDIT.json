@@ -5265,8 +5265,3240 @@
       "provenance_support",
       "normalization",
       "write_semantics"
-    ]
+    ],
+    "retained_unique_physical_property_cells": 100,
+    "removed_unique_physical_property_cells": 88,
+    "newly_supported_unique_physical_property_cells": 11
   },
+  "historical_accounting_bridge": {
+    "historical_broad_declarative_total": 210,
+    "historical_decision_implied_unique_cells": 188,
+    "historical_nondecision_declarative_cells": 22,
+    "historical_broad_inventory_unique_cells": 58,
+    "historical_inventory_overlap_with_decision_implied": 36,
+    "historical_nondecision_cells": [
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "input",
+        "address": 3000,
+        "property_name": "enum_definitions",
+        "category": "historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry",
+        "source": "docs/pipeline/data/GII-PIPELINE-5A_AUTHORITY_COVERAGE.json@c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee",
+        "authority_status": "local_non_authoritative_input"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "input",
+        "address": 3000,
+        "property_name": "packed_layout",
+        "category": "historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry",
+        "source": "docs/pipeline/data/GII-PIPELINE-5A_AUTHORITY_COVERAGE.json@c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee",
+        "authority_status": "local_non_authoritative_input"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "input",
+        "address": 3000,
+        "property_name": "physical_quantity",
+        "category": "historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry",
+        "source": "docs/pipeline/data/GII-PIPELINE-5A_AUTHORITY_COVERAGE.json@c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee",
+        "authority_status": "local_non_authoritative_input"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "input",
+        "address": 3101,
+        "property_name": "signedness",
+        "category": "historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry",
+        "source": "docs/pipeline/data/GII-PIPELINE-5A_AUTHORITY_COVERAGE.json@c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee",
+        "authority_status": "local_non_authoritative_input"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "input",
+        "address": 3110,
+        "property_name": "human_description",
+        "category": "historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry",
+        "source": "docs/pipeline/data/GII-PIPELINE-5A_AUTHORITY_COVERAGE.json@c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee",
+        "authority_status": "local_non_authoritative_input"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "input",
+        "address": 3110,
+        "property_name": "normalization",
+        "category": "historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry",
+        "source": "docs/pipeline/data/GII-PIPELINE-5A_AUTHORITY_COVERAGE.json@c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee",
+        "authority_status": "local_non_authoritative_input"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "input",
+        "address": 3110,
+        "property_name": "physical_quantity",
+        "category": "historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry",
+        "source": "docs/pipeline/data/GII-PIPELINE-5A_AUTHORITY_COVERAGE.json@c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee",
+        "authority_status": "local_non_authoritative_input"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "input",
+        "address": 3110,
+        "property_name": "signedness",
+        "category": "historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry",
+        "source": "docs/pipeline/data/GII-PIPELINE-5A_AUTHORITY_COVERAGE.json@c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee",
+        "authority_status": "local_non_authoritative_input"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "input",
+        "address": 3110,
+        "property_name": "unit",
+        "category": "historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry",
+        "source": "docs/pipeline/data/GII-PIPELINE-5A_AUTHORITY_COVERAGE.json@c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee",
+        "authority_status": "local_non_authoritative_input"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "input",
+        "address": 3111,
+        "property_name": "human_description",
+        "category": "historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry",
+        "source": "docs/pipeline/data/GII-PIPELINE-5A_AUTHORITY_COVERAGE.json@c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee",
+        "authority_status": "local_non_authoritative_input"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "input",
+        "address": 3111,
+        "property_name": "normalization",
+        "category": "historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry",
+        "source": "docs/pipeline/data/GII-PIPELINE-5A_AUTHORITY_COVERAGE.json@c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee",
+        "authority_status": "local_non_authoritative_input"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "input",
+        "address": 3111,
+        "property_name": "physical_quantity",
+        "category": "historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry",
+        "source": "docs/pipeline/data/GII-PIPELINE-5A_AUTHORITY_COVERAGE.json@c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee",
+        "authority_status": "local_non_authoritative_input"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "input",
+        "address": 3111,
+        "property_name": "signedness",
+        "category": "historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry",
+        "source": "docs/pipeline/data/GII-PIPELINE-5A_AUTHORITY_COVERAGE.json@c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee",
+        "authority_status": "local_non_authoritative_input"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "input",
+        "address": 3111,
+        "property_name": "unit",
+        "category": "historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry",
+        "source": "docs/pipeline/data/GII-PIPELINE-5A_AUTHORITY_COVERAGE.json@c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee",
+        "authority_status": "local_non_authoritative_input"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "input",
+        "address": 3165,
+        "property_name": "enum_definitions",
+        "category": "historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry",
+        "source": "docs/pipeline/data/GII-PIPELINE-5A_AUTHORITY_COVERAGE.json@c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee",
+        "authority_status": "local_non_authoritative_input"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "input",
+        "address": 3166,
+        "property_name": "enum_definitions",
+        "category": "historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry",
+        "source": "docs/pipeline/data/GII-PIPELINE-5A_AUTHORITY_COVERAGE.json@c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee",
+        "authority_status": "local_non_authoritative_input"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "input",
+        "address": 3166,
+        "property_name": "packed_layout",
+        "category": "historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry",
+        "source": "docs/pipeline/data/GII-PIPELINE-5A_AUTHORITY_COVERAGE.json@c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee",
+        "authority_status": "local_non_authoritative_input"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "input",
+        "address": 3166,
+        "property_name": "physical_quantity",
+        "category": "historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry",
+        "source": "docs/pipeline/data/GII-PIPELINE-5A_AUTHORITY_COVERAGE.json@c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee",
+        "authority_status": "local_non_authoritative_input"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "input",
+        "address": 3170,
+        "property_name": "signedness",
+        "category": "historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry",
+        "source": "docs/pipeline/data/GII-PIPELINE-5A_AUTHORITY_COVERAGE.json@c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee",
+        "authority_status": "local_non_authoritative_input"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "input",
+        "address": 3211,
+        "property_name": "packed_layout",
+        "category": "historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry",
+        "source": "docs/pipeline/data/GII-PIPELINE-5A_AUTHORITY_COVERAGE.json@c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee",
+        "authority_status": "local_non_authoritative_input"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "input",
+        "address": 3212,
+        "property_name": "enum_definitions",
+        "category": "historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry",
+        "source": "docs/pipeline/data/GII-PIPELINE-5A_AUTHORITY_COVERAGE.json@c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee",
+        "authority_status": "local_non_authoritative_input"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "input",
+        "address": 3217,
+        "property_name": "signedness",
+        "category": "historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry",
+        "source": "docs/pipeline/data/GII-PIPELINE-5A_AUTHORITY_COVERAGE.json@c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee",
+        "authority_status": "local_non_authoritative_input"
+      }
+    ],
+    "relationships": {
+      "historical_broad_equals_decision_implied_union_nondecision": true,
+      "historical_inventory_equals_overlap_union_nondecision": true
+    },
+    "formula": "historical_broad = old_decision_implied ∪ historical_nondecision; historical_inventory = overlap_with_old_decision_implied ∪ historical_nondecision",
+    "historical_source": "docs/pipeline/data/GII-PIPELINE-5A_AUTHORITY_COVERAGE.json@c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee"
+  },
+  "property_set_bridge": {
+    "old_implied_unique": [
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3036,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3036,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3036,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3036,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3036,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3037,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3037,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3037,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3037,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3037,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3038,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3038,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3038,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3038,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3038,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3039,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3039,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3039,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3039,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3039,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3040,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3040,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3040,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3040,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3040,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3041,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3041,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3041,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3041,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3041,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3042,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3042,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3042,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3042,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3042,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3043,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3043,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3043,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3043,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3043,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3044,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3044,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3044,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3044,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3044,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3045,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3045,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3045,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3045,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3045,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3046,
+        "property_name": "provenance_support"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3047,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3047,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3047,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3047,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3047,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3048,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3048,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3048,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3048,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3048,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3049,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3049,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3049,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3049,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3049,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3050,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3050,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3050,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3050,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3050,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3051,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3051,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3051,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3051,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3051,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3052,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3052,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3052,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3052,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3052,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3053,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3053,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3053,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3053,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3053,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3054,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3054,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3054,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3054,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3054,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3055,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3055,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3055,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3055,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3055,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3056,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3056,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3056,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3056,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3056,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3057,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3057,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3057,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3057,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3057,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3058,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3058,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3058,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3058,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3058,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3059,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3059,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3059,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3059,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3059,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3070,
+        "property_name": "enum_definitions"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3070,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3070,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3070,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3070,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3070,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3071,
+        "property_name": "enum_definitions"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3071,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3071,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3071,
+        "property_name": "packed_layout"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3071,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3071,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3071,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3081,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3081,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3081,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3081,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3081,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3082,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3082,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3082,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3082,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3082,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3083,
+        "property_name": "provenance_support"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3084,
+        "property_name": "provenance_support"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3085,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3085,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3085,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3085,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3085,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3086,
+        "property_name": "enum_definitions"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3086,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3086,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3086,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3086,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3086,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3095,
+        "property_name": "enum_definitions"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3095,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3095,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3095,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3095,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3095,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "mod_tl3_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "mod_tl3_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "mod_tl3_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "mod_tl3_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "mod_tl3_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "storage_mix",
+        "table": "holding",
+        "address": 123,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "storage_mix",
+        "table": "holding",
+        "address": 123,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "storage_mix",
+        "table": "holding",
+        "address": 123,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "storage_mix",
+        "table": "holding",
+        "address": 123,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "storage_mix",
+        "table": "holding",
+        "address": 123,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "storage_spa",
+        "table": "holding",
+        "address": 123,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "storage_spa",
+        "table": "holding",
+        "address": 123,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "storage_spa",
+        "table": "holding",
+        "address": 123,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "storage_spa",
+        "table": "holding",
+        "address": 123,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "storage_spa",
+        "table": "holding",
+        "address": 123,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "storage_sph",
+        "table": "holding",
+        "address": 123,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "storage_sph",
+        "table": "holding",
+        "address": 123,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "storage_sph",
+        "table": "holding",
+        "address": 123,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "storage_sph",
+        "table": "holding",
+        "address": 123,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "storage_sph",
+        "table": "holding",
+        "address": 123,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "tl3_max_mid_mac",
+        "table": "holding",
+        "address": 123,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "tl3_max_mid_mac",
+        "table": "holding",
+        "address": 123,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "tl3_max_mid_mac",
+        "table": "holding",
+        "address": 123,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "tl3_max_mid_mac",
+        "table": "holding",
+        "address": 123,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "tl3_max_mid_mac",
+        "table": "holding",
+        "address": 123,
+        "property_name": "unit"
+      }
+    ],
+    "corrected_supported_unique": [
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "access"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3036,
+        "property_name": "access"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3036,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3036,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3036,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3036,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3037,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3037,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3037,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3037,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3038,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3038,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3038,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3039,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3039,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3039,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3040,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3040,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3040,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3041,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3041,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3041,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3042,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3042,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3042,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3043,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3043,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3043,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3044,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3044,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3044,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3045,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3045,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3045,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3046,
+        "property_name": "provenance_support"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3050,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3050,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3050,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3051,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3051,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3051,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3052,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3052,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3052,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3053,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3053,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3053,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3054,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3054,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3054,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3055,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3055,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3055,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3056,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3056,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3056,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3057,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3057,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3057,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3058,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3058,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3058,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3059,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3059,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3059,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3070,
+        "property_name": "access"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3070,
+        "property_name": "enum_definitions"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3070,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3070,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3071,
+        "property_name": "access"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3071,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3071,
+        "property_name": "packed_layout"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3071,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3082,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3082,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3082,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3082,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3083,
+        "property_name": "provenance_support"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3084,
+        "property_name": "provenance_support"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3085,
+        "property_name": "access"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3085,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3085,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3086,
+        "property_name": "access"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3086,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3086,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3095,
+        "property_name": "enum_definitions"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3095,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3095,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "mod_tl3_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "access"
+      },
+      {
+        "canonical_family": "mod_tl3_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "mod_tl3_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "mod_tl3_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "storage_mix",
+        "table": "holding",
+        "address": 123,
+        "property_name": "access"
+      },
+      {
+        "canonical_family": "storage_mix",
+        "table": "holding",
+        "address": 123,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "storage_mix",
+        "table": "holding",
+        "address": 123,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "storage_mix",
+        "table": "holding",
+        "address": 123,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "storage_spa",
+        "table": "holding",
+        "address": 123,
+        "property_name": "access"
+      },
+      {
+        "canonical_family": "storage_spa",
+        "table": "holding",
+        "address": 123,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "storage_spa",
+        "table": "holding",
+        "address": 123,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "storage_spa",
+        "table": "holding",
+        "address": 123,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "storage_sph",
+        "table": "holding",
+        "address": 123,
+        "property_name": "access"
+      },
+      {
+        "canonical_family": "storage_sph",
+        "table": "holding",
+        "address": 123,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "storage_sph",
+        "table": "holding",
+        "address": 123,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "storage_sph",
+        "table": "holding",
+        "address": 123,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "tl3_max_mid_mac",
+        "table": "holding",
+        "address": 123,
+        "property_name": "access"
+      },
+      {
+        "canonical_family": "tl3_max_mid_mac",
+        "table": "holding",
+        "address": 123,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "tl3_max_mid_mac",
+        "table": "holding",
+        "address": 123,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "tl3_max_mid_mac",
+        "table": "holding",
+        "address": 123,
+        "property_name": "unit"
+      }
+    ],
+    "retained": [
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3036,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3036,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3036,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3036,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3037,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3037,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3037,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3037,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3038,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3038,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3038,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3039,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3039,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3039,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3040,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3040,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3040,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3041,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3041,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3041,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3042,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3042,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3042,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3043,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3043,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3043,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3044,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3044,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3044,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3045,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3045,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3045,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3046,
+        "property_name": "provenance_support"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3050,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3050,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3050,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3051,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3051,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3051,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3052,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3052,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3052,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3053,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3053,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3053,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3054,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3054,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3054,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3055,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3055,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3055,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3056,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3056,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3056,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3057,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3057,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3057,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3058,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3058,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3058,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3059,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3059,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3059,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3070,
+        "property_name": "enum_definitions"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3070,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3070,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3071,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3071,
+        "property_name": "packed_layout"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3071,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3082,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3082,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3082,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3082,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3083,
+        "property_name": "provenance_support"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3084,
+        "property_name": "provenance_support"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3085,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3085,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3086,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3086,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3095,
+        "property_name": "enum_definitions"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3095,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3095,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "mod_tl3_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "mod_tl3_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "mod_tl3_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "storage_mix",
+        "table": "holding",
+        "address": 123,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "storage_mix",
+        "table": "holding",
+        "address": 123,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "storage_mix",
+        "table": "holding",
+        "address": 123,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "storage_spa",
+        "table": "holding",
+        "address": 123,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "storage_spa",
+        "table": "holding",
+        "address": 123,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "storage_spa",
+        "table": "holding",
+        "address": 123,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "storage_sph",
+        "table": "holding",
+        "address": 123,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "storage_sph",
+        "table": "holding",
+        "address": 123,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "storage_sph",
+        "table": "holding",
+        "address": 123,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "tl3_max_mid_mac",
+        "table": "holding",
+        "address": 123,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "tl3_max_mid_mac",
+        "table": "holding",
+        "address": 123,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "tl3_max_mid_mac",
+        "table": "holding",
+        "address": 123,
+        "property_name": "unit"
+      }
+    ],
+    "removed": [
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3036,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3037,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3038,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3038,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3039,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3039,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3040,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3040,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3041,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3041,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3042,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3042,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3043,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3043,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3044,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3044,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3045,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3045,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3047,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3047,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3047,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3047,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3047,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3048,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3048,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3048,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3048,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3048,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3049,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3049,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3049,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3049,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3049,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3050,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3050,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3051,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3051,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3052,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3052,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3053,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3053,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3054,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3054,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3055,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3055,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3056,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3056,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3057,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3057,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3058,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3058,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3059,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3059,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3070,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3070,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3070,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3071,
+        "property_name": "enum_definitions"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3071,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3071,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3071,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3081,
+        "property_name": "human_description"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3081,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3081,
+        "property_name": "physical_quantity"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3081,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3081,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3082,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3085,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3085,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3085,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3086,
+        "property_name": "enum_definitions"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3086,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3086,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3086,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3095,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3095,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3095,
+        "property_name": "unit"
+      },
+      {
+        "canonical_family": "mod_tl3_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "mod_tl3_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "storage_mix",
+        "table": "holding",
+        "address": 123,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "storage_mix",
+        "table": "holding",
+        "address": 123,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "storage_spa",
+        "table": "holding",
+        "address": 123,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "storage_spa",
+        "table": "holding",
+        "address": 123,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "storage_sph",
+        "table": "holding",
+        "address": 123,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "storage_sph",
+        "table": "holding",
+        "address": 123,
+        "property_name": "signedness"
+      },
+      {
+        "canonical_family": "tl3_max_mid_mac",
+        "table": "holding",
+        "address": 123,
+        "property_name": "normalization"
+      },
+      {
+        "canonical_family": "tl3_max_mid_mac",
+        "table": "holding",
+        "address": 123,
+        "property_name": "signedness"
+      }
+    ],
+    "newly_supported": [
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "access"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3036,
+        "property_name": "access"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3070,
+        "property_name": "access"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3071,
+        "property_name": "access"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3085,
+        "property_name": "access"
+      },
+      {
+        "canonical_family": "min_tl_xh",
+        "table": "holding",
+        "address": 3086,
+        "property_name": "access"
+      },
+      {
+        "canonical_family": "mod_tl3_xh",
+        "table": "holding",
+        "address": 123,
+        "property_name": "access"
+      },
+      {
+        "canonical_family": "storage_mix",
+        "table": "holding",
+        "address": 123,
+        "property_name": "access"
+      },
+      {
+        "canonical_family": "storage_spa",
+        "table": "holding",
+        "address": 123,
+        "property_name": "access"
+      },
+      {
+        "canonical_family": "storage_sph",
+        "table": "holding",
+        "address": 123,
+        "property_name": "access"
+      },
+      {
+        "canonical_family": "tl3_max_mid_mac",
+        "table": "holding",
+        "address": 123,
+        "property_name": "access"
+      }
+    ],
+    "counts": {
+      "old_implied_unique": 188,
+      "corrected_supported_unique": 111,
+      "retained": 100,
+      "removed": 88,
+      "newly_supported": 11
+    },
+    "relationships": {
+      "old_equals_retained_union_removed": true,
+      "corrected_equals_retained_union_newly_supported": true,
+      "retained_disjoint_removed": true,
+      "retained_disjoint_newly_supported": true,
+      "removed_disjoint_corrected": true,
+      "newly_supported_disjoint_old": true
+    }
+  },
+  "corrected_authority_definition": "Unique canonical property cells backed by accepted reconciliation decisions with explicit noncanonical property-level claim support; applicability claims establish scope only, and current PIPELINE-10 decisions are excluded from the accepted registry.",
   "affected_historical_cohorts": [
     "PIPELINE-4A derived reconciliation infrastructure",
     "PIPELINE-5B/5D and PIPELINE-6/7/8 accepted decisions",

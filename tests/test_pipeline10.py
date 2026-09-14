@@ -8,6 +8,11 @@ from typing import Any
 
 from tools.build_authority_coverage import DECISION_PROPERTY_MAP
 from tools.build_pipeline10a_audit import build as build_property_cell_audit
+from tools.build_pipeline10_cohort import (
+    PIPELINE10_PROVISIONAL_COMMIT_SHA,
+    PIPELINE10_STARTING_MAIN_SHA,
+    build as build_pipeline10,
+)
 from tools.property_cell_provenance import property_cell_support, supported_property_cells
 from tools.pipeline9_candidates import accepted_decisions, enumerate_candidates, path_key
 
@@ -238,3 +243,77 @@ def test_property_cell_rebaseline_records_h123_h10_and_corrected_rank_one() -> N
     assert accounting["h10"]["corrected_expected_reduction"] == 12
     assert data["selected_cohort"]["id"] == data["candidate_ranking"][0]["id"]
     assert accounting["over_promoted_cells_removed"] == 88
+
+
+def _cell_ids(values: list[dict[str, Any]]) -> set[tuple[str, str, int, str]]:
+    return {
+        (item["canonical_family"], item["table"], item["address"], item["property_name"])
+        for item in values
+    }
+
+
+def test_pipeline10b_lineage_keeps_immutable_start_and_repair_roles() -> None:
+    data = artifact()
+    lineage = data["lineage"]
+    assert data["starting_main_sha"] == PIPELINE10_STARTING_MAIN_SHA
+    assert lineage["pipeline10_starting_main_sha"] == PIPELINE10_STARTING_MAIN_SHA
+    assert lineage["pipeline10_provisional_commit_sha"] == PIPELINE10_PROVISIONAL_COMMIT_SHA
+    assert lineage["pipeline10a_repair_base_sha"] == PIPELINE10_PROVISIONAL_COMMIT_SHA
+    assert lineage["pipeline10a_final_sha"] == "d8e4c58122fb783f0ab4e0390bbe8d36b221908a"
+    assert lineage["generated_from_branch_tip_sha"]
+    first, _ = build_pipeline10(generation_tip_sha="later-repair-tip-a")
+    second, _ = build_pipeline10(generation_tip_sha="later-repair-tip-b")
+    assert first["starting_main_sha"] == second["starting_main_sha"] == PIPELINE10_STARTING_MAIN_SHA
+    assert first["lineage"]["pipeline10_starting_main_sha"] == second["lineage"]["pipeline10_starting_main_sha"]
+
+
+def test_pipeline10b_property_set_bridge_is_disjoint_and_complete() -> None:
+    bridge = artifact()["property_cell_accounting"]["property_set_bridge"]
+    old = _cell_ids(bridge["old_implied_unique"])
+    corrected = _cell_ids(bridge["corrected_supported_unique"])
+    retained = _cell_ids(bridge["retained"])
+    removed = _cell_ids(bridge["removed"])
+    newly_supported = _cell_ids(bridge["newly_supported"])
+    assert old == retained | removed
+    assert corrected == retained | newly_supported
+    assert not retained & removed
+    assert not retained & newly_supported
+    assert not removed & corrected
+    assert not newly_supported & old
+    assert bridge["counts"] == {
+        "old_implied_unique": len(old),
+        "corrected_supported_unique": len(corrected),
+        "retained": len(retained),
+        "removed": len(removed),
+        "newly_supported": len(newly_supported),
+    }
+    assert bridge["counts"] == {
+        "old_implied_unique": 188,
+        "corrected_supported_unique": 111,
+        "retained": 100,
+        "removed": 88,
+        "newly_supported": 11,
+    }
+
+
+def test_pipeline10b_historical_broad_bridge_explains_210_without_double_counting() -> None:
+    accounting = artifact()["property_cell_accounting"]
+    historical = accounting["historical_accounting_bridge"]
+    assert historical["historical_broad_declarative_total"] == 210
+    assert historical["historical_decision_implied_unique_cells"] == 188
+    assert historical["historical_nondecision_declarative_cells"] == 22
+    assert historical["historical_broad_declarative_total"] == (
+        historical["historical_decision_implied_unique_cells"]
+        + historical["historical_nondecision_declarative_cells"]
+    )
+    assert historical["historical_broad_inventory_unique_cells"] == 58
+    assert historical["historical_inventory_overlap_with_decision_implied"] == 36
+    assert historical["historical_broad_inventory_unique_cells"] == (
+        historical["historical_inventory_overlap_with_decision_implied"]
+        + historical["historical_nondecision_declarative_cells"]
+    )
+    assert len(historical["historical_nondecision_cells"]) == 22
+    assert all(
+        item["category"] == "historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry"
+        for item in historical["historical_nondecision_cells"]
+    )

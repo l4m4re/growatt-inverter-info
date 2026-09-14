@@ -40,6 +40,11 @@ OUTPUT_PATH = ROOT / "docs/pipeline/data/GII-PIPELINE-10_NEXT_REPOSITORY_WIDE_CO
 REPORT_PATH = ROOT / "docs/pipeline/GII-PIPELINE-10_NEXT_REPOSITORY_WIDE_COHORT.md"
 PIPELINE9_ARTIFACT = ROOT / "docs/pipeline/data/GII-PIPELINE-9_REPOSITORY_WIDE_NEXT_COHORT.json"
 DISPOSITION = "GII_PIPELINE_NEXT_REPOSITORY_WIDE_COHORT_MIGRATION_ACCEPTED"
+PIPELINE10_STARTING_MAIN_SHA = "c8a95b6bdcdc566dd6cac2ce5b64879c679bc4b5"
+PIPELINE10_PROVISIONAL_COMMIT_SHA = "c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee"
+PIPELINE10A_REPAIR_BASE_SHA = "c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee"
+PIPELINE10A_FINAL_SHA = "d8e4c58122fb783f0ab4e0390bbe8d36b221908a"
+PIPELINE10B_REPAIR_BASE_SHA = "d8e4c58122fb783f0ab4e0390bbe8d36b221908a"
 REPAIR_BASE_SHA = "c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee"
 REPAIR_BASE_ARTIFACT = "docs/pipeline/data/GII-PIPELINE-10_NEXT_REPOSITORY_WIDE_COHORT.json"
 
@@ -195,7 +200,7 @@ def _selected_declarative_counts(
     )
 
 
-def build(starting_main_sha: str) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+def build(generation_tip_sha: str | None = None) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     p9_source = {"reconciliation/pipeline9_repository_wide_next_cohort.json"}
     without = enumerate_candidates(exclude_accepted_sources=p9_source)
     enumeration = enumerate_candidates()
@@ -252,7 +257,15 @@ def build(starting_main_sha: str) -> tuple[dict[str, Any], list[dict[str, Any]]]
         "artifact": "growatt_pipeline10_next_repository_wide_cohort",
         "generated_by": "tools/build_pipeline10_cohort.py",
         "disposition": DISPOSITION,
-        "starting_main_sha": starting_main_sha,
+        "starting_main_sha": PIPELINE10_STARTING_MAIN_SHA,
+        "lineage": {
+            "pipeline10_starting_main_sha": PIPELINE10_STARTING_MAIN_SHA,
+            "pipeline10_provisional_commit_sha": PIPELINE10_PROVISIONAL_COMMIT_SHA,
+            "pipeline10a_repair_base_sha": PIPELINE10A_REPAIR_BASE_SHA,
+            "pipeline10a_final_sha": PIPELINE10A_FINAL_SHA,
+            "pipeline10b_repair_base_sha": PIPELINE10B_REPAIR_BASE_SHA,
+            "generated_from_branch_tip_sha": generation_tip_sha or PIPELINE10B_REPAIR_BASE_SHA,
+        },
         "canonical": {
             "path": "spec/growatt-register-spec.json",
             "sha256": sha256(CANONICAL_PATH),
@@ -283,6 +296,9 @@ def build(starting_main_sha: str) -> tuple[dict[str, Any], list[dict[str, Any]]]
             "corrected_property_supported_baseline": before,
             "over_promoted_cells_removed": property_cell_audit["summary"]["over_promoted_unique_physical_property_cells_removed"],
             "over_promoted_cells_removed_by_decision": property_cell_audit["summary"]["over_promoted_cells_removed_by_decision"],
+            "historical_accounting_bridge": property_cell_audit["historical_accounting_bridge"],
+            "property_set_bridge": property_cell_audit["property_set_bridge"],
+            "corrected_authority_definition": property_cell_audit["corrected_authority_definition"],
             "h123": {
                 "historical_broad_expected_reduction": previous_h123["previous_pipeline9_expected_reduction"],
                 "corrected_expected_reduction": previous_h123["corrected_expected_reduction_without_pipeline9"],
@@ -400,7 +416,10 @@ def render(data: dict[str, Any]) -> str:
         "",
         "## Baseline",
         "",
-        f"- Current merged `main`: `{data['starting_main_sha']}`; PIPELINE-9/9A is an ancestor.",
+        f"- PIPELINE-10 started from merged `main`: `{data['lineage']['pipeline10_starting_main_sha']}`; PIPELINE-9/9A is an ancestor.",
+        f"- PIPELINE-10 provisional commit / PIPELINE-10A repair base: `{data['lineage']['pipeline10_provisional_commit_sha']}`.",
+        f"- PIPELINE-10A final / PIPELINE-10B repair base: `{data['lineage']['pipeline10a_final_sha']}`.",
+        f"- Current repaired branch tip at generation: `{data['lineage']['generated_from_branch_tip_sha']}`.",
         f"- Canonical SHA-256: `{data['canonical']['sha256']}`; `canonical_modified=false`.",
         f"- Accepted PIPELINE-9 decisions included in baseline: {data['accepted_authority']['pipeline9_decision_count']}.",
         "",
@@ -410,7 +429,7 @@ def render(data: dict[str, Any]) -> str:
         "",
         "The corrected model promotes only explicitly supported canonical property cells. Each promoted cell retains claim IDs and source types; applicability claims establish scope only and do not prove unit, signedness, scale, datatype or normalization. Canonical and compatibility values remain available for parity and migration-risk analysis, not as evidence.",
         "",
-        f"The accepted registry contains {data['property_cell_accounting']['accepted_decision_count']} decisions. The audit removed {data['property_cell_accounting']['over_promoted_cells_removed']} duplicate physical property cells from the previously implied accounting ({data['property_cell_accounting']['over_promoted_cells_removed_by_decision']} decision-level implications).",
+        f"The accepted registry contains {data['property_cell_accounting']['accepted_decision_count']} decisions. The audit removes {data['property_cell_accounting']['over_promoted_cells_removed']} cells from the old decision-level implication count ({data['property_cell_accounting']['over_promoted_cells_removed_by_decision']} decision-level implications); the set bridge below also reports retained and newly supported cells.",
         "",
         "| Accounting | Legacy-authoritative cells | Declarative-authoritative cells | Legacy-exclusive cells |",
         "| --- | ---: | ---: | ---: |",
@@ -418,6 +437,37 @@ def render(data: dict[str, Any]) -> str:
         f"| Corrected explicit property-cell baseline | {data['property_cell_accounting']['corrected_property_supported_baseline']['legacy_authoritative_property_cells']} | {data['property_cell_accounting']['corrected_property_supported_baseline']['declarative_authoritative_property_cells']} | {data['property_cell_accounting']['corrected_property_supported_baseline']['legacy_exclusive_property_cells']} |",
         "",
         f"H123 retains 6 physical targets and 7 applicability paths. Its historical broad reduction was {data['property_cell_accounting']['h123']['historical_broad_expected_reduction']}; the corrected property-supported reduction is {data['property_cell_accounting']['h123']['corrected_expected_reduction']}. H10 is independently re-ranked: its historical broad reduction was {data['property_cell_accounting']['h10']['historical_broad_expected_reduction']}, while its corrected reduction is {data['property_cell_accounting']['h10']['corrected_expected_reduction']}. H10 is therefore not forced to remain rank 1.",
+        "",
+        "## PIPELINE-10B lineage and accounting reconciliation",
+        "",
+        "PIPELINE-10B keeps historical lineage roles separate: the PIPELINE-10 start-main is not the provisional commit, the PIPELINE-10A repair base, or the current generation tip.",
+        "",
+        f"- PIPELINE-10 start-main: `{data['lineage']['pipeline10_starting_main_sha']}`.",
+        f"- PIPELINE-10 provisional commit and PIPELINE-10A repair base: `{data['lineage']['pipeline10_provisional_commit_sha']}`.",
+        f"- PIPELINE-10A final and PIPELINE-10B repair base: `{data['lineage']['pipeline10a_final_sha']}`.",
+        f"- Generation tip recorded for this artifact: `{data['lineage']['generated_from_branch_tip_sha']}`.",
+        "",
+        "The historical broad declarative baseline counted the union of the old decision-level implied cells and the historical PIPELINE-5A declarative inventory. The corrected baseline counts only unique canonical property cells backed by accepted reconciliation decisions with explicit noncanonical property-level claim support. Applicability claims establish scope only.",
+        "",
+        "| Set/accounting category | Count |",
+        "| --- | ---: |",
+        f"| Historical broad declarative total | {data['property_cell_accounting']['historical_accounting_bridge']['historical_broad_declarative_total']} |",
+        f"| Historical decision-implied unique cells | {data['property_cell_accounting']['historical_accounting_bridge']['historical_decision_implied_unique_cells']} |",
+        f"| Historical nondecision declarative cells | {data['property_cell_accounting']['historical_accounting_bridge']['historical_nondecision_declarative_cells']} |",
+        f"| Historical inventory unique cells | {data['property_cell_accounting']['historical_accounting_bridge']['historical_broad_inventory_unique_cells']} |",
+        f"| Inventory overlap with decision-implied cells | {data['property_cell_accounting']['historical_accounting_bridge']['historical_inventory_overlap_with_decision_implied']} |",
+        f"| Corrected accepted property-supported cells | {data['property_cell_accounting']['property_set_bridge']['counts']['corrected_supported_unique']} |",
+        f"| Retained cells (`old ∩ corrected`) | {data['property_cell_accounting']['property_set_bridge']['counts']['retained']} |",
+        f"| Removed cells (`old - corrected`) | {data['property_cell_accounting']['property_set_bridge']['counts']['removed']} |",
+        f"| Newly supported cells (`corrected - old`) | {data['property_cell_accounting']['property_set_bridge']['counts']['newly_supported']} |",
+        "",
+        "The historical 210 is therefore not a claim that 99 cells were simply bad and removed. It is the broad historical union: 188 old decision-implied cells plus 22 disjoint historical nondecision cells. The 58-cell historical inventory overlaps the former set in 36 cells and contributes those same 22 nondecision cells. The corrected set is related to the old decision-implied set by 100 retained cells, 88 removed cells and 11 newly supported cells: `old = retained ∪ removed` and `corrected = retained ∪ newly_supported`.",
+        "",
+        "The 22 nondecision cells are retained in the machine audit with their exact historical source and are classified as `historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry`; they are not silently counted as current accepted authority.",
+        "",
+        "## PIPELINE-10 ranking and content stability",
+        "",
+        f"The selected cohort remains `{selected['id']}` (`{selected['semantic_key']}`), with {selected['canonical_physical_target_count']}/{selected['canonical_physical_target_count']} physical targets and {selected['applicability_path_count']}/{selected['applicability_path_count']} applicability paths. The corrected H123 contribution remains {data['property_cell_accounting']['h123']['historical_broad_expected_reduction']} -> {data['property_cell_accounting']['h123']['corrected_expected_reduction']}; H10 remains {data['property_cell_accounting']['h10']['historical_broad_expected_reduction']} -> {data['property_cell_accounting']['h10']['corrected_expected_reduction']}. No new cohort was migrated.",
         "",
         "## Repository-wide source-scope coverage",
         "",
@@ -494,10 +544,10 @@ def render(data: dict[str, Any]) -> str:
 
 
 def main() -> None:
-    starting = subprocess.run(
+    generation_tip = subprocess.run(
         ["git", "rev-parse", "HEAD"], cwd=ROOT, check=True, capture_output=True, text=True
     ).stdout.strip()
-    data, decisions = build(starting)
+    data, decisions = build(generation_tip_sha=generation_tip)
     RECONCILIATION_PATH.write_text(
         json.dumps(
             {"schema_version": "1.0.0", "artifact": "growatt_reconciliation_decisions", "decisions": decisions},

@@ -6,6 +6,7 @@ from __future__ import annotations
 from collections import Counter
 import json
 from pathlib import Path
+import subprocess
 from typing import Any
 
 try:
@@ -20,6 +21,38 @@ except ModuleNotFoundError:
 ROOT = Path(__file__).resolve().parents[1]
 CLAIMS_PATH = ROOT / "sources/claims/generic-claims.json"
 OUTPUT_PATH = ROOT / "docs/pipeline/data/GII-PIPELINE-10A_PROPERTY_CELL_PROVENANCE_AUDIT.json"
+HISTORICAL_ACCOUNTING_SHA = "c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee"
+HISTORICAL_COVERAGE_PATH = "docs/pipeline/data/GII-PIPELINE-5A_AUTHORITY_COVERAGE.json"
+CORRECTED_AUTHORITY_DEFINITION = (
+    "Unique canonical property cells backed by accepted reconciliation decisions with "
+    "explicit noncanonical property-level claim support; applicability claims establish "
+    "scope only, and current PIPELINE-10 decisions are excluded from the accepted registry."
+)
+
+
+def _historical_coverage() -> dict[str, Any]:
+    result = subprocess.run(
+        ["git", "show", f"{HISTORICAL_ACCOUNTING_SHA}:{HISTORICAL_COVERAGE_PATH}"],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    return json.loads(result.stdout)
+
+
+def _cell(value: tuple[str, str, int, str]) -> dict[str, Any]:
+    family, table, address, property_name = value
+    return {
+        "canonical_family": family,
+        "table": table,
+        "address": address,
+        "property_name": property_name,
+    }
+
+
+def _cells(values: set[tuple[str, str, int, str]]) -> list[dict[str, Any]]:
+    return [_cell(value) for value in sorted(values)]
 
 
 def build() -> dict[str, Any]:
@@ -58,6 +91,62 @@ def build() -> dict[str, Any]:
             }
         )
     audit.sort(key=lambda item: item["decision_id"])
+    historical_coverage = _historical_coverage()
+    historical_inventory: set[tuple[str, str, int, str]] = set()
+    for record in historical_coverage.get("records", []):
+        key = (record["family"], record["table"], record["address"])
+        historical_inventory.update(
+            (*key, property_name) for property_name in record.get("declarative_properties", [])
+        )
+    historical_nondecision = historical_inventory - old_unique
+    historical_broad = old_unique | historical_inventory
+    retained = old_unique & corrected_unique
+    removed = old_unique - corrected_unique
+    newly_supported = corrected_unique - old_unique
+    set_bridge = {
+        "old_implied_unique": _cells(old_unique),
+        "corrected_supported_unique": _cells(corrected_unique),
+        "retained": _cells(retained),
+        "removed": _cells(removed),
+        "newly_supported": _cells(newly_supported),
+        "counts": {
+            "old_implied_unique": len(old_unique),
+            "corrected_supported_unique": len(corrected_unique),
+            "retained": len(retained),
+            "removed": len(removed),
+            "newly_supported": len(newly_supported),
+        },
+        "relationships": {
+            "old_equals_retained_union_removed": old_unique == retained | removed,
+            "corrected_equals_retained_union_newly_supported": corrected_unique == retained | newly_supported,
+            "retained_disjoint_removed": not retained & removed,
+            "retained_disjoint_newly_supported": not retained & newly_supported,
+            "removed_disjoint_corrected": not removed & corrected_unique,
+            "newly_supported_disjoint_old": not newly_supported & old_unique,
+        },
+    }
+    historical_bridge = {
+        "historical_broad_declarative_total": len(historical_broad),
+        "historical_decision_implied_unique_cells": len(old_unique),
+        "historical_nondecision_declarative_cells": len(historical_nondecision),
+        "historical_broad_inventory_unique_cells": len(historical_inventory),
+        "historical_inventory_overlap_with_decision_implied": len(historical_inventory & old_unique),
+        "historical_nondecision_cells": [
+            {
+                **_cell(value),
+                "category": "historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry",
+                "source": f"{HISTORICAL_COVERAGE_PATH}@{HISTORICAL_ACCOUNTING_SHA}",
+                "authority_status": historical_coverage["declarative_coverage"]["status"],
+            }
+            for value in sorted(historical_nondecision)
+        ],
+        "relationships": {
+            "historical_broad_equals_decision_implied_union_nondecision": historical_broad == old_unique | historical_nondecision,
+            "historical_inventory_equals_overlap_union_nondecision": historical_inventory == (historical_inventory & old_unique) | historical_nondecision,
+        },
+        "formula": "historical_broad = old_decision_implied ∪ historical_nondecision; historical_inventory = overlap_with_old_decision_implied ∪ historical_nondecision",
+        "historical_source": f"{HISTORICAL_COVERAGE_PATH}@{HISTORICAL_ACCOUNTING_SHA}",
+    }
     by_decision_property = Counter(item["decision_property"] for item in audit)
     return {
         "schema_version": "1.0.0",
@@ -76,7 +165,13 @@ def build() -> dict[str, Any]:
             "corrected_unique_physical_property_cells": len(corrected_unique),
             "over_promoted_unique_physical_property_cells_removed": len(old_unique - corrected_unique),
             "tracked_property_cells": list(TRACKED_PROPERTY_CELLS),
+            "retained_unique_physical_property_cells": len(retained),
+            "removed_unique_physical_property_cells": len(removed),
+            "newly_supported_unique_physical_property_cells": len(newly_supported),
         },
+        "historical_accounting_bridge": historical_bridge,
+        "property_set_bridge": set_bridge,
+        "corrected_authority_definition": CORRECTED_AUTHORITY_DEFINITION,
         "affected_historical_cohorts": [
             "PIPELINE-4A derived reconciliation infrastructure",
             "PIPELINE-5B/5D and PIPELINE-6/7/8 accepted decisions",

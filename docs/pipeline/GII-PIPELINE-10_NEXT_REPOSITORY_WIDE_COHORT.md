@@ -4,7 +4,10 @@ Disposition: `GII_PIPELINE_NEXT_REPOSITORY_WIDE_COHORT_MIGRATION_ACCEPTED`
 
 ## Baseline
 
-- Current merged `main`: `c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee`; PIPELINE-9/9A is an ancestor.
+- PIPELINE-10 started from merged `main`: `c8a95b6bdcdc566dd6cac2ce5b64879c679bc4b5`; PIPELINE-9/9A is an ancestor.
+- PIPELINE-10 provisional commit / PIPELINE-10A repair base: `c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee`.
+- PIPELINE-10A final / PIPELINE-10B repair base: `d8e4c58122fb783f0ab4e0390bbe8d36b221908a`.
+- Current repaired branch tip at generation: `d8e4c58122fb783f0ab4e0390bbe8d36b221908a`.
 - Canonical SHA-256: `e692d646e34040af999ba4854f65803e4218e184d9e04f2982c06d60782ee405`; `canonical_modified=false`.
 - Accepted PIPELINE-9 decisions included in baseline: 6.
 
@@ -14,7 +17,7 @@ The provisional PIPELINE-10 accounting expanded one `semantic_mapping` decision 
 
 The corrected model promotes only explicitly supported canonical property cells. Each promoted cell retains claim IDs and source types; applicability claims establish scope only and do not prove unit, signedness, scale, datatype or normalization. Canonical and compatibility values remain available for parity and migration-risk analysis, not as evidence.
 
-The accepted registry contains 43 decisions. The audit removed 88 duplicate physical property cells from the previously implied accounting (75 decision-level implications).
+The accepted registry contains 43 decisions. The audit removes 88 cells from the old decision-level implication count (75 decision-level implications); the set bridge below also reports retained and newly supported cells.
 
 | Accounting | Legacy-authoritative cells | Declarative-authoritative cells | Legacy-exclusive cells |
 | --- | ---: | ---: | ---: |
@@ -22,6 +25,37 @@ The accepted registry contains 43 decisions. The audit removed 88 duplicate phys
 | Corrected explicit property-cell baseline | 49524 | 111 | 41 |
 
 H123 retains 6 physical targets and 7 applicability paths. Its historical broad reduction was 30; the corrected property-supported reduction is 24. H10 is independently re-ranked: its historical broad reduction was 30, while its corrected reduction is 12. H10 is therefore not forced to remain rank 1.
+
+## PIPELINE-10B lineage and accounting reconciliation
+
+PIPELINE-10B keeps historical lineage roles separate: the PIPELINE-10 start-main is not the provisional commit, the PIPELINE-10A repair base, or the current generation tip.
+
+- PIPELINE-10 start-main: `c8a95b6bdcdc566dd6cac2ce5b64879c679bc4b5`.
+- PIPELINE-10 provisional commit and PIPELINE-10A repair base: `c0ba1dea54fd170e1ecd1b22494b2a84d46b6eee`.
+- PIPELINE-10A final and PIPELINE-10B repair base: `d8e4c58122fb783f0ab4e0390bbe8d36b221908a`.
+- Generation tip recorded for this artifact: `d8e4c58122fb783f0ab4e0390bbe8d36b221908a`.
+
+The historical broad declarative baseline counted the union of the old decision-level implied cells and the historical PIPELINE-5A declarative inventory. The corrected baseline counts only unique canonical property cells backed by accepted reconciliation decisions with explicit noncanonical property-level claim support. Applicability claims establish scope only.
+
+| Set/accounting category | Count |
+| --- | ---: |
+| Historical broad declarative total | 210 |
+| Historical decision-implied unique cells | 188 |
+| Historical nondecision declarative cells | 22 |
+| Historical inventory unique cells | 58 |
+| Inventory overlap with decision-implied cells | 36 |
+| Corrected accepted property-supported cells | 111 |
+| Retained cells (`old ∩ corrected`) | 100 |
+| Removed cells (`old - corrected`) | 88 |
+| Newly supported cells (`corrected - old`) | 11 |
+
+The historical 210 is therefore not a claim that 99 cells were simply bad and removed. It is the broad historical union: 188 old decision-implied cells plus 22 disjoint historical nondecision cells. The 58-cell historical inventory overlaps the former set in 36 cells and contributes those same 22 nondecision cells. The corrected set is related to the old decision-implied set by 100 retained cells, 88 removed cells and 11 newly supported cells: `old = retained ∪ removed` and `corrected = retained ∪ newly_supported`.
+
+The 22 nondecision cells are retained in the machine audit with their exact historical source and are classified as `historical_p4a_diagnostic_declarative_inventory_not_in_accepted_authority_registry`; they are not silently counted as current accepted authority.
+
+## PIPELINE-10 ranking and content stability
+
+The selected cohort remains `v124-row-holding-100-row-014-0101` (`control.power_factor_curve_lock_out_voltage`), with 6/6 physical targets and 7/7 applicability paths. The corrected H123 contribution remains 30 -> 24; H10 remains 30 -> 12. No new cohort was migrated.
 
 ## Repository-wide source-scope coverage
 
