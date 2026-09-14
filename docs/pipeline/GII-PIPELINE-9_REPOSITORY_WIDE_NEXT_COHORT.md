@@ -28,34 +28,42 @@ Candidates are derived by joining each retained V1.24 vendor row claim to every 
 
 The universe contains 1313 bounded candidates, including 1024 shared-vendor-row candidates and 835 candidates with a non-MIN source scope.
 
-| Rank | Candidate | Kind | Scope(s) | Family(s) | Address | Units | Expected reduction | Evidence score | Qualifiers |
-| ---: | --- | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| 1 | `v124-row-holding-123-row-015-0124` | shared_vendor_row | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | holding:123 | 7 | 30 | 28 | 0 |
-| 2 | `v124-row-holding-10-row-010-0011` | shared_vendor_row | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | holding:10 | 7 | 30 | 14 | 0 |
-| 3 | `v124-row-holding-100-row-014-0101` | shared_vendor_row | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | holding:100 | 7 | 30 | 14 | 0 |
-| 4 | `v124-row-holding-107-row-015-0108` | shared_vendor_row | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | holding:107 | 7 | 30 | 14 | 0 |
-| 5 | `v124-row-holding-108-row-015-0109` | shared_vendor_row | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | holding:108 | 7 | 30 | 14 | 0 |
-| 6 | `v124-row-holding-109-row-015-0110` | shared_vendor_row | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | holding:109 | 7 | 30 | 14 | 0 |
-| 7 | `v124-row-holding-11-row-010-0012` | shared_vendor_row | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | holding:11 | 7 | 30 | 14 | 0 |
-| 8 | `v124-row-holding-110-row-015-0111` | shared_vendor_row | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | holding:110 | 7 | 30 | 14 | 0 |
-| 9 | `v124-row-holding-112-row-015-0113` | shared_vendor_row | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | holding:112 | 7 | 30 | 14 | 0 |
-| 10 | `v124-row-holding-114-row-015-0115` | shared_vendor_row | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | holding:114 | 7 | 30 | 14 | 0 |
-| 11 | `v124-row-holding-116-row-015-0117` | shared_vendor_row | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | holding:116 | 7 | 30 | 14 | 0 |
-| 12 | `v124-row-holding-12-row-010-0013` | shared_vendor_row | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | holding:12 | 7 | 30 | 14 | 0 |
+| Rank | Candidate | Kind | Scope(s) | Family(s) | Address | Physical units | Paths | Expected reduction | Evidence score | Qualifiers |
+| ---: | --- | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 1 | `v124-row-holding-123-row-015-0124` | shared_vendor_row | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | holding:123 | 6 | 7 | 30 | 28 | 0 |
+| 2 | `v124-row-holding-10-row-010-0011` | shared_vendor_row | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | holding:10 | 6 | 7 | 30 | 14 | 0 |
+| 3 | `v124-row-holding-100-row-014-0101` | shared_vendor_row | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | holding:100 | 6 | 7 | 30 | 14 | 0 |
+| 4 | `v124-row-holding-107-row-015-0108` | shared_vendor_row | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | holding:107 | 6 | 7 | 30 | 14 | 0 |
+| 5 | `v124-row-holding-108-row-015-0109` | shared_vendor_row | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | holding:108 | 6 | 7 | 30 | 14 | 0 |
+| 6 | `v124-row-holding-109-row-015-0110` | shared_vendor_row | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | holding:109 | 6 | 7 | 30 | 14 | 0 |
+| 7 | `v124-row-holding-11-row-010-0012` | shared_vendor_row | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | holding:11 | 6 | 7 | 30 | 14 | 0 |
+| 8 | `v124-row-holding-110-row-015-0111` | shared_vendor_row | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | holding:110 | 6 | 7 | 30 | 14 | 0 |
+| 9 | `v124-row-holding-112-row-015-0113` | shared_vendor_row | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | holding:112 | 6 | 7 | 30 | 14 | 0 |
+| 10 | `v124-row-holding-114-row-015-0115` | shared_vendor_row | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | holding:114 | 6 | 7 | 30 | 14 | 0 |
+| 11 | `v124-row-holding-116-row-015-0117` | shared_vendor_row | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | holding:116 | 6 | 7 | 30 | 14 | 0 |
+| 12 | `v124-row-holding-12-row-010-0013` | shared_vendor_row | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | holding:12 | 6 | 7 | 30 | 14 | 0 |
 
 ## Selected cohort
 
-The selected cohort is rank 1 from the fresh repository-wide ranking: `v124-row-holding-123-row-015-0124`. It was not selected by a MIN-specific address list. It is a bounded `shared_vendor_row` at `holding:123` with semantic key `control.export_limit_power_setpoint` and 7 physical canonical targets across: `max_1500v_max_x_lv`, `min_tl_xh`, `mod_tl3_xh`, `storage_mix`, `storage_spa`, `storage_sph`, `tl3_max_mid_mac`.
+The selected cohort is rank 1 from the fresh repository-wide ranking: `v124-row-holding-123-row-015-0124`. It was not selected by a MIN-specific address list. It is a bounded `shared_vendor_row` at `holding:123` with semantic key `control.export_limit_power_setpoint` and 6 physical canonical targets across: `max_1500v_max_x_lv`, `min_tl_xh`, `mod_tl3_xh`, `storage_mix`, `storage_spa`, `storage_sph`, `tl3_max_mid_mac`.
 
 Every target retains its own source-scope applicability and source declaration. Duplicate physical identities reached through multiple declarations are not counted twice in physical parity or authority reduction.
 
+Canonical physical targets: 6; applicability paths: 7 (coverage 100%).
 Physical parity: overall 100%; per family: `min_tl_xh` 100%, `mod_tl3_xh` 100%, `storage_mix` 100%, `storage_spa` 100%, `storage_sph` 100%, `tl3_max_mid_mac` 100%.
+
+## PIPELINE-9A path-vs-physical identity repair
+
+The original generator keyed evidence and property structures only by `family:table:address`. That collapsed the two legitimate paths to `tl3_max_mid_mac:holding:123`: the generic `tl3_max_mid_mac` declaration and the `max_1500v_max_x_lv` declaration. The repaired path key includes canonical family, table, address, source scope and source declaration. Physical authority and parity use a separate deduplicated canonical key.
+
+The resulting H123 cohort therefore has 6 canonical physical targets and 7 applicability paths. The TL3 physical target is promoted once, while its two valid source paths remain independently inspectable and are aggregated explicitly in the reconciliation scope. Every cited applicability claim matches its own source-scope/source-declaration path; cross-scope support is rejected by regression tests.
+
 
 ## Evidence and semantic parity
 
 Each selected target records physical applicability, semantic row, access, enum/packed layout, unit/scale, row-local qualifier, independent corroboration, source conflict, runtime/live evidence, write documentation, live-write verification and unresolved property count. Promoted properties reference vendor-row and explicit applicability claims; canonical parity is used only for comparison, not as evidence.
 
-Semantic parity summary: `{'PARITY_MATCH': 7}`. Qualified applicability remains qualified; no qualified range was promoted to unconditional.
+Semantic parity summary: `{'PARITY_MATCH': 6}`. Qualified applicability remains qualified; no qualified range was promoted to unconditional.
 
 ## Authority movement
 

@@ -18,10 +18,25 @@
         "protocol_revision": "V1.24",
         "region": null,
         "source_scope": "max_1500v_max_x_lv",
-        "source_declaration": [
-          "v124-instruction-max-1500v-max-x-lv"
+        "source_declaration": "v124-instruction-max-1500v-max-x-lv",
+        "applicability": "explicit V1.24 document-range applicability claim",
+        "applicability_paths": [
+          {
+            "canonical_family": "tl3_max_mid_mac",
+            "table": "holding",
+            "address": 123,
+            "source_scope": "max_1500v_max_x_lv",
+            "source_declaration": "v124-instruction-max-1500v-max-x-lv"
+          },
+          {
+            "canonical_family": "tl3_max_mid_mac",
+            "table": "holding",
+            "address": 123,
+            "source_scope": "tl3_max_mid_mac",
+            "source_declaration": "v124-instruction-tl3-max-mid-mac"
+          }
         ],
-        "applicability": "explicit V1.24 document-range applicability claim"
+        "aggregation": "one physical authority promotion aggregates all explicitly valid applicability paths"
       },
       "decision": {
         "status": "resolved",
@@ -39,12 +54,11 @@
           "normalization": "source_semantics_preserved",
           "vendor_row_claim": "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p015:row-015-0124",
           "source_scope": "max_1500v_max_x_lv",
-          "source_declaration": [
-            "v124-instruction-max-1500v-max-x-lv"
-          ]
+          "source_declaration": "v124-instruction-max-1500v-max-x-lv"
         }
       },
       "support": [
+        "vendor_growatt_v124_2020:applicability:v124-instruction-max-1500v-max-x-lv:0",
         "vendor_growatt_v124_2020:applicability:v124-instruction-tl3-max-mid-mac:0",
         "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p015:row-015-0124"
       ],
@@ -71,10 +85,18 @@
         "protocol_revision": "V1.24",
         "region": null,
         "source_scope": "min_tl_xh",
-        "source_declaration": [
-          "v124-instruction-min-tlx-tlxh"
+        "source_declaration": "v124-instruction-min-tlx-tlxh",
+        "applicability": "explicit V1.24 document-range applicability claim",
+        "applicability_paths": [
+          {
+            "canonical_family": "min_tl_xh",
+            "table": "holding",
+            "address": 123,
+            "source_scope": "min_tl_xh",
+            "source_declaration": "v124-instruction-min-tlx-tlxh"
+          }
         ],
-        "applicability": "explicit V1.24 document-range applicability claim"
+        "aggregation": "one physical authority promotion aggregates all explicitly valid applicability paths"
       },
       "decision": {
         "status": "resolved",
@@ -92,9 +114,7 @@
           "normalization": "source_semantics_preserved",
           "vendor_row_claim": "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p015:row-015-0124",
           "source_scope": "min_tl_xh",
-          "source_declaration": [
-            "v124-instruction-min-tlx-tlxh"
-          ]
+          "source_declaration": "v124-instruction-min-tlx-tlxh"
         }
       },
       "support": [
@@ -124,10 +144,18 @@
         "protocol_revision": "V1.24",
         "region": null,
         "source_scope": "mod_tl3_xh",
-        "source_declaration": [
-          "v124-instruction-mod-tl3-xh"
+        "source_declaration": "v124-instruction-mod-tl3-xh",
+        "applicability": "explicit V1.24 document-range applicability claim",
+        "applicability_paths": [
+          {
+            "canonical_family": "mod_tl3_xh",
+            "table": "holding",
+            "address": 123,
+            "source_scope": "mod_tl3_xh",
+            "source_declaration": "v124-instruction-mod-tl3-xh"
+          }
         ],
-        "applicability": "explicit V1.24 document-range applicability claim"
+        "aggregation": "one physical authority promotion aggregates all explicitly valid applicability paths"
       },
       "decision": {
         "status": "resolved",
@@ -145,9 +173,7 @@
           "normalization": "source_semantics_preserved",
           "vendor_row_claim": "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p015:row-015-0124",
           "source_scope": "mod_tl3_xh",
-          "source_declaration": [
-            "v124-instruction-mod-tl3-xh"
-          ]
+          "source_declaration": "v124-instruction-mod-tl3-xh"
         }
       },
       "support": [
@@ -177,10 +203,18 @@
         "protocol_revision": "V1.24",
         "region": null,
         "source_scope": "storage_mix",
-        "source_declaration": [
-          "v124-instruction-storage-mix"
+        "source_declaration": "v124-instruction-storage-mix",
+        "applicability": "explicit V1.24 document-range applicability claim",
+        "applicability_paths": [
+          {
+            "canonical_family": "storage_mix",
+            "table": "holding",
+            "address": 123,
+            "source_scope": "storage_mix",
+            "source_declaration": "v124-instruction-storage-mix"
+          }
         ],
-        "applicability": "explicit V1.24 document-range applicability claim"
+        "aggregation": "one physical authority promotion aggregates all explicitly valid applicability paths"
       },
       "decision": {
         "status": "resolved",
@@ -198,9 +232,7 @@
           "normalization": "source_semantics_preserved",
           "vendor_row_claim": "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p015:row-015-0124",
           "source_scope": "storage_mix",
-          "source_declaration": [
-            "v124-instruction-storage-mix"
-          ]
+          "source_declaration": "v124-instruction-storage-mix"
         }
       },
       "support": [
@@ -230,10 +262,18 @@
         "protocol_revision": "V1.24",
         "region": null,
         "source_scope": "storage_spa",
-        "source_declaration": [
-          "v124-instruction-storage-spa"
+        "source_declaration": "v124-instruction-storage-spa",
+        "applicability": "explicit V1.24 document-range applicability claim",
+        "applicability_paths": [
+          {
+            "canonical_family": "storage_spa",
+            "table": "holding",
+            "address": 123,
+            "source_scope": "storage_spa",
+            "source_declaration": "v124-instruction-storage-spa"
+          }
         ],
-        "applicability": "explicit V1.24 document-range applicability claim"
+        "aggregation": "one physical authority promotion aggregates all explicitly valid applicability paths"
       },
       "decision": {
         "status": "resolved",
@@ -251,9 +291,7 @@
           "normalization": "source_semantics_preserved",
           "vendor_row_claim": "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p015:row-015-0124",
           "source_scope": "storage_spa",
-          "source_declaration": [
-            "v124-instruction-storage-spa"
-          ]
+          "source_declaration": "v124-instruction-storage-spa"
         }
       },
       "support": [
@@ -283,10 +321,18 @@
         "protocol_revision": "V1.24",
         "region": null,
         "source_scope": "storage_sph",
-        "source_declaration": [
-          "v124-instruction-storage-sph"
+        "source_declaration": "v124-instruction-storage-sph",
+        "applicability": "explicit V1.24 document-range applicability claim",
+        "applicability_paths": [
+          {
+            "canonical_family": "storage_sph",
+            "table": "holding",
+            "address": 123,
+            "source_scope": "storage_sph",
+            "source_declaration": "v124-instruction-storage-sph"
+          }
         ],
-        "applicability": "explicit V1.24 document-range applicability claim"
+        "aggregation": "one physical authority promotion aggregates all explicitly valid applicability paths"
       },
       "decision": {
         "status": "resolved",
@@ -304,66 +350,11 @@
           "normalization": "source_semantics_preserved",
           "vendor_row_claim": "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p015:row-015-0124",
           "source_scope": "storage_sph",
-          "source_declaration": [
-            "v124-instruction-storage-sph"
-          ]
+          "source_declaration": "v124-instruction-storage-sph"
         }
       },
       "support": [
         "vendor_growatt_v124_2020:applicability:v124-instruction-storage-sph:0",
-        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p015:row-015-0124"
-      ],
-      "conflicts": [],
-      "rationale": "PIPELINE-9 generic candidate enumeration selected this exact vendor row and explicit source-scope applicability path; canonical output remains frozen.",
-      "review": {
-        "status": "reviewed",
-        "notes": "Claim-driven shadow authority only. Vendor documentation and live-write verification remain separate; no inverter write was performed."
-      }
-    },
-    {
-      "decision_id": "pipeline9-tl3-max-mid-mac-tl3_max_mid_mac-holding-123-semantic_mapping",
-      "target": {
-        "canonical_family": "tl3_max_mid_mac",
-        "namespace": "MODBUS",
-        "table": "holding",
-        "address": 123,
-        "property": "semantic_mapping"
-      },
-      "scope": {
-        "family": "tl3_max_mid_mac",
-        "model": "control.export_limit_power_setpoint",
-        "firmware": null,
-        "protocol_revision": "V1.24",
-        "region": null,
-        "source_scope": "tl3_max_mid_mac",
-        "source_declaration": [
-          "v124-instruction-tl3-max-mid-mac"
-        ],
-        "applicability": "explicit V1.24 document-range applicability claim"
-      },
-      "decision": {
-        "status": "resolved",
-        "confidence": "high",
-        "value": {
-          "semantic_key": "control.export_limit_power_setpoint",
-          "canonical_name": "Export limit power setpoint",
-          "source_aliases": [
-            "ExportLimitP Ex"
-          ],
-          "datatype": null,
-          "signedness": null,
-          "unit": "%",
-          "access": "R",
-          "normalization": "source_semantics_preserved",
-          "vendor_row_claim": "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p015:row-015-0124",
-          "source_scope": "tl3_max_mid_mac",
-          "source_declaration": [
-            "v124-instruction-tl3-max-mid-mac"
-          ]
-        }
-      },
-      "support": [
-        "vendor_growatt_v124_2020:applicability:v124-instruction-tl3-max-mid-mac:0",
         "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p015:row-015-0124"
       ],
       "conflicts": [],

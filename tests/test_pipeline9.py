@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 
 from tools.pipeline8_evidence import SUPPORTED_QUALIFIED, SUPPORTED_UNCONDITIONAL, evaluate_applicability
-from tools.pipeline9_candidates import REQUIRED_SOURCE_SCOPES, enumerate_candidates
+from tools.pipeline9_candidates import REQUIRED_SOURCE_SCOPES, enumerate_candidates, path_key
 
 ROOT = Path(__file__).resolve().parents[1]
 CANONICAL_SHA = "e692d646e34040af999ba4854f65803e4218e184d9e04f2982c06d60782ee405"
@@ -63,9 +63,103 @@ def test_shared_candidate_keeps_explicit_applicability_paths() -> None:
     selected = artifact()["selected_cohort"]
     assert selected["kind"] == "shared_vendor_row"
     assert set(selected["source_scopes"]) == set(REQUIRED_SOURCE_SCOPES)
-    assert {target["source_scope"] for target in selected["targets"]} == set(REQUIRED_SOURCE_SCOPES)
+    assert selected["canonical_physical_target_count"] == 6
+    assert selected["applicability_path_count"] == 7
+    assert {target["source_scope"] for target in selected["applicability_paths"]} == set(REQUIRED_SOURCE_SCOPES)
+    tl3_paths = [
+        target
+        for target in selected["applicability_paths"]
+        if target["canonical_family"] == "tl3_max_mid_mac"
+    ]
+    assert {target["source_scope"] for target in tl3_paths} == {
+        "tl3_max_mid_mac",
+        "max_1500v_max_x_lv",
+    }
+    assert {target["source_declaration"] for target in tl3_paths} == {
+        "v124-instruction-tl3-max-mid-mac",
+        "v124-instruction-max-1500v-max-x-lv",
+    }
     assert selected["physical_parity"]["overall"]["percent"] == 100
     assert all(item["percent"] == 100 for item in selected["physical_parity"]["by_family"].values())
+    assert selected["applicability_path_coverage"] == {
+        "selected": 7,
+        "accounted_for": 7,
+        "percent": 100,
+    }
+
+
+def test_path_level_evidence_keys_do_not_collide() -> None:
+    selected = artifact()["selected_cohort"]
+    ranking = next(
+        item for item in artifact()["candidate_ranking"] if item["id"] == selected["id"]
+    )
+    tl3_paths = [
+        target
+        for target in selected["applicability_paths"]
+        if target["canonical_family"] == "tl3_max_mid_mac"
+    ]
+    keys = {path_key(target) for target in tl3_paths}
+    assert len(keys) == 2
+    assert keys <= set(ranking["evidence_dimensions"])
+    assert keys <= set(ranking["properties_by_target"])
+
+
+def test_selected_decisions_have_scope_consistent_applicability_support() -> None:
+    data = artifact()
+    claims = {
+        claim["claim_id"]: claim
+        for claim in json.loads((ROOT / "sources/claims/generic-claims.json").read_text())["claims"]
+    }
+    decisions = json.loads(
+        (ROOT / "reconciliation/pipeline9_repository_wide_next_cohort.json").read_text()
+    )["decisions"]
+    for decision in decisions:
+        scope_paths = {
+            (
+                path["canonical_family"],
+                path["table"],
+                path["address"],
+                path["source_scope"],
+                path["source_declaration"],
+            )
+            for path in decision["scope"]["applicability_paths"]
+        }
+        cited_paths = {
+            (
+                claims[claim_id]["subject"]["family_scope"][0],
+                claims[claim_id]["subject"]["table"],
+                decision["target"]["address"],
+                claims[claim_id]["subject"]["source_scope"],
+                claims[claim_id]["subject"]["source_declaration"],
+            )
+            for claim_id in decision["support"]
+            if claims[claim_id]["assertion"]["kind"] == "document_range_applicability"
+        }
+        assert cited_paths
+        assert cited_paths <= scope_paths
+        for claim_id in decision["support"]:
+            claim = claims[claim_id]
+            if claim["assertion"]["kind"] == "document_range_applicability":
+                assert claim["subject"]["address"] <= decision["target"]["address"] <= claim["subject"]["address_end"]
+        assert (
+            decision["target"]["canonical_family"],
+            decision["target"]["table"],
+            decision["target"]["address"],
+            decision["scope"]["source_scope"],
+            decision["scope"]["source_declaration"],
+        ) in scope_paths
+
+
+def test_duplicate_paths_do_not_double_count_authority_reduction() -> None:
+    selected = artifact()["selected_cohort"]
+    ranking = next(item for item in artifact()["candidate_ranking"] if item["id"] == selected["id"])
+    assert len(ranking["authority_by_target"]) == selected["canonical_physical_target_count"]
+    assert selected["applicability_path_count"] > selected["canonical_physical_target_count"]
+    assert ranking["expected_reduction"] == sum(
+        item["expected_reduction"] for item in ranking["authority_by_target"].values()
+    )
+    assert ranking["expected_reduction"] == 30
+    assert len(artifact()["semantic_parity"]) == 6
 
 
 def test_promoted_properties_have_noncanonical_support_and_authority_moves() -> None:

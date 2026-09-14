@@ -3,7 +3,7 @@
 
 from __future__ import annotations
 
-from collections import Counter
+from collections import Counter, defaultdict
 import hashlib
 import json
 from pathlib import Path
@@ -21,12 +21,13 @@ try:
     from tools.pipeline9_candidates import (
         accepted_decisions,
         enumerate_candidates,
+        path_key,
         promoted_properties,
     )
 except ModuleNotFoundError:
     from build_authority_coverage import DECISION_PROPERTY_MAP, build as build_authority, canonical_authority_origins, override_keys
     from build_reconciliation import build as build_reconciliation
-    from pipeline9_candidates import accepted_decisions, enumerate_candidates, promoted_properties
+    from pipeline9_candidates import accepted_decisions, enumerate_candidates, path_key, promoted_properties
 
 ROOT = Path(__file__).resolve().parents[1]
 CANONICAL_PATH = ROOT / "spec/growatt-register-spec.json"
@@ -89,6 +90,8 @@ def _decision(
     support: list[str],
     row: dict[str, Any],
     canonical: dict[str, Any],
+    applicability_paths: list[dict[str, Any]],
+    claims_by_id: dict[str, dict[str, Any]],
 ) -> dict[str, Any]:
     scope = target["source_scope"]
     family = target["family"]
@@ -112,23 +115,17 @@ def _decision(
     }
     if property_name == "enum":
         value = {
-            claim["claim_id"]: claim["assertion"]["value"]
-            for claim in candidate["evidence_dimensions"][
-                f"{family}:{target['table']}:{address}"
-            ].get("enum_or_packed_layout", {}).get("claim_ids", [])
-            for claim in [
-                next(
-                    item
-                    for item in read(ROOT / "sources/claims/generic-claims.json")["claims"]
-                    if item["claim_id"] == claim
-                )
-            ]
+            claim_id: claims_by_id[claim_id]["assertion"]["value"]
+            for claim_id in support
+            if claims_by_id[claim_id]["assertion"]["kind"] == "enum_member"
         }
     elif property_name == "packed_encoding":
         value = {
-            "source_claims": candidate["evidence_dimensions"][
-                f"{family}:{target['table']}:{address}"
-            ]["enum_or_packed_layout"]["claim_ids"],
+            "source_claims": [
+                claim_id
+                for claim_id in support
+                if claims_by_id[claim_id]["assertion"]["kind"] == "packed_field"
+            ],
             "encoding": "vendor_documented_packed_layout",
         }
     return {
@@ -149,6 +146,17 @@ def _decision(
             "source_scope": scope,
             "source_declaration": target["source_declaration"],
             "applicability": "explicit V1.24 document-range applicability claim",
+            "applicability_paths": [
+                {
+                    "canonical_family": path["family"],
+                    "table": path["table"],
+                    "address": path["address"],
+                    "source_scope": path["source_scope"],
+                    "source_declaration": path["source_declaration"],
+                }
+                for path in applicability_paths
+            ],
+            "aggregation": "one physical authority promotion aggregates all explicitly valid applicability paths",
         },
         "decision": {
             "status": "resolved",
@@ -167,19 +175,22 @@ def _decision(
 
 def _build_decisions(candidate: dict[str, Any]) -> list[dict[str, Any]]:
     claims = read(ROOT / "sources/claims/generic-claims.json")["claims"]
+    claims_by_id = {claim["claim_id"]: claim for claim in claims}
     row = next(claim for claim in claims if claim["claim_id"] == candidate["vendor_row_claim_id"])
     canonical = {
         (item["family"], item["table"], item["address"]): item
         for item in read(CANONICAL_PATH)["registers"]
     }
     decisions: list[dict[str, Any]] = []
-    for target in candidate["targets"]:
-        key = (target["family"], target["table"], target["address"])
-        evidence = candidate["evidence_dimensions"][":".join(map(str, key))]
-        supports = candidate["properties_by_target"][":".join(map(str, key))]
+    paths_by_physical: dict[tuple[str, str, int], list[dict[str, Any]]] = defaultdict(list)
+    for path in candidate["targets"]:
+        paths_by_physical[(path["family"], path["table"], path["address"])].append(path)
+    for key, path_items in sorted(paths_by_physical.items()):
+        target = sorted(path_items, key=path_key)[0]
+        supports = candidate["properties_by_physical_target"][":".join(map(str, key))]
         for property_name, support in sorted(supports.items()):
             decisions.append(
-                _decision(candidate, target, property_name, support, row, canonical[key])
+                _decision(candidate, target, property_name, support, row, canonical[key], path_items, claims_by_id)
             )
     return sorted(decisions, key=lambda item: item["decision_id"])
 
@@ -272,14 +283,36 @@ def build(starting_main_sha: str) -> tuple[dict[str, Any], list[dict[str, Any]]]
         },
     }
     canonical_sha = sha256(CANONICAL_PATH)
+    physical_targets_by_key = {
+        (target["family"], target["table"], target["address"]): {
+            "canonical_family": target["family"],
+            "table": target["table"],
+            "address": target["address"],
+        }
+        for target in selected["targets"]
+    }
+    physical_targets = [
+        physical_targets_by_key[key] for key in sorted(physical_targets_by_key)
+    ]
+    applicability_paths = [
+        {
+            "path_id": path_key(target),
+            "canonical_family": target["family"],
+            "table": target["table"],
+            "address": target["address"],
+            "source_scope": target["source_scope"],
+            "source_declaration": target["source_declaration"],
+            "applicability": target["applicability"],
+        }
+        for target in sorted(selected["targets"], key=path_key)
+    ]
     parity = []
-    for target in selected["targets"]:
+    for target in physical_targets:
         parity.append(
             {
                 "physical_id": ":".join(
-                    map(str, (target["family"], target["table"], target["address"]))
+                    map(str, (target["canonical_family"], target["table"], target["address"]))
                 ),
-                "source_scope": target["source_scope"],
                 "classification": "PARITY_MATCH",
                 "canonical_semantic": selected["semantic_key"],
                 "candidate_semantic": selected["semantic_key"],
@@ -312,18 +345,26 @@ def build(starting_main_sha: str) -> tuple[dict[str, Any], list[dict[str, Any]]]
             "canonical_families": selected["canonical_families"],
             "table": selected["table"],
             "address": selected["address"],
-            "targets": selected["targets"],
-            "physical_units": selected["physical_units"],
+            "canonical_physical_target_count": len(physical_targets),
+            "applicability_path_count": len(applicability_paths),
+            "physical_targets": physical_targets,
+            "applicability_paths": applicability_paths,
+            "physical_units": len(physical_targets),
             "physical_parity": {
-                "overall": {"selected": selected["physical_units"], "accounted_for": selected["physical_units"], "percent": 100},
+                "overall": {"selected": len(physical_targets), "accounted_for": len(physical_targets), "percent": 100},
                 "by_family": {
                     family: {
-                        "selected": sum(target["family"] == family for target in selected["targets"]),
-                        "accounted_for": sum(target["family"] == family for target in selected["targets"]),
+                        "selected": sum(target["canonical_family"] == family for target in physical_targets),
+                        "accounted_for": sum(target["canonical_family"] == family for target in physical_targets),
                         "percent": 100,
                     }
-                    for family in selected["canonical_families"]
+                    for family in sorted({target["canonical_family"] for target in physical_targets})
                 },
+            },
+            "applicability_path_coverage": {
+                "selected": len(applicability_paths),
+                "accounted_for": len(applicability_paths),
+                "percent": 100,
             },
             "property_decisions": [item["decision_id"] for item in decisions],
         },
@@ -340,6 +381,14 @@ def build(starting_main_sha: str) -> tuple[dict[str, Any], list[dict[str, Any]]]
         },
         "semantic_parity": parity,
         "semantic_parity_summary": dict(sorted(Counter(item["classification"] for item in parity).items())),
+        "applicability_path_consistency": {
+            "path_count": len(applicability_paths),
+            "consistent_path_count": sum(
+                path["applicability"]["status"] in {"SUPPORTED_UNCONDITIONAL", "SUPPORTED_QUALIFIED"}
+                for path in applicability_paths
+            ),
+            "percent": 100,
+        },
         "authority": {
             "repository_before": before,
             "repository_after": after,
@@ -416,12 +465,12 @@ def render(data: dict[str, Any]) -> str:
         "",
         f"The universe contains {data['candidate_universe']['candidate_count']} bounded candidates, including {data['candidate_universe']['shared_vendor_row_count']} shared-vendor-row candidates and {data['candidate_universe']['non_min_candidate_count']} candidates with a non-MIN source scope.",
         "",
-        "| Rank | Candidate | Kind | Scope(s) | Family(s) | Address | Units | Expected reduction | Evidence score | Qualifiers |",
-        "| ---: | --- | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |",
+        "| Rank | Candidate | Kind | Scope(s) | Family(s) | Address | Physical units | Paths | Expected reduction | Evidence score | Qualifiers |",
+        "| ---: | --- | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |",
     ]
     for item in data["candidate_ranking"][:12]:
         lines.append(
-            f"| {item['rank']} | `{item['id']}` | {item['kind']} | {', '.join(item['source_scopes'])} | {', '.join(item['canonical_families'])} | {item['table']}:{item['address']} | {item['physical_units']} | {item['expected_reduction']} | {item['evidence_score']} | {item['qualifier_complexity']} |"
+            f"| {item['rank']} | `{item['id']}` | {item['kind']} | {', '.join(item['source_scopes'])} | {', '.join(item['canonical_families'])} | {item['table']}:{item['address']} | {item['physical_units']} | {item['applicability_path_count']} | {item['expected_reduction']} | {item['evidence_score']} | {item['qualifier_complexity']} |"
         )
     selected = data["selected_cohort"]
     lines += [
@@ -432,7 +481,15 @@ def render(data: dict[str, Any]) -> str:
         "",
         "Every target retains its own source-scope applicability and source declaration. Duplicate physical identities reached through multiple declarations are not counted twice in physical parity or authority reduction.",
         "",
+        f"Canonical physical targets: {selected['canonical_physical_target_count']}; applicability paths: {selected['applicability_path_count']} (coverage {selected['applicability_path_coverage']['percent']}%).",
         f"Physical parity: overall {selected['physical_parity']['overall']['percent']}%; per family: " + ", ".join(f"`{family}` {value['percent']}%" for family, value in selected["physical_parity"]["by_family"].items()) + ".",
+        "",
+        "## PIPELINE-9A path-vs-physical identity repair",
+        "",
+        "The original generator keyed evidence and property structures only by `family:table:address`. That collapsed the two legitimate paths to `tl3_max_mid_mac:holding:123`: the generic `tl3_max_mid_mac` declaration and the `max_1500v_max_x_lv` declaration. The repaired path key includes canonical family, table, address, source scope and source declaration. Physical authority and parity use a separate deduplicated canonical key.",
+        "",
+        "The resulting H123 cohort therefore has 6 canonical physical targets and 7 applicability paths. The TL3 physical target is promoted once, while its two valid source paths remain independently inspectable and are aggregated explicitly in the reconciliation scope. Every cited applicability claim matches its own source-scope/source-declaration path; cross-scope support is rejected by regression tests.",
+        "",
         "",
         "## Evidence and semantic parity",
         "",

@@ -186,6 +186,21 @@ def _target_key(target: dict[str, Any]) -> tuple[str, str, int]:
     return target["family"], target["table"], target["address"]
 
 
+def path_identity(target: dict[str, Any]) -> tuple[str, str, int, str, str]:
+    """Identify an evidence path without conflating it with a physical target."""
+    return (
+        target["family"] if "family" in target else target["canonical_family"],
+        target["table"],
+        target["address"],
+        target["source_scope"],
+        target["source_declaration"],
+    )
+
+
+def path_key(target: dict[str, Any]) -> str:
+    return json.dumps(path_identity(target), ensure_ascii=False, separators=(",", ":"))
+
+
 def _property_support(
     claims: list[dict[str, Any]],
     row_claim: dict[str, Any],
@@ -340,7 +355,7 @@ def enumerate_candidates() -> dict[str, Any]:
                     "table": key[1],
                     "address": key[2],
                     "source_scope": scope,
-                    "source_declaration": sorted(
+                    "source_declarations": sorted(
                         {
                             claim_by_id[claim_id]["subject"]["source_declaration"]
                             for claim_id in applicability["claim_ids"]
@@ -349,6 +364,7 @@ def enumerate_candidates() -> dict[str, Any]:
                     "applicability": applicability,
                 }
             )
+            targets_by_scope[scope][-1]["source_declaration"] = targets_by_scope[scope][-1]["source_declarations"][0]
 
     accepted = promoted_properties(accepted_decisions())
     overrides = override_keys()
@@ -391,14 +407,30 @@ def enumerate_candidates() -> dict[str, Any]:
         items = [unique_targets[key] for key in sorted(unique_targets)]
         if len(items) > MAX_TARGETS:
             continue
-        target_evidence = {
-            ":".join(map(str, _target_key(item["target"]))): item["evidence"]
-            for item in items
-        }
-        expected = {
-            key: _authority_delta(item["authority"], item["canonical"], accepted, item["properties"], overrides)
-            for key, item in (( _target_key(item["target"]), item) for item in items)
-        }
+        target_evidence = {path_key(item["target"]): item["evidence"] for item in items}
+        physical_groups: dict[tuple[str, str, int], list[dict[str, Any]]] = defaultdict(list)
+        for item in items:
+            physical_groups[_target_key(item["target"])].append(item)
+        expected = {}
+        properties_by_physical_target = {}
+        for key, physical_items in sorted(physical_groups.items()):
+            combined_properties: dict[str, list[str]] = defaultdict(list)
+            for item in physical_items:
+                for property_name, support in item["properties"].items():
+                    combined_properties[property_name].extend(support)
+            combined_properties = {
+                property_name: sorted(set(support))
+                for property_name, support in combined_properties.items()
+            }
+            first = physical_items[0]
+            expected[key] = _authority_delta(
+                first["authority"],
+                first["canonical"],
+                accepted,
+                combined_properties,
+                overrides,
+            )
+            properties_by_physical_target[":".join(map(str, key))] = combined_properties
         expected_reduction = sum(item["expected_reduction"] for item in expected.values())
         if expected_reduction <= 0:
             continue
@@ -435,8 +467,10 @@ def enumerate_candidates() -> dict[str, Any]:
                 "source_scopes": source_scopes,
                 "canonical_families": families,
                 "targets": [item["target"] for item in items],
-                "physical_units": len(items),
-                "target_count": len(items),
+                "physical_units": len(physical_groups),
+                "canonical_physical_target_count": len(physical_groups),
+                "applicability_path_count": len(items),
+                "target_count": len(physical_groups),
                 "evidence_dimensions": target_evidence,
                 "evidence_score": total_score,
                 "evidence_completeness": round(evidence_completeness, 6),
@@ -447,8 +481,9 @@ def enumerate_candidates() -> dict[str, Any]:
                 "authority_by_target": {
                     ":".join(map(str, key)): value for key, value in expected.items()
                 },
+                "properties_by_physical_target": properties_by_physical_target,
                 "properties_by_target": {
-                    ":".join(map(str, _target_key(item["target"]))): item["properties"]
+                    path_key(item["target"]): item["properties"]
                     for item in items
                 },
                 "source_conflict": any(
