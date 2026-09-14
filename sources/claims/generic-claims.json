@@ -74346,6 +74346,80 @@
       }
     },
     {
+      "claim_id": "min_live:holding:3070:fc03_3070_count3_registers",
+      "source_id": "min_live_validation",
+      "source_type": "live_modbus_observation",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN 6000TL-XH"
+        ],
+        "table": "holding",
+        "address": 3070
+      },
+      "assertion": {
+        "kind": "raw_read_observation",
+        "value": 0,
+        "raw_value": 0
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/min-6000tl-xh-live-validation.json",
+        "timestamp": "2026-09-05T17:54:14.294172+00:00",
+        "json_pointer": "/holding_ems/fc03_3070_count3_registers/0",
+        "record_id": "fc03_3070_count3_registers"
+      },
+      "scope": {
+        "family": [
+          "MIN 6000TL-XH"
+        ],
+        "applicability": "retained read-only EMS holding sample",
+        "model": "MIN 6000TL-XH",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "live_read_observed",
+        "confidence": "high",
+        "status": "observed"
+      }
+    },
+    {
+      "claim_id": "min_live:holding:3071:fc03_3070_count3_registers",
+      "source_id": "min_live_validation",
+      "source_type": "live_modbus_observation",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN 6000TL-XH"
+        ],
+        "table": "holding",
+        "address": 3071
+      },
+      "assertion": {
+        "kind": "raw_read_observation",
+        "value": 0,
+        "raw_value": 0
+      },
+      "provenance": {
+        "source_artifact": "sources/evidence/min-6000tl-xh-live-validation.json",
+        "timestamp": "2026-09-05T17:54:14.294172+00:00",
+        "json_pointer": "/holding_ems/fc03_3070_count3_registers/1",
+        "record_id": "fc03_3070_count3_registers"
+      },
+      "scope": {
+        "family": [
+          "MIN 6000TL-XH"
+        ],
+        "applicability": "retained read-only EMS holding sample",
+        "model": "MIN 6000TL-XH",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "live_read_observed",
+        "confidence": "high",
+        "status": "observed"
+      }
+    },
+    {
       "claim_id": "min_live:holding:3081:fc03_3079_count4_registers",
       "source_id": "min_live_validation",
       "source_type": "live_modbus_observation",
@@ -92451,6 +92525,1922 @@
       }
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-max-1500v-max-x-lv:0",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "tl3_max_mid_mac"
+        ],
+        "table": "holding",
+        "address": 0,
+        "address_end": 124,
+        "source_scope": "max_1500v_max_x_lv",
+        "source_declaration": "v124-instruction-max-1500v-max-x-lv"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "tl3_max_mid_mac",
+          "source_scope": "max_1500v_max_x_lv",
+          "source_declaration": "v124-instruction-max-1500v-max-x-lv",
+          "family_label": "MAX 1500V/MAX-X LV",
+          "function_code": 3,
+          "table": "holding",
+          "start": 0,
+          "end": 124,
+          "qualifier": null
+        },
+        "source_text": "MAX 1500V, MAX-X LV: 03 register range: 0~124, 125~249; 04 register range: 0~124, 125~249, 875~999",
+        "raw_value": {
+          "function_code": 3,
+          "table": "holding",
+          "start": 0,
+          "end": 124
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-max-1500v-max-x-lv"
+      },
+      "scope": {
+        "family": [
+          "tl3_max_mid_mac"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "MAX 1500V/MAX-X LV",
+        "source_scope": "max_1500v_max_x_lv",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-max-1500v-max-x-lv:1",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "tl3_max_mid_mac"
+        ],
+        "table": "holding",
+        "address": 125,
+        "address_end": 249,
+        "source_scope": "max_1500v_max_x_lv",
+        "source_declaration": "v124-instruction-max-1500v-max-x-lv"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "tl3_max_mid_mac",
+          "source_scope": "max_1500v_max_x_lv",
+          "source_declaration": "v124-instruction-max-1500v-max-x-lv",
+          "family_label": "MAX 1500V/MAX-X LV",
+          "function_code": 3,
+          "table": "holding",
+          "start": 125,
+          "end": 249,
+          "qualifier": null
+        },
+        "source_text": "MAX 1500V, MAX-X LV: 03 register range: 0~124, 125~249; 04 register range: 0~124, 125~249, 875~999",
+        "raw_value": {
+          "function_code": 3,
+          "table": "holding",
+          "start": 125,
+          "end": 249
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-max-1500v-max-x-lv"
+      },
+      "scope": {
+        "family": [
+          "tl3_max_mid_mac"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "MAX 1500V/MAX-X LV",
+        "source_scope": "max_1500v_max_x_lv",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-max-1500v-max-x-lv:2",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "tl3_max_mid_mac"
+        ],
+        "table": "input",
+        "address": 0,
+        "address_end": 124,
+        "source_scope": "max_1500v_max_x_lv",
+        "source_declaration": "v124-instruction-max-1500v-max-x-lv"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "tl3_max_mid_mac",
+          "source_scope": "max_1500v_max_x_lv",
+          "source_declaration": "v124-instruction-max-1500v-max-x-lv",
+          "family_label": "MAX 1500V/MAX-X LV",
+          "function_code": 4,
+          "table": "input",
+          "start": 0,
+          "end": 124,
+          "qualifier": null
+        },
+        "source_text": "MAX 1500V, MAX-X LV: 03 register range: 0~124, 125~249; 04 register range: 0~124, 125~249, 875~999",
+        "raw_value": {
+          "function_code": 4,
+          "table": "input",
+          "start": 0,
+          "end": 124
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-max-1500v-max-x-lv"
+      },
+      "scope": {
+        "family": [
+          "tl3_max_mid_mac"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "MAX 1500V/MAX-X LV",
+        "source_scope": "max_1500v_max_x_lv",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-max-1500v-max-x-lv:3",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "tl3_max_mid_mac"
+        ],
+        "table": "input",
+        "address": 125,
+        "address_end": 249,
+        "source_scope": "max_1500v_max_x_lv",
+        "source_declaration": "v124-instruction-max-1500v-max-x-lv"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "tl3_max_mid_mac",
+          "source_scope": "max_1500v_max_x_lv",
+          "source_declaration": "v124-instruction-max-1500v-max-x-lv",
+          "family_label": "MAX 1500V/MAX-X LV",
+          "function_code": 4,
+          "table": "input",
+          "start": 125,
+          "end": 249,
+          "qualifier": null
+        },
+        "source_text": "MAX 1500V, MAX-X LV: 03 register range: 0~124, 125~249; 04 register range: 0~124, 125~249, 875~999",
+        "raw_value": {
+          "function_code": 4,
+          "table": "input",
+          "start": 125,
+          "end": 249
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-max-1500v-max-x-lv"
+      },
+      "scope": {
+        "family": [
+          "tl3_max_mid_mac"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "MAX 1500V/MAX-X LV",
+        "source_scope": "max_1500v_max_x_lv",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-max-1500v-max-x-lv:4",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "tl3_max_mid_mac"
+        ],
+        "table": "input",
+        "address": 875,
+        "address_end": 999,
+        "source_scope": "max_1500v_max_x_lv",
+        "source_declaration": "v124-instruction-max-1500v-max-x-lv"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "tl3_max_mid_mac",
+          "source_scope": "max_1500v_max_x_lv",
+          "source_declaration": "v124-instruction-max-1500v-max-x-lv",
+          "family_label": "MAX 1500V/MAX-X LV",
+          "function_code": 4,
+          "table": "input",
+          "start": 875,
+          "end": 999,
+          "qualifier": null
+        },
+        "source_text": "MAX 1500V, MAX-X LV: 03 register range: 0~124, 125~249; 04 register range: 0~124, 125~249, 875~999",
+        "raw_value": {
+          "function_code": 4,
+          "table": "input",
+          "start": 875,
+          "end": 999
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-max-1500v-max-x-lv"
+      },
+      "scope": {
+        "family": [
+          "tl3_max_mid_mac"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "MAX 1500V/MAX-X LV",
+        "source_scope": "max_1500v_max_x_lv",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-min-tlx-tlxh:0",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "holding",
+        "address": 0,
+        "address_end": 124,
+        "source_scope": "min_tl_xh",
+        "source_declaration": "v124-instruction-min-tlx-tlxh"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "min_tl_xh",
+          "source_scope": "min_tl_xh",
+          "source_declaration": "v124-instruction-min-tlx-tlxh",
+          "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
+          "function_code": 3,
+          "table": "holding",
+          "start": 0,
+          "end": 124,
+          "qualifier": null
+        },
+        "source_text": "TL-X/TL-XH/TL-XH US (MIN Type): 03 register range: 0~124, 3000~3124, 3125~3249 (TL-XH US); 04 register range: 3000~3124, 3125~3249, 3250~3374 (TL-XH)",
+        "raw_value": {
+          "function_code": 3,
+          "table": "holding",
+          "start": 0,
+          "end": 124
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-min-tlx-tlxh"
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "TL-X/TL-XH/TL-XH US (MIN Type)",
+        "source_scope": "min_tl_xh",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-min-tlx-tlxh:1",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "holding",
+        "address": 3000,
+        "address_end": 3124,
+        "source_scope": "min_tl_xh",
+        "source_declaration": "v124-instruction-min-tlx-tlxh"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "min_tl_xh",
+          "source_scope": "min_tl_xh",
+          "source_declaration": "v124-instruction-min-tlx-tlxh",
+          "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
+          "function_code": 3,
+          "table": "holding",
+          "start": 3000,
+          "end": 3124,
+          "qualifier": null
+        },
+        "source_text": "TL-X/TL-XH/TL-XH US (MIN Type): 03 register range: 0~124, 3000~3124, 3125~3249 (TL-XH US); 04 register range: 3000~3124, 3125~3249, 3250~3374 (TL-XH)",
+        "raw_value": {
+          "function_code": 3,
+          "table": "holding",
+          "start": 3000,
+          "end": 3124
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-min-tlx-tlxh"
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "TL-X/TL-XH/TL-XH US (MIN Type)",
+        "source_scope": "min_tl_xh",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-min-tlx-tlxh:2",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "holding",
+        "address": 3125,
+        "address_end": 3249,
+        "source_scope": "min_tl_xh",
+        "source_declaration": "v124-instruction-min-tlx-tlxh"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "min_tl_xh",
+          "source_scope": "min_tl_xh",
+          "source_declaration": "v124-instruction-min-tlx-tlxh",
+          "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
+          "function_code": 3,
+          "table": "holding",
+          "start": 3125,
+          "end": 3249,
+          "qualifier": "TL-XH US"
+        },
+        "source_text": "TL-X/TL-XH/TL-XH US (MIN Type): 03 register range: 0~124, 3000~3124, 3125~3249 (TL-XH US); 04 register range: 3000~3124, 3125~3249, 3250~3374 (TL-XH)",
+        "raw_value": {
+          "function_code": 3,
+          "table": "holding",
+          "start": 3125,
+          "end": 3249,
+          "qualifier": "TL-XH US"
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-min-tlx-tlxh"
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "TL-X/TL-XH/TL-XH US (MIN Type)",
+        "source_scope": "min_tl_xh",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-min-tlx-tlxh:3",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3000,
+        "address_end": 3124,
+        "source_scope": "min_tl_xh",
+        "source_declaration": "v124-instruction-min-tlx-tlxh"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "min_tl_xh",
+          "source_scope": "min_tl_xh",
+          "source_declaration": "v124-instruction-min-tlx-tlxh",
+          "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
+          "function_code": 4,
+          "table": "input",
+          "start": 3000,
+          "end": 3124,
+          "qualifier": null
+        },
+        "source_text": "TL-X/TL-XH/TL-XH US (MIN Type): 03 register range: 0~124, 3000~3124, 3125~3249 (TL-XH US); 04 register range: 3000~3124, 3125~3249, 3250~3374 (TL-XH)",
+        "raw_value": {
+          "function_code": 4,
+          "table": "input",
+          "start": 3000,
+          "end": 3124
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-min-tlx-tlxh"
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "TL-X/TL-XH/TL-XH US (MIN Type)",
+        "source_scope": "min_tl_xh",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-min-tlx-tlxh:4",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3125,
+        "address_end": 3249,
+        "source_scope": "min_tl_xh",
+        "source_declaration": "v124-instruction-min-tlx-tlxh"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "min_tl_xh",
+          "source_scope": "min_tl_xh",
+          "source_declaration": "v124-instruction-min-tlx-tlxh",
+          "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
+          "function_code": 4,
+          "table": "input",
+          "start": 3125,
+          "end": 3249,
+          "qualifier": null
+        },
+        "source_text": "TL-X/TL-XH/TL-XH US (MIN Type): 03 register range: 0~124, 3000~3124, 3125~3249 (TL-XH US); 04 register range: 3000~3124, 3125~3249, 3250~3374 (TL-XH)",
+        "raw_value": {
+          "function_code": 4,
+          "table": "input",
+          "start": 3125,
+          "end": 3249
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-min-tlx-tlxh"
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "TL-X/TL-XH/TL-XH US (MIN Type)",
+        "source_scope": "min_tl_xh",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-min-tlx-tlxh:5",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "min_tl_xh"
+        ],
+        "table": "input",
+        "address": 3250,
+        "address_end": 3374,
+        "source_scope": "min_tl_xh",
+        "source_declaration": "v124-instruction-min-tlx-tlxh"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "min_tl_xh",
+          "source_scope": "min_tl_xh",
+          "source_declaration": "v124-instruction-min-tlx-tlxh",
+          "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
+          "function_code": 4,
+          "table": "input",
+          "start": 3250,
+          "end": 3374,
+          "qualifier": "TL-XH"
+        },
+        "source_text": "TL-X/TL-XH/TL-XH US (MIN Type): 03 register range: 0~124, 3000~3124, 3125~3249 (TL-XH US); 04 register range: 3000~3124, 3125~3249, 3250~3374 (TL-XH)",
+        "raw_value": {
+          "function_code": 4,
+          "table": "input",
+          "start": 3250,
+          "end": 3374,
+          "qualifier": "TL-XH"
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-min-tlx-tlxh"
+      },
+      "scope": {
+        "family": [
+          "min_tl_xh"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "TL-X/TL-XH/TL-XH US (MIN Type)",
+        "source_scope": "min_tl_xh",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-mod-tl3-xh:0",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "mod_tl3_xh"
+        ],
+        "table": "holding",
+        "address": 0,
+        "address_end": 124,
+        "source_scope": "mod_tl3_xh",
+        "source_declaration": "v124-instruction-mod-tl3-xh"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "mod_tl3_xh",
+          "source_scope": "mod_tl3_xh",
+          "source_declaration": "v124-instruction-mod-tl3-xh",
+          "family_label": "MOD TL3-XH",
+          "function_code": 3,
+          "table": "holding",
+          "start": 0,
+          "end": 124,
+          "qualifier": null
+        },
+        "source_text": "MOD TL3-XH: 03 register range: 0~124, 3000~3124; 04 register range: 3000~3124, 3125~3249",
+        "raw_value": {
+          "function_code": 3,
+          "table": "holding",
+          "start": 0,
+          "end": 124
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-mod-tl3-xh"
+      },
+      "scope": {
+        "family": [
+          "mod_tl3_xh"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "MOD TL3-XH",
+        "source_scope": "mod_tl3_xh",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-mod-tl3-xh:1",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "mod_tl3_xh"
+        ],
+        "table": "holding",
+        "address": 3000,
+        "address_end": 3124,
+        "source_scope": "mod_tl3_xh",
+        "source_declaration": "v124-instruction-mod-tl3-xh"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "mod_tl3_xh",
+          "source_scope": "mod_tl3_xh",
+          "source_declaration": "v124-instruction-mod-tl3-xh",
+          "family_label": "MOD TL3-XH",
+          "function_code": 3,
+          "table": "holding",
+          "start": 3000,
+          "end": 3124,
+          "qualifier": null
+        },
+        "source_text": "MOD TL3-XH: 03 register range: 0~124, 3000~3124; 04 register range: 3000~3124, 3125~3249",
+        "raw_value": {
+          "function_code": 3,
+          "table": "holding",
+          "start": 3000,
+          "end": 3124
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-mod-tl3-xh"
+      },
+      "scope": {
+        "family": [
+          "mod_tl3_xh"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "MOD TL3-XH",
+        "source_scope": "mod_tl3_xh",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-mod-tl3-xh:2",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "mod_tl3_xh"
+        ],
+        "table": "input",
+        "address": 3000,
+        "address_end": 3124,
+        "source_scope": "mod_tl3_xh",
+        "source_declaration": "v124-instruction-mod-tl3-xh"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "mod_tl3_xh",
+          "source_scope": "mod_tl3_xh",
+          "source_declaration": "v124-instruction-mod-tl3-xh",
+          "family_label": "MOD TL3-XH",
+          "function_code": 4,
+          "table": "input",
+          "start": 3000,
+          "end": 3124,
+          "qualifier": null
+        },
+        "source_text": "MOD TL3-XH: 03 register range: 0~124, 3000~3124; 04 register range: 3000~3124, 3125~3249",
+        "raw_value": {
+          "function_code": 4,
+          "table": "input",
+          "start": 3000,
+          "end": 3124
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-mod-tl3-xh"
+      },
+      "scope": {
+        "family": [
+          "mod_tl3_xh"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "MOD TL3-XH",
+        "source_scope": "mod_tl3_xh",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-mod-tl3-xh:3",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "mod_tl3_xh"
+        ],
+        "table": "input",
+        "address": 3125,
+        "address_end": 3249,
+        "source_scope": "mod_tl3_xh",
+        "source_declaration": "v124-instruction-mod-tl3-xh"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "mod_tl3_xh",
+          "source_scope": "mod_tl3_xh",
+          "source_declaration": "v124-instruction-mod-tl3-xh",
+          "family_label": "MOD TL3-XH",
+          "function_code": 4,
+          "table": "input",
+          "start": 3125,
+          "end": 3249,
+          "qualifier": null
+        },
+        "source_text": "MOD TL3-XH: 03 register range: 0~124, 3000~3124; 04 register range: 3000~3124, 3125~3249",
+        "raw_value": {
+          "function_code": 4,
+          "table": "input",
+          "start": 3125,
+          "end": 3249
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-mod-tl3-xh"
+      },
+      "scope": {
+        "family": [
+          "mod_tl3_xh"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "MOD TL3-XH",
+        "source_scope": "mod_tl3_xh",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-storage-mix:0",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "storage_mix"
+        ],
+        "table": "holding",
+        "address": 0,
+        "address_end": 124,
+        "source_scope": "storage_mix",
+        "source_declaration": "v124-instruction-storage-mix"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "storage_mix",
+          "source_scope": "storage_mix",
+          "source_declaration": "v124-instruction-storage-mix",
+          "family_label": "Storage (MIX Type)",
+          "function_code": 3,
+          "table": "holding",
+          "start": 0,
+          "end": 124,
+          "qualifier": null
+        },
+        "source_text": "Storage (MIX Type): 03 register range: 0~124, 1000~1124; 04 register range: 0~124, 1000~1124",
+        "raw_value": {
+          "function_code": 3,
+          "table": "holding",
+          "start": 0,
+          "end": 124
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-storage-mix"
+      },
+      "scope": {
+        "family": [
+          "storage_mix"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "Storage (MIX Type)",
+        "source_scope": "storage_mix",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-storage-mix:1",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "storage_mix"
+        ],
+        "table": "holding",
+        "address": 1000,
+        "address_end": 1124,
+        "source_scope": "storage_mix",
+        "source_declaration": "v124-instruction-storage-mix"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "storage_mix",
+          "source_scope": "storage_mix",
+          "source_declaration": "v124-instruction-storage-mix",
+          "family_label": "Storage (MIX Type)",
+          "function_code": 3,
+          "table": "holding",
+          "start": 1000,
+          "end": 1124,
+          "qualifier": null
+        },
+        "source_text": "Storage (MIX Type): 03 register range: 0~124, 1000~1124; 04 register range: 0~124, 1000~1124",
+        "raw_value": {
+          "function_code": 3,
+          "table": "holding",
+          "start": 1000,
+          "end": 1124
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-storage-mix"
+      },
+      "scope": {
+        "family": [
+          "storage_mix"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "Storage (MIX Type)",
+        "source_scope": "storage_mix",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-storage-mix:2",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "storage_mix"
+        ],
+        "table": "input",
+        "address": 0,
+        "address_end": 124,
+        "source_scope": "storage_mix",
+        "source_declaration": "v124-instruction-storage-mix"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "storage_mix",
+          "source_scope": "storage_mix",
+          "source_declaration": "v124-instruction-storage-mix",
+          "family_label": "Storage (MIX Type)",
+          "function_code": 4,
+          "table": "input",
+          "start": 0,
+          "end": 124,
+          "qualifier": null
+        },
+        "source_text": "Storage (MIX Type): 03 register range: 0~124, 1000~1124; 04 register range: 0~124, 1000~1124",
+        "raw_value": {
+          "function_code": 4,
+          "table": "input",
+          "start": 0,
+          "end": 124
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-storage-mix"
+      },
+      "scope": {
+        "family": [
+          "storage_mix"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "Storage (MIX Type)",
+        "source_scope": "storage_mix",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-storage-mix:3",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "storage_mix"
+        ],
+        "table": "input",
+        "address": 1000,
+        "address_end": 1124,
+        "source_scope": "storage_mix",
+        "source_declaration": "v124-instruction-storage-mix"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "storage_mix",
+          "source_scope": "storage_mix",
+          "source_declaration": "v124-instruction-storage-mix",
+          "family_label": "Storage (MIX Type)",
+          "function_code": 4,
+          "table": "input",
+          "start": 1000,
+          "end": 1124,
+          "qualifier": null
+        },
+        "source_text": "Storage (MIX Type): 03 register range: 0~124, 1000~1124; 04 register range: 0~124, 1000~1124",
+        "raw_value": {
+          "function_code": 4,
+          "table": "input",
+          "start": 1000,
+          "end": 1124
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-storage-mix"
+      },
+      "scope": {
+        "family": [
+          "storage_mix"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "Storage (MIX Type)",
+        "source_scope": "storage_mix",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-storage-spa:0",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "storage_spa"
+        ],
+        "table": "holding",
+        "address": 0,
+        "address_end": 124,
+        "source_scope": "storage_spa",
+        "source_declaration": "v124-instruction-storage-spa"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "storage_spa",
+          "source_scope": "storage_spa",
+          "source_declaration": "v124-instruction-storage-spa",
+          "family_label": "Storage (SPA Type)",
+          "function_code": 3,
+          "table": "holding",
+          "start": 0,
+          "end": 124,
+          "qualifier": null
+        },
+        "source_text": "Storage (SPA Type): 03 register range: 0~124, 1000~1124; 04 register range: 1000~1124, 2000~2124, 1125~1249",
+        "raw_value": {
+          "function_code": 3,
+          "table": "holding",
+          "start": 0,
+          "end": 124
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-storage-spa"
+      },
+      "scope": {
+        "family": [
+          "storage_spa"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "Storage (SPA Type)",
+        "source_scope": "storage_spa",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-storage-spa:1",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "storage_spa"
+        ],
+        "table": "holding",
+        "address": 1000,
+        "address_end": 1124,
+        "source_scope": "storage_spa",
+        "source_declaration": "v124-instruction-storage-spa"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "storage_spa",
+          "source_scope": "storage_spa",
+          "source_declaration": "v124-instruction-storage-spa",
+          "family_label": "Storage (SPA Type)",
+          "function_code": 3,
+          "table": "holding",
+          "start": 1000,
+          "end": 1124,
+          "qualifier": null
+        },
+        "source_text": "Storage (SPA Type): 03 register range: 0~124, 1000~1124; 04 register range: 1000~1124, 2000~2124, 1125~1249",
+        "raw_value": {
+          "function_code": 3,
+          "table": "holding",
+          "start": 1000,
+          "end": 1124
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-storage-spa"
+      },
+      "scope": {
+        "family": [
+          "storage_spa"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "Storage (SPA Type)",
+        "source_scope": "storage_spa",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-storage-spa:2",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "storage_spa"
+        ],
+        "table": "input",
+        "address": 1000,
+        "address_end": 1124,
+        "source_scope": "storage_spa",
+        "source_declaration": "v124-instruction-storage-spa"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "storage_spa",
+          "source_scope": "storage_spa",
+          "source_declaration": "v124-instruction-storage-spa",
+          "family_label": "Storage (SPA Type)",
+          "function_code": 4,
+          "table": "input",
+          "start": 1000,
+          "end": 1124,
+          "qualifier": null
+        },
+        "source_text": "Storage (SPA Type): 03 register range: 0~124, 1000~1124; 04 register range: 1000~1124, 2000~2124, 1125~1249",
+        "raw_value": {
+          "function_code": 4,
+          "table": "input",
+          "start": 1000,
+          "end": 1124
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-storage-spa"
+      },
+      "scope": {
+        "family": [
+          "storage_spa"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "Storage (SPA Type)",
+        "source_scope": "storage_spa",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-storage-spa:3",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "storage_spa"
+        ],
+        "table": "input",
+        "address": 2000,
+        "address_end": 2124,
+        "source_scope": "storage_spa",
+        "source_declaration": "v124-instruction-storage-spa"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "storage_spa",
+          "source_scope": "storage_spa",
+          "source_declaration": "v124-instruction-storage-spa",
+          "family_label": "Storage (SPA Type)",
+          "function_code": 4,
+          "table": "input",
+          "start": 2000,
+          "end": 2124,
+          "qualifier": null
+        },
+        "source_text": "Storage (SPA Type): 03 register range: 0~124, 1000~1124; 04 register range: 1000~1124, 2000~2124, 1125~1249",
+        "raw_value": {
+          "function_code": 4,
+          "table": "input",
+          "start": 2000,
+          "end": 2124
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-storage-spa"
+      },
+      "scope": {
+        "family": [
+          "storage_spa"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "Storage (SPA Type)",
+        "source_scope": "storage_spa",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-storage-spa:4",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "storage_spa"
+        ],
+        "table": "input",
+        "address": 1125,
+        "address_end": 1249,
+        "source_scope": "storage_spa",
+        "source_declaration": "v124-instruction-storage-spa"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "storage_spa",
+          "source_scope": "storage_spa",
+          "source_declaration": "v124-instruction-storage-spa",
+          "family_label": "Storage (SPA Type)",
+          "function_code": 4,
+          "table": "input",
+          "start": 1125,
+          "end": 1249,
+          "qualifier": null
+        },
+        "source_text": "Storage (SPA Type): 03 register range: 0~124, 1000~1124; 04 register range: 1000~1124, 2000~2124, 1125~1249",
+        "raw_value": {
+          "function_code": 4,
+          "table": "input",
+          "start": 1125,
+          "end": 1249
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-storage-spa"
+      },
+      "scope": {
+        "family": [
+          "storage_spa"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "Storage (SPA Type)",
+        "source_scope": "storage_spa",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-storage-sph:0",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "storage_sph"
+        ],
+        "table": "holding",
+        "address": 0,
+        "address_end": 124,
+        "source_scope": "storage_sph",
+        "source_declaration": "v124-instruction-storage-sph"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "storage_sph",
+          "source_scope": "storage_sph",
+          "source_declaration": "v124-instruction-storage-sph",
+          "family_label": "Storage (SPH Type)",
+          "function_code": 3,
+          "table": "holding",
+          "start": 0,
+          "end": 124,
+          "qualifier": null
+        },
+        "source_text": "Storage (SPH Type): 03 register range: 0~124, 1000~1124; 04 register range: 0~124, 1000~1124, 1125~1249",
+        "raw_value": {
+          "function_code": 3,
+          "table": "holding",
+          "start": 0,
+          "end": 124
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-storage-sph"
+      },
+      "scope": {
+        "family": [
+          "storage_sph"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "Storage (SPH Type)",
+        "source_scope": "storage_sph",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-storage-sph:1",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "storage_sph"
+        ],
+        "table": "holding",
+        "address": 1000,
+        "address_end": 1124,
+        "source_scope": "storage_sph",
+        "source_declaration": "v124-instruction-storage-sph"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "storage_sph",
+          "source_scope": "storage_sph",
+          "source_declaration": "v124-instruction-storage-sph",
+          "family_label": "Storage (SPH Type)",
+          "function_code": 3,
+          "table": "holding",
+          "start": 1000,
+          "end": 1124,
+          "qualifier": null
+        },
+        "source_text": "Storage (SPH Type): 03 register range: 0~124, 1000~1124; 04 register range: 0~124, 1000~1124, 1125~1249",
+        "raw_value": {
+          "function_code": 3,
+          "table": "holding",
+          "start": 1000,
+          "end": 1124
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-storage-sph"
+      },
+      "scope": {
+        "family": [
+          "storage_sph"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "Storage (SPH Type)",
+        "source_scope": "storage_sph",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-storage-sph:2",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "storage_sph"
+        ],
+        "table": "input",
+        "address": 0,
+        "address_end": 124,
+        "source_scope": "storage_sph",
+        "source_declaration": "v124-instruction-storage-sph"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "storage_sph",
+          "source_scope": "storage_sph",
+          "source_declaration": "v124-instruction-storage-sph",
+          "family_label": "Storage (SPH Type)",
+          "function_code": 4,
+          "table": "input",
+          "start": 0,
+          "end": 124,
+          "qualifier": null
+        },
+        "source_text": "Storage (SPH Type): 03 register range: 0~124, 1000~1124; 04 register range: 0~124, 1000~1124, 1125~1249",
+        "raw_value": {
+          "function_code": 4,
+          "table": "input",
+          "start": 0,
+          "end": 124
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-storage-sph"
+      },
+      "scope": {
+        "family": [
+          "storage_sph"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "Storage (SPH Type)",
+        "source_scope": "storage_sph",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-storage-sph:3",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "storage_sph"
+        ],
+        "table": "input",
+        "address": 1000,
+        "address_end": 1124,
+        "source_scope": "storage_sph",
+        "source_declaration": "v124-instruction-storage-sph"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "storage_sph",
+          "source_scope": "storage_sph",
+          "source_declaration": "v124-instruction-storage-sph",
+          "family_label": "Storage (SPH Type)",
+          "function_code": 4,
+          "table": "input",
+          "start": 1000,
+          "end": 1124,
+          "qualifier": null
+        },
+        "source_text": "Storage (SPH Type): 03 register range: 0~124, 1000~1124; 04 register range: 0~124, 1000~1124, 1125~1249",
+        "raw_value": {
+          "function_code": 4,
+          "table": "input",
+          "start": 1000,
+          "end": 1124
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-storage-sph"
+      },
+      "scope": {
+        "family": [
+          "storage_sph"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "Storage (SPH Type)",
+        "source_scope": "storage_sph",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-storage-sph:4",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "storage_sph"
+        ],
+        "table": "input",
+        "address": 1125,
+        "address_end": 1249,
+        "source_scope": "storage_sph",
+        "source_declaration": "v124-instruction-storage-sph"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "storage_sph",
+          "source_scope": "storage_sph",
+          "source_declaration": "v124-instruction-storage-sph",
+          "family_label": "Storage (SPH Type)",
+          "function_code": 4,
+          "table": "input",
+          "start": 1125,
+          "end": 1249,
+          "qualifier": null
+        },
+        "source_text": "Storage (SPH Type): 03 register range: 0~124, 1000~1124; 04 register range: 0~124, 1000~1124, 1125~1249",
+        "raw_value": {
+          "function_code": 4,
+          "table": "input",
+          "start": 1125,
+          "end": 1249
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-storage-sph"
+      },
+      "scope": {
+        "family": [
+          "storage_sph"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "Storage (SPH Type)",
+        "source_scope": "storage_sph",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-tl3-max-mid-mac:0",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "tl3_max_mid_mac"
+        ],
+        "table": "holding",
+        "address": 0,
+        "address_end": 124,
+        "source_scope": "tl3_max_mid_mac",
+        "source_declaration": "v124-instruction-tl3-max-mid-mac"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "tl3_max_mid_mac",
+          "source_scope": "tl3_max_mid_mac",
+          "source_declaration": "v124-instruction-tl3-max-mid-mac",
+          "family_label": "TL3-X (MAX, MID, MAC Type)",
+          "function_code": 3,
+          "table": "holding",
+          "start": 0,
+          "end": 124,
+          "qualifier": null
+        },
+        "source_text": "TL3-X (MAX, MID, MAC Type): 03 register range: 0~124, 125~249; 04 register range: 0~124, 125~249",
+        "raw_value": {
+          "function_code": 3,
+          "table": "holding",
+          "start": 0,
+          "end": 124
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-tl3-max-mid-mac"
+      },
+      "scope": {
+        "family": [
+          "tl3_max_mid_mac"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "TL3-X (MAX, MID, MAC Type)",
+        "source_scope": "tl3_max_mid_mac",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-tl3-max-mid-mac:1",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "tl3_max_mid_mac"
+        ],
+        "table": "holding",
+        "address": 125,
+        "address_end": 249,
+        "source_scope": "tl3_max_mid_mac",
+        "source_declaration": "v124-instruction-tl3-max-mid-mac"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "tl3_max_mid_mac",
+          "source_scope": "tl3_max_mid_mac",
+          "source_declaration": "v124-instruction-tl3-max-mid-mac",
+          "family_label": "TL3-X (MAX, MID, MAC Type)",
+          "function_code": 3,
+          "table": "holding",
+          "start": 125,
+          "end": 249,
+          "qualifier": null
+        },
+        "source_text": "TL3-X (MAX, MID, MAC Type): 03 register range: 0~124, 125~249; 04 register range: 0~124, 125~249",
+        "raw_value": {
+          "function_code": 3,
+          "table": "holding",
+          "start": 125,
+          "end": 249
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-tl3-max-mid-mac"
+      },
+      "scope": {
+        "family": [
+          "tl3_max_mid_mac"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "TL3-X (MAX, MID, MAC Type)",
+        "source_scope": "tl3_max_mid_mac",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-tl3-max-mid-mac:2",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "tl3_max_mid_mac"
+        ],
+        "table": "input",
+        "address": 0,
+        "address_end": 124,
+        "source_scope": "tl3_max_mid_mac",
+        "source_declaration": "v124-instruction-tl3-max-mid-mac"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "tl3_max_mid_mac",
+          "source_scope": "tl3_max_mid_mac",
+          "source_declaration": "v124-instruction-tl3-max-mid-mac",
+          "family_label": "TL3-X (MAX, MID, MAC Type)",
+          "function_code": 4,
+          "table": "input",
+          "start": 0,
+          "end": 124,
+          "qualifier": null
+        },
+        "source_text": "TL3-X (MAX, MID, MAC Type): 03 register range: 0~124, 125~249; 04 register range: 0~124, 125~249",
+        "raw_value": {
+          "function_code": 4,
+          "table": "input",
+          "start": 0,
+          "end": 124
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-tl3-max-mid-mac"
+      },
+      "scope": {
+        "family": [
+          "tl3_max_mid_mac"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "TL3-X (MAX, MID, MAC Type)",
+        "source_scope": "tl3_max_mid_mac",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:applicability:v124-instruction-tl3-max-mid-mac:3",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "tl3_max_mid_mac"
+        ],
+        "table": "input",
+        "address": 125,
+        "address_end": 249,
+        "source_scope": "tl3_max_mid_mac",
+        "source_declaration": "v124-instruction-tl3-max-mid-mac"
+      },
+      "assertion": {
+        "kind": "document_range_applicability",
+        "value": {
+          "family_id": "tl3_max_mid_mac",
+          "source_scope": "tl3_max_mid_mac",
+          "source_declaration": "v124-instruction-tl3-max-mid-mac",
+          "family_label": "TL3-X (MAX, MID, MAC Type)",
+          "function_code": 4,
+          "table": "input",
+          "start": 125,
+          "end": 249,
+          "qualifier": null
+        },
+        "source_text": "TL3-X (MAX, MID, MAC Type): 03 register range: 0~124, 125~249; 04 register range: 0~124, 125~249",
+        "raw_value": {
+          "function_code": 4,
+          "table": "input",
+          "start": 125,
+          "end": 249
+        }
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 3,
+        "section": "document_instruction_register_ranges",
+        "source_row": "v124-instruction-tl3-max-mid-mac"
+      },
+      "scope": {
+        "family": [
+          "tl3_max_mid_mac"
+        ],
+        "applicability": "document-level family/table/range applicability",
+        "model": "TL3-X (MAX, MID, MAC Type)",
+        "source_scope": "tl3_max_mid_mac",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p038:h3036:visual-review:description",
       "source_id": "vendor_growatt_v124_2020",
       "source_type": "vendor_document",
@@ -92752,9 +94742,9 @@
       },
       "assertion": {
         "kind": "packed_field",
-        "value": "Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;",
-        "source_text": "Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;",
-        "raw_value": null
+        "value": "Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled; 3038 Time 1(xh) Period 1: [Start Time ~ End Time], [Charge/Discharge], [Disable/Enable] 3038 enable, charge and discharge, start time, end time 3039 Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;",
+        "source_text": "Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled; 3038 Time 1(xh) Period 1: [Start Time ~ End Time], [Charge/Discharge], [Disable/Enable] 3038 enable, charge and discharge, start time, end time 3039 Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;",
+        "raw_value": "Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled; 3038 Time 1(xh) Period 1: [Start Time ~ End Time], [Charge/Discharge], [Disable/Enable] 3038 enable, charge and discharge, start time, end time 3039 Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;"
       },
       "provenance": {
         "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
@@ -92770,6 +94760,47 @@
           "TL-XH"
         ],
         "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "manually_reviewed"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p038:h3038:visual-review:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "table": "holding",
+        "address": 3038
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;",
+        "source_text": "Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;",
+        "raw_value": "Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 38,
+        "page_end": 38,
+        "section": "tl_x_tl_xh_holding_registers",
+        "source_row": "3038"
+      },
+      "scope": {
+        "family": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -92875,9 +94906,9 @@
       },
       "assertion": {
         "kind": "packed_field",
-        "value": "Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved",
-        "source_text": "Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved",
-        "raw_value": null
+        "value": "Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved 3039 R/W Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved",
+        "source_text": "Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved 3039 R/W Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved",
+        "raw_value": "Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved 3039 R/W Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved"
       },
       "provenance": {
         "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
@@ -92893,6 +94924,47 @@
           "TL-XH"
         ],
         "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "manually_reviewed"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p038:h3039:visual-review:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "table": "holding",
+        "address": 3039
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved",
+        "source_text": "Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved",
+        "raw_value": "Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 38,
+        "page_end": 38,
+        "section": "tl_x_tl_xh_holding_registers",
+        "source_row": "3039"
+      },
+      "scope": {
+        "family": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93039,9 +95111,9 @@
       },
       "assertion": {
         "kind": "packed_field",
-        "value": "Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;",
-        "source_text": "Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;",
-        "raw_value": null
+        "value": "Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled; 3040 Time 2(xh) Time period 2: [start time ~ end time], [charge / discharge], [disable / enable] 3040 enable, charge and discharge, start time, 3041 end time Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;\nenabled;",
+        "source_text": "Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled; 3040 Time 2(xh) Time period 2: [start time ~ end time], [charge / discharge], [disable / enable] 3040 enable, charge and discharge, start time, 3041 end time Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;\nenabled;",
+        "raw_value": "Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled; 3040 Time 2(xh) Time period 2: [start time ~ end time], [charge / discharge], [disable / enable] 3040 enable, charge and discharge, start time, 3041 end time Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;\nenabled;"
       },
       "provenance": {
         "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
@@ -93057,6 +95129,47 @@
           "TL-XH"
         ],
         "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "manually_reviewed"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p038:h3040:visual-review:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "table": "holding",
+        "address": 3040
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;",
+        "source_text": "Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;",
+        "raw_value": "Bit0~7: minutes; Bit8~12: hour; Bit13~14, 0: load priority; 1: battery priority; 2: Grid priority; Bit15, 0: prohibited; 1: enabled;"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 38,
+        "page_end": 39,
+        "section": "tl_x_tl_xh_holding_registers",
+        "source_row": "3040"
+      },
+      "scope": {
+        "family": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93222,6 +95335,45 @@
       }
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p038:row-038-0464:access",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3038
+      },
+      "assertion": {
+        "kind": "access",
+        "value": "R/W",
+        "source_text": "R/W",
+        "raw_value": "R/W"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 38,
+        "page_end": 38,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "038-0464"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p038:row-038-0464:description",
       "source_id": "vendor_growatt_v124_2020",
       "source_type": "vendor_document",
@@ -93274,9 +95426,9 @@
       },
       "assertion": {
         "kind": "packed_field",
-        "value": "Bit0~7: minutes;",
-        "source_text": "Bit0~7: minutes;",
-        "raw_value": "R/W"
+        "value": "Bit0~7: minutes;       3038                                                     R/W                    Bit0~7: minutes;\n                                                                                      Bit8~12: hour;\n                                                                                      Bit13~14,\n                                 Period 1: [Start Time ~ End\n                                                                                      0: load priority;\n                                 Time], [Charge/Discharge],\n                                                                                      1: battery priority;\n                                      [Disable/Enable]\n                                                                                      2: Grid priority;\n                  Time 1(xh)\n                                                                                      Bit15,\n                                  3038 enable, charge and\n                                                                                      0: prohibited; 1:\n                                  discharge, start time, end\n                                                                                      enabled;\n                                         time 3039",
+        "source_text": "Bit0~7: minutes;       3038                                                     R/W                    Bit0~7: minutes;\n                                                                                      Bit8~12: hour;\n                                                                                      Bit13~14,\n                                 Period 1: [Start Time ~ End\n                                                                                      0: load priority;\n                                 Time], [Charge/Discharge],\n                                                                                      1: battery priority;\n                                      [Disable/Enable]\n                                                                                      2: Grid priority;\n                  Time 1(xh)\n                                                                                      Bit15,\n                                  3038 enable, charge and\n                                                                                      0: prohibited; 1:\n                                  discharge, start time, end\n                                                                                      enabled;\n                                         time 3039",
+        "raw_value": "Bit0~7: minutes;       3038                                                     R/W                    Bit0~7: minutes;\n                                                                                      Bit8~12: hour;\n                                                                                      Bit13~14,\n                                 Period 1: [Start Time ~ End\n                                                                                      0: load priority;\n                                 Time], [Charge/Discharge],\n                                                                                      1: battery priority;\n                                      [Disable/Enable]\n                                                                                      2: Grid priority;\n                  Time 1(xh)\n                                                                                      Bit15,\n                                  3038 enable, charge and\n                                                                                      0: prohibited; 1:\n                                  discharge, start time, end\n                                                                                      enabled;\n                                         time 3039"
       },
       "provenance": {
         "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
@@ -93285,6 +95437,84 @@
         "page_end": 38,
         "section": "use_for_tl_x_and_tl_xh",
         "source_row": "038-0464"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p038:row-038-0464:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3038
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "Bit0~7: minutes;",
+        "source_text": "Bit0~7: minutes;",
+        "raw_value": "Bit0~7: minutes;"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 38,
+        "page_end": 38,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "038-0464"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p038:row-038-0465:access",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3039
+      },
+      "assertion": {
+        "kind": "access",
+        "value": "R/W",
+        "source_text": "R/W",
+        "raw_value": "R/W"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 38,
+        "page_end": 38,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "038-0465"
       },
       "scope": {
         "family": [
@@ -93352,9 +95582,9 @@
       },
       "assertion": {
         "kind": "packed_field",
-        "value": "Bit0~7: minutes;",
-        "source_text": "Bit0~7: minutes;",
-        "raw_value": "R/W"
+        "value": "Bit0~7: minutes;       3039                                                     R/W                    Bit0~7: minutes;\n                                                                                      Bit8~12: hour;\n                                                                                      Bit13~15: reserved",
+        "source_text": "Bit0~7: minutes;       3039                                                     R/W                    Bit0~7: minutes;\n                                                                                      Bit8~12: hour;\n                                                                                      Bit13~15: reserved",
+        "raw_value": "Bit0~7: minutes;       3039                                                     R/W                    Bit0~7: minutes;\n                                                                                      Bit8~12: hour;\n                                                                                      Bit13~15: reserved"
       },
       "provenance": {
         "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
@@ -93369,6 +95599,45 @@
           "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
         ],
         "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p038:row-038-0465:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3039
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "Bit0~7: minutes;",
+        "source_text": "Bit0~7: minutes;",
+        "raw_value": "Bit0~7: minutes;"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 38,
+        "page_end": 38,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "038-0465"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93469,9 +95738,9 @@
       },
       "assertion": {
         "kind": "packed_field",
-        "value": "Bit0~7: minutes;",
-        "source_text": "Bit0~7: minutes;",
-        "raw_value": "R/W"
+        "value": "Bit0~7: minutes;       3040                       Time period 2: [start time ~ R/W                     Bit0~7: minutes;\n                                    end time], [charge /                              Bit8~12: hour;\n                                    discharge], [disable /                            Bit13~14,\n                                          enable]                                     0: load priority;\n                  Time 2(xh)\n                                                                                      1: battery priority;\n                                  3040 enable, charge and                             2: Grid priority;\n                                 discharge, start time, 3041                          Bit15,\n                                         end time                                     0: prohibited; 1:\n\n\n\nShiyan, Baoan District, Shenzhen, P.R. China.      社区光明路 28 号\n                                                                               enabled;\n\n",
+        "source_text": "Bit0~7: minutes;       3040                       Time period 2: [start time ~ R/W                     Bit0~7: minutes;\n                                    end time], [charge /                              Bit8~12: hour;\n                                    discharge], [disable /                            Bit13~14,\n                                          enable]                                     0: load priority;\n                  Time 2(xh)\n                                                                                      1: battery priority;\n                                  3040 enable, charge and                             2: Grid priority;\n                                 discharge, start time, 3041                          Bit15,\n                                         end time                                     0: prohibited; 1:\n\n\n\nShiyan, Baoan District, Shenzhen, P.R. China.      社区光明路 28 号\n                                                                               enabled;\n\n",
+        "raw_value": "Bit0~7: minutes;       3040                       Time period 2: [start time ~ R/W                     Bit0~7: minutes;\n                                    end time], [charge /                              Bit8~12: hour;\n                                    discharge], [disable /                            Bit13~14,\n                                          enable]                                     0: load priority;\n                  Time 2(xh)\n                                                                                      1: battery priority;\n                                  3040 enable, charge and                             2: Grid priority;\n                                 discharge, start time, 3041                          Bit15,\n                                         end time                                     0: prohibited; 1:\n\n\n\nShiyan, Baoan District, Shenzhen, P.R. China.      社区光明路 28 号\n                                                                               enabled;\n\n"
       },
       "provenance": {
         "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
@@ -93486,6 +95755,45 @@
           "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
         ],
         "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "continued"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p038:row-038-0466:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3040
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "Bit0~7: minutes;",
+        "source_text": "Bit0~7: minutes;",
+        "raw_value": "Bit0~7: minutes;"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 38,
+        "page_end": 39,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "038-0466"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93591,9 +95899,9 @@
       },
       "assertion": {
         "kind": "packed_field",
-        "value": "Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved",
-        "source_text": "Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved",
-        "raw_value": null
+        "value": "Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved 3041 R/W Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved",
+        "source_text": "Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved 3041 R/W Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved",
+        "raw_value": "Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved 3041 R/W Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved"
       },
       "provenance": {
         "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
@@ -93609,6 +95917,47 @@
           "TL-XH"
         ],
         "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "manually_reviewed"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3041:visual-review:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "table": "holding",
+        "address": 3041
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved",
+        "source_text": "Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved",
+        "raw_value": "Bit0~7: minutes; Bit8~12: hour; Bit13~15: reserved"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "tl_x_tl_xh_holding_registers",
+        "source_row": "3041"
+      },
+      "scope": {
+        "family": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93741,6 +96090,47 @@
       }
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3042:visual-review:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "table": "holding",
+        "address": 3042
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "With Time1",
+        "source_text": "With Time1",
+        "raw_value": "With Time1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "tl_x_tl_xh_holding_registers",
+        "source_row": "3042"
+      },
+      "scope": {
+        "family": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "manually_reviewed"
+      }
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3043:visual-review:access",
       "source_id": "vendor_growatt_v124_2020",
       "source_type": "vendor_document",
@@ -93814,6 +96204,47 @@
           "TL-XH"
         ],
         "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "manually_reviewed"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3043:visual-review:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "table": "holding",
+        "address": 3043
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "With Time1",
+        "source_text": "With Time1",
+        "raw_value": "With Time1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "tl_x_tl_xh_holding_registers",
+        "source_row": "3043"
+      },
+      "scope": {
+        "family": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93946,6 +96377,47 @@
       }
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3044:visual-review:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "table": "holding",
+        "address": 3044
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "With Time1",
+        "source_text": "With Time1",
+        "raw_value": "With Time1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "tl_x_tl_xh_holding_registers",
+        "source_row": "3044"
+      },
+      "scope": {
+        "family": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "manually_reviewed"
+      }
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3045:visual-review:access",
       "source_id": "vendor_growatt_v124_2020",
       "source_type": "vendor_document",
@@ -94028,6 +96500,47 @@
       }
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3045:visual-review:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "table": "holding",
+        "address": 3045
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "With Time1",
+        "source_text": "With Time1",
+        "raw_value": "With Time1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "tl_x_tl_xh_holding_registers",
+        "source_row": "3045"
+      },
+      "scope": {
+        "family": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "manually_reviewed"
+      }
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3046:visual-review:name",
       "source_id": "vendor_growatt_v124_2020",
       "source_type": "vendor_document",
@@ -94060,6 +96573,47 @@
           "TL-XH"
         ],
         "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "manually_reviewed"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3046:visual-review:normalized-protocol-role",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "table": "holding",
+        "address": 3046
+      },
+      "assertion": {
+        "kind": "normalized_protocol_role",
+        "value": "Reserved",
+        "source_text": "预留",
+        "raw_value": "Reserved"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "tl_x_tl_xh_holding_registers",
+        "source_row": "3046"
+      },
+      "scope": {
+        "family": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "applicability": "mechanical source normalization",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -94315,6 +96869,47 @@
       }
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3049:visual-review:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "table": "holding",
+        "address": 3049
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "Disable:0",
+        "source_text": "Disable:0",
+        "raw_value": "Disable:0"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "tl_x_tl_xh_holding_registers",
+        "source_row": "3049"
+      },
+      "scope": {
+        "family": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "manually_reviewed"
+      }
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3050:visual-review:access",
       "source_id": "vendor_growatt_v124_2020",
       "source_type": "vendor_document",
@@ -94438,6 +97033,47 @@
       }
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3050:visual-review:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "table": "holding",
+        "address": 3050
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "With Time1",
+        "source_text": "With Time1",
+        "raw_value": "With Time1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "tl_x_tl_xh_holding_registers",
+        "source_row": "3050"
+      },
+      "scope": {
+        "family": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "manually_reviewed"
+      }
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3051:visual-review:access",
       "source_id": "vendor_growatt_v124_2020",
       "source_type": "vendor_document",
@@ -94511,6 +97147,47 @@
           "TL-XH"
         ],
         "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "manually_reviewed"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3051:visual-review:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "table": "holding",
+        "address": 3051
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "With Time1",
+        "source_text": "With Time1",
+        "raw_value": "With Time1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "tl_x_tl_xh_holding_registers",
+        "source_row": "3051"
+      },
+      "scope": {
+        "family": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -94643,6 +97320,47 @@
       }
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3052:visual-review:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "table": "holding",
+        "address": 3052
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "With Time1",
+        "source_text": "With Time1",
+        "raw_value": "With Time1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "tl_x_tl_xh_holding_registers",
+        "source_row": "3052"
+      },
+      "scope": {
+        "family": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "manually_reviewed"
+      }
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3053:visual-review:access",
       "source_id": "vendor_growatt_v124_2020",
       "source_type": "vendor_document",
@@ -94716,6 +97434,47 @@
           "TL-XH"
         ],
         "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "manually_reviewed"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3053:visual-review:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "table": "holding",
+        "address": 3053
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "With Time1",
+        "source_text": "With Time1",
+        "raw_value": "With Time1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "tl_x_tl_xh_holding_registers",
+        "source_row": "3053"
+      },
+      "scope": {
+        "family": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -94848,6 +97607,47 @@
       }
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3054:visual-review:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "table": "holding",
+        "address": 3054
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "With Time1",
+        "source_text": "With Time1",
+        "raw_value": "With Time1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "tl_x_tl_xh_holding_registers",
+        "source_row": "3054"
+      },
+      "scope": {
+        "family": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "manually_reviewed"
+      }
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3055:visual-review:access",
       "source_id": "vendor_growatt_v124_2020",
       "source_type": "vendor_document",
@@ -94921,6 +97721,47 @@
           "TL-XH"
         ],
         "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "manually_reviewed"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3055:visual-review:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "table": "holding",
+        "address": 3055
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "With Time1",
+        "source_text": "With Time1",
+        "raw_value": "With Time1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "tl_x_tl_xh_holding_registers",
+        "source_row": "3055"
+      },
+      "scope": {
+        "family": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -95053,6 +97894,47 @@
       }
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3056:visual-review:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "table": "holding",
+        "address": 3056
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "With Time1",
+        "source_text": "With Time1",
+        "raw_value": "With Time1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "tl_x_tl_xh_holding_registers",
+        "source_row": "3056"
+      },
+      "scope": {
+        "family": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "manually_reviewed"
+      }
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3057:visual-review:access",
       "source_id": "vendor_growatt_v124_2020",
       "source_type": "vendor_document",
@@ -95126,6 +98008,47 @@
           "TL-XH"
         ],
         "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "manually_reviewed"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3057:visual-review:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "table": "holding",
+        "address": 3057
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "With Time1",
+        "source_text": "With Time1",
+        "raw_value": "With Time1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "tl_x_tl_xh_holding_registers",
+        "source_row": "3057"
+      },
+      "scope": {
+        "family": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -95258,6 +98181,47 @@
       }
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3058:visual-review:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "table": "holding",
+        "address": 3058
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "With Time1",
+        "source_text": "With Time1",
+        "raw_value": "With Time1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "tl_x_tl_xh_holding_registers",
+        "source_row": "3058"
+      },
+      "scope": {
+        "family": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "manually_reviewed"
+      }
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3059:visual-review:access",
       "source_id": "vendor_growatt_v124_2020",
       "source_type": "vendor_document",
@@ -95331,6 +98295,47 @@
           "TL-XH"
         ],
         "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "manually_reviewed"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:h3059:visual-review:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "table": "holding",
+        "address": 3059
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "With Time1",
+        "source_text": "With Time1",
+        "raw_value": "With Time1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "tl_x_tl_xh_holding_registers",
+        "source_row": "3059"
+      },
+      "scope": {
+        "family": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -95418,6 +98423,45 @@
       }
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0467:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3041
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": ": minutes;",
+        "source_text": ": minutes;",
+        "raw_value": ": minutes;"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "039-0467"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0468:access",
       "source_id": "vendor_growatt_v124_2020",
       "source_type": "vendor_document",
@@ -95496,6 +98540,45 @@
       }
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0468:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3042
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "ime1",
+        "source_text": "ime1",
+        "raw_value": "ime1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "039-0468"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0469:access",
       "source_id": "vendor_growatt_v124_2020",
       "source_type": "vendor_document",
@@ -95565,6 +98648,45 @@
           "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
         ],
         "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0469:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3043
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "ime1",
+        "source_text": "ime1",
+        "raw_value": "ime1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "039-0469"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -95691,6 +98813,45 @@
       }
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0470:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3044
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "ime1",
+        "source_text": "ime1",
+        "raw_value": "ime1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "039-0470"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0471:access",
       "source_id": "vendor_growatt_v124_2020",
       "source_type": "vendor_document",
@@ -95769,6 +98930,45 @@
       }
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0471:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3045
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "ime1",
+        "source_text": "ime1",
+        "raw_value": "ime1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "039-0471"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0472:name",
       "source_id": "vendor_growatt_v124_2020",
       "source_type": "vendor_document",
@@ -95799,6 +98999,45 @@
           "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
         ],
         "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0472:normalized-protocol-role",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3046
+      },
+      "assertion": {
+        "kind": "normalized_protocol_role",
+        "value": "Reserved",
+        "source_text": "预留",
+        "raw_value": "Reserved"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "039-0472"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "mechanical source normalization",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -96042,6 +99281,45 @@
       }
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0475:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3049
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": ":1",
+        "source_text": ":1",
+        "raw_value": ":1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "039-0475"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0476:access",
       "source_id": "vendor_growatt_v124_2020",
       "source_type": "vendor_document",
@@ -96159,6 +99437,45 @@
       }
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0476:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3050
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "ime1",
+        "source_text": "ime1",
+        "raw_value": "ime1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "039-0476"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0477:access",
       "source_id": "vendor_growatt_v124_2020",
       "source_type": "vendor_document",
@@ -96228,6 +99545,45 @@
           "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
         ],
         "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0477:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3051
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "ime1",
+        "source_text": "ime1",
+        "raw_value": "ime1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "039-0477"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -96354,6 +99710,45 @@
       }
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0478:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3052
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "ime1",
+        "source_text": "ime1",
+        "raw_value": "ime1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "039-0478"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0479:access",
       "source_id": "vendor_growatt_v124_2020",
       "source_type": "vendor_document",
@@ -96423,6 +99818,45 @@
           "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
         ],
         "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0479:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3053
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "ime1",
+        "source_text": "ime1",
+        "raw_value": "ime1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "039-0479"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -96549,6 +99983,45 @@
       }
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0480:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3054
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "ime1",
+        "source_text": "ime1",
+        "raw_value": "ime1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "039-0480"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0481:access",
       "source_id": "vendor_growatt_v124_2020",
       "source_type": "vendor_document",
@@ -96618,6 +100091,45 @@
           "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
         ],
         "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0481:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3055
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "ime1",
+        "source_text": "ime1",
+        "raw_value": "ime1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "039-0481"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -96744,6 +100256,45 @@
       }
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0482:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3056
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "ime1",
+        "source_text": "ime1",
+        "raw_value": "ime1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "039-0482"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0483:access",
       "source_id": "vendor_growatt_v124_2020",
       "source_type": "vendor_document",
@@ -96813,6 +100364,45 @@
           "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
         ],
         "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0483:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3057
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "ime1",
+        "source_text": "ime1",
+        "raw_value": "ime1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "039-0483"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -96939,6 +100529,45 @@
       }
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0484:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3058
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "ime1",
+        "source_text": "ime1",
+        "raw_value": "ime1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "039-0484"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0485:access",
       "source_id": "vendor_growatt_v124_2020",
       "source_type": "vendor_document",
@@ -97008,6 +100637,45 @@
           "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
         ],
         "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p039:row-039-0485:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3059
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "ime1",
+        "source_text": "ime1",
+        "raw_value": "ime1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 39,
+        "page_end": 39,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "039-0485"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -97140,6 +100808,47 @@
       }
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p040:h3081:visual-review:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "table": "holding",
+        "address": 3081
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "0:50Hz; 1:60Hz",
+        "source_text": "0:50Hz; 1:60Hz",
+        "raw_value": "0:50Hz; 1:60Hz"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 40,
+        "page_end": 40,
+        "section": "tl_x_tl_xh_holding_registers",
+        "source_row": "3081"
+      },
+      "scope": {
+        "family": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "manually_reviewed"
+      }
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p040:h3082:visual-review:access",
       "source_id": "vendor_growatt_v124_2020",
       "source_type": "vendor_document",
@@ -97263,6 +100972,396 @@
       }
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p040:row-040-0488:access",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3070
+      },
+      "assertion": {
+        "kind": "access",
+        "value": "R/W",
+        "source_text": "R/W",
+        "raw_value": "R/W"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 40,
+        "page_end": 40,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "040-0488"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p040:row-040-0488:description",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3070
+      },
+      "assertion": {
+        "kind": "description",
+        "value": "Battery type choose of Battery type",
+        "source_text": "Battery type choose of",
+        "raw_value": "Battery type"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 40,
+        "page_end": 40,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "040-0488"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p040:row-040-0488:enum",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3070
+      },
+      "assertion": {
+        "kind": "enum_member",
+        "value": "Battery type       3070      BatteryType      Battery type choose of   R/W                           Battery type\n                                 buck-boost input                                       0:Lithium\n                                                                                        1:Lead-acid\n                                                                                        2:other",
+        "source_text": "Battery type       3070      BatteryType      Battery type choose of   R/W                           Battery type\n                                 buck-boost input                                       0:Lithium\n                                                                                        1:Lead-acid\n                                                                                        2:other",
+        "raw_value": "Battery type       3070      BatteryType      Battery type choose of   R/W                           Battery type\n                                 buck-boost input                                       0:Lithium\n                                                                                        1:Lead-acid\n                                                                                        2:other"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 40,
+        "page_end": 40,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "040-0488"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p040:row-040-0488:name",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3070
+      },
+      "assertion": {
+        "kind": "register_name",
+        "value": "BatteryType",
+        "source_text": "BatteryType",
+        "raw_value": "BatteryType"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 40,
+        "page_end": 40,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "040-0488"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p040:row-040-0488:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3070
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "Battery type",
+        "source_text": "Battery type",
+        "raw_value": "Battery type"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 40,
+        "page_end": 40,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "040-0488"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p040:row-040-0489:access",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3071
+      },
+      "assertion": {
+        "kind": "access",
+        "value": "R/W",
+        "source_text": "R/W",
+        "raw_value": "R/W"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 40,
+        "page_end": 40,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "040-0489"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p040:row-040-0489:description",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3071
+      },
+      "assertion": {
+        "kind": "description",
+        "value": "atMdlSeria/ParalNum BatMdlSeria/Paral",
+        "source_text": "atMdlSeria/ParalNum",
+        "raw_value": "BatMdlSeria/Paral"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 40,
+        "page_end": 40,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "040-0489"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p040:row-040-0489:name",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3071
+      },
+      "assertion": {
+        "kind": "register_name",
+        "value": "BatMdlSeria/ B",
+        "source_text": "BatMdlSeria/ B",
+        "raw_value": "BatMdlSeria/ B"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 40,
+        "page_end": 40,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "040-0489"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p040:row-040-0489:packed",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3071
+      },
+      "assertion": {
+        "kind": "packed_field",
+        "value": "BatMdlSeria/Paral       3071      BatMdlSeria/ BatMdlSeria/ParalNum         R/W                           BatMdlSeria/Paral\n                ParalNum                                                                Num;\n                                                                                        SPH4-11K used\n                                                                                        The upper 8 bits\n                                                                                        indicate the\n                                                                                        number of series\n                                                                                        segments；\n                                                                                        The lower 8 bits\n                                                                                        indicate the\n                                                                                        number of parallel\n                                                                                        sections;",
+        "source_text": "BatMdlSeria/Paral       3071      BatMdlSeria/ BatMdlSeria/ParalNum         R/W                           BatMdlSeria/Paral\n                ParalNum                                                                Num;\n                                                                                        SPH4-11K used\n                                                                                        The upper 8 bits\n                                                                                        indicate the\n                                                                                        number of series\n                                                                                        segments；\n                                                                                        The lower 8 bits\n                                                                                        indicate the\n                                                                                        number of parallel\n                                                                                        sections;",
+        "raw_value": "BatMdlSeria/Paral       3071      BatMdlSeria/ BatMdlSeria/ParalNum         R/W                           BatMdlSeria/Paral\n                ParalNum                                                                Num;\n                                                                                        SPH4-11K used\n                                                                                        The upper 8 bits\n                                                                                        indicate the\n                                                                                        number of series\n                                                                                        segments；\n                                                                                        The lower 8 bits\n                                                                                        indicate the\n                                                                                        number of parallel\n                                                                                        sections;"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 40,
+        "page_end": 40,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "040-0489"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p040:row-040-0489:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3071
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "BatMdlSeria/Paral; SPH4-11K used",
+        "source_text": "BatMdlSeria/Paral; SPH4-11K used",
+        "raw_value": "BatMdlSeria/Paral; SPH4-11K used"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 40,
+        "page_end": 40,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "040-0489"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p040:row-040-0499:access",
       "source_id": "vendor_growatt_v124_2020",
       "source_type": "vendor_document",
@@ -97371,6 +101470,45 @@
           "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
         ],
         "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p040:row-040-0499:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3081
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "0:50Hz",
+        "source_text": "0:50Hz",
+        "raw_value": "0:50Hz"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 40,
+        "page_end": 40,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "040-0499"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -97497,6 +101635,240 @@
       }
     },
     {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p040:row-040-0500:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3082
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "ratio",
+        "source_text": "ratio",
+        "raw_value": "ratio"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 40,
+        "page_end": 40,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "040-0500"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p041:row-041-0513:access",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3095
+      },
+      "assertion": {
+        "kind": "access",
+        "value": "R/W",
+        "source_text": "R/W",
+        "raw_value": "R/W"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 41,
+        "page_end": 41,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "041-0513"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p041:row-041-0513:description",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3095
+      },
+      "assertion": {
+        "kind": "description",
+        "value": "C Reset command 0：Invalid data",
+        "source_text": "C Reset command",
+        "raw_value": "0：Invalid data"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 41,
+        "page_end": 41,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "041-0513"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p041:row-041-0513:enum",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3095
+      },
+      "assertion": {
+        "kind": "enum_member",
+        "value": "R/W 0：Invalid data       3095      BdcResetCmd BDC Reset command                     R/W                          0：Invalid data\n                                                                                               1：Reset setting\n                                                                                               parameters\n                                                                                               2：Reset correction\n                                                                                               parameter\n                                                                                               3：Clear historical\n                                                                                               power",
+        "source_text": "R/W 0：Invalid data       3095      BdcResetCmd BDC Reset command                     R/W                          0：Invalid data\n                                                                                               1：Reset setting\n                                                                                               parameters\n                                                                                               2：Reset correction\n                                                                                               parameter\n                                                                                               3：Clear historical\n                                                                                               power",
+        "raw_value": "R/W 0：Invalid data       3095      BdcResetCmd BDC Reset command                     R/W                          0：Invalid data\n                                                                                               1：Reset setting\n                                                                                               parameters\n                                                                                               2：Reset correction\n                                                                                               parameter\n                                                                                               3：Clear historical\n                                                                                               power"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 41,
+        "page_end": 41,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "041-0513"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p041:row-041-0513:name",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3095
+      },
+      "assertion": {
+        "kind": "register_name",
+        "value": "BdcResetCmd BD",
+        "source_text": "BdcResetCmd BD",
+        "raw_value": "BdcResetCmd BD"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 41,
+        "page_end": 41,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "041-0513"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p041:row-041-0513:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "table": "holding",
+        "address": 3095
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "0：Invalid data",
+        "source_text": "0：Invalid data",
+        "raw_value": "0：Invalid data"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 41,
+        "page_end": 41,
+        "section": "use_for_tl_x_and_tl_xh",
+        "source_row": "041-0513"
+      },
+      "scope": {
+        "family": [
+          "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "medium",
+        "status": "complete"
+      }
+    },
+    {
       "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:input:p069-070:i3000:visual-review:description",
       "source_id": "vendor_growatt_v124_2020",
       "source_type": "vendor_document",
@@ -97552,9 +101924,9 @@
       },
       "assertion": {
         "kind": "enum_member",
-        "value": "High 8 bits mode: 0 Waiting module; 1 Self-test mode, optional; 2 Reserved; 3 SysFault module; 4 Flash module; 5 PVBATOnline module; 6 BatOnline module; 7 PVOfflineMode; 8 BatOfflineMode. Lower 8 bits machine status: 0 StandbyStatus; 1 NormalStatus; 3 FaultStatus; 4 FlashStatus",
-        "source_text": "High 8 bits mode: 0 Waiting module; 1 Self-test mode, optional; 2 Reserved; 3 SysFault module; 4 Flash module; 5 PVBATOnline module; 6 BatOnline module; 7 PVOfflineMode; 8 BatOfflineMode. Lower 8 bits machine status: 0 StandbyStatus; 1 NormalStatus; 3 FaultStatus; 4 FlashStatus",
-        "raw_value": "High 8 bits mode: 0 Waiting module; 1 Self-test mode, optional; 2 Reserved; 3 SysFault module; 4 Flash module; 5 PVBATOnline module; 6 BatOnline module; 7 PVOfflineMode; 8 BatOfflineMode. Lower 8 bits machine status: 0 StandbyStatus; 1 NormalStatus; 3 FaultStatus; 4 FlashStatus"
+        "value": "High 8 bits mode: 0 Waiting module; 1 Self-test mode, optional; 2 Reserved; 3 SysFault module; 4 Flash module; 5 PVBATOnline module; 6 BatOnline module; 7 PVOfflineMode; 8 BatOfflineMode. Lower 8 bits machine status: 0 StandbyStatus; 1 NormalStatus; 3 FaultStatus; 4 FlashStatus 3000 Inverter Status Inverter run state High 8 bits mode: 0 Waiting module; 1 Self-test mode, optional; 2 Reserved; 3 SysFault module; 4 Flash module; 5 PVBATOnline module; 6 BatOnline module\n7 PVOfflineMode; 8 BatOfflineMode. Lower 8 bits indicate machine status: 0 StandbyStatus; 1 NormalStatus; 3 FaultStatus; 4 FlashStatus",
+        "source_text": "High 8 bits mode: 0 Waiting module; 1 Self-test mode, optional; 2 Reserved; 3 SysFault module; 4 Flash module; 5 PVBATOnline module; 6 BatOnline module; 7 PVOfflineMode; 8 BatOfflineMode. Lower 8 bits machine status: 0 StandbyStatus; 1 NormalStatus; 3 FaultStatus; 4 FlashStatus 3000 Inverter Status Inverter run state High 8 bits mode: 0 Waiting module; 1 Self-test mode, optional; 2 Reserved; 3 SysFault module; 4 Flash module; 5 PVBATOnline module; 6 BatOnline module\n7 PVOfflineMode; 8 BatOfflineMode. Lower 8 bits indicate machine status: 0 StandbyStatus; 1 NormalStatus; 3 FaultStatus; 4 FlashStatus",
+        "raw_value": "High 8 bits mode: 0 Waiting module; 1 Self-test mode, optional; 2 Reserved; 3 SysFault module; 4 Flash module; 5 PVBATOnline module; 6 BatOnline module; 7 PVOfflineMode; 8 BatOfflineMode. Lower 8 bits machine status: 0 StandbyStatus; 1 NormalStatus; 3 FaultStatus; 4 FlashStatus 3000 Inverter Status Inverter run state High 8 bits mode: 0 Waiting module; 1 Self-test mode, optional; 2 Reserved; 3 SysFault module; 4 Flash module; 5 PVBATOnline module; 6 BatOnline module\n7 PVOfflineMode; 8 BatOfflineMode. Lower 8 bits indicate machine status: 0 StandbyStatus; 1 NormalStatus; 3 FaultStatus; 4 FlashStatus"
       },
       "provenance": {
         "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
@@ -97993,9 +102365,9 @@
       },
       "assertion": {
         "kind": "enum_member",
-        "value": "0: Normal, unrestricted; 1: Standby or fault; 2: Maximum battery current limit (discharge); 3: Battery discharge Enable (Discharge); 4: High bus discharge derating (discharge); 5: High temperature discharge derating (discharge); 6: System warning No discharge (discharge); 7-15 Reserved (Discharge); 16: Maximum charging current of battery (charging); 17: High Temperature (LLC and Buckboost) (Charging); 18: Final soft charge; 19: SOC setting limits (charging); 20: Battery low temperature (charging); 21: High bus voltage (charging); 22: Battery SOC (charging); 23: Need to charge (charge); 24: System warning not charging (charging); 25-29: Reserve (charge)",
-        "source_text": "0: Normal, unrestricted; 1: Standby or fault; 2: Maximum battery current limit (discharge); 3: Battery discharge Enable (Discharge); 4: High bus discharge derating (discharge); 5: High temperature discharge derating (discharge); 6: System warning No discharge (discharge); 7-15 Reserved (Discharge); 16: Maximum charging current of battery (charging); 17: High Temperature (LLC and Buckboost) (Charging); 18: Final soft charge; 19: SOC setting limits (charging); 20: Battery low temperature (charging); 21: High bus voltage (charging); 22: Battery SOC (charging); 23: Need to charge (charge); 24: System warning not charging (charging); 25-29: Reserve (charge)",
-        "raw_value": "0: Normal, unrestricted; 1: Standby or fault; 2: Maximum battery current limit (discharge); 3: Battery discharge Enable (Discharge); 4: High bus discharge derating (discharge); 5: High temperature discharge derating (discharge); 6: System warning No discharge (discharge); 7-15 Reserved (Discharge); 16: Maximum charging current of battery (charging); 17: High Temperature (LLC and Buckboost) (Charging); 18: Final soft charge; 19: SOC setting limits (charging); 20: Battery low temperature (charging); 21: High bus voltage (charging); 22: Battery SOC (charging); 23: Need to charge (charge); 24: System warning not charging (charging); 25-29: Reserve (charge)"
+        "value": "0: Normal, unrestricted; 1: Standby or fault; 2: Maximum battery current limit (discharge); 3: Battery discharge Enable (Discharge); 4: High bus discharge derating (discharge); 5: High temperature discharge derating (discharge); 6: System warning No discharge (discharge); 7-15 Reserved (Discharge); 16: Maximum charging current of battery (charging); 17: High Temperature (LLC and Buckboost) (Charging); 18: Final soft charge; 19: SOC setting limits (charging); 20: Battery low temperature (charging); 21: High bus voltage (charging); 22: Battery SOC (charging); 23: Need to charge (charge); 24: System warning not charging (charging); 25-29: Reserve (charge) 3165 BDCDeratingMo de BDCDeratingMode: 0: Normal, unrestricted 1: Standby or fault 2: Maximum battery current limit (discharge) 3: Battery discharge Enable (Discharge) 4: High bus discharge derating (discharge)\n(discharge) 5: High temperature discharge derating (discharge) 6: System warning No discharge (discharge) 7-15 Reserved (Discharge) 16: Maximum charging current of battery (charging) 17: High Temperature (LLC and Buckboost) (Charging) 18: Final soft charge 19: SOC setting limits (charging) 20: Battery low temperature (charging) 21: High bus voltage (charging) 22: Battery SOC (charging) 23: Need to charge (charge) 24: System warning not charging (charging) 25-29: Reserve (charge)",
+        "source_text": "0: Normal, unrestricted; 1: Standby or fault; 2: Maximum battery current limit (discharge); 3: Battery discharge Enable (Discharge); 4: High bus discharge derating (discharge); 5: High temperature discharge derating (discharge); 6: System warning No discharge (discharge); 7-15 Reserved (Discharge); 16: Maximum charging current of battery (charging); 17: High Temperature (LLC and Buckboost) (Charging); 18: Final soft charge; 19: SOC setting limits (charging); 20: Battery low temperature (charging); 21: High bus voltage (charging); 22: Battery SOC (charging); 23: Need to charge (charge); 24: System warning not charging (charging); 25-29: Reserve (charge) 3165 BDCDeratingMo de BDCDeratingMode: 0: Normal, unrestricted 1: Standby or fault 2: Maximum battery current limit (discharge) 3: Battery discharge Enable (Discharge) 4: High bus discharge derating (discharge)\n(discharge) 5: High temperature discharge derating (discharge) 6: System warning No discharge (discharge) 7-15 Reserved (Discharge) 16: Maximum charging current of battery (charging) 17: High Temperature (LLC and Buckboost) (Charging) 18: Final soft charge 19: SOC setting limits (charging) 20: Battery low temperature (charging) 21: High bus voltage (charging) 22: Battery SOC (charging) 23: Need to charge (charge) 24: System warning not charging (charging) 25-29: Reserve (charge)",
+        "raw_value": "0: Normal, unrestricted; 1: Standby or fault; 2: Maximum battery current limit (discharge); 3: Battery discharge Enable (Discharge); 4: High bus discharge derating (discharge); 5: High temperature discharge derating (discharge); 6: System warning No discharge (discharge); 7-15 Reserved (Discharge); 16: Maximum charging current of battery (charging); 17: High Temperature (LLC and Buckboost) (Charging); 18: Final soft charge; 19: SOC setting limits (charging); 20: Battery low temperature (charging); 21: High bus voltage (charging); 22: Battery SOC (charging); 23: Need to charge (charge); 24: System warning not charging (charging); 25-29: Reserve (charge) 3165 BDCDeratingMo de BDCDeratingMode: 0: Normal, unrestricted 1: Standby or fault 2: Maximum battery current limit (discharge) 3: Battery discharge Enable (Discharge) 4: High bus discharge derating (discharge)\n(discharge) 5: High temperature discharge derating (discharge) 6: System warning No discharge (discharge) 7-15 Reserved (Discharge) 16: Maximum charging current of battery (charging) 17: High Temperature (LLC and Buckboost) (Charging) 18: Final soft charge 19: SOC setting limits (charging) 20: Battery low temperature (charging) 21: High bus voltage (charging) 22: Battery SOC (charging) 23: Need to charge (charge) 24: System warning not charging (charging) 25-29: Reserve (charge)"
       },
       "provenance": {
         "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
@@ -98235,9 +102607,9 @@
       },
       "assertion": {
         "kind": "enum_member",
-        "value": "upper 8 bits: 0 No charge and discharge; 1 charge; 2 Discharge; lower 8 bits: 0 StandbyStatus; 1 NormalStatus; 2 FaultStatus; 3 FlashStatus",
-        "source_text": "upper 8 bits: 0 No charge and discharge; 1 charge; 2 Discharge; lower 8 bits: 0 StandbyStatus; 1 NormalStatus; 2 FaultStatus; 3 FlashStatus",
-        "raw_value": "upper 8 bits: 0 No charge and discharge; 1 charge; 2 Discharge; lower 8 bits: 0 StandbyStatus; 1 NormalStatus; 2 FaultStatus; 3 FlashStatus"
+        "value": "upper 8 bits: 0 No charge and discharge; 1 charge; 2 Discharge; lower 8 bits: 0 StandbyStatus; 1 NormalStatus; 2 FaultStatus; 3 FlashStatus BDC1 3166 SysState_Mode System work State and mode The upper 8 bits indicate the mode; 0: No charge and discharge; 1: charge; 2: Discharge; The lower 8 bits represent the status; 0: StandbyStatus; 1: NormalStatus; 2: FaultStatus; 3: FlashStatus;",
+        "source_text": "upper 8 bits: 0 No charge and discharge; 1 charge; 2 Discharge; lower 8 bits: 0 StandbyStatus; 1 NormalStatus; 2 FaultStatus; 3 FlashStatus BDC1 3166 SysState_Mode System work State and mode The upper 8 bits indicate the mode; 0: No charge and discharge; 1: charge; 2: Discharge; The lower 8 bits represent the status; 0: StandbyStatus; 1: NormalStatus; 2: FaultStatus; 3: FlashStatus;",
+        "raw_value": "upper 8 bits: 0 No charge and discharge; 1 charge; 2 Discharge; lower 8 bits: 0 StandbyStatus; 1 NormalStatus; 2 FaultStatus; 3 FlashStatus BDC1 3166 SysState_Mode System work State and mode The upper 8 bits indicate the mode; 0: No charge and discharge; 1: charge; 2: Discharge; The lower 8 bits represent the status; 0: StandbyStatus; 1: NormalStatus; 2: FaultStatus; 3: FlashStatus;"
       },
       "provenance": {
         "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
@@ -98294,6 +102666,47 @@
           "TL-XH"
         ],
         "applicability": "vendor row scope",
+        "protocol_revision": "V1.24"
+      },
+      "evidence": {
+        "method": "vendor_documented",
+        "confidence": "high",
+        "status": "manually_reviewed"
+      }
+    },
+    {
+      "claim_id": "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:input:p078:i3166:visual-review:row-local-qualifier",
+      "source_id": "vendor_growatt_v124_2020",
+      "source_type": "vendor_document",
+      "subject": {
+        "namespace": "MODBUS",
+        "family_scope": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "table": "input",
+        "address": 3166
+      },
+      "assertion": {
+        "kind": "row_local_qualifier",
+        "value": "BDC1",
+        "source_text": "BDC1",
+        "raw_value": "BDC1"
+      },
+      "provenance": {
+        "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
+        "document_sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
+        "page": 78,
+        "page_end": 78,
+        "section": "tl_x_tl_xh_input_registers",
+        "source_row": "3166"
+      },
+      "scope": {
+        "family": [
+          "TL-X",
+          "TL-XH"
+        ],
+        "applicability": "row-local qualifier; scope is not generalized",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -98436,9 +102849,9 @@
       },
       "assertion": {
         "kind": "enum_member",
-        "value": "bit0: 1: Prohibit charging, 0: Allow the charging; bit1: 1: Enable strong charge, 0: disable strong charge; bit2: 1: Enable strong charge2, 0: disable strong charge 2; bit8: 1: Discharge is prohibited, 0: allow discharge; bit9: 1: Turn on power reduction, 0: turn off power reduction",
-        "source_text": "bit0: 1: Prohibit charging, 0: Allow the charging; bit1: 1: Enable strong charge, 0: disable strong charge; bit2: 1: Enable strong charge2, 0: disable strong charge 2; bit8: 1: Discharge is prohibited, 0: allow discharge; bit9: 1: Turn on power reduction, 0: turn off power reduction",
-        "raw_value": "bit0: 1: Prohibit charging, 0: Allow the charging; bit1: 1: Enable strong charge, 0: disable strong charge; bit2: 1: Enable strong charge2, 0: disable strong charge 2; bit8: 1: Discharge is prohibited, 0: allow discharge; bit9: 1: Turn on power reduction, 0: turn off power reduction"
+        "value": "bit0: 1: Prohibit charging, 0: Allow the charging; bit1: 1: Enable strong charge, 0: disable strong charge; bit2: 1: Enable strong charge2, 0: disable strong charge 2; bit8: 1: Discharge is prohibited, 0: allow discharge; bit9: 1: Turn on power reduction, 0: turn off power reduction 3211 BattNeedCharge RequestFlag battery work request bit0: 1: Prohibit charging, 0: Allow the charging; bit1: 1: Enable strong charge, 0: disable strong charge; bit2: 1: Enable strong charge2, 0: disable strong charge 2\nbit8: 1: Discharge is prohibited, 0: allow discharge; bit9: 1: Turn on power reduction, 0: turn off power reduction",
+        "source_text": "bit0: 1: Prohibit charging, 0: Allow the charging; bit1: 1: Enable strong charge, 0: disable strong charge; bit2: 1: Enable strong charge2, 0: disable strong charge 2; bit8: 1: Discharge is prohibited, 0: allow discharge; bit9: 1: Turn on power reduction, 0: turn off power reduction 3211 BattNeedCharge RequestFlag battery work request bit0: 1: Prohibit charging, 0: Allow the charging; bit1: 1: Enable strong charge, 0: disable strong charge; bit2: 1: Enable strong charge2, 0: disable strong charge 2\nbit8: 1: Discharge is prohibited, 0: allow discharge; bit9: 1: Turn on power reduction, 0: turn off power reduction",
+        "raw_value": "bit0: 1: Prohibit charging, 0: Allow the charging; bit1: 1: Enable strong charge, 0: disable strong charge; bit2: 1: Enable strong charge2, 0: disable strong charge 2; bit8: 1: Discharge is prohibited, 0: allow discharge; bit9: 1: Turn on power reduction, 0: turn off power reduction 3211 BattNeedCharge RequestFlag battery work request bit0: 1: Prohibit charging, 0: Allow the charging; bit1: 1: Enable strong charge, 0: disable strong charge; bit2: 1: Enable strong charge2, 0: disable strong charge 2\nbit8: 1: Discharge is prohibited, 0: allow discharge; bit9: 1: Turn on power reduction, 0: turn off power reduction"
       },
       "provenance": {
         "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",
@@ -98600,9 +103013,9 @@
       },
       "assertion": {
         "kind": "enum_member",
-        "value": "0: dormancy; 1: Charge; 2: Discharge; 3: free; 4: standby; 5: Soft start; 6: fault; 7: update",
-        "source_text": "0: dormancy; 1: Charge; 2: Discharge; 3: free; 4: standby; 5: Soft start; 6: fault; 7: update",
-        "raw_value": "0: dormancy; 1: Charge; 2: Discharge; 3: free; 4: standby; 5: Soft start; 6: fault; 7: update"
+        "value": "0: dormancy; 1: Charge; 2: Discharge; 3: free; 4: standby; 5: Soft start; 6: fault; 7: update 3212 BMS_Status battery working status R 0: dormancy; 1: Charge; 2: Discharge; 3: free; 4: standby; 5: Soft start; 6: fault; 7: update",
+        "source_text": "0: dormancy; 1: Charge; 2: Discharge; 3: free; 4: standby; 5: Soft start; 6: fault; 7: update 3212 BMS_Status battery working status R 0: dormancy; 1: Charge; 2: Discharge; 3: free; 4: standby; 5: Soft start; 6: fault; 7: update",
+        "raw_value": "0: dormancy; 1: Charge; 2: Discharge; 3: free; 4: standby; 5: Soft start; 6: fault; 7: update 3212 BMS_Status battery working status R 0: dormancy; 1: Charge; 2: Discharge; 3: free; 4: standby; 5: Soft start; 6: fault; 7: update"
       },
       "provenance": {
         "source_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json",

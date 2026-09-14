@@ -1,0 +1,261 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "growatt_reconciliation_decisions",
+  "decisions": [
+    {
+      "decision_id": "min-xh-h3070-bdc-semantic-mapping-authority",
+      "target": {
+        "canonical_family": "min_tl_xh",
+        "namespace": "MODBUS",
+        "table": "holding",
+        "address": 3070,
+        "property": "semantic_mapping"
+      },
+      "scope": {
+        "family": "min_tl_xh",
+        "model": "MIN/TL-XH",
+        "firmware": null,
+        "protocol_revision": "V1.24",
+        "region": null,
+        "applicability": "MIN/TL-XH V1.24 FC03 holding range inherited from document instruction block"
+      },
+      "decision": {
+        "status": "resolved",
+        "confidence": "high",
+        "value": {
+          "semantic_key": "battery_type",
+          "canonical_name": "Battery type",
+          "datatype": "u16 enum",
+          "signedness": "unsigned",
+          "unit": null,
+          "normalization": "identity",
+          "access": "R/W"
+        }
+      },
+      "support": [
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p040:row-040-0488",
+        "vendor_growatt_v124_2020:applicability:v124-instruction-min-tlx-tlxh:1",
+        "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p040:row-040-0488:enum"
+      ],
+      "conflicts": [],
+      "rationale": "The V1.24 row explicitly defines BatteryType, R/W access and the battery-type domain; the MIN physical applicability is inherited from the separate FC03 range claim.",
+      "review": {
+        "status": "reviewed",
+        "notes": "PIPELINE-8 claim-driven promotion; documented write meaning is not live-write verification and canonical output remains frozen."
+      }
+    },
+    {
+      "decision_id": "min-xh-h3070-bdc-enum-authority",
+      "target": {
+        "canonical_family": "min_tl_xh",
+        "namespace": "MODBUS",
+        "table": "holding",
+        "address": 3070,
+        "property": "enum"
+      },
+      "scope": {
+        "family": "min_tl_xh",
+        "model": "MIN/TL-XH",
+        "firmware": null,
+        "protocol_revision": "V1.24",
+        "region": null,
+        "applicability": "MIN/TL-XH V1.24 FC03 holding range inherited from document instruction block"
+      },
+      "decision": {
+        "status": "resolved",
+        "confidence": "high",
+        "value": {
+          "0": "lithium",
+          "1": "lead_acid",
+          "2": "other"
+        }
+      },
+      "support": [
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p040:row-040-0488",
+        "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p040:row-040-0488:enum"
+      ],
+      "conflicts": [],
+      "rationale": "The enum members are retained from the vendor row without treating the register's unrelated canonical unit metadata as semantic evidence.",
+      "review": {
+        "status": "reviewed",
+        "notes": "PIPELINE-8 claim-driven promotion; documented write meaning is not live-write verification and canonical output remains frozen."
+      }
+    },
+    {
+      "decision_id": "min-xh-h3071-bdc-semantic-mapping-authority",
+      "target": {
+        "canonical_family": "min_tl_xh",
+        "namespace": "MODBUS",
+        "table": "holding",
+        "address": 3071,
+        "property": "semantic_mapping"
+      },
+      "scope": {
+        "family": "min_tl_xh",
+        "model": "MIN/TL-XH",
+        "firmware": null,
+        "protocol_revision": "V1.24",
+        "region": null,
+        "applicability": "MIN/TL-XH V1.24 FC03 holding range inherited from document instruction block"
+      },
+      "decision": {
+        "status": "resolved",
+        "confidence": "high",
+        "value": {
+          "semantic_key": "battery_module_series_parallel_count",
+          "canonical_name": "Battery module series/parallel count",
+          "datatype": "u16 packed upper/lower byte",
+          "signedness": "unsigned",
+          "unit": null,
+          "normalization": "identity",
+          "access": "R/W"
+        }
+      },
+      "support": [
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p040:row-040-0489",
+        "vendor_growatt_v124_2020:applicability:v124-instruction-min-tlx-tlxh:1",
+        "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p040:row-040-0489:packed",
+        "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p040:row-040-0489:row-local-qualifier"
+      ],
+      "conflicts": [],
+      "rationale": "The row defines the upper byte as series segments and lower byte as parallel sections. The MIN range claim and the row-local SPH4-11K qualifier remain separate; the qualifier is not generalized to the whole register.",
+      "review": {
+        "status": "reviewed",
+        "notes": "PIPELINE-8 claim-driven promotion; documented write meaning is not live-write verification and canonical output remains frozen."
+      }
+    },
+    {
+      "decision_id": "min-xh-h3071-bdc-packed-encoding-authority",
+      "target": {
+        "canonical_family": "min_tl_xh",
+        "namespace": "MODBUS",
+        "table": "holding",
+        "address": 3071,
+        "property": "packed_encoding"
+      },
+      "scope": {
+        "family": "min_tl_xh",
+        "model": "MIN/TL-XH",
+        "firmware": null,
+        "protocol_revision": "V1.24",
+        "region": null,
+        "applicability": "MIN/TL-XH V1.24 FC03 holding range inherited from document instruction block"
+      },
+      "decision": {
+        "status": "resolved",
+        "confidence": "high",
+        "value": {
+          "fields": [
+            {
+              "name": "series_segments",
+              "bits": [
+                8,
+                15
+              ]
+            },
+            {
+              "name": "parallel_sections",
+              "bits": [
+                0,
+                7
+              ]
+            }
+          ],
+          "row_local_qualifier": "SPH4-11K used; scope unresolved beyond the source row"
+        }
+      },
+      "support": [
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p040:row-040-0489",
+        "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p040:row-040-0489:packed",
+        "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p040:row-040-0489:row-local-qualifier"
+      ],
+      "conflicts": [],
+      "rationale": "The packed layout is explicit in the vendor row. The product-use note is preserved as a scoped qualifier rather than used to deny document-level MIN range applicability.",
+      "review": {
+        "status": "reviewed",
+        "notes": "PIPELINE-8 claim-driven promotion; documented write meaning is not live-write verification and canonical output remains frozen."
+      }
+    },
+    {
+      "decision_id": "min-xh-h3095-bdc-semantic-mapping-authority",
+      "target": {
+        "canonical_family": "min_tl_xh",
+        "namespace": "MODBUS",
+        "table": "holding",
+        "address": 3095,
+        "property": "semantic_mapping"
+      },
+      "scope": {
+        "family": "min_tl_xh",
+        "model": "MIN/TL-XH",
+        "firmware": null,
+        "protocol_revision": "V1.24",
+        "region": null,
+        "applicability": "MIN/TL-XH V1.24 FC03 holding range inherited from document instruction block"
+      },
+      "decision": {
+        "status": "resolved",
+        "confidence": "high",
+        "value": {
+          "semantic_key": "bdc_reset_command",
+          "canonical_name": "BDC reset command",
+          "datatype": "u16 enum",
+          "signedness": "unsigned",
+          "unit": null,
+          "normalization": "identity",
+          "access": "R/W",
+          "write_semantics": "documented_command_meaning; live_write_verification_absent"
+        }
+      },
+      "support": [
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p041:row-041-0513",
+        "vendor_growatt_v124_2020:applicability:v124-instruction-min-tlx-tlxh:1",
+        "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p041:row-041-0513:enum"
+      ],
+      "conflicts": [],
+      "rationale": "The V1.24 row explicitly documents BdcResetCmd, R/W access and four command meanings. This records semantic evidence only; no reset or other inverter write was performed.",
+      "review": {
+        "status": "reviewed",
+        "notes": "PIPELINE-8 claim-driven promotion; documented write meaning is not live-write verification and canonical output remains frozen."
+      }
+    },
+    {
+      "decision_id": "min-xh-h3095-bdc-enum-authority",
+      "target": {
+        "canonical_family": "min_tl_xh",
+        "namespace": "MODBUS",
+        "table": "holding",
+        "address": 3095,
+        "property": "enum"
+      },
+      "scope": {
+        "family": "min_tl_xh",
+        "model": "MIN/TL-XH",
+        "firmware": null,
+        "protocol_revision": "V1.24",
+        "region": null,
+        "applicability": "MIN/TL-XH V1.24 FC03 holding range inherited from document instruction block"
+      },
+      "decision": {
+        "status": "resolved",
+        "confidence": "high",
+        "value": {
+          "0": "invalid_data",
+          "1": "reset_setting_parameters",
+          "2": "reset_correction_parameter",
+          "3": "clear_historical_power"
+        }
+      },
+      "support": [
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p041:row-041-0513",
+        "vendor_growatt_v124_2020:assertion:vendor_growatt_v124_2020:holding:p041:row-041-0513:enum"
+      ],
+      "conflicts": [],
+      "rationale": "The documented command enum is promoted independently from the operational write-safety status.",
+      "review": {
+        "status": "reviewed",
+        "notes": "PIPELINE-8 claim-driven promotion; documented write meaning is not live-write verification and canonical output remains frozen."
+      }
+    }
+  ]
+}
