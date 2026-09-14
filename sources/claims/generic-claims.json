@@ -92535,12 +92535,16 @@
         ],
         "table": "holding",
         "address": 0,
-        "address_end": 124
+        "address_end": 124,
+        "source_scope": "max_1500v_max_x_lv",
+        "source_declaration": "v124-instruction-max-1500v-max-x-lv"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "tl3_max_mid_mac",
+          "source_scope": "max_1500v_max_x_lv",
+          "source_declaration": "v124-instruction-max-1500v-max-x-lv",
           "family_label": "MAX 1500V/MAX-X LV",
           "function_code": 3,
           "table": "holding",
@@ -92569,6 +92573,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "MAX 1500V/MAX-X LV",
+        "source_scope": "max_1500v_max_x_lv",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -92588,12 +92593,16 @@
         ],
         "table": "holding",
         "address": 125,
-        "address_end": 249
+        "address_end": 249,
+        "source_scope": "max_1500v_max_x_lv",
+        "source_declaration": "v124-instruction-max-1500v-max-x-lv"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "tl3_max_mid_mac",
+          "source_scope": "max_1500v_max_x_lv",
+          "source_declaration": "v124-instruction-max-1500v-max-x-lv",
           "family_label": "MAX 1500V/MAX-X LV",
           "function_code": 3,
           "table": "holding",
@@ -92622,6 +92631,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "MAX 1500V/MAX-X LV",
+        "source_scope": "max_1500v_max_x_lv",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -92641,12 +92651,16 @@
         ],
         "table": "input",
         "address": 0,
-        "address_end": 124
+        "address_end": 124,
+        "source_scope": "max_1500v_max_x_lv",
+        "source_declaration": "v124-instruction-max-1500v-max-x-lv"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "tl3_max_mid_mac",
+          "source_scope": "max_1500v_max_x_lv",
+          "source_declaration": "v124-instruction-max-1500v-max-x-lv",
           "family_label": "MAX 1500V/MAX-X LV",
           "function_code": 4,
           "table": "input",
@@ -92675,6 +92689,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "MAX 1500V/MAX-X LV",
+        "source_scope": "max_1500v_max_x_lv",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -92694,12 +92709,16 @@
         ],
         "table": "input",
         "address": 125,
-        "address_end": 249
+        "address_end": 249,
+        "source_scope": "max_1500v_max_x_lv",
+        "source_declaration": "v124-instruction-max-1500v-max-x-lv"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "tl3_max_mid_mac",
+          "source_scope": "max_1500v_max_x_lv",
+          "source_declaration": "v124-instruction-max-1500v-max-x-lv",
           "family_label": "MAX 1500V/MAX-X LV",
           "function_code": 4,
           "table": "input",
@@ -92728,6 +92747,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "MAX 1500V/MAX-X LV",
+        "source_scope": "max_1500v_max_x_lv",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -92747,12 +92767,16 @@
         ],
         "table": "input",
         "address": 875,
-        "address_end": 999
+        "address_end": 999,
+        "source_scope": "max_1500v_max_x_lv",
+        "source_declaration": "v124-instruction-max-1500v-max-x-lv"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "tl3_max_mid_mac",
+          "source_scope": "max_1500v_max_x_lv",
+          "source_declaration": "v124-instruction-max-1500v-max-x-lv",
           "family_label": "MAX 1500V/MAX-X LV",
           "function_code": 4,
           "table": "input",
@@ -92781,6 +92805,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "MAX 1500V/MAX-X LV",
+        "source_scope": "max_1500v_max_x_lv",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -92800,12 +92825,16 @@
         ],
         "table": "holding",
         "address": 0,
-        "address_end": 124
+        "address_end": 124,
+        "source_scope": "min_tl_xh",
+        "source_declaration": "v124-instruction-min-tlx-tlxh"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "min_tl_xh",
+          "source_scope": "min_tl_xh",
+          "source_declaration": "v124-instruction-min-tlx-tlxh",
           "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
           "function_code": 3,
           "table": "holding",
@@ -92834,6 +92863,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "TL-X/TL-XH/TL-XH US (MIN Type)",
+        "source_scope": "min_tl_xh",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -92853,12 +92883,16 @@
         ],
         "table": "holding",
         "address": 3000,
-        "address_end": 3124
+        "address_end": 3124,
+        "source_scope": "min_tl_xh",
+        "source_declaration": "v124-instruction-min-tlx-tlxh"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "min_tl_xh",
+          "source_scope": "min_tl_xh",
+          "source_declaration": "v124-instruction-min-tlx-tlxh",
           "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
           "function_code": 3,
           "table": "holding",
@@ -92887,6 +92921,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "TL-X/TL-XH/TL-XH US (MIN Type)",
+        "source_scope": "min_tl_xh",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -92906,12 +92941,16 @@
         ],
         "table": "holding",
         "address": 3125,
-        "address_end": 3249
+        "address_end": 3249,
+        "source_scope": "min_tl_xh",
+        "source_declaration": "v124-instruction-min-tlx-tlxh"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "min_tl_xh",
+          "source_scope": "min_tl_xh",
+          "source_declaration": "v124-instruction-min-tlx-tlxh",
           "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
           "function_code": 3,
           "table": "holding",
@@ -92941,6 +92980,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "TL-X/TL-XH/TL-XH US (MIN Type)",
+        "source_scope": "min_tl_xh",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -92960,12 +93000,16 @@
         ],
         "table": "input",
         "address": 3000,
-        "address_end": 3124
+        "address_end": 3124,
+        "source_scope": "min_tl_xh",
+        "source_declaration": "v124-instruction-min-tlx-tlxh"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "min_tl_xh",
+          "source_scope": "min_tl_xh",
+          "source_declaration": "v124-instruction-min-tlx-tlxh",
           "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
           "function_code": 4,
           "table": "input",
@@ -92994,6 +93038,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "TL-X/TL-XH/TL-XH US (MIN Type)",
+        "source_scope": "min_tl_xh",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93013,12 +93058,16 @@
         ],
         "table": "input",
         "address": 3125,
-        "address_end": 3249
+        "address_end": 3249,
+        "source_scope": "min_tl_xh",
+        "source_declaration": "v124-instruction-min-tlx-tlxh"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "min_tl_xh",
+          "source_scope": "min_tl_xh",
+          "source_declaration": "v124-instruction-min-tlx-tlxh",
           "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
           "function_code": 4,
           "table": "input",
@@ -93047,6 +93096,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "TL-X/TL-XH/TL-XH US (MIN Type)",
+        "source_scope": "min_tl_xh",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93066,12 +93116,16 @@
         ],
         "table": "input",
         "address": 3250,
-        "address_end": 3374
+        "address_end": 3374,
+        "source_scope": "min_tl_xh",
+        "source_declaration": "v124-instruction-min-tlx-tlxh"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "min_tl_xh",
+          "source_scope": "min_tl_xh",
+          "source_declaration": "v124-instruction-min-tlx-tlxh",
           "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
           "function_code": 4,
           "table": "input",
@@ -93101,6 +93155,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "TL-X/TL-XH/TL-XH US (MIN Type)",
+        "source_scope": "min_tl_xh",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93120,12 +93175,16 @@
         ],
         "table": "holding",
         "address": 0,
-        "address_end": 124
+        "address_end": 124,
+        "source_scope": "mod_tl3_xh",
+        "source_declaration": "v124-instruction-mod-tl3-xh"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "mod_tl3_xh",
+          "source_scope": "mod_tl3_xh",
+          "source_declaration": "v124-instruction-mod-tl3-xh",
           "family_label": "MOD TL3-XH",
           "function_code": 3,
           "table": "holding",
@@ -93154,6 +93213,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "MOD TL3-XH",
+        "source_scope": "mod_tl3_xh",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93173,12 +93233,16 @@
         ],
         "table": "holding",
         "address": 3000,
-        "address_end": 3124
+        "address_end": 3124,
+        "source_scope": "mod_tl3_xh",
+        "source_declaration": "v124-instruction-mod-tl3-xh"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "mod_tl3_xh",
+          "source_scope": "mod_tl3_xh",
+          "source_declaration": "v124-instruction-mod-tl3-xh",
           "family_label": "MOD TL3-XH",
           "function_code": 3,
           "table": "holding",
@@ -93207,6 +93271,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "MOD TL3-XH",
+        "source_scope": "mod_tl3_xh",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93226,12 +93291,16 @@
         ],
         "table": "input",
         "address": 3000,
-        "address_end": 3124
+        "address_end": 3124,
+        "source_scope": "mod_tl3_xh",
+        "source_declaration": "v124-instruction-mod-tl3-xh"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "mod_tl3_xh",
+          "source_scope": "mod_tl3_xh",
+          "source_declaration": "v124-instruction-mod-tl3-xh",
           "family_label": "MOD TL3-XH",
           "function_code": 4,
           "table": "input",
@@ -93260,6 +93329,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "MOD TL3-XH",
+        "source_scope": "mod_tl3_xh",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93279,12 +93349,16 @@
         ],
         "table": "input",
         "address": 3125,
-        "address_end": 3249
+        "address_end": 3249,
+        "source_scope": "mod_tl3_xh",
+        "source_declaration": "v124-instruction-mod-tl3-xh"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "mod_tl3_xh",
+          "source_scope": "mod_tl3_xh",
+          "source_declaration": "v124-instruction-mod-tl3-xh",
           "family_label": "MOD TL3-XH",
           "function_code": 4,
           "table": "input",
@@ -93313,6 +93387,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "MOD TL3-XH",
+        "source_scope": "mod_tl3_xh",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93332,12 +93407,16 @@
         ],
         "table": "holding",
         "address": 0,
-        "address_end": 124
+        "address_end": 124,
+        "source_scope": "storage_mix",
+        "source_declaration": "v124-instruction-storage-mix"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "storage_mix",
+          "source_scope": "storage_mix",
+          "source_declaration": "v124-instruction-storage-mix",
           "family_label": "Storage (MIX Type)",
           "function_code": 3,
           "table": "holding",
@@ -93366,6 +93445,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "Storage (MIX Type)",
+        "source_scope": "storage_mix",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93385,12 +93465,16 @@
         ],
         "table": "holding",
         "address": 1000,
-        "address_end": 1124
+        "address_end": 1124,
+        "source_scope": "storage_mix",
+        "source_declaration": "v124-instruction-storage-mix"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "storage_mix",
+          "source_scope": "storage_mix",
+          "source_declaration": "v124-instruction-storage-mix",
           "family_label": "Storage (MIX Type)",
           "function_code": 3,
           "table": "holding",
@@ -93419,6 +93503,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "Storage (MIX Type)",
+        "source_scope": "storage_mix",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93438,12 +93523,16 @@
         ],
         "table": "input",
         "address": 0,
-        "address_end": 124
+        "address_end": 124,
+        "source_scope": "storage_mix",
+        "source_declaration": "v124-instruction-storage-mix"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "storage_mix",
+          "source_scope": "storage_mix",
+          "source_declaration": "v124-instruction-storage-mix",
           "family_label": "Storage (MIX Type)",
           "function_code": 4,
           "table": "input",
@@ -93472,6 +93561,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "Storage (MIX Type)",
+        "source_scope": "storage_mix",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93491,12 +93581,16 @@
         ],
         "table": "input",
         "address": 1000,
-        "address_end": 1124
+        "address_end": 1124,
+        "source_scope": "storage_mix",
+        "source_declaration": "v124-instruction-storage-mix"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "storage_mix",
+          "source_scope": "storage_mix",
+          "source_declaration": "v124-instruction-storage-mix",
           "family_label": "Storage (MIX Type)",
           "function_code": 4,
           "table": "input",
@@ -93525,6 +93619,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "Storage (MIX Type)",
+        "source_scope": "storage_mix",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93544,12 +93639,16 @@
         ],
         "table": "holding",
         "address": 0,
-        "address_end": 124
+        "address_end": 124,
+        "source_scope": "storage_spa",
+        "source_declaration": "v124-instruction-storage-spa"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "storage_spa",
+          "source_scope": "storage_spa",
+          "source_declaration": "v124-instruction-storage-spa",
           "family_label": "Storage (SPA Type)",
           "function_code": 3,
           "table": "holding",
@@ -93578,6 +93677,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "Storage (SPA Type)",
+        "source_scope": "storage_spa",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93597,12 +93697,16 @@
         ],
         "table": "holding",
         "address": 1000,
-        "address_end": 1124
+        "address_end": 1124,
+        "source_scope": "storage_spa",
+        "source_declaration": "v124-instruction-storage-spa"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "storage_spa",
+          "source_scope": "storage_spa",
+          "source_declaration": "v124-instruction-storage-spa",
           "family_label": "Storage (SPA Type)",
           "function_code": 3,
           "table": "holding",
@@ -93631,6 +93735,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "Storage (SPA Type)",
+        "source_scope": "storage_spa",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93650,12 +93755,16 @@
         ],
         "table": "input",
         "address": 1000,
-        "address_end": 1124
+        "address_end": 1124,
+        "source_scope": "storage_spa",
+        "source_declaration": "v124-instruction-storage-spa"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "storage_spa",
+          "source_scope": "storage_spa",
+          "source_declaration": "v124-instruction-storage-spa",
           "family_label": "Storage (SPA Type)",
           "function_code": 4,
           "table": "input",
@@ -93684,6 +93793,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "Storage (SPA Type)",
+        "source_scope": "storage_spa",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93703,12 +93813,16 @@
         ],
         "table": "input",
         "address": 2000,
-        "address_end": 2124
+        "address_end": 2124,
+        "source_scope": "storage_spa",
+        "source_declaration": "v124-instruction-storage-spa"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "storage_spa",
+          "source_scope": "storage_spa",
+          "source_declaration": "v124-instruction-storage-spa",
           "family_label": "Storage (SPA Type)",
           "function_code": 4,
           "table": "input",
@@ -93737,6 +93851,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "Storage (SPA Type)",
+        "source_scope": "storage_spa",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93756,12 +93871,16 @@
         ],
         "table": "input",
         "address": 1125,
-        "address_end": 1249
+        "address_end": 1249,
+        "source_scope": "storage_spa",
+        "source_declaration": "v124-instruction-storage-spa"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "storage_spa",
+          "source_scope": "storage_spa",
+          "source_declaration": "v124-instruction-storage-spa",
           "family_label": "Storage (SPA Type)",
           "function_code": 4,
           "table": "input",
@@ -93790,6 +93909,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "Storage (SPA Type)",
+        "source_scope": "storage_spa",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93809,12 +93929,16 @@
         ],
         "table": "holding",
         "address": 0,
-        "address_end": 124
+        "address_end": 124,
+        "source_scope": "storage_sph",
+        "source_declaration": "v124-instruction-storage-sph"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "storage_sph",
+          "source_scope": "storage_sph",
+          "source_declaration": "v124-instruction-storage-sph",
           "family_label": "Storage (SPH Type)",
           "function_code": 3,
           "table": "holding",
@@ -93843,6 +93967,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "Storage (SPH Type)",
+        "source_scope": "storage_sph",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93862,12 +93987,16 @@
         ],
         "table": "holding",
         "address": 1000,
-        "address_end": 1124
+        "address_end": 1124,
+        "source_scope": "storage_sph",
+        "source_declaration": "v124-instruction-storage-sph"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "storage_sph",
+          "source_scope": "storage_sph",
+          "source_declaration": "v124-instruction-storage-sph",
           "family_label": "Storage (SPH Type)",
           "function_code": 3,
           "table": "holding",
@@ -93896,6 +94025,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "Storage (SPH Type)",
+        "source_scope": "storage_sph",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93915,12 +94045,16 @@
         ],
         "table": "input",
         "address": 0,
-        "address_end": 124
+        "address_end": 124,
+        "source_scope": "storage_sph",
+        "source_declaration": "v124-instruction-storage-sph"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "storage_sph",
+          "source_scope": "storage_sph",
+          "source_declaration": "v124-instruction-storage-sph",
           "family_label": "Storage (SPH Type)",
           "function_code": 4,
           "table": "input",
@@ -93949,6 +94083,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "Storage (SPH Type)",
+        "source_scope": "storage_sph",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -93968,12 +94103,16 @@
         ],
         "table": "input",
         "address": 1000,
-        "address_end": 1124
+        "address_end": 1124,
+        "source_scope": "storage_sph",
+        "source_declaration": "v124-instruction-storage-sph"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "storage_sph",
+          "source_scope": "storage_sph",
+          "source_declaration": "v124-instruction-storage-sph",
           "family_label": "Storage (SPH Type)",
           "function_code": 4,
           "table": "input",
@@ -94002,6 +94141,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "Storage (SPH Type)",
+        "source_scope": "storage_sph",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -94021,12 +94161,16 @@
         ],
         "table": "input",
         "address": 1125,
-        "address_end": 1249
+        "address_end": 1249,
+        "source_scope": "storage_sph",
+        "source_declaration": "v124-instruction-storage-sph"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "storage_sph",
+          "source_scope": "storage_sph",
+          "source_declaration": "v124-instruction-storage-sph",
           "family_label": "Storage (SPH Type)",
           "function_code": 4,
           "table": "input",
@@ -94055,6 +94199,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "Storage (SPH Type)",
+        "source_scope": "storage_sph",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -94074,12 +94219,16 @@
         ],
         "table": "holding",
         "address": 0,
-        "address_end": 124
+        "address_end": 124,
+        "source_scope": "tl3_max_mid_mac",
+        "source_declaration": "v124-instruction-tl3-max-mid-mac"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "tl3_max_mid_mac",
+          "source_scope": "tl3_max_mid_mac",
+          "source_declaration": "v124-instruction-tl3-max-mid-mac",
           "family_label": "TL3-X (MAX, MID, MAC Type)",
           "function_code": 3,
           "table": "holding",
@@ -94108,6 +94257,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "TL3-X (MAX, MID, MAC Type)",
+        "source_scope": "tl3_max_mid_mac",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -94127,12 +94277,16 @@
         ],
         "table": "holding",
         "address": 125,
-        "address_end": 249
+        "address_end": 249,
+        "source_scope": "tl3_max_mid_mac",
+        "source_declaration": "v124-instruction-tl3-max-mid-mac"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "tl3_max_mid_mac",
+          "source_scope": "tl3_max_mid_mac",
+          "source_declaration": "v124-instruction-tl3-max-mid-mac",
           "family_label": "TL3-X (MAX, MID, MAC Type)",
           "function_code": 3,
           "table": "holding",
@@ -94161,6 +94315,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "TL3-X (MAX, MID, MAC Type)",
+        "source_scope": "tl3_max_mid_mac",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -94180,12 +94335,16 @@
         ],
         "table": "input",
         "address": 0,
-        "address_end": 124
+        "address_end": 124,
+        "source_scope": "tl3_max_mid_mac",
+        "source_declaration": "v124-instruction-tl3-max-mid-mac"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "tl3_max_mid_mac",
+          "source_scope": "tl3_max_mid_mac",
+          "source_declaration": "v124-instruction-tl3-max-mid-mac",
           "family_label": "TL3-X (MAX, MID, MAC Type)",
           "function_code": 4,
           "table": "input",
@@ -94214,6 +94373,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "TL3-X (MAX, MID, MAC Type)",
+        "source_scope": "tl3_max_mid_mac",
         "protocol_revision": "V1.24"
       },
       "evidence": {
@@ -94233,12 +94393,16 @@
         ],
         "table": "input",
         "address": 125,
-        "address_end": 249
+        "address_end": 249,
+        "source_scope": "tl3_max_mid_mac",
+        "source_declaration": "v124-instruction-tl3-max-mid-mac"
       },
       "assertion": {
         "kind": "document_range_applicability",
         "value": {
           "family_id": "tl3_max_mid_mac",
+          "source_scope": "tl3_max_mid_mac",
+          "source_declaration": "v124-instruction-tl3-max-mid-mac",
           "family_label": "TL3-X (MAX, MID, MAC Type)",
           "function_code": 4,
           "table": "input",
@@ -94267,6 +94431,7 @@
         ],
         "applicability": "document-level family/table/range applicability",
         "model": "TL3-X (MAX, MID, MAC Type)",
+        "source_scope": "tl3_max_mid_mac",
         "protocol_revision": "V1.24"
       },
       "evidence": {

@@ -14,6 +14,7 @@
       "declaration_id": "v124-instruction-min-tlx-tlxh",
       "page": 3,
       "family_id": "min_tl_xh",
+      "source_scope": "min_tl_xh",
       "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
       "raw_text": "TL-X/TL-XH/TL-XH US (MIN Type): 03 register range: 0~124, 3000~3124, 3125~3249 (TL-XH US); 04 register range: 3000~3124, 3125~3249, 3250~3374 (TL-XH)",
       "ranges": [
@@ -29,6 +30,7 @@
       "declaration_id": "v124-instruction-tl3-max-mid-mac",
       "page": 3,
       "family_id": "tl3_max_mid_mac",
+      "source_scope": "tl3_max_mid_mac",
       "family_label": "TL3-X (MAX, MID, MAC Type)",
       "raw_text": "TL3-X (MAX, MID, MAC Type): 03 register range: 0~124, 125~249; 04 register range: 0~124, 125~249",
       "ranges": [
@@ -42,6 +44,7 @@
       "declaration_id": "v124-instruction-max-1500v-max-x-lv",
       "page": 3,
       "family_id": "tl3_max_mid_mac",
+      "source_scope": "max_1500v_max_x_lv",
       "family_label": "MAX 1500V/MAX-X LV",
       "raw_text": "MAX 1500V, MAX-X LV: 03 register range: 0~124, 125~249; 04 register range: 0~124, 125~249, 875~999",
       "ranges": [
@@ -56,6 +59,7 @@
       "declaration_id": "v124-instruction-mod-tl3-xh",
       "page": 3,
       "family_id": "mod_tl3_xh",
+      "source_scope": "mod_tl3_xh",
       "family_label": "MOD TL3-XH",
       "raw_text": "MOD TL3-XH: 03 register range: 0~124, 3000~3124; 04 register range: 3000~3124, 3125~3249",
       "ranges": [
@@ -69,6 +73,7 @@
       "declaration_id": "v124-instruction-storage-mix",
       "page": 3,
       "family_id": "storage_mix",
+      "source_scope": "storage_mix",
       "family_label": "Storage (MIX Type)",
       "raw_text": "Storage (MIX Type): 03 register range: 0~124, 1000~1124; 04 register range: 0~124, 1000~1124",
       "ranges": [
@@ -82,6 +87,7 @@
       "declaration_id": "v124-instruction-storage-spa",
       "page": 3,
       "family_id": "storage_spa",
+      "source_scope": "storage_spa",
       "family_label": "Storage (SPA Type)",
       "raw_text": "Storage (SPA Type): 03 register range: 0~124, 1000~1124; 04 register range: 1000~1124, 2000~2124, 1125~1249",
       "ranges": [
@@ -96,6 +102,7 @@
       "declaration_id": "v124-instruction-storage-sph",
       "page": 3,
       "family_id": "storage_sph",
+      "source_scope": "storage_sph",
       "family_label": "Storage (SPH Type)",
       "raw_text": "Storage (SPH Type): 03 register range: 0~124, 1000~1124; 04 register range: 0~124, 1000~1124, 1125~1249",
       "ranges": [

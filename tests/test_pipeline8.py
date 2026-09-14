@@ -7,7 +7,14 @@ import json
 from pathlib import Path
 
 from tools.build_pipeline8_cohort import build
-from tools.pipeline8_evidence import evidence_dimensions
+from tools.pipeline8_evidence import (
+    NOT_SUPPORTED_BY_DECLARATION,
+    SUPPORTED_QUALIFIED,
+    SUPPORTED_UNCONDITIONAL,
+    UNRESOLVED,
+    evaluate_applicability,
+    evidence_dimensions,
+)
 from tools.validate_claims import validate
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -58,6 +65,12 @@ def test_v124_all_family_declarations_are_projected() -> None:
     assert applicability("holding", 3070)
     assert applicability("input", 3300)
     assert applicability("input", 900, "tl3_max_mid_mac")
+    declaration_ids = {
+        item["subject"]["source_declaration"]
+        for item in claims()
+        if item["assertion"]["kind"] == "document_range_applicability"
+    }
+    assert len(declaration_ids) == 7
 
 
 def test_v124_all_declared_ranges_are_preserved() -> None:
@@ -120,11 +133,47 @@ def test_v124_all_declared_ranges_are_preserved() -> None:
     assert actual == expected
 
 
+def test_applicability_respects_source_scope_and_qualifiers() -> None:
+    generic_tl3 = evaluate_applicability(
+        claims(), "tl3_max_mid_mac", "input", 900, source_scope="tl3_max_mid_mac"
+    )
+    max_1500v = evaluate_applicability(
+        claims(),
+        "tl3_max_mid_mac",
+        "input",
+        900,
+        source_scope="max_1500v_max_x_lv",
+    )
+    min_h3070 = evaluate_applicability(
+        claims(), "min_tl_xh", "holding", 3070, source_scope="min_tl_xh"
+    )
+    min_h3095 = evaluate_applicability(
+        claims(), "min_tl_xh", "holding", 3095, source_scope="min_tl_xh"
+    )
+    min_h3200 = evaluate_applicability(
+        claims(), "min_tl_xh", "holding", 3200, source_scope="min_tl_xh"
+    )
+    min_h3300 = evaluate_applicability(
+        claims(), "min_tl_xh", "input", 3300, source_scope="min_tl_xh"
+    )
+    assert generic_tl3["status"] == NOT_SUPPORTED_BY_DECLARATION
+    assert max_1500v["status"] == SUPPORTED_UNCONDITIONAL
+    assert min_h3070["status"] == SUPPORTED_UNCONDITIONAL
+    assert min_h3095["status"] == SUPPORTED_UNCONDITIONAL
+    assert min_h3200["status"] == SUPPORTED_QUALIFIED
+    assert min_h3300["status"] == SUPPORTED_QUALIFIED
+    assert min_h3200["qualifier_satisfied"] is False
+    assert min_h3300["qualifier_satisfied"] is False
+    assert evaluate_applicability(claims(), "min_tl_xh", "holding", 3200, source_scope="min_tl_xh", model_variant="TL-XH US")["qualifier_satisfied"] is True
+    assert evaluate_applicability(claims(), "min_tl_xh", "input", 3300, source_scope="min_tl_xh", model_variant="MIN 6000TL-XH")["qualifier_satisfied"] is True
+    assert evaluate_applicability(claims(), "tl3_max_mid_mac", "input", 900)["status"] == UNRESOLVED
+
+
 def test_rows_inherit_range_but_keep_local_qualifier_separate() -> None:
     assert len(applicability("holding", 3070)) == 1
     assert len(applicability("holding", 3095)) == 1
     h3071 = evidence_dimensions(claims(), "min_tl_xh", "holding", 3071)
-    assert h3071["physical_applicability"]["status"] == "supported"
+    assert h3071["physical_applicability"]["status"] == SUPPORTED_UNCONDITIONAL
     assert h3071["model_specific_qualifier"]["status"] == "present"
     assert h3071["unresolved_qualifier"]["status"] == "present"
     assert any("SPH4-11K used" in item["assertion"]["value"] for item in claims() if item["assertion"]["kind"] == "row_local_qualifier" and item["subject"].get("address") == 3071)

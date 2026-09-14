@@ -104,6 +104,7 @@ def vendor_claims() -> list[dict[str, Any]]:
         source_type = "vendor_document"
         for declaration in doc.get("applicability_declarations", []):
             family_id = declaration["family_id"]
+            source_scope = declaration["source_scope"]
             family_scope = [family_id]
             declaration_provenance = {
                 "source_artifact": f"sources/claims/{relative}",
@@ -115,14 +116,21 @@ def vendor_claims() -> list[dict[str, Any]]:
             for range_index, register_range in enumerate(declaration["ranges"]):
                 start = register_range["start"]
                 end = register_range["end"]
+                applicability_subject = subject(
+                    "MODBUS", family_scope, register_range["table"], start, end
+                )
+                applicability_subject["source_scope"] = source_scope
+                applicability_subject["source_declaration"] = declaration["declaration_id"]
                 result.append(claim(
                     f"{source_id}:applicability:{declaration['declaration_id']}:{range_index}",
                     source_id,
                     source_type,
-                    subject("MODBUS", family_scope, register_range["table"], start, end),
+                    applicability_subject,
                     "document_range_applicability",
                     {
                         "family_id": family_id,
+                        "source_scope": source_scope,
+                        "source_declaration": declaration["declaration_id"],
                         "family_label": declaration["family_label"],
                         "function_code": register_range["function_code"],
                         "table": register_range["table"],
@@ -131,7 +139,13 @@ def vendor_claims() -> list[dict[str, Any]]:
                         "qualifier": register_range.get("qualifier"),
                     },
                     declaration_provenance,
-                    scope(family_scope, "document-level family/table/range applicability", model=declaration["family_label"], protocol_revision=doc.get("declared_revision")),
+                    scope(
+                        family_scope,
+                        "document-level family/table/range applicability",
+                        model=declaration["family_label"],
+                        source_scope=source_scope,
+                        protocol_revision=doc.get("declared_revision"),
+                    ),
                     "vendor_documented", "high", "complete",
                     source_text=declaration["raw_text"],
                     raw_value=register_range,

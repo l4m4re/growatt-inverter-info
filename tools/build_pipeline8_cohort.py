@@ -17,7 +17,7 @@ try:
         canonical_authority_origins,
         override_keys,
     )
-    from tools.pipeline8_evidence import candidate_evidence, evidence_dimensions
+    from tools.pipeline8_evidence import candidate_evidence, evidence_dimensions, score_dimensions
 except ModuleNotFoundError:
     from build_authority_coverage import (
         DECISION_PROPERTY_MAP,
@@ -25,7 +25,7 @@ except ModuleNotFoundError:
         canonical_authority_origins,
         override_keys,
     )
-    from pipeline8_evidence import candidate_evidence, evidence_dimensions
+    from pipeline8_evidence import candidate_evidence, evidence_dimensions, score_dimensions
 try:
     from tools.build_reconciliation import build as build_reconciliation
 except ModuleNotFoundError:
@@ -81,6 +81,10 @@ def claim_id(address: int, suffix: str) -> str:
         and (
             item["assertion"]["kind"] != "document_range_applicability"
             or item["subject"].get("family_scope") == ["min_tl_xh"]
+        )
+        and (
+            item["assertion"]["kind"] != "document_range_applicability"
+            or item["subject"].get("source_scope") == "min_tl_xh"
         )
         and item["subject"].get("table") == "holding"
         and (
@@ -355,11 +359,25 @@ def candidate_ranking(authority: dict[str, Any], claims: list[dict[str, Any]], a
         addresses = sorted(item["address"] for item in records)
         per_record = {
             (item["family"], item["table"], item["address"]): evidence_dimensions(
-                claims, item["family"], item["table"], item["address"]
+                claims,
+                item["family"],
+                item["table"],
+                item["address"],
+                source_scope="min_tl_xh",
             )
             for item in records
         }
-        evidence = candidate_evidence(claims, "min_tl_xh", "holding", SELECTED_ADDRESSES) if candidate_id == "min_tl_xh_holding_battery_bdc_3070_3071_3095" else None
+        evidence = (
+            candidate_evidence(
+                claims,
+                "min_tl_xh",
+                "holding",
+                SELECTED_ADDRESSES,
+                source_scope="min_tl_xh",
+            )
+            if candidate_id == "min_tl_xh_holding_battery_bdc_3070_3071_3095"
+            else None
+        )
         if evidence is None:
             # Applicability is evaluated generically for every candidate; one
             # summary combines the candidate's physical table/family scopes.
@@ -373,10 +391,7 @@ def candidate_ranking(authority: dict[str, Any], claims: list[dict[str, Any]], a
                 }
                 for name, value in scored.items():
                     dimension_totals[name] += value["status"] in {"supported", "present", "documented", "verified"}
-                total_score += sum(
-                    value["status"] in {"supported", "present", "documented", "verified"}
-                    for value in scored.values()
-                )
+                total_score += score_dimensions(dimensions)["score"]
             evidence = {
                 "evidence_dimensions": {
                     name: {"supported_records": count, "record_count": len(records), "coverage": count / len(records) if records else 0}
@@ -478,9 +493,15 @@ def authority_after(authority: dict[str, Any], accepted: list[dict[str, Any]], n
     return result
 
 
-def build(starting_sha: str | None = None) -> dict[str, Any]:
+def build(
+    starting_sha: str | None = None,
+    repair_base_sha: str | None = None,
+) -> dict[str, Any]:
     authority = build_authority()
     claims = load(ROOT / "sources/claims/generic-claims.json")["claims"]
+    declarations = load(
+        ROOT / "sources/vendor/profiles/vendor_growatt_v124_2020.json"
+    )["applicability_declarations"]
     accepted = accepted_decisions()
     decisions = build_decisions()
     ranking = candidate_ranking(authority, claims, accepted)
@@ -535,13 +556,20 @@ def build(starting_sha: str | None = None) -> dict[str, Any]:
         "artifact": "growatt_pipeline8_vendor_applicability_and_next_cohort",
         "generated_by": "tools/build_pipeline8_cohort.py",
         "starting_main_sha": starting_sha or subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, check=True, capture_output=True, text=True).stdout.strip(),
+        "pipeline8a": {
+            "repair_base_sha": repair_base_sha,
+            "scope_model_repaired": True,
+        },
         "canonical": {"path": "spec/growatt-register-spec.json", "sha256": sha256(CANONICAL_PATH), "canonical_modified": False},
         "applicability_model": {
             "source": "sources/vendor/profiles/vendor_growatt_v124_2020.json",
             "document": "sources/claims/vendor/vendor_growatt_v124_2020.json",
             "generic_projection": "sources/claims/generic-claims.json",
             "claim_kind": "document_range_applicability",
-            "declaration_count": sum(c["assertion"]["kind"] == "document_range_applicability" for c in claims),
+            "declaration_count": len(declarations),
+            "range_claim_count": sum(len(declaration["ranges"]) for declaration in declarations),
+            "source_scopes": sorted({declaration["source_scope"] for declaration in declarations}),
+            "declaration_ids": [declaration["declaration_id"] for declaration in declarations],
             "family_ids": sorted({c["subject"]["family_scope"][0] for c in claims if c["assertion"]["kind"] == "document_range_applicability"}),
         },
         "baseline": {"canonical_records": authority["counts"]["canonical_records"], **before},
@@ -589,8 +617,8 @@ def render(data: dict[str, Any]) -> str:
         "",
         "## Baseline",
         "",
-        f"- Current merged `main`: `{data['starting_main_sha']}`; canonical SHA-256: `{data['canonical']['sha256']}` before and after.",
-        f"- Canonical records: {data['baseline']['canonical_records']}; canonical unchanged: `{str(data['canonical']['canonical_modified']).lower()}`.",
+        f"- PIPELINE-8 baseline `main`: `{data['starting_main_sha']}`; PIPELINE-8A repair base: `{data['pipeline8a']['repair_base_sha']}`; canonical SHA-256: `{data['canonical']['sha256']}` before and after.",
+        f"- Canonical records: {data['baseline']['canonical_records']}; canonical modified: `{str(data['canonical']['canonical_modified']).lower()}`.",
         f"- Authority baseline: legacy {before['legacy_authoritative_property_cells']}, declarative {before['declarative_authoritative_property_cells']}, legacy-exclusive {before['legacy_exclusive_property_cells']} property cells.",
         "",
         "## Evidence-accounting repair",
@@ -599,7 +627,7 @@ def render(data: dict[str, Any]) -> str:
         "",
         "## V1.24 applicability model",
         "",
-        f"The page-3 instruction block is retained as {data['applicability_model']['declaration_count']} range claims across: " + ", ".join(f"`{item}`" for item in data["applicability_model"]["family_ids"]) + ". Function code/table and start/end are structured, so applicability queries do not depend on ranking code.",
+        f"The page-3 instruction block is retained as {data['applicability_model']['declaration_count']} distinct declarations and {data['applicability_model']['range_claim_count']} range claims. Source scopes are: " + ", ".join(f"`{item}`" for item in data["applicability_model"]["source_scopes"]) + ". Function code/table and start/end are structured, so applicability queries do not depend on ranking code.",
         "",
         "Document-level applicability is kept separate from row-local qualifiers. For H3071, the MIN/TL-XH holding range supports physical applicability while `SPH4-11K used` remains a separately cited, unresolved-scope qualifier. It is not used to deny the MIN range.",
         "",
@@ -635,6 +663,18 @@ def render(data: dict[str, Any]) -> str:
         "",
         "The selected cohort is the top ranked bounded result produced by the claim-driven generator. It contains three coherent MIN/TL-XH BDC/control words. H3071's qualifier lowers/annotates the evidence rather than collapsing the entire source situation to `medium`.",
         "",
+        "## PIPELINE-8A applicability-scope repair",
+        "",
+        "The original model used the canonical family `tl3_max_mid_mac` as the only scope for both the TL3-X/MAX/MID/MAC declaration and the separate MAX 1500V/MAX-X LV declaration. PIPELINE-8A preserves that broad canonical grouping but adds the source scopes `tl3_max_mid_mac` and `max_1500v_max_x_lv`; consequently FC04 input 900 is supported for the latter and is not claimed for the former.",
+        "",
+        "MIN ranges H3125-H3249 (FC03) and H3250-H3374 (FC04) retain their TL-XH US and TL-XH qualifiers. Without matching model context, queries return `SUPPORTED_QUALIFIED`; with an explicit matching model variant the qualifier is satisfied but remains conditional. H3070 and H3095 remain `SUPPORTED_UNCONDITIONAL` through the unqualified H3000-H3124 declaration. Applicability results also distinguish `NOT_SUPPORTED_BY_DECLARATION` from `UNRESOLVED` when source scope is absent or insufficient.",
+        "",
+        "All seven declaration IDs and all 33 ranges remain present. H3071's `SPH4-11K used` note remains a separate row-local qualifier. H3046 retains raw `预留` and normalized `Reserved`; H3095 remains documented write semantics without live-write verification.",
+        "",
+        "Canonical SHA remains unchanged and `canonical_modified=false`. Authority movement is unchanged unless the corrected claim-driven scoring changes it; the values below are regenerated rather than forced.",
+        "",
+        "The archived `tools/legacy/validate_min_6000tl_xh_map.py` is not an acceptance gate and requires the absent historical fixture `tools/legacy/min_6000tl_xh_register_map.json`. Current register-spec, resolved-reference, focused invariant and pipeline validators cover the maintained outputs; the legacy fixture was not recreated.",
+        "",
         "## Selected cohort and authority movement",
         "",
         "- Scope: MIN/TL-XH FC03 holding H3070, H3071 and H3095; physical parity is 3/3 (100%) for the selected registers. H3046 is retained and tested as source context, not silently folded into the selected cohort.",
@@ -662,8 +702,21 @@ def render(data: dict[str, Any]) -> str:
 
 
 def main() -> None:
-    starting_sha = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, check=True, capture_output=True, text=True).stdout.strip()
-    data = build(starting_sha)
+    repair_base_sha = subprocess.run(["git", "rev-parse", "HEAD"], cwd=ROOT, check=True, capture_output=True, text=True).stdout.strip()
+    try:
+        previous = json.loads(
+            subprocess.run(
+                ["git", "show", f"HEAD:{OUTPUT_PATH.relative_to(ROOT)}"],
+                cwd=ROOT,
+                check=True,
+                capture_output=True,
+                text=True,
+            ).stdout
+        )
+        starting_sha = previous["starting_main_sha"]
+    except (KeyError, json.JSONDecodeError, subprocess.CalledProcessError):
+        starting_sha = repair_base_sha
+    data = build(starting_sha, repair_base_sha)
     (ROOT / "reconciliation/min_tl_xh_holding_bdc_3070_3071_3095.json").write_text(json.dumps({"schema_version": "1.0.0", "artifact": "growatt_reconciliation_decisions", "decisions": build_decisions()}, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     (ROOT / "reconciliation/resolved-assertions.json").write_text(json.dumps(build_reconciliation(), indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     (OUTPUT_PATH).write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

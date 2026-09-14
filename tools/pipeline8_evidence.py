@@ -9,6 +9,11 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 
+SUPPORTED_UNCONDITIONAL = "SUPPORTED_UNCONDITIONAL"
+SUPPORTED_QUALIFIED = "SUPPORTED_QUALIFIED"
+NOT_SUPPORTED_BY_DECLARATION = "NOT_SUPPORTED_BY_DECLARATION"
+UNRESOLVED = "UNRESOLVED"
+
 
 def load_claims() -> list[dict[str, Any]]:
     return json.loads(
@@ -32,20 +37,97 @@ def claims_for(
 
 
 def applicability_claims_for(
-    claims: list[dict[str, Any]], family: str, table: str, address: int
+    claims: list[dict[str, Any]],
+    family: str,
+    table: str,
+    address: int,
+    source_scope: str | None = None,
 ) -> list[dict[str, Any]]:
     return [
         claim
         for claim in claims
         if claim["assertion"]["kind"] == "document_range_applicability"
         and claim["subject"].get("family_scope") == [family]
+        and (source_scope is None or claim["subject"].get("source_scope") == source_scope)
         and claim["subject"].get("table") == table
         and claim["subject"].get("address", -1) <= address <= claim["subject"].get("address_end", -1)
     ]
 
 
+def _qualifier_matches(qualifier: str | None, model_variant: str | None) -> bool | None:
+    if qualifier is None:
+        return True
+    if model_variant is None:
+        return None
+    def normalize(value: str) -> str:
+        return " ".join(str(value).lower().replace("/", " ").split())
+    wanted = normalize(qualifier)
+    actual = normalize(model_variant)
+    return wanted == actual or wanted in actual
+
+
+def evaluate_applicability(
+    claims: list[dict[str, Any]],
+    family: str,
+    table: str,
+    address: int,
+    *,
+    source_scope: str | None = None,
+    model_variant: str | None = None,
+) -> dict[str, Any]:
+    all_matches = applicability_claims_for(claims, family, table, address)
+    matches = applicability_claims_for(
+        claims, family, table, address, source_scope=source_scope
+    )
+    if source_scope is not None and not matches:
+        status = NOT_SUPPORTED_BY_DECLARATION
+    elif not matches:
+        status = UNRESOLVED
+    else:
+        source_scopes = {claim["subject"].get("source_scope") for claim in matches}
+        has_external_scope = any(scope != family for scope in source_scopes)
+        qualified = [
+            claim
+            for claim in matches
+            if claim["assertion"]["value"].get("qualifier")
+        ]
+        if has_external_scope and source_scope is None:
+            status = UNRESOLVED
+        elif qualified:
+            status = SUPPORTED_QUALIFIED
+        else:
+            status = SUPPORTED_UNCONDITIONAL
+    qualifiers = [
+        claim["assertion"]["value"].get("qualifier")
+        for claim in matches
+        if claim["assertion"]["value"].get("qualifier")
+    ]
+    qualifier_results = [
+        _qualifier_matches(qualifier, model_variant) for qualifier in qualifiers
+    ]
+    return {
+        "status": status,
+        "claim_ids": sorted({claim["claim_id"] for claim in matches}),
+        "source_scopes": sorted({claim["subject"].get("source_scope") for claim in matches}),
+        "qualifiers": sorted(set(qualifiers)),
+        "qualifier_satisfied": (
+            True
+            if not qualifier_results
+            else any(result is True for result in qualifier_results)
+        ),
+        "qualifier_context_known": all(result is not None for result in qualifier_results),
+        "candidate_claim_count": len(all_matches),
+    }
+
+
 def evidence_dimensions(
-    claims: list[dict[str, Any]], family: str, table: str, address: int
+    claims: list[dict[str, Any]],
+    family: str,
+    table: str,
+    address: int,
+    *,
+    source_scope: str | None = None,
+    model_variant: str | None = None,
 ) -> dict[str, Any]:
     target = claims_for(claims, family, table, address)
     vendor_rows = [
@@ -86,7 +168,14 @@ def evidence_dimensions(
         for claim in target
         if claim["source_id"] != "vendor_growatt_v124_2020"
     ]
-    applicable = applicability_claims_for(claims, family, table, address)
+    applicability = evaluate_applicability(
+        claims,
+        family,
+        table,
+        address,
+        source_scope=source_scope,
+        model_variant=model_variant,
+    )
     has_write = any(
         "R/W" in json.dumps(claim["assertion"].get("value", ""))
         for claim in vendor_rows
@@ -104,8 +193,7 @@ def evidence_dimensions(
     ]
     return {
         "physical_applicability": {
-            "status": "supported" if applicable else "unresolved",
-            "claim_ids": ids(applicable),
+            **applicability,
         },
         "semantic_row": {
             "status": "supported" if semantic else "unresolved",
@@ -143,8 +231,19 @@ def evidence_dimensions(
 
 
 def score_dimensions(dimensions: dict[str, Any]) -> dict[str, Any]:
+    physical = dimensions["physical_applicability"]
+    physical_supported = physical["status"] == SUPPORTED_UNCONDITIONAL or (
+        physical["status"] == SUPPORTED_QUALIFIED
+        and physical["qualifier_satisfied"]
+        and physical["qualifier_context_known"]
+    )
     supported = sum(
-        dimensions[name]["status"] in {"supported", "present", "documented", "verified"}
+        (
+            physical_supported
+            if name == "physical_applicability"
+            else dimensions[name]["status"]
+            in {"supported", "present", "documented", "verified"}
+        )
         for name in (
             "physical_applicability",
             "semantic_row",
@@ -158,23 +257,43 @@ def score_dimensions(dimensions: dict[str, Any]) -> dict[str, Any]:
     unresolved = dimensions["unresolved_qualifier"]["status"] == "present"
     score = supported - int(unresolved)
     quality = "high" if score >= 4 and not (
-        dimensions["physical_applicability"]["status"] != "supported"
+        not physical_supported
         or dimensions["semantic_row"]["status"] != "supported"
     ) else "medium" if score >= 2 else "low"
     return {"score": score, "evidence_quality": quality, "unresolved_qualifier": unresolved}
 
 
 def candidate_evidence(
-    claims: list[dict[str, Any]], family: str, table: str, addresses: list[int]
+    claims: list[dict[str, Any]],
+    family: str,
+    table: str,
+    addresses: list[int],
+    *,
+    source_scope: str | None = None,
+    model_variant: str | None = None,
 ) -> dict[str, Any]:
     per_record = {
-        f"{family}:{table}:{address}": evidence_dimensions(claims, family, table, address)
+        f"{family}:{table}:{address}": evidence_dimensions(
+            claims,
+            family,
+            table,
+            address,
+            source_scope=source_scope,
+            model_variant=model_variant,
+        )
         for address in addresses
     }
     statuses = defaultdict(int)
     for dimensions in per_record.values():
         for name, value in dimensions.items():
-            statuses[name] += value["status"] in {"supported", "present", "documented", "verified"}
+            statuses[name] += value["status"] in {
+                SUPPORTED_UNCONDITIONAL,
+                SUPPORTED_QUALIFIED,
+                "supported",
+                "present",
+                "documented",
+                "verified",
+            }
     aggregate = {
         name: {
             "supported_records": count,
