@@ -118,8 +118,8 @@ def _canonical_indexes() -> tuple[dict[tuple[str, str, int], dict[str, Any]], di
     return canonical, authority
 
 
-def accepted_decisions() -> list[dict[str, Any]]:
-    """Read the accepted pre-PIPELINE-9 decision files, excluding generated data."""
+def accepted_decisions(*, include_pipeline9: bool = False) -> list[dict[str, Any]]:
+    """Read accepted authority decisions, optionally including PIPELINE-9."""
     gii6_addresses = set(
         load_json("docs/pipeline/data/GII-PIPELINE-6_NEXT_AUTHORITY_COHORT.json")["selected_cohort"]["addresses"]
     )
@@ -135,6 +135,10 @@ def accepted_decisions() -> list[dict[str, Any]]:
     )
     result.extend(load_json("reconciliation/min_tl_xh_holding_comms_3083_3086.json")["decisions"])
     result.extend(load_json("reconciliation/min_tl_xh_holding_bdc_3070_3071_3095.json")["decisions"])
+    if include_pipeline9:
+        result.extend(
+            load_json("reconciliation/pipeline9_repository_wide_next_cohort.json")["decisions"]
+        )
     return result
 
 
@@ -332,7 +336,7 @@ def _authority_delta(
     }
 
 
-def enumerate_candidates() -> dict[str, Any]:
+def enumerate_candidates(*, include_pipeline9: bool = False) -> dict[str, Any]:
     claims = load_json("sources/claims/generic-claims.json")["claims"]
     claim_by_id = {claim["claim_id"]: claim for claim in claims}
     canonical, authority = _canonical_indexes()
@@ -366,7 +370,7 @@ def enumerate_candidates() -> dict[str, Any]:
             )
             targets_by_scope[scope][-1]["source_declaration"] = targets_by_scope[scope][-1]["source_declarations"][0]
 
-    accepted = promoted_properties(accepted_decisions())
+    accepted = promoted_properties(accepted_decisions(include_pipeline9=include_pipeline9))
     overrides = override_keys()
     grouped: dict[tuple[str, str, int, str], list[dict[str, Any]]] = defaultdict(list)
     targets_by_location: dict[tuple[str, str, int], list[dict[str, Any]]] = defaultdict(list)

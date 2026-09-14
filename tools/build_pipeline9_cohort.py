@@ -92,6 +92,8 @@ def _decision(
     canonical: dict[str, Any],
     applicability_paths: list[dict[str, Any]],
     claims_by_id: dict[str, dict[str, Any]],
+    decision_prefix: str = "pipeline9",
+    pipeline_name: str = "PIPELINE-9",
 ) -> dict[str, Any]:
     scope = target["source_scope"]
     family = target["family"]
@@ -129,7 +131,7 @@ def _decision(
             "encoding": "vendor_documented_packed_layout",
         }
     return {
-        "decision_id": f"pipeline9-{safe_scope}-{family}-{target['table']}-{address}-{property_name}",
+        "decision_id": f"{decision_prefix}-{safe_scope}-{family}-{target['table']}-{address}-{property_name}",
         "target": {
             "canonical_family": family,
             "namespace": "MODBUS",
@@ -165,7 +167,7 @@ def _decision(
         },
         "support": sorted(set(support)),
         "conflicts": [],
-        "rationale": "PIPELINE-9 generic candidate enumeration selected this exact vendor row and explicit source-scope applicability path; canonical output remains frozen.",
+        "rationale": f"{pipeline_name} generic candidate enumeration selected this exact vendor row and explicit source-scope applicability path; canonical output remains frozen.",
         "review": {
             "status": "reviewed",
             "notes": "Claim-driven shadow authority only. Vendor documentation and live-write verification remain separate; no inverter write was performed.",
@@ -173,7 +175,12 @@ def _decision(
     }
 
 
-def _build_decisions(candidate: dict[str, Any]) -> list[dict[str, Any]]:
+def _build_decisions(
+    candidate: dict[str, Any],
+    *,
+    decision_prefix: str = "pipeline9",
+    pipeline_name: str = "PIPELINE-9",
+) -> list[dict[str, Any]]:
     claims = read(ROOT / "sources/claims/generic-claims.json")["claims"]
     claims_by_id = {claim["claim_id"]: claim for claim in claims}
     row = next(claim for claim in claims if claim["claim_id"] == candidate["vendor_row_claim_id"])
@@ -190,7 +197,18 @@ def _build_decisions(candidate: dict[str, Any]) -> list[dict[str, Any]]:
         supports = candidate["properties_by_physical_target"][":".join(map(str, key))]
         for property_name, support in sorted(supports.items()):
             decisions.append(
-                _decision(candidate, target, property_name, support, row, canonical[key], path_items, claims_by_id)
+                _decision(
+                    candidate,
+                    target,
+                    property_name,
+                    support,
+                    row,
+                    canonical[key],
+                    path_items,
+                    claims_by_id,
+                    decision_prefix,
+                    pipeline_name,
+                )
             )
     return sorted(decisions, key=lambda item: item["decision_id"])
 
