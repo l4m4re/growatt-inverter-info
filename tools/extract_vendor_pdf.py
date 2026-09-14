@@ -376,6 +376,10 @@ def extract_document(
         metadata["document_id"] = document_id_override
     if family_scope_override:
         metadata["apparent_family_scope"] = family_scope_override
+    elif profile.get("apparent_family_scope"):
+        metadata["apparent_family_scope"] = profile["apparent_family_scope"]
+    if profile.get("applicability_declarations"):
+        metadata["applicability_declarations"] = profile["applicability_declarations"]
     claims: list[dict[str, Any]] = []
     diagnostics: list[dict[str, Any]] = []
     current_table: str | None = None
@@ -503,6 +507,7 @@ def extract_document(
             "diagnostic_counts": dict(sorted(diagnostic_counts.items())),
             "deterministic": True,
             "profile": profile.get("profile_id") if profile else None,
+            "applicability_declarations": len(metadata.get("applicability_declarations", [])),
         },
         "claims": claims,
         "notes": [

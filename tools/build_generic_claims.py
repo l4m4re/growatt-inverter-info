@@ -7,6 +7,7 @@ import argparse
 import copy
 import json
 from pathlib import Path
+import re
 from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,7 +24,7 @@ VENDOR_FILES = [
 ]
 KEY_ADDRESSES = {
     ("holding", address)
-    for address in [3036, 3037, *range(3038, 3060), 3081, 3082]
+    for address in [3036, 3037, *range(3038, 3060), 3046, 3070, 3071, 3081, 3082, 3095]
 } | {
     ("input", address)
     for address in [3000, 3101, 3110, 3111, 3165, 3166, 3170, 3211, 3212, 3217]
@@ -101,6 +102,40 @@ def vendor_claims() -> list[dict[str, Any]]:
         doc = document["document"]
         source_id = doc["document_id"]
         source_type = "vendor_document"
+        for declaration in doc.get("applicability_declarations", []):
+            family_id = declaration["family_id"]
+            family_scope = [family_id]
+            declaration_provenance = {
+                "source_artifact": f"sources/claims/{relative}",
+                "document_sha256": doc["document_sha256"],
+                "page": declaration["page"],
+                "section": "document_instruction_register_ranges",
+                "source_row": declaration["declaration_id"],
+            }
+            for range_index, register_range in enumerate(declaration["ranges"]):
+                start = register_range["start"]
+                end = register_range["end"]
+                result.append(claim(
+                    f"{source_id}:applicability:{declaration['declaration_id']}:{range_index}",
+                    source_id,
+                    source_type,
+                    subject("MODBUS", family_scope, register_range["table"], start, end),
+                    "document_range_applicability",
+                    {
+                        "family_id": family_id,
+                        "family_label": declaration["family_label"],
+                        "function_code": register_range["function_code"],
+                        "table": register_range["table"],
+                        "start": start,
+                        "end": end,
+                        "qualifier": register_range.get("qualifier"),
+                    },
+                    declaration_provenance,
+                    scope(family_scope, "document-level family/table/range applicability", model=declaration["family_label"], protocol_revision=doc.get("declared_revision")),
+                    "vendor_documented", "high", "complete",
+                    source_text=declaration["raw_text"],
+                    raw_value=register_range,
+                ))
         for row in document["claims"]:
             address = row["parsed_address"]
             address_end = row["parsed_address_end"]
@@ -132,6 +167,9 @@ def vendor_claims() -> list[dict[str, Any]]:
                 )
                 if key in row
             }
+            access_text = row.get("raw_access_text")
+            if not access_text and row.get("raw_value_text") in {"R", "W", "R/W"}:
+                access_text = row["raw_value_text"]
             result.append(claim(
                 f"{source_id}:source-row:{row['claim_id']}", source_id, source_type, row_subject,
                 "vendor_source_row", row_value, provenance,
@@ -150,13 +188,13 @@ def vendor_claims() -> list[dict[str, Any]]:
                     "vendor_documented", row["extraction_confidence"], row["source_status"],
                     source_text=row.get("raw_variable"), raw_value=row.get("raw_variable"),
                 ))
-            if row.get("raw_access_text"):
+            if access_text:
                 result.append(claim(
                     f"{base}:access", source_id, source_type, row_subject, "access",
-                    row["raw_access_text"], provenance,
+                    access_text, provenance,
                     scope(family, "vendor row scope", protocol_revision=doc.get("declared_revision")),
                     "vendor_documented", row["extraction_confidence"], row["source_status"],
-                    source_text=row["raw_access_text"], raw_value=row["raw_access_text"],
+                    source_text=access_text, raw_value=access_text,
                 ))
             description = " ".join(filter(None, [row.get("raw_description"), row.get("raw_note")]))
             if description:
@@ -167,21 +205,59 @@ def vendor_claims() -> list[dict[str, Any]]:
                     "vendor_documented", row["extraction_confidence"], row["source_status"],
                     source_text=row.get("raw_description"), raw_value=row.get("raw_note"),
                 ))
-            if row.get("raw_note") and ("Bit" in row["raw_note"] or "bit" in row["raw_note"]):
+            packed_text = " ".join(
+                filter(None, [row.get("raw_note"), row.get("raw_row_text")])
+            )
+            packed_row_repair = (
+                row["register_table"] == "holding"
+                and address == 3071
+                and re.search(r"\bupper\s+8\s+bits?\b|\blower\s+8\s+bits?\b", packed_text, re.IGNORECASE)
+            )
+            if (row.get("raw_note") and ("Bit" in row["raw_note"] or "bit" in row["raw_note"])) or packed_row_repair:
                 result.append(claim(
                     f"{base}:packed", source_id, source_type, row_subject, "packed_field",
-                    row["raw_note"], provenance,
+                    packed_text, provenance,
                     scope(family, "vendor row scope", protocol_revision=doc.get("declared_revision")),
                     "vendor_documented", row["extraction_confidence"], row["source_status"],
-                    source_text=row["raw_note"], raw_value=row["raw_value_text"],
+                    source_text=packed_text, raw_value=packed_text,
                 ))
-            if row.get("raw_value_text") and (":" in row["raw_value_text"] or "0=" in row["raw_value_text"]):
+            if row.get("raw_note"):
+                qualifier = row["raw_note"]
+                qualifier_match = re.search(r"[A-Za-z0-9/-]+\s+used", row.get("raw_row_text", ""), re.IGNORECASE)
+                if qualifier_match:
+                    qualifier = f"{qualifier}; {qualifier_match.group(0)}"
+                result.append(claim(
+                    f"{base}:row-local-qualifier", source_id, source_type, row_subject,
+                    "row_local_qualifier", qualifier, provenance,
+                    scope(family, "row-local qualifier; scope is not generalized", protocol_revision=doc.get("declared_revision")),
+                    "vendor_documented", row["extraction_confidence"], row["source_status"],
+                    source_text=qualifier, raw_value=qualifier,
+                ))
+            enum_text = " ".join(
+                filter(None, [row.get("raw_value_text"), row.get("raw_note"), row.get("raw_row_text")])
+            )
+            enum_projection_repair = (
+                row["register_table"] == "holding"
+                and address in {3070, 3095}
+            )
+            if (
+                row.get("raw_value_text")
+                and (":" in row["raw_value_text"] or "0=" in row["raw_value_text"])
+            ) or (enum_projection_repair and (":" in enum_text or "：" in enum_text)):
                 result.append(claim(
                     f"{base}:enum", source_id, source_type, row_subject, "enum_member",
-                    row["raw_value_text"], provenance,
+                    enum_text, provenance,
                     scope(family, "vendor row scope", protocol_revision=doc.get("declared_revision")),
                     "vendor_documented", row["extraction_confidence"], row["source_status"],
-                    source_text=row["raw_value_text"], raw_value=row["raw_value_text"],
+                    source_text=enum_text, raw_value=enum_text,
+                ))
+            if row.get("raw_variable") == "预留":
+                result.append(claim(
+                    f"{base}:normalized-protocol-role", source_id, source_type, row_subject,
+                    "normalized_protocol_role", "Reserved", provenance,
+                    scope(family, "mechanical source normalization", protocol_revision=doc.get("declared_revision")),
+                    "vendor_documented", row["extraction_confidence"], row["source_status"],
+                    source_text="预留", raw_value="Reserved",
                 ))
     return result
 

@@ -16,7 +16,272 @@
     "apparent_family_scope": [
       "MIN/TL-X/TL-XH; TL3-X; MAX; MOD TL3-XH; MIX; SPA; SPH as listed by the document"
     ],
-    "source_origin": "local user-retained/vendor workspace PDF; original URL not assumed"
+    "source_origin": "local user-retained/vendor workspace PDF; original URL not assumed",
+    "applicability_declarations": [
+      {
+        "declaration_id": "v124-instruction-min-tlx-tlxh",
+        "page": 3,
+        "family_id": "min_tl_xh",
+        "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
+        "raw_text": "TL-X/TL-XH/TL-XH US (MIN Type): 03 register range: 0~124, 3000~3124, 3125~3249 (TL-XH US); 04 register range: 3000~3124, 3125~3249, 3250~3374 (TL-XH)",
+        "ranges": [
+          {
+            "function_code": 3,
+            "table": "holding",
+            "start": 0,
+            "end": 124
+          },
+          {
+            "function_code": 3,
+            "table": "holding",
+            "start": 3000,
+            "end": 3124
+          },
+          {
+            "function_code": 3,
+            "table": "holding",
+            "start": 3125,
+            "end": 3249,
+            "qualifier": "TL-XH US"
+          },
+          {
+            "function_code": 4,
+            "table": "input",
+            "start": 3000,
+            "end": 3124
+          },
+          {
+            "function_code": 4,
+            "table": "input",
+            "start": 3125,
+            "end": 3249
+          },
+          {
+            "function_code": 4,
+            "table": "input",
+            "start": 3250,
+            "end": 3374,
+            "qualifier": "TL-XH"
+          }
+        ]
+      },
+      {
+        "declaration_id": "v124-instruction-tl3-max-mid-mac",
+        "page": 3,
+        "family_id": "tl3_max_mid_mac",
+        "family_label": "TL3-X (MAX, MID, MAC Type)",
+        "raw_text": "TL3-X (MAX, MID, MAC Type): 03 register range: 0~124, 125~249; 04 register range: 0~124, 125~249",
+        "ranges": [
+          {
+            "function_code": 3,
+            "table": "holding",
+            "start": 0,
+            "end": 124
+          },
+          {
+            "function_code": 3,
+            "table": "holding",
+            "start": 125,
+            "end": 249
+          },
+          {
+            "function_code": 4,
+            "table": "input",
+            "start": 0,
+            "end": 124
+          },
+          {
+            "function_code": 4,
+            "table": "input",
+            "start": 125,
+            "end": 249
+          }
+        ]
+      },
+      {
+        "declaration_id": "v124-instruction-max-1500v-max-x-lv",
+        "page": 3,
+        "family_id": "tl3_max_mid_mac",
+        "family_label": "MAX 1500V/MAX-X LV",
+        "raw_text": "MAX 1500V, MAX-X LV: 03 register range: 0~124, 125~249; 04 register range: 0~124, 125~249, 875~999",
+        "ranges": [
+          {
+            "function_code": 3,
+            "table": "holding",
+            "start": 0,
+            "end": 124
+          },
+          {
+            "function_code": 3,
+            "table": "holding",
+            "start": 125,
+            "end": 249
+          },
+          {
+            "function_code": 4,
+            "table": "input",
+            "start": 0,
+            "end": 124
+          },
+          {
+            "function_code": 4,
+            "table": "input",
+            "start": 125,
+            "end": 249
+          },
+          {
+            "function_code": 4,
+            "table": "input",
+            "start": 875,
+            "end": 999
+          }
+        ]
+      },
+      {
+        "declaration_id": "v124-instruction-mod-tl3-xh",
+        "page": 3,
+        "family_id": "mod_tl3_xh",
+        "family_label": "MOD TL3-XH",
+        "raw_text": "MOD TL3-XH: 03 register range: 0~124, 3000~3124; 04 register range: 3000~3124, 3125~3249",
+        "ranges": [
+          {
+            "function_code": 3,
+            "table": "holding",
+            "start": 0,
+            "end": 124
+          },
+          {
+            "function_code": 3,
+            "table": "holding",
+            "start": 3000,
+            "end": 3124
+          },
+          {
+            "function_code": 4,
+            "table": "input",
+            "start": 3000,
+            "end": 3124
+          },
+          {
+            "function_code": 4,
+            "table": "input",
+            "start": 3125,
+            "end": 3249
+          }
+        ]
+      },
+      {
+        "declaration_id": "v124-instruction-storage-mix",
+        "page": 3,
+        "family_id": "storage_mix",
+        "family_label": "Storage (MIX Type)",
+        "raw_text": "Storage (MIX Type): 03 register range: 0~124, 1000~1124; 04 register range: 0~124, 1000~1124",
+        "ranges": [
+          {
+            "function_code": 3,
+            "table": "holding",
+            "start": 0,
+            "end": 124
+          },
+          {
+            "function_code": 3,
+            "table": "holding",
+            "start": 1000,
+            "end": 1124
+          },
+          {
+            "function_code": 4,
+            "table": "input",
+            "start": 0,
+            "end": 124
+          },
+          {
+            "function_code": 4,
+            "table": "input",
+            "start": 1000,
+            "end": 1124
+          }
+        ]
+      },
+      {
+        "declaration_id": "v124-instruction-storage-spa",
+        "page": 3,
+        "family_id": "storage_spa",
+        "family_label": "Storage (SPA Type)",
+        "raw_text": "Storage (SPA Type): 03 register range: 0~124, 1000~1124; 04 register range: 1000~1124, 2000~2124, 1125~1249",
+        "ranges": [
+          {
+            "function_code": 3,
+            "table": "holding",
+            "start": 0,
+            "end": 124
+          },
+          {
+            "function_code": 3,
+            "table": "holding",
+            "start": 1000,
+            "end": 1124
+          },
+          {
+            "function_code": 4,
+            "table": "input",
+            "start": 1000,
+            "end": 1124
+          },
+          {
+            "function_code": 4,
+            "table": "input",
+            "start": 2000,
+            "end": 2124
+          },
+          {
+            "function_code": 4,
+            "table": "input",
+            "start": 1125,
+            "end": 1249
+          }
+        ]
+      },
+      {
+        "declaration_id": "v124-instruction-storage-sph",
+        "page": 3,
+        "family_id": "storage_sph",
+        "family_label": "Storage (SPH Type)",
+        "raw_text": "Storage (SPH Type): 03 register range: 0~124, 1000~1124; 04 register range: 0~124, 1000~1124, 1125~1249",
+        "ranges": [
+          {
+            "function_code": 3,
+            "table": "holding",
+            "start": 0,
+            "end": 124
+          },
+          {
+            "function_code": 3,
+            "table": "holding",
+            "start": 1000,
+            "end": 1124
+          },
+          {
+            "function_code": 4,
+            "table": "input",
+            "start": 0,
+            "end": 124
+          },
+          {
+            "function_code": 4,
+            "table": "input",
+            "start": 1000,
+            "end": 1124
+          },
+          {
+            "function_code": 4,
+            "table": "input",
+            "start": 1125,
+            "end": 1249
+          }
+        ]
+      }
+    ]
   },
   "extraction": {
     "tool": "tools/extract_vendor_pdf.py",
@@ -41,7 +306,8 @@
       "unparsed_address": 27
     },
     "deterministic": true,
-    "profile": "vendor_growatt_v124_2020"
+    "profile": "vendor_growatt_v124_2020",
+    "applicability_declarations": 7
   },
   "claims": [
     {
