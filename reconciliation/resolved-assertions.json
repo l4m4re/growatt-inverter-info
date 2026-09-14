@@ -34333,17 +34333,17 @@
       "decision_source": "reconciliation/min_tl_xh.json"
     },
     {
-      "decision_id": "pipeline10-max-1500v-max-x-lv-tl3_max_mid_mac-holding-10-semantic_mapping",
+      "decision_id": "pipeline10-max-1500v-max-x-lv-tl3_max_mid_mac-holding-100-semantic_mapping",
       "target": {
         "canonical_family": "tl3_max_mid_mac",
         "namespace": "MODBUS",
         "table": "holding",
-        "address": 10,
+        "address": 100,
         "property": "semantic_mapping"
       },
       "scope": {
         "family": "tl3_max_mid_mac",
-        "model": "field.firmware",
+        "model": "control.power_factor_curve_lock_out_voltage",
         "firmware": null,
         "protocol_revision": "V1.24",
         "region": null,
@@ -34354,14 +34354,14 @@
           {
             "canonical_family": "tl3_max_mid_mac",
             "table": "holding",
-            "address": 10,
+            "address": 100,
             "source_scope": "max_1500v_max_x_lv",
             "source_declaration": "v124-instruction-max-1500v-max-x-lv"
           },
           {
             "canonical_family": "tl3_max_mid_mac",
             "table": "holding",
-            "address": 10,
+            "address": 100,
             "source_scope": "tl3_max_mid_mac",
             "source_declaration": "v124-instruction-tl3-max-mid-mac"
           }
@@ -34372,17 +34372,17 @@
         "status": "resolved",
         "confidence": "high",
         "value": {
-          "semantic_key": "field.firmware",
-          "canonical_name": "Firmware",
+          "semantic_key": "control.power_factor_curve_lock_out_voltage",
+          "canonical_name": "Power-factor curve lock-out voltage",
           "source_aliases": [
-            "Fw    version F"
+            "LOGridV"
           ],
           "datatype": null,
           "signedness": null,
-          "unit": null,
-          "access": null,
+          "unit": "V",
+          "access": "W",
           "normalization": "source_semantics_preserved",
-          "vendor_row_claim": "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p010:row-010-0011",
+          "vendor_row_claim": "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101",
           "source_scope": "max_1500v_max_x_lv",
           "source_declaration": "v124-instruction-max-1500v-max-x-lv"
         }
@@ -34390,7 +34390,7 @@
       "support": [
         "vendor_growatt_v124_2020:applicability:v124-instruction-max-1500v-max-x-lv:0",
         "vendor_growatt_v124_2020:applicability:v124-instruction-tl3-max-mid-mac:0",
-        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p010:row-010-0011"
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
       ],
       "conflicts": [],
       "rationale": "PIPELINE-10 generic candidate enumeration selected this exact vendor row and explicit source-scope applicability path; canonical output remains frozen.",
@@ -34398,20 +34398,113 @@
         "status": "reviewed",
         "notes": "Claim-driven shadow authority only. Vendor documentation and live-write verification remain separate; no inverter write was performed."
       },
+      "authority_support": {
+        "physical_identity": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "length_words": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "signedness": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "scale": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "unit": {
+          "status": "supported",
+          "claim_ids": [
+            "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
+          ],
+          "source_types": [
+            "vendor_source_row"
+          ]
+        },
+        "physical_quantity": {
+          "status": "supported",
+          "claim_ids": [
+            "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
+          ],
+          "source_types": [
+            "vendor_source_row"
+          ]
+        },
+        "human_description": {
+          "status": "supported",
+          "claim_ids": [
+            "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
+          ],
+          "source_types": [
+            "vendor_source_row"
+          ]
+        },
+        "enum_definitions": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "packed_layout": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "access": {
+          "status": "supported",
+          "claim_ids": [
+            "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
+          ],
+          "source_types": [
+            "vendor_source_row"
+          ]
+        },
+        "model_applicability": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "aliases": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "provenance_support": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "normalization": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "write_semantics": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        }
+      },
       "decision_source": "reconciliation/pipeline10_next_repository_wide_cohort.json"
     },
     {
-      "decision_id": "pipeline10-min-tl-xh-min_tl_xh-holding-10-semantic_mapping",
+      "decision_id": "pipeline10-min-tl-xh-min_tl_xh-holding-100-semantic_mapping",
       "target": {
         "canonical_family": "min_tl_xh",
         "namespace": "MODBUS",
         "table": "holding",
-        "address": 10,
+        "address": 100,
         "property": "semantic_mapping"
       },
       "scope": {
         "family": "min_tl_xh",
-        "model": "field.firmware",
+        "model": "control.power_factor_curve_lock_out_voltage",
         "firmware": null,
         "protocol_revision": "V1.24",
         "region": null,
@@ -34422,7 +34515,7 @@
           {
             "canonical_family": "min_tl_xh",
             "table": "holding",
-            "address": 10,
+            "address": 100,
             "source_scope": "min_tl_xh",
             "source_declaration": "v124-instruction-min-tlx-tlxh"
           }
@@ -34433,24 +34526,24 @@
         "status": "resolved",
         "confidence": "high",
         "value": {
-          "semantic_key": "field.firmware",
-          "canonical_name": "Firmware",
+          "semantic_key": "control.power_factor_curve_lock_out_voltage",
+          "canonical_name": "Power-factor curve lock-out voltage",
           "source_aliases": [
-            "Fw    version F"
+            "LOGridV"
           ],
           "datatype": null,
           "signedness": null,
-          "unit": null,
-          "access": null,
+          "unit": "V",
+          "access": "W",
           "normalization": "source_semantics_preserved",
-          "vendor_row_claim": "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p010:row-010-0011",
+          "vendor_row_claim": "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101",
           "source_scope": "min_tl_xh",
           "source_declaration": "v124-instruction-min-tlx-tlxh"
         }
       },
       "support": [
         "vendor_growatt_v124_2020:applicability:v124-instruction-min-tlx-tlxh:0",
-        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p010:row-010-0011"
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
       ],
       "conflicts": [],
       "rationale": "PIPELINE-10 generic candidate enumeration selected this exact vendor row and explicit source-scope applicability path; canonical output remains frozen.",
@@ -34458,20 +34551,113 @@
         "status": "reviewed",
         "notes": "Claim-driven shadow authority only. Vendor documentation and live-write verification remain separate; no inverter write was performed."
       },
+      "authority_support": {
+        "physical_identity": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "length_words": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "signedness": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "scale": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "unit": {
+          "status": "supported",
+          "claim_ids": [
+            "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
+          ],
+          "source_types": [
+            "vendor_source_row"
+          ]
+        },
+        "physical_quantity": {
+          "status": "supported",
+          "claim_ids": [
+            "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
+          ],
+          "source_types": [
+            "vendor_source_row"
+          ]
+        },
+        "human_description": {
+          "status": "supported",
+          "claim_ids": [
+            "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
+          ],
+          "source_types": [
+            "vendor_source_row"
+          ]
+        },
+        "enum_definitions": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "packed_layout": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "access": {
+          "status": "supported",
+          "claim_ids": [
+            "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
+          ],
+          "source_types": [
+            "vendor_source_row"
+          ]
+        },
+        "model_applicability": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "aliases": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "provenance_support": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "normalization": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "write_semantics": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        }
+      },
       "decision_source": "reconciliation/pipeline10_next_repository_wide_cohort.json"
     },
     {
-      "decision_id": "pipeline10-mod-tl3-xh-mod_tl3_xh-holding-10-semantic_mapping",
+      "decision_id": "pipeline10-mod-tl3-xh-mod_tl3_xh-holding-100-semantic_mapping",
       "target": {
         "canonical_family": "mod_tl3_xh",
         "namespace": "MODBUS",
         "table": "holding",
-        "address": 10,
+        "address": 100,
         "property": "semantic_mapping"
       },
       "scope": {
         "family": "mod_tl3_xh",
-        "model": "field.firmware",
+        "model": "control.power_factor_curve_lock_out_voltage",
         "firmware": null,
         "protocol_revision": "V1.24",
         "region": null,
@@ -34482,7 +34668,7 @@
           {
             "canonical_family": "mod_tl3_xh",
             "table": "holding",
-            "address": 10,
+            "address": 100,
             "source_scope": "mod_tl3_xh",
             "source_declaration": "v124-instruction-mod-tl3-xh"
           }
@@ -34493,24 +34679,24 @@
         "status": "resolved",
         "confidence": "high",
         "value": {
-          "semantic_key": "field.firmware",
-          "canonical_name": "Firmware",
+          "semantic_key": "control.power_factor_curve_lock_out_voltage",
+          "canonical_name": "Power-factor curve lock-out voltage",
           "source_aliases": [
-            "Fw    version F"
+            "LOGridV"
           ],
           "datatype": null,
           "signedness": null,
-          "unit": null,
-          "access": null,
+          "unit": "V",
+          "access": "W",
           "normalization": "source_semantics_preserved",
-          "vendor_row_claim": "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p010:row-010-0011",
+          "vendor_row_claim": "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101",
           "source_scope": "mod_tl3_xh",
           "source_declaration": "v124-instruction-mod-tl3-xh"
         }
       },
       "support": [
         "vendor_growatt_v124_2020:applicability:v124-instruction-mod-tl3-xh:0",
-        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p010:row-010-0011"
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
       ],
       "conflicts": [],
       "rationale": "PIPELINE-10 generic candidate enumeration selected this exact vendor row and explicit source-scope applicability path; canonical output remains frozen.",
@@ -34518,20 +34704,113 @@
         "status": "reviewed",
         "notes": "Claim-driven shadow authority only. Vendor documentation and live-write verification remain separate; no inverter write was performed."
       },
+      "authority_support": {
+        "physical_identity": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "length_words": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "signedness": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "scale": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "unit": {
+          "status": "supported",
+          "claim_ids": [
+            "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
+          ],
+          "source_types": [
+            "vendor_source_row"
+          ]
+        },
+        "physical_quantity": {
+          "status": "supported",
+          "claim_ids": [
+            "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
+          ],
+          "source_types": [
+            "vendor_source_row"
+          ]
+        },
+        "human_description": {
+          "status": "supported",
+          "claim_ids": [
+            "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
+          ],
+          "source_types": [
+            "vendor_source_row"
+          ]
+        },
+        "enum_definitions": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "packed_layout": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "access": {
+          "status": "supported",
+          "claim_ids": [
+            "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
+          ],
+          "source_types": [
+            "vendor_source_row"
+          ]
+        },
+        "model_applicability": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "aliases": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "provenance_support": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "normalization": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "write_semantics": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        }
+      },
       "decision_source": "reconciliation/pipeline10_next_repository_wide_cohort.json"
     },
     {
-      "decision_id": "pipeline10-storage-mix-storage_mix-holding-10-semantic_mapping",
+      "decision_id": "pipeline10-storage-mix-storage_mix-holding-100-semantic_mapping",
       "target": {
         "canonical_family": "storage_mix",
         "namespace": "MODBUS",
         "table": "holding",
-        "address": 10,
+        "address": 100,
         "property": "semantic_mapping"
       },
       "scope": {
         "family": "storage_mix",
-        "model": "field.firmware",
+        "model": "control.power_factor_curve_lock_out_voltage",
         "firmware": null,
         "protocol_revision": "V1.24",
         "region": null,
@@ -34542,7 +34821,7 @@
           {
             "canonical_family": "storage_mix",
             "table": "holding",
-            "address": 10,
+            "address": 100,
             "source_scope": "storage_mix",
             "source_declaration": "v124-instruction-storage-mix"
           }
@@ -34553,24 +34832,24 @@
         "status": "resolved",
         "confidence": "high",
         "value": {
-          "semantic_key": "field.firmware",
-          "canonical_name": "Firmware",
+          "semantic_key": "control.power_factor_curve_lock_out_voltage",
+          "canonical_name": "Power-factor curve lock-out voltage",
           "source_aliases": [
-            "Fw    version F"
+            "LOGridV"
           ],
           "datatype": null,
           "signedness": null,
-          "unit": null,
-          "access": null,
+          "unit": "V",
+          "access": "W",
           "normalization": "source_semantics_preserved",
-          "vendor_row_claim": "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p010:row-010-0011",
+          "vendor_row_claim": "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101",
           "source_scope": "storage_mix",
           "source_declaration": "v124-instruction-storage-mix"
         }
       },
       "support": [
         "vendor_growatt_v124_2020:applicability:v124-instruction-storage-mix:0",
-        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p010:row-010-0011"
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
       ],
       "conflicts": [],
       "rationale": "PIPELINE-10 generic candidate enumeration selected this exact vendor row and explicit source-scope applicability path; canonical output remains frozen.",
@@ -34578,20 +34857,113 @@
         "status": "reviewed",
         "notes": "Claim-driven shadow authority only. Vendor documentation and live-write verification remain separate; no inverter write was performed."
       },
+      "authority_support": {
+        "physical_identity": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "length_words": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "signedness": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "scale": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "unit": {
+          "status": "supported",
+          "claim_ids": [
+            "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
+          ],
+          "source_types": [
+            "vendor_source_row"
+          ]
+        },
+        "physical_quantity": {
+          "status": "supported",
+          "claim_ids": [
+            "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
+          ],
+          "source_types": [
+            "vendor_source_row"
+          ]
+        },
+        "human_description": {
+          "status": "supported",
+          "claim_ids": [
+            "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
+          ],
+          "source_types": [
+            "vendor_source_row"
+          ]
+        },
+        "enum_definitions": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "packed_layout": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "access": {
+          "status": "supported",
+          "claim_ids": [
+            "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
+          ],
+          "source_types": [
+            "vendor_source_row"
+          ]
+        },
+        "model_applicability": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "aliases": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "provenance_support": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "normalization": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "write_semantics": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        }
+      },
       "decision_source": "reconciliation/pipeline10_next_repository_wide_cohort.json"
     },
     {
-      "decision_id": "pipeline10-storage-spa-storage_spa-holding-10-semantic_mapping",
+      "decision_id": "pipeline10-storage-spa-storage_spa-holding-100-semantic_mapping",
       "target": {
         "canonical_family": "storage_spa",
         "namespace": "MODBUS",
         "table": "holding",
-        "address": 10,
+        "address": 100,
         "property": "semantic_mapping"
       },
       "scope": {
         "family": "storage_spa",
-        "model": "field.firmware",
+        "model": "control.power_factor_curve_lock_out_voltage",
         "firmware": null,
         "protocol_revision": "V1.24",
         "region": null,
@@ -34602,7 +34974,7 @@
           {
             "canonical_family": "storage_spa",
             "table": "holding",
-            "address": 10,
+            "address": 100,
             "source_scope": "storage_spa",
             "source_declaration": "v124-instruction-storage-spa"
           }
@@ -34613,24 +34985,24 @@
         "status": "resolved",
         "confidence": "high",
         "value": {
-          "semantic_key": "field.firmware",
-          "canonical_name": "Firmware",
+          "semantic_key": "control.power_factor_curve_lock_out_voltage",
+          "canonical_name": "Power-factor curve lock-out voltage",
           "source_aliases": [
-            "Fw    version F"
+            "LOGridV"
           ],
           "datatype": null,
           "signedness": null,
-          "unit": null,
-          "access": null,
+          "unit": "V",
+          "access": "W",
           "normalization": "source_semantics_preserved",
-          "vendor_row_claim": "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p010:row-010-0011",
+          "vendor_row_claim": "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101",
           "source_scope": "storage_spa",
           "source_declaration": "v124-instruction-storage-spa"
         }
       },
       "support": [
         "vendor_growatt_v124_2020:applicability:v124-instruction-storage-spa:0",
-        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p010:row-010-0011"
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
       ],
       "conflicts": [],
       "rationale": "PIPELINE-10 generic candidate enumeration selected this exact vendor row and explicit source-scope applicability path; canonical output remains frozen.",
@@ -34638,20 +35010,113 @@
         "status": "reviewed",
         "notes": "Claim-driven shadow authority only. Vendor documentation and live-write verification remain separate; no inverter write was performed."
       },
+      "authority_support": {
+        "physical_identity": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "length_words": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "signedness": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "scale": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "unit": {
+          "status": "supported",
+          "claim_ids": [
+            "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
+          ],
+          "source_types": [
+            "vendor_source_row"
+          ]
+        },
+        "physical_quantity": {
+          "status": "supported",
+          "claim_ids": [
+            "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
+          ],
+          "source_types": [
+            "vendor_source_row"
+          ]
+        },
+        "human_description": {
+          "status": "supported",
+          "claim_ids": [
+            "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
+          ],
+          "source_types": [
+            "vendor_source_row"
+          ]
+        },
+        "enum_definitions": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "packed_layout": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "access": {
+          "status": "supported",
+          "claim_ids": [
+            "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
+          ],
+          "source_types": [
+            "vendor_source_row"
+          ]
+        },
+        "model_applicability": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "aliases": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "provenance_support": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "normalization": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "write_semantics": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        }
+      },
       "decision_source": "reconciliation/pipeline10_next_repository_wide_cohort.json"
     },
     {
-      "decision_id": "pipeline10-storage-sph-storage_sph-holding-10-semantic_mapping",
+      "decision_id": "pipeline10-storage-sph-storage_sph-holding-100-semantic_mapping",
       "target": {
         "canonical_family": "storage_sph",
         "namespace": "MODBUS",
         "table": "holding",
-        "address": 10,
+        "address": 100,
         "property": "semantic_mapping"
       },
       "scope": {
         "family": "storage_sph",
-        "model": "field.firmware",
+        "model": "control.power_factor_curve_lock_out_voltage",
         "firmware": null,
         "protocol_revision": "V1.24",
         "region": null,
@@ -34662,7 +35127,7 @@
           {
             "canonical_family": "storage_sph",
             "table": "holding",
-            "address": 10,
+            "address": 100,
             "source_scope": "storage_sph",
             "source_declaration": "v124-instruction-storage-sph"
           }
@@ -34673,30 +35138,123 @@
         "status": "resolved",
         "confidence": "high",
         "value": {
-          "semantic_key": "field.firmware",
-          "canonical_name": "Firmware",
+          "semantic_key": "control.power_factor_curve_lock_out_voltage",
+          "canonical_name": "Power-factor curve lock-out voltage",
           "source_aliases": [
-            "Fw    version F"
+            "LOGridV"
           ],
           "datatype": null,
           "signedness": null,
-          "unit": null,
-          "access": null,
+          "unit": "V",
+          "access": "W",
           "normalization": "source_semantics_preserved",
-          "vendor_row_claim": "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p010:row-010-0011",
+          "vendor_row_claim": "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101",
           "source_scope": "storage_sph",
           "source_declaration": "v124-instruction-storage-sph"
         }
       },
       "support": [
         "vendor_growatt_v124_2020:applicability:v124-instruction-storage-sph:0",
-        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p010:row-010-0011"
+        "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
       ],
       "conflicts": [],
       "rationale": "PIPELINE-10 generic candidate enumeration selected this exact vendor row and explicit source-scope applicability path; canonical output remains frozen.",
       "review": {
         "status": "reviewed",
         "notes": "Claim-driven shadow authority only. Vendor documentation and live-write verification remain separate; no inverter write was performed."
+      },
+      "authority_support": {
+        "physical_identity": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "length_words": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "signedness": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "scale": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "unit": {
+          "status": "supported",
+          "claim_ids": [
+            "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
+          ],
+          "source_types": [
+            "vendor_source_row"
+          ]
+        },
+        "physical_quantity": {
+          "status": "supported",
+          "claim_ids": [
+            "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
+          ],
+          "source_types": [
+            "vendor_source_row"
+          ]
+        },
+        "human_description": {
+          "status": "supported",
+          "claim_ids": [
+            "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
+          ],
+          "source_types": [
+            "vendor_source_row"
+          ]
+        },
+        "enum_definitions": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "packed_layout": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "access": {
+          "status": "supported",
+          "claim_ids": [
+            "vendor_growatt_v124_2020:source-row:vendor_growatt_v124_2020:holding:p014:row-014-0101"
+          ],
+          "source_types": [
+            "vendor_source_row"
+          ]
+        },
+        "model_applicability": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "aliases": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "provenance_support": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "normalization": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        },
+        "write_semantics": {
+          "status": "unresolved",
+          "claim_ids": [],
+          "source_types": []
+        }
       },
       "decision_source": "reconciliation/pipeline10_next_repository_wide_cohort.json"
     },

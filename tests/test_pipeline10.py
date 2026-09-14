@@ -6,6 +6,9 @@ import json
 from pathlib import Path
 from typing import Any
 
+from tools.build_authority_coverage import DECISION_PROPERTY_MAP
+from tools.build_pipeline10a_audit import build as build_property_cell_audit
+from tools.property_cell_provenance import property_cell_support, supported_property_cells
 from tools.pipeline9_candidates import accepted_decisions, enumerate_candidates, path_key
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -27,7 +30,7 @@ def test_pipeline9_authority_is_included_and_h123_is_not_reducible_again() -> No
             (ROOT / "reconciliation/pipeline9_repository_wide_next_cohort.json").read_text()
         )["decisions"]
     }
-    accepted_ids = {item["decision_id"] for item in accepted_decisions(include_pipeline9=True)}
+    accepted_ids = {item["decision_id"] for item in accepted_decisions()}
     assert pipeline9_ids <= accepted_ids
     assert data["accepted_authority"]["pipeline9_included"] is True
     assert data["previous_h123"]["current_expected_reduction"] == 0
@@ -35,8 +38,8 @@ def test_pipeline9_authority_is_included_and_h123_is_not_reducible_again() -> No
 
 
 def test_fresh_enumeration_remains_repository_wide_and_deterministic() -> None:
-    first = enumerate_candidates(include_pipeline9=True)
-    second = enumerate_candidates(include_pipeline9=True)
+    first = enumerate_candidates()
+    second = enumerate_candidates()
     assert first == second
     assert set(first["coverage"]) == {
         "max_1500v_max_x_lv",
@@ -152,3 +155,86 @@ def test_authority_moves_without_changing_canonical_or_pipeline9_resolution() ->
         )["decisions"]
     }
     assert pipeline9_ids <= resolved_ids
+
+
+def test_semantic_mapping_does_not_expand_to_the_legacy_property_set() -> None:
+    claims = {
+        claim["claim_id"]: claim
+        for claim in json.loads(CLAIMS_PATH.read_text(encoding="utf-8"))["claims"]
+    }
+    row_claim = next(
+        claim
+        for claim in claims.values()
+        if claim["assertion"]["kind"] == "vendor_source_row"
+        and claim["subject"].get("table") == "holding"
+        and claim["subject"].get("address") == 10
+    )
+    decision = {
+        "target": {"property": "semantic_mapping"},
+        "support": [row_claim["claim_id"]],
+        "decision": {"value": {"signedness": "unsigned", "unit": None}},
+    }
+    supported = supported_property_cells(decision, claims)
+    assert supported == {"human_description", "physical_quantity"}
+    assert supported < DECISION_PROPERTY_MAP["semantic_mapping"]
+    assert "signedness" not in property_cell_support(decision, claims)
+    assert "unit" not in supported
+    assert "normalization" not in supported
+
+
+def test_canonical_only_values_cannot_become_property_support() -> None:
+    claims = {
+        claim["claim_id"]: claim
+        for claim in json.loads(CLAIMS_PATH.read_text(encoding="utf-8"))["claims"]
+    }
+    decision = {
+        "target": {"property": "semantic_mapping"},
+        "support": [],
+        "decision": {
+            "value": {
+                "signedness": "signed",
+                "unit": "W",
+                "normalization": "source_semantics_preserved",
+            }
+        },
+    }
+    assert supported_property_cells(decision, claims) == set()
+
+
+def test_every_accepted_promoted_cell_has_real_noncanonical_support() -> None:
+    claims = {
+        claim["claim_id"]: claim
+        for claim in json.loads(CLAIMS_PATH.read_text(encoding="utf-8"))["claims"]
+    }
+    audit = build_property_cell_audit()
+    for item in audit["decisions"]:
+        support = item["support_claim_ids_by_property"]
+        assert set(item["correctly_evidence_supported_property_cells"]) == set(support)
+        for property_name in item["correctly_evidence_supported_property_cells"]:
+            claim_ids = support[property_name]
+            assert claim_ids
+            assert all(claim_id in claims for claim_id in claim_ids)
+            assert all(
+                not claim_id.startswith("spec/") and "compatibility" not in claim_id
+                for claim_id in claim_ids
+            )
+
+
+def test_accepted_authority_registry_excludes_unaccepted_pipeline10() -> None:
+    first = accepted_decisions()
+    second = accepted_decisions()
+    assert first == second
+    assert all(not item["decision_id"].startswith("pipeline10-") for item in first)
+    assert len(first) == 43
+
+
+def test_property_cell_rebaseline_records_h123_h10_and_corrected_rank_one() -> None:
+    data = artifact()
+    accounting = data["property_cell_accounting"]
+    assert accounting["mode"] == "explicit_property_cell_support"
+    assert accounting["h123"]["historical_broad_expected_reduction"] == 30
+    assert accounting["h123"]["corrected_expected_reduction"] == 24
+    assert accounting["h10"]["historical_broad_expected_reduction"] == 30
+    assert accounting["h10"]["corrected_expected_reduction"] == 12
+    assert data["selected_cohort"]["id"] == data["candidate_ranking"][0]["id"]
+    assert accounting["over_promoted_cells_removed"] == 88

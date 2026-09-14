@@ -24,10 +24,12 @@ try:
         path_key,
         promoted_properties,
     )
+    from tools.property_cell_provenance import authority_support_for_decision
 except ModuleNotFoundError:
     from build_authority_coverage import DECISION_PROPERTY_MAP, build as build_authority, canonical_authority_origins, override_keys
     from build_reconciliation import build as build_reconciliation
     from pipeline9_candidates import accepted_decisions, enumerate_candidates, path_key, promoted_properties
+    from property_cell_provenance import authority_support_for_decision
 
 ROOT = Path(__file__).resolve().parents[1]
 CANONICAL_PATH = ROOT / "spec/growatt-register-spec.json"
@@ -74,13 +76,14 @@ def _authority_metrics(
         promoted = accepted.get(key, set())
         legacy += len(old_legacy - promoted)
         exclusive += len(old_exclusive - promoted)
-        declarative += len(set(record["declarative_properties"]) | promoted)
-    return {
+        declarative += len(promoted)
+    result = {
         "canonical_property_cells": authority["authority_origin_metrics"]["canonical_property_cells"],
         "legacy_authoritative_property_cells": legacy,
         "declarative_authoritative_property_cells": declarative,
         "legacy_exclusive_property_cells": exclusive,
     }
+    return result
 
 
 def _decision(
@@ -130,7 +133,7 @@ def _decision(
             ],
             "encoding": "vendor_documented_packed_layout",
         }
-    return {
+    result = {
         "decision_id": f"{decision_prefix}-{safe_scope}-{family}-{target['table']}-{address}-{property_name}",
         "target": {
             "canonical_family": family,
@@ -173,6 +176,8 @@ def _decision(
             "notes": "Claim-driven shadow authority only. Vendor documentation and live-write verification remain separate; no inverter write was performed.",
         },
     }
+    result["authority_support"] = authority_support_for_decision(result, claims_by_id)
+    return result
 
 
 def _build_decisions(
@@ -265,13 +270,14 @@ def _selected_authority(
 
 
 def build(starting_main_sha: str) -> tuple[dict[str, Any], list[dict[str, Any]]]:
-    enumeration = enumerate_candidates()
+    historical_source = {"reconciliation/pipeline9_repository_wide_next_cohort.json"}
+    enumeration = enumerate_candidates(exclude_accepted_sources=historical_source)
     ranking = enumeration["candidate_ranking"]
     if not ranking:
         raise AssertionError("PIPELINE-9 produced no evidence-supported bounded candidate")
     selected = ranking[0]
     decisions = _build_decisions(selected)
-    before_decisions = accepted_decisions()
+    before_decisions = accepted_decisions(exclude_sources=historical_source)
     authority = build_authority()
     before = _authority_metrics(authority, before_decisions)
     after = _authority_metrics(authority, [*before_decisions, *decisions])

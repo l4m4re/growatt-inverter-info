@@ -9,6 +9,11 @@ from pathlib import Path
 import re
 from typing import Any
 
+try:
+    from tools.property_cell_provenance import property_cell_support
+except ModuleNotFoundError:
+    from property_cell_provenance import property_cell_support
+
 ROOT = Path(__file__).resolve().parents[1]
 STATUSES = {"resolved", "provisionally_resolved", "unresolved", "not_applicable", "reserved", "scope_specific"}
 
@@ -48,6 +53,46 @@ def require_claims(
     return [f"{prefix}: {property_name} lacks required claim-level support"]
 
 
+def validate_explicit_property_support(
+    decision: dict[str, Any], claims: dict[str, dict[str, Any]], prefix: str
+) -> list[str]:
+    """Check that each explicitly promoted property has capable claim support."""
+    authority = decision.get("authority_support")
+    if not isinstance(authority, dict):
+        return []
+    without_authority = {key: value for key, value in decision.items() if key != "authority_support"}
+    derived = property_cell_support(without_authority, claims)
+    errors: list[str] = []
+    target = decision.get("target", {})
+    for property_name, detail in authority.items():
+        if detail.get("status") != "supported":
+            continue
+        claim_ids = detail.get("claim_ids", [])
+        if not claim_ids:
+            errors.append(f"{prefix}: promoted {property_name} has no claim IDs")
+            continue
+        derived_detail = derived.get(property_name, {})
+        if not set(claim_ids).issubset(set(derived_detail.get("claim_ids", []))):
+            errors.append(f"{prefix}: promoted {property_name} lacks capable claim support")
+        for claim_id in claim_ids:
+            claim = claims.get(claim_id)
+            if not claim:
+                errors.append(f"{prefix}: promoted {property_name} has dangling claim {claim_id}")
+                continue
+            subject = claim.get("subject", {})
+            family_scope = subject.get("family_scope", [])
+            broad_family_scope = len(family_scope) == 1 and ";" in str(family_scope[0])
+            if (
+                subject.get("namespace") == "MODBUS"
+                and subject.get("table") == target.get("table")
+                and subject.get("address") == target.get("address")
+                and not broad_family_scope
+                and target.get("canonical_family") not in subject.get("family_scope", [])
+            ):
+                errors.append(f"{prefix}: {property_name} claim {claim_id} has wrong family scope")
+    return errors
+
+
 def validate() -> list[str]:
     errors: list[str] = []
     claims = {item["claim_id"]: item for item in read("sources/claims/generic-claims.json")["claims"]}
@@ -85,6 +130,7 @@ def validate() -> list[str]:
                 errors.append(f"{prefix}: dangling template reference")
         for rejection in item.get("conflicts", []):
             if not rejection.get("reason"): errors.append(f"{prefix}: rejection without reason")
+        errors.extend(validate_explicit_property_support(item, claims, prefix))
         address = target.get("address")
         value = item.get("decision", {}).get("value", {})
         if address == 3000 and target.get("table") == "input" and "fields" in value:
@@ -112,6 +158,16 @@ def validate() -> list[str]:
             expected = {"minute": [0, 7], "hour": [8, 12], "priority": [13, 14], "enable": [15, 15]}
             if {name: field.get("bits") for name, field in fields.items()} != expected:
                 errors.append(f"{prefix}: XH start/control codec is incomplete or misplaced")
+    for path in sorted((ROOT / "reconciliation").glob("*.json")):
+        if path.name in {"resolved-assertions.json", "validation-report.json", "scope-mappings.json"}:
+            continue
+        source_data = json.loads(path.read_text(encoding="utf-8"))
+        for index, item in enumerate(source_data.get("decisions", [])):
+            errors.extend(
+                validate_explicit_property_support(
+                    item, claims, f"{path.name}:decisions[{index}]"
+                )
+            )
     candidate = read("reconciliation/resolved-assertions.json")
     if candidate.get("canonical_status") != "shadow_only_not_canonical": errors.append("candidate is not marked shadow-only")
     source_decision_count = 0

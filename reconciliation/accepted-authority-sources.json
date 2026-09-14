@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "growatt_accepted_authority_sources",
+  "purpose": "Deterministic registry of reconciliation sources accepted into authority accounting.",
+  "sources": [
+    {
+      "path": "reconciliation/min_tl_xh.json",
+      "selector": {
+        "kind": "modbus_holding_addresses_from_artifact",
+        "artifact": "docs/pipeline/data/GII-PIPELINE-6_NEXT_AUTHORITY_COHORT.json"
+      }
+    },
+    {
+      "path": "reconciliation/min_tl_xh_holding_ems_3036_3059_3081_3082.json"
+    },
+    {
+      "path": "reconciliation/min_tl_xh_holding_comms_3083_3086.json"
+    },
+    {
+      "path": "reconciliation/min_tl_xh_holding_bdc_3070_3071_3095.json"
+    },
+    {
+      "path": "reconciliation/pipeline9_repository_wide_next_cohort.json"
+    }
+  ]
+}

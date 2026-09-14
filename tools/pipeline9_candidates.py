@@ -8,11 +8,7 @@ from pathlib import Path
 from typing import Any
 
 try:
-    from tools.build_authority_coverage import (
-        DECISION_PROPERTY_MAP,
-        canonical_authority_origins,
-        override_keys,
-    )
+    from tools.build_authority_coverage import canonical_authority_origins, override_keys
     from tools.pipeline8_evidence import (
         SUPPORTED_QUALIFIED,
         SUPPORTED_UNCONDITIONAL,
@@ -20,9 +16,11 @@ try:
         evaluate_applicability,
         score_dimensions,
     )
+    from tools.property_cell_provenance import property_cell_support, supported_property_cells
 except ModuleNotFoundError:
-    from build_authority_coverage import DECISION_PROPERTY_MAP, canonical_authority_origins, override_keys
+    from build_authority_coverage import canonical_authority_origins, override_keys
     from pipeline8_evidence import SUPPORTED_QUALIFIED, SUPPORTED_UNCONDITIONAL, evidence_dimensions, evaluate_applicability, score_dimensions
+    from property_cell_provenance import property_cell_support, supported_property_cells
 
 ROOT = Path(__file__).resolve().parents[1]
 V124_SOURCE = "vendor_growatt_v124_2020"
@@ -118,38 +116,41 @@ def _canonical_indexes() -> tuple[dict[tuple[str, str, int], dict[str, Any]], di
     return canonical, authority
 
 
-def accepted_decisions(*, include_pipeline9: bool = False) -> list[dict[str, Any]]:
-    """Read accepted authority decisions, optionally including PIPELINE-9."""
-    gii6_addresses = set(
-        load_json("docs/pipeline/data/GII-PIPELINE-6_NEXT_AUTHORITY_COHORT.json")["selected_cohort"]["addresses"]
-    )
-    result = [
-        item
-        for item in load_json("reconciliation/min_tl_xh.json")["decisions"]
-        if item["target"].get("namespace") == "MODBUS"
-        and item["target"].get("table") == "holding"
-        and item["target"].get("address") in gii6_addresses
-    ]
-    result.extend(
-        load_json("reconciliation/min_tl_xh_holding_ems_3036_3059_3081_3082.json")["decisions"]
-    )
-    result.extend(load_json("reconciliation/min_tl_xh_holding_comms_3083_3086.json")["decisions"])
-    result.extend(load_json("reconciliation/min_tl_xh_holding_bdc_3070_3071_3095.json")["decisions"])
-    if include_pipeline9:
-        result.extend(
-            load_json("reconciliation/pipeline9_repository_wide_next_cohort.json")["decisions"]
-        )
-    return result
+def accepted_decisions(*, exclude_sources: set[str] | None = None) -> list[dict[str, Any]]:
+    """Read accepted authority decisions from the checked-in registry."""
+    registry = load_json("reconciliation/accepted-authority-sources.json")
+    excluded = exclude_sources or set()
+    result: list[dict[str, Any]] = []
+    for source in registry["sources"]:
+        path = source["path"]
+        if path in excluded:
+            continue
+        decisions = load_json(path)["decisions"]
+        selector = source.get("selector")
+        if selector and selector["kind"] == "modbus_holding_addresses_from_artifact":
+            addresses = set(load_json(selector["artifact"])["selected_cohort"]["addresses"])
+            decisions = [
+                item
+                for item in decisions
+                if item["target"].get("namespace") == "MODBUS"
+                and item["target"].get("table") == "holding"
+                and item["target"].get("address") in addresses
+            ]
+        result.extend(decisions)
+    return sorted(result, key=lambda item: item["decision_id"])
 
 
 def promoted_properties(decisions: list[dict[str, Any]]) -> dict[tuple[str, str, int], set[str]]:
+    claims_by_id = {
+        claim["claim_id"]: claim for claim in load_json("sources/claims/generic-claims.json")["claims"]
+    }
     result: dict[tuple[str, str, int], set[str]] = defaultdict(set)
     for item in decisions:
         target = item.get("target", {})
         if target.get("namespace") != "MODBUS":
             continue
         result[(target["canonical_family"], target["table"], target["address"])].update(
-            DECISION_PROPERTY_MAP.get(target.get("property"), set())
+            supported_property_cells(item, claims_by_id)
         )
     return result
 
@@ -314,7 +315,7 @@ def _authority_delta(
     authority_record: dict[str, Any],
     canonical_record: dict[str, Any],
     accepted: dict[tuple[str, str, int], set[str]],
-    properties: dict[str, list[str]],
+    supported_cells: set[str],
     overrides: set[tuple[str, str, int, str]] | None = None,
 ) -> dict[str, Any]:
     origins = canonical_authority_origins(canonical_record, overrides or override_keys())
@@ -325,18 +326,41 @@ def _authority_delta(
     }
     key = (canonical_record["family"], canonical_record["table"], canonical_record["address"])
     already = accepted.get(key, set())
-    promoted = set()
-    for property_name in properties:
-        promoted.update(DECISION_PROPERTY_MAP.get(property_name, set()))
+    promoted = set(supported_cells)
     return {
         "legacy_before": len(legacy - already),
-        "declarative_before": len(set(authority_record.get("declarative_properties", [])) | already),
+        "declarative_before": len(already),
         "expected_reduction": len((legacy - already) & promoted),
         "promoted_properties": sorted(promoted),
     }
 
 
-def enumerate_candidates(*, include_pipeline9: bool = False) -> dict[str, Any]:
+def _candidate_authority_support(
+    claims: list[dict[str, Any]], properties: dict[str, list[str]]
+) -> dict[str, dict[str, Any]]:
+    claims_by_id = {claim["claim_id"]: claim for claim in claims}
+    result: dict[str, dict[str, Any]] = {}
+    for decision_property, support in properties.items():
+        decision = {
+            "target": {"property": decision_property},
+            "support": support,
+            "decision": {"value": {}},
+        }
+        for property_name, detail in property_cell_support(decision, claims_by_id).items():
+            existing = result.setdefault(property_name, {"status": "supported", "claim_ids": [], "source_types": []})
+            existing["claim_ids"].extend(detail["claim_ids"])
+            existing["source_types"].extend(detail["source_types"])
+    return {
+        property_name: {
+            "status": detail["status"],
+            "claim_ids": sorted(set(detail["claim_ids"])),
+            "source_types": sorted(set(detail["source_types"])),
+        }
+        for property_name, detail in sorted(result.items())
+    }
+
+
+def enumerate_candidates(*, exclude_accepted_sources: set[str] | None = None) -> dict[str, Any]:
     claims = load_json("sources/claims/generic-claims.json")["claims"]
     claim_by_id = {claim["claim_id"]: claim for claim in claims}
     canonical, authority = _canonical_indexes()
@@ -370,7 +394,7 @@ def enumerate_candidates(*, include_pipeline9: bool = False) -> dict[str, Any]:
             )
             targets_by_scope[scope][-1]["source_declaration"] = targets_by_scope[scope][-1]["source_declarations"][0]
 
-    accepted = promoted_properties(accepted_decisions(include_pipeline9=include_pipeline9))
+    accepted = promoted_properties(accepted_decisions(exclude_sources=exclude_accepted_sources))
     overrides = override_keys()
     grouped: dict[tuple[str, str, int, str], list[dict[str, Any]]] = defaultdict(list)
     targets_by_location: dict[tuple[str, str, int], list[dict[str, Any]]] = defaultdict(list)
@@ -417,6 +441,7 @@ def enumerate_candidates(*, include_pipeline9: bool = False) -> dict[str, Any]:
             physical_groups[_target_key(item["target"])].append(item)
         expected = {}
         properties_by_physical_target = {}
+        authority_support_by_physical_target = {}
         for key, physical_items in sorted(physical_groups.items()):
             combined_properties: dict[str, list[str]] = defaultdict(list)
             for item in physical_items:
@@ -427,14 +452,16 @@ def enumerate_candidates(*, include_pipeline9: bool = False) -> dict[str, Any]:
                 for property_name, support in combined_properties.items()
             }
             first = physical_items[0]
+            authority_support = _candidate_authority_support(claims, combined_properties)
             expected[key] = _authority_delta(
                 first["authority"],
                 first["canonical"],
                 accepted,
-                combined_properties,
+                set(authority_support),
                 overrides,
             )
             properties_by_physical_target[":".join(map(str, key))] = combined_properties
+            authority_support_by_physical_target[":".join(map(str, key))] = authority_support
         expected_reduction = sum(item["expected_reduction"] for item in expected.values())
         if expected_reduction <= 0:
             continue
@@ -486,6 +513,7 @@ def enumerate_candidates(*, include_pipeline9: bool = False) -> dict[str, Any]:
                     ":".join(map(str, key)): value for key, value in expected.items()
                 },
                 "properties_by_physical_target": properties_by_physical_target,
+                "authority_support_by_physical_target": authority_support_by_physical_target,
                 "properties_by_target": {
                     path_key(item["target"]): item["properties"]
                     for item in items
@@ -515,11 +543,7 @@ def enumerate_candidates(*, include_pipeline9: bool = False) -> dict[str, Any]:
     for scope in REQUIRED_SOURCE_SCOPES:
         applicable = targets_by_scope.get(scope, [])
         target_keys = {_target_key(item) for item in applicable}
-        partly = sum(
-            bool(authority[key].get("declarative_properties"))
-            for key in target_keys
-            if key in authority
-        )
+        partly = sum(bool(accepted.get(key)) for key in target_keys if key in authority)
         legacy_cells = sum(
             _authority_delta(
                 authority[key], canonical[key], accepted, {}, overrides
