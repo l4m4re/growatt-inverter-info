@@ -8,7 +8,7 @@ This product projection was built on the accepted C2B `main` tip:
 
 - C2B merge/start SHA: `ed9a9dcd29755d8ba068279f0cd1dc2570530b75`
 - SPEC-3 branch: `consolidation/gii-spec3-block-product-20260915`
-- implementation SHA: recorded after commit in this report
+- implementation commit: `2d0bc61` (full final branch SHA is reported at handoff)
 
 The frozen historical canonical specification remains unchanged and has SHA-256
 `e692d646e34040af999ba4854f65803e4218e184d9e04f2982c06d60782ee405`.
