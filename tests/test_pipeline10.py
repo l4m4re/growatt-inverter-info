@@ -21,6 +21,8 @@ from tools.property_cell_provenance import (
     supported_property_cells,
 )
 
+pytestmark = [pytest.mark.slow, pytest.mark.legacy_pipeline]
+
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACT_PATH = ROOT / "docs/pipeline/data/GII-PIPELINE-10_NEXT_REPOSITORY_WIDE_COHORT.json"
 CLAIMS_PATH = ROOT / "sources/claims/generic-claims.json"

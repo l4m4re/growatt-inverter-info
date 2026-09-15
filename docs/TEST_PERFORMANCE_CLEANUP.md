@@ -1,10 +1,29 @@
-# Bounded pytest performance cleanup
+# Bounded pytest performance cleanup and active test policy
 
 Date: 2026-09-15
 
-This is a test-only performance pass. It keeps the full test gate and does not
-change the canonical register specification, runtime code, or production
-configuration.
+This is a test-only policy document. It does not change the canonical register
+specification, runtime code, or production configuration.
+
+## Active test policy
+
+Normal development runs current, reasonably fast regression tests only:
+
+```text
+PYTHONPATH=. pytest -q -m "not slow and not legacy_pipeline"
+```
+
+Historical PIPELINE-6 through PIPELINE-11 rebuild, determinism, lineage, and
+old authority-accounting tests remain in the repository but are opt-in:
+
+```text
+PYTHONPATH=. pytest -q -m legacy_pipeline
+```
+
+The full unfiltered suite is not part of the normal development workflow.
+Historical audit tests are run only when explicitly requested.
+
+No long test was run during this policy-finalization task.
 
 ## Measurements
 
@@ -47,11 +66,11 @@ PIPELINE-11, and the reconciliation shadow remain deliberate slow checks.
 
 ## Changes
 
-- Added the registered `slow` marker in `pyproject.toml`. The normal
-  development command is now:
+- Added the registered `slow` and `legacy_pipeline` markers in `pyproject.toml`.
+  The normal development command is now:
 
   ```text
-  PYTHONPATH=. pytest -q -m "not slow"
+  PYTHONPATH=. pytest -q -m "not slow and not legacy_pipeline"
   ```
 
 - Added module-scoped fixtures for immutable results in the PIPELINE-6,
@@ -65,14 +84,39 @@ PIPELINE-11, and the reconciliation shadow remain deliberate slow checks.
   This includes the repository-wide scope/range checks in PIPELINE-9 through
   PIPELINE-11 and the repeated PIPELINE-6 invariant check.
 - Kept one explicit generator/determinism or integration check for each
-  relevant generator. Those checks remain in the full gate and are marked
-  `slow`; no coverage was removed from the full suite.
+  relevant historical generator. Those checks remain available under
+  `legacy_pipeline`; no coverage was removed.
+
+## Classification
+
+The following are historical and opt-in under `legacy_pipeline`:
+
+- all tests in `test_pipeline6_cohort.py`, `test_pipeline7_cohort.py`,
+  `test_pipeline10.py`, and `test_pipeline11.py`;
+- the historical PIPELINE-8 cohort determinism test;
+- the historical PIPELINE-9 enumeration, ranking, selected-cohort,
+  authority-migration, and artifact tests.
+
+The active suite retains small current checks for vendor applicability and
+scope semantics in `test_pipeline8.py` and `test_pipeline9.py`, current
+vendor-claim/parser checks, C2A consolidation invariants, and other cheap
+canonical/block/reserved-range regressions. Tests marked only `slow` remain
+available but are excluded from the normal command without being classified as
+historical pipeline work.
+
+Duplicate historical enumeration checks in PIPELINE-10 and PIPELINE-11 now
+read their committed artifacts; the dedicated PIPELINE-9 enumeration
+determinism check remains the audit coverage for that generator.
 
 No test was made to pass by weakening an assertion. Generated artifacts were
 only rechecked; the existing generated timestamp was left unchanged so the
 authority input hash remains reproducible.
 
-## After measurements
+## Historical measurements from the preceding performance cleanup
+
+The measurements below belong to the preceding performance-cleanup task. They
+are retained for historical context and were not rerun during this policy
+finalization.
 
 ```text
 PYTHONPATH=. pytest -q -m "not slow"

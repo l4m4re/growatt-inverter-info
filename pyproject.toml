@@ -40,6 +40,7 @@ addopts = "-q"
 asyncio_mode = "auto"
 markers = [
   "fast: default artifact and invariant checks",
+  "legacy_pipeline: retained historical PIPELINE-6 through PIPELINE-11 audit test",
   "slow: full historical pipeline rebuild, PDF extraction, or generator determinism check",
 ]
 

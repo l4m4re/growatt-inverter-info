@@ -9,7 +9,7 @@ from pathlib import Path
 import pytest
 from tools.build_pipeline7_cohort import build
 
-pytestmark = pytest.mark.slow
+pytestmark = [pytest.mark.slow, pytest.mark.legacy_pipeline]
 
 ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_CANONICAL_SHA = (

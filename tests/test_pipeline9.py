@@ -34,6 +34,7 @@ def claims() -> list[dict]:
     return json.loads((ROOT / "sources/claims/generic-claims.json").read_text())["claims"]
 
 
+@pytest.mark.legacy_pipeline
 def test_enumeration_covers_all_v124_source_scopes_and_ranges() -> None:
     result = artifact()
     coverage = result["repository_wide_v124_coverage"]
@@ -43,6 +44,7 @@ def test_enumeration_covers_all_v124_source_scopes_and_ranges() -> None:
 
 
 @pytest.mark.slow
+@pytest.mark.legacy_pipeline
 def test_candidate_ranking_is_deterministic_and_repository_wide() -> None:
     first = enumerate_candidates()
     second = enumerate_candidates()
@@ -76,6 +78,7 @@ def test_max_1500v_scope_does_not_leak_to_generic_tl3_scope() -> None:
     assert generic["status"] == "NOT_SUPPORTED_BY_DECLARATION"
 
 
+@pytest.mark.legacy_pipeline
 def test_shared_candidate_keeps_explicit_applicability_paths() -> None:
     selected = artifact()["selected_cohort"]
     assert selected["kind"] == "shared_vendor_row"
@@ -105,6 +108,7 @@ def test_shared_candidate_keeps_explicit_applicability_paths() -> None:
     }
 
 
+@pytest.mark.legacy_pipeline
 def test_path_level_evidence_keys_do_not_collide() -> None:
     selected = artifact()["selected_cohort"]
     ranking = next(
@@ -121,6 +125,7 @@ def test_path_level_evidence_keys_do_not_collide() -> None:
     assert keys <= set(ranking["properties_by_target"])
 
 
+@pytest.mark.legacy_pipeline
 def test_selected_decisions_have_scope_consistent_applicability_support() -> None:
     data = artifact()
     claims = {
@@ -167,6 +172,7 @@ def test_selected_decisions_have_scope_consistent_applicability_support() -> Non
         ) in scope_paths
 
 
+@pytest.mark.legacy_pipeline
 def test_duplicate_paths_do_not_double_count_authority_reduction() -> None:
     selected = artifact()["selected_cohort"]
     ranking = next(item for item in artifact()["candidate_ranking"] if item["id"] == selected["id"])
@@ -179,6 +185,7 @@ def test_duplicate_paths_do_not_double_count_authority_reduction() -> None:
     assert len(artifact()["semantic_parity"]) == 6
 
 
+@pytest.mark.legacy_pipeline
 def test_promoted_properties_have_noncanonical_support_and_authority_moves() -> None:
     data = artifact()
     assert data["evidence"]["all_promoted_properties_have_noncanonical_support"]
@@ -190,6 +197,7 @@ def test_promoted_properties_have_noncanonical_support_and_authority_moves() -> 
     assert selected_after["legacy_authoritative_property_cells"] < selected_before["legacy_authoritative_property_cells"]
 
 
+@pytest.mark.legacy_pipeline
 def test_canonical_sha_is_unchanged_and_pipeline8_decisions_remain_present() -> None:
     digest = hashlib.sha256((ROOT / "spec/growatt-register-spec.json").read_bytes()).hexdigest()
     assert digest == CANONICAL_SHA
@@ -202,6 +210,7 @@ def test_canonical_sha_is_unchanged_and_pipeline8_decisions_remain_present() -> 
     assert data["correction_candidates"][0]["classification"] == "SUPPORTED_CANONICAL_CORRECTION_CANDIDATE"
 
 
+@pytest.mark.legacy_pipeline
 def test_every_selected_decision_has_explicit_scope_and_source_support() -> None:
     data = artifact()
     claim_ids = {

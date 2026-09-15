@@ -203,6 +203,7 @@ def test_evidence_and_write_verification_are_separate() -> None:
 
 
 @pytest.mark.slow
+@pytest.mark.legacy_pipeline
 def test_pipeline8_selects_bounded_cohort_and_is_deterministic() -> None:
     first = build(starting_sha="test-start")
     second = build(starting_sha="test-start")

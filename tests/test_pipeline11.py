@@ -20,6 +20,8 @@ from tools.pipeline9_candidates import (
 )
 from tools.property_cell_provenance import property_cell_support
 
+pytestmark = [pytest.mark.slow, pytest.mark.legacy_pipeline]
+
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACT_PATH = ROOT / "docs/pipeline/data/GII-PIPELINE-11_NEXT_PROPERTY_BACKED_COHORT.json"
 RECONCILIATION_PATH = ROOT / "reconciliation/pipeline11_next_repository_wide_cohort.json"
