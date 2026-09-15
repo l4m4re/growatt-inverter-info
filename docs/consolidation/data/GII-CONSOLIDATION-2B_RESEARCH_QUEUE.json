@@ -1,0 +1,15 @@
+{
+  "active_count": 0,
+  "active_items": [],
+  "artifact": "gii_consolidation_2b_current_research_queue",
+  "note": "The four access conflicts are resolved by review in the current consolidated state; historical queue artifacts remain unchanged.",
+  "parent_artifact": "GII-CONSOLIDATION-2A_RESEARCH_QUEUE.json",
+  "parent_sha": "c24656ebadd7000c3819f7b0ae7b83b81719e67882babaf3cba62a772a847bfe",
+  "resolved_items": [
+    "H122 access conflict",
+    "H123 access conflict",
+    "H1002 access conflict",
+    "H1003 access conflict"
+  ],
+  "schema_version": "1.0.0"
+}

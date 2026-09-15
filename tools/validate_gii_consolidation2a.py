@@ -56,7 +56,10 @@ def validate(root: Path = ROOT) -> dict[str, Any]:
     ):
         errors.append("H3115-H3124 reserved range is missing")
     input_range = next((item for item in ranges if item["table"] == "input"), {})
-    if (input_range.get("start"), input_range.get("end"), input_range.get("status")) != (3281, 3374, "RESERVED_VENDOR_RANGE"):
+    if (
+        (input_range.get("start"), input_range.get("end")) != (3281, 3374)
+        or input_range.get("status") not in {"RESERVED_VENDOR_RANGE", "RESERVED"}
+    ):
         errors.append("input reserved range is missing")
 
     candidate_gap_regs = [

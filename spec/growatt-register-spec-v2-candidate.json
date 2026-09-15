@@ -1,4 +1,22 @@
 {
+  "access_normalization": {
+    "context": "V1.24 holding-register write-capability column",
+    "markers": {
+      "R": {
+        "readable": true,
+        "writable": false
+      },
+      "R/W": {
+        "readable": true,
+        "writable": true
+      },
+      "W": {
+        "readable": null,
+        "writable": true
+      }
+    },
+    "rule": "W is a writable marker, not proof of write-only access; readability requires independent evidence."
+  },
   "applicability": [
     {
       "declaration_id": "v124-instruction-min-tlx-tlxh",
@@ -3230,10 +3248,11 @@
     "path": "spec/growatt-register-spec.json",
     "sha256": "e692d646e34040af999ba4854f65803e4218e184d9e04f2982c06d60782ee405"
   },
-  "generated_by": "tools/build_gii_consolidation2a.py",
+  "generated_by": "tools/build_gii_consolidation2b.py",
   "metrics": {
+    "active_research_queue_items": 0,
     "block_conflicts": 0,
-    "conflict_count": 4,
+    "conflict_count": 0,
     "consolidated_blocks": 15,
     "family_variants": 0,
     "ha_readiness_counts": {
@@ -3249,8 +3268,7 @@
     "source_native_blocks_with_explicit_functional_heading": 10,
     "source_native_blocks_with_vague_or_ordinal_heading": 5,
     "status_counts": {
-      "CONFLICT": 4,
-      "ENRICHED": 998,
+      "ENRICHED": 1002,
       "QUALIFIED": 320,
       "RESERVED": 47,
       "UNRESOLVED": 117
@@ -3265,6 +3283,8 @@
     "raw_vendor_values_preserved": true
   },
   "overrides": [],
+  "parent_artifact": "spec/growatt-register-spec-v2-candidate.json (C2A state)",
+  "parent_sha256": "b3f0644ecdc7691db53412a1d1dd830dfdd5597cb8f6880dc2748a8bff962ec6",
   "registers": [
     {
       "address": 0,
@@ -33304,9 +33324,7 @@
           "source_scope": "tl3_max_mid_mac"
         }
       ],
-      "conflict_refs": [
-        "v124-holding-p009-first_group-block-01:122:access"
-      ],
+      "conflict_refs": [],
       "consolidated": {
         "access": "read_write",
         "description": "ExportLimitenable, 0:DisableexportLimit; 1:Enable485exportLimit; 2:Enable232exportLimit; 3:EnableCTexportLimit;",
@@ -33318,6 +33336,10 @@
         "semantic_key": "control.export_limit_enable_mode",
         "signed": null,
         "unit": null
+      },
+      "consolidated_access_capabilities": {
+        "readable": true,
+        "writable": true
       },
       "consolidated_block_id": "cb-holding-p009-first_group-block-01",
       "current_canonical": [
@@ -33478,7 +33500,18 @@
         ]
       },
       "register_id": "v124-holding-p009-first_group-block-01:015-0123",
-      "status": "CONFLICT",
+      "reviewed_correction": {
+        "basis": "manual_source_review",
+        "consolidated_access": "read_write",
+        "historical_conflict_refs": [
+          "v124-holding-p009-first_group-block-01:122:access"
+        ],
+        "historical_extraction_superseded": true,
+        "resolution": "reviewed_vendor_correction",
+        "reviewed_access_raw": "R/W",
+        "status": "resolved"
+      },
+      "status": "ENRICHED",
       "table": "holding",
       "vendor": {
         "access_capabilities": {
@@ -33546,9 +33579,7 @@
           "source_scope": "tl3_max_mid_mac"
         }
       ],
-      "conflict_refs": [
-        "v124-holding-p009-first_group-block-01:123:access"
-      ],
+      "conflict_refs": [],
       "consolidated": {
         "access": "read_write",
         "description": "ExportLimitPowerRate",
@@ -33560,6 +33591,10 @@
         "semantic_key": "control.export_limit_power_setpoint",
         "signed": null,
         "unit": "0.1%"
+      },
+      "consolidated_access_capabilities": {
+        "readable": true,
+        "writable": true
       },
       "consolidated_block_id": "cb-holding-p009-first_group-block-01",
       "current_canonical": [
@@ -33720,7 +33755,18 @@
         ]
       },
       "register_id": "v124-holding-p009-first_group-block-01:015-0124",
-      "status": "CONFLICT",
+      "reviewed_correction": {
+        "basis": "manual_source_review",
+        "consolidated_access": "read_write",
+        "historical_conflict_refs": [
+          "v124-holding-p009-first_group-block-01:123:access"
+        ],
+        "historical_extraction_superseded": true,
+        "resolution": "reviewed_vendor_correction",
+        "reviewed_access_raw": "R/W",
+        "status": "resolved"
+      },
+      "status": "ENRICHED",
       "table": "holding",
       "vendor": {
         "access_capabilities": {
@@ -33800,6 +33846,10 @@
         "semantic_key": "control.tracker_coupling_mode",
         "signed": null,
         "unit": null
+      },
+      "consolidated_access_capabilities": {
+        "readable": null,
+        "writable": true
       },
       "consolidated_block_id": "cb-holding-p009-first_group-block-01",
       "current_canonical": [
@@ -49222,11 +49272,9 @@
           "source_scope": "storage_sph"
         }
       ],
-      "conflict_refs": [
-        "v124-holding-p027-six_group_for_storage_power-block-03:1002:access"
-      ],
+      "conflict_refs": [],
       "consolidated": {
-        "access": "read",
+        "access": "read_write",
         "description": "VbatStartF orDischarg e",
         "divisor": null,
         "multiplier": null,
@@ -49236,6 +49284,10 @@
         "semantic_key": "battery.discharge_start_voltage",
         "signed": null,
         "unit": null
+      },
+      "consolidated_access_capabilities": {
+        "readable": true,
+        "writable": true
       },
       "consolidated_block_id": "cb-holding-p027-six_group_for_storage_power-block-03",
       "current_canonical": [
@@ -49326,7 +49378,18 @@
         ]
       },
       "register_id": "v124-holding-p027-six_group_for_storage_power-block-03:027-0310",
-      "status": "CONFLICT",
+      "reviewed_correction": {
+        "basis": "manual_source_review",
+        "consolidated_access": "read_write",
+        "historical_conflict_refs": [
+          "v124-holding-p027-six_group_for_storage_power-block-03:1002:access"
+        ],
+        "historical_extraction_superseded": false,
+        "resolution": "reviewed_vendor_access",
+        "reviewed_access_raw": "R/W",
+        "status": "resolved"
+      },
+      "status": "ENRICHED",
       "table": "holding",
       "vendor": {
         "access_capabilities": {
@@ -49370,11 +49433,9 @@
           "source_scope": "storage_sph"
         }
       ],
-      "conflict_refs": [
-        "v124-holding-p027-six_group_for_storage_power-block-03:1003:access"
-      ],
+      "conflict_refs": [],
       "consolidated": {
-        "access": "read",
+        "access": "read_write",
         "description": "VbatlowWa rnClr l",
         "divisor": null,
         "multiplier": null,
@@ -49384,6 +49445,10 @@
         "semantic_key": "field.vbatlowwa_rnclr_l",
         "signed": null,
         "unit": null
+      },
+      "consolidated_access_capabilities": {
+        "readable": true,
+        "writable": true
       },
       "consolidated_block_id": "cb-holding-p027-six_group_for_storage_power-block-03",
       "current_canonical": [
@@ -49474,7 +49539,18 @@
         ]
       },
       "register_id": "v124-holding-p027-six_group_for_storage_power-block-03:027-0311",
-      "status": "CONFLICT",
+      "reviewed_correction": {
+        "basis": "manual_source_review",
+        "consolidated_access": "read_write",
+        "historical_conflict_refs": [
+          "v124-holding-p027-six_group_for_storage_power-block-03:1003:access"
+        ],
+        "historical_extraction_superseded": false,
+        "resolution": "reviewed_write_marker_plus_read_evidence",
+        "reviewed_access_raw": "W",
+        "status": "resolved"
+      },
+      "status": "ENRICHED",
       "table": "holding",
       "vendor": {
         "access_capabilities": {
@@ -49530,6 +49606,10 @@
         "semantic_key": "control.vbatstopfo_rdischarge",
         "signed": null,
         "unit": null
+      },
+      "consolidated_access_capabilities": {
+        "readable": null,
+        "writable": true
       },
       "consolidated_block_id": "cb-holding-p027-six_group_for_storage_power-block-03",
       "current_canonical": [
@@ -49677,6 +49757,10 @@
         "signed": null,
         "unit": "0.01V"
       },
+      "consolidated_access_capabilities": {
+        "readable": null,
+        "writable": true
+      },
       "consolidated_block_id": "cb-holding-p027-six_group_for_storage_power-block-03",
       "current_canonical": [
         {
@@ -49822,6 +49906,10 @@
         "semantic_key": "control.vbat_start_for_discharge",
         "signed": null,
         "unit": "0.01V"
+      },
+      "consolidated_access_capabilities": {
+        "readable": null,
+        "writable": true
       },
       "consolidated_block_id": "cb-holding-p027-six_group_for_storage_power-block-03",
       "current_canonical": [
@@ -49969,6 +50057,10 @@
         "signed": null,
         "unit": "0.01V"
       },
+      "consolidated_access_capabilities": {
+        "readable": null,
+        "writable": true
+      },
       "consolidated_block_id": "cb-holding-p027-six_group_for_storage_power-block-03",
       "current_canonical": [
         {
@@ -50114,6 +50206,10 @@
         "semantic_key": "control.eesysinfo_s_ysseten",
         "signed": null,
         "unit": null
+      },
+      "consolidated_access_capabilities": {
+        "readable": null,
+        "writable": true
       },
       "consolidated_block_id": "cb-holding-p027-six_group_for_storage_power-block-03",
       "current_canonical": [
@@ -50261,6 +50357,10 @@
         "signed": null,
         "unit": "0.1℃"
       },
+      "consolidated_access_capabilities": {
+        "readable": null,
+        "writable": true
+      },
       "consolidated_block_id": "cb-holding-p027-six_group_for_storage_power-block-03",
       "current_canonical": [
         {
@@ -50406,6 +50506,10 @@
         "semantic_key": "control.bat_temp_upper_limit_d",
         "signed": null,
         "unit": "0.1℃"
+      },
+      "consolidated_access_capabilities": {
+        "readable": null,
+        "writable": true
       },
       "consolidated_block_id": "cb-holding-p027-six_group_for_storage_power-block-03",
       "current_canonical": [
@@ -50553,6 +50657,10 @@
         "signed": null,
         "unit": "0.1℃"
       },
+      "consolidated_access_capabilities": {
+        "readable": null,
+        "writable": true
+      },
       "consolidated_block_id": "cb-holding-p027-six_group_for_storage_power-block-03",
       "current_canonical": [
         {
@@ -50698,6 +50806,10 @@
         "semantic_key": "control.bat_temp_upper_limit_c",
         "signed": null,
         "unit": "0.1℃"
+      },
+      "consolidated_access_capabilities": {
+        "readable": null,
+        "writable": true
       },
       "consolidated_block_id": "cb-holding-p027-six_group_for_storage_power-block-03",
       "current_canonical": [
@@ -208939,7 +209051,12 @@
       }
     }
   ],
-  "review_scope": "offline V1.24 source and repository evidence only; no live/cloud/HA/broker changes",
+  "review_scope": [
+    "H122/H123 reviewed vendor R/W correction",
+    "H1002 reviewed vendor access enrichment",
+    "H1003 reviewed W marker plus read evidence",
+    "I3281-I3374 reviewed RESERVED classification"
+  ],
   "schema_version": "2.0.0-candidate",
   "source_documents": [
     {
@@ -212271,6 +212388,9 @@
       {
         "confidence": "confirmed",
         "end": 3124,
+        "reservation_basis": [
+          "vendor_explicit_reserved"
+        ],
         "source": "vendor_growatt_v124_2020",
         "source_artifact": "sources/curated/overlays/growatt_vendor_tables_overlay.json",
         "source_page_or_section": "V1.24 p.42, Use for TL-X and TL-XH; row 3115 ~ 3124",
@@ -212289,6 +212409,14 @@
           "table": "input"
         },
         "end": 3374,
+        "historical_status": "RESERVED_VENDOR_RANGE",
+        "range_status": "RESERVED",
+        "reservation_basis": [
+          "vendor_specified_range",
+          "no_individual_semantic_rows",
+          "stock_shine_reads_range",
+          "runtime_all_zero"
+        ],
         "runtime_corroboration": {
           "all_zero_words": true,
           "earlier_direct_responses": 39,
@@ -212303,7 +212431,7 @@
         "source_page_or_section": "V1.24 input TL-X/TL-XH block: I3280 is last explicit row; next source block begins at I4000",
         "source_pointer": "/blocks/13",
         "start": 3281,
-        "status": "RESERVED_VENDOR_RANGE",
+        "status": "RESERVED",
         "table": "input"
       }
     ]
