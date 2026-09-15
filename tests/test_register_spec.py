@@ -8,6 +8,7 @@ from pathlib import Path
 import subprocess
 import sys
 
+import pytest
 from tools.validate_min_tlxh_metadata import check as check_min_tlxh_metadata
 
 REPO = Path(__file__).parents[1]
@@ -25,6 +26,7 @@ def load_spec() -> dict:
     return json.loads((SPEC_DIR / "growatt-register-spec.json").read_text())
 
 
+@pytest.mark.slow
 def test_canonical_spec_validates_and_preserves_table_identity() -> None:
     """Canonical physical identity remains family/table/address based."""
     spec = load_spec()
@@ -361,6 +363,7 @@ def test_write_risk_and_human_family_names() -> None:
     assert "Battery charge energy today (high word)" in family_text
 
 
+@pytest.mark.slow
 def test_generated_human_docs_persist_and_regenerate_deterministically() -> None:
     """All Markdown release outputs survive two generator executions unchanged."""
     expected = [

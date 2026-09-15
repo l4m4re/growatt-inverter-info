@@ -8,6 +8,7 @@ from pathlib import Path
 import subprocess
 from typing import Any
 
+import pytest
 from tools.build_reconciliation import build
 from tools.validate_reconciliation import validate
 
@@ -152,6 +153,7 @@ def test_canonical_spec_is_byte_identical_to_pipeline3() -> None:
     assert hashlib.sha256(actual).digest() == hashlib.sha256(expected).digest()
 
 
+@pytest.mark.slow
 def test_shadow_regeneration_is_deterministic() -> None:
     first = json.dumps(build(), ensure_ascii=False, sort_keys=True)
     second = json.dumps(build(), ensure_ascii=False, sort_keys=True)

@@ -38,6 +38,10 @@ growatt-validate-fc04-source-research = "tools.validate_fc04_source_research:mai
 testpaths = ["tests"]
 addopts = "-q"
 asyncio_mode = "auto"
+markers = [
+  "fast: default artifact and invariant checks",
+  "slow: full historical pipeline rebuild, PDF extraction, or generator determinism check",
+]
 
 [tool.setuptools]
 packages = ["tools"]

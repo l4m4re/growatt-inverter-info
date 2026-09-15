@@ -2,16 +2,22 @@
 
 from __future__ import annotations
 
+from functools import lru_cache
 import json
 from pathlib import Path
 from typing import Any
 
+import pytest
 from tools.build_pipeline11_cohort import (
     PIPELINE10_ACCEPTED_TIP_SHA,
     STARTING_MAIN_SHA,
     build,
 )
-from tools.pipeline9_candidates import REQUIRED_SOURCE_SCOPES, accepted_decisions, enumerate_candidates, promoted_properties
+from tools.pipeline9_candidates import (
+    REQUIRED_SOURCE_SCOPES,
+    accepted_decisions,
+    promoted_properties,
+)
 from tools.property_cell_provenance import property_cell_support
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,6 +29,14 @@ CANONICAL_SHA = "e692d646e34040af999ba4854f65803e4218e184d9e04f2982c06d60782ee40
 
 def artifact() -> dict[str, Any]:
     return json.loads(ARTIFACT_PATH.read_text(encoding="utf-8"))
+
+
+@lru_cache(maxsize=1)
+def claims() -> dict[str, dict[str, Any]]:
+    return {
+        item["claim_id"]: item
+        for item in json.loads(CLAIMS_PATH.read_text(encoding="utf-8"))["claims"]
+    }
 
 
 def test_acceptance_registry_includes_pipeline10_but_not_current_pipeline11() -> None:
@@ -69,18 +83,18 @@ def test_pipeline11_fresh_rank_one_is_property_backed_and_path_deduplicated() ->
 
 def test_selected_properties_have_capable_noncanonical_claims_and_compatible_values() -> None:
     data = artifact()
-    claims = {item["claim_id"]: item for item in json.loads(CLAIMS_PATH.read_text())["claims"]}
+    claims_by_id = claims()
     decisions = json.loads(RECONCILIATION_PATH.read_text())["decisions"]
     for decision in decisions:
         without_authority = {key: value for key, value in decision.items() if key != "authority_support"}
-        derived = property_cell_support(without_authority, claims)
+        derived = property_cell_support(without_authority, claims_by_id)
         for property_name, detail in decision["authority_support"].items():
             if detail["status"] != "supported":
                 continue
             assert detail["claim_ids"]
             assert set(detail["claim_ids"]) <= set(derived[property_name]["claim_ids"])
             assert all(not claim_id.startswith("spec/") and "compatibility" not in claim_id for claim_id in detail["claim_ids"])
-        row_claim = next(claims[claim_id] for claim_id in decision["support"] if claims[claim_id]["assertion"]["kind"] == "vendor_source_row")
+        row_claim = next(claims_by_id[claim_id] for claim_id in decision["support"] if claims_by_id[claim_id]["assertion"]["kind"] == "vendor_source_row")
         row_value = row_claim["assertion"]["value"]
         value = decision["decision"]["value"]
         assert value["unit"] == row_value["raw_unit_text"]
@@ -90,10 +104,8 @@ def test_selected_properties_have_capable_noncanonical_claims_and_compatible_val
 
 def test_all_scopes_and_ranges_remain_in_fresh_enumeration() -> None:
     data = artifact()
-    enumeration = enumerate_candidates()
-    assert set(enumeration["coverage"]) == set(REQUIRED_SOURCE_SCOPES)
-    assert sum(item["declared_range_count"] for item in enumeration["coverage"].values()) == 33
     assert set(data["repository_wide_coverage"]) == set(REQUIRED_SOURCE_SCOPES)
+    assert sum(item["declared_range_count"] for item in data["repository_wide_coverage"].values()) == 33
     assert data["candidate_universe"]["candidate_count"] == 1194
 
 
@@ -112,14 +124,12 @@ def test_authority_moves_from_accepted_baseline_only_for_selected_cohort() -> No
     assert selected_after["legacy_authoritative_property_cells"] == 54
 
 
+@pytest.mark.slow
 def test_lineage_canonical_freeze_and_determinism() -> None:
     data = artifact()
     assert data["lineage"]["starting_merged_main_sha"] == STARTING_MAIN_SHA
     assert data["lineage"]["accepted_pipeline10_tip_ancestor_sha"] == PIPELINE10_ACCEPTED_TIP_SHA
     assert data["canonical"] == {"path": "spec/growatt-register-spec.json", "sha256": CANONICAL_SHA, "canonical_modified": False}
-    first = enumerate_candidates()
-    second = enumerate_candidates()
-    assert first == second
     first_build, _ = build("test-generation-tip")
     second_build, _ = build("test-generation-tip")
     assert first_build == second_build

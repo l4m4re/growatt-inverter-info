@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "ark_xh_a1_bdc_rs485_structured_evidence",
+  "source_id": "ark_xh_a1_bdc_rs485_manual",
+  "source_document": {
+    "title": "ARK XH-A1 battery manual",
+    "document_status": "structured_excerpt_only",
+    "original_document_retained": false,
+    "provenance_note": "Facts supplied from the reviewed manual during GII-CONSOLIDATION-2A; the original PDF is not present in this repository.",
+    "sections": [
+      "BDC 95045-A1 INV communication port",
+      "Battery system communication with hybrid inverter via RS485",
+      "MIN TL-XH SYS COM terminal assignment"
+    ]
+  },
+  "claims": [
+    {
+      "claim_id": "ark_xh_a1_bdc_rs485:bdc-inv-port",
+      "subject": "BDC 95045-A1 INV communication port",
+      "claim": "The BDC INV port communicates with the hybrid inverter over RS485.",
+      "provenance_section": "BDC 95045-A1 INV communication port"
+    },
+    {
+      "claim_id": "ark_xh_a1_bdc_rs485:min-sys-com-pins",
+      "subject": "MIN TL-XH SYS COM",
+      "claim": "MIN TL-XH SYS COM pin 7 is RS485_B and pin 8 is RS485_A.",
+      "provenance_section": "MIN TL-XH SYS COM terminal assignment"
+    },
+    {
+      "claim_id": "ark_xh_a1_bdc_rs485:bdc-inv-pins",
+      "subject": "BDC INV port",
+      "claim": "BDC INV pin 7 is RS485_B and pin 8 is RS485_A.",
+      "provenance_section": "BDC 95045-A1 INV communication port"
+    },
+    {
+      "claim_id": "ark_xh_a1_bdc_rs485:direct-link",
+      "subject": "MIN TL-XH SYS COM to BDC INV",
+      "claim": "The matching RS485_B/RS485_A pin assignments support a direct battery-interface link.",
+      "provenance_section": "Battery system communication with hybrid inverter via RS485"
+    }
+  ],
+  "interpretation_boundary": {
+    "interface_scope": "confirmed",
+    "master_slave_role": "inferred_high_confidence",
+    "master_slave_vendor_confirmed": false,
+    "inference_basis": [
+      "BDC/BMS register-block context",
+      "direct matching RS485 interface wiring",
+      "inverter-to-battery communication topology"
+    ]
+  }
+}

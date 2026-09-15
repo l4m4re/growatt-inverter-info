@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 
+import pytest
 from tools.build_fc04_migration import (
     CLAIMS_PATH,
     END,
@@ -12,6 +13,11 @@ from tools.build_fc04_migration import (
     build_all,
 )
 from tools.validate_fc04_migration import validate
+
+
+@pytest.fixture(scope="module")
+def fc04_data() -> tuple[dict, dict, dict]:
+    return build_all()
 
 
 def test_fc04_artifacts_are_current_and_safe() -> None:
@@ -30,8 +36,9 @@ def test_claims_keep_cloud_and_shine_evidence_separate() -> None:
     assert any("S1" in claim["evidence"]["grade"] for claim in claims)
 
 
-def test_fc04_cohort_and_i3000_regression() -> None:
-    claims, reconciliation, shadow = build_all()
+@pytest.mark.slow
+def test_fc04_cohort_and_i3000_regression(fc04_data: tuple[dict, dict, dict]) -> None:
+    claims, reconciliation, shadow = fc04_data
     physical = [item for item in reconciliation["decisions"] if item["target"].get("namespace") == "MODBUS"]
     assert len(physical) == END - START + 1
     assert [item["target"]["address"] for item in physical] == list(range(START, END + 1))
@@ -43,7 +50,10 @@ def test_fc04_cohort_and_i3000_regression() -> None:
     assert len(claims["claims"]) > 400
 
 
-def test_offline_rebuild_matches_committed_artifacts() -> None:
-    expected = build_all()
+@pytest.mark.slow
+def test_offline_rebuild_matches_committed_artifacts(
+    fc04_data: tuple[dict, dict, dict],
+) -> None:
+    expected = fc04_data
     for path, data in zip((CLAIMS_PATH, RECONCILIATION_PATH, SHADOW_PATH), expected):
         assert json.loads(path.read_text(encoding="utf-8")) == data

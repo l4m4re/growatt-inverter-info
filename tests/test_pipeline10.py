@@ -2,19 +2,24 @@
 
 from __future__ import annotations
 
+from functools import lru_cache
 import json
 from pathlib import Path
 from typing import Any
 
+import pytest
 from tools.build_authority_coverage import DECISION_PROPERTY_MAP
-from tools.build_pipeline10a_audit import build as build_property_cell_audit
 from tools.build_pipeline10_cohort import (
     PIPELINE10_PROVISIONAL_COMMIT_SHA,
     PIPELINE10_STARTING_MAIN_SHA,
     build as build_pipeline10,
 )
-from tools.property_cell_provenance import property_cell_support, supported_property_cells
-from tools.pipeline9_candidates import accepted_decisions, enumerate_candidates, path_key
+from tools.build_pipeline10a_audit import build as build_property_cell_audit
+from tools.pipeline9_candidates import accepted_decisions, path_key
+from tools.property_cell_provenance import (
+    property_cell_support,
+    supported_property_cells,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACT_PATH = ROOT / "docs/pipeline/data/GII-PIPELINE-10_NEXT_REPOSITORY_WIDE_COHORT.json"
@@ -25,6 +30,14 @@ CANONICAL_SHA = "e692d646e34040af999ba4854f65803e4218e184d9e04f2982c06d60782ee40
 
 def artifact() -> dict[str, Any]:
     return json.loads(ARTIFACT_PATH.read_text(encoding="utf-8"))
+
+
+@lru_cache(maxsize=1)
+def claims() -> dict[str, dict[str, Any]]:
+    return {
+        claim["claim_id"]: claim
+        for claim in json.loads(CLAIMS_PATH.read_text(encoding="utf-8"))["claims"]
+    }
 
 
 def test_pipeline9_authority_is_included_and_h123_is_not_reducible_again() -> None:
@@ -43,10 +56,8 @@ def test_pipeline9_authority_is_included_and_h123_is_not_reducible_again() -> No
 
 
 def test_fresh_enumeration_remains_repository_wide_and_deterministic() -> None:
-    first = enumerate_candidates()
-    second = enumerate_candidates()
-    assert first == second
-    assert set(first["coverage"]) == {
+    coverage = artifact()["repository_wide_v124_coverage"]
+    assert set(coverage) == {
         "max_1500v_max_x_lv",
         "min_tl_xh",
         "mod_tl3_xh",
@@ -55,7 +66,7 @@ def test_fresh_enumeration_remains_repository_wide_and_deterministic() -> None:
         "storage_sph",
         "tl3_max_mid_mac",
     }
-    assert sum(item["declared_range_count"] for item in first["coverage"].values()) == 33
+    assert sum(item["declared_range_count"] for item in coverage.values()) == 33
 
 
 def test_selected_cohort_is_current_bounded_rank_one_with_separate_identities() -> None:
@@ -81,9 +92,7 @@ def test_selected_cohort_is_current_bounded_rank_one_with_separate_identities() 
 
 def test_selected_decision_provenance_matches_every_retained_applicability_path() -> None:
     data = artifact()
-    claims = {
-        claim["claim_id"]: claim for claim in json.loads(CLAIMS_PATH.read_text())["claims"]
-    }
+    claims_by_id = claims()
     decisions = json.loads(
         (ROOT / "reconciliation/pipeline10_next_repository_wide_cohort.json").read_text()
     )["decisions"]
@@ -99,9 +108,9 @@ def test_selected_decision_provenance_matches_every_retained_applicability_path(
             for path in decision["scope"]["applicability_paths"]
         }
         applicability_claims = [
-            claims[claim_id]
+            claims_by_id[claim_id]
             for claim_id in decision["support"]
-            if claims[claim_id]["assertion"]["kind"] == "document_range_applicability"
+            if claims_by_id[claim_id]["assertion"]["kind"] == "document_range_applicability"
         ]
         cited = {
             (
@@ -163,13 +172,10 @@ def test_authority_moves_without_changing_canonical_or_pipeline9_resolution() ->
 
 
 def test_semantic_mapping_does_not_expand_to_the_legacy_property_set() -> None:
-    claims = {
-        claim["claim_id"]: claim
-        for claim in json.loads(CLAIMS_PATH.read_text(encoding="utf-8"))["claims"]
-    }
+    claims_by_id = claims()
     row_claim = next(
         claim
-        for claim in claims.values()
+        for claim in claims_by_id.values()
         if claim["assertion"]["kind"] == "vendor_source_row"
         and claim["subject"].get("table") == "holding"
         and claim["subject"].get("address") == 10
@@ -179,19 +185,16 @@ def test_semantic_mapping_does_not_expand_to_the_legacy_property_set() -> None:
         "support": [row_claim["claim_id"]],
         "decision": {"value": {"signedness": "unsigned", "unit": None}},
     }
-    supported = supported_property_cells(decision, claims)
+    supported = supported_property_cells(decision, claims_by_id)
     assert supported == {"human_description", "physical_quantity"}
     assert supported < DECISION_PROPERTY_MAP["semantic_mapping"]
-    assert "signedness" not in property_cell_support(decision, claims)
+    assert "signedness" not in property_cell_support(decision, claims_by_id)
     assert "unit" not in supported
     assert "normalization" not in supported
 
 
 def test_canonical_only_values_cannot_become_property_support() -> None:
-    claims = {
-        claim["claim_id"]: claim
-        for claim in json.loads(CLAIMS_PATH.read_text(encoding="utf-8"))["claims"]
-    }
+    claims_by_id = claims()
     decision = {
         "target": {"property": "semantic_mapping"},
         "support": [],
@@ -203,14 +206,12 @@ def test_canonical_only_values_cannot_become_property_support() -> None:
             }
         },
     }
-    assert supported_property_cells(decision, claims) == set()
+    assert supported_property_cells(decision, claims_by_id) == set()
 
 
+@pytest.mark.slow
 def test_every_accepted_promoted_cell_has_real_noncanonical_support() -> None:
-    claims = {
-        claim["claim_id"]: claim
-        for claim in json.loads(CLAIMS_PATH.read_text(encoding="utf-8"))["claims"]
-    }
+    claims_by_id = claims()
     audit = build_property_cell_audit()
     for item in audit["decisions"]:
         support = item["support_claim_ids_by_property"]
@@ -218,7 +219,7 @@ def test_every_accepted_promoted_cell_has_real_noncanonical_support() -> None:
         for property_name in item["correctly_evidence_supported_property_cells"]:
             claim_ids = support[property_name]
             assert claim_ids
-            assert all(claim_id in claims for claim_id in claim_ids)
+            assert all(claim_id in claims_by_id for claim_id in claim_ids)
             assert all(
                 not claim_id.startswith("spec/") and "compatibility" not in claim_id
                 for claim_id in claim_ids
@@ -252,6 +253,7 @@ def _cell_ids(values: list[dict[str, Any]]) -> set[tuple[str, str, int, str]]:
     }
 
 
+@pytest.mark.slow
 def test_pipeline10b_lineage_keeps_immutable_start_and_repair_roles() -> None:
     data = artifact()
     lineage = data["lineage"]

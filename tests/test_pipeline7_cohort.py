@@ -9,6 +9,8 @@ from pathlib import Path
 import pytest
 from tools.build_pipeline7_cohort import build
 
+pytestmark = pytest.mark.slow
+
 ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_CANONICAL_SHA = (
     "e692d646e34040af999ba4854f65803e4218e184d9e04f2982c06d60782ee405"

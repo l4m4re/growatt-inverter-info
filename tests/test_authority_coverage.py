@@ -3,12 +3,17 @@
 import json
 from pathlib import Path
 
+import pytest
 from tools.build_authority_coverage import build
 from tools.validate_authority_coverage import validate
 
-
 ROOT = Path(__file__).resolve().parents[1]
 COVERAGE_PATH = ROOT / "docs" / "pipeline" / "data" / "GII-PIPELINE-5A_AUTHORITY_COVERAGE.json"
+
+
+@pytest.fixture(scope="module")
+def authority_coverage() -> dict:
+    return build()
 
 
 def test_authority_inventory_covers_every_canonical_record() -> None:
@@ -29,7 +34,10 @@ def test_authority_inventory_recognizes_pipeline4a_targets() -> None:
     assert coverage["declarative_coverage"]["canonical_family_target_matches"] == 18
 
 
-def test_authority_inventory_is_deterministic_and_current() -> None:
+@pytest.mark.slow
+def test_authority_inventory_is_deterministic_and_current(
+    authority_coverage: dict,
+) -> None:
     """Repeated inventory generation matches the committed artifact exactly."""
-    assert build() == json.loads(COVERAGE_PATH.read_text(encoding="utf-8"))
+    assert authority_coverage == json.loads(COVERAGE_PATH.read_text(encoding="utf-8"))
     assert validate() == []

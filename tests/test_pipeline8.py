@@ -2,10 +2,12 @@
 
 from __future__ import annotations
 
+from functools import lru_cache
 import hashlib
 import json
 from pathlib import Path
 
+import pytest
 from tools.build_pipeline8_cohort import build
 from tools.pipeline8_evidence import (
     NOT_SUPPORTED_BY_DECLARATION,
@@ -20,6 +22,7 @@ from tools.validate_claims import validate
 ROOT = Path(__file__).resolve().parents[1]
 
 
+@lru_cache(maxsize=1)
 def claims() -> list[dict[str, object]]:
     return json.loads(
         (ROOT / "sources/claims/generic-claims.json").read_text(encoding="utf-8")
@@ -199,6 +202,7 @@ def test_evidence_and_write_verification_are_separate() -> None:
     assert h3095["write_documentation"]["claim_ids"]
 
 
+@pytest.mark.slow
 def test_pipeline8_selects_bounded_cohort_and_is_deterministic() -> None:
     first = build(starting_sha="test-start")
     second = build(starting_sha="test-start")
@@ -215,5 +219,6 @@ def test_pipeline8_selects_bounded_cohort_and_is_deterministic() -> None:
     assert hashlib.sha256((ROOT / "spec/growatt-register-spec.json").read_bytes()).hexdigest() == first["canonical"]["sha256"]
 
 
+@pytest.mark.slow
 def test_generic_claims_validate() -> None:
     assert validate(ROOT / "sources/claims/generic-claims.json") == []

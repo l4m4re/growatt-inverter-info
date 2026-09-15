@@ -3230,29 +3230,29 @@
     "path": "spec/growatt-register-spec.json",
     "sha256": "e692d646e34040af999ba4854f65803e4218e184d9e04f2982c06d60782ee405"
   },
-  "generated_by": "tools/build_gii_consolidation.py",
+  "generated_by": "tools/build_gii_consolidation2a.py",
   "metrics": {
     "block_conflicts": 0,
-    "conflict_count": 6,
+    "conflict_count": 4,
     "consolidated_blocks": 15,
     "family_variants": 0,
     "ha_readiness_counts": {
       "NEEDS_METADATA": 117,
-      "READY_READ": 1199,
+      "READY_READ": 1198,
       "READY_WRITE_DOCUMENTED": 124,
-      "RESERVED_OR_UNSUPPORTED": 46
+      "RESERVED_OR_UNSUPPORTED": 47
     },
     "identical_block_merges": 0,
-    "reserved_count": 46,
+    "reserved_count": 47,
     "semantic_equivalent_merges": 0,
     "source_native_blocks_discovered": 15,
     "source_native_blocks_with_explicit_functional_heading": 10,
     "source_native_blocks_with_vague_or_ordinal_heading": 5,
     "status_counts": {
-      "CONFLICT": 6,
-      "ENRICHED": 997,
+      "CONFLICT": 4,
+      "ENRICHED": 998,
       "QUALIFIED": 320,
-      "RESERVED": 46,
+      "RESERVED": 47,
       "UNRESOLVED": 117
     },
     "total_consolidated_registers": 1486,
@@ -75632,19 +75632,20 @@
           "source_scope": "mod_tl3_xh"
         }
       ],
-      "conflict_refs": [
-        "v124-holding-p035-use_for_tl_x_and_tl_xh-block-04:3085:semantic_identity"
-      ],
+      "conflict_refs": [],
       "consolidated": {
         "access": "read_write",
-        "description": "1:Communication addr=1 1~254: Communication addr=1~254",
+        "default": 1,
+        "description": "RS485 communication address of the BDC/BMS battery system on the SYS COM battery interface.",
         "divisor": null,
+        "interface": "sys_com_rs485_battery",
         "multiplier": null,
-        "name": "Modbus slave address",
-        "range_raw": null,
+        "name": "BDC/BMS RS485 communication address",
+        "range_raw": "1..254",
         "scale": null,
-        "semantic_key": "control.modbus_slave_address",
+        "semantic_key": "bdc_bms_slave_address",
         "signed": null,
+        "subsystem": "bdc_bms",
         "unit": null
       },
       "consolidated_block_id": "cb-holding-p035-use_for_tl_x_and_tl_xh-block-04",
@@ -75702,6 +75703,10 @@
         {
           "kind": "current_canonical_source_provenance",
           "source": "vendor_v124"
+        },
+        {
+          "kind": "c2a_subsystem_scope",
+          "source": "ark_xh_a1_bdc_rs485_manual"
         }
       ],
       "property_provenance": {
@@ -75722,7 +75727,7 @@
         ]
       },
       "register_id": "v124-holding-p035-use_for_tl_x_and_tl_xh-block-04:040-0501",
-      "status": "CONFLICT",
+      "status": "ENRICHED",
       "table": "holding",
       "vendor": {
         "access_capabilities": {
@@ -75763,14 +75768,21 @@
       "conflict_refs": [],
       "consolidated": {
         "access": "read_write",
-        "description": "0:9600bps 1:38400bps",
+        "default": 0,
+        "description": "Baud-rate selector for inverter-to-BDC/BMS RS485 communication on the SYS COM battery interface.",
         "divisor": null,
+        "enum_values": {
+          "0": "9600 bps",
+          "1": "38400 bps"
+        },
+        "interface": "sys_com_rs485_battery",
         "multiplier": null,
-        "name": "RS-485 baud rate",
+        "name": "BDC/BMS RS485 baud-rate selector",
         "range_raw": null,
         "scale": null,
-        "semantic_key": "control.rs_485_baud_rate",
+        "semantic_key": "bdc_bms_rs485_baud_rate",
         "signed": null,
+        "subsystem": "bdc_bms",
         "unit": null
       },
       "consolidated_block_id": "cb-holding-p035-use_for_tl_x_and_tl_xh-block-04",
@@ -75828,6 +75840,10 @@
         {
           "kind": "current_canonical_source_provenance",
           "source": "vendor_v124"
+        },
+        {
+          "kind": "c2a_subsystem_scope",
+          "source": "ark_xh_a1_bdc_rs485_manual"
         }
       ],
       "property_provenance": {
@@ -181216,19 +181232,17 @@
           "source_scope": "mod_tl3_xh"
         }
       ],
-      "conflict_refs": [
-        "v124-input-p070-use_for_tl_x_and_tl_xh-block-14:3085:semantic_identity"
-      ],
+      "conflict_refs": [],
       "consolidated": {
         "access": "read",
-        "description": "Reserved",
-        "divisor": 1,
+        "description": "Reserved in V1.24; no input semantic is defined.",
+        "divisor": null,
         "multiplier": null,
         "name": "Reserved",
         "range_raw": null,
         "scale": null,
         "semantic_key": null,
-        "signed": true,
+        "signed": null,
         "unit": null
       },
       "consolidated_block_id": "cb-input-p070-use_for_tl_x_and_tl_xh-block-14",
@@ -181277,7 +181291,7 @@
         }
       ],
       "function_code": 4,
-      "ha_readiness": "READY_READ",
+      "ha_readiness": "RESERVED_OR_UNSUPPORTED",
       "other_evidence": [
         {
           "kind": "current_canonical_source_provenance",
@@ -181306,7 +181320,7 @@
         ]
       },
       "register_id": "v124-input-p070-use_for_tl_x_and_tl_xh-block-14:074-1294",
-      "status": "CONFLICT",
+      "status": "RESERVED",
       "table": "input",
       "vendor": {
         "access_capabilities": {
@@ -208933,6 +208947,11 @@
       "revision": "V1.24",
       "sha256": "fac88d609d74ff6b3c9c31ed65370d166d1fb17461e91b4b4855018fe232a320",
       "source_claim_artifact": "sources/claims/vendor/vendor_growatt_v124_2020.json"
+    },
+    {
+      "document_id": "ark_xh_a1_bdc_rs485_manual",
+      "source_claim_artifact": "sources/evidence/ark-xh-a1-bdc-rs485.json",
+      "source_status": "structured_excerpt_only"
     }
   ],
   "source_native_blocks": [
@@ -212235,5 +212254,58 @@
       "vendor_group_label_raw": null,
       "vendor_heading_raw": "BDC and BMS information (support up to 10 PARALLEL BDCS)"
     }
-  ]
+  ],
+  "vendor_range_semantics": {
+    "block_boundary_rule": "An explicit block end remains visible before the next block; polling spans do not fill the gap.",
+    "existence_rule": {
+      "accepted_evidence": [
+        "explicit_vendor_row",
+        "explicit_vendor_range_row",
+        "explicit_reserved_range",
+        "separately_sourced_non_vendor_physical_evidence"
+      ],
+      "applicability_is_existence": false,
+      "polling_is_existence": false
+    },
+    "vendor_reserved_or_unassigned_ranges": [
+      {
+        "confidence": "confirmed",
+        "end": 3124,
+        "source": "vendor_growatt_v124_2020",
+        "source_artifact": "sources/curated/overlays/growatt_vendor_tables_overlay.json",
+        "source_page_or_section": "V1.24 p.42, Use for TL-X and TL-XH; row 3115 ~ 3124",
+        "source_pointer": "/holding:3115-3124/source_strings/vendor_tables",
+        "start": 3115,
+        "status": "RESERVED",
+        "table": "holding"
+      },
+      {
+        "confidence": "confirmed_for_no_row_gap",
+        "declared_block": {
+          "end": 3374,
+          "family": "min_tl_xh",
+          "function_code": 4,
+          "start": 3250,
+          "table": "input"
+        },
+        "end": 3374,
+        "runtime_corroboration": {
+          "all_zero_words": true,
+          "earlier_direct_responses": 39,
+          "nonzero_count": 0,
+          "note": "Runtime observations corroborate reserved or unused words; they do not define semantic meaning.",
+          "physical_refreshes": 343,
+          "shine_cache_reads": 4860
+        },
+        "semantic_meaning": "declared block words with no individual V1.24 semantic row; treated as reserved or unused",
+        "source": "vendor_growatt_v124_2020",
+        "source_artifact": "sources/vendor/growatt-v1.24-blocks.json",
+        "source_page_or_section": "V1.24 input TL-X/TL-XH block: I3280 is last explicit row; next source block begins at I4000",
+        "source_pointer": "/blocks/13",
+        "start": 3281,
+        "status": "RESERVED_VENDOR_RANGE",
+        "table": "input"
+      }
+    ]
+  }
 }

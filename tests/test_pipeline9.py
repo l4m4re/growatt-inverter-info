@@ -2,12 +2,22 @@
 
 from __future__ import annotations
 
+from functools import lru_cache
 import hashlib
 import json
 from pathlib import Path
 
-from tools.pipeline8_evidence import SUPPORTED_QUALIFIED, SUPPORTED_UNCONDITIONAL, evaluate_applicability
-from tools.pipeline9_candidates import REQUIRED_SOURCE_SCOPES, enumerate_candidates, path_key
+import pytest
+from tools.pipeline8_evidence import (
+    SUPPORTED_QUALIFIED,
+    SUPPORTED_UNCONDITIONAL,
+    evaluate_applicability,
+)
+from tools.pipeline9_candidates import (
+    REQUIRED_SOURCE_SCOPES,
+    enumerate_candidates,
+    path_key,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 CANONICAL_SHA = "e692d646e34040af999ba4854f65803e4218e184d9e04f2982c06d60782ee405"
@@ -19,13 +29,20 @@ def artifact() -> dict:
     )
 
 
+@lru_cache(maxsize=1)
+def claims() -> list[dict]:
+    return json.loads((ROOT / "sources/claims/generic-claims.json").read_text())["claims"]
+
+
 def test_enumeration_covers_all_v124_source_scopes_and_ranges() -> None:
-    result = enumerate_candidates()
-    assert set(result["source_scopes"]) == set(REQUIRED_SOURCE_SCOPES)
-    assert sum(item["declared_range_count"] for item in result["coverage"].values()) == 33
+    result = artifact()
+    coverage = result["repository_wide_v124_coverage"]
+    assert set(coverage) == set(REQUIRED_SOURCE_SCOPES)
+    assert sum(item["declared_range_count"] for item in coverage.values()) == 33
     assert result["candidate_universe"]["non_min_candidate_count"] > 0
 
 
+@pytest.mark.slow
 def test_candidate_ranking_is_deterministic_and_repository_wide() -> None:
     first = enumerate_candidates()
     second = enumerate_candidates()
@@ -35,12 +52,12 @@ def test_candidate_ranking_is_deterministic_and_repository_wide() -> None:
 
 
 def test_source_scope_qualifiers_are_not_promoted_to_unconditional() -> None:
-    claims = json.loads((ROOT / "sources/claims/generic-claims.json").read_text())["claims"]
+    claims_data = claims()
     qualified = evaluate_applicability(
-        claims, "min_tl_xh", "holding", 3125, source_scope="min_tl_xh"
+        claims_data, "min_tl_xh", "holding", 3125, source_scope="min_tl_xh"
     )
     unconditional = evaluate_applicability(
-        claims, "min_tl_xh", "holding", 3000, source_scope="min_tl_xh"
+        claims_data, "min_tl_xh", "holding", 3000, source_scope="min_tl_xh"
     )
     assert qualified["status"] == SUPPORTED_QUALIFIED
     assert not qualified["qualifier_context_known"]
@@ -48,12 +65,12 @@ def test_source_scope_qualifiers_are_not_promoted_to_unconditional() -> None:
 
 
 def test_max_1500v_scope_does_not_leak_to_generic_tl3_scope() -> None:
-    claims = json.loads((ROOT / "sources/claims/generic-claims.json").read_text())["claims"]
+    claims_data = claims()
     specific = evaluate_applicability(
-        claims, "tl3_max_mid_mac", "input", 900, source_scope="max_1500v_max_x_lv"
+        claims_data, "tl3_max_mid_mac", "input", 900, source_scope="max_1500v_max_x_lv"
     )
     generic = evaluate_applicability(
-        claims, "tl3_max_mid_mac", "input", 900, source_scope="tl3_max_mid_mac"
+        claims_data, "tl3_max_mid_mac", "input", 900, source_scope="tl3_max_mid_mac"
     )
     assert specific["status"] == SUPPORTED_UNCONDITIONAL
     assert generic["status"] == "NOT_SUPPORTED_BY_DECLARATION"

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from functools import lru_cache
 import json
 from pathlib import Path
 from typing import Any
@@ -11,6 +12,7 @@ from tools.validate_claims import validate
 ROOT = Path(__file__).resolve().parents[1]
 
 
+@lru_cache(maxsize=1)
 def claims() -> list[dict[str, Any]]:
     return json.loads((ROOT / "sources/claims/generic-claims.json").read_text())["claims"]
 

@@ -23,5 +23,6 @@
     ,{"source_id":"min_live_fc04","source_type":"live_modbus_observation","title":"PIPELINE-5B bounded FC04 live observations","artifact":"sources/claims/gii-pipeline-5b-fc04.json","authority_class":"live_observation_projection","redistribution":"public_safe_derived"}
     ,{"source_id":"min_shine_injection","source_type":"stock_shine_observation","title":"PIPELINE-5B bounded Shine response-injection observations","artifact":"sources/claims/gii-pipeline-5b-fc04.json","authority_class":"controlled_observation_projection","redistribution":"public_safe_derived"}
     ,{"source_id":"gii_5d_source_review","source_type":"human_review_artifact","title":"PIPELINE-5D property-level FC04 source research","artifact":"sources/evidence/gii-pipeline-5d-fc04-source-research.json","authority_class":"source_research_review","redistribution":"public_safe_derived"}
+    ,{"source_id":"ark_xh_a1_bdc_rs485_manual","source_type":"independent_hardware_manual_excerpt","title":"ARK XH-A1 BDC and MIN TL-XH SYS COM RS485 interface evidence","artifact":"sources/evidence/ark-xh-a1-bdc-rs485.json","authority_class":"independent_hardware_interface_evidence","redistribution":"public_safe_derived"}
   ]
 }
