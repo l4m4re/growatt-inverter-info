@@ -1,0 +1,468 @@
+{
+  "artifact": "gii_consolidation_conflicts",
+  "canonical_sha256": "e692d646e34040af999ba4854f65803e4218e184d9e04f2982c06d60782ee405",
+  "conflicts": [
+    {
+      "block": "v124-holding-p009-first_group-block-01",
+      "blocks_read_decoding": false,
+      "blocks_safe_writing": true,
+      "evidence_quality": "source_shape_difference_requires_review",
+      "next_evidence": "inspect original row and family-specific access claims",
+      "property": "access",
+      "recommended_status": "CONFLICT",
+      "register": 0,
+      "source_a": {
+        "source": "vendor_v124",
+        "value": "W"
+      },
+      "source_b": {
+        "source": "current_canonical",
+        "value": [
+          "read_write"
+        ]
+      }
+    },
+    {
+      "block": "v124-holding-p009-first_group-block-01",
+      "blocks_read_decoding": false,
+      "blocks_safe_writing": true,
+      "evidence_quality": "source_shape_difference_requires_review",
+      "next_evidence": "inspect original row and family-specific access claims",
+      "property": "access",
+      "recommended_status": "CONFLICT",
+      "register": 122,
+      "source_a": {
+        "source": "vendor_v124",
+        "value": "R"
+      },
+      "source_b": {
+        "source": "current_canonical",
+        "value": [
+          "read_write"
+        ]
+      }
+    },
+    {
+      "block": "v124-holding-p009-first_group-block-01",
+      "blocks_read_decoding": false,
+      "blocks_safe_writing": true,
+      "evidence_quality": "source_shape_difference_requires_review",
+      "next_evidence": "inspect original row and family-specific access claims",
+      "property": "access",
+      "recommended_status": "CONFLICT",
+      "register": 123,
+      "source_a": {
+        "source": "vendor_v124",
+        "value": "R"
+      },
+      "source_b": {
+        "source": "current_canonical",
+        "value": [
+          "read_write"
+        ]
+      }
+    },
+    {
+      "block": "v124-holding-p016-second_group-block-02",
+      "blocks_read_decoding": false,
+      "blocks_safe_writing": true,
+      "evidence_quality": "source_shape_difference_requires_review",
+      "next_evidence": "inspect original row and family-specific access claims",
+      "property": "access",
+      "recommended_status": "CONFLICT",
+      "register": 169,
+      "source_a": {
+        "source": "vendor_v124",
+        "value": "W"
+      },
+      "source_b": {
+        "source": "current_canonical",
+        "value": [
+          "read_write"
+        ]
+      }
+    },
+    {
+      "block": "v124-holding-p016-second_group-block-02",
+      "blocks_read_decoding": false,
+      "blocks_safe_writing": true,
+      "evidence_quality": "source_shape_difference_requires_review",
+      "next_evidence": "inspect original row and family-specific access claims",
+      "property": "access",
+      "recommended_status": "CONFLICT",
+      "register": 170,
+      "source_a": {
+        "source": "vendor_v124",
+        "value": "W"
+      },
+      "source_b": {
+        "source": "current_canonical",
+        "value": [
+          "read_write"
+        ]
+      }
+    },
+    {
+      "block": "v124-holding-p016-second_group-block-02",
+      "blocks_read_decoding": false,
+      "blocks_safe_writing": true,
+      "evidence_quality": "source_shape_difference_requires_review",
+      "next_evidence": "inspect original row and family-specific access claims",
+      "property": "access",
+      "recommended_status": "CONFLICT",
+      "register": 171,
+      "source_a": {
+        "source": "vendor_v124",
+        "value": "W"
+      },
+      "source_b": {
+        "source": "current_canonical",
+        "value": [
+          "read_write"
+        ]
+      }
+    },
+    {
+      "block": "v124-holding-p016-second_group-block-02",
+      "blocks_read_decoding": false,
+      "blocks_safe_writing": true,
+      "evidence_quality": "source_shape_difference_requires_review",
+      "next_evidence": "inspect original row and family-specific access claims",
+      "property": "access",
+      "recommended_status": "CONFLICT",
+      "register": 172,
+      "source_a": {
+        "source": "vendor_v124",
+        "value": "W"
+      },
+      "source_b": {
+        "source": "current_canonical",
+        "value": [
+          "read_write"
+        ]
+      }
+    },
+    {
+      "block": "v124-holding-p016-second_group-block-02",
+      "blocks_read_decoding": false,
+      "blocks_safe_writing": true,
+      "evidence_quality": "source_shape_difference_requires_review",
+      "next_evidence": "inspect original row and family-specific access claims",
+      "property": "access",
+      "recommended_status": "CONFLICT",
+      "register": 173,
+      "source_a": {
+        "source": "vendor_v124",
+        "value": "W"
+      },
+      "source_b": {
+        "source": "current_canonical",
+        "value": [
+          "read_write"
+        ]
+      }
+    },
+    {
+      "block": "v124-holding-p016-second_group-block-02",
+      "blocks_read_decoding": false,
+      "blocks_safe_writing": true,
+      "evidence_quality": "source_shape_difference_requires_review",
+      "next_evidence": "inspect original row and family-specific access claims",
+      "property": "access",
+      "recommended_status": "CONFLICT",
+      "register": 174,
+      "source_a": {
+        "source": "vendor_v124",
+        "value": "W"
+      },
+      "source_b": {
+        "source": "current_canonical",
+        "value": [
+          "read_write"
+        ]
+      }
+    },
+    {
+      "block": "v124-holding-p016-second_group-block-02",
+      "blocks_read_decoding": false,
+      "blocks_safe_writing": true,
+      "evidence_quality": "source_shape_difference_requires_review",
+      "next_evidence": "inspect original row and family-specific access claims",
+      "property": "access",
+      "recommended_status": "CONFLICT",
+      "register": 177,
+      "source_a": {
+        "source": "vendor_v124",
+        "value": "W"
+      },
+      "source_b": {
+        "source": "current_canonical",
+        "value": [
+          "read_write"
+        ]
+      }
+    },
+    {
+      "block": "v124-holding-p016-second_group-block-02",
+      "blocks_read_decoding": false,
+      "blocks_safe_writing": true,
+      "evidence_quality": "source_shape_difference_requires_review",
+      "next_evidence": "inspect original row and family-specific access claims",
+      "property": "access",
+      "recommended_status": "CONFLICT",
+      "register": 182,
+      "source_a": {
+        "source": "vendor_v124",
+        "value": "W"
+      },
+      "source_b": {
+        "source": "current_canonical",
+        "value": [
+          "read_write"
+        ]
+      }
+    },
+    {
+      "block": "v124-holding-p016-second_group-block-02",
+      "blocks_read_decoding": false,
+      "blocks_safe_writing": true,
+      "evidence_quality": "source_shape_difference_requires_review",
+      "next_evidence": "inspect original row and family-specific access claims",
+      "property": "access",
+      "recommended_status": "CONFLICT",
+      "register": 183,
+      "source_a": {
+        "source": "vendor_v124",
+        "value": "W"
+      },
+      "source_b": {
+        "source": "current_canonical",
+        "value": [
+          "read_write"
+        ]
+      }
+    },
+    {
+      "block": "v124-holding-p016-second_group-block-02",
+      "blocks_read_decoding": false,
+      "blocks_safe_writing": true,
+      "evidence_quality": "source_shape_difference_requires_review",
+      "next_evidence": "inspect original row and family-specific access claims",
+      "property": "access",
+      "recommended_status": "CONFLICT",
+      "register": 184,
+      "source_a": {
+        "source": "vendor_v124",
+        "value": "W"
+      },
+      "source_b": {
+        "source": "current_canonical",
+        "value": [
+          "read_write"
+        ]
+      }
+    },
+    {
+      "block": "v124-holding-p016-second_group-block-02",
+      "blocks_read_decoding": false,
+      "blocks_safe_writing": true,
+      "evidence_quality": "source_shape_difference_requires_review",
+      "next_evidence": "inspect original row and family-specific access claims",
+      "property": "access",
+      "recommended_status": "CONFLICT",
+      "register": 240,
+      "source_a": {
+        "source": "vendor_v124",
+        "value": "W"
+      },
+      "source_b": {
+        "source": "current_canonical",
+        "value": [
+          "read_write"
+        ]
+      }
+    },
+    {
+      "block": "v124-holding-p016-second_group-block-02",
+      "blocks_read_decoding": false,
+      "blocks_safe_writing": true,
+      "evidence_quality": "source_shape_difference_requires_review",
+      "next_evidence": "inspect original row and family-specific access claims",
+      "property": "access",
+      "recommended_status": "CONFLICT",
+      "register": 241,
+      "source_a": {
+        "source": "vendor_v124",
+        "value": "W"
+      },
+      "source_b": {
+        "source": "current_canonical",
+        "value": [
+          "read_write"
+        ]
+      }
+    },
+    {
+      "block": "v124-holding-p016-second_group-block-02",
+      "blocks_read_decoding": false,
+      "blocks_safe_writing": true,
+      "evidence_quality": "source_shape_difference_requires_review",
+      "next_evidence": "inspect original row and family-specific access claims",
+      "property": "access",
+      "recommended_status": "CONFLICT",
+      "register": 242,
+      "source_a": {
+        "source": "vendor_v124",
+        "value": "W"
+      },
+      "source_b": {
+        "source": "current_canonical",
+        "value": [
+          "read_write"
+        ]
+      }
+    },
+    {
+      "block": "v124-holding-p027-six_group_for_storage_power-block-03",
+      "blocks_read_decoding": false,
+      "blocks_safe_writing": true,
+      "evidence_quality": "source_shape_difference_requires_review",
+      "next_evidence": "inspect original row and family-specific access claims",
+      "property": "access",
+      "recommended_status": "CONFLICT",
+      "register": 1002,
+      "source_a": {
+        "source": "vendor_v124",
+        "value": "R/W"
+      },
+      "source_b": {
+        "source": "current_canonical",
+        "value": [
+          "read"
+        ]
+      }
+    },
+    {
+      "block": "v124-holding-p027-six_group_for_storage_power-block-03",
+      "blocks_read_decoding": false,
+      "blocks_safe_writing": true,
+      "evidence_quality": "source_shape_difference_requires_review",
+      "next_evidence": "inspect original row and family-specific access claims",
+      "property": "access",
+      "recommended_status": "CONFLICT",
+      "register": 1003,
+      "source_a": {
+        "source": "vendor_v124",
+        "value": "W"
+      },
+      "source_b": {
+        "source": "current_canonical",
+        "value": [
+          "read"
+        ]
+      }
+    },
+    {
+      "block": "v124-holding-p027-six_group_for_storage_power-block-03",
+      "blocks_read_decoding": false,
+      "blocks_safe_writing": true,
+      "evidence_quality": "source_shape_difference_requires_review",
+      "next_evidence": "inspect original row and family-specific access claims",
+      "property": "access",
+      "recommended_status": "CONFLICT",
+      "register": 1071,
+      "source_a": {
+        "source": "vendor_v124",
+        "value": "W"
+      },
+      "source_b": {
+        "source": "current_canonical",
+        "value": [
+          "read_write"
+        ]
+      }
+    },
+    {
+      "block": "v124-holding-p027-six_group_for_storage_power-block-03",
+      "blocks_read_decoding": false,
+      "blocks_safe_writing": true,
+      "evidence_quality": "source_shape_difference_requires_review",
+      "next_evidence": "inspect original row and family-specific access claims",
+      "property": "access",
+      "recommended_status": "CONFLICT",
+      "register": 1091,
+      "source_a": {
+        "source": "vendor_v124",
+        "value": "W"
+      },
+      "source_b": {
+        "source": "current_canonical",
+        "value": [
+          "read_write"
+        ]
+      }
+    },
+    {
+      "block": "v124-holding-p035-use_for_tl_x_and_tl_xh-block-04",
+      "blocks_read_decoding": false,
+      "blocks_safe_writing": true,
+      "evidence_quality": "source_shape_difference_requires_review",
+      "next_evidence": "inspect original row and family-specific access claims",
+      "property": "access",
+      "recommended_status": "CONFLICT",
+      "register": 3021,
+      "source_a": {
+        "source": "vendor_v124",
+        "value": "W"
+      },
+      "source_b": {
+        "source": "current_canonical",
+        "value": [
+          "read_write"
+        ]
+      }
+    },
+    {
+      "block": "v124-holding-p035-use_for_tl_x_and_tl_xh-block-04",
+      "blocks_read_decoding": false,
+      "blocks_safe_writing": true,
+      "evidence_quality": "canonical_interpretation; external_meter_scope_unresolved",
+      "next_evidence": "independent device/protocol evidence; do not infer DDSU666 settings",
+      "property": "semantic_identity",
+      "recommended_status": "CONFLICT_REVIEW_CANDIDATE",
+      "register": 3085,
+      "source_a": {
+        "source": "vendor_v124",
+        "value": "ComAddress / Communication addr"
+      },
+      "source_b": {
+        "source": "current_canonical",
+        "value": [
+          "control.modbus_slave_address"
+        ]
+      }
+    },
+    {
+      "block": "v124-input-p070-use_for_tl_x_and_tl_xh-block-14",
+      "blocks_read_decoding": false,
+      "blocks_safe_writing": true,
+      "evidence_quality": "canonical_interpretation; external_meter_scope_unresolved",
+      "next_evidence": "independent device/protocol evidence; do not infer DDSU666 settings",
+      "property": "semantic_identity",
+      "recommended_status": "CONFLICT_REVIEW_CANDIDATE",
+      "register": 3085,
+      "source_a": {
+        "source": "vendor_v124",
+        "value": "ComAddress / Communication addr"
+      },
+      "source_b": {
+        "source": "current_canonical",
+        "value": [
+          "control.modbus_slave_address"
+        ]
+      }
+    }
+  ],
+  "generated_by": "tools/build_gii_consolidation.py",
+  "schema_version": "1.0.0"
+}

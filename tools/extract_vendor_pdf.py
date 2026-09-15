@@ -202,6 +202,20 @@ def sliced_columns(line: str, positions: dict[str, int]) -> dict[str, str | None
         columns[key] = line[start:end].strip() or None
     for key in ("variable", "description", "access", "value", "unit", "initial", "note"):
         columns.setdefault(key, None)
+    # Layout extraction can leave the tail of a wrapped description in front
+    # of the access token (for example ``r    W`` at H107).  Repair only an
+    # isolated Modbus access token; arbitrary input-column text remains raw.
+    access = columns.get("access")
+    if access:
+        # A clipped leading character is a recurring layout artifact in the
+        # vendor table: ``/W`` and ``/R`` are the visible tail of R/W and W/R.
+        clipped = re.match(r"^\s*/([WR])(?:\s|$)", access.upper())
+        if clipped:
+            columns["access"] = f"{'R' if clipped.group(1) == 'W' else 'W'}/{clipped.group(1)}"
+            return columns
+        matches = re.findall(r"(?<![A-Za-z/])(?:R/W|W/R|R|W)(?![A-Za-z/])", access.upper())
+        if matches:
+            columns["access"] = matches[-1]
     return columns
 
 

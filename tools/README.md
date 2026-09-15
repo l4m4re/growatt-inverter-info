@@ -18,6 +18,21 @@ extractors are optional refresh tools for local HA or third-party checkouts;
 they are not required to build this repository and should not be run against
 production systems as part of normal validation.
 
+The vendor-native V1.24 block consolidation is a review candidate and does not
+replace the frozen canonical specification:
+
+```bash
+python3 tools/build_gii_consolidation.py \
+  --pdf ../Homeassistant-Growatt-Local-Modbus/doc/Growatt-Inverter-Modbus-RTU-Protocol_II-V1_24-English.pdf
+python3 tools/validate_gii_consolidation.py
+```
+
+The builder verifies the original PDF hash and the canonical specification
+hash, preserves vendor-native blocks and applicability paths, and emits the
+candidate, register matrix, block inventory, conflict queue, unresolved queue
+and MIN/TL-XH projection. Manual visual-review claims remain linked evidence;
+they are not counted as duplicate source rows.
+
 The GII-2 matrix is a generated audit projection of the canonical spec plus
 the MIN/TL-XH review overlay. It is not an additional canonical register map.
 The metadata validator is a bounded consistency check for the MIN/TL-XH

@@ -16,6 +16,7 @@
   "classifications": {
     "PUBLIC_SAFE": [
       "sources/vendor/growatt-v1.24-tables.json",
+      "sources/vendor/growatt-v1.24-blocks.json",
       "sources/claims/vendor/*.json",
       "sources/vendor/profiles/*.json",
       "sources/curated/",
