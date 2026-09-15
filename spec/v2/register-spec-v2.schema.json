@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/l4m4re/growatt-inverter-info/schema/register-spec-v2.json",
+  "title": "Growatt block-oriented register specification V2",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "artifact",
+    "authority",
+    "canonical_legacy_sha256",
+    "source_documents",
+    "protocols",
+    "source_native_blocks",
+    "applicability",
+    "blocks",
+    "registers",
+    "reserved_ranges",
+    "families",
+    "logical_fields",
+    "legacy_material",
+    "metrics",
+    "generation"
+  ],
+  "properties": {
+    "schema_version": {"const": "2.0.0"},
+    "artifact": {"const": "growatt_register_spec_v2"},
+    "authority": {"const": "block_oriented_product_projection"},
+    "canonical_legacy_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "source_documents": {"type": "array", "items": {"type": "object"}},
+    "protocols": {"type": "object"},
+    "source_native_blocks": {"type": "array", "items": {"$ref": "#/$defs/sourceNativeBlock"}},
+    "applicability": {
+      "type": "object",
+      "required": ["declarations", "paths"],
+      "properties": {
+        "declarations": {"type": "array", "items": {"type": "object"}},
+        "paths": {"type": "array", "items": {"$ref": "#/$defs/applicabilityPath"}}
+      }
+    },
+    "blocks": {"type": "array", "items": {"$ref": "#/$defs/block"}},
+    "registers": {"type": "array", "items": {"$ref": "#/$defs/register"}},
+    "reserved_ranges": {"type": "array", "items": {"$ref": "#/$defs/range"}},
+    "families": {"type": "array", "items": {"type": "object"}},
+    "logical_fields": {"type": "array", "items": {"type": "object"}},
+    "legacy_material": {"type": "object"},
+    "metrics": {"type": "object"},
+    "generation": {"type": "object"}
+  },
+  "$defs": {
+    "sourceNativeBlock": {
+      "type": "object",
+      "required": ["source_block_id", "table", "function_code", "address_start", "address_end", "source_claim_refs"],
+      "properties": {
+        "source_block_id": {"type": "string"},
+        "table": {"enum": ["holding", "input"]},
+        "function_code": {"enum": [3, 4]},
+        "address_start": {"type": "integer", "minimum": 0, "maximum": 65535},
+        "address_end": {"type": "integer", "minimum": 0, "maximum": 65535},
+        "source_claim_refs": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "applicabilityPath": {
+      "type": "object",
+      "required": ["path_id", "declaration_id", "family_id", "table", "function_code", "declared_start", "declared_end"],
+      "properties": {
+        "path_id": {"type": "string"},
+        "declaration_id": {"type": "string"},
+        "family_id": {"type": "string"},
+        "table": {"enum": ["holding", "input"]},
+        "function_code": {"enum": [3, 4]},
+        "declared_start": {"type": "integer", "minimum": 0, "maximum": 65535},
+        "declared_end": {"type": "integer", "minimum": 0, "maximum": 65535},
+        "resolved_block_ref": {"type": ["string", "null"]}
+      }
+    },
+    "block": {
+      "type": "object",
+      "required": ["block_id", "block_kind", "source_native_block_refs", "table", "function_code", "address_start", "address_end", "register_ids", "applicability_path_refs"],
+      "properties": {
+        "block_id": {"type": "string"},
+        "block_kind": {"const": "source_native_consolidated"},
+        "source_native_block_refs": {"type": "array", "minItems": 1, "items": {"type": "string"}},
+        "table": {"enum": ["holding", "input"]},
+        "function_code": {"enum": [3, 4]},
+        "address_start": {"type": "integer", "minimum": 0, "maximum": 65535},
+        "address_end": {"type": "integer", "minimum": 0, "maximum": 65535},
+        "register_ids": {"type": "array", "items": {"type": "string"}},
+        "applicability_path_refs": {"type": "array", "items": {"type": "string"}},
+        "reserved_range_refs": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "register": {
+      "type": "object",
+      "required": ["register_id", "source_register_id", "table", "function_code", "address", "semantic_key", "canonical_name", "datatype", "access", "applicability_path_refs", "evidence", "relationships", "source_provenance"],
+      "properties": {
+        "register_id": {"type": "string"},
+        "source_register_id": {"type": "string"},
+        "table": {"enum": ["holding", "input"]},
+        "function_code": {"enum": [3, 4]},
+        "address": {"type": ["integer", "null"], "minimum": 0, "maximum": 65535},
+        "address_end": {"type": ["integer", "null"], "minimum": 0, "maximum": 65535},
+        "length_words": {"type": ["integer", "null"], "minimum": 1},
+        "semantic_key": {"type": ["string", "null"]},
+        "canonical_name": {"type": ["string", "null"]},
+        "source_aliases": {"type": "array", "items": {"type": "string"}},
+        "datatype": {"type": "object"},
+        "access": {"type": ["string", "null"]},
+        "applicability_path_refs": {"type": "array", "items": {"type": "string"}},
+        "evidence": {"type": "object"},
+        "relationships": {"type": "object"},
+        "source_provenance": {"type": "object"}
+      }
+    },
+    "range": {
+      "type": "object",
+      "required": ["range_id", "table", "start", "end", "status", "source_provenance"],
+      "properties": {
+        "range_id": {"type": "string"},
+        "table": {"enum": ["holding", "input"]},
+        "start": {"type": "integer", "minimum": 0, "maximum": 65535},
+        "end": {"type": "integer", "minimum": 0, "maximum": 65535},
+        "status": {"type": "string"},
+        "source_provenance": {"type": "object"}
+      }
+    }
+  }
+}
