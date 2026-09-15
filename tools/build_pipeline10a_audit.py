@@ -59,7 +59,9 @@ def build() -> dict[str, Any]:
     claims_by_id = {
         claim["claim_id"]: claim for claim in json.loads(CLAIMS_PATH.read_text(encoding="utf-8"))["claims"]
     }
-    decisions = accepted_decisions()
+    decisions = accepted_decisions(
+        exclude_sources={"reconciliation/pipeline10_next_repository_wide_cohort.json"}
+    )
     audit: list[dict[str, Any]] = []
     old_unique: set[tuple[str, str, int, str]] = set()
     corrected_unique: set[tuple[str, str, int, str]] = set()
@@ -86,7 +88,9 @@ def build() -> dict[str, Any]:
                 "cells_no_longer_promoted": sorted(set(implied) - set(supported)),
                 "property_support": authority_support_for_decision(decision, claims_by_id),
                 "support_claim_ids_by_property": {
-                    property_name: detail["claim_ids"] for property_name, detail in sorted(support.items())
+                    property_name: detail["claim_ids"]
+                    for property_name, detail in sorted(support.items())
+                    if detail["status"] == "supported"
                 },
             }
         )
