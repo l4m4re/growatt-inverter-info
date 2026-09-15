@@ -29,6 +29,7 @@ ROW_RE = re.compile(
 )
 SIMPLE_SINGLE_RE = re.compile(r"^\d+\.?$")
 SIMPLE_RANGE_RE = re.compile(r"^(\d+)\s*[~\-]\s*(\d+)$")
+SPLIT_RANGE_RE = re.compile(r"^(\d+)\s*-\s*(\d+)\s+(\d+)$")
 ALGEBRAIC_RE = re.compile(r"[+*()]|\bN\b", re.IGNORECASE)
 MALFORMED_RANGE_RE = re.compile(r"^\d+\s*-\s*\d+(?:\s+\d+)?$")
 
@@ -165,6 +166,12 @@ def parse_address(raw: str) -> tuple[int | None, int | None, str, str | None]:
         start, end = int(match.group(1)), int(match.group(2))
         if end >= start:
             return start, end, "parsed", None
+        return None, None, "ambiguous", "suspicious_layout_address"
+    if match := SPLIT_RANGE_RE.fullmatch(value):
+        start = int(match.group(1))
+        end = int(f"{match.group(2)}{match.group(3)}")
+        if end >= start:
+            return start, end, "parsed", "split_range_reconstructed"
         return None, None, "ambiguous", "suspicious_layout_address"
     if ALGEBRAIC_RE.search(value):
         return None, None, "ambiguous", "algebraic_address_expression"
@@ -427,6 +434,7 @@ def extract_document(
             if detected_table:
                 if detected_table != current_table:
                     flush()
+                    current_header = {}
                 current_table = detected_table
                 current_section_id = f"{detected_table}_register_table"
                 current_section_title = f"{detected_table.title()} register table"
@@ -444,15 +452,23 @@ def extract_document(
             match = row_match(line, int(profile.get("row_indent_max", 14)))
             if match:
                 address_candidate = collapse(match.group("address"))
+                current_address = (
+                    current_row["raw_address_expression"] if current_row is not None else ""
+                )
+                trailing_range = re.fullmatch(r"\d+\s*[~-]\s*", current_address)
+                split_range = re.fullmatch(r"\d+\s*-\s*\d+", current_address)
+                current_start_match = re.match(r"\d+", current_address)
+                current_start = int(current_start_match.group()) if current_start_match else None
                 if (
                     current_row is not None
-                    and re.fullmatch(r"\d+\s*-\s*\d+", current_row["raw_address_expression"])
-                    and int(current_row["raw_address_expression"].split("-")[0])
                     and address_candidate.isdigit()
-                    and int(current_row["raw_address_expression"].split("-")[0])
-                    > int(address_candidate)
+                    and (
+                        (trailing_range and current_start <= int(address_candidate))
+                        or (split_range and current_start > int(address_candidate))
+                    )
                 ):
-                    current_row["raw_address_expression"] += f" {address_candidate}"
+                    separator = "" if trailing_range else " "
+                    current_row["raw_address_expression"] += separator + address_candidate
                     current_row["fragments"][-1]["lines"].append(line)
                     continue
                 flush()

@@ -6,27 +6,33 @@
       "block": "v124-holding-p009-first_group-block-01",
       "blocks_read_decoding": false,
       "blocks_safe_writing": true,
-      "evidence_quality": "source_shape_difference_requires_review",
-      "next_evidence": "inspect original row and family-specific access claims",
-      "property": "access",
-      "recommended_status": "CONFLICT",
-      "register": 0,
-      "source_a": {
-        "source": "vendor_v124",
-        "value": "W"
-      },
-      "source_b": {
-        "source": "current_canonical",
-        "value": [
-          "read_write"
-        ]
-      }
-    },
-    {
-      "block": "v124-holding-p009-first_group-block-01",
-      "blocks_read_decoding": false,
-      "blocks_safe_writing": true,
-      "evidence_quality": "source_shape_difference_requires_review",
+      "canonical_capabilities": [
+        {
+          "readable": true,
+          "writable": true
+        },
+        {
+          "readable": true,
+          "writable": true
+        },
+        {
+          "readable": true,
+          "writable": true
+        },
+        {
+          "readable": true,
+          "writable": true
+        },
+        {
+          "readable": true,
+          "writable": true
+        },
+        {
+          "readable": true,
+          "writable": true
+        }
+      ],
+      "evidence_quality": "source_access_dimensions_require_review",
       "next_evidence": "inspect original row and family-specific access claims",
       "property": "access",
       "recommended_status": "CONFLICT",
@@ -40,13 +46,43 @@
         "value": [
           "read_write"
         ]
+      },
+      "vendor_capabilities": {
+        "readable": true,
+        "writable": false
       }
     },
     {
       "block": "v124-holding-p009-first_group-block-01",
       "blocks_read_decoding": false,
       "blocks_safe_writing": true,
-      "evidence_quality": "source_shape_difference_requires_review",
+      "canonical_capabilities": [
+        {
+          "readable": true,
+          "writable": true
+        },
+        {
+          "readable": true,
+          "writable": true
+        },
+        {
+          "readable": true,
+          "writable": true
+        },
+        {
+          "readable": true,
+          "writable": true
+        },
+        {
+          "readable": true,
+          "writable": true
+        },
+        {
+          "readable": true,
+          "writable": true
+        }
+      ],
+      "evidence_quality": "source_access_dimensions_require_review",
       "next_evidence": "inspect original row and family-specific access claims",
       "property": "access",
       "recommended_status": "CONFLICT",
@@ -60,273 +96,31 @@
         "value": [
           "read_write"
         ]
-      }
-    },
-    {
-      "block": "v124-holding-p016-second_group-block-02",
-      "blocks_read_decoding": false,
-      "blocks_safe_writing": true,
-      "evidence_quality": "source_shape_difference_requires_review",
-      "next_evidence": "inspect original row and family-specific access claims",
-      "property": "access",
-      "recommended_status": "CONFLICT",
-      "register": 169,
-      "source_a": {
-        "source": "vendor_v124",
-        "value": "W"
       },
-      "source_b": {
-        "source": "current_canonical",
-        "value": [
-          "read_write"
-        ]
-      }
-    },
-    {
-      "block": "v124-holding-p016-second_group-block-02",
-      "blocks_read_decoding": false,
-      "blocks_safe_writing": true,
-      "evidence_quality": "source_shape_difference_requires_review",
-      "next_evidence": "inspect original row and family-specific access claims",
-      "property": "access",
-      "recommended_status": "CONFLICT",
-      "register": 170,
-      "source_a": {
-        "source": "vendor_v124",
-        "value": "W"
-      },
-      "source_b": {
-        "source": "current_canonical",
-        "value": [
-          "read_write"
-        ]
-      }
-    },
-    {
-      "block": "v124-holding-p016-second_group-block-02",
-      "blocks_read_decoding": false,
-      "blocks_safe_writing": true,
-      "evidence_quality": "source_shape_difference_requires_review",
-      "next_evidence": "inspect original row and family-specific access claims",
-      "property": "access",
-      "recommended_status": "CONFLICT",
-      "register": 171,
-      "source_a": {
-        "source": "vendor_v124",
-        "value": "W"
-      },
-      "source_b": {
-        "source": "current_canonical",
-        "value": [
-          "read_write"
-        ]
-      }
-    },
-    {
-      "block": "v124-holding-p016-second_group-block-02",
-      "blocks_read_decoding": false,
-      "blocks_safe_writing": true,
-      "evidence_quality": "source_shape_difference_requires_review",
-      "next_evidence": "inspect original row and family-specific access claims",
-      "property": "access",
-      "recommended_status": "CONFLICT",
-      "register": 172,
-      "source_a": {
-        "source": "vendor_v124",
-        "value": "W"
-      },
-      "source_b": {
-        "source": "current_canonical",
-        "value": [
-          "read_write"
-        ]
-      }
-    },
-    {
-      "block": "v124-holding-p016-second_group-block-02",
-      "blocks_read_decoding": false,
-      "blocks_safe_writing": true,
-      "evidence_quality": "source_shape_difference_requires_review",
-      "next_evidence": "inspect original row and family-specific access claims",
-      "property": "access",
-      "recommended_status": "CONFLICT",
-      "register": 173,
-      "source_a": {
-        "source": "vendor_v124",
-        "value": "W"
-      },
-      "source_b": {
-        "source": "current_canonical",
-        "value": [
-          "read_write"
-        ]
-      }
-    },
-    {
-      "block": "v124-holding-p016-second_group-block-02",
-      "blocks_read_decoding": false,
-      "blocks_safe_writing": true,
-      "evidence_quality": "source_shape_difference_requires_review",
-      "next_evidence": "inspect original row and family-specific access claims",
-      "property": "access",
-      "recommended_status": "CONFLICT",
-      "register": 174,
-      "source_a": {
-        "source": "vendor_v124",
-        "value": "W"
-      },
-      "source_b": {
-        "source": "current_canonical",
-        "value": [
-          "read_write"
-        ]
-      }
-    },
-    {
-      "block": "v124-holding-p016-second_group-block-02",
-      "blocks_read_decoding": false,
-      "blocks_safe_writing": true,
-      "evidence_quality": "source_shape_difference_requires_review",
-      "next_evidence": "inspect original row and family-specific access claims",
-      "property": "access",
-      "recommended_status": "CONFLICT",
-      "register": 177,
-      "source_a": {
-        "source": "vendor_v124",
-        "value": "W"
-      },
-      "source_b": {
-        "source": "current_canonical",
-        "value": [
-          "read_write"
-        ]
-      }
-    },
-    {
-      "block": "v124-holding-p016-second_group-block-02",
-      "blocks_read_decoding": false,
-      "blocks_safe_writing": true,
-      "evidence_quality": "source_shape_difference_requires_review",
-      "next_evidence": "inspect original row and family-specific access claims",
-      "property": "access",
-      "recommended_status": "CONFLICT",
-      "register": 182,
-      "source_a": {
-        "source": "vendor_v124",
-        "value": "W"
-      },
-      "source_b": {
-        "source": "current_canonical",
-        "value": [
-          "read_write"
-        ]
-      }
-    },
-    {
-      "block": "v124-holding-p016-second_group-block-02",
-      "blocks_read_decoding": false,
-      "blocks_safe_writing": true,
-      "evidence_quality": "source_shape_difference_requires_review",
-      "next_evidence": "inspect original row and family-specific access claims",
-      "property": "access",
-      "recommended_status": "CONFLICT",
-      "register": 183,
-      "source_a": {
-        "source": "vendor_v124",
-        "value": "W"
-      },
-      "source_b": {
-        "source": "current_canonical",
-        "value": [
-          "read_write"
-        ]
-      }
-    },
-    {
-      "block": "v124-holding-p016-second_group-block-02",
-      "blocks_read_decoding": false,
-      "blocks_safe_writing": true,
-      "evidence_quality": "source_shape_difference_requires_review",
-      "next_evidence": "inspect original row and family-specific access claims",
-      "property": "access",
-      "recommended_status": "CONFLICT",
-      "register": 184,
-      "source_a": {
-        "source": "vendor_v124",
-        "value": "W"
-      },
-      "source_b": {
-        "source": "current_canonical",
-        "value": [
-          "read_write"
-        ]
-      }
-    },
-    {
-      "block": "v124-holding-p016-second_group-block-02",
-      "blocks_read_decoding": false,
-      "blocks_safe_writing": true,
-      "evidence_quality": "source_shape_difference_requires_review",
-      "next_evidence": "inspect original row and family-specific access claims",
-      "property": "access",
-      "recommended_status": "CONFLICT",
-      "register": 240,
-      "source_a": {
-        "source": "vendor_v124",
-        "value": "W"
-      },
-      "source_b": {
-        "source": "current_canonical",
-        "value": [
-          "read_write"
-        ]
-      }
-    },
-    {
-      "block": "v124-holding-p016-second_group-block-02",
-      "blocks_read_decoding": false,
-      "blocks_safe_writing": true,
-      "evidence_quality": "source_shape_difference_requires_review",
-      "next_evidence": "inspect original row and family-specific access claims",
-      "property": "access",
-      "recommended_status": "CONFLICT",
-      "register": 241,
-      "source_a": {
-        "source": "vendor_v124",
-        "value": "W"
-      },
-      "source_b": {
-        "source": "current_canonical",
-        "value": [
-          "read_write"
-        ]
-      }
-    },
-    {
-      "block": "v124-holding-p016-second_group-block-02",
-      "blocks_read_decoding": false,
-      "blocks_safe_writing": true,
-      "evidence_quality": "source_shape_difference_requires_review",
-      "next_evidence": "inspect original row and family-specific access claims",
-      "property": "access",
-      "recommended_status": "CONFLICT",
-      "register": 242,
-      "source_a": {
-        "source": "vendor_v124",
-        "value": "W"
-      },
-      "source_b": {
-        "source": "current_canonical",
-        "value": [
-          "read_write"
-        ]
+      "vendor_capabilities": {
+        "readable": true,
+        "writable": false
       }
     },
     {
       "block": "v124-holding-p027-six_group_for_storage_power-block-03",
       "blocks_read_decoding": false,
       "blocks_safe_writing": true,
-      "evidence_quality": "source_shape_difference_requires_review",
+      "canonical_capabilities": [
+        {
+          "readable": true,
+          "writable": false
+        },
+        {
+          "readable": true,
+          "writable": false
+        },
+        {
+          "readable": true,
+          "writable": false
+        }
+      ],
+      "evidence_quality": "source_access_dimensions_require_review",
       "next_evidence": "inspect original row and family-specific access claims",
       "property": "access",
       "recommended_status": "CONFLICT",
@@ -340,13 +134,31 @@
         "value": [
           "read"
         ]
+      },
+      "vendor_capabilities": {
+        "readable": true,
+        "writable": true
       }
     },
     {
       "block": "v124-holding-p027-six_group_for_storage_power-block-03",
       "blocks_read_decoding": false,
       "blocks_safe_writing": true,
-      "evidence_quality": "source_shape_difference_requires_review",
+      "canonical_capabilities": [
+        {
+          "readable": true,
+          "writable": false
+        },
+        {
+          "readable": true,
+          "writable": false
+        },
+        {
+          "readable": true,
+          "writable": false
+        }
+      ],
+      "evidence_quality": "source_access_dimensions_require_review",
       "next_evidence": "inspect original row and family-specific access claims",
       "property": "access",
       "recommended_status": "CONFLICT",
@@ -360,66 +172,10 @@
         "value": [
           "read"
         ]
-      }
-    },
-    {
-      "block": "v124-holding-p027-six_group_for_storage_power-block-03",
-      "blocks_read_decoding": false,
-      "blocks_safe_writing": true,
-      "evidence_quality": "source_shape_difference_requires_review",
-      "next_evidence": "inspect original row and family-specific access claims",
-      "property": "access",
-      "recommended_status": "CONFLICT",
-      "register": 1071,
-      "source_a": {
-        "source": "vendor_v124",
-        "value": "W"
       },
-      "source_b": {
-        "source": "current_canonical",
-        "value": [
-          "read_write"
-        ]
-      }
-    },
-    {
-      "block": "v124-holding-p027-six_group_for_storage_power-block-03",
-      "blocks_read_decoding": false,
-      "blocks_safe_writing": true,
-      "evidence_quality": "source_shape_difference_requires_review",
-      "next_evidence": "inspect original row and family-specific access claims",
-      "property": "access",
-      "recommended_status": "CONFLICT",
-      "register": 1091,
-      "source_a": {
-        "source": "vendor_v124",
-        "value": "W"
-      },
-      "source_b": {
-        "source": "current_canonical",
-        "value": [
-          "read_write"
-        ]
-      }
-    },
-    {
-      "block": "v124-holding-p035-use_for_tl_x_and_tl_xh-block-04",
-      "blocks_read_decoding": false,
-      "blocks_safe_writing": true,
-      "evidence_quality": "source_shape_difference_requires_review",
-      "next_evidence": "inspect original row and family-specific access claims",
-      "property": "access",
-      "recommended_status": "CONFLICT",
-      "register": 3021,
-      "source_a": {
-        "source": "vendor_v124",
-        "value": "W"
-      },
-      "source_b": {
-        "source": "current_canonical",
-        "value": [
-          "read_write"
-        ]
+      "vendor_capabilities": {
+        "readable": null,
+        "writable": true
       }
     },
     {

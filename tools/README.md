@@ -33,6 +33,20 @@ candidate, register matrix, block inventory, conflict queue, unresolved queue
 and MIN/TL-XH projection. Manual visual-review claims remain linked evidence;
 they are not counted as duplicate source rows.
 
+The bounded MIN/TL-XH completeness pass is generated after the candidate is
+regenerated. It replays the original C1 baseline, expands source range spans,
+classifies all 377 original physical gaps and reviews all 23 original
+conflicts:
+
+```bash
+python3 tools/build_gii_consolidation2.py
+python3 tools/validate_gii_consolidation2.py
+```
+
+Its artifacts are review outputs only. The canonical specification is hash
+checked and remains unchanged; no live, cloud, HA, broker or inverter access
+is performed.
+
 The GII-2 matrix is a generated audit projection of the canonical spec plus
 the MIN/TL-XH review overlay. It is not an additional canonical register map.
 The metadata validator is a bounded consistency check for the MIN/TL-XH

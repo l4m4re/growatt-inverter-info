@@ -1,85 +1,5 @@
 {
-  "applicability_paths": [
-    {
-      "consolidated_block_id": "cb-holding-p009-first_group-block-01",
-      "declaration_id": "v124-instruction-min-tlx-tlxh",
-      "declared_end": 124,
-      "declared_start": 0,
-      "family_id": "min_tl_xh",
-      "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
-      "function_code": 3,
-      "qualifier": null,
-      "source_block_id": "v124-holding-p009-first_group-block-01",
-      "source_scope": "min_tl_xh",
-      "table": "holding"
-    },
-    {
-      "consolidated_block_id": "cb-holding-p035-use_for_tl_x_and_tl_xh-block-04",
-      "declaration_id": "v124-instruction-min-tlx-tlxh",
-      "declared_end": 3124,
-      "declared_start": 3000,
-      "family_id": "min_tl_xh",
-      "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
-      "function_code": 3,
-      "qualifier": null,
-      "source_block_id": "v124-holding-p035-use_for_tl_x_and_tl_xh-block-04",
-      "source_scope": "min_tl_xh",
-      "table": "holding"
-    },
-    {
-      "consolidated_block_id": "cb-holding-p042-us_machine_type_time_set-block-05",
-      "declaration_id": "v124-instruction-min-tlx-tlxh",
-      "declared_end": 3249,
-      "declared_start": 3125,
-      "family_id": "min_tl_xh",
-      "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
-      "function_code": 3,
-      "qualifier": "TL-XH US",
-      "source_block_id": "v124-holding-p042-us_machine_type_time_set-block-05",
-      "source_scope": "min_tl_xh",
-      "table": "holding"
-    },
-    {
-      "consolidated_block_id": "cb-input-p070-use_for_tl_x_and_tl_xh-block-14",
-      "declaration_id": "v124-instruction-min-tlx-tlxh",
-      "declared_end": 3124,
-      "declared_start": 3000,
-      "family_id": "min_tl_xh",
-      "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
-      "function_code": 4,
-      "qualifier": null,
-      "source_block_id": "v124-input-p070-use_for_tl_x_and_tl_xh-block-14",
-      "source_scope": "min_tl_xh",
-      "table": "input"
-    },
-    {
-      "consolidated_block_id": "cb-input-p070-use_for_tl_x_and_tl_xh-block-14",
-      "declaration_id": "v124-instruction-min-tlx-tlxh",
-      "declared_end": 3249,
-      "declared_start": 3125,
-      "family_id": "min_tl_xh",
-      "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
-      "function_code": 4,
-      "qualifier": null,
-      "source_block_id": "v124-input-p070-use_for_tl_x_and_tl_xh-block-14",
-      "source_scope": "min_tl_xh",
-      "table": "input"
-    },
-    {
-      "consolidated_block_id": "cb-input-p070-use_for_tl_x_and_tl_xh-block-14",
-      "declaration_id": "v124-instruction-min-tlx-tlxh",
-      "declared_end": 3374,
-      "declared_start": 3250,
-      "family_id": "min_tl_xh",
-      "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
-      "function_code": 4,
-      "qualifier": "TL-XH",
-      "source_block_id": "v124-input-p070-use_for_tl_x_and_tl_xh-block-14",
-      "source_scope": "min_tl_xh",
-      "table": "input"
-    }
-  ],
-  "artifact": "generated_min_tl_xh_projection",
+  "artifact": "gii_consolidation_2_min_tl_xh_projection",
   "blocks": [
     {
       "consolidated_block_id": "cb-holding-p009-first_group-block-01",
@@ -716,25 +636,220 @@
       ]
     }
   ],
-  "comparison_with_current_canonical": {
-    "candidate_physical_keys": 648,
-    "canonical_min_tl_xh_keys": 895,
-    "category_counts": {
-      "CONFLICT": 4,
-      "ENRICHED": 218,
-      "MATCH": 648,
-      "MISSING_IN_CANDIDATE": 247,
-      "NEW_FROM_VENDOR": 0,
-      "REPRESENTATION_ONLY": 0
-    },
-    "match": 648,
-    "missing_in_candidate": 247,
-    "new_from_vendor": 0,
-    "representation_only": 0,
-    "representation_only_definition": "No separate representation-only category exists in this candidate; the value is zero until a reviewed non-physical representation is modeled."
-  },
+  "canonical_sha256": "e692d646e34040af999ba4854f65803e4218e184d9e04f2982c06d60782ee405",
   "family": "min_tl_xh",
-  "generated_by": "tools/build_gii_consolidation.py",
-  "schema_version": "1.0.0",
-  "source_candidate": "spec/growatt-register-spec-v2-candidate.json"
+  "logical_coverage": {
+    "canonical_logical_field_components": 331,
+    "canonical_logical_fields": 132,
+    "fully_covered": 88,
+    "not_covered": 43,
+    "partially_covered": 1
+  },
+  "physical_coverage": {
+    "after": {
+      "candidate_physical_keys": 648,
+      "covered": 648,
+      "missing": 247
+    },
+    "after_ambiguous_source_addresses": 22,
+    "after_no_canonical_rows": 95,
+    "after_physical_readiness": {
+      "disjoint_status_counts": {
+        "CONFLICT_BLOCKED": 4,
+        "NEEDS_METADATA": 85,
+        "READY_READ": 504,
+        "RESERVED_OR_UNSUPPORTED": 55
+      },
+      "physical_keys_evaluated": 648,
+      "quality_flag_counts": {
+        "NEEDS_SCALE": 360,
+        "NEEDS_SEMANTIC_REVIEW": 38,
+        "NEEDS_SIGNEDNESS": 464,
+        "NEEDS_UNIT": 298
+      }
+    },
+    "after_write_readiness": {
+      "documented_writable": 216,
+      "live_write_verified": 0,
+      "note": "Documented writability is not live-write verification or an authorization to write.",
+      "physical_keys_evaluated": 648,
+      "safe_ha_write_candidate": 57
+    },
+    "canonical_min_tlxh_logical_fields": 132,
+    "canonical_min_tlxh_logical_register_keys": 0,
+    "canonical_min_tlxh_physical_keys": 895,
+    "category_count_sum": 377,
+    "category_counts": {
+      "CANONICAL_ONLY_PHYSICAL_REGISTER": 8,
+      "DIFFERENT_PROTOCOL_OR_SOURCE_REQUIRED": 94,
+      "OUTSIDE_VENDOR_V124_APPLICABILITY": 145,
+      "RESOLVED_BY_LOCAL_EXTRACTION_REPAIR": 130
+    },
+    "initial": {
+      "candidate_physical_keys": 518,
+      "covered": 518,
+      "missing": 377
+    },
+    "initial_ambiguous_source_addresses": 81,
+    "initial_no_canonical_rows": 96,
+    "initial_physical_readiness": {
+      "disjoint_status_counts": {
+        "CONFLICT_BLOCKED": 6,
+        "NEEDS_METADATA": 85,
+        "READY_READ": 402,
+        "RESERVED_OR_UNSUPPORTED": 25
+      },
+      "physical_keys_evaluated": 518,
+      "quality_flag_counts": {
+        "NEEDS_SCALE": 239,
+        "NEEDS_SEMANTIC_REVIEW": 29,
+        "NEEDS_SIGNEDNESS": 343,
+        "NEEDS_UNIT": 177
+      }
+    },
+    "initial_write_readiness": {
+      "documented_writable": 114,
+      "live_write_verified": 0,
+      "note": "Documented writability is not live-write verification or an authorization to write.",
+      "physical_keys_evaluated": 518,
+      "safe_ha_write_candidate": 56
+    },
+    "logical_coverage": {
+      "canonical_logical_field_components": 331,
+      "canonical_logical_fields": 132,
+      "fully_covered": 88,
+      "not_covered": 43,
+      "partially_covered": 1
+    }
+  },
+  "readiness": {
+    "after": {
+      "disjoint_status_counts": {
+        "CONFLICT_BLOCKED": 4,
+        "NEEDS_METADATA": 85,
+        "READY_READ": 504,
+        "RESERVED_OR_UNSUPPORTED": 55
+      },
+      "physical_keys_evaluated": 648,
+      "quality_flag_counts": {
+        "NEEDS_SCALE": 360,
+        "NEEDS_SEMANTIC_REVIEW": 38,
+        "NEEDS_SIGNEDNESS": 464,
+        "NEEDS_UNIT": 298
+      }
+    },
+    "initial": {
+      "disjoint_status_counts": {
+        "CONFLICT_BLOCKED": 6,
+        "NEEDS_METADATA": 85,
+        "READY_READ": 402,
+        "RESERVED_OR_UNSUPPORTED": 25
+      },
+      "physical_keys_evaluated": 518,
+      "quality_flag_counts": {
+        "NEEDS_SCALE": 239,
+        "NEEDS_SEMANTIC_REVIEW": 29,
+        "NEEDS_SIGNEDNESS": 343,
+        "NEEDS_UNIT": 177
+      }
+    }
+  },
+  "schema_version": "2.0.0",
+  "source_candidate": "spec/growatt-register-spec-v2-candidate.json",
+  "vendor_applicability_paths": [
+    {
+      "consolidated_block_id": "cb-holding-p009-first_group-block-01",
+      "declaration_id": "v124-instruction-min-tlx-tlxh",
+      "declared_end": 124,
+      "declared_start": 0,
+      "family_id": "min_tl_xh",
+      "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
+      "function_code": 3,
+      "qualifier": null,
+      "source_block_id": "v124-holding-p009-first_group-block-01",
+      "source_scope": "min_tl_xh",
+      "table": "holding"
+    },
+    {
+      "consolidated_block_id": "cb-holding-p035-use_for_tl_x_and_tl_xh-block-04",
+      "declaration_id": "v124-instruction-min-tlx-tlxh",
+      "declared_end": 3124,
+      "declared_start": 3000,
+      "family_id": "min_tl_xh",
+      "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
+      "function_code": 3,
+      "qualifier": null,
+      "source_block_id": "v124-holding-p035-use_for_tl_x_and_tl_xh-block-04",
+      "source_scope": "min_tl_xh",
+      "table": "holding"
+    },
+    {
+      "consolidated_block_id": "cb-holding-p042-us_machine_type_time_set-block-05",
+      "declaration_id": "v124-instruction-min-tlx-tlxh",
+      "declared_end": 3249,
+      "declared_start": 3125,
+      "family_id": "min_tl_xh",
+      "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
+      "function_code": 3,
+      "qualifier": "TL-XH US",
+      "source_block_id": "v124-holding-p042-us_machine_type_time_set-block-05",
+      "source_scope": "min_tl_xh",
+      "table": "holding"
+    },
+    {
+      "consolidated_block_id": "cb-input-p070-use_for_tl_x_and_tl_xh-block-14",
+      "declaration_id": "v124-instruction-min-tlx-tlxh",
+      "declared_end": 3124,
+      "declared_start": 3000,
+      "family_id": "min_tl_xh",
+      "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
+      "function_code": 4,
+      "qualifier": null,
+      "source_block_id": "v124-input-p070-use_for_tl_x_and_tl_xh-block-14",
+      "source_scope": "min_tl_xh",
+      "table": "input"
+    },
+    {
+      "consolidated_block_id": "cb-input-p070-use_for_tl_x_and_tl_xh-block-14",
+      "declaration_id": "v124-instruction-min-tlx-tlxh",
+      "declared_end": 3249,
+      "declared_start": 3125,
+      "family_id": "min_tl_xh",
+      "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
+      "function_code": 4,
+      "qualifier": null,
+      "source_block_id": "v124-input-p070-use_for_tl_x_and_tl_xh-block-14",
+      "source_scope": "min_tl_xh",
+      "table": "input"
+    },
+    {
+      "consolidated_block_id": "cb-input-p070-use_for_tl_x_and_tl_xh-block-14",
+      "declaration_id": "v124-instruction-min-tlx-tlxh",
+      "declared_end": 3374,
+      "declared_start": 3250,
+      "family_id": "min_tl_xh",
+      "family_label": "TL-X/TL-XH/TL-XH US (MIN Type)",
+      "function_code": 4,
+      "qualifier": "TL-XH",
+      "source_block_id": "v124-input-p070-use_for_tl_x_and_tl_xh-block-14",
+      "source_scope": "min_tl_xh",
+      "table": "input"
+    }
+  ],
+  "write_readiness": {
+    "after": {
+      "documented_writable": 216,
+      "live_write_verified": 0,
+      "note": "Documented writability is not live-write verification or an authorization to write.",
+      "physical_keys_evaluated": 648,
+      "safe_ha_write_candidate": 57
+    },
+    "initial": {
+      "documented_writable": 114,
+      "live_write_verified": 0,
+      "note": "Documented writability is not live-write verification or an authorization to write.",
+      "physical_keys_evaluated": 518,
+      "safe_ha_write_candidate": 56
+    }
+  }
 }

@@ -28,9 +28,9 @@ The source-native inventory is derived from the original PDF’s layout-preservi
 |---|---:|---:|---|---|---:|---|
 | `v124-holding-p009-first_group-block-01` | FC3 / holding | 0–124 | First group | max_1500v_max_x_lv, min_tl_xh, mod_tl3_xh, storage_mix, storage_spa, storage_sph, tl3_max_mid_mac | 125 | `unresolved_ordinal_label` |
 | `v124-holding-p016-second_group-block-02` | FC3 / holding | 125–660 | Second group | max_1500v_max_x_lv, tl3_max_mid_mac | 182 | `unresolved_ordinal_label` |
-| `v124-holding-p027-six_group_for_storage_power-block-03` | FC3 / holding | 1000–1249 | Six group for Storage Power | storage_mix, storage_spa, storage_sph | 118 | `vendor_supported` |
-| `v124-holding-p035-use_for_tl_x_and_tl_xh-block-04` | FC3 / holding | 3000–3124 | Use for TL-X and TL-XH | min_tl_xh, mod_tl3_xh | 109 | `vendor_supported` |
-| `v124-holding-p042-us_machine_type_time_set-block-05` | FC3 / holding | 3125–3222 | US Machine type Time Set | min_tl_xh | 64 | `vendor_supported` |
+| `v124-holding-p027-six_group_for_storage_power-block-03` | FC3 / holding | 1000–1249 | Six group for Storage Power | storage_mix, storage_spa, storage_sph | 117 | `vendor_supported` |
+| `v124-holding-p035-use_for_tl_x_and_tl_xh-block-04` | FC3 / holding | 3000–3124 | Use for TL-X and TL-XH | min_tl_xh, mod_tl3_xh | 108 | `vendor_supported` |
+| `v124-holding-p042-us_machine_type_time_set-block-05` | FC3 / holding | 3125–3249 | US Machine type Time Set | min_tl_xh | 64 | `vendor_supported` |
 | `v124-holding-p047-bdc_information_support_up_to_10_parallel_bdc-block-06` | FC3 / holding | 5000–5079 | BDC information (support up to 10 parallel BDC) | — | 4 | `vendor_supported` |
 | `v124-input-p047-first_group-block-07` | FC4 / input | 0–124 | First group | max_1500v_max_x_lv, storage_mix, storage_sph, tl3_max_mid_mac | 122 | `unresolved_ordinal_label` |
 | `v124-input-p051-second_group-block-08` | FC4 / input | 125–249 | Second group | max_1500v_max_x_lv, tl3_max_mid_mac | 125 | `unresolved_ordinal_label` |
@@ -39,8 +39,8 @@ The source-native inventory is derived from the original PDF’s layout-preservi
 | `v124-input-p062-bms_infomation-block-11` | FC4 / input | 1082–1124 | BMS Infomation | storage_mix, storage_spa, storage_sph | 43 | `vendor_supported` |
 | `v124-input-p062-ups_information_offline-block-12` | FC4 / input | 1067–1081 | Ups information (offline) | storage_mix, storage_spa, storage_sph | 15 | `vendor_supported` |
 | `v124-input-p064-ninth_group_reserved_for_storage_power-block-13` | FC4 / input | 1125–2124 | Ninth group reserved for storage power | storage_spa, storage_sph | 116 | `vendor_supported` |
-| `v124-input-p070-use_for_tl_x_and_tl_xh-block-14` | FC4 / input | 3000–3280 | Use for TL-X and TL-XH | min_tl_xh, mod_tl3_xh | 274 | `vendor_supported` |
-| `v124-input-p084-bdc_and_bms_information_support_up_to_10_parallel_bdcs-block-15` | FC4 / input | 4000–5079 | BDC and BMS information (support up to 10 PARALLEL BDCS) | — | 9 | `vendor_supported` |
+| `v124-input-p070-use_for_tl_x_and_tl_xh-block-14` | FC4 / input | 3000–3280 | Use for TL-X and TL-XH | min_tl_xh, mod_tl3_xh | 273 | `vendor_supported` |
+| `v124-input-p084-bdc_and_bms_information_support_up_to_10_parallel_bdcs-block-15` | FC4 / input | 4000–5079 | BDC and BMS information (support up to 10 PARALLEL BDCS) | — | 5 | `vendor_supported` |
 
 Functional headings: **10**; vague/ordinal headings: **5**. The latter remain `unresolved_ordinal_label` and are not promoted to vendor-authored semantics.
 
@@ -54,16 +54,16 @@ All seven V1.24 instruction-block declarations are retained, including MIN/TL-XH
 
 ## Register consolidation results
 
-The matrix contains **1493** vendor row definitions. Vendor raw fields and canonical comparison fields are kept separate; selected descriptions and decode metadata are enrichment, not new evidence.
+The matrix contains **1486** vendor row definitions. Vendor raw fields and canonical comparison fields are kept separate; selected descriptions and decode metadata are enrichment, not new evidence.
 
 | Register status | Count |
 |---|---:|
 | Confirmed | 0 |
-| Enriched | 980 |
-| Qualified | 270 |
-| Conflict | 23 |
-| Unresolved | 177 |
-| Reserved | 43 |
+| Enriched | 997 |
+| Qualified | 320 |
+| Conflict | 6 |
+| Unresolved | 117 |
+| Reserved | 46 |
 
 ### H107 access normalization
 
@@ -77,39 +77,39 @@ Existing canonical, runtime, external implementation and accepted evidence recor
 
 Vendor access and write safety remain separate. A documented writable row is not marked live-write-verified. The current candidate reports:
 
-- `READY_READ`: 1149
+- `READY_READ`: 1199
 - `READY_WRITE_DOCUMENTED`: 124
 - `READY_WRITE_VERIFIED`: 0
-- `NEEDS_METADATA`: 177
-- `RESERVED_OR_UNSUPPORTED`: 43
+- `NEEDS_METADATA`: 117
+- `RESERVED_OR_UNSUPPORTED`: 46
 
 ## MIN/TL-XH generated projection
 
 The projection is generated from consolidated blocks plus V1.24 applicability paths. It is not hand-maintained and retains qualifiers such as the TL-XH/TL-XH US distinctions.
 
-- Candidate physical keys: **518**
+- Candidate physical keys: **648**
 - Current canonical MIN/TL-XH keys: **895**
-- Matching keys: **518**
+- Matching keys: **648**
 - New from vendor: **0**
-- Missing in candidate: **377**
+- Missing in candidate: **247**
 
 Comparison category summary:
 
-- `MATCH`: 518
-- `ENRICHED`: 217
-- `CONFLICT`: 6
-- `MISSING_IN_CANDIDATE`: 377
+- `MATCH`: 648
+- `ENRICHED`: 218
+- `CONFLICT`: 4
+- `MISSING_IN_CANDIDATE`: 247
 - `NEW_FROM_VENDOR`: 0
 - `REPRESENTATION_ONLY`: 0
 - `REPRESENTATION_ONLY` definition: No separate representation-only category exists in this candidate; the value is zero until a reviewed non-physical representation is modeled.
 
 ## Conflicts
 
-There are **23** explicit comparison conflicts/review candidates. They are listed in `docs/consolidation/data/GII-CONSOLIDATION-1_CONFLICTS.json`; H3085 remains explicitly flagged as a semantic review candidate and is not silently treated as an external-meter setting.
+There are **6** explicit comparison conflicts/review candidates. They are listed in `docs/consolidation/data/GII-CONSOLIDATION-1_CONFLICTS.json`; H3085 remains explicitly flagged as a semantic review candidate and is not silently treated as an external-meter setting.
 
 ## Unresolved evidence gaps
 
-There are **177** unresolved rows, including ambiguous/unparsed source addresses and rows without a current canonical match. They are listed in `docs/consolidation/data/GII-CONSOLIDATION-1_UNRESOLVED.json` rather than being invented or discarded.
+There are **117** unresolved rows, including ambiguous/unparsed source addresses and rows without a current canonical match. They are listed in `docs/consolidation/data/GII-CONSOLIDATION-1_UNRESOLVED.json` rather than being invented or discarded.
 
 ## Safety / canonical freeze
 

@@ -20,8 +20,8 @@ def test_vendor_native_rows_and_blocks_are_complete() -> None:
         (ROOT / "sources/vendor/growatt-v1.24-blocks.json").read_text()
     )
     assert inventory["metrics"]["source_native_blocks_discovered"] == 15
-    assert sum(len(block["rows"]) for block in inventory["blocks"]) == 1493
-    assert len({claim_id for block in inventory["blocks"] for claim_id in block["rows"]}) == 1493
+    assert sum(len(block["rows"]) for block in inventory["blocks"]) == 1486
+    assert len({claim_id for block in inventory["blocks"] for claim_id in block["rows"]}) == 1486
 
 
 def test_h107_preserves_raw_access_and_normalizes_exact_token() -> None:

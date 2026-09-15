@@ -99,9 +99,14 @@ def test_duplicate_address_claims_remain_distinct() -> None:
 
 def test_malformed_address_is_not_coerced() -> None:
     claims = json.loads((ROOT / "sources/claims/vendor/vendor_growatt_v124_2020.json").read_text())["claims"]
-    suspicious = [claim for claim in claims if "suspicious_layout_address" in claim["diagnostics"]]
+    suspicious = [claim for claim in claims if "unparsed_address" in claim["diagnostics"]]
     assert suspicious
     assert all(claim["parsed_address"] is None for claim in suspicious)
+
+
+def test_split_and_continued_ranges_are_reconstructed() -> None:
+    assert extract_vendor_pdf.parse_address("3131-3 132")[:2] == (3131, 3132)
+    assert extract_vendor_pdf.parse_address("3204-3 205")[:2] == (3204, 3205)
 
 
 def test_hash_mismatch_fails(tmp_path: Path) -> None:

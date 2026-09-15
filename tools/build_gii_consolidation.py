@@ -136,6 +136,18 @@ def access_kind(raw: str | None) -> str | None:
     return None
 
 
+def access_capabilities(raw: str | None) -> dict[str, bool | None]:
+    """Interpret the V1.24 write-column marker without making W write-only."""
+    token = access_kind(raw)
+    if token == "write":
+        return {"readable": None, "writable": True}
+    if token == "read":
+        return {"readable": True, "writable": False}
+    if token == "read_write":
+        return {"readable": True, "writable": True}
+    return {"readable": None, "writable": None}
+
+
 def overlaps(start: int | None, end: int | None, other_start: int, other_end: int) -> bool:
     if start is None:
         return False
@@ -336,20 +348,36 @@ def canonical_conflicts(
     conflicts: list[dict[str, Any]] = []
     raw_access = vendor.get("raw_access_text")
     normalized_vendor_access = access_kind(raw_access)
-    canonical_access = {
-        access_kind((match.get("normalized") or {}).get("access"))
+    canonical_capabilities = [
+        access_capabilities((match.get("normalized") or {}).get("access"))
         for match in matches
         if access_kind((match.get("normalized") or {}).get("access"))
-    }
-    if normalized_vendor_access and canonical_access and normalized_vendor_access not in canonical_access:
+    ]
+    vendor_capabilities = access_capabilities(raw_access)
+    access_mismatch = any(
+        vendor_capabilities[key] is not None
+        and all(capability[key] is not None and capability[key] != vendor_capabilities[key] for capability in canonical_capabilities)
+        for key in ("readable", "writable")
+    )
+    if normalized_vendor_access and canonical_capabilities and access_mismatch:
         conflicts.append(
             {
                 "block": block_id,
                 "register": vendor.get("parsed_address"),
                 "property": "access",
                 "source_a": {"source": "vendor_v124", "value": raw_access},
-                "source_b": {"source": "current_canonical", "value": sorted(canonical_access)},
-                "evidence_quality": "source_shape_difference_requires_review",
+                "source_b": {
+                    "source": "current_canonical",
+                    "value": sorted(
+                        {
+                            access_kind((match.get("normalized") or {}).get("access"))
+                            for match in matches
+                        }
+                    ),
+                },
+                "vendor_capabilities": vendor_capabilities,
+                "canonical_capabilities": canonical_capabilities,
+                "evidence_quality": "source_access_dimensions_require_review",
                 "recommended_status": "CONFLICT",
                 "blocks_read_decoding": False,
                 "blocks_safe_writing": True,
@@ -464,6 +492,7 @@ def make_register(
             "variable_raw": claim.get("raw_variable"),
             "description_raw": claim.get("raw_description"),
             "access_raw": claim.get("raw_access_text"),
+            "access_capabilities": access_capabilities(claim.get("raw_access_text")),
             "value_raw": claim.get("raw_value_text"),
             "unit_raw": claim.get("raw_unit_text"),
             "initial_raw": claim.get("raw_initial_text"),
@@ -521,11 +550,21 @@ def compare_min_projection(
     registers: list[dict[str, Any]], canonical: dict[str, Any], paths: list[dict[str, Any]]
 ) -> dict[str, Any]:
     min_paths = [path for path in paths if path["source_scope"] == "min_tl_xh"]
-    candidate_keys = {
-        (register["table"], register["address"])
-        for register in registers
-        if register["address"] is not None
-        and any(
+    min_block_ids = {
+        path["source_block_id"].replace("v124-", "cb-", 1) for path in min_paths
+    }
+    def register_keys(register: dict[str, Any]) -> set[tuple[str, int]]:
+        address = register.get("address")
+        if address is None:
+            return set()
+        end = register.get("address_end") or address
+        return {(register["table"], item) for item in range(address, end + 1)}
+
+    def is_in_min_path(register: dict[str, Any]) -> bool:
+        return (
+            register.get("consolidated_block_id") in min_block_ids
+            and register.get("address") is not None
+            and any(
             path["table"] == register["table"]
             and overlaps(
                 register["address"],
@@ -535,6 +574,13 @@ def compare_min_projection(
             )
             for path in min_paths
         )
+        )
+
+    candidate_keys = {
+        key
+        for register in registers
+        if is_in_min_path(register)
+        for key in register_keys(register)
     }
     canonical_keys = {
         (record["table"], record["address"])
@@ -542,19 +588,10 @@ def compare_min_projection(
         if record.get("family") == "min_tl_xh" and isinstance(record.get("address"), int)
     }
     candidate_registers = {
-        (register["table"], register["address"]): register
+        key: register
         for register in registers
-        if register["address"] is not None
-        and any(
-            path["table"] == register["table"]
-            and overlaps(
-                register["address"],
-                register.get("address_end"),
-                path["declared_start"],
-                path["declared_end"],
-            )
-            for path in min_paths
-        )
+        if is_in_min_path(register)
+        for key in register_keys(register)
     }
     match = candidate_keys & canonical_keys
     category_counts = {
