@@ -1,15 +1,19 @@
-# Source corpus
+# Source and evidence corpus
 
-Every retained source is classified in [`manifest.json`](manifest.json).
+This directory contains the retained inputs used to trace and extend the
+current specification.
 
-- `PUBLIC_SAFE`: suitable for the public repository.
-- `METADATA_ONLY`: the source itself is not redistributed, but provenance and
-  a checksum or descriptive metadata are retained.
-- `LOCAL_ONLY`: intentionally excluded from this checkout; use the original
-  local research workspace.
-- `NEEDS_REVIEW`: do not publish or use as an authority until reviewed.
+- `consolidated/register-blocks.json` is the accepted current block model read
+  by the product builder.
+- `legacy/compatibility-registers.json` preserves the frozen predecessor and
+  the legacy/non-V1.24 knowledge carried into the current JSON.
+- `vendor/` contains vendor-native block structures and profiles.
+- `claims/vendor/` contains structured source rows and their provenance.
+- `claims/implementation/`, `external/`, and `runtime/` retain
+  implementation and runtime snapshots for correlation.
+- `evidence/` contains reviewed, structured evidence records.
+- `curated/` contains reviewed source overlays and normalization data.
 
-Vendor PDFs, firmware, portal exports, raw serial captures and installation
-identifiers are not redistributed. Structured rows derived from vendor
-documentation are retained with provenance and remain subject to the license
-and redistribution terms of their source.
+The root `manifest.json` records source publication and handling policy. Raw
+vendor PDFs, firmware, portal exports, and unreviewed live captures are not
+redistributed here.

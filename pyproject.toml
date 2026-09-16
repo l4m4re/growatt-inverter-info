@@ -5,44 +5,25 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "growatt-inverter-info"
 version = "0.1.0"
-description = "Project-independent Growatt Modbus register knowledge and evidence pipeline"
+description = "Consolidated Growatt Modbus register specification and source corpus"
 readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.11"
 dependencies = [
   "jsonschema>=4.20",
-  "networkx>=3.2",
 ]
 
 [project.optional-dependencies]
 test = ["pytest>=8.0"]
 
 [project.scripts]
-growatt-build-graph = "tools.build_register_graph:main"
-growatt-build-audit = "tools.generate_consolidated_ref:main"
-growatt-build-compatibility = "tools.build_resolved_register_reference:main"
-growatt-build-spec = "tools.build_register_spec:main"
-growatt-validate-compatibility = "tools.validate_resolved_register_reference:main"
-growatt-validate-spec = "tools.validate_register_spec:main"
-growatt-validate-min-tlxh-metadata = "tools.validate_min_tlxh_metadata:main"
-growatt-build-authority-coverage = "tools.build_authority_coverage:main"
-growatt-validate-authority-coverage = "tools.validate_authority_coverage:main"
-growatt-build-fc04-migration = "tools.build_fc04_migration:main"
-growatt-validate-fc04-migration = "tools.validate_fc04_migration:main"
-growatt-build-fc04-closure = "tools.build_fc04_closure:main"
-growatt-validate-fc04-closure = "tools.validate_fc04_closure:main"
-growatt-build-fc04-source-research = "tools.build_fc04_source_research:main"
-growatt-validate-fc04-source-research = "tools.validate_fc04_source_research:main"
+growatt-build-spec = "tools.build_spec:main"
+growatt-validate-spec = "tools.validate_spec:main"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
 asyncio_mode = "auto"
-markers = [
-  "fast: default artifact and invariant checks",
-  "legacy_pipeline: retained historical PIPELINE-6 through PIPELINE-11 audit test",
-  "slow: full historical pipeline rebuild, PDF extraction, or generator determinism check",
-]
 
 [tool.setuptools]
 packages = ["tools"]
