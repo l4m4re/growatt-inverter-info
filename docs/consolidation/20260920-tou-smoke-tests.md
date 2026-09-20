@@ -63,11 +63,12 @@ write.
 During the Battery First test, Home Assistant recorded values around
 `429496354–429496581 W` for the output-power entity while the inverter was
 charging. The values correspond to unsigned decoding of negative signed 32-bit
-raw words (for example `0xFFFFFA31`, which is `-148.7 W` at a `0.1` scale).
-The current GII evidence describes the same input block as unsigned, so this is
-an unresolved live conflict rather than an accepted correction. A follow-up
-read-only capture and human review are required before changing the canonical
-specification or the HA entity decoder.
+raw words from the single I3023 register (two words: I3023–I3024); for example
+`0xFFFFFA31` would be `-148.7 W` at a `0.1` scale. The current GII evidence
+describes that 32-bit register as unsigned, so this is an unresolved live
+conflict rather than an accepted correction. A follow-up read-only capture and
+human review are required before changing the canonical specification or the HA
+entity decoder.
 
 ## Review disposition
 

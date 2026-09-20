@@ -4,7 +4,7 @@
   "scope": {
     "family": ["min_tl_xh"],
     "model": "MIN 6000TL-XH",
-    "register": "I3023-I3024",
+    "register": "I3023 (one 32-bit register; words I3023-I3024)",
     "applicability": "Observed on the retained MIN 6000TL-XH installation only; this artifact does not change the canonical specification."
   },
   "observation": {
@@ -28,14 +28,14 @@
     ],
     "status": "unresolved_live_conflict",
     "required_follow_up": [
-      "Capture the raw I3023-I3024 input words directly while the inverter is charging and while it is discharging.",
+      "Capture the raw words of the I3023 32-bit register (I3023-I3024) directly while the inverter is charging and while it is discharging.",
       "Compare the sign convention with the portal and independent power channels before changing the GII current model.",
       "Only after human review, update the canonical specification and the HA decoder together if the signed interpretation is accepted."
     ]
   },
   "limitations": [
     "The Recorder stores the decoded HA state; the original Modbus input words were not retained in this bounded artifact.",
-    "The existing GII evidence and overlay currently declare I3023-I3024 unsigned, so the live result is a conflict, not an accepted correction.",
+    "The existing GII evidence and overlay currently declare the I3023 32-bit register unsigned, so the live result is a conflict, not an accepted correction.",
     "No production configuration or entity identity was changed."
   ]
 }
