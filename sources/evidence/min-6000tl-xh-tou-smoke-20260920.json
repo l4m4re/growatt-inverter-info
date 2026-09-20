@@ -211,7 +211,7 @@
     "window_inverter_local": "14:08-14:16",
     "direction": "grid_export",
     "baseline_clock": "2026-09-20 14:04:06",
-    "baseline_soc_pct": 53,
+    "baseline_soc_pct": 54,
     "baseline_registers": {
       "H3036": 69,
       "H3037": 11,
