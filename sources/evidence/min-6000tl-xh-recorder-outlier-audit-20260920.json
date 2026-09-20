@@ -4,7 +4,7 @@
   "scope": {
     "family": ["min_tl_xh"],
     "model": "MIN 6000TL-XH",
-    "applicability": "Local staging Home Assistant Recorder only; no semantic correction is accepted by this artifact."
+    "applicability": "Local staging Home Assistant Recorder only; the accepted semantic correction is recorded in the companion human review and consolidated register map."
   },
   "observation": {
     "audited_at_utc": "2026-09-20T12:35:00Z",
@@ -77,7 +77,7 @@
         "samples": 4,
         "stored_percent_range": [65530.0, 65534.0]
       },
-      "interpretation": "Values above 100% are impossible for this percentage sensor and coincide with the output-power episodes. The one-word I3101 signedness/meaning remains a separate unresolved GII review item."
+      "interpretation": "Values above 100% are impossible for this percentage sensor and coincide with the output-power episodes. Signed int16 decoding gives plausible negative percentages during grid charging, and the companion human review accepts I3101 as signed for this MIN 6000TL-XH."
     },
     "bms_battery_current": {
       "entity_id": "sensor.growatt_bms_battery_current",
@@ -106,6 +106,6 @@
   "limitations": [
     "The Recorder contains decoded states, not the original Modbus words, so signed raw values are inferred by reversing the observed scale and two's-complement wrap.",
     "This audit does not alter historical states or the canonical register specification.",
-    "A raw-word capture under charging and discharging is still required before accepting a signedness correction for I3023 or I3101."
+    "The accepted signedness correction is scoped to the bidirectional MIN 6000TL-XH mapping; a raw-word capture remains useful only before generalizing the claim to other models or firmware."
   ]
 }

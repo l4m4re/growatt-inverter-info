@@ -52,6 +52,9 @@ The structured counts, intervals and limitations are retained in
 ## Disposition
 
 This is evidence of historical decoder artifacts. It does not rewrite Recorder
-history or change the canonical GII specification. A raw Modbus capture while
-charging and discharging is still required before accepting signedness changes
-for the I3023 32-bit output-power register or the I3101 percentage register.
+history. The canonical GII projection now treats I3023–I3024 as a signed
+32-bit output-power register and I3101 as a signed 16-bit percentage for the
+bidirectional MIN 6000TL-XH mapping. The correction is scoped to this hybrid
+behavior; the public V4 history remains a
+positive-only presentation and is not evidence that charging cannot produce
+negative local values.

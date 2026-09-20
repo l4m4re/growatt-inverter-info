@@ -5,7 +5,7 @@
     "family": ["min_tl_xh"],
     "model": "MIN 6000TL-XH",
     "register": "I3023 (one 32-bit register; words I3023-I3024)",
-    "applicability": "Observed on the retained MIN 6000TL-XH installation only; this artifact does not change the canonical specification."
+    "applicability": "Observed on the retained MIN 6000TL-XH installation only; this historical conflict artifact is superseded by the 2026-09-20 human review and signed canonical projection."
   },
   "observation": {
     "observed_at_utc": "2026-09-20T11:53:41Z/2026-09-20T11:54:26Z",
@@ -26,16 +26,15 @@
       "The HA value is consistent with a negative signed 32-bit inverter value being interpreted as unsigned and scaled by 0.1.",
       "The anomalous values occurred while the battery was charging, when a negative net AC output is physically plausible."
     ],
-    "status": "unresolved_live_conflict",
+    "status": "reviewed_and_superseded",
     "required_follow_up": [
-      "Capture the raw words of the I3023 32-bit register (I3023-I3024) directly while the inverter is charging and while it is discharging.",
-      "Compare the sign convention with the portal and independent power channels before changing the GII current model.",
-      "Only after human review, update the canonical specification and the HA decoder together if the signed interpretation is accepted."
+      "An optional raw-word capture while charging and discharging can test whether the signed convention generalizes beyond this installation.",
+      "The human review accepted the signed interpretation for this MIN 6000TL-XH and updated the canonical specification and HA decoder together."
     ]
   },
   "limitations": [
     "The Recorder stores the decoded HA state; the original Modbus input words were not retained in this bounded artifact.",
-    "The existing GII evidence and overlay currently declare the I3023 32-bit register unsigned, so the live result is a conflict, not an accepted correction.",
+    "At capture time the GII evidence and overlay declared the I3023 32-bit register unsigned; that historical claim is superseded by the accepted signed correction.",
     "No production configuration or entity identity was changed."
   ]
 }

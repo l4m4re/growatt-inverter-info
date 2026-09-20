@@ -14,10 +14,10 @@ table below.
 
 | Decision | Unique findings | Addresses |
 |---|---:|---|
-| `FIX_NOW` | 0 | — |
+| `FIX_NOW` | 2 | I3023–I3024, I3101 |
 | `KEEP_RUNTIME_FOR_NOW` | 1 | I3170 |
 | `NEEDS_TARGETED_VALIDATION` | 4 | I3191, I3194, I3195, I3224 |
-| `CANONICAL_OR_AUDIT_ISSUE` | 10 | I3001, I3005, I3009, I3023, I3028, I3047, I3049, I3101, I3230, I3231 |
+| `CANONICAL_OR_AUDIT_ISSUE` | 8 | I3001, I3005, I3009, I3028, I3047, I3049, I3230, I3231 |
 
 No runtime mapping is changed by HA-7A. The existing mapping is already
 consistent with the strongest retained evidence for the EMS-critical fields;
@@ -30,11 +30,11 @@ the remaining uncertainty is explicitly carried forward.
 | I3001 | `input_power` | signedness | 32-bit `/10`, current decoder uses signed int32 | unsigned 32-bit `/10 W` | `PpvH`, `0.1W`; PV power is non-negative | Grott/OpenInverter agree | observed positive PV values, 571/703 W | reconciled; resolved with notes | `CANONICAL_OR_AUDIT_ISSUE`: generic two-word decoder behavior is being compared with unsigned physical metadata; no reachable MIN 6 kW high-bit case is evidenced |
 | I3005 | `input_1_power` | signedness | 32-bit `/10`, current decoder uses signed int32 | unsigned 32-bit `/10 W` | `Ppv1H`, `0.1W` | Grott/OpenInverter agree | observed positive PV1 values, 199/313 W | syntactic-only; resolved with notes | `CANONICAL_OR_AUDIT_ISSUE`: same bounded physical-power issue as I3001 |
 | I3009 | `input_2_power` | signedness | 32-bit `/10`, current decoder uses signed int32 | unsigned 32-bit `/10 W` | `Ppv2H`, `0.1W` | Grott/OpenInverter agree | observed positive PV2 values, 372/390 W | syntactic-only; resolved with notes | `CANONICAL_OR_AUDIT_ISSUE`: same bounded physical-power issue as I3001 |
-| I3023 | `output_power` | signedness | 32-bit `/10`, current decoder uses signed int32 | unsigned 32-bit `/10 W` | `PacH`, `0.1W` | Grott/OpenInverter agree | observed positive AC output, 528.6 W | syntactic-only; resolved with notes | `CANONICAL_OR_AUDIT_ISSUE`: same bounded physical-power issue as I3001 |
+| I3023–I3024 | `output_power` | signedness and word identity | 32-bit `/10`, signed int32 | signed 32-bit `/10 W` | `PacH`, `0.1W`; I3023/I3024 form one word pair | Recorder correlation during grid charging | stored 429 MW wraps to −3.63…−0.29 kW while charge power was 0…3.57 kW | corrected; resolved with notes | `FIX_NOW`: the canonical pair is signed and must stay a two-word read |
 | I3028 | `output_1_power` | signedness | 32-bit `/10`, current decoder uses signed int32 | unsigned 32-bit `/10 VA` | `Pac1H`, `0.1VA` | Grott/OpenInverter agree | no contradictory raw value | syntactic-only; resolved with notes | `CANONICAL_OR_AUDIT_ISSUE`: phase output is non-negative and the generic decoder projection is too coarse |
 | I3047 | `operation_hours` | signedness | 32-bit `/7200`, current decoder uses signed int32 | unsigned 32-bit runtime counter `/7200 h` | `TimetotalH`, `0.5s` | Grott/OpenInverter agree | no high-bit counter sample | reconciled; resolved with notes | `CANONICAL_OR_AUDIT_ISSUE`: runtime counter is non-negative; no production-scale high-bit case is evidenced |
 | I3049 | `output_energy_today` | signedness | 32-bit `/10`, current decoder uses signed int32 | unsigned 32-bit `/10 kWh` | `EactodayH`, `0.1kWh` | Grott/OpenInverter agree | no contradictory raw value | syntactic-only; resolved with notes | `CANONICAL_OR_AUDIT_ISSUE`: energy counter is non-negative; no production-scale high-bit case is evidenced |
-| I3101 | `real_output_power_percent` | signedness | unsigned 16-bit integer | signed in canonical projection | `RealOPPercent`, `1%`, range `1–100` | Grott/OpenInverter agree | no contradictory raw value | syntactic-only; resolved with notes | `CANONICAL_OR_AUDIT_ISSUE`: vendor range proves a non-negative percentage; runtime is the safer interpretation |
+| I3101 | `real_output_power_percent` | signedness | unsigned 16-bit integer | signed 16-bit integer | `RealOPPercent`, `1%`, range `1–100` | Recorder correlation during grid charging | stored 65,476–65,532% decodes to −60…−4% alongside negative output power | corrected; resolved with notes | `FIX_NOW`: the cloud presentation is positive-only, while local bidirectional Modbus values use signed encoding |
 | I3170 | `battery_current` | signedness | unsigned 16-bit `/10 A` | signed `/10 A` | `Ibat`, `0.1A`; direction is not stated | Grott/OpenInverter list the field but do not prove polarity | live raw values `22` and `115` only; both positive | reconciled; resolved with notes | `KEEP_RUNTIME_FOR_NOW`: a negative I3170 sample is not retained. Do not infer it from I3217 |
 | I3191 | `bms_avg_temp_a` | scale | `/10 °C` | `/1` | vendor row is malformed and omits a unit at 3191; neighbouring rows use `0.1°C` | Grott names the field but no decisive scale | retained raw value `0`; insufficient to distinguish | syntactic-only; resolved with notes | `NEEDS_TARGETED_VALIDATION`: exact BMS temperature encoding remains ambiguous |
 | I3194 | `bms_max_cell_temp_b` | scale | `/10 °C` | `/1` | vendor row omits a unit at 3194; same BMS temperature block uses `0.1°C` | Grott names the field but no decisive scale | retained raw value `2`; insufficient alone | syntactic-only; resolved with notes | `NEEDS_TARGETED_VALIDATION`: exact BMS temperature encoding remains ambiguous |
@@ -68,4 +68,5 @@ signedness. No broad scan or write is justified by this audit.
 
 HA-7A changes no polling ranges, no transport logic, no entity names, no
 dynamic-tariff code and no inverter settings. No writes were issued. The
-canonical research tree and its commit remain unchanged.
+canonical GII projection and the HA consumer are updated by the follow-up
+correction recorded in `20260920-ha-recorder-outlier-audit.md`.

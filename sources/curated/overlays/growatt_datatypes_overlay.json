@@ -1441,7 +1441,7 @@
       "bitfields": [],
       "source_strings": {
         "growatt_data_types": {
-          "notes": "Unsigned 32-bit value stored as high/low words with 0.1 W resolution.",
+          "notes": "Signed 32-bit high/low word pair with 0.1 W resolution; negative values indicate net inverter consumption while charging.",
           "attributes": "output_power"
         }
       }
@@ -1903,7 +1903,8 @@
       "bitfields": [],
       "source_strings": {
         "growatt_data_types": {
-          "attributes": "real_output_power_percent"
+          "attributes": "real_output_power_percent",
+          "notes": "Signed 16-bit output percentage; negative values indicate net inverter consumption while charging."
         }
       }
     },

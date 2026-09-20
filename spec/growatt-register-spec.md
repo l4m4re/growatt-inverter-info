@@ -2260,7 +2260,7 @@ Block applicability retains the vendor declarations and source/model qualifiers 
 | I3020 | System output power (low word) | AC output power reported by the TL-XH mirror block (0.1 W resolution). Mirrors the value at register 35. | read | register value, signed | divisor=10, scale=0.1, multiplier=0.1 | W | — | — | QUALIFIED |
 | I3021 | Output reactive power (high word) | reactivepower | read | s32 / 10, signed | divisor=10, scale=0.1, multiplier=0.1 | var | — | — | QUALIFIED |
 | I3022 | Output reactive power (low word) | Instantaneous reactive power on the AC output (positive = inductive, negative = capacitive). | read | register value | divisor=10, scale=0.1, multiplier=0.1 | var | — | — | QUALIFIED |
-| I3023 | AC output power | AC output power | read | u32 / 10, unsigned | divisor=10, scale=0.1, multiplier=0.1 | W | 0.1W | — | QUALIFIED |
+| I3023–I3024 | AC output power | Bidirectional AC output power (0.1 W resolution; signed while the hybrid inverter charges from the grid). | read | s32 / 10, signed | divisor=10, scale=0.1, multiplier=0.1 | W | signed; 0.1W resolution | — | QUALIFIED |
 | I3024 | AC output power | Active AC output power delivered by the inverter (0.1 W resolution). | read | register value | divisor=10, scale=0.1, multiplier=0.1 | W | — | — | QUALIFIED |
 | I3025 | Grid frequency | Grid frequency | read | u16 / 100, unsigned | divisor=100, scale=0.01, multiplier=0.01 | Hz | — | — | QUALIFIED |
 | I3026 | AC phase L1 voltage | AC phase L1 voltage | read | u16 / 10, unsigned | divisor=10, scale=0.1, multiplier=0.1 | V | — | — | QUALIFIED |
@@ -2338,7 +2338,7 @@ Block applicability retains the vendor declarations and source/model qualifiers 
 | I3098 | P-bus voltage | PBusinsideVoltage | read | register value | divisor=10, scale=0.1, multiplier=0.1 | V | 0.1V | — | QUALIFIED |
 | I3099 | N-bus voltage | NBusinsideVoltage | read | register value | divisor=10, scale=0.1, multiplier=0.1 | V | 0.1V | — | QUALIFIED |
 | I3100 | Inverter output power factor | InverteroutputPFnow | read | register value | divisor=1, scale=1, multiplier=1 | — | — | — | QUALIFIED |
-| I3101 | Output power percentage | RealOutputpowerPercent | read | register value, unsigned | divisor=1, scale=1, multiplier=1 | % | 1% | — | QUALIFIED |
+| I3101 | Output power percentage | Bidirectional AC output percentage; signed while the hybrid inverter charges from the grid. | read | s16_percent, signed | divisor=1, scale=1, multiplier=1 | % | signed; 1% resolution | — | QUALIFIED |
 | I3102 | Output max power limit (high word) | OutputMaxpowerLimited | read | register value | divisor=10, scale=0.1, multiplier=0.1 | W | 0.1W | — | QUALIFIED |
 | I3103 | Output max power limit (low word) | Current active output power limit enforced by the inverter (0.1 W resolution). | read | register value | divisor=10, scale=0.1, multiplier=0.1 | W | — | — | QUALIFIED |
 | I3104 | Standby flags | Inverterstandbyflag | read | u16 vendor-defined bitfield, unsigned | — | — | — | — | QUALIFIED |
@@ -2836,7 +2836,7 @@ These rows preserve the accepted component order, word roles, and status. Unknow
 | PV4 DC power | TL-X/TL-XH/TL-XH US (MIN Type) | I3017 (high_word), I3018 (low_word) | register value | high_low | source_explicit |
 | System output power | TL-X/TL-XH/TL-XH US (MIN Type) | I3019 (high_word), I3020 (low_word) | register value | high_low | source_explicit |
 | Output reactive power | TL-X/TL-XH/TL-XH US (MIN Type) | I3021 (high_word), I3022 (low_word) | s32 / 10 | high_low | source_explicit |
-| AC output power | TL-X/TL-XH/TL-XH US (MIN Type) | I3023 (word_1), I3024 (word_2) | u32 / 10 | unknown | unknown_word_order |
+| AC output power | TL-X/TL-XH/TL-XH US (MIN Type) | I3023–I3024 (word_1), I3024 (word_2) | u32 / 10 | unknown | unknown_word_order |
 | AC phase L1 power | TL-X/TL-XH/TL-XH US (MIN Type) | I3028 (word_1), I3029 (word_2) | u32 / 10 | unknown | unknown_word_order |
 | AC phase L2 power | TL-X/TL-XH/TL-XH US (MIN Type) | I3032 (word_1), I3033 (word_2) | register value | unknown | unknown_word_order |
 | AC phase L3 power | TL-X/TL-XH/TL-XH US (MIN Type) | I3036 (word_1), I3037 (word_2) | register value | unknown | unknown_word_order |
@@ -2950,7 +2950,7 @@ These rows preserve the accepted component order, word roles, and status. Unknow
 | PV4 DC power | MOD TL3-XH | I3017 (high_word), I3018 (low_word) | register value | high_low | source_explicit |
 | System output power | MOD TL3-XH | I3019 (high_word), I3020 (low_word) | register value | high_low | source_explicit |
 | Output reactive power | MOD TL3-XH | I3021 (high_word), I3022 (low_word) | register value | high_low | source_explicit |
-| AC output power | MOD TL3-XH | I3023 (high_word), I3024 (low_word) | register value | high_low | source_explicit |
+| AC output power | MOD TL3-XH | I3023–I3024 (high_word), I3024 (low_word) | register value | high_low | source_explicit |
 | AC phase L1 power | MOD TL3-XH | I3028 (high_word), I3029 (low_word) | register value | high_low | source_explicit |
 | AC phase L2 power | MOD TL3-XH | I3032 (high_word), I3033 (low_word) | register value | high_low | source_explicit |
 | AC phase L3 power | MOD TL3-XH | I3036 (high_word), I3037 (low_word) | register value | high_low | source_explicit |

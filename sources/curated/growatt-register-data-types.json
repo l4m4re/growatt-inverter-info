@@ -1077,6 +1077,13 @@
       "scale": 1,
       "unit": "%"
     },
+    "s16_percent": {
+      "kind": "scaled_signed",
+      "registers": 1,
+      "bits": 16,
+      "scale": 1,
+      "unit": "%"
+    },
     "u16_ampere_hour": {
       "kind": "scaled",
       "registers": 1,
@@ -3525,7 +3532,7 @@
       "table": "input",
       "register": 3023,
       "register_end": 3024,
-      "type": "u32_power_w_decawatt",
+      "type": "s32_power_w_decawatt",
       "attributes": [
         "output_power"
       ],
@@ -4118,7 +4125,7 @@
       "table": "input",
       "register": 3101,
       "register_end": 3101,
-      "type": "u16_percent",
+      "type": "s16_percent",
       "attributes": [
         "real_output_power_percent"
       ],
