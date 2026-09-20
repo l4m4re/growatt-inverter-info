@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "controlled_tou_write_readback_evidence",
+  "scope": {
+    "family": ["min_tl_xh"],
+    "model": "MIN 6000TL-XH",
+    "applicability": "Observed on the retained MIN 6000TL-XH installation only."
+  },
+  "observation": {
+    "observed_at_utc": "2026-09-19T18:24:20Z/2026-09-19T18:24:44Z",
+    "source": "staging Home Assistant HIL log and the corresponding HA TOU test record",
+    "source_log": "local /tmp/ha-tou.log; not redistributed",
+    "integration_source_commit": "8ee0db82ccc9fdb6b23b93b4dfe1175df9024854",
+    "transport": "Modbus/TCP through the Growatt broker, unit 1"
+  },
+  "controlled_action": {
+    "table": "holding",
+    "function": 16,
+    "function_hex": "0x10",
+    "start": 3040,
+    "quantity": 2,
+    "purpose": "Change and restore the end word of disabled TOU period 2 without changing its priority or enabled bit",
+    "writes": [
+      {
+        "observed_at_utc": "2026-09-19T18:24:20.552Z",
+        "payload_words": ["0x331C", "0x1737"],
+        "decoded": {
+          "H3040": "19:28, Battery First priority, disabled",
+          "H3041": "23:55"
+        },
+        "request_pdu_without_crc": "01 10 0B E0 00 02 04 33 1C 17 37"
+      },
+      {
+        "observed_at_utc": "2026-09-19T18:24:36.312Z",
+        "payload_words": ["0x331C", "0x133A"],
+        "decoded": {
+          "H3040": "19:28, Battery First priority, disabled",
+          "H3041": "19:58"
+        },
+        "request_pdu_without_crc": "01 10 0B E0 00 02 04 33 1C 13 3A"
+      }
+    ],
+    "acknowledgements": [
+      {
+        "function": 16,
+        "start": 3040,
+        "quantity": 2,
+        "status": "success",
+        "response_pdu_without_crc": "01 10 0B E0 00 02"
+      },
+      {
+        "function": 16,
+        "start": 3040,
+        "quantity": 2,
+        "status": "success",
+        "response_pdu_without_crc": "01 10 0B E0 00 02"
+      }
+    ],
+    "readback": {
+      "observed": true,
+      "final_values": {
+        "H3040": "0x331C",
+        "H3041": "0x133A"
+      },
+      "result": "Both the changed and restored values matched the requested words after the staging integration's broker-cache delay."
+    }
+  },
+  "interpretation": {
+    "observed": [
+      "FC16 can update the two-word TOU period pair at H3040-H3041 on this device.",
+      "Changing H3041 while H3040 remains disabled preserves the disabled state; the restoration returns H3041 to its original 19:58 value."
+    ],
+    "not_established": [
+      "This test does not establish persistence across reboot or a universal write contract for every TL-XH firmware revision.",
+      "The test does not validate any production or non-TOU control register."
+    ]
+  },
+  "evidence_assessment": {
+    "method": "controlled hardware-in-the-loop FC16 write, acknowledgement and delayed readback",
+    "confidence": "medium",
+    "status": "write_readback_observation",
+    "register_semantics_changed": false
+  },
+  "limitations": [
+    "The original local log is not redistributed; the retained PDU values are a bounded public-safe extraction.",
+    "The local log also contains delayed/stale transaction-id messages while the broker and HA polling overlapped. The final readback result is retained from the test record and should not be interpreted as a transport-latency measurement.",
+    "The broker cache workaround used an approximately 11-second wait. The proper broker-side read-after-write refresh remains a separate roadmap item."
+  ]
+}
