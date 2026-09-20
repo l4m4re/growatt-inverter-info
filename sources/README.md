@@ -17,3 +17,7 @@ current specification.
 The root `manifest.json` records source publication and handling policy. Raw
 vendor PDFs, firmware, portal exports, and unreviewed live captures are not
 redistributed here.
+
+For adding new evidence, recording human review, updating the consolidated
+model, and handing an accepted result to Home Assistant, follow
+[`../docs/REGISTER_KNOWLEDGE_WORKFLOW.md`](../docs/REGISTER_KNOWLEDGE_WORKFLOW.md).
