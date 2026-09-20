@@ -1,0 +1,433 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "controlled_tou_smoke_test_evidence",
+  "scope": {
+    "family": [
+      "min_tl_xh"
+    ],
+    "model": "MIN 6000TL-XH",
+    "applicability": "Observed on the retained MIN 6000TL-XH installation only; not generalized to other firmware or models.",
+    "transport": "Modbus/TCP through the DEV Growatt broker, unit 1"
+  },
+  "observation": {
+    "observed_at_utc": "2026-09-20T11:44:02Z/2026-09-20T12:18:33Z",
+    "source": "supervised hardware-in-the-loop test using direct Modbus readback and staging HA Recorder correlation",
+    "source_database": "local staging Recorder database; not redistributed",
+    "consumer_source_commit": "8ee0db82ccc9fdb6b23b93b4dfe1175df9024854"
+  },
+  "charge_trial": {
+    "slot": 4,
+    "window_inverter_local": "13:48-13:56",
+    "direction": "grid_charge",
+    "baseline_clock": "2026-09-20 13:44:02",
+    "baseline_soc_pct": 52,
+    "baseline_registers": {
+      "3036": 69,
+      "3037": 11,
+      "3044": 0,
+      "3045": 0,
+      "3047": 71,
+      "3048": 99,
+      "3049": 1,
+      "3082": 0
+    },
+    "intended_changes": {
+      "H3044": "0xAD30 (13:48, Battery First, enabled)",
+      "H3045": "0x0D38 (13:56)",
+      "H3047": 30,
+      "H3048": 55
+    },
+    "post_write_registers": {
+      "3036": 69,
+      "3037": 11,
+      "3044": 44336,
+      "3045": 3384,
+      "3047": 30,
+      "3048": 55,
+      "3049": 1,
+      "3082": 0
+    },
+    "representative_samples": [
+      {
+        "label": "before_wait",
+        "host_time": "2026-09-20T11:49:16",
+        "soc": 53,
+        "priority_raw": 0,
+        "power_to_user_w": 0.0,
+        "power_to_grid_w": 1474.0,
+        "power_user_load_w": 427.70000000000005,
+        "discharge_power_w": 0.0,
+        "charge_power_w": 2820.0,
+        "raw_power": [
+          0,
+          0,
+          0,
+          14740,
+          0,
+          4277
+        ],
+        "raw_battery": [
+          0,
+          0,
+          0,
+          28200
+        ]
+      },
+      {
+        "label": "window",
+        "host_time": "2026-09-20T11:49:41",
+        "soc": 53,
+        "priority_raw": 1,
+        "power_to_user_w": 0.0,
+        "power_to_grid_w": 1181.5,
+        "power_user_load_w": 557.3000000000001,
+        "discharge_power_w": 0.0,
+        "charge_power_w": 1517.0,
+        "raw_power": [
+          0,
+          0,
+          0,
+          11815,
+          0,
+          5573
+        ],
+        "raw_battery": [
+          0,
+          0,
+          0,
+          15170
+        ]
+      },
+      {
+        "label": "window",
+        "host_time": "2026-09-20T11:52:41",
+        "soc": 54,
+        "priority_raw": 1,
+        "power_to_user_w": 195.70000000000002,
+        "power_to_grid_w": 0.0,
+        "power_user_load_w": 552.1,
+        "discharge_power_w": 0.0,
+        "charge_power_w": 1538.0,
+        "raw_power": [
+          0,
+          1957,
+          0,
+          0,
+          0,
+          5521
+        ],
+        "raw_battery": [
+          0,
+          0,
+          0,
+          15380
+        ]
+      },
+      {
+        "label": "window",
+        "host_time": "2026-09-20T11:55:41",
+        "soc": 54,
+        "priority_raw": 1,
+        "power_to_user_w": 0.0,
+        "power_to_grid_w": 275.90000000000003,
+        "power_user_load_w": 486.70000000000005,
+        "discharge_power_w": 0.0,
+        "charge_power_w": 1532.0,
+        "raw_power": [
+          0,
+          0,
+          0,
+          2759,
+          0,
+          4867
+        ],
+        "raw_battery": [
+          0,
+          0,
+          0,
+          15320
+        ]
+      },
+      {
+        "label": "window",
+        "host_time": "2026-09-20T11:57:12",
+        "soc": 55,
+        "priority_raw": 1,
+        "power_to_user_w": 203.10000000000002,
+        "power_to_grid_w": 0.0,
+        "power_user_load_w": 1897.3000000000002,
+        "discharge_power_w": 21.0,
+        "charge_power_w": 0.0,
+        "raw_power": [
+          0,
+          2031,
+          0,
+          0,
+          0,
+          18973
+        ],
+        "raw_battery": [
+          0,
+          210,
+          0,
+          0
+        ]
+      },
+      {
+        "label": "window_end",
+        "host_time": "2026-09-20T11:57:41",
+        "soc": 55,
+        "priority_raw": 1,
+        "power_to_user_w": 0.0,
+        "power_to_grid_w": 640.8000000000001,
+        "power_user_load_w": 2492.5,
+        "discharge_power_w": 20.0,
+        "charge_power_w": 0.0,
+        "raw_power": [
+          0,
+          0,
+          0,
+          6408,
+          0,
+          24925
+        ],
+        "raw_battery": [
+          0,
+          200,
+          0,
+          0
+        ]
+      }
+    ],
+    "result": {
+      "readback": "accepted; H3044/H3045 and H3047/H3048 matched the intended image",
+      "soc_transition": "53% before the active window, 54% mid-window, 55% at the stop boundary",
+      "power_transition": "approximately 1.51-1.54 kW charge during the window, then 0 W at 55% stop SOC",
+      "source_assessment": "PV-dominant period; this test verifies Battery First and H3048 stop-SOC behavior but does not isolate grid-supplied charging."
+    }
+  },
+  "export_trial": {
+    "slot": 5,
+    "window_inverter_local": "14:08-14:16",
+    "direction": "grid_export",
+    "baseline_clock": "2026-09-20 14:04:06",
+    "baseline_soc_pct": 53,
+    "baseline_registers": {
+      "H3036": 69,
+      "H3037": 11,
+      "H3047": 30,
+      "H3048": 55,
+      "H3049": 1,
+      "H3082": 0
+    },
+    "intended_changes": {
+      "H3036": 30,
+      "H3037": 52,
+      "H3050": "0xCE08 (14:08, Grid First, enabled)",
+      "H3051": "0x0E10 (14:16)"
+    },
+    "post_write_registers": {
+      "H3036": 30,
+      "H3037": 52,
+      "H3050": 52744,
+      "H3051": 3600,
+      "H3047": 30,
+      "H3048": 55,
+      "H3049": 1,
+      "H3082": 0
+    },
+    "representative_samples": [
+      {
+        "label": "window",
+        "host_time": "2026-09-20T12:10:32",
+        "soc": 53,
+        "priority_raw": 2,
+        "power_to_user_w": 1691.3000000000002,
+        "power_to_grid_w": 0.0,
+        "power_user_load_w": 6764.0,
+        "discharge_power_w": 1574.0,
+        "charge_power_w": 0.0,
+        "raw_power": [
+          0,
+          16913,
+          0,
+          0,
+          1,
+          2104
+        ],
+        "raw_battery": [
+          0,
+          15740,
+          0,
+          0
+        ]
+      },
+      {
+        "label": "window",
+        "host_time": "2026-09-20T12:11:02",
+        "soc": 53,
+        "priority_raw": 2,
+        "power_to_user_w": 1646.5,
+        "power_to_grid_w": 0.0,
+        "power_user_load_w": 6804.200000000001,
+        "discharge_power_w": 1572.0,
+        "charge_power_w": 0.0,
+        "raw_power": [
+          0,
+          16465,
+          0,
+          0,
+          1,
+          2506
+        ],
+        "raw_battery": [
+          0,
+          15720,
+          0,
+          0
+        ]
+      },
+      {
+        "label": "window",
+        "host_time": "2026-09-20T12:11:32",
+        "soc": 52,
+        "priority_raw": 2,
+        "power_to_user_w": 4102.8,
+        "power_to_grid_w": 0.0,
+        "power_user_load_w": 7865.6,
+        "discharge_power_w": 127.0,
+        "charge_power_w": 0.0,
+        "raw_power": [
+          0,
+          41028,
+          0,
+          0,
+          1,
+          13120
+        ],
+        "raw_battery": [
+          0,
+          1270,
+          0,
+          0
+        ]
+      },
+      {
+        "label": "window",
+        "host_time": "2026-09-20T12:13:33",
+        "soc": 52,
+        "priority_raw": 2,
+        "power_to_user_w": 4856.2,
+        "power_to_grid_w": 0.0,
+        "power_user_load_w": 6470.8,
+        "discharge_power_w": 123.0,
+        "charge_power_w": 0.0,
+        "raw_power": [
+          0,
+          48562,
+          0,
+          0,
+          0,
+          64708
+        ],
+        "raw_battery": [
+          0,
+          1230,
+          0,
+          0
+        ]
+      },
+      {
+        "label": "window",
+        "host_time": "2026-09-20T12:16:33",
+        "soc": 52,
+        "priority_raw": 2,
+        "power_to_user_w": 3405.1000000000004,
+        "power_to_grid_w": 0.0,
+        "power_user_load_w": 6717.8,
+        "discharge_power_w": 127.0,
+        "charge_power_w": 0.0,
+        "raw_power": [
+          0,
+          34051,
+          0,
+          0,
+          1,
+          1642
+        ],
+        "raw_battery": [
+          0,
+          1270,
+          0,
+          0
+        ]
+      },
+      {
+        "label": "window",
+        "host_time": "2026-09-20T12:18:03",
+        "soc": 52,
+        "priority_raw": 2,
+        "power_to_user_w": 3447.3,
+        "power_to_grid_w": 0.0,
+        "power_user_load_w": 6702.400000000001,
+        "discharge_power_w": 127.0,
+        "charge_power_w": 0.0,
+        "raw_power": [
+          0,
+          34473,
+          0,
+          0,
+          1,
+          1488
+        ],
+        "raw_battery": [
+          0,
+          1270,
+          0,
+          0
+        ]
+      },
+      {
+        "label": "window_end",
+        "host_time": "2026-09-20T12:18:33",
+        "soc": 52,
+        "priority_raw": 2,
+        "power_to_user_w": 3494.5,
+        "power_to_grid_w": 0.0,
+        "power_user_load_w": 6699.8,
+        "discharge_power_w": 126.0,
+        "charge_power_w": 0.0,
+        "raw_power": [
+          0,
+          34945,
+          0,
+          0,
+          1,
+          1462
+        ],
+        "raw_battery": [
+          0,
+          1260,
+          0,
+          0
+        ]
+      }
+    ],
+    "result": {
+      "readback": "accepted for the two FC10 segments; unchanged H3082 FC06 was not required and its attempted write timed out; no retry was made",
+      "mode_transition": "priority_raw 2 (Grid First) during the active slot and returned to 0 after the slot ended",
+      "power_transition": "approximately 1.57 kW discharge while SOC was 53%; after reaching 52% discharge fell to approximately 0.12-0.13 kW",
+      "load_context": "Peblar load was increased by the user to approximately 6 kW; observed inverter load was approximately 6.3-8.0 kW and power-to-grid remained 0 W, so this was battery-to-load behavior rather than grid export."
+    }
+  },
+  "transport_observation": {
+    "unchanged_h3082_fc06": "No response after one retry during the export trial. H3082 was read back as 0 before and after; no retry or cleanup write was issued.",
+    "interpretation": "The planner/executor should omit unchanged logical segments and should not write H3082 merely because it belongs to the logical image. The timeout is retained as a transport observation, not classified as a device semantic failure."
+  },
+  "limitations": [
+    "The tests were supervised, short smoke tests and did not establish persistence across reboot or behavior on other firmware.",
+    "The charge trial occurred with substantial PV input, so a no-PV night test is still needed for an isolated grid-charge claim.",
+    "No cleanup or disable write was issued after either test to avoid unnecessary flash writes; future plans may overwrite the test slots.",
+    "Raw local logs and Recorder database are not redistributed; this artifact contains a bounded extract only."
+  ]
+}

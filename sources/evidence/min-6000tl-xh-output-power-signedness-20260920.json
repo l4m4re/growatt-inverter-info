@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "live_output_power_signedness_conflict",
+  "scope": {
+    "family": ["min_tl_xh"],
+    "model": "MIN 6000TL-XH",
+    "register": "I3023-I3024",
+    "applicability": "Observed on the retained MIN 6000TL-XH installation only; this artifact does not change the canonical specification."
+  },
+  "observation": {
+    "observed_at_utc": "2026-09-20T11:53:41Z/2026-09-20T11:54:26Z",
+    "source": "staging Home Assistant Recorder during the supervised Battery First TOU smoke test",
+    "source_database": "local staging Recorder database; not redistributed",
+    "consumer_source_commit": "bdd5590c6faed509cace6c914878cd3989d5da10",
+    "runtime_mapping": "HA growatt_local input register 3023, two words, float scale 0.1, signed flag not set",
+    "current_gii_claim": "u32 / 10 W, high confidence"
+  },
+  "recorder_values": [
+    {"observed_at_utc": "2026-09-20T11:53:41.416Z", "ha_state_w": 429496580.9, "inferred_raw_hex": "0xFFFFFA31", "inferred_signed_w": -148.7},
+    {"observed_at_utc": "2026-09-20T11:53:56.463Z", "ha_state_w": 429496407.9, "inferred_raw_hex": "0xFFFFF36F", "inferred_signed_w": -321.7},
+    {"observed_at_utc": "2026-09-20T11:54:11.427Z", "ha_state_w": 429496354.5, "inferred_raw_hex": "0xFFFFF159", "inferred_signed_w": -375.1},
+    {"observed_at_utc": "2026-09-20T11:54:26.418Z", "ha_state_w": 429496396.3, "inferred_raw_hex": "0xFFFFF42B", "inferred_signed_w": -331.7}
+  ],
+  "interpretation": {
+    "observed": [
+      "The HA value is consistent with a negative signed 32-bit inverter value being interpreted as unsigned and scaled by 0.1.",
+      "The anomalous values occurred while the battery was charging, when a negative net AC output is physically plausible."
+    ],
+    "status": "unresolved_live_conflict",
+    "required_follow_up": [
+      "Capture the raw I3023-I3024 input words directly while the inverter is charging and while it is discharging.",
+      "Compare the sign convention with the portal and independent power channels before changing the GII current model.",
+      "Only after human review, update the canonical specification and the HA decoder together if the signed interpretation is accepted."
+    ]
+  },
+  "limitations": [
+    "The Recorder stores the decoded HA state; the original Modbus input words were not retained in this bounded artifact.",
+    "The existing GII evidence and overlay currently declare I3023-I3024 unsigned, so the live result is a conflict, not an accepted correction.",
+    "No production configuration or entity identity was changed."
+  ]
+}
