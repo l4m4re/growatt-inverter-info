@@ -1,0 +1,111 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "ha_recorder_outlier_audit",
+  "scope": {
+    "family": ["min_tl_xh"],
+    "model": "MIN 6000TL-XH",
+    "applicability": "Local staging Home Assistant Recorder only; no semantic correction is accepted by this artifact."
+  },
+  "observation": {
+    "audited_at_utc": "2026-09-20T12:35:00Z",
+    "source": "local staging Home Assistant Recorder database",
+    "source_database": "local .staging/ha-config/home-assistant_v2.db; not redistributed",
+    "timezone_for_local_times": "Europe/Amsterdam",
+    "method": "numeric state scan with entity-specific physical plausibility thresholds; decoded state values only",
+    "thresholds": {
+      "output_power": "absolute state > 100000 W",
+      "real_power_output_percentage": "state > 100 %",
+      "bms_battery_current": "absolute state > 100 A"
+    }
+  },
+  "findings": {
+    "output_power": {
+      "entity_id": "sensor.growatt_output_power",
+      "outlier_state_count": 347,
+      "episodes": [
+        {
+          "local_start": "2026-09-13 20:32:14+02:00",
+          "local_end": "2026-09-13 21:32:25+02:00",
+          "samples": 56,
+          "stored_w_range": [429496318.5, 429496330.9],
+          "inferred_signed_w_range": [-411.1, -398.7]
+        },
+        {
+          "local_start": "2026-09-14 01:38:25+02:00",
+          "local_end": "2026-09-14 02:43:25+02:00",
+          "samples": 60,
+          "stored_w_range": [429496319.7, 429496329.7],
+          "inferred_signed_w_range": [-409.9, -399.9]
+        },
+        {
+          "local_start": "2026-09-14 06:50:28+02:00",
+          "local_end": "2026-09-14 07:47:28+02:00",
+          "samples": 53,
+          "stored_w_range": [429496319.2, 429496329.0],
+          "inferred_signed_w_range": [-410.4, -400.6]
+        },
+        {
+          "local_start": "2026-09-19 19:29:06+02:00",
+          "local_end": "2026-09-19 19:59:21+02:00",
+          "samples": 173,
+          "stored_w_range": [429493102.0, 429496435.1],
+          "inferred_signed_w_range": [-3627.6, -294.5]
+        },
+        {
+          "local_start": "2026-09-20 13:53:41+02:00",
+          "local_end": "2026-09-20 13:54:26+02:00",
+          "samples": 5,
+          "stored_w_range": [429496352.6, 429496580.9],
+          "inferred_signed_w_range": [-377.0, -148.7]
+        }
+      ],
+      "interpretation": "The displayed values are consistent with unsigned decoding of negative signed 32-bit values at a 0.1 W scale. The 2026-09-19 episode coincides with approximately 3.55 kW battery charging, near-zero PV, and normal 0.42-0.71 kW load."
+    },
+    "real_power_output_percentage": {
+      "entity_id": "sensor.growatt_real_power_output_percentage",
+      "outlier_state_count": 42,
+      "episode_count": 22,
+      "yesterday_local_episode": {
+        "local_start": "2026-09-19 19:29:06+02:00",
+        "local_end": "2026-09-19 19:59:21+02:00",
+        "samples": 17,
+        "stored_percent_range": [65476.0, 65532.0]
+      },
+      "today_local_episode": {
+        "local_start": "2026-09-20 13:53:41+02:00",
+        "local_end": "2026-09-20 13:54:26+02:00",
+        "samples": 4,
+        "stored_percent_range": [65530.0, 65534.0]
+      },
+      "interpretation": "Values above 100% are impossible for this percentage sensor and coincide with the output-power episodes. The one-word I3101 signedness/meaning remains a separate unresolved GII review item."
+    },
+    "bms_battery_current": {
+      "entity_id": "sensor.growatt_bms_battery_current",
+      "outlier_state_count": 3047,
+      "utc_start": "2026-08-27T10:41:57Z",
+      "utc_end": "2026-09-11T22:24:31Z",
+      "local_start": "2026-08-27 12:41:57+02:00",
+      "local_end": "2026-09-12 00:24:31+02:00",
+      "stored_a_range": [637.06, 655.16],
+      "inferred_signed_a_range": [-18.3, -0.2],
+      "yesterday_local_outlier_count": 0,
+      "interpretation": "The stored values are physically implausible for this battery and are consistent with unsigned decoding of a signed 16-bit 0.01 A value. Later/current values are in the normal signed range."
+    }
+  },
+  "cross_channel_check_yesterday": {
+    "local_window": "2026-09-19 19:29:00+02:00/20:00:00+02:00",
+    "output_power_stored_w_range": [8.6, 429496435.1],
+    "charge_power_w_range": [0.0, 3570.0],
+    "power_to_user_w_range": [0.0, 4262.6],
+    "power_user_load_w_range": [416.0, 706.6],
+    "input_1_wattage_w_range": [0.0, 2.9],
+    "bms_battery_current_a_range": [-2.7, 16.5],
+    "soc_percent_range": [46.0, 63.0],
+    "conclusion": "The approximately 429 MW output-power history is a decoder artifact; the independent power and SOC channels remain within plausible operating ranges."
+  },
+  "limitations": [
+    "The Recorder contains decoded states, not the original Modbus words, so signed raw values are inferred by reversing the observed scale and two's-complement wrap.",
+    "This audit does not alter historical states or the canonical register specification.",
+    "A raw-word capture under charging and discharging is still required before accepting a signedness correction for I3023 or I3101."
+  ]
+}
