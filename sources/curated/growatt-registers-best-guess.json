@@ -5984,7 +5984,7 @@
       "description": "Active AC output power delivered by the inverter (0.1 W resolution).",
       "access": "R",
       "unit": "W",
-      "data_type": "u32_power_w_decawatt",
+      "data_type": "s32_power_w_decawatt",
       "attributes": [
         "output_power"
       ]
@@ -6690,7 +6690,7 @@
       "description": "Instantaneous AC output as a percentage of the inverter's rated power.",
       "access": "R",
       "unit": "%",
-      "data_type": "u16_percent",
+      "data_type": "s16_percent",
       "attributes": [
         "real_output_power_percent"
       ]

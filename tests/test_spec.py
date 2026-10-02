@@ -1,11 +1,12 @@
 from __future__ import annotations
 
+from copy import deepcopy
 import json
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from typing import Any
 
-from tools.build_spec import build_model, generate, render
+from tools.build_spec import build_model, generate, render, structured_dedup_counts
 from tools.validate_spec import validate
 
 
@@ -91,6 +92,8 @@ def test_single_markdown_projection_covers_blocks_registers_and_logical_fields()
     assert "## Holding registers" in markdown
     assert "## Input registers" in markdown
     assert "### US Machine type Time Set" in markdown
+    assert "TL-XH US; MIN 6000TL-XH" in markdown
+    assert "(TL-XH; MIN 6000TL-XH)" in markdown
     assert "H3036" in markdown
     assert "H3037" in markdown
     assert "H3038" in markdown
@@ -104,11 +107,75 @@ def test_single_markdown_projection_covers_blocks_registers_and_logical_fields()
     assert "unknown_word_order" in markdown
 
 
+def test_uniform_block_omits_register_scope_column() -> None:
+    spec = read_spec()
+    markdown = render(spec)
+    first_block = next(
+        block
+        for block in spec["blocks"]
+        if block["table"] == "holding" and block["address_start"] == 0
+    )
+    heading = f"### {first_block['vendor_heading_raw']}"
+    block_markdown = markdown.split(heading, 1)[1].split("\n<a id=", 1)[0]
+
+    assert "| Scope |" not in block_markdown
+    assert "| Range / default | Status |" in block_markdown
+
+
+def test_register_scope_exception_is_shown_only_in_its_block() -> None:
+    spec = deepcopy(read_spec())
+    first_block = next(
+        block
+        for block in spec["blocks"]
+        if block["table"] == "holding" and block["address_start"] == 0
+    )
+    first_register_id = first_block["register_ids"][0]
+    next(
+        register
+        for register in spec["registers"]
+        if register["register_id"] == first_register_id
+    )["applicability_path_refs"] = []
+
+    markdown = render(spec)
+    heading = f"### {first_block['vendor_heading_raw']}"
+    block_markdown = markdown.split(heading, 1)[1].split("\n<a id=", 1)[0]
+
+    assert "| Range / default | Scope | Status |" in block_markdown
+    assert "| H0 | Inverter enable flags |" in block_markdown
+    assert "| Declared range only |" in block_markdown
+
+
+def test_structured_definitions_collapse_duplicates_and_keep_variants() -> None:
+    spec = read_spec()
+    markdown = render(spec)
+    h122 = markdown.split("#### H122 — Enum values", 1)[1].split("\n#### ", 1)[0]
+    h3039 = markdown.split("#### H3039 — Enum values", 1)[1].split("\n#### ", 1)[0]
+    h3038_bits = markdown.split("#### H3038 — Bitfields", 1)[1].split("\n#### ", 1)[0]
+
+    assert h122.count("| 0 | DisableexportLimit | disableexportlimit | No |") == 1
+    assert "Applies to" not in h122
+    assert (
+        "| H122 | Export limit enable mode | ExportLimitenable | read_write | register value | — | — | /W 1/0 | ENRICHED |"
+        in markdown
+    )
+    assert "| Applies to |" in h3039
+    assert "reserved / reserved register value None" in h3039
+    assert h3038_bits.count("| 0, 7 | minutes | minutes | minutes | structured |") == 1
+
+    assert structured_dedup_counts(spec) == {
+        "enums": 277,
+        "bitfields": 42,
+        "packed_fields": 0,
+    }
+
+
 def test_clean_build_is_deterministic() -> None:
     with TemporaryDirectory() as temporary_directory:
         output = Path(temporary_directory)
         generated = generate(output=output)
 
-        assert json.loads((output / "growatt-register-spec.json").read_text(encoding="utf-8")) == read_spec()
+        generated_json = output / "growatt-register-spec.json"
+        assert json.loads(generated_json.read_text(encoding="utf-8")) == read_spec()
+        assert generated_json.read_bytes() == SPEC_PATH.read_bytes()
         assert (output / "growatt-register-spec.md").read_text(encoding="utf-8") == MARKDOWN_PATH.read_text(encoding="utf-8")
         assert json.dumps(generated, sort_keys=True) == json.dumps(build_model(), sort_keys=True)

@@ -38,3 +38,15 @@ material is under `sources/legacy/` and is included explicitly in the JSON.
 Read [`docs/METHODOLOGY.md`](docs/METHODOLOGY.md) before adding or correcting
 register knowledge. [`docs/REVERSE_ENGINEERING.md`](docs/REVERSE_ENGINEERING.md)
 covers safe evidence collection boundaries.
+
+The end-to-end evidence, review, consolidation, and Home Assistant consumer
+workflow is documented in
+[`docs/REGISTER_KNOWLEDGE_WORKFLOW.md`](docs/REGISTER_KNOWLEDGE_WORKFLOW.md).
+Consumer repositories must record the exact GII commit they use and must not
+edit the generated `spec/` products as a separate source of truth.
+
+Home Assistant runtime audits and polling-plan reviews are retained with the
+register evidence in [`docs/consolidation/`](docs/consolidation/). These
+reports describe how the reviewed register knowledge is consumed by the
+Growatt integration; they do not make the integration repository a second
+register-knowledge store.

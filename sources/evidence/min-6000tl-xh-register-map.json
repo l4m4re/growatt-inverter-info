@@ -66,7 +66,7 @@
     {"register": 3007, "length": 1, "name": "PV2 voltage", "encoding": "u16 / 10", "unit": "V", "access": "R", "applicability": "MIN 6000TL-XH", "confidence": "high", "provenance": ["HA", "live"]},
     {"register": 3008, "length": 1, "name": "PV2 current", "encoding": "u16 / 10", "unit": "A", "access": "R", "applicability": "MIN 6000TL-XH", "confidence": "high", "provenance": ["HA", "live"]},
     {"register": 3009, "length": 2, "name": "PV2 power", "encoding": "u32 / 10", "unit": "W", "access": "R", "applicability": "MIN 6000TL-XH", "confidence": "high", "provenance": ["HA", "live"]},
-    {"register": 3023, "length": 2, "name": "AC output power", "encoding": "u32 / 10", "unit": "W", "access": "R", "applicability": "MIN 6000TL-XH", "confidence": "high", "provenance": ["HA", "live"]},
+    {"register": 3023, "length": 2, "name": "AC output power", "encoding": "s32 / 10", "unit": "W", "access": "R", "applicability": "MIN 6000TL-XH", "confidence": "high", "provenance": ["HA", "live", "min_tl_xh_recorder_outlier_audit_20260920"]},
     {"register": 3025, "length": 1, "name": "Grid frequency", "encoding": "u16 / 100", "unit": "Hz", "access": "R", "applicability": "MIN 6000TL-XH", "confidence": "high", "provenance": ["vendor", "HA", "live"]},
     {"register": 3026, "length": 1, "name": "AC phase L1 voltage", "encoding": "u16 / 10", "unit": "V", "access": "R", "applicability": "MIN 6000TL-XH", "confidence": "high", "provenance": ["HA", "live"]},
     {"register": 3027, "length": 1, "name": "AC phase L1 current", "encoding": "u16 / 10", "unit": "A", "access": "R", "applicability": "MIN 6000TL-XH", "confidence": "high", "provenance": ["HA", "live"]},

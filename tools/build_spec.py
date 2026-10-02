@@ -461,10 +461,14 @@ def build_model(root: Path = ROOT) -> dict[str, Any]:
     }
 
 
+def presentation_text(value: Any) -> str:
+    return re.sub(r"\s+", " ", str(value)).strip()
+
+
 def markdown_cell(value: Any) -> str:
     if value is None or value == "":
         return "—"
-    text = str(value).replace("|", "&#124;").replace("\n", "<br>").strip()
+    text = presentation_text(value).replace("|", "&#124;")
     return text or "—"
 
 
@@ -485,31 +489,55 @@ def register_address(register: dict[str, Any]) -> str:
     return f"{prefix}{address}"
 
 
-def family_names_for_refs(model: dict[str, Any], refs: list[str]) -> str:
+def family_ids_for_refs(model: dict[str, Any], refs: list[str]) -> set[str]:
     path_by_id = {item["path_id"]: item for item in model["applicability"]["paths"]}
-    family_by_id = {item["family_id"]: item for item in model["families"]}
+    return {path_by_id[ref]["family_id"] for ref in refs if ref in path_by_id}
+
+
+def family_names_for_ids(model: dict[str, Any], family_ids: set[str]) -> str:
     names = []
-    for ref in refs:
-        path = path_by_id.get(ref)
-        if path is None:
-            continue
-        family = family_by_id.get(path["family_id"], {})
-        names.extend(family.get("canonical_names", [path["family_id"]]))
+    for family in model["families"]:
+        if family["family_id"] in family_ids:
+            names.extend(family.get("canonical_names", [family["family_id"]]))
     return "; ".join(dict.fromkeys(names)) or "Declared range only"
 
 
-def applicability_summary(model: dict[str, Any], refs: list[str]) -> str:
+def applicability_lines(model: dict[str, Any], refs: list[str]) -> list[str]:
+    family_ids = family_ids_for_refs(model, refs)
     path_by_id = {item["path_id"]: item for item in model["applicability"]["paths"]}
-    family_by_id = {item["family_id"]: item for item in model["families"]}
-    details = []
-    for family_id in dict.fromkeys(
-        path_by_id[ref]["family_id"] for ref in refs if ref in path_by_id
-    ):
-        family = family_by_id.get(family_id, {})
-        names = "/".join(family.get("canonical_names", [family_id]))
-        models = family.get("models", [])
-        details.append(f"{names} ({', '.join(models) if models else 'models not specified'})")
-    return "; ".join(details) or "Declared range only"
+    lines = []
+    for family in model["families"]:
+        if family["family_id"] not in family_ids:
+            continue
+        label = "/".join(family.get("canonical_names", [family["family_id"]]))
+        qualifiers = list(
+            dict.fromkeys(
+                path_by_id[ref]["qualifier"]
+                for ref in refs
+                if ref in path_by_id
+                and path_by_id[ref]["family_id"] == family["family_id"]
+                and path_by_id[ref].get("qualifier")
+            )
+        )
+        qualifiers.extend(
+            model_name
+            for model_name in family.get("models", [])
+            if model_name not in qualifiers
+        )
+        if qualifiers:
+            label += f" ({'; '.join(qualifiers)})"
+        lines.append(f"- {label}")
+    return lines or ["- Declared ranges only"]
+
+
+def block_has_scope_exceptions(model: dict[str, Any], block: dict[str, Any]) -> bool:
+    block_families = family_ids_for_refs(model, block["applicability_path_refs"])
+    register_by_id = {item["register_id"]: item for item in model["registers"]}
+    return any(
+        family_ids_for_refs(model, register_by_id[register_id]["applicability_path_refs"])
+        != block_families
+        for register_id in block["register_ids"]
+    )
 
 
 def scale_summary(datatype: dict[str, Any]) -> str:
@@ -521,17 +549,46 @@ def scale_summary(datatype: dict[str, Any]) -> str:
     return ", ".join(parts) or "—"
 
 
-def enum_summary(datatype: dict[str, Any]) -> str:
-    values = []
-    for structure in datatype.get("structured", []):
-        for item in structure.get("enums", []):
-            label = item.get("vendor_label") or item.get("canonical_name")
-            values.append(f"{item.get('value')} = {label}")
-    return "; ".join(dict.fromkeys(values))
+def description_for_projection(register: dict[str, Any]) -> str | None:
+    description = register.get("description")
+    if not description:
+        return description
+    enums, _ = structured_entries(register, "enums")
+    if not enums:
+        return description
+
+    text = presentation_text(description)
+    prefix, separator, enum_text = text.partition(",")
+    enum_text = (enum_text if separator else text).strip().rstrip(";")
+    actual = []
+    for item in enum_text.split(";"):
+        match = re.fullmatch(r"\s*(\d+)\s*:\s*(.*?)\s*", item)
+        if match is None:
+            return description
+        actual.append((match.group(1), presentation_text(match.group(2)).casefold()))
+    expected = {
+        (
+            str(entry["definition"].get("value")),
+            presentation_text(
+                entry["definition"].get("vendor_label")
+                or entry["definition"].get("canonical_name")
+                or ""
+            ).casefold(),
+        )
+        for entry in enums
+    }
+    if len(actual) != len(expected) or set(actual) != expected:
+        return description
+    return prefix.strip() or None
 
 
-def register_rows(model: dict[str, Any], block: dict[str, Any]) -> list[list[Any]]:
+def register_rows(
+    model: dict[str, Any], block: dict[str, Any], include_scope: bool | None = None
+) -> list[list[Any]]:
+    if include_scope is None:
+        include_scope = block_has_scope_exceptions(model, block)
     register_by_id = {item["register_id"]: item for item in model["registers"]}
+    block_families = family_ids_for_refs(model, block["applicability_path_refs"])
     rows = []
     for register_id in block["register_ids"]:
         register = register_by_id[register_id]
@@ -542,64 +599,228 @@ def register_rows(model: dict[str, Any], block: dict[str, Any]) -> list[list[Any
         bounds = register.get("range_raw") or ""
         if register.get("default") is not None:
             bounds = "; ".join(part for part in (f"default {register['default']}", bounds) if part)
-        enums = enum_summary(datatype)
-        if enums:
-            bounds = "; ".join(part for part in (bounds, enums) if part)
-        rows.append(
-            [
-                register_address(register),
-                register.get("canonical_name") or "; ".join(register.get("source_aliases", [])),
-                register.get("description"),
-                register.get("access"),
-                encoding,
-                scale_summary(datatype),
-                datatype.get("unit"),
-                bounds,
-                family_names_for_refs(model, register.get("applicability_path_refs", [])),
-                register.get("evidence", {}).get("validation_state"),
-            ]
-        )
+        row = [
+            register_address(register),
+            register.get("canonical_name") or "; ".join(register.get("source_aliases", [])),
+            description_for_projection(register),
+            register.get("access"),
+            encoding,
+            scale_summary(datatype),
+            datatype.get("unit"),
+            bounds,
+        ]
+        if include_scope:
+            register_families = family_ids_for_refs(
+                model, register.get("applicability_path_refs", [])
+            )
+            scope = (
+                "—"
+                if register_families == block_families
+                else family_names_for_ids(model, register_families)
+            )
+            row.append(scope)
+        row.append(register.get("evidence", {}).get("validation_state"))
+        rows.append(row)
     return rows
+
+
+def structured_entries(
+    register: dict[str, Any], kind: str
+) -> tuple[list[dict[str, Any]], int]:
+    fields = {
+        "enums": ("value", "canonical_name", "vendor_label", "ambiguous"),
+        "bitfields": ("bits", "name", "vendor_label", "description", "status"),
+        "packed_fields": None,
+    }[kind]
+    by_signature: dict[str, dict[str, Any]] = {}
+    total = 0
+    for structure in register["datatype"].get("structured", []):
+        values = structure.get(kind)
+        if kind == "packed_fields":
+            items = values if isinstance(values, list) else ([values] if values is not None else [])
+        else:
+            items = values or []
+        family_id = structure.get("physical_id", "").split(":", 1)[0]
+        for item in items:
+            total += 1
+            definition = dict(item) if fields is None else {field: item.get(field) for field in fields}
+            signature_definition = (
+                {key: value for key, value in definition.items() if key != "provenance"}
+                if kind == "packed_fields"
+                else definition
+            )
+            signature = json.dumps(signature_definition, ensure_ascii=False, sort_keys=True)
+            entry = by_signature.setdefault(
+                signature, {"definition": definition, "family_ids": set()}
+            )
+            if family_id:
+                entry["family_ids"].add(family_id)
+    return list(by_signature.values()), total - len(by_signature)
+
+
+def structured_dedup_counts(model: dict[str, Any]) -> dict[str, int]:
+    counts = {"enums": 0, "bitfields": 0, "packed_fields": 0}
+    for register in model["registers"]:
+        for kind in counts:
+            _, collapsed = structured_entries(register, kind)
+            counts[kind] += collapsed
+    return counts
+
+
+def structured_scope_columns(
+    entries: list[dict[str, Any]], key_for: Any
+) -> set[str]:
+    signatures_by_key: defaultdict[str, set[str]] = defaultdict(set)
+    for entry in entries:
+        definition = entry["definition"]
+        key = json.dumps(key_for(definition), ensure_ascii=False, sort_keys=True)
+        signature = json.dumps(definition, ensure_ascii=False, sort_keys=True)
+        signatures_by_key[key].add(signature)
+    return {key for key, signatures in signatures_by_key.items() if len(signatures) > 1}
+
+
+def structured_needs_scope(
+    entries: list[dict[str, Any]],
+    variant_keys: set[str],
+    applicable_families: set[str],
+) -> bool:
+    if variant_keys:
+        return True
+    return any(entry["family_ids"] != applicable_families for entry in entries)
+
+
+def scope_for_entry(
+    model: dict[str, Any],
+    entry: dict[str, Any],
+    key: str,
+    variant_keys: set[str],
+    applicable_families: set[str],
+) -> str:
+    if key not in variant_keys and entry["family_ids"] == applicable_families:
+        return "—"
+    return family_names_for_ids(model, entry["family_ids"])
 
 
 def structured_details(model: dict[str, Any], block: dict[str, Any]) -> list[str]:
     register_by_id = {item["register_id"]: item for item in model["registers"]}
-    family_by_id = {item["family_id"]: item for item in model["families"]}
-    enums: list[list[Any]] = []
-    bits: list[list[Any]] = []
-    packed: list[list[Any]] = []
-    seen: set[str] = set()
+    result = []
     for register_id in block["register_ids"]:
         register = register_by_id[register_id]
-        for structure in register["datatype"].get("structured", []):
-            physical_id = structure.get("physical_id", "")
-            family_id = physical_id.split(":", 1)[0]
-            identity = "/".join(family_by_id.get(family_id, {}).get("canonical_names", [family_id])) or "Source record"
-            for item in structure.get("enums", []):
-                row = [register_address(register), identity, item.get("value"), item.get("vendor_label"), item.get("ambiguous")]
-                marker = json.dumps(row, ensure_ascii=False, sort_keys=True)
-                if marker not in seen:
-                    enums.append(row)
-                    seen.add(marker)
-            for item in structure.get("bitfields", []):
-                row = [register_address(register), identity, item.get("bits"), item.get("vendor_label") or item.get("name"), item.get("description"), item.get("status")]
-                marker = json.dumps(row, ensure_ascii=False, sort_keys=True)
-                if marker not in seen:
-                    bits.append(row)
-                    seen.add(marker)
-            if structure.get("packed_fields") is not None:
-                row = [register_address(register), identity, json.dumps(structure["packed_fields"], ensure_ascii=False, sort_keys=True)]
-                marker = json.dumps(row, ensure_ascii=False, sort_keys=True)
-                if marker not in seen:
-                    packed.append(row)
-                    seen.add(marker)
-    result = []
-    if enums:
-        result.extend(["#### Enum values", "", md_table(enums, ["Address", "Source identity", "Value", "Vendor label", "Ambiguous"]), ""])
-    if bits:
-        result.extend(["#### Bitfields", "", md_table(bits, ["Address", "Source identity", "Bits", "Field", "Description", "Status"]), ""])
-    if packed:
-        result.extend(["#### Packed fields", "", md_table(packed, ["Address", "Source identity", "Fields"]), ""])
+        address = register_address(register)
+        applicable_families = family_ids_for_refs(
+            model, register.get("applicability_path_refs", [])
+        )
+
+        enums, _ = structured_entries(register, "enums")
+        if enums:
+            variants = structured_scope_columns(enums, lambda item: item.get("value"))
+            has_scope = structured_needs_scope(
+                enums, variants, applicable_families
+            )
+            rows = []
+            for entry in enums:
+                definition = entry["definition"]
+                key = json.dumps(definition.get("value"), ensure_ascii=False, sort_keys=True)
+                rows.append(
+                    [
+                        definition.get("value"),
+                        definition.get("vendor_label"),
+                        definition.get("canonical_name"),
+                        "Yes" if definition.get("ambiguous") else "No",
+                        *(
+                            [
+                                scope_for_entry(
+                                    model, entry, key, variants, applicable_families
+                                )
+                            ]
+                            if has_scope
+                            else []
+                        ),
+                    ]
+                )
+            headers = ["Value", "Vendor label", "Canonical name", "Ambiguous"]
+            if has_scope:
+                headers.append("Applies to")
+            result.extend([f"#### {address} — Enum values", "", md_table(rows, headers), ""])
+
+        bitfields, _ = structured_entries(register, "bitfields")
+        if bitfields:
+            variants = structured_scope_columns(bitfields, lambda item: item.get("bits"))
+            has_scope = structured_needs_scope(
+                bitfields, variants, applicable_families
+            )
+            rows = []
+            for entry in bitfields:
+                definition = entry["definition"]
+                key = json.dumps(definition.get("bits"), ensure_ascii=False, sort_keys=True)
+                bits = definition.get("bits")
+                rows.append(
+                    [
+                        ", ".join(str(value) for value in bits) if isinstance(bits, list) else bits,
+                        definition.get("vendor_label") or definition.get("name"),
+                        definition.get("name"),
+                        definition.get("description"),
+                        definition.get("status"),
+                        *(
+                            [
+                                scope_for_entry(
+                                    model, entry, key, variants, applicable_families
+                                )
+                            ]
+                            if has_scope
+                            else []
+                        ),
+                    ]
+                )
+            headers = ["Bits", "Field", "Name", "Description", "Status"]
+            if has_scope:
+                headers.append("Applies to")
+            result.extend([f"#### {address} — Bitfields", "", md_table(rows, headers), ""])
+
+        packed, _ = structured_entries(register, "packed_fields")
+        if packed:
+            variants = structured_scope_columns(packed, lambda item: (item.get("bits"), item.get("name")))
+            has_scope = structured_needs_scope(
+                packed,
+                variants,
+                applicable_families,
+            )
+            rows = []
+            for entry in packed:
+                definition = entry["definition"]
+                key = json.dumps(
+                    (definition.get("bits"), definition.get("name")),
+                    ensure_ascii=False,
+                    sort_keys=True,
+                )
+                bits = definition.get("bits")
+                encoding = presentation_text(definition.get("description") or "")
+                enum = definition.get("enum")
+                if isinstance(enum, dict) and enum:
+                    enum_text = "; ".join(f"{value}: {label}" for value, label in enum.items())
+                    encoding = "; ".join(part for part in (encoding, enum_text) if part)
+                rows.append(
+                    [
+                        ", ".join(str(value) for value in bits) if isinstance(bits, list) else bits,
+                        definition.get("vendor_label") or definition.get("name"),
+                        definition.get("name"),
+                        encoding,
+                        definition.get("status"),
+                        *(
+                            [
+                                scope_for_entry(
+                                    model, entry, key, variants, applicable_families
+                                )
+                            ]
+                            if has_scope
+                            else []
+                        ),
+                    ]
+                )
+            headers = ["Bits", "Field", "Name", "Encoding / meaning", "Status"]
+            if has_scope:
+                headers.append("Applies to")
+            result.extend([f"#### {address} — Packed fields", "", md_table(rows, headers), ""])
     return result
 
 
@@ -673,7 +894,7 @@ def render(model: dict[str, Any]) -> str:
         family_rows.append(
             [
                 " / ".join(family["canonical_names"]),
-                ", ".join(family.get("models", [])) or "Models not specified",
+                ", ".join(family.get("models", [])) or "—",
                 family.get("protocol_group") or "—",
                 len(family["block_refs"]),
             ]
@@ -692,19 +913,34 @@ def render(model: dict[str, Any]) -> str:
             role_status = block["role"].get("status")
             role_text = role if role else f"not normalized ({role_status})"
             prefix = "H" if table == "holding" else "I"
+            include_scope = block_has_scope_exceptions(model, block)
+            register_headers = [
+                "Addr",
+                "Variable",
+                "Description",
+                "Access",
+                "Type",
+                "Scale",
+                "Unit",
+                "Range / default",
+            ]
+            if include_scope:
+                register_headers.append("Scope")
+            register_headers.append("Status")
             lines.extend(
                 [
                     f"- **Vendor heading:** {block['vendor_heading_raw']}",
                     f"- **Normalized role:** {role_text}",
                     f"- **Table / function:** {table.title()} / FC{block['function_code']:02d}",
                     f"- **Address range:** {prefix}{block['address_start']}–{prefix}{block['address_end']}",
-                    f"- **Applicable families / models:** {applicability_summary(model, block['applicability_path_refs'])}",
+                    "- **Applies to:**",
+                    *(
+                        f"  {line}"
+                        for line in applicability_lines(model, block["applicability_path_refs"])
+                    ),
                     f"- **Source / provenance:** {source_summary(model, block)}",
                     "",
-                    md_table(
-                        register_rows(model, block),
-                        ["Addr", "Variable", "Description", "Access", "Type", "Scale", "Unit", "Range / Enum", "Applicability", "Status"],
-                    ),
+                    md_table(register_rows(model, block, include_scope), register_headers),
                     "",
                 ]
             )

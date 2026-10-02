@@ -9,7 +9,8 @@
       "grott",
       "openinverter_gateway",
       "ha_runtime",
-      "min_live_validation"
+      "min_live_validation",
+      "min_tl_xh_recorder_outlier_audit_20260920"
     ]
   },
   "records": [
@@ -536,13 +537,31 @@
     },
     {
       "table": "input",
+      "address": 3023,
+      "address_end": 3024,
+      "signed": true,
+      "encoding": "s32 / 10",
+      "unit": "W",
+      "semantic_key": "telemetry.ac_output_power",
+      "disposition": "CORRECTED_BY_LIVE_EVIDENCE",
+      "rationale": "I3023–I3024 is one signed 32-bit AC output-power register. During grid charging the HA decoder stored values near 429.5 MW because it treated negative two-word values as unsigned; reversing the int32 wrap produces plausible negative inverter power that correlates with charge power and load telemetry.",
+      "live_observation": "The 19 Sep 2026 19:29–19:59 local Recorder interval stored 429493102–429496435 W; signed int32 / 10 gives -3.63..-0.29 kW while charge power was 0..3.57 kW.",
+      "source_basis": ["vendor_v124", "ha_runtime", "min_live_validation", "min_tl_xh_recorder_outlier_audit_20260920"],
+      "resolution_status": "resolved_with_notes",
+      "confidence": "high"
+    },
+    {
+      "table": "input",
       "address": 3101,
-      "signed": false,
-      "disposition": "PROVEN",
-      "rationale": "I3101 is Growatt RealOPPercent, a non-negative output-power percentage. The reactivated V4 energy history returned real_op_percent in all 145 records within the 0..43% range and never returned a negative value.",
-      "live_observation": "Growatt V4 real_op_percent: 145 records, range 0..43%, negative records 0",
-      "source_basis": ["vendor_v124", "grott", "openinverter_gateway", "ha_runtime", "min_live_validation"],
-      "resolution_status": "resolved",
+      "signed": true,
+      "encoding": "s16 / 1",
+      "unit": "%",
+      "semantic_key": "telemetry.output_power_percentage",
+      "disposition": "CORRECTED_BY_LIVE_EVIDENCE",
+      "rationale": "I3101 is a signed 16-bit output-power percentage on this bidirectional MIN 6000TL-XH. The public V4 history is positive-only, but local Modbus Recorder samples during grid charging contain raw 0xFFxx values; signed decoding gives -60..-4%, matching the simultaneous negative AC output power.",
+      "live_observation": "Yesterday's 19:29–19:59 local Recorder values were 65476–65532%; int16 conversion gives -60..-4%. Today's smoke test also produced 65530–65534% while output power was negative.",
+      "source_basis": ["vendor_v124", "grott", "openinverter_gateway", "ha_runtime", "min_live_validation", "min_tl_xh_recorder_outlier_audit_20260920"],
+      "resolution_status": "resolved_with_notes",
       "confidence": "high"
     },
     {

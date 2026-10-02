@@ -171816,7 +171816,7 @@
     },
     {
       "address": 3023,
-      "address_end": null,
+      "address_end": 3024,
       "applicability_paths": [
         {
           "declared_end": 3124,
@@ -171834,14 +171834,14 @@
       "conflict_refs": [],
       "consolidated": {
         "access": "read",
-        "description": "AC output power",
+        "description": "Bidirectional AC output power (0.1 W resolution; signed while the hybrid inverter charges from the grid).",
         "divisor": 10,
         "multiplier": 0.1,
         "name": "AC output power",
-        "range_raw": "0.1W",
+        "range_raw": "signed; 0.1W resolution",
         "scale": 0.1,
         "semantic_key": "telemetry.ac_output_power",
-        "signed": false,
+        "signed": true,
         "unit": "W"
       },
       "consolidated_block_id": "cb-input-p070-use_for_tl_x_and_tl_xh-block-14",
@@ -171855,11 +171855,11 @@
           "name": "AC output power",
           "physical_id": "min_tl_xh:input:3023",
           "quantity": "telemetry.ac_output_power",
-          "raw_type": "u32 / 10",
+          "raw_type": "s32 / 10",
           "resolution_confidence": "medium",
           "resolution_status": "resolved_with_notes",
           "scale": 0.1,
-          "signed": false,
+          "signed": true,
           "source_provenance": [
             "curated_best_guess",
             "grott",
@@ -171868,7 +171868,8 @@
             "min_live_validation",
             "min_resolved_map",
             "openinverter_gateway",
-            "vendor_v124"
+            "vendor_v124",
+            "min_tl_xh_recorder_outlier_audit_20260920"
           ],
           "unit": "W",
           "write_policy": "read_only"
@@ -171886,14 +171887,15 @@
           "resolution_confidence": "medium",
           "resolution_status": "resolved_with_notes",
           "scale": 0.1,
-          "signed": null,
+          "signed": true,
           "source_provenance": [
             "curated_best_guess",
             "grott",
             "ha_runtime",
             "manual",
             "openinverter_gateway",
-            "vendor_v124"
+            "vendor_v124",
+            "min_tl_xh_recorder_outlier_audit_20260920"
           ],
           "unit": "Output power",
           "write_policy": "read_only"
@@ -183653,14 +183655,14 @@
       "conflict_refs": [],
       "consolidated": {
         "access": "read",
-        "description": "RealOutputpowerPercent",
+        "description": "Bidirectional AC output percentage; signed while the hybrid inverter charges from the grid.",
         "divisor": 1,
         "multiplier": 1,
         "name": "Output power percentage",
-        "range_raw": "1%",
+        "range_raw": "signed; 1% resolution",
         "scale": 1,
         "semantic_key": "telemetry.output_power_percentage",
-        "signed": false,
+        "signed": true,
         "unit": "%"
       },
       "consolidated_block_id": "cb-input-p070-use_for_tl_x_and_tl_xh-block-14",
@@ -183674,11 +183676,11 @@
           "name": "Output power percentage",
           "physical_id": "min_tl_xh:input:3101",
           "quantity": "telemetry.output_power_percentage",
-          "raw_type": "register value",
+          "raw_type": "s16_percent",
           "resolution_confidence": "high",
-          "resolution_status": "resolved",
+          "resolution_status": "resolved_with_notes",
           "scale": 1,
-          "signed": false,
+          "signed": true,
           "source_provenance": [
             "curated_best_guess",
             "grott",
@@ -183687,7 +183689,8 @@
             "min_live_validation",
             "min_semantic_review",
             "openinverter_gateway",
-            "vendor_v124"
+            "vendor_v124",
+            "min_tl_xh_recorder_outlier_audit_20260920"
           ],
           "unit": "%",
           "write_policy": "read_only"
@@ -183705,14 +183708,15 @@
           "resolution_confidence": "medium",
           "resolution_status": "resolved_with_notes",
           "scale": 1,
-          "signed": null,
+          "signed": true,
           "source_provenance": [
             "curated_best_guess",
             "grott",
             "ha_runtime",
             "manual",
             "openinverter_gateway",
-            "vendor_v124"
+            "vendor_v124",
+            "min_tl_xh_recorder_outlier_audit_20260920"
           ],
           "unit": "1~100",
           "write_policy": "read_only"

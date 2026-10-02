@@ -1,0 +1,197 @@
+{
+  "schema_version": "1.0.0",
+  "artifact": "controlled_tou_behavior_evidence",
+  "scope": {
+    "family": ["min_tl_xh"],
+    "model": "MIN 6000TL-XH",
+    "firmware": null,
+    "protocol_revision": "Growatt Modbus RTU modern 120-family",
+    "applicability": "Observed on the retained MIN 6000TL-XH installation only; behaviour is not generalized to other models."
+  },
+  "observation": {
+    "observed_at_range_utc": "2026-09-19T17:21:01Z/2026-09-19T18:04:57Z",
+    "experiment_window_utc": "2026-09-19T17:29:01Z/2026-09-19T17:59:47Z",
+    "source": "Home Assistant Recorder state history from the local staging instance",
+    "source_database": "local staging Recorder database; not redistributed",
+    "source_query": "states joined to states_meta and state_attributes, filtered to the listed entity IDs and the experiment interval",
+    "integration_source_commit": "8ee0db82ccc9fdb6b23b93b4dfe1175df9024854",
+    "sensor_contract_version": "ha-8b-20260906",
+    "timestamp_note": "Recorder timestamps are UTC. The TOU words below are the inverter's decoded schedule clock values."
+  },
+  "control_readback_before_window": {
+    "holding_registers": {
+      "H3036_grid_first_discharge_rate_pct": 70,
+      "H3037_grid_first_stop_soc_pct": 10,
+      "H3040_slot_2_start_raw": 45852,
+      "H3041_slot_2_end_raw": 4922,
+      "H3047_battery_first_charge_rate_pct": 70,
+      "H3048_battery_first_stop_soc_pct": 100,
+      "H3049_ac_charge_enabled": 0,
+      "H3082_load_first_stop_soc_pct": 0
+    },
+    "schedule": {
+      "slot_1": {
+        "start": "02:00",
+        "end": "06:00",
+        "priority": "battery_first",
+        "enabled": true,
+        "raw_start_word": 41472,
+        "raw_end_word": 1536
+      },
+      "slot_2": {
+        "start": "19:28",
+        "end": "19:58",
+        "priority": "battery_first",
+        "enabled": true,
+        "raw_start_word": 45852,
+        "raw_end_word": 4922
+      },
+      "slot_3": {
+        "start": "00:00",
+        "end": "04:59",
+        "priority": "battery_first",
+        "enabled": false,
+        "raw_start_word": 8192,
+        "raw_end_word": 1083
+      }
+    },
+    "readback_observed_at_utc": "2026-09-19T17:28:36Z"
+  },
+  "control_transitions": [
+    {
+      "observed_at_utc": "2026-09-19T17:29:41Z",
+      "H3049_ac_charge_enabled": 1,
+      "ac_charge_entity": "on",
+      "current_priority": "battery_first",
+      "current_priority_raw": 1
+    },
+    {
+      "observed_at_utc": "2026-09-19T17:59:47Z",
+      "H3049_ac_charge_enabled": 1,
+      "ac_charge_entity": "on",
+      "current_priority": "load_first",
+      "current_priority_raw": 0,
+      "note": "The scheduled window had ended according to the current-priority readback; the AC-charge disable readback followed at 18:00:12Z."
+    },
+    {
+      "observed_at_utc": "2026-09-19T18:00:12Z",
+      "H3049_ac_charge_enabled": 0,
+      "ac_charge_entity": "off",
+      "current_priority": "load_first",
+      "current_priority_raw": 0
+    }
+  ],
+  "observed_behavior": {
+    "active_window": {
+      "start_utc": "2026-09-19T17:29:41Z",
+      "end_utc": "2026-09-19T17:59:41Z",
+      "duration_seconds": 1800,
+      "mode": "battery_first",
+      "ac_charge_enabled": true
+    },
+    "telemetry_summary": {
+      "battery_charge_power_w": {
+        "minimum": 3540.0,
+        "maximum": 3570.0,
+        "median": 3551.0,
+        "samples": 134
+      },
+      "power_to_user_w": {
+        "minimum": 4164.7,
+        "maximum": 4262.6,
+        "median": 4224.65,
+        "samples": 170
+      },
+      "power_user_load_w": {
+        "minimum": 607.1,
+        "maximum": 706.6,
+        "median": 672.5,
+        "samples": 171
+      },
+      "input_1_power_w": {
+        "minimum": 0.0,
+        "maximum": 2.6,
+        "median": 0.5,
+        "samples": 57
+      },
+      "battery_current_a": {
+        "minimum": 16.2,
+        "maximum": 16.5,
+        "median": 16.35,
+        "samples": 26
+      },
+      "battery_soc_pct": {
+        "first": 46,
+        "last": 63,
+        "first_observed_at_utc": "2026-09-19T17:29:41Z",
+        "last_observed_at_utc": "2026-09-19T17:59:16Z"
+      },
+      "battery_charged_today_kwh": {
+        "first": 4.1,
+        "last": 5.8,
+        "first_observed_at_utc": "2026-09-19T17:30:36Z",
+        "last_observed_at_utc": "2026-09-19T17:59:42Z",
+        "delta_kwh": 1.7
+      }
+    },
+    "representative_samples": [
+      {
+        "observed_at_utc": "2026-09-19T17:29:41Z",
+        "current_priority": "battery_first",
+        "ac_charge_enabled": 1,
+        "battery_charge_power_w": 3554.0,
+        "power_to_user_w": 4192.2,
+        "power_user_load_w": 639.4,
+        "soc_pct": 46
+      },
+      {
+        "observed_at_utc": "2026-09-19T17:45:26Z",
+        "current_priority": "battery_first",
+        "ac_charge_enabled": 1,
+        "battery_charge_power_w": 3553.0,
+        "power_to_user_w": 4228.2,
+        "power_user_load_w": 676.2,
+        "soc_pct": 55
+      },
+      {
+        "observed_at_utc": "2026-09-19T17:59:16Z",
+        "current_priority": "battery_first",
+        "ac_charge_enabled": 1,
+        "battery_charge_power_w": 3547.0,
+        "power_to_user_w": 4225.4,
+        "power_user_load_w": 603.1,
+        "soc_pct": 63
+      },
+      {
+        "observed_at_utc": "2026-09-19T17:59:42Z",
+        "current_priority": "battery_first",
+        "ac_charge_enabled": 1,
+        "battery_charge_power_w": 0.0,
+        "battery_charged_today_kwh": 5.8
+      }
+    ]
+  },
+  "interpretation": {
+    "observed": [
+      "With the enabled slot-2 Battery First schedule and H3049 read back as enabled, the inverter delivered sustained battery charging of approximately 3.55 kW for 30 minutes.",
+      "Power to user was approximately battery charging power plus the approximately 0.67 kW household load while PV input was effectively zero, consistent with grid-supplied battery charging.",
+      "The inverter returned to Load First at the end of the scheduled window and H3049 was read back as disabled shortly afterwards."
+    ],
+    "not_established": [
+      "This Recorder correlation does not isolate H3049 from the Battery First schedule or prove that the same behaviour applies to every TL-XH firmware revision.",
+      "No independent utility meter or retained raw Modbus write frame is included in this public-safe artifact."
+    ]
+  },
+  "evidence_assessment": {
+    "method": "controlled hardware-in-the-loop experiment with HA Recorder correlation",
+    "confidence": "medium",
+    "status": "behavioural_observation_only",
+    "register_semantics_changed": false
+  },
+  "limitations": [
+    "The source Recorder database remains local and is not redistributed.",
+    "The active schedule and control values are readback observations; the original write request and acknowledgement bytes were not retained in the public artifact.",
+    "Power-to-user and household-load values are integration entities. The separate power-to-grid entity had no Recorder samples in this interval, so the grid-supply conclusion uses the observed power balance and near-zero PV input.",
+    "The SOC and energy counters are sampled, not a synchronized laboratory measurement; their changes should be treated as corroboration rather than an exact efficiency calculation."
+  ]
+}

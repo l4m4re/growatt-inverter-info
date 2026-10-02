@@ -70,6 +70,10 @@ does not establish write-only access. Current retained access conflicts are
 zero. Recorded defaults, including H3085 default 1, remain in the machine
 specification.
 
+For the practical procedure used when adding new observations, including
+portal and Recorder correlations and the hand-off to Home Assistant, see
+[`REGISTER_KNOWLEDGE_WORKFLOW.md`](REGISTER_KNOWLEDGE_WORKFLOW.md).
+
 ## Historical predecessor
 
 The former family-oriented canonical file was frozen at SHA-256
