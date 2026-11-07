@@ -70,6 +70,8 @@ def source_native_blocks(candidate: dict[str, Any]) -> list[dict[str, Any]]:
                 "source_row_ids": list(block.get("source_row_ids", [])),
                 "reviewed_evidence_claims": list(block.get("reviewed_evidence_claims", [])),
                 "address_bounds_status": block.get("address_bounds_status"),
+                "source_document_id": block.get("source_document_id", "vendor_growatt_v124_2020"),
+                "source_artifact": block.get("source_artifact"),
             }
         )
     return result
@@ -261,6 +263,11 @@ def enrich_canonical_relationships(
 
 def build_model(root: Path = ROOT) -> dict[str, Any]:
     candidate = load(root / BLOCK_SOURCE.relative_to(ROOT))
+    for overlay in candidate.pop("reviewed_register_overlays", []):
+        candidate["source_native_blocks"].extend(overlay.get("source_native_blocks", []))
+        candidate["blocks"].extend(overlay.get("blocks", []))
+        candidate["applicability_paths"].extend(overlay.get("applicability_paths", []))
+        candidate["registers"].extend(overlay.get("registers", []))
     legacy_path = root / LEGACY_SOURCE.relative_to(ROOT)
     legacy = load(legacy_path)
     if sha256(legacy_path) != CANONICAL_SHA256:
@@ -339,9 +346,10 @@ def build_model(root: Path = ROOT) -> dict[str, Any]:
                 ],
                 "reserved_range_refs": [],
                 "source_provenance": {
-                    "document_id": "vendor_growatt_v124_2020",
+                    "document_id": source.get("source_document_id", "vendor_growatt_v124_2020"),
                     "pages": [source["page_start"], source["page_end"]],
                     "source_claim_refs": source["source_claim_refs"],
+                    "source_artifact": source.get("source_artifact"),
                 },
             }
         )
@@ -364,6 +372,7 @@ def build_model(root: Path = ROOT) -> dict[str, Any]:
         if item.get("resolved_block_ref") in block_ids:
             entry["block_refs"].add(item["resolved_block_ref"])
     family_meta = {x["id"]: x for x in legacy.get("families", [])}
+    family_meta.update({x["id"]: x for x in candidate.get("family_metadata", [])})
     families = []
     for family_id in sorted(families_by_id):
         entry = families_by_id[family_id]
@@ -831,12 +840,12 @@ def source_summary(model: dict[str, Any], block: dict[str, Any]) -> str:
     page_text = f"pp. {pages[0]}–{pages[-1]}" if pages else "page range not recorded"
     claim_count = len(block["source_provenance"].get("source_claim_refs", []))
     evidence_count = len(native.get("reviewed_evidence_claims", []))
-    return (
-        f"{block['source_provenance'].get('document_id')} {page_text}; "
-        f"{claim_count} source rows and {evidence_count} reviewed evidence claims. "
-        "See [vendor block data](../sources/vendor/growatt-v1.24-blocks.json) "
-        "and [source claims](../sources/claims/vendor/vendor_growatt_v124_2020.json)."
-    )
+    artifact = block["source_provenance"].get("source_artifact")
+    if artifact:
+        source_link = f"See [{artifact}]({artifact.replace('sources/', '../sources/')})"
+    else:
+        source_link = "See the retained vendor block data and source claims"
+    return f"{block['source_provenance'].get('document_id')} {page_text}; {claim_count} source rows and {evidence_count} reviewed evidence claims. {source_link}."
 
 
 def logical_field_rows(model: dict[str, Any]) -> list[list[Any]]:

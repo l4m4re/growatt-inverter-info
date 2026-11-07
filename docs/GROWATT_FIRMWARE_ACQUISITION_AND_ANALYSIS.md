@@ -440,7 +440,7 @@ No clean `Modbus`, `battery`, or `VPP` string was recovered from either image.
 That is **not evidence that these features are absent**. Embedded protocol
 implementations often contain no human-readable protocol name.
 
-The most useful next analysis steps are data-flow-oriented:
+The first string-oriented pass suggested the following next analysis steps:
 
 - locate Modbus-like function-code dispatch for `0x03`, `0x04`, `0x06`, `0x10`
 - search for Modbus CRC16 behavior (`0xA001` / `0x8005`)
@@ -452,6 +452,62 @@ The most useful next analysis steps are data-flow-oriented:
 
 Until stronger call/data-flow evidence exists, this work does not claim an
 exact Modbus handler, VPP state machine, or battery-control algorithm.
+
+### Current ARM-first Modbus status
+
+The subsequent ZABA22 ARM analysis has now recovered a substantial,
+evidence-bounded Modbus path. The public-safe projection is retained in
+[`sources/evidence/zaba22-firmware-register-correlation.json`](../sources/evidence/zaba22-firmware-register-correlation.json);
+the complete decompilation and generated route reports remain in the separate
+firmware-analysis worktree.
+
+Proven or directly reconstructed at source level:
+
+- ARM FC03/FC04 validation, ordered route selection and response framing;
+- direct VPP holding-table arithmetic using `address - 30000` and direct input-
+  table arithmetic using `address - 31000`. The complete-request guards make
+  single-word direct coverage end at `30498` for FC03 and `31299` for FC04;
+  the documented words `30499` and `31300` therefore require separate
+  provider evidence rather than being silently assigned to the direct table;
+- legacy/provider windows, extracted address-specific provider cases and
+  their documented-register correlations, while indirect RAM meanings remain
+  separate from public names;
+- address-specific FC06/FC10 write branches for the recovered control cases,
+  including the distinct validation conflicts with VPP V2.03;
+- FC20/FC22 response-only routing and bookkeeping, including the static
+  100-slot window and the internal runtime-producer boundary. These paths are
+  classified as wire-read paths; protocol bookkeeping writes are not treated
+  as inverter-register writes.
+
+The static provider search recovered no address-specific fallback case for
+input `31300..31399`, input `31500..31599` or holding `32000..32099`. This is
+medium-confidence absence evidence for the searched decompilation and
+extracted case report only; it does not prove that these ranges are rejected,
+unsupported, or inaccessible through a computed/runtime provider.
+
+The corresponding Python reference engine and portable C core are tested
+offline against the recovered byte-level behavior and available captures.
+Neither implementation performs serial, USB, MMIO or flash operations.
+
+The evidence artifact now also carries a machine-readable
+`arm_modbus_reconstruction` projection. It includes the 266-row VPP access
+matrix and 1,586 unique documented VPP words, the 32-address V2.03 access
+policy audit, and the FC20 channel-0 parser, internal producer boundary and
+provider correlations. Each embedded report is hash-pinned to the firmware
+analysis checkout. This makes GII a usable validation source for the ARM
+implementation while preserving the distinction between documented names,
+static firmware evidence and unresolved runtime semantics.
+
+### VPP V2.03 source overlay
+
+The local VPP V2.03 PDF is now retained by hash and represented as a
+versioned, source-only delta over V2.01 in
+[`docs/consolidation/20261002-vpp-v203-overlay.md`](consolidation/20261002-vpp-v203-overlay.md).
+It explicitly covers MIN 2500-6000TL-XH/XH2/XHE/XA (DTC 5100) and adds or
+changes bypass `30101=9`, `30209–30215`, `30250–30255`, `30301–30305`, the
+SOC limits, `30410=2`, and `30476–30477`. This source overlay does not promote
+those fields to proven ALBA18/ZABA22 behavior; the firmware evidence remains
+in the separate analysis reports.
 
 ---
 
@@ -675,4 +731,3 @@ The catalogue contains firmware for many different Growatt products and device
 families. A URL being present in the manifest does **not** mean that package is
 safe or appropriate to flash on a particular inverter. This document is about
 acquisition and static analysis, not cross-flashing.
-

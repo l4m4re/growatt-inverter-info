@@ -79,6 +79,12 @@ Reads establish that a register can be read; they do not prove its semantic
 meaning. Writes require a separately justified and controlled experiment, with
 the resulting risk and readback documented explicitly.
 
+For generated firmware correlations, retain these as a separate evidence
+record on the published register. A high-confidence ARM route or storage
+offset must not silently upgrade the documentation name, unit, scale or
+signedness: expose the route confidence and the semantic-name confidence as
+separate fields.
+
 ### 3. Accept the current model
 
 After human review, update
@@ -123,6 +129,23 @@ Until the automated consumer projection is implemented, the HA repository's
 `doc/register-spec/` files are migration and compatibility artifacts. They
 must carry the GII source commit they were compared with and must not be
 treated as an independent canonical register map.
+
+## Growatt_ModbusTCP interoperability
+
+The source relationship with `Growatt_ModbusTCP` is bidirectional at the
+artifact level:
+
+1. GII imports normalized VPP rows and the relevant XH/profile source hashes
+   with `tools/import_vpp_and_firmware_analysis.py`.
+2. `Growatt_ModbusTCP` exports a generated consumer snapshot with
+   `tools/export_gii_register_source.py`.
+3. Each side records the source repository revision and content hash. A
+   generated snapshot is never edited by hand and does not replace the GII
+   canonical authority.
+
+This permits the integration to consume GII names, datatypes, applicability
+and evidence state while allowing GII to retain the integration's protocol
+rows and profile provenance for review.
 
 ## Review checklist
 

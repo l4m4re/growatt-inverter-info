@@ -12,6 +12,11 @@ The JSON specification is authoritative. This document is generated from the sam
   - [Use for TL-X and TL-XH](#block-cb-holding-p035-use_for_tl_x_and_tl_xh-block-04)
   - [US Machine type Time Set](#block-cb-holding-p042-us_machine_type_time_set-block-05)
   - [BDC information (support up to 10 parallel BDC)](#block-cb-holding-p047-bdc_information_support_up_to_10_parallel_bdc-block-06)
+  - [Growatt VPP V2.01 holding registers 30000-30499](#block-cb-vpp-v201-holding-30000-30499)
+  - [Growatt VPP V2.01 holding registers 30500-30999](#block-cb-vpp-v201-holding-30500-30999)
+  - [Growatt VPP V2.01 holding registers 32000-32099](#block-cb-vpp-v201-holding-32000-32099)
+  - [Portal Battery Settings](#block-cb-portal-battery-settings-h3067)
+  - [Portal Battery Settings](#block-cb-portal-battery-settings-h3311-h3312)
 - [Input registers](#input-registers)
   - [First group](#block-cb-input-p047-first_group-block-07)
   - [Second group](#block-cb-input-p051-second_group-block-08)
@@ -22,6 +27,10 @@ The JSON specification is authoritative. This document is generated from the sam
   - [Ninth group reserved for storage power](#block-cb-input-p064-ninth_group_reserved_for_storage_power-block-13)
   - [Use for TL-X and TL-XH](#block-cb-input-p070-use_for_tl_x_and_tl_xh-block-14)
   - [BDC and BMS information (support up to 10 PARALLEL BDCS)](#block-cb-input-p084-bdc_and_bms_information_support_up_to_10_parallel_bdcs-block-15)
+  - [Growatt VPP V2.01 input registers 31000-31299](#block-cb-vpp-v201-input-31000-31299)
+  - [Growatt VPP V2.01 input registers 31300-31399](#block-cb-vpp-v201-input-31300-31399)
+  - [Growatt VPP V2.01 input registers 31400-31499](#block-cb-vpp-v201-input-31400-31499)
+  - [Growatt VPP V2.01 input registers 31500-31599](#block-cb-vpp-v201-input-31500-31599)
 - [Logical multi-word fields](#logical-multi-word-fields)
 
 ## Scope / applicability
@@ -30,7 +39,8 @@ The register maps preserve the source-native block layout. Each shared block is 
 
 | Family | Models | Protocol group | Shared blocks |
 | --- | --- | --- | --- |
-| TL-X/TL-XH/TL-XH US (MIN Type) | MIN 6000TL-XH | 120 | 4 |
+| TL-X/TL-XH/TL-XH US (MIN Type) | MIN 6000TL-XH | 120 | 6 |
+| MIN/TL-XH/XH2 VPP V2.01 | MIN 2.5-6KTL-XH, MIN TL-XH, MIN TL-XH2, TL-XH | VPP V2.01 | 7 |
 | MOD TL3-XH | — | 120 | 3 |
 | Storage (MIX Type) | — | 120 | 6 |
 | Storage (SPA Type) | — | 120 | 6 |
@@ -55,7 +65,7 @@ Block applicability retains the vendor declarations and source/model qualifiers 
   - Storage (SPA Type)
   - Storage (SPH Type)
   - MAX 1500V/MAX-X LV/TL3-X (MAX, MID, MAC Type)
-- **Source / provenance:** vendor_growatt_v124_2020 pp. 9–15; 125 source rows and 0 reviewed evidence claims. See [vendor block data](../sources/vendor/growatt-v1.24-blocks.json) and [source claims](../sources/claims/vendor/vendor_growatt_v124_2020.json).
+- **Source / provenance:** vendor_growatt_v124_2020 pp. 9–15; 125 source rows and 0 reviewed evidence claims. See the retained vendor block data and source claims.
 
 | Addr | Variable | Description | Access | Type | Scale | Unit | Range / default | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -310,7 +320,7 @@ Block applicability retains the vendor declarations and source/model qualifiers 
 - **Address range:** H125–H660
 - **Applies to:**
   - MAX 1500V/MAX-X LV/TL3-X (MAX, MID, MAC Type)
-- **Source / provenance:** vendor_growatt_v124_2020 pp. 16–27; 182 source rows and 0 reviewed evidence claims. See [vendor block data](../sources/vendor/growatt-v1.24-blocks.json) and [source claims](../sources/claims/vendor/vendor_growatt_v124_2020.json).
+- **Source / provenance:** vendor_growatt_v124_2020 pp. 16–27; 182 source rows and 0 reviewed evidence claims. See the retained vendor block data and source claims.
 
 | Addr | Variable | Description | Access | Type | Scale | Unit | Range / default | Scope | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -594,7 +604,7 @@ Block applicability retains the vendor declarations and source/model qualifiers 
   - Storage (MIX Type)
   - Storage (SPA Type)
   - Storage (SPH Type)
-- **Source / provenance:** vendor_growatt_v124_2020 pp. 27–35; 117 source rows and 0 reviewed evidence claims. See [vendor block data](../sources/vendor/growatt-v1.24-blocks.json) and [source claims](../sources/claims/vendor/vendor_growatt_v124_2020.json).
+- **Source / provenance:** vendor_growatt_v124_2020 pp. 27–35; 117 source rows and 0 reviewed evidence claims. See the retained vendor block data and source claims.
 
 | Addr | Variable | Description | Access | Type | Scale | Unit | Range / default | Scope | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -739,7 +749,7 @@ Block applicability retains the vendor declarations and source/model qualifiers 
 - **Applies to:**
   - TL-X/TL-XH/TL-XH US (MIN Type) (MIN 6000TL-XH)
   - MOD TL3-XH
-- **Source / provenance:** vendor_growatt_v124_2020 pp. 35–42; 108 source rows and 26 reviewed evidence claims. See [vendor block data](../sources/vendor/growatt-v1.24-blocks.json) and [source claims](../sources/claims/vendor/vendor_growatt_v124_2020.json).
+- **Source / provenance:** vendor_growatt_v124_2020 pp. 35–42; 108 source rows and 26 reviewed evidence claims. See the retained vendor block data and source claims.
 
 | Addr | Variable | Description | Access | Type | Scale | Unit | Range / default | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -1114,7 +1124,7 @@ Block applicability retains the vendor declarations and source/model qualifiers 
 - **Address range:** H3125–H3249
 - **Applies to:**
   - TL-X/TL-XH/TL-XH US (MIN Type) (TL-XH US; MIN 6000TL-XH)
-- **Source / provenance:** vendor_growatt_v124_2020 pp. 42–47; 64 source rows and 0 reviewed evidence claims. See [vendor block data](../sources/vendor/growatt-v1.24-blocks.json) and [source claims](../sources/claims/vendor/vendor_growatt_v124_2020.json).
+- **Source / provenance:** vendor_growatt_v124_2020 pp. 42–47; 64 source rows and 0 reviewed evidence claims. See the retained vendor block data and source claims.
 
 | Addr | Variable | Description | Access | Type | Scale | Unit | Range / default | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -1320,7 +1330,7 @@ Block applicability retains the vendor declarations and source/model qualifiers 
 - **Address range:** H5000–H5079
 - **Applies to:**
   - Declared ranges only
-- **Source / provenance:** vendor_growatt_v124_2020 pp. 47–47; 4 source rows and 0 reviewed evidence claims. See [vendor block data](../sources/vendor/growatt-v1.24-blocks.json) and [source claims](../sources/claims/vendor/vendor_growatt_v124_2020.json).
+- **Source / provenance:** vendor_growatt_v124_2020 pp. 47–47; 4 source rows and 0 reviewed evidence claims. See the retained vendor block data and source claims.
 
 | Addr | Variable | Description | Access | Type | Scale | Unit | Range / default | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -1328,6 +1338,172 @@ Block applicability retains the vendor declarations and source/model qualifiers 
 | H5040–H5079 | — | 2 | — | — | — | — | — | UNRESOLVED |
 | — | )*40--- | N | — | — | — | — | — | UNRESOLVED |
 | — | )*40 | — | — | — | — | — | — | UNRESOLVED |
+
+<a id="block-cb-vpp-v201-holding-30000-30499"></a>
+### Growatt VPP V2.01 holding registers 30000-30499
+
+- **Vendor heading:** Growatt VPP V2.01 holding registers 30000-30499
+- **Normalized role:** vpp_registers
+- **Table / function:** Holding / FC03
+- **Address range:** H30000–H30499
+- **Applies to:**
+  - MIN/TL-XH/XH2 VPP V2.01 (MIN 2.5-6KTL-XH; MIN TL-XH; MIN TL-XH2; TL-XH)
+- **Source / provenance:** vendor_growatt_vpp_v201 pp. None–None; 91 source rows and 0 reviewed evidence claims. See [sources/vendor/growatt-vpp-v2.01-registers.json](../sources/vendor/growatt-vpp-v2.01-registers.json).
+
+| Addr | Variable | Description | Access | Type | Scale | Unit | Range / default | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| H30000 | Equipment type (DTC) | Equipment type (DTC) | read | UINT16, unsigned | — | — | See Table 3-1 | SOURCE_ONLY |
+| H30001–H30015 | SN | SN | read | UINT16, unsigned | — | — | - | SOURCE_ONLY |
+| H30016–H30017 | Rated power (Pn) | Rated power (Pn) | read | UINT32 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | W | - | SOURCE_ONLY |
+| H30018–H30019 | Maximum active power (Pmax) | Maximum active power (Pmax) | read | UINT32 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | W | - | SOURCE_ONLY |
+| H30020–H30021 | Maximum reactive power (Qmax fed into the grid) | Maximum reactive power (Qmax fed into the grid) | read | UINT32 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | VAR | - | SOURCE_ONLY |
+| H30022–H30023 | Maximum reactive power (Qmax absorption grid) | Maximum reactive power (Qmax absorption grid) | read | UINT32 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | VAR | - | SOURCE_ONLY |
+| H30024–H30025 | Maximum apparent power (Smax) | Maximum apparent power (Smax) | read | UINT32 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | VA | - | SOURCE_ONLY |
+| H30026–H30027 | Rated charging and discharging power of BDC | Rated charging and discharging power of BDC | read | UINT32 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | W | - | SOURCE_ONLY |
+| H30028–H30029 | PV input maximum power | PV input maximum power | read | UINT32 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | W | - | SOURCE_ONLY |
+| H30030 | Battery type | Battery type | read | UINT8, unsigned | — | — | 0: lead acid battery, 1: lithium battery | SOURCE_ONLY |
+| H30031–H30059 | Reserve | Reserve | read | UINT16, unsigned | — | — | - | SOURCE_ONLY |
+| H30060 | Machine Model | Machine Model | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | ASCII | Example: TL | SOURCE_ONLY |
+| H30061 | Machine Model | Machine Model | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | ASCII | Example: AA | SOURCE_ONLY |
+| H30062 | Version Num 1 | Version Num 1 | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | Digit | - | SOURCE_ONLY |
+| H30063 | Version Num 2 | Version Num 2 | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | Digit | - | SOURCE_ONLY |
+| H30064 | Version Num 3 | Version Num 3 | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | Digit | - | SOURCE_ONLY |
+| H30065 | M3 Version Name | M3 Version Name | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | ASCII | Example: ZB | SOURCE_ONLY |
+| H30066 | M3 Version Name | M3 Version Name | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | ASCII | Example: AA | SOURCE_ONLY |
+| H30067 | Version Num 1 | Version Num 1 | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | Digit | - | SOURCE_ONLY |
+| H30068 | Machine Model | Machine Model | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | ASCII | Example: VC | SOURCE_ONLY |
+| H30069 | Machine Model | Machine Model | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | ASCII | Example: AA | SOURCE_ONLY |
+| H30070 | Version Num 1 | Version Num 1 | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | Digit | - | SOURCE_ONLY |
+| H30071 | DSP2 Software Version Name | DSP2 Software Version Name | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | ASCII | Example: VC | SOURCE_ONLY |
+| H30072 | DSP2 Software Version Name | DSP2 Software Version Name | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | ASCII | Example: BA | SOURCE_ONLY |
+| H30073 | Version Num 1 | Version Num 1 | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | Digit | - | SOURCE_ONLY |
+| H30074 | BCU Software Version Name | BCU Software Version Name | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | ASCII | Example: QB | SOURCE_ONLY |
+| H30075 | BCU Software Version Name | BCU Software Version Name | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | ASCII | Example: AA | SOURCE_ONLY |
+| H30076 | Version Num 1 | Version Num 1 | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | Digit | - | SOURCE_ONLY |
+| H30077 | M3 Software Version Name | M3 Software Version Name | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | ASCII | Example: ZE | SOURCE_ONLY |
+| H30078 | M3 Software Version Name | M3 Software Version Name | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | ASCII | Example: BA | SOURCE_ONLY |
+| H30079 | Version Num 1 | Version Num 1 | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | Digit | - | SOURCE_ONLY |
+| H30080 | Machine Model | Machine Model | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | ASCII | Example: ZO | SOURCE_ONLY |
+| H30081 | Machine Model | Machine Model | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | ASCII | Example: AA | SOURCE_ONLY |
+| H30082 | Version Num 1 | Version Num 1 | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | — | - | SOURCE_ONLY |
+| H30083 | Reserved | Reserved | read | UINT16, unsigned | — | — | Reserved | SOURCE_ONLY |
+| H30084 | Reserved | Reserved | read | UINT16, unsigned | — | — | Reserved | SOURCE_ONLY |
+| H30099–H30113 | VPP Protocol Version | VPP Protocol Version | read | UINT16, unsigned | — | — | 200 represents V2.00, 201 represents V2.01 | SOURCE_ONLY |
+| H30100 | Control authority | Control authority | read_write | UINT16, unsigned | — | — | 0: not enabled, 1: Enable, Default: 0 | SOURCE_ONLY |
+| H30101 | On off command | On off command | read_write | UINT16, unsigned | — | — | 0: power off, 1: power on, Default: 1, Not storage | SOURCE_ONLY |
+| H30102 | Country / region number | Country / region number | read | UINT16, unsigned | — | — | See Table 3-5 | SOURCE_ONLY |
+| H30103 | Reserve | Reserve | read_write | UINT16, unsigned | — | — | - | SOURCE_ONLY |
+| H30104–H30109 | System time | System time | read_write | UINT16, unsigned | — | — | See table 3-6 | SOURCE_ONLY |
+| H30110–H30111 | Reserve | Reserve | read_write | UINT32, unsigned | — | — | - | SOURCE_ONLY |
+| H30112 | Mailing address | Mailing address | read | UINT16, unsigned | — | — | [1, 255], Default: 1 | SOURCE_ONLY |
+| H30113 | Communication baud rate | Communication baud rate | read | UINT16, unsigned | — | — | 0:9600 bps, 1:38400 bps, Default: 0 | SOURCE_ONLY |
+| H30114 | Reserved | Reserved | read_write | UINT16, unsigned | — | — | - | SOURCE_ONLY |
+| H30115 | SYN enable | SYN enable | read_write | UINT16, unsigned | — | — | Offline box enable, 0: not enabled, 1: enable, Default: 0 | SOURCE_ONLY |
+| H30116–H30149 | Reserve | Reserve | read_write | UINT16, unsigned | — | — | - | SOURCE_ONLY |
+| H30150 | Reserve | Reserve | read_write | UINT16, unsigned | — | — | - | SOURCE_ONLY |
+| H30151 | Active power percentage derating | Active power percentage derating | read_write | UINT16, unsigned | scale=1.0, multiplier=1.0 | % | Power limit percentage: [0,100], Default: 100 | SOURCE_ONLY |
+| H30152–H30153 | Reserve | Reserve | read_write | UINT16, unsigned | — | — | - | SOURCE_ONLY |
+| H30154 | Static active power limitation | Static active power limitation | read_write | UINT16, unsigned | scale=1.0, multiplier=1.0 | % | Power limit percent: [0,100], Default: 100, Actual active power is the less one, Not storage | SOURCE_ONLY |
+| H30155 | EPS offline enable | EPS offline enable | read_write | UINT16, unsigned | — | — | 0: not enabled, 1: enable, Default: 0 | SOURCE_ONLY |
+| H30156 | EPS offline frequency | EPS offline frequency | read_write | UINT16 / 100, unsigned | divisor=100.0, scale=0.01, multiplier=0.01 | Hz | 0:50Hz, 1:60Hz, Default: 0 | SOURCE_ONLY |
+| H30157 | EPS offline voltage | EPS offline voltage | read_write | UINT16, unsigned | — | — | Default: 0 | SOURCE_ONLY |
+| H30158–H30159 | Reserve | Reserve | read_write | UINT16, unsigned | — | — | - | SOURCE_ONLY |
+| H30160 | Fix Q | Fix Q | read_write | UINT16, unsigned | scale=1.0, multiplier=1.0 | % | Power limit percentage: [0,60], Default: 60 | SOURCE_ONLY |
+| H30161 | Reactive power mode | Reactive power mode | read_write | UINT16, unsigned | — | — | 0: PF=1, 1: Pf value setting, 4: Lagging reactive power (+), 5: Leading reactive power (-), Default: 0 | SOURCE_ONLY |
+| H30162 | Power factor | Power factor | read_write | UINT16, unsigned | — | — | [0,2000] ∪ [18000,20000], Default: 20000, Actual PF = (set value - 10000) * 0.0001 | SOURCE_ONLY |
+| H30163 | Reserve | Reserve | read_write | INT16, signed | scale=1.0, multiplier=1.0 | % | - | SOURCE_ONLY |
+| H30164–H30199 | Reserve (reactive power curve) | Reserve (reactive power curve) | read_write | UINT16, unsigned | — | — | - | SOURCE_ONLY |
+| H30200 | Export Limitation Enable | Export Limitation Enable | read_write | UINT16, unsigned | — | — | 0: not enabled, 1: single machine enable, Default: 0 | SOURCE_ONLY |
+| H30201 | Export Limitation power Rate | Export Limitation power Rate | read_write | INT16, signed | scale=1.0, multiplier=1.0 | % | [-100,100], Default: 0, Positive=backflow, negative=fair current | SOURCE_ONLY |
+| H30202 | Export Limitation Failure power Rate | Export Limitation Failure power Rate | read_write | UINT16, unsigned | scale=1.0, multiplier=1.0 | % | [0,100], Default: 0 | SOURCE_ONLY |
+| H30203 | EMS Communicating Failure Time | EMS Communicating Failure Time | read_write | UINT16, unsigned | scale=1.0, multiplier=1.0 | S | [1,300], Default: 30 | SOURCE_ONLY |
+| H30204 | EMS Communication Failure Enable | EMS Communication Failure Enable | read_write | UINT16, unsigned | — | — | 0: not enabled, 1: enable, Default: 0 | SOURCE_ONLY |
+| H30205 | Super Export Limitation enable | Super Export Limitation enable | read_write | UINT16, unsigned | — | — | 0: not enabled, 1: enable, Default: 0 | SOURCE_ONLY |
+| H30206 | Export Limitation change slope | Export Limitation change slope | read_write | UINT16, unsigned | scale=1.0, multiplier=1.0 | *0.01%Pn/s | [1,20000], Default: 27 | SOURCE_ONLY |
+| H30207 | Export Limitation single phase control enable | Export Limitation single phase control enable | read_write | UINT16, unsigned | — | — | 0: not enabled, 1: enable, Default: 0 | SOURCE_ONLY |
+| H30208 | Export Limitation protection mode | Export Limitation protection mode | read_write | UINT16, unsigned | — | — | 0: Default mode, 1: Combine control, 2: software control, 3: hardware control, Default: 0 | SOURCE_ONLY |
+| H30209–H30299 | Reserve | Reserve | read_write | UINT16, unsigned | — | — | - | SOURCE_ONLY |
+| H30300 | Battery cluster index | Battery cluster index | read_write | UINT16, unsigned | — | — | [0,3], Default: 0 | SOURCE_ONLY |
+| H30301–H30399 | Reserve | Reserve | read_write | UINT16, unsigned | — | — | - | SOURCE_ONLY |
+| H30400–H30401 | Reserve (Battery max charging power) | Reserve (Battery max charging power) | read_write | UINT32 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | W | Not used | SOURCE_ONLY |
+| H30402–H30403 | Reserve (Battery max discharging power) | Reserve (Battery max discharging power) | read_write | UINT32 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | W | Not used | SOURCE_ONLY |
+| H30404 | Charging cut off SOC | Charging cut off SOC | read_write | UINT8, unsigned | scale=1.0, multiplier=1.0 | % | [70,100], Default: 100 | SOURCE_ONLY |
+| H30405 | Online discharge cut off SOC | Online discharge cut off SOC | read_write | UINT8, unsigned | scale=1.0, multiplier=1.0 | % | [10,30], Default: 10 | SOURCE_ONLY |
+| H30406 | Load priority discharge cut off SOC | Load priority discharge cut off SOC | read_write | UINT8, unsigned | scale=1.0, multiplier=1.0 | % | [10,20], Default: 10 | SOURCE_ONLY |
+| H30407 | Remote power control enable | Remote power control enable | read_write | UINT8, unsigned | — | — | 0: not enabled, 1: Enable, Default: 0, Not storage | SOURCE_ONLY |
+| H30408 | Remote power control charging time | Remote power control charging time | read_write | UINT16, unsigned | scale=1.0, multiplier=1.0 | min | 0: unlimited, 1~1440min, Default: 0, Not storage | SOURCE_ONLY |
+| H30409 | Remote charge and discharge power | Remote charge and discharge power | read_write | INT16, signed | — | — | [-100,100], Positive=charging, Negative=discharge, Default: 0, Not storage | SOURCE_ONLY |
+| H30410 | AC charging enable | AC charging enable | read_write | UINT8, unsigned | — | — | 0: not enabled, 1: Enable, Default: 0 | SOURCE_ONLY |
+| H30411–H30471 | Charging and discharging in different periods (20 sections) | Charging and discharging in different periods (20 sections) | read_write | UINT16, unsigned | — | — | See Table 3-2, 30412~30471 default: 0 | SOURCE_ONLY |
+| H30472–H30473 | Reserve | Reserve | read | UINT16, unsigned | — | — | - | SOURCE_ONLY |
+| H30474 | Actual control value of charging and discharging power | Actual control value of charging and discharging power | read | UINT16, unsigned | — | — | [-100,100], Positive=charging, Negative=discharge | SOURCE_ONLY |
+| H30475 | Offline discharge cut off SOC | Offline discharge cut off SOC | read_write | UINT16, unsigned | scale=1.0, multiplier=1.0 | % | [10,30], Default: 10 | SOURCE_ONLY |
+| H30476–H30495 | Reserve | Reserve | read_write | UINT16, unsigned | — | — | - | SOURCE_ONLY |
+| H30496 | Battery charge stop voltage | Battery charge stop voltage | read_write | UINT16 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | V | Lead-acid only, [0,15000] | SOURCE_ONLY |
+| H30497 | Battery discharge stop voltage | Battery discharge stop voltage | read_write | UINT16 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | V | Lead-acid only, [0,15000] | SOURCE_ONLY |
+| H30498 | Battery max charge current | Battery max charge current | read_write | UINT16 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | A | Lead-acid only, [0,2000], Default: 1500 | SOURCE_ONLY |
+| H30499 | Battery max discharge current | Battery max discharge current | read_write | UINT16 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | A | Lead-acid only, [0,2000], Default: 1500 | SOURCE_ONLY |
+
+<a id="block-cb-vpp-v201-holding-30500-30999"></a>
+### Growatt VPP V2.01 holding registers 30500-30999
+
+- **Vendor heading:** Growatt VPP V2.01 holding registers 30500-30999
+- **Normalized role:** vpp_registers
+- **Table / function:** Holding / FC03
+- **Address range:** H30500–H30999
+- **Applies to:**
+  - MIN/TL-XH/XH2 VPP V2.01 (MIN 2.5-6KTL-XH; MIN TL-XH; MIN TL-XH2; TL-XH)
+- **Source / provenance:** vendor_growatt_vpp_v201 pp. None–None; 1 source rows and 0 reviewed evidence claims. See [sources/vendor/growatt-vpp-v2.01-registers.json](../sources/vendor/growatt-vpp-v2.01-registers.json).
+
+| Addr | Variable | Description | Access | Type | Scale | Unit | Range / default | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| H30500–H30999 | Safety Information | Safety Information | read_write | UINT16, unsigned | — | — | See GROWATT INVERTER VPP COMMUNICATION PROTOCOL & SAFETY PARAMETERS | SOURCE_ONLY |
+
+<a id="block-cb-vpp-v201-holding-32000-32099"></a>
+### Growatt VPP V2.01 holding registers 32000-32099
+
+- **Vendor heading:** Growatt VPP V2.01 holding registers 32000-32099
+- **Normalized role:** vpp_registers
+- **Table / function:** Holding / FC03
+- **Address range:** H32000–H32099
+- **Applies to:**
+  - MIN/TL-XH/XH2 VPP V2.01 (MIN 2.5-6KTL-XH; MIN TL-XH; MIN TL-XH2; TL-XH)
+- **Source / provenance:** vendor_growatt_vpp_v201 pp. None–None; 1 source rows and 0 reviewed evidence claims. See [sources/vendor/growatt-vpp-v2.01-registers.json](../sources/vendor/growatt-vpp-v2.01-registers.json).
+
+| Addr | Variable | Description | Access | Type | Scale | Unit | Range / default | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| H32000–H32099 | Reserve | Reserve | read_write | UINT16, unsigned | — | — | - | SOURCE_ONLY |
+
+<a id="block-cb-portal-battery-settings-h3067"></a>
+### Portal Battery Settings
+
+- **Vendor heading:** Portal Battery Settings
+- **Normalized role:** portal_observed_battery_control
+- **Table / function:** Holding / FC03
+- **Address range:** H3067–H3067
+- **Applies to:**
+  - TL-X/TL-XH/TL-XH US (MIN Type) (communication processor ZABA-0022; MIN 6000TL-XH)
+- **Source / provenance:** min_portal_battery_settings_20261107 pp. None–None; 1 source rows and 1 reviewed evidence claims. See [sources/evidence/min-6000tl-xh-portal-battery-settings-20261107.json](../sources/evidence/min-6000tl-xh-portal-battery-settings-20261107.json).
+
+| Addr | Variable | Description | Access | Type | Scale | Unit | Range / default | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| H3067 | On-grid battery discharge stop SOC | On-grid battery discharge stop SOC | read_write | u16 percentage, unsigned | scale=1, multiplier=1 | % | 0-100% | ENRICHED |
+
+<a id="block-cb-portal-battery-settings-h3311-h3312"></a>
+### Portal Battery Settings
+
+- **Vendor heading:** Portal Battery Settings
+- **Normalized role:** portal_observed_battery_control
+- **Table / function:** Holding / FC03
+- **Address range:** H3311–H3312
+- **Applies to:**
+  - TL-X/TL-XH/TL-XH US (MIN Type) (communication processor ZABA-0022; MIN 6000TL-XH)
+- **Source / provenance:** min_portal_battery_settings_20261107 pp. None–None; 2 source rows and 2 reviewed evidence claims. See [sources/evidence/min-6000tl-xh-portal-battery-settings-20261107.json](../sources/evidence/min-6000tl-xh-portal-battery-settings-20261107.json).
+
+| Addr | Variable | Description | Access | Type | Scale | Unit | Range / default | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| H3311 | Maximum charge power from grid | Maximum charge power from grid | read_write | u16 / 10, unsigned | divisor=10, scale=0.1, multiplier=0.1 | kW | 0-6553.5 | ENRICHED |
+| H3312 | Charge stop SOC from grid | Charge stop SOC from grid | read_write | u16 percentage, unsigned | scale=1, multiplier=1 | % | 0-100% | ENRICHED |
 
 ### Reserved ranges
 
@@ -1348,7 +1524,7 @@ Block applicability retains the vendor declarations and source/model qualifiers 
   - Storage (MIX Type)
   - Storage (SPH Type)
   - MAX 1500V/MAX-X LV/TL3-X (MAX, MID, MAC Type)
-- **Source / provenance:** vendor_growatt_v124_2020 pp. 47–51; 122 source rows and 0 reviewed evidence claims. See [vendor block data](../sources/vendor/growatt-v1.24-blocks.json) and [source claims](../sources/claims/vendor/vendor_growatt_v124_2020.json).
+- **Source / provenance:** vendor_growatt_v124_2020 pp. 47–51; 122 source rows and 0 reviewed evidence claims. See the retained vendor block data and source claims.
 
 | Addr | Variable | Description | Access | Type | Scale | Unit | Range / default | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -1504,7 +1680,7 @@ Block applicability retains the vendor declarations and source/model qualifiers 
 - **Address range:** I125–I249
 - **Applies to:**
   - MAX 1500V/MAX-X LV/TL3-X (MAX, MID, MAC Type)
-- **Source / provenance:** vendor_growatt_v124_2020 pp. 51–56; 125 source rows and 0 reviewed evidence claims. See [vendor block data](../sources/vendor/growatt-v1.24-blocks.json) and [source claims](../sources/claims/vendor/vendor_growatt_v124_2020.json).
+- **Source / provenance:** vendor_growatt_v124_2020 pp. 51–56; 125 source rows and 0 reviewed evidence claims. See the retained vendor block data and source claims.
 
 | Addr | Variable | Description | Access | Type | Scale | Unit | Range / default | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -1738,7 +1914,7 @@ Block applicability retains the vendor declarations and source/model qualifiers 
 - **Address range:** I875–I999
 - **Applies to:**
   - MAX 1500V/MAX-X LV/TL3-X (MAX, MID, MAC Type)
-- **Source / provenance:** vendor_growatt_v124_2020 pp. 56–59; 120 source rows and 0 reviewed evidence claims. See [vendor block data](../sources/vendor/growatt-v1.24-blocks.json) and [source claims](../sources/claims/vendor/vendor_growatt_v124_2020.json).
+- **Source / provenance:** vendor_growatt_v124_2020 pp. 56–59; 120 source rows and 0 reviewed evidence claims. See the retained vendor block data and source claims.
 
 | Addr | Variable | Description | Access | Type | Scale | Unit | Range / default | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -1910,7 +2086,7 @@ Block applicability retains the vendor declarations and source/model qualifiers 
   - Storage (MIX Type)
   - Storage (SPA Type)
   - Storage (SPH Type)
-- **Source / provenance:** vendor_growatt_v124_2020 pp. 59–62; 67 source rows and 0 reviewed evidence claims. See [vendor block data](../sources/vendor/growatt-v1.24-blocks.json) and [source claims](../sources/claims/vendor/vendor_growatt_v124_2020.json).
+- **Source / provenance:** vendor_growatt_v124_2020 pp. 59–62; 67 source rows and 0 reviewed evidence claims. See the retained vendor block data and source claims.
 
 | Addr | Variable | Description | Access | Type | Scale | Unit | Range / default | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -1993,7 +2169,7 @@ Block applicability retains the vendor declarations and source/model qualifiers 
   - Storage (MIX Type)
   - Storage (SPA Type)
   - Storage (SPH Type)
-- **Source / provenance:** vendor_growatt_v124_2020 pp. 62–64; 43 source rows and 0 reviewed evidence claims. See [vendor block data](../sources/vendor/growatt-v1.24-blocks.json) and [source claims](../sources/claims/vendor/vendor_growatt_v124_2020.json).
+- **Source / provenance:** vendor_growatt_v124_2020 pp. 62–64; 43 source rows and 0 reviewed evidence claims. See the retained vendor block data and source claims.
 
 | Addr | Variable | Description | Access | Type | Scale | Unit | Range / default | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -2052,7 +2228,7 @@ Block applicability retains the vendor declarations and source/model qualifiers 
   - Storage (MIX Type)
   - Storage (SPA Type)
   - Storage (SPH Type)
-- **Source / provenance:** vendor_growatt_v124_2020 pp. 62–62; 15 source rows and 0 reviewed evidence claims. See [vendor block data](../sources/vendor/growatt-v1.24-blocks.json) and [source claims](../sources/claims/vendor/vendor_growatt_v124_2020.json).
+- **Source / provenance:** vendor_growatt_v124_2020 pp. 62–62; 15 source rows and 0 reviewed evidence claims. See the retained vendor block data and source claims.
 
 | Addr | Variable | Description | Access | Type | Scale | Unit | Range / default | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -2082,7 +2258,7 @@ Block applicability retains the vendor declarations and source/model qualifiers 
 - **Applies to:**
   - Storage (SPA Type)
   - Storage (SPH Type)
-- **Source / provenance:** vendor_growatt_v124_2020 pp. 64–70; 116 source rows and 0 reviewed evidence claims. See [vendor block data](../sources/vendor/growatt-v1.24-blocks.json) and [source claims](../sources/claims/vendor/vendor_growatt_v124_2020.json).
+- **Source / provenance:** vendor_growatt_v124_2020 pp. 64–70; 116 source rows and 0 reviewed evidence claims. See the retained vendor block data and source claims.
 
 | Addr | Variable | Description | Access | Type | Scale | Unit | Range / default | Scope | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -2233,7 +2409,7 @@ Block applicability retains the vendor declarations and source/model qualifiers 
 - **Applies to:**
   - TL-X/TL-XH/TL-XH US (MIN Type) (TL-XH; MIN 6000TL-XH)
   - MOD TL3-XH
-- **Source / provenance:** vendor_growatt_v124_2020 pp. 70–84; 273 source rows and 0 reviewed evidence claims. See [vendor block data](../sources/vendor/growatt-v1.24-blocks.json) and [source claims](../sources/claims/vendor/vendor_growatt_v124_2020.json).
+- **Source / provenance:** vendor_growatt_v124_2020 pp. 70–84; 273 source rows and 0 reviewed evidence claims. See the retained vendor block data and source claims.
 
 | Addr | Variable | Description | Access | Type | Scale | Unit | Range / default | Scope | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -2775,7 +2951,7 @@ Block applicability retains the vendor declarations and source/model qualifiers 
 - **Address range:** I4000–I5079
 - **Applies to:**
   - Declared ranges only
-- **Source / provenance:** vendor_growatt_v124_2020 pp. 84–84; 5 source rows and 0 reviewed evidence claims. See [vendor block data](../sources/vendor/growatt-v1.24-blocks.json) and [source claims](../sources/claims/vendor/vendor_growatt_v124_2020.json).
+- **Source / provenance:** vendor_growatt_v124_2020 pp. 84–84; 5 source rows and 0 reviewed evidence claims. See the retained vendor block data and source claims.
 
 | Addr | Variable | Description | Access | Type | Scale | Unit | Range / default | Status |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -2784,6 +2960,149 @@ Block applicability retains the vendor declarations and source/model qualifiers 
 | — | T | he first 8 registers are the 16 | — | — | — | — | -bit serial number | UNRESOLVED |
 | I4864–I4971 | 9 T | he first 8 registers are the 16 | — | — | — | — | -bit serial number | UNRESOLVED |
 | I4972–I5079 | 10 T | he first 8 registers are the 16 | — | — | — | — | -bit serial number | UNRESOLVED |
+
+<a id="block-cb-vpp-v201-input-31000-31299"></a>
+### Growatt VPP V2.01 input registers 31000-31299
+
+- **Vendor heading:** Growatt VPP V2.01 input registers 31000-31299
+- **Normalized role:** vpp_registers
+- **Table / function:** Input / FC04
+- **Address range:** I31000–I31299
+- **Applies to:**
+  - MIN/TL-XH/XH2 VPP V2.01 (MIN 2.5-6KTL-XH; MIN TL-XH; MIN TL-XH2; TL-XH)
+- **Source / provenance:** vendor_growatt_vpp_v201 pp. None–None; 84 source rows and 0 reviewed evidence claims. See [sources/vendor/growatt-vpp-v2.01-registers.json](../sources/vendor/growatt-vpp-v2.01-registers.json).
+
+| Addr | Variable | Description | Access | Type | Scale | Unit | Range / default | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| I31000 | Working state of energy storage machine | Working state of energy storage machine | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | — | 0:standby,1:self-test,2:reserved,3:fault,4:upgrade,5:PV online&battery offline,6:battery online&PV online(or offline),7:PV&cell online off-grid,8:Battery online PV offline,9:bypass | SOURCE_ONLY |
+| I31001 | Battery working status | Battery working status | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | — | 0:standby,1:disconnected,2:charging,3:discharge,4:fault,5:upgrade | SOURCE_ONLY |
+| I31002 | Priority of work | Priority of work | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | — | 0:load first,1:Battery first,2:grid first | SOURCE_ONLY |
+| I31003–I31004 | Reserve | Reserve | read | UINT16, unsigned | — | — | - | SOURCE_ONLY |
+| I31005 | Fault code | Fault code | read | UINT16, unsigned | — | — | See Table 3-3 | SOURCE_ONLY |
+| I31006 | Fault sub code | Fault sub code | read | UINT16, unsigned | — | — | See Table 3-3 | SOURCE_ONLY |
+| I31007 | Alarm code | Alarm code | read | UINT16, unsigned | — | — | See Table 3-4 | SOURCE_ONLY |
+| I31008 | Alarm sub code | Alarm sub code | read | UINT16, unsigned | — | — | See Table 3-4 | SOURCE_ONLY |
+| I31009 | Reserve | Reserve | read | UINT16, unsigned | — | — | - | SOURCE_ONLY |
+| I31010 | PV1 voltage | PV1 voltage | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | V | - | SOURCE_ONLY |
+| I31011 | PV1 current | PV1 current | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | A | - | SOURCE_ONLY |
+| I31012 | PV2 voltage | PV2 voltage | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | V | - | SOURCE_ONLY |
+| I31013 | PV2 current | PV2 current | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | A | - | SOURCE_ONLY |
+| I31014 | PV3 voltage | PV3 voltage | read | INT32 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | W | - | SOURCE_ONLY |
+| I31015 | PV3 current | PV3 current | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | A | - | SOURCE_ONLY |
+| I31016 | PV4 voltage | PV4 voltage | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | V | - | SOURCE_ONLY |
+| I31017 | PV4 current | PV4 current | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | A | - | SOURCE_ONLY |
+| I31018 | PV5 voltage | PV5 voltage | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | V | - | SOURCE_ONLY |
+| I31019 | PV5 current | PV5 current | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | A | - | SOURCE_ONLY |
+| I31020 | PV6 voltage | PV6 voltage | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | V | - | SOURCE_ONLY |
+| I31021 | PV6 current | PV6 current | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | A | - | SOURCE_ONLY |
+| I31022 | PV7 voltage | PV7 voltage | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | V | - | SOURCE_ONLY |
+| I31023 | PV7 current | PV7 current | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | A | - | SOURCE_ONLY |
+| I31024 | PV8 voltage | PV8 voltage | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | V | - | SOURCE_ONLY |
+| I31025 | PV8 current | PV8 current | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | A | - | SOURCE_ONLY |
+| I31026 | PV9 voltage | PV9 voltage | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | V | - | SOURCE_ONLY |
+| I31027 | PV9 current | PV9 current | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | A | - | SOURCE_ONLY |
+| I31028 | PV10 voltage | PV10 voltage | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | V | - | SOURCE_ONLY |
+| I31029 | PV10 current | PV10 current | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | A | - | SOURCE_ONLY |
+| I31030 | PV11 voltage | PV11 voltage | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | V | - | SOURCE_ONLY |
+| I31031 | PV11 current | PV11 current | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | A | - | SOURCE_ONLY |
+| I31032 | PV12 voltage | PV12 voltage | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | V | - | SOURCE_ONLY |
+| I31033 | PV12 current | PV12 current | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | A | - | SOURCE_ONLY |
+| I31034 | PV13 voltage | PV13 voltage | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | V | - | SOURCE_ONLY |
+| I31035 | PV13 current | PV13 current | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | A | - | SOURCE_ONLY |
+| I31036 | PV14 voltage | PV14 voltage | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | V | - | SOURCE_ONLY |
+| I31037 | PV14 current | PV14 current | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | A | - | SOURCE_ONLY |
+| I31038 | PV15 voltage | PV15 voltage | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | V | - | SOURCE_ONLY |
+| I31039 | PV15 current | PV15 current | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | A | - | SOURCE_ONLY |
+| I31040 | PV16 voltage | PV16 voltage | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | V | - | SOURCE_ONLY |
+| I31041 | PV16 current | PV16 current | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | A | - | SOURCE_ONLY |
+| I31042–I31057 | Reserve | Reserve | read | INT16, signed | — | — | - | SOURCE_ONLY |
+| I31058–I31059 | PV input power | PV input power | read | INT32 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | W | - | SOURCE_ONLY |
+| I31060–I31099 | Reserve | Reserve | read | UINT32, unsigned | — | — | - | SOURCE_ONLY |
+| I31100–I31101 | Active power | Active power | read | INT32 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | W | Positive:export to grid, Negative:import from grid | SOURCE_ONLY |
+| I31102–I31103 | Reactive power | Reactive power | read | INT32 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | VA | - | SOURCE_ONLY |
+| I31104 | Reserve | Reserve | read | INT16, signed | — | — | - | SOURCE_ONLY |
+| I31105 | Grid frequency | Grid frequency | read | UINT16 / 100, unsigned | divisor=100.0, scale=0.01, multiplier=0.01 | Hz | - | SOURCE_ONLY |
+| I31106 | Grid voltage / line AB voltage | Grid voltage / line AB voltage | read | UINT16 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | V | When output mode is L/N | SOURCE_ONLY |
+| I31107 | BC line voltage of power grid | BC line voltage of power grid | read | UINT16 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | V | - | SOURCE_ONLY |
+| I31108 | CA line voltage of power grid | CA line voltage of power grid | read | UINT16 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | V | - | SOURCE_ONLY |
+| I31109 | Grid current / A phase current of grid | Grid current / A phase current of grid | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | A | - | SOURCE_ONLY |
+| I31110 | Phase B current of grid | Phase B current of grid | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | A | - | SOURCE_ONLY |
+| I31111 | Phase C current of grid | Phase C current of grid | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | A | - | SOURCE_ONLY |
+| I31112–I31113 | Meter power | Meter power | read | INT32 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | W | Positive:import from grid, Negative:export to grid | SOURCE_ONLY |
+| I31114 | Inverter temperature | Inverter temperature | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | ℃ | [-400,1250] | SOURCE_ONLY |
+| I31115 | Reserve | Reserve | read | INT16, signed | — | — | - | SOURCE_ONLY |
+| I31116 | Reserve | Reserve | read | INT16, signed | — | — | - | SOURCE_ONLY |
+| I31117 | Reserve | Reserve | read | INT16, signed | — | — | - | SOURCE_ONLY |
+| I31118–I31119 | Power to user daily | Power to user daily | read | UINT32 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | KWH | - | SOURCE_ONLY |
+| I31120–I31121 | Total power to user | Total power to user | read | UINT32 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | KWH | - | SOURCE_ONLY |
+| I31122–I31123 | Power to grid daily | Power to grid daily | read | UINT32 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | KWH | - | SOURCE_ONLY |
+| I31124–I31125 | Total power to grid | Total power to grid | read | UINT32 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | KWH | - | SOURCE_ONLY |
+| I31126–I31199 | Reserved | Reserved | read | INT16, signed | — | — | - | SOURCE_ONLY |
+| I31200–I31201 | Charge/discharge power | Charge/discharge power | read | INT32 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | W | Positive:charging, Negative:discharge | SOURCE_ONLY |
+| I31202–I31203 | Daily charge of battery | Daily charge of battery | read | UINT32 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | KWH | - | SOURCE_ONLY |
+| I31204–I31205 | Cumulative charge of battery | Cumulative charge of battery | read | UINT32 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | KWH | - | SOURCE_ONLY |
+| I31206–I31207 | Daily discharge capacity of battery | Daily discharge capacity of battery | read | UINT32 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | KWH | - | SOURCE_ONLY |
+| I31208–I31209 | Cumulative discharge of battery | Cumulative discharge of battery | read | UINT32 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | KWH | - | SOURCE_ONLY |
+| I31210–I31211 | Maximum allowable charging power of battery | Maximum allowable charging power of battery | read | UINT32 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | W | - | SOURCE_ONLY |
+| I31212–I31213 | Maximum allowable discharge power of battery | Maximum allowable discharge power of battery | read | UINT32 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | W | - | SOURCE_ONLY |
+| I31214 | Battery voltage | Battery voltage | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | V | - | SOURCE_ONLY |
+| I31215–I31216 | Battery current | Battery current | read | INT32 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | A | Positive:charging, Negative:discharge | SOURCE_ONLY |
+| I31217 | SOC | SOC | read | UINT8, unsigned | — | — | [0,100] | SOURCE_ONLY |
+| I31218 | SOH | SOH | read | UINT8, unsigned | — | — | [0,100] | SOURCE_ONLY |
+| I31219–I31220 | Battery capacity rating (FCC) | Battery capacity rating (FCC) | read | UINT32, unsigned | scale=1.0, multiplier=1.0 | AH | - | SOURCE_ONLY |
+| I31221–I31222 | Reserved | Reserved | read | UINT32, unsigned | scale=1.0, multiplier=1.0 | AH | Reserved for Battery remaining capacity (RM) | SOURCE_ONLY |
+| I31223 | Battery environmental temperature | Battery environmental temperature | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | ℃ | [-400,1250] | SOURCE_ONLY |
+| I31224 | Reserved | Reserved | read | INT16 / 10, signed | divisor=10.0, scale=0.1, multiplier=0.1 | ℃ | Reserved for Maximum battery temperature | SOURCE_ONLY |
+| I31225 | Cluster Sum | Cluster Sum | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | — | - | SOURCE_ONLY |
+| I31226 | Single Cluster Module Number | Single Cluster Module Number | read | UINT16, unsigned | scale=1.0, multiplier=1.0 | — | - | SOURCE_ONLY |
+| I31227 | Module Rated Voltage | Module Rated Voltage | read | UINT16 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | V | - | SOURCE_ONLY |
+| I31228 | Module Rated Cap | Module Rated Cap | read | UINT16 / 10, unsigned | divisor=10.0, scale=0.1, multiplier=0.1 | AH | - | SOURCE_ONLY |
+| I31229–I31299 | Reserve | Reserve | read | UINT16, unsigned | — | — | - | SOURCE_ONLY |
+
+<a id="block-cb-vpp-v201-input-31300-31399"></a>
+### Growatt VPP V2.01 input registers 31300-31399
+
+- **Vendor heading:** Growatt VPP V2.01 input registers 31300-31399
+- **Normalized role:** vpp_registers
+- **Table / function:** Input / FC04
+- **Address range:** I31300–I31399
+- **Applies to:**
+  - MIN/TL-XH/XH2 VPP V2.01 (MIN 2.5-6KTL-XH; MIN TL-XH; MIN TL-XH2; TL-XH)
+- **Source / provenance:** vendor_growatt_vpp_v201 pp. None–None; 1 source rows and 0 reviewed evidence claims. See [sources/vendor/growatt-vpp-v2.01-registers.json](../sources/vendor/growatt-vpp-v2.01-registers.json).
+
+| Addr | Variable | Description | Access | Type | Scale | Unit | Range / default | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| I31300–I31399 | Battery Information 2 | Battery Information 2 | read | reserved/raw register, unsigned | — | — | Refer to 31200~31299 | SOURCE_ONLY |
+
+<a id="block-cb-vpp-v201-input-31400-31499"></a>
+### Growatt VPP V2.01 input registers 31400-31499
+
+- **Vendor heading:** Growatt VPP V2.01 input registers 31400-31499
+- **Normalized role:** vpp_registers
+- **Table / function:** Input / FC04
+- **Address range:** I31400–I31499
+- **Applies to:**
+  - MIN/TL-XH/XH2 VPP V2.01 (MIN 2.5-6KTL-XH; MIN TL-XH; MIN TL-XH2; TL-XH)
+- **Source / provenance:** vendor_growatt_vpp_v201 pp. None–None; 1 source rows and 0 reviewed evidence claims. See [sources/vendor/growatt-vpp-v2.01-registers.json](../sources/vendor/growatt-vpp-v2.01-registers.json).
+
+| Addr | Variable | Description | Access | Type | Scale | Unit | Range / default | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| I31400–I31499 | Battery Information 3 | Battery Information 3 | read | reserved/raw register, unsigned | — | — | Refer to 31200~31299 | SOURCE_ONLY |
+
+<a id="block-cb-vpp-v201-input-31500-31599"></a>
+### Growatt VPP V2.01 input registers 31500-31599
+
+- **Vendor heading:** Growatt VPP V2.01 input registers 31500-31599
+- **Normalized role:** vpp_registers
+- **Table / function:** Input / FC04
+- **Address range:** I31500–I31599
+- **Applies to:**
+  - MIN/TL-XH/XH2 VPP V2.01 (MIN 2.5-6KTL-XH; MIN TL-XH; MIN TL-XH2; TL-XH)
+- **Source / provenance:** vendor_growatt_vpp_v201 pp. None–None; 1 source rows and 0 reviewed evidence claims. See [sources/vendor/growatt-vpp-v2.01-registers.json](../sources/vendor/growatt-vpp-v2.01-registers.json).
+
+| Addr | Variable | Description | Access | Type | Scale | Unit | Range / default | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| I31500–I31599 | Battery Information 4 | Battery Information 4 | read | reserved/raw register, unsigned | — | — | Refer to 31200~31299 | SOURCE_ONLY |
 
 ### Reserved ranges
 

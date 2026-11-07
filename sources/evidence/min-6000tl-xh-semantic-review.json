@@ -4,16 +4,59 @@
     "family": "min_tl_xh",
     "purpose": "Evidence review and minimal semantic corrections for the canonical MIN/TL-XH projection.",
     "access": "read-only review; no writes issued",
-    "source_basis": [
-      "vendor_v124",
-      "grott",
-      "openinverter_gateway",
-      "ha_runtime",
-      "min_live_validation",
-      "min_tl_xh_recorder_outlier_audit_20260920"
-    ]
+      "source_basis": [
+        "vendor_v124",
+        "grott",
+        "openinverter_gateway",
+        "ha_runtime",
+        "min_live_validation",
+        "min_tl_xh_recorder_outlier_audit_20260920",
+        "min_portal_battery_settings_20261107"
+      ]
   },
   "records": [
+    {
+      "table": "holding",
+      "address": 3067,
+      "canonical_name": "On-grid battery discharge stop SOC",
+      "encoding": "u16 percentage",
+      "unit": "%",
+      "semantic_key": "on_grid_battery_discharge_stop_soc",
+      "resolution_status": "resolved_for_observed_portal_firmware",
+      "confidence": "high",
+      "disposition": "PROVEN_PORTAL_MAPPING",
+      "scope": "MIN 6000TL-XH / communication processor firmware ZABA-0022",
+      "rationale": "The portal wrote FC06 H3067 when On-grid Battery Discharge Stop SOC changed from 15% to 16%. This resolves the holding-space portal mapping for the observed firmware; input I3067 remains the independent load-energy field.",
+      "source_basis": ["min_portal_battery_settings_20261107"]
+    },
+    {
+      "table": "holding",
+      "address": 3311,
+      "canonical_name": "Maximum charge power from grid",
+      "encoding": "u16 / 10",
+      "unit": "kW",
+      "semantic_key": "grid_charge_power_limit",
+      "resolution_status": "resolved_for_observed_portal_firmware",
+      "confidence": "high",
+      "disposition": "PROVEN_PORTAL_MAPPING",
+      "scope": "MIN 6000TL-XH / communication processor firmware ZABA-0022",
+      "rationale": "The portal wrote raw 13 to H3311 for a displayed value of 1.3 kW. The first physical attempt timed out and the portal retry was acknowledged with the same value.",
+      "source_basis": ["min_portal_battery_settings_20261107"]
+    },
+    {
+      "table": "holding",
+      "address": 3312,
+      "canonical_name": "Charge stop SOC from grid",
+      "encoding": "u16 percentage",
+      "unit": "%",
+      "semantic_key": "grid_charge_stop_soc",
+      "resolution_status": "resolved_for_observed_portal_firmware",
+      "confidence": "high",
+      "disposition": "PROVEN_PORTAL_MAPPING",
+      "scope": "MIN 6000TL-XH / communication processor firmware ZABA-0022",
+      "rationale": "The portal wrote raw 85 to H3312 for Charge Stop SOC from Grid = 85%; an earlier raw 80 write was superseded by the final controlled change.",
+      "source_basis": ["min_portal_battery_settings_20261107"]
+    },
     {
       "table": "holding",
       "address": 3036,

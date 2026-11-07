@@ -2,7 +2,7 @@
   "meta": {
     "model": "MIN 6000TL-XH",
     "family": "tlx_min",
-    "purpose": "Resolved read-only canonical overlay for the production MIN 6000TL-XH.",
+    "purpose": "Resolved register overlay for the production MIN 6000TL-XH, including a firmware-scoped portal Battery Settings mapping.",
     "addressing": "Register numbers are Modbus register addresses; holding and input spaces are independent.",
     "source_files": [
       "Growatt-Inverter-Modbus-RTU-Protocol_II-V1_24-English-tables.json",
@@ -20,6 +20,11 @@
       "unit": 1,
       "access": "FC03/FC04 read-only",
       "captured_artifact": "min_6000tl_xh_live_validation.json"
+    },
+    "portal_validation": {
+      "source_id": "min_portal_battery_settings_20261107",
+      "artifact": "min-6000tl-xh-portal-battery-settings-20261107.json",
+      "firmware_scope": "communication processor ZABA-0022; portal composite AL1.0/ALBA180101/ZABA-0022/S3EB08D00T00P0FU01M003C"
     }
   },
   "holding": [
@@ -42,6 +47,7 @@
     {"register": 3047, "length": 1, "name": "Battery-first charge power rate", "encoding": "u16 percentage", "unit": "%", "access": "R/W", "applicability": "hybrid TL-XH", "confidence": "high", "provenance": ["vendor", "OpenInverter", "live"], "conflicts": ["Legacy data-type catalogue incorrectly labels this as a two-word runtime counter."]},
     {"register": 3048, "length": 1, "name": "Battery-first stop SOC", "encoding": "u16", "unit": "%", "access": "R/W", "applicability": "hybrid TL-XH", "confidence": "high", "provenance": ["vendor", "OpenInverter", "live"], "conflicts": ["Legacy data-type catalogue incorrectly labels this as the low word of runtime."]},
     {"register": 3049, "length": 1, "name": "AC charge enabled", "encoding": "u16 enum 0=disabled, 1=enabled", "access": "R/W", "applicability": "hybrid TL-XH", "confidence": "high", "provenance": ["vendor", "HA", "live"]},
+    {"register": 3067, "length": 1, "name": "On-grid battery discharge stop SOC", "encoding": "u16 percentage", "unit": "%", "access": "R/W", "applicability": "MIN 6000TL-XH / observed communication firmware", "confidence": "high", "provenance": ["portal_live"], "conflicts": ["Input-space I3067 remains Load energy today (high word); holding/input spaces are independent."]},
     {"register": 3050, "length": 1, "name": "Battery-first schedule 1 start/control", "encoding": "packed minute/hour/priority/enable", "access": "R/W", "applicability": "hybrid TL-XH", "confidence": "high", "provenance": ["vendor"]},
     {"register": 3051, "length": 1, "name": "Battery-first schedule 1 end", "encoding": "packed minute/hour", "access": "R/W", "applicability": "hybrid TL-XH", "confidence": "high", "provenance": ["vendor"]},
     {"register": 3052, "length": 1, "name": "Battery-first schedule 2 start/control", "encoding": "packed minute/hour/priority/enable", "access": "R/W", "applicability": "hybrid TL-XH", "confidence": "medium", "provenance": ["vendor"]},
@@ -55,7 +61,9 @@
     {"register": 3079, "length": 1, "name": "UPS/EPS function enable", "encoding": "u16 enum 0=disabled, 1=enabled", "access": "R/W", "applicability": "hybrid TL-XH", "confidence": "high", "provenance": ["vendor"]},
     {"register": 3080, "length": 1, "name": "UPS/EPS voltage selection", "encoding": "u16 enum 0=230 V, 1=208 V, 2=240 V", "unit": "V", "access": "R/W", "applicability": "hybrid TL-XH", "confidence": "high", "provenance": ["vendor"]},
     {"register": 3081, "length": 1, "name": "UPS/EPS frequency selection", "encoding": "u16 enum 0=50 Hz, 1=60 Hz", "unit": "Hz", "access": "R/W", "applicability": "hybrid TL-XH", "confidence": "high", "provenance": ["vendor", "live"], "conflicts": ["FC04 3081 is PV4 lifetime-energy high word; FC03 3081 is UPSFreqSet."]},
-    {"register": 3082, "length": 1, "name": "Load-first stop SOC", "encoding": "u16 percentage", "unit": "%", "access": "R/W", "applicability": "hybrid TL-XH", "confidence": "high", "provenance": ["vendor", "live"]}
+    {"register": 3082, "length": 1, "name": "Load-first stop SOC", "encoding": "u16 percentage", "unit": "%", "access": "R/W", "applicability": "hybrid TL-XH", "confidence": "high", "provenance": ["vendor", "live"]},
+    {"register": 3311, "length": 1, "name": "Maximum charge power from grid", "encoding": "u16 / 10", "unit": "kW", "access": "R/W", "applicability": "MIN 6000TL-XH / observed communication firmware", "confidence": "high", "provenance": ["portal_live"]},
+    {"register": 3312, "length": 1, "name": "Charge stop SOC from grid", "encoding": "u16 percentage", "unit": "%", "access": "R/W", "applicability": "MIN 6000TL-XH / observed communication firmware", "confidence": "high", "provenance": ["portal_live"]}
   ],
   "input": [
     {"register": 3000, "length": 1, "name": "Inverter status", "encoding": "u16 enum; 1=normal", "access": "R", "applicability": "MIN 6000TL-XH", "confidence": "high", "provenance": ["vendor", "HA", "live"]},

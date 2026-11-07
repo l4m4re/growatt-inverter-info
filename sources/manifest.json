@@ -24,6 +24,10 @@
       "sources/runtime/ha-local-registers.snapshot.json",
       "sources/evidence/min-6000tl-xh-*.json",
       "sources/evidence/gii-pipeline-5d-*.json",
+      "sources/evidence/zaba22-firmware-register-correlation.json",
+      "sources/vendor/growatt-vpp-v2.01-registers.json",
+      "sources/vendor/growatt-vpp-v2.03-delta.json",
+      "sources/external/growatt-modbus-tcp-registers.snapshot.json",
       "knowledge/",
       "spec/"
     ],
