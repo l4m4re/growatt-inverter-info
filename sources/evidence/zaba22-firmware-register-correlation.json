@@ -34140,22 +34140,6 @@
           "table": "input"
         },
         {
-          "address": 31130,
-          "address_end": 31130,
-          "capture_confidence": null,
-          "capture_observation_count": 0,
-          "evidence_class": "proven_direct_table_route",
-          "firmware_offset": "260",
-          "firmware_offset_formula": "2 * (public_address - 31000)",
-          "firmware_route": "direct VPP input table",
-          "firmware_storage_symbol": "ZABA22_FC04_VPP_INPUT_TABLE_PTR @ 0x0802ae28",
-          "firmware_write_evidence": "none proven for this documented read-only row",
-          "function_code": 4,
-          "pointer_status": "direct_table_route_without_legacy_dat_symbol",
-          "pointer_targets": [],
-          "table": "input"
-        },
-        {
           "address": 31131,
           "address_end": 31131,
           "capture_confidence": null,
@@ -35407,7 +35391,7 @@
       "schema": "growatt-zaba22-provider-register-join.v3",
       "scope": "hash-pinned ZABA22 provider/register join; documentation names remain separate",
       "source_report": "growatt-firmware/reports/ZABA22/focused/ZABA22_provider_register_join.json",
-      "source_report_sha256": "ab36317fa6e86c3acafa614ef092999e335e2d5b08e6ae678b2cc827e6384cb3"
+      "source_report_sha256": "e5a224ff77ae7e461459829d27b90361a793ebdb7234dc5d36a1e4aabac8b0f1"
     },
     "operation_conformance": {
       "limitations": [
@@ -120269,7 +120253,7 @@
       "table": "input"
     }
   ],
-  "documented_concordance_row_count": 2710,
+  "documented_concordance_row_count": 2739,
   "fc03_10000_provider": {
     "cases": [
       {
@@ -159673,32 +159657,32 @@
     "hardware_policy": "no hardware access; firmware copies and derived reports only",
     "input_hashes": {
       "ALBA18/ZABA22-payload.bin": "97c22678f14e490a748df03ea1c9d2940a74a1dd239d45e290a0843dab90c858",
-      "reports/ZABA22/focused/ZABA22_arm_read_provider_routes.json": "ef90e31294c7cc3888e9bdcf2c5d1071da2dcdba23734074d975bd0abab1b925",
+      "reports/ZABA22/focused/ZABA22_arm_read_provider_routes.json": "6f603909a6fe97c060a00cba18103ce3ecb0ac0a03e6f59a8f5c63c8ba4e707b",
       "reports/ZABA22/focused/ZABA22_capture_conformance_aggregate.json": "920d9e531e6500ad167e9faf5abf2d30311134c9f07012aaf501e2137663824e",
       "reports/ZABA22/focused/ZABA22_channel0_response_parser.json": "9ca7a79e563b4ecbc6bb25dc0fcc78c292320b31da7deba11ed1202a1062fcba",
-      "reports/ZABA22/focused/ZABA22_fc03_10000_provider.json": "fb525f997dc436d5d838a349febf3a277bc5651dd35277d91a9c530f1a90e1c3",
-      "reports/ZABA22/focused/ZABA22_fc20_fc22_state_effects.json": "a029902ce6e700420ae1103ada7602b868ab9357ae6222f01ce998094973ded5",
+      "reports/ZABA22/focused/ZABA22_fc03_10000_provider.json": "e58d1a006ea2baeb7ec895f296563cbf5c4dbe23d96f713db24364c59ffd7600",
+      "reports/ZABA22/focused/ZABA22_fc20_fc22_state_effects.json": "142ba9564d268e5a3bda7a638dcc8827b7a90fa2608d7629e6d28ffd202ad3f2",
       "reports/ZABA22/focused/ZABA22_fc20_producer_boundary.json": "b505fe1345e78cc4a58a90138a969ae7a9e6c2b49d12cfef4046c96a6c9753d8",
-      "reports/ZABA22/focused/ZABA22_fc20_provider_correlations.json": "062a6fdbfd2dab31a6f7394e2a3b05e14d17512ccbafed0ac40dc42ccc7f3072",
+      "reports/ZABA22/focused/ZABA22_fc20_provider_correlations.json": "952aedd6b312371b096d62dbc9487b1378ad2509d4f15949b90a13cb8e30b1d2",
       "reports/ZABA22/focused/ZABA22_function_operation_conformance.json": "a18a937d3ee0dfec5df98c1e4c29b8e5ea7ffe1e75438bb8f9fde2ecf3d09e05",
-      "reports/ZABA22/focused/ZABA22_legacy_compound_provider.json": "e4e35d142217188afb28884872d91fa7efd57db33681b9fc5899bd9f2eb78950",
-      "reports/ZABA22/focused/ZABA22_legacy_memory_provider.json": "e0be2e4d54797f4f6fea3367c64afc8e27fb31aff430d2ae83bb9b4a37418678",
-      "reports/ZABA22/focused/ZABA22_legacy_provider_cases.csv": "725ef2df8efca1bf995e12bd3536df3824d8a117c370a538693f7d180d545b37",
-      "reports/ZABA22/focused/ZABA22_legacy_read_semantics.json": "3dbd0ea6416cc16cb94c5f55ceb2ea19ae59af232b7a009c6b7bf8a557cdb44a",
-      "reports/ZABA22/focused/ZABA22_legacy_transform_provider.json": "28abe317ac4741f3a223990da06a6c8d2d86aad8b497600f5811e6075dacb5a4",
-      "reports/ZABA22/focused/ZABA22_legacy_typed_concat_provider.json": "c3a058009b1e13e550ee1251f18f19ce4b5e27e36deab7044bd0e01da3c55072",
-      "reports/ZABA22/focused/ZABA22_legacy_typed_concat_semantics.json": "c212bee64846f821d6c70501043245e2106455ec2bd9a8585dc53e42dbf2a32d",
+      "reports/ZABA22/focused/ZABA22_legacy_compound_provider.json": "26676bbbb166dab37979c272102a386d2ca112ef11c99bbe624d85e4e0c0a54f",
+      "reports/ZABA22/focused/ZABA22_legacy_memory_provider.json": "ec52fb895601fea9a3ca974efb6fec44be881aa11cedf043b14fe1586eb655cc",
+      "reports/ZABA22/focused/ZABA22_legacy_provider_cases.csv": "d2b5e2326fcf932411bd08ba73833a3c8776831be5b1c124ccffa33270412a70",
+      "reports/ZABA22/focused/ZABA22_legacy_read_semantics.json": "5f264591d30f572b593b2001028c44166819c2ab9386c155ebf7fda9ea8f1cf2",
+      "reports/ZABA22/focused/ZABA22_legacy_transform_provider.json": "022e36139c924bdc5691391384df45892c5fa0af1729180c7c64cf5b40e7c6ec",
+      "reports/ZABA22/focused/ZABA22_legacy_typed_concat_provider.json": "1c94e451e60fd449b0400799a21dc32aeaea4c3f632638da19a33a2e9fa8be88",
+      "reports/ZABA22/focused/ZABA22_legacy_typed_concat_semantics.json": "4746bf376d30b47f0a44fe40d99b041aceda9ac2c860bcdda8a2d83824a48c00",
       "reports/ZABA22/focused/ZABA22_linear_read_provider.json": "6402d291e9e46836a0f1ab435daa0ed53de8230494822fd343d4f731192ebdb8",
-      "reports/ZABA22/focused/ZABA22_provider_register_join.json": "ab36317fa6e86c3acafa614ef092999e335e2d5b08e6ae678b2cc827e6384cb3",
-      "reports/ZABA22/focused/ZABA22_register_conflicts.md": "1515b8a289251262de15050cd3023c341b850d3c18b3b8da64d52ca8529f4b5e",
-      "reports/ZABA22/focused/ZABA22_register_document_concordance.csv": "9c87df775a0eb2049b2dbaa21d9cb57fc3a880540253deef827f9741e2aa3b38",
-      "reports/ZABA22/focused/ZABA22_register_memory_map.csv": "15fb311c889b44162f302bf1c00dae98444b12cba6702a607319a73a0553c587",
-      "reports/ZABA22/focused/ZABA22_vpp_access_policy_audit.json": "0f3a370d6a95c6c8e12b5bd2b5db63d40bd9a5a483793b8c0721089db068c818",
-      "reports/ZABA22/focused/ZABA22_vpp_control_register_evidence.json": "6422b8cd6a2b5791b360e3b5eb5a75468e20f2982cab276b415d98f04d3af50a",
-      "reports/ZABA22/focused/ZABA22_vpp_profile_registers.csv": "fe8e91cf394fe59201ce5264166241e8895c1db12b5fb087b448f6532265377c",
-      "reports/ZABA22/focused/ZABA22_vpp_register_access_matrix.json": "1b5fe9aa9c694369c03ee2fb19bfaabeda82502ae1d6960b90f58b915378f081",
-      "reports/ZABA22/focused/ZABA22_vpp_register_conformance.json": "42a247376481afa6191ad4b985ce911c5489879446592f8446cc4a1727d09ad4",
-      "reports/ZABA22/focused/ZABA22_write_case_map.csv": "2a14665d9c5c27149a4e514cd412443b4f68e730ee025c424c6471eee5be5f2b"
+      "reports/ZABA22/focused/ZABA22_provider_register_join.json": "e5a224ff77ae7e461459829d27b90361a793ebdb7234dc5d36a1e4aabac8b0f1",
+      "reports/ZABA22/focused/ZABA22_register_conflicts.md": "2177b53e8d24c3a36656924cc7d0be79e712755f941784c12980f1fc758d6494",
+      "reports/ZABA22/focused/ZABA22_register_document_concordance.csv": "408ed5a483093c435a977990c7906a4bb678e8250a990abd406365527c3c49b8",
+      "reports/ZABA22/focused/ZABA22_register_memory_map.csv": "16c4e98372fd52e8735ac1fc1205d93d077ac25228cd64d94b154d27d136134d",
+      "reports/ZABA22/focused/ZABA22_vpp_access_policy_audit.json": "bad0e73577063602c1305d618f5fb626899279d478619e75a7d4293512736b73",
+      "reports/ZABA22/focused/ZABA22_vpp_control_register_evidence.json": "e0eab9c5421b05a4310b4451f3be87c3ff42a7183b6d19d99b8d3c70420c217d",
+      "reports/ZABA22/focused/ZABA22_vpp_profile_registers.csv": "680d73bd82627f74b0ab30223bdc32551db4d4323be00a405fae4d1a0132bb18",
+      "reports/ZABA22/focused/ZABA22_vpp_register_access_matrix.json": "9aed743bcfbaa5eac6609148cacc9b9ed9ffbe7789b3a913ba6da2107a5046cb",
+      "reports/ZABA22/focused/ZABA22_vpp_register_conformance.json": "70153a3331e2b93d3065a12e7c9d033eed0316d5bd0ef18ee09d50ab71bd6a3f",
+      "reports/ZABA22/focused/ZABA22_write_case_map.csv": "f8b0e210a6a1d26b33a6897280afeea114a69af6a60d5fe66500f0bdce59764c"
     },
     "limitations": [
       "Provider symbols are not runtime RAM addresses until indirect pointer resolution is recovered.",
@@ -175104,7 +175088,7 @@
     }
   ],
   "provider_case_count": 968,
-  "provider_cases_with_documentation_match": 523,
+  "provider_cases_with_documentation_match": 525,
   "provider_ranges": [
     {
       "address_end": 5079,

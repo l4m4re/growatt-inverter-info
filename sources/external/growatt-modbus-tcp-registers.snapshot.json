@@ -5,8 +5,8 @@
       "sha256": "dc5a915bbb4c0d406d31523a98c599dbb14a0de768b7923c7a545bc3dbcad075"
     },
     {
-      "path": "Growatt_ModbusTCP/Protocols/growatt_vpp_protocol_v2.03_delta.csv",
-      "sha256": "971c2b34e9307d0f2ce9d558b070dee60499c075296b2c811def07cb59497120"
+      "path": "growatt-inverter-info/sources/vendor/growatt-vpp-v2.03-delta.json",
+      "sha256": "247940804d9d9b21a6e2ecff9f9bc188e61114a29ac844b872e2b85e8c274998"
     },
     {
       "path": "Growatt_ModbusTCP/Protocols/growatt_modbus_rtu_v139_registers.csv",
@@ -14,7 +14,7 @@
     },
     {
       "path": "Growatt_ModbusTCP/custom_components/growatt_modbus/profiles/vpp_v201.py",
-      "sha256": "4ac0ba6cb3506985b9746c22612a46e35cbe174fd8047ca8032bec79173778e6"
+      "sha256": "2e1f0074ae2accd15f80f54cd84ade67505c71097d2abe20bcae337e8d58e2b8"
     },
     {
       "path": "Growatt_ModbusTCP/custom_components/growatt_modbus/profiles/wit.py",
@@ -22,7 +22,7 @@
     },
     {
       "path": "Growatt_ModbusTCP/custom_components/growatt_modbus/profiles/tl_xh.py",
-      "sha256": "0381689f2abee1e0816944941049d0d571fe9d2addbee2fe5245fc3a533f470c"
+      "sha256": "76a7d54c52b5ec9ae27be412ed25e31446a58744f69c09f75b27e71ddc7fea5d"
     },
     {
       "path": "Growatt_ModbusTCP/custom_components/growatt_modbus/growatt_register_map.py",
